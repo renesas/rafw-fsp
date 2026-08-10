@@ -1,0 +1,1141 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: Over The Air update (rm_ota_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___o_t_a___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">Over The Air update (rm_ota_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_y_s_t_e_m___m_o_d_u_l_e_s.html">System</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga86f3846b0ed3091d71e132947369ffdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga86f3846b0ed3091d71e132947369ffdc">RM_OTA_W_Open</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga86f3846b0ed3091d71e132947369ffdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9fac0b45b837b9afb36aea0abe3e9cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gac9fac0b45b837b9afb36aea0abe3e9cb">RM_OTA_W_Close</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:gac9fac0b45b837b9afb36aea0abe3e9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fe3080a3ec2fa143e3056054a96c7b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga0fe3080a3ec2fa143e3056054a96c7b4">RM_OTA_W_Swap</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga0fe3080a3ec2fa143e3056054a96c7b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada6b33714277892ad47b262d31fb90bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gada6b33714277892ad47b262d31fb90bf">RM_OTA_W_GetImageInfo</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t sector_addr, <a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__image__header__data__t">rm_ota_w_image_header_data_t</a> *info_image)</td></tr>
+<tr class="separator:gada6b33714277892ad47b262d31fb90bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21ca759a749f6d0902b6debe5f544d66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga21ca759a749f6d0902b6debe5f544d66">RM_OTA_W_BootIdxSet</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, uint8_t boot_idx)</td></tr>
+<tr class="separator:ga21ca759a749f6d0902b6debe5f544d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf0c70bb8ff2bcb3dbae3b62a40e8ff3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gacf0c70bb8ff2bcb3dbae3b62a40e8ff3">RM_OTA_W_BootIdxGet</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, uint8_t *boot_idx)</td></tr>
+<tr class="separator:gacf0c70bb8ff2bcb3dbae3b62a40e8ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b6ce80cfc87144be097e9e0c1a44916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga6b6ce80cfc87144be097e9e0c1a44916">RM_OTA_W_GetAddr</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, uint8_t state, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t *addr)</td></tr>
+<tr class="separator:ga6b6ce80cfc87144be097e9e0c1a44916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga828d564e6078809385b71e5920d75484"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga828d564e6078809385b71e5920d75484">RM_OTA_W_SetAddr</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, uint8_t update_type, uint32_t addr)</td></tr>
+<tr class="separator:ga828d564e6078809385b71e5920d75484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90dfed3639ffb1450de411b8739884c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga90dfed3639ffb1450de411b8739884c6">RM_OTA_W_Cert</a> (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_api_ctrl, uint8_t cert_type, uint32_t sector_addr)</td></tr>
+<tr class="separator:ga90dfed3639ffb1450de411b8739884c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Middleware for the OTA module on RAFW. This module implements the <a class="el" href="group___o_t_a___a_p_i.html">OTA Interface</a>. </p>
+<h1><a class="anchor" id="rm-ota-w-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="rm-ota-w-features"></a>
+Features</h2>
+<ul>
+<li>Standard OTA RTOS Download</li>
+<li>Standard OTA MCU_FW Download</li>
+<li>Standard OTA BLE_FW Download</li>
+<li>Standard OTA CERT_KEY Download</li>
+</ul>
+<h1><a class="anchor" id="rm-ota-w-configuration"></a>
+Configuration</h1>
+<p>The OTA (Over The Air FW update) module must be added by the user to enable OTA functionality.<br />
+ The operating state of the OTA module can be set via the RAFW Configuration.<br />
+ When the OTA stack will be added, the relevant files will be ported.<br />
+ In startup the user will be able to use the API functions mentioned in this document.</p>
+<p><a class="anchor" id="um_OTA_W_Open"></a> <h2>Build Time Configurations for rm_ota_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_ota_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. The Default (BSP) value is BSP_CFG_PARAM_CHECKING_ENABLE. It is the value of RRQ Common|Parameter checking under BSP </td></tr>
+<tr class="tree_none">
+<td>WIFI Task Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enable</li>
+<li>
+Disable</li>
+</ul>
+</td><td>Enable </td><td>Enable support OTA on WIFI task. </td></tr>
+</table>
+ <h2>Configurations for System &gt; OTA (rm_ota_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; System &gt; OTA (rm_ota_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_ota0 </td><td>Module name. </td></tr>
+</table>
+</p>
+<h1><a class="anchor" id="rm-ota-w-usage_notes"></a>
+Usage Notes</h1>
+<h2>Performance</h2>
+<p>OTA (Over The Air) refers to FW updates over the air. Supporting OTA update: DOWNLOAD and SWAP. The download is the process of downloading firmware from the server or host and storing it into the SFLASH area. The download sequence proceeds as follows, and both success and failure results can be delivered through the callback function: The swap only operates when the firmware download is successful. Download history should be available after power on.</p>
+<h1><a class="anchor" id="rm-ota-w-examples"></a>
+Examples</h1>
+<h2>OTA_W Example</h2>
+<p>This is a basic example of basic use of the OTA_W in an application.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> rm_ota_w_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line">    <span class="comment">/* Open the ota instance with initial configuration. */</span></div><div class="line">    err = <a class="code" href="group___r_m___o_t_a___w.html#ga86f3846b0ed3091d71e132947369ffdc">RM_OTA_W_Open</a>(&amp;g_ota_example_ctrl, &amp;g_ota_example_cfg);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___r_m___o_t_a___w.html#gada6b33714277892ad47b262d31fb90bf">RM_OTA_W_GetImageInfo</a>(&amp;g_ota_example_ctrl, <a class="code" href="group___o_t_a___a_p_i.html#ggaf2dae2280163e181de63894b8f165a71a09b8c502b213fa64cc9b35e68554ce8e">RM_OTA_W_TYPE_RTOS</a>, RM_OTA_W_STOR_RTOS_0_ADDR, &amp;info_image_example);</div><div class="line">    err = <a class="code" href="group___r_m___o_t_a___w.html#gada6b33714277892ad47b262d31fb90bf">RM_OTA_W_GetImageInfo</a>(&amp;g_ota_example_ctrl, <a class="code" href="group___o_t_a___a_p_i.html#ggaf2dae2280163e181de63894b8f165a71a09b8c502b213fa64cc9b35e68554ce8e">RM_OTA_W_TYPE_RTOS</a>, RM_OTA_W_STOR_RTOS_1_ADDR, &amp;info_image_example);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___r_m___o_t_a___w.html#gacf0c70bb8ff2bcb3dbae3b62a40e8ff3">RM_OTA_W_BootIdxGet</a>(&amp;g_ota_example_ctrl, &amp;boot_idx_example);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">}</div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structrm__ota__w__update__sflash__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#structrm__ota__w__update__sflash__t">rm_ota_w_update_sflash_t</a></td></tr>
+<tr class="memdesc:structrm__ota__w__update__sflash__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for flash writing.  <a href="group___r_m___o_t_a___w.html#structrm__ota__w__update__sflash__t">More...</a><br /></td></tr>
+<tr class="separator:structrm__ota__w__update__sflash__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structrm__ota__w__update__download__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#structrm__ota__w__update__download__t">rm_ota_w_update_download_t</a></td></tr>
+<tr class="memdesc:structrm__ota__w__update__download__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to download firmware.  <a href="group___r_m___o_t_a___w.html#structrm__ota__w__update__download__t">More...</a><br /></td></tr>
+<tr class="separator:structrm__ota__w__update__download__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structrm__ota__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#structrm__ota__w__instance__ctrl__t">rm_ota_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structrm__ota__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga3fc3de7be94f7b2a8fab947c0921f853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga3fc3de7be94f7b2a8fab947c0921f853">RM_OTA_W_OPEN</a></td></tr>
+<tr class="separator:ga3fc3de7be94f7b2a8fab947c0921f853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d11e267038162a7a26e2c0c1b656685"><td class="memItemLeft" align="right" valign="top"><a id="ga8d11e267038162a7a26e2c0c1b656685"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga8d11e267038162a7a26e2c0c1b656685">RM_OTA_W_NVRAM_DW_PROGRESS</a></td></tr>
+<tr class="memdesc:ga8d11e267038162a7a26e2c0c1b656685"><td class="mdescLeft">&#160;</td><td class="mdescRight">NVRAM name of Download progress. <br /></td></tr>
+<tr class="separator:ga8d11e267038162a7a26e2c0c1b656685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66ee9f98761a6fd255b848579760aa98"><td class="memItemLeft" align="right" valign="top"><a id="ga66ee9f98761a6fd255b848579760aa98"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga66ee9f98761a6fd255b848579760aa98">RM_OTA_W_SUCCESS</a></td></tr>
+<tr class="memdesc:ga66ee9f98761a6fd255b848579760aa98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return success. <br /></td></tr>
+<tr class="separator:ga66ee9f98761a6fd255b848579760aa98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca75a068fdcb6ece82c7d708f72bd302"><td class="memItemLeft" align="right" valign="top"><a id="gaca75a068fdcb6ece82c7d708f72bd302"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaca75a068fdcb6ece82c7d708f72bd302">RM_OTA_W_FAILED</a></td></tr>
+<tr class="memdesc:gaca75a068fdcb6ece82c7d708f72bd302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return failed. <br /></td></tr>
+<tr class="separator:gaca75a068fdcb6ece82c7d708f72bd302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88a4448c10a61de5484e886af4d2854f"><td class="memItemLeft" align="right" valign="top"><a id="ga88a4448c10a61de5484e886af4d2854f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga88a4448c10a61de5484e886af4d2854f">RM_OTA_W_ERROR_SFLASH_ADDR</a></td></tr>
+<tr class="memdesc:ga88a4448c10a61de5484e886af4d2854f"><td class="mdescLeft">&#160;</td><td class="mdescRight">SFLASH address is wrong. <br /></td></tr>
+<tr class="separator:ga88a4448c10a61de5484e886af4d2854f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa747c548c09d1806696fd6c016fb91e7"><td class="memItemLeft" align="right" valign="top"><a id="gaa747c548c09d1806696fd6c016fb91e7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaa747c548c09d1806696fd6c016fb91e7">RM_OTA_W_ERROR_TYPE</a></td></tr>
+<tr class="memdesc:gaa747c548c09d1806696fd6c016fb91e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW type is unknown. <br /></td></tr>
+<tr class="separator:gaa747c548c09d1806696fd6c016fb91e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a99bc186accd4a8baddb1f246667dec"><td class="memItemLeft" align="right" valign="top"><a id="ga5a99bc186accd4a8baddb1f246667dec"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga5a99bc186accd4a8baddb1f246667dec">RM_OTA_W_ERROR_URL</a></td></tr>
+<tr class="memdesc:ga5a99bc186accd4a8baddb1f246667dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server URL is unknown. <br /></td></tr>
+<tr class="separator:ga5a99bc186accd4a8baddb1f246667dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53c449ec2947170c2caf3a600d2777e8"><td class="memItemLeft" align="right" valign="top"><a id="ga53c449ec2947170c2caf3a600d2777e8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga53c449ec2947170c2caf3a600d2777e8">RM_OTA_W_ERROR_SIZE</a></td></tr>
+<tr class="memdesc:ga53c449ec2947170c2caf3a600d2777e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW size is wrong or offset address to be downloaded is wrong. <br /></td></tr>
+<tr class="separator:ga53c449ec2947170c2caf3a600d2777e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a75776c896140b3ea8ee8dd19511aba"><td class="memItemLeft" align="right" valign="top"><a id="ga4a75776c896140b3ea8ee8dd19511aba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga4a75776c896140b3ea8ee8dd19511aba">RM_OTA_W_ERROR_CRC</a></td></tr>
+<tr class="memdesc:ga4a75776c896140b3ea8ee8dd19511aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC is not correct. <br /></td></tr>
+<tr class="separator:ga4a75776c896140b3ea8ee8dd19511aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa88aa30f5734697c17ec62c47ba03295"><td class="memItemLeft" align="right" valign="top"><a id="gaa88aa30f5734697c17ec62c47ba03295"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaa88aa30f5734697c17ec62c47ba03295">RM_OTA_W_VERSION_UNKNOWN</a></td></tr>
+<tr class="memdesc:gaa88aa30f5734697c17ec62c47ba03295"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW version is unknown. <br /></td></tr>
+<tr class="separator:gaa88aa30f5734697c17ec62c47ba03295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b8a2af8daf07397fe20b3a0cbd63270"><td class="memItemLeft" align="right" valign="top"><a id="ga3b8a2af8daf07397fe20b3a0cbd63270"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga3b8a2af8daf07397fe20b3a0cbd63270">RM_OTA_W_VERSION_INCOMPATI</a></td></tr>
+<tr class="memdesc:ga3b8a2af8daf07397fe20b3a0cbd63270"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW version is incompatible. <br /></td></tr>
+<tr class="separator:ga3b8a2af8daf07397fe20b3a0cbd63270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf36e71139838a716edbbcae87e5a91e9"><td class="memItemLeft" align="right" valign="top"><a id="gaf36e71139838a716edbbcae87e5a91e9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaf36e71139838a716edbbcae87e5a91e9">RM_OTA_W_NOT_FOUND</a></td></tr>
+<tr class="memdesc:gaf36e71139838a716edbbcae87e5a91e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW not found on the server. <br /></td></tr>
+<tr class="separator:gaf36e71139838a716edbbcae87e5a91e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32072086e1df2d69c020cb7bda807f03"><td class="memItemLeft" align="right" valign="top"><a id="ga32072086e1df2d69c020cb7bda807f03"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga32072086e1df2d69c020cb7bda807f03">RM_OTA_W_NOT_CONNECTED</a></td></tr>
+<tr class="memdesc:ga32072086e1df2d69c020cb7bda807f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Failed to connect to server. <br /></td></tr>
+<tr class="separator:ga32072086e1df2d69c020cb7bda807f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3c1237344bf956a95072eea150202cb"><td class="memItemLeft" align="right" valign="top"><a id="gaa3c1237344bf956a95072eea150202cb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaa3c1237344bf956a95072eea150202cb">RM_OTA_W_NOT_ALL_DOWNLOAD</a></td></tr>
+<tr class="memdesc:gaa3c1237344bf956a95072eea150202cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">All new FWs have not been downloaded. <br /></td></tr>
+<tr class="separator:gaa3c1237344bf956a95072eea150202cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf3c7f847a1b5a86b87b2227f5314f70"><td class="memItemLeft" align="right" valign="top"><a id="gacf3c7f847a1b5a86b87b2227f5314f70"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gacf3c7f847a1b5a86b87b2227f5314f70">RM_OTA_W_MEM_ALLOC_FAILED</a></td></tr>
+<tr class="memdesc:gacf3c7f847a1b5a86b87b2227f5314f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Failed to alloc memory. <br /></td></tr>
+<tr class="separator:gacf3c7f847a1b5a86b87b2227f5314f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b1140e9959984398cfe59ca22025f36"><td class="memItemLeft" align="right" valign="top"><a id="ga1b1140e9959984398cfe59ca22025f36"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga1b1140e9959984398cfe59ca22025f36">RM_OTA_W_BLE_VERSION_UNKNOWN</a></td></tr>
+<tr class="memdesc:ga1b1140e9959984398cfe59ca22025f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">BLE FW version is unknown. <br /></td></tr>
+<tr class="separator:ga1b1140e9959984398cfe59ca22025f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4e19070c0c855d7f10423671adf4acf"><td class="memItemLeft" align="right" valign="top"><a id="gac4e19070c0c855d7f10423671adf4acf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gac4e19070c0c855d7f10423671adf4acf">IMAGE_HEADER_MAGIC_CODE</a></td></tr>
+<tr class="memdesc:gac4e19070c0c855d7f10423671adf4acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image MAGIC CODE. <br /></td></tr>
+<tr class="separator:gac4e19070c0c855d7f10423671adf4acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabcf816d2c87981464cf12f4186de6ba7"><td class="memItemLeft" align="right" valign="top"><a id="gabcf816d2c87981464cf12f4186de6ba7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gabcf816d2c87981464cf12f4186de6ba7">IMAGE_HEADER_NAME_LEN</a></td></tr>
+<tr class="memdesc:gabcf816d2c87981464cf12f4186de6ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image Name Length. <br /></td></tr>
+<tr class="separator:gabcf816d2c87981464cf12f4186de6ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadac1dfc6c9119f57d3b589a4fb5e32f2"><td class="memItemLeft" align="right" valign="top"><a id="gadac1dfc6c9119f57d3b589a4fb5e32f2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gadac1dfc6c9119f57d3b589a4fb5e32f2">RM_OTA_W_STATE_NOT_READY</a></td></tr>
+<tr class="memdesc:gadac1dfc6c9119f57d3b589a4fb5e32f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process is not ready. <br /></td></tr>
+<tr class="separator:gadac1dfc6c9119f57d3b589a4fb5e32f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2af80a559524309aac374fb9d7ebf01f"><td class="memItemLeft" align="right" valign="top"><a id="ga2af80a559524309aac374fb9d7ebf01f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga2af80a559524309aac374fb9d7ebf01f">RM_OTA_W_STATE_READY</a></td></tr>
+<tr class="memdesc:ga2af80a559524309aac374fb9d7ebf01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process is ready. <br /></td></tr>
+<tr class="separator:ga2af80a559524309aac374fb9d7ebf01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25b796a74389ecb40ce77adfd59d8316"><td class="memItemLeft" align="right" valign="top"><a id="ga25b796a74389ecb40ce77adfd59d8316"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga25b796a74389ecb40ce77adfd59d8316">RM_OTA_W_STATE_PROGRESS</a></td></tr>
+<tr class="memdesc:ga25b796a74389ecb40ce77adfd59d8316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process is ongoing. <br /></td></tr>
+<tr class="separator:ga25b796a74389ecb40ce77adfd59d8316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga455c2647d2fc1902b27b0902e7834e6d"><td class="memItemLeft" align="right" valign="top"><a id="ga455c2647d2fc1902b27b0902e7834e6d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga455c2647d2fc1902b27b0902e7834e6d">RM_OTA_W_STATE_FINISH</a></td></tr>
+<tr class="memdesc:ga455c2647d2fc1902b27b0902e7834e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process completed. <br /></td></tr>
+<tr class="separator:ga455c2647d2fc1902b27b0902e7834e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2f46be34cd083e6a4e118d565d8dde5"><td class="memItemLeft" align="right" valign="top"><a id="gac2f46be34cd083e6a4e118d565d8dde5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gac2f46be34cd083e6a4e118d565d8dde5">RM_OTA_W_STATE_STOP</a></td></tr>
+<tr class="memdesc:gac2f46be34cd083e6a4e118d565d8dde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process stopped. <br /></td></tr>
+<tr class="separator:gac2f46be34cd083e6a4e118d565d8dde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa597b84435ffb565ba368ead4c7d1345"><td class="memItemLeft" align="right" valign="top"><a id="gaa597b84435ffb565ba368ead4c7d1345"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gaa597b84435ffb565ba368ead4c7d1345">RM_OTA_W_VER_START_OFFSET</a></td></tr>
+<tr class="memdesc:gaa597b84435ffb565ba368ead4c7d1345"><td class="mdescLeft">&#160;</td><td class="mdescRight">address 0x02008 ~ 0x02063 <br /></td></tr>
+<tr class="separator:gaa597b84435ffb565ba368ead4c7d1345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb548b4c1de5d544c34910166644dfd3"><td class="memItemLeft" align="right" valign="top"><a id="gafb548b4c1de5d544c34910166644dfd3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#gafb548b4c1de5d544c34910166644dfd3">RM_OTA_W_FW_MAGIC_NUM</a></td></tr>
+<tr class="memdesc:gafb548b4c1de5d544c34910166644dfd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">IMAGE_HEADER_MAGIC_CODE 0x36314144. <br /></td></tr>
+<tr class="separator:gafb548b4c1de5d544c34910166644dfd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3922b7999a9efcd339f1d031a0d4b31d"><td class="memItemLeft" align="right" valign="top"><a id="ga3922b7999a9efcd339f1d031a0d4b31d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga3922b7999a9efcd339f1d031a0d4b31d">RM_OTA_W_UPDATE_TYPE_MAX</a></td></tr>
+<tr class="memdesc:ga3922b7999a9efcd339f1d031a0d4b31d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware version structure. <br /></td></tr>
+<tr class="separator:ga3922b7999a9efcd339f1d031a0d4b31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32660cf3ac4bc15d6cbf8e9779011e68"><td class="memItemLeft" align="right" valign="top"><a id="ga32660cf3ac4bc15d6cbf8e9779011e68"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga32660cf3ac4bc15d6cbf8e9779011e68">RM_OTA_W_MCU_FW_NAME_LEN</a></td></tr>
+<tr class="memdesc:ga32660cf3ac4bc15d6cbf8e9779011e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCU Firmware version structure. <br /></td></tr>
+<tr class="separator:ga32660cf3ac4bc15d6cbf8e9779011e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga6ce2be0723cdb2d74a8075c934266ae8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga6ce2be0723cdb2d74a8075c934266ae8">rm_ota_w_version_flags_t</a> <tr class="memdesc:ga6ce2be0723cdb2d74a8075c934266ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status for version check.  <a href="group___r_m___o_t_a___w.html#ga6ce2be0723cdb2d74a8075c934266ae8">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ga6ce2be0723cdb2d74a8075c934266ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b76517524679a1f7c54daff72b81517"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga9b76517524679a1f7c54daff72b81517">rm_ota_w_refuse_type_t</a> </td></tr>
+<tr class="separator:ga9b76517524679a1f7c54daff72b81517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d6684b3f098dc0aedfddaefabde099e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga4d6684b3f098dc0aedfddaefabde099e">rm_ota_w_state_t</a> </td></tr>
+<tr class="separator:ga4d6684b3f098dc0aedfddaefabde099e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e4a5a4ce7c32174824cb0c6bbca6a88"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ga0e4a5a4ce7c32174824cb0c6bbca6a88">rm_ota_w_bgo_operation_t</a> </td></tr>
+<tr class="separator:ga0e4a5a4ce7c32174824cb0c6bbca6a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structrm__ota__w__update__sflash__t" id="structrm__ota__w__update__sflash__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__ota__w__update__sflash__t">&#9670;&nbsp;</a></span>rm_ota_w_update_sflash_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_ota_w_update_sflash_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Struct for flash writing. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="aa1b396fb45c706174ed992c8fc543f16"></a>UINT</td>
+<td class="fieldname">
+sflash_addr</td>
+<td class="fielddoc">
+Starting address for the image. </td></tr>
+<tr><td class="fieldtype">
+<a id="a69bed80a8337742f6f793fcf1a780f58"></a>UINT</td>
+<td class="fieldname">
+total_length</td>
+<td class="fielddoc">
+Overall length of the block. </td></tr>
+<tr><td class="fieldtype">
+<a id="acfbf6f8f87745d07eaac49553d361265"></a>UINT</td>
+<td class="fieldname">
+length</td>
+<td class="fielddoc">
+Buffer length. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0072532f76445c52c8468bbcf37de6c0"></a>UINT</td>
+<td class="fieldname">
+offset</td>
+<td class="fielddoc">
+Update offset from starting address. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8c8f04c66bc8e748bca46ed662076bcb"></a>UCHAR *</td>
+<td class="fieldname">
+buffer</td>
+<td class="fielddoc">
+Pointer to the data buffer. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structrm__ota__w__update__download__t" id="structrm__ota__w__update__download__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__ota__w__update__download__t">&#9670;&nbsp;</a></span>rm_ota_w_update_download_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_ota_w_update_download_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Structure to download firmware. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a737c5f782e7493fce4c254f107eb5d26"></a><a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a></td>
+<td class="fieldname">
+update_type</td>
+<td class="fielddoc">
+Update type. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa84a83087b33e780aba8813beeacc6a1"></a><a class="el" href="group___r_m___o_t_a___w.html#structrm__ota__w__update__sflash__t">rm_ota_w_update_sflash_t</a></td>
+<td class="fieldname">
+write</td>
+<td class="fielddoc">
+Write struct field. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8cca8e55ac9ee5d781fd41f52e74784f"></a>UINT</td>
+<td class="fieldname">
+download_status</td>
+<td class="fielddoc">
+Status of the downloading operation. </td></tr>
+<tr><td class="fieldtype">
+<a id="afa902b2b218e6ab54eb2087d74c01ec5"></a>UINT</td>
+<td class="fieldname">
+version_check</td>
+<td class="fielddoc">
+Version check information. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7f0dad586feadaeea3e401fb5b76630a"></a>UINT</td>
+<td class="fieldname">
+content_length</td>
+<td class="fielddoc">
+The size of the download image in bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a81fb3ec44749144222860db5b4410b72"></a>UINT</td>
+<td class="fieldname">
+received_length</td>
+<td class="fielddoc">
+Updated data which was received in the current process. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structrm__ota__w__instance__ctrl__t" id="structrm__ota__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__ota__w__instance__ctrl__t">&#9670;&nbsp;</a></span>rm_ota_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_ota_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Ota b instance control block. DO NOT INITIALIZE. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:af14993f77f8482a263edf2778592fe12"><td class="memItemLeft" align="right" valign="top"><a id="af14993f77f8482a263edf2778592fe12"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#af14993f77f8482a263edf2778592fe12">opened</a></td></tr>
+<tr class="memdesc:af14993f77f8482a263edf2778592fe12"><td class="mdescLeft">&#160;</td><td class="mdescRight">To check whether api has been opened or not. <br /></td></tr>
+<tr class="separator:af14993f77f8482a263edf2778592fe12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d2cb0f5c9b1df3ef815a65c2cda2e8"><td class="memItemLeft" align="right" valign="top"><a id="a18d2cb0f5c9b1df3ef815a65c2cda2e8"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a18d2cb0f5c9b1df3ef815a65c2cda2e8">source_start_offset</a></td></tr>
+<tr class="memdesc:a18d2cb0f5c9b1df3ef815a65c2cda2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset for continous download update. <br /></td></tr>
+<tr class="separator:a18d2cb0f5c9b1df3ef815a65c2cda2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf5eccb09efc73a8c26650648aab902d"><td class="memItemLeft" align="right" valign="top"><a id="adf5eccb09efc73a8c26650648aab902d"></a>
+<a class="el" href="group___r_m___o_t_a___w.html#ga0e4a5a4ce7c32174824cb0c6bbca6a88">rm_ota_w_bgo_operation_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#adf5eccb09efc73a8c26650648aab902d">current_operation</a></td></tr>
+<tr class="memdesc:adf5eccb09efc73a8c26650648aab902d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operation in progress, for example, FLASH_OPERATION_CF_ERASE. <br /></td></tr>
+<tr class="separator:adf5eccb09efc73a8c26650648aab902d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0502c7b82253190c405acb58507febbf"><td class="memItemLeft" align="right" valign="top"><a id="a0502c7b82253190c405acb58507febbf"></a>
+<a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a0502c7b82253190c405acb58507febbf">ota_update_type</a></td></tr>
+<tr class="memdesc:a0502c7b82253190c405acb58507febbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update type. <br /></td></tr>
+<tr class="separator:a0502c7b82253190c405acb58507febbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d647ce38cabbedd5d56cb25ec03e693"><td class="memItemLeft" align="right" valign="top"><a id="a7d647ce38cabbedd5d56cb25ec03e693"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a7d647ce38cabbedd5d56cb25ec03e693">update_cache</a> [RM_OTA_W_CACHE_LEN]</td></tr>
+<tr class="memdesc:a7d647ce38cabbedd5d56cb25ec03e693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server address where firmware exists. <br /></td></tr>
+<tr class="separator:a7d647ce38cabbedd5d56cb25ec03e693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71aa1ab4862f5be1a2c2e1f217d3570"><td class="memItemLeft" align="right" valign="top"><a id="ac71aa1ab4862f5be1a2c2e1f217d3570"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ac71aa1ab4862f5be1a2c2e1f217d3570">download_notify</a> )(<a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t ret_status, uint32_t progress)</td></tr>
+<tr class="memdesc:ac71aa1ab4862f5be1a2c2e1f217d3570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function pointer to check the download status. <br /></td></tr>
+<tr class="separator:ac71aa1ab4862f5be1a2c2e1f217d3570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9faee2eef5f1fe941027198c4aca3fb"><td class="memItemLeft" align="right" valign="top"><a id="ad9faee2eef5f1fe941027198c4aca3fb"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ad9faee2eef5f1fe941027198c4aca3fb">swap_notify</a> )(uint32_t ret_status)</td></tr>
+<tr class="memdesc:ad9faee2eef5f1fe941027198c4aca3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function pointer to check the swap state. Only for RTOS. <br /></td></tr>
+<tr class="separator:ad9faee2eef5f1fe941027198c4aca3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac099c488a367e2f952f9258230463333"><td class="memItemLeft" align="right" valign="top"><a id="ac099c488a367e2f952f9258230463333"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ac099c488a367e2f952f9258230463333">ota_auto_swap</a></td></tr>
+<tr class="memdesc:ac099c488a367e2f952f9258230463333"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, reboot after FW download process is successfully (Only for RTOS) <br /></td></tr>
+<tr class="separator:ac099c488a367e2f952f9258230463333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa016a66b23164df36a4b87ee55664a76"><td class="memItemLeft" align="right" valign="top"><a id="aa016a66b23164df36a4b87ee55664a76"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#aa016a66b23164df36a4b87ee55664a76">download_sflash_addr</a></td></tr>
+<tr class="memdesc:aa016a66b23164df36a4b87ee55664a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of SFLASH 2nd FW is stored. (Only for MCU_FW and CERT_KEY) <br /></td></tr>
+<tr class="separator:aa016a66b23164df36a4b87ee55664a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5427b61c1b980755e900d85249498a15"><td class="memItemLeft" align="right" valign="top"><a id="a5427b61c1b980755e900d85249498a15"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a5427b61c1b980755e900d85249498a15">update_state</a></td></tr>
+<tr class="memdesc:a5427b61c1b980755e900d85249498a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download status. (success or failed) <br /></td></tr>
+<tr class="separator:a5427b61c1b980755e900d85249498a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1dfc3d152234010ec836c426f76d2ed"><td class="memItemLeft" align="right" valign="top"><a id="ab1dfc3d152234010ec836c426f76d2ed"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ab1dfc3d152234010ec836c426f76d2ed">status</a></td></tr>
+<tr class="memdesc:ab1dfc3d152234010ec836c426f76d2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the download process (not_ready, ready, progress, finish, stop). <br /></td></tr>
+<tr class="separator:ab1dfc3d152234010ec836c426f76d2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65bc82a44fe5ed8ba01d54ce7584ca24"><td class="memItemLeft" align="right" valign="top"><a id="a65bc82a44fe5ed8ba01d54ce7584ca24"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a65bc82a44fe5ed8ba01d54ce7584ca24">progress_rtos</a></td></tr>
+<tr class="memdesc:a65bc82a44fe5ed8ba01d54ce7584ca24"><td class="mdescLeft">&#160;</td><td class="mdescRight">RTOS download progress. <br /></td></tr>
+<tr class="separator:a65bc82a44fe5ed8ba01d54ce7584ca24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e3105d90f8f659a6e6d9b417bf0755"><td class="memItemLeft" align="right" valign="top"><a id="a11e3105d90f8f659a6e6d9b417bf0755"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a11e3105d90f8f659a6e6d9b417bf0755">progress_mcu_fw</a></td></tr>
+<tr class="memdesc:a11e3105d90f8f659a6e6d9b417bf0755"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCU FW download progress. <br /></td></tr>
+<tr class="separator:a11e3105d90f8f659a6e6d9b417bf0755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33331cb57218074b212c9c7bd30886f8"><td class="memItemLeft" align="right" valign="top"><a id="a33331cb57218074b212c9c7bd30886f8"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a33331cb57218074b212c9c7bd30886f8">progress_cert_key</a></td></tr>
+<tr class="memdesc:a33331cb57218074b212c9c7bd30886f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">CERT_KEY download progress. <br /></td></tr>
+<tr class="separator:a33331cb57218074b212c9c7bd30886f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac43c1560e3780ecbb72c5b816bbcc11f"><td class="memItemLeft" align="right" valign="top"><a id="ac43c1560e3780ecbb72c5b816bbcc11f"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ac43c1560e3780ecbb72c5b816bbcc11f">progress_ble</a></td></tr>
+<tr class="memdesc:ac43c1560e3780ecbb72c5b816bbcc11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">BLE download progress. <br /></td></tr>
+<tr class="separator:ac43c1560e3780ecbb72c5b816bbcc11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eb9e62d05e62d8c67e40f899f209614"><td class="memItemLeft" align="right" valign="top"><a id="a0eb9e62d05e62d8c67e40f899f209614"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a0eb9e62d05e62d8c67e40f899f209614">ota_custom_address</a></td></tr>
+<tr class="memdesc:a0eb9e62d05e62d8c67e40f899f209614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the address for custom data for fw_mcu and cert keys. <br /></td></tr>
+<tr class="separator:a0eb9e62d05e62d8c67e40f899f209614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab192da4da5596881152962b19968f4d1"><td class="memItemLeft" align="right" valign="top"><a id="ab192da4da5596881152962b19968f4d1"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ab192da4da5596881152962b19968f4d1">mcu_fw_name</a> [<a class="el" href="group___r_m___o_t_a___w.html#ga32660cf3ac4bc15d6cbf8e9779011e68">RM_OTA_W_MCU_FW_NAME_LEN</a>]</td></tr>
+<tr class="memdesc:ab192da4da5596881152962b19968f4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MCU FW name. <br /></td></tr>
+<tr class="separator:ab192da4da5596881152962b19968f4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79525c5a3faf65f2654678fa2d4aca09"><td class="memItemLeft" align="right" valign="top"><a id="a79525c5a3faf65f2654678fa2d4aca09"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a79525c5a3faf65f2654678fa2d4aca09">p_callback</a> )(<a class="el" href="group___o_t_a___a_p_i.html#structota__callback__args__t">ota_callback_args_t</a> *)</td></tr>
+<tr class="memdesc:a79525c5a3faf65f2654678fa2d4aca09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to callback. <br /></td></tr>
+<tr class="separator:a79525c5a3faf65f2654678fa2d4aca09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b95910fc868b366e3b6da0a5a03fe2"><td class="memItemLeft" align="right" valign="top"><a id="ac0b95910fc868b366e3b6da0a5a03fe2"></a>
+<a class="el" href="group___o_t_a___a_p_i.html#structota__callback__args__t">ota_callback_args_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#ac0b95910fc868b366e3b6da0a5a03fe2">p_callback_memory</a></td></tr>
+<tr class="memdesc:ac0b95910fc868b366e3b6da0a5a03fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to optional callback argument memory. <br /></td></tr>
+<tr class="separator:ac0b95910fc868b366e3b6da0a5a03fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c27e2191c119d37478319436a6621a6"><td class="memItemLeft" align="right" valign="top"><a id="a7c27e2191c119d37478319436a6621a6"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___o_t_a___w.html#a7c27e2191c119d37478319436a6621a6">p_context</a></td></tr>
+<tr class="memdesc:a7c27e2191c119d37478319436a6621a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to context to be passed into callback function. <br /></td></tr>
+<tr class="separator:a7c27e2191c119d37478319436a6621a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga3fc3de7be94f7b2a8fab947c0921f853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3fc3de7be94f7b2a8fab947c0921f853">&#9670;&nbsp;</a></span>RM_OTA_W_OPEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RM_OTA_W_OPEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"OPEN" in ASCII, used to avoid multiple open. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga6ce2be0723cdb2d74a8075c934266ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ce2be0723cdb2d74a8075c934266ae8">&#9670;&nbsp;</a></span>rm_ota_w_version_flags_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___o_t_a___w.html#ga6ce2be0723cdb2d74a8075c934266ae8">rm_ota_w_version_flags_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Status for version check. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8a3824292615e4b6f7c8a6e59abbc8c300"></a>RM_OTA_W_HEADER_INIT&#160;</td><td class="fielddoc"><p>Init value. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8aa9bc701355d9d3f7a3bfcf432fa289e0"></a>RM_OTA_W_HEADER_SAME_FW_TYPE&#160;</td><td class="fielddoc"><p>The type of FW to be compared is the same. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8ad98ecd8b6daf085962aad7d0e0d4e47b"></a>RM_OTA_W_HEADER_SAME_MODULE&#160;</td><td class="fielddoc"><p>The Module name of FW to be compared is the same. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8a8bbbc6b1c1444055dfa3041e23c3bdd2"></a>RM_OTA_W_HEADER_DIFF_SDK&#160;</td><td class="fielddoc"><p>The SDK version of FW to be compared is different. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8a82b67cb970fd1b4505234e604c5a8c63"></a>RM_OTA_W_HEADER_DIFF_CUST&#160;</td><td class="fielddoc"><p>The customer version of FW to be compared is different. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8a460c15ed68cb716edcb3c373310e8ca5"></a>RM_OTA_W_HEADER_DIFF_FW_TYPE&#160;</td><td class="fielddoc"><p>The type of FW to be compared is different. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8a7304fe2eb5aa99f92ab0dd557201830f"></a>RM_OTA_W_HEADER_DIFF_MODULE&#160;</td><td class="fielddoc"><p>The Module of FW to be compared is the different. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8ac9699c0abe7383ffaf2602925704ba23"></a>RM_OTA_W_HEADER_SAME_MAGIC&#160;</td><td class="fielddoc"><p>The magic number of the FW is the same. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8aefa90d0589427b17427b8fe2585d2171"></a>RM_OTA_W_HEADER_INCOMPATI_MAGIC&#160;</td><td class="fielddoc"><p>The magic number of the FW is not compatible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8ab29baf992865880be49f3d3d377d70aa"></a>RM_OTA_W_HEADER_VER_DONT_CARE&#160;</td><td class="fielddoc"><p>The FW is not involved in version checking. (user FW or cert) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6ce2be0723cdb2d74a8075c934266ae8aedac51aac71026776a6895a0b30fc3c3"></a>RM_OTA_W_HEADER_ERROR&#160;</td><td class="fielddoc"><p>Error. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga9b76517524679a1f7c54daff72b81517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b76517524679a1f7c54daff72b81517">&#9670;&nbsp;</a></span>rm_ota_w_refuse_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___o_t_a___w.html#ga9b76517524679a1f7c54daff72b81517">rm_ota_w_refuse_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga9b76517524679a1f7c54daff72b81517a89761c966e3b7648ffa2343fe9bed71c"></a>RM_OTA_W_REFUSE_CLR&#160;</td><td class="fielddoc"><p>INIT value. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9b76517524679a1f7c54daff72b81517aab2c95ff8254b868b82ffb8c7f67acbc"></a>RM_OTA_W_REFUSE_SET&#160;</td><td class="fielddoc"><p>RTOS FW update. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4d6684b3f098dc0aedfddaefabde099e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d6684b3f098dc0aedfddaefabde099e">&#9670;&nbsp;</a></span>rm_ota_w_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___o_t_a___w.html#ga4d6684b3f098dc0aedfddaefabde099e">rm_ota_w_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4d6684b3f098dc0aedfddaefabde099eabd4402b5e58ca87a1e4626d44bafda67"></a>RM_OTA_W_STATUS_IDLE&#160;</td><td class="fielddoc"><p>The flash is idle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga4d6684b3f098dc0aedfddaefabde099ea5044743b648479d5a83cdcf83bf5753c"></a>RM_OTA_W_STATUS_BUSY&#160;</td><td class="fielddoc"><p>The flash is currently processing a command. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga0e4a5a4ce7c32174824cb0c6bbca6a88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0e4a5a4ce7c32174824cb0c6bbca6a88">&#9670;&nbsp;</a></span>rm_ota_w_bgo_operation_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___o_t_a___w.html#ga0e4a5a4ce7c32174824cb0c6bbca6a88">rm_ota_w_bgo_operation_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Possible Flash operation states </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga86f3846b0ed3091d71e132947369ffdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga86f3846b0ed3091d71e132947369ffdc">&#9670;&nbsp;</a></span>RM_OTA_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes the high performance OTA peripheral. Implements <a class="el" href="group___o_t_a___a_p_i.html#a1e98ab810178c98d0aada0d0c6554678">ota_api_t::open</a>.</p>
+<p>The Open function initializes the ota.</p>
+<p>Example: </p><div class="fragment"><div class="line">    <span class="comment">/* Open the ota instance with initial configuration. */</span></div><div class="line">    err = <a class="code" href="group___r_m___o_t_a___w.html#ga86f3846b0ed3091d71e132947369ffdc">RM_OTA_W_Open</a>(&amp;g_ota_example_ctrl, &amp;g_ota_example_cfg);</div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Initialization was successful and timer has started. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>The OTA control block is already open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL provided for p_ctrl or p_cfg. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IRQ_BSP_DISABLED</td><td>Caller is requesting BGO but the OTA interrupts are not enabled. </td></tr>
+    <tr><td class="paramname">FSP_ERR_FCLK</td><td>FCLK must be a minimum of 4 MHz for OTA operations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac9fac0b45b837b9afb36aea0abe3e9cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9fac0b45b837b9afb36aea0abe3e9cb">&#9670;&nbsp;</a></span>RM_OTA_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Releases any resources that were allocated by the Open() or any subsequent OTA operations.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#a9333cfa6763e0e2798e57a0f864abead">ota_api_t::close</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully close. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL provided for p_ctrl or p_cfg. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0fe3080a3ec2fa143e3056054a96c7b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fe3080a3ec2fa143e3056054a96c7b4">&#9670;&nbsp;</a></span>RM_OTA_W_Swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_Swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trigger versions swap. Swap the programs located at address 0x00002000 and address 0x00400000. Before version swap is done, there will be version check and boot index toggle.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#a419490394ca8f8a21f1f2247a3c75163">ota_api_t::swap</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Version swap finished successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL provided for p_ctrl. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>OTA process is in progress, we need to wait for last process to finished. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gada6b33714277892ad47b262d31fb90bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada6b33714277892ad47b262d31fb90bf">&#9670;&nbsp;</a></span>RM_OTA_W_GetImageInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_GetImageInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a>&#160;</td>
+          <td class="paramname"><em>update_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sector_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__image__header__data__t">rm_ota_w_image_header_data_t</a> *&#160;</td>
+          <td class="paramname"><em>info_image</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the information about the image installed in a specific address.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#a6f1e6e3fa0ea15c13649f9a05db70f92">ota_api_t::getImageInfo</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ADDRESS</td><td>Invalid image address was input. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga21ca759a749f6d0902b6debe5f544d66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21ca759a749f6d0902b6debe5f544d66">&#9670;&nbsp;</a></span>RM_OTA_W_BootIdxSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_BootIdxSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>boot_idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the boot index value.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#a330f0dd8d090a14c3c12483a66254665">ota_api_t::bootIdxSet</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully set the request data. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ADDRESS</td><td>Invalid boot index value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacf0c70bb8ff2bcb3dbae3b62a40e8ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf0c70bb8ff2bcb3dbae3b62a40e8ff3">&#9670;&nbsp;</a></span>RM_OTA_W_BootIdxGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_BootIdxGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>boot_idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Query the current boot index.</p>
+<p>Note: This function may also update/synchronize the boot index before returning it.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#ab73d28993704fd3b48294a196d356d05">ota_api_t::bootIdxGet</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully retrieved the request information. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6b6ce80cfc87144be097e9e0c1a44916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b6ce80cfc87144be097e9e0c1a44916">&#9670;&nbsp;</a></span>RM_OTA_W_GetAddr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_GetAddr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a>&#160;</td>
+          <td class="paramname"><em>update_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Query the address information regarding the current version address and swap version address.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#aaed12d778a0b3b40133f35cd8bc11001">ota_api_t::getAddr</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully retrieved the request information. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ADDRESS</td><td>Invalid state address value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga828d564e6078809385b71e5920d75484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga828d564e6078809385b71e5920d75484">&#9670;&nbsp;</a></span>RM_OTA_W_SetAddr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_SetAddr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>update_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set Address value for user device.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#ad61a88b8661bcdb37ac36ff3e9d3a7b0">ota_api_t::setAddr</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Key variable was changed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ADDRESS</td><td>Invalid data flash address was input. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_DATA</td><td>Invalid key type or unknown data source. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga90dfed3639ffb1450de411b8739884c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90dfed3639ffb1450de411b8739884c6">&#9670;&nbsp;</a></span>RM_OTA_W_Cert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_OTA_W_Cert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>cert_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sector_addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs a certification check over the program data, base program or downloaded data based on a specified address area.</p>
+<p>Implements <a class="el" href="group___o_t_a___a_p_i.html#ab4e48475b326bd3f90e9a73f33a4034c">ota_api_t::cert</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Operation check passed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_DATA</td><td>Operation check failed due to calculation failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

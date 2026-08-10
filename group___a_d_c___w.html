@@ -1,0 +1,1475 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: ADC (r_adc_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___a_d_c___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">ADC (r_adc_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___a_n_a_l_o_g___m_o_d_u_l_e_s.html">Analog</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gab15781a5211ac681403e986828ac45d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gab15781a5211ac681403e986828ac45d1">R_ADC_W_Open</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#structadc__cfg__t">adc_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:gab15781a5211ac681403e986828ac45d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga695e8a281a7632cd8a94c39b837f6a23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga695e8a281a7632cd8a94c39b837f6a23">R_ADC_W_ScanCfg</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, void const *const p_scan_cfg)</td></tr>
+<tr class="separator:ga695e8a281a7632cd8a94c39b837f6a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf62e623448e3c2d7f0d4bc965ff40f9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gaf62e623448e3c2d7f0d4bc965ff40f9c">R_ADC_W_CallbackSet</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___a_d_c___a_p_i.html#structadc__callback__args__t">adc_callback_args_t</a> *), void *const p_context, <a class="el" href="group___a_d_c___a_p_i.html#structadc__callback__args__t">adc_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:gaf62e623448e3c2d7f0d4bc965ff40f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbe5278dfaa19c55b516394c413b8050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gacbe5278dfaa19c55b516394c413b8050">R_ADC_W_ScanStart</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:gacbe5278dfaa19c55b516394c413b8050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5102e2a84e2b6c1e094a14082ed8ade8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga5102e2a84e2b6c1e094a14082ed8ade8">R_ADC_W_ScanGroupStart</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#gaee17c30275c1c9376cc485a62ea121eb">adc_group_mask_t</a> group_id)</td></tr>
+<tr class="separator:ga5102e2a84e2b6c1e094a14082ed8ade8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16e461fdcad3d7ffa81aef339e1ab8e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga16e461fdcad3d7ffa81aef339e1ab8e1">R_ADC_W_ScanStop</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:ga16e461fdcad3d7ffa81aef339e1ab8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aeba717dfb9aa49fe1760c2d6e95bba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga4aeba717dfb9aa49fe1760c2d6e95bba">R_ADC_W_StatusGet</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#structadc__status__t">adc_status_t</a> *p_status)</td></tr>
+<tr class="separator:ga4aeba717dfb9aa49fe1760c2d6e95bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82c25362de833631a07d60befb6a9187"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga82c25362de833631a07d60befb6a9187">R_ADC_W_Read</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const reg_id, uint16_t *const p_data)</td></tr>
+<tr class="separator:ga82c25362de833631a07d60befb6a9187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33893deb25d8e90554191042ec864ea8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga33893deb25d8e90554191042ec864ea8">R_ADC_W_Read32</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const reg_id, uint32_t *const p_data)</td></tr>
+<tr class="separator:ga33893deb25d8e90554191042ec864ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab82154b38aec95b16407329dcb379b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gaab82154b38aec95b16407329dcb379b1">R_ADC_W_InfoGet</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#structadc__info__t">adc_info_t</a> *p_adc_info)</td></tr>
+<tr class="separator:gaab82154b38aec95b16407329dcb379b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aa9b26b148c207a566f70db24115a22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga4aa9b26b148c207a566f70db24115a22">R_ADC_W_Close</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:ga4aa9b26b148c207a566f70db24115a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58f350c7a42fb003299eac130e4e17be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga58f350c7a42fb003299eac130e4e17be">R_ADC_W_Calibrate</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const p_ctrl, void const *p_extend)</td></tr>
+<tr class="separator:ga58f350c7a42fb003299eac130e4e17be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50c3ffd511294899f542673842130fae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga50c3ffd511294899f542673842130fae">R_ADC_W_OffsetSet</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const reg_id, int32_t offset)</td></tr>
+<tr class="separator:ga50c3ffd511294899f542673842130fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0745c5f9651e0dae96928009e35fb064"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga0745c5f9651e0dae96928009e35fb064">R_ADC_W_SensorWakeupcfg</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga0745c5f9651e0dae96928009e35fb064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90bb96fc2567d461edd80894c4dc2483"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga90bb96fc2567d461edd80894c4dc2483">R_ADC_W_FifoRead</a> (<a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *p_ctrl, <a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const reg_id, uint16_t *const p_data)</td></tr>
+<tr class="separator:ga90bb96fc2567d461edd80894c4dc2483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for ADC_W version of the ADC peripheral on RAFW MCUs. This module implements the <a class="el" href="group___a_d_c___a_p_i.html">ADC Interface</a>. </p>
+<h1><a class="anchor" id="r-adc-w-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="r-adc-w-features"></a>
+Features</h2>
+<p>The ADC module supports the following features:</p>
+<ul>
+<li>4, 7, 10 or 12-bit resolution</li>
+<li>Four analog channels</li>
+<li>Software scan triggers with no-wait mode<a class="anchor" id="um_adc_w_starting_a_conversion"></a></li>
+<li>Continuous scan mode</li>
+<li>Optional callback when certain conditions are met<a class="anchor" id="um_adc_w_interrupt_callback_data"></a><ul>
+<li>Generated an interrupt request when the ADC result is over or under the threshold</li>
+<li>Generated an interrupt request when number of ADC results in FIFO exceed the threshold</li>
+</ul>
+</li>
+<li>Built-in FIFO for each channel</li>
+<li>External sensor wake-up function that uses the analog input signal through an ADC</li>
+</ul>
+<h1><a class="anchor" id="r-adc-w-configuration"></a>
+Configuration</h1>
+<p><a class="anchor" id="um_adc_w_configure_conversion_data_resolution"></a><a class="anchor" id="um_adc_w_configure_one_shot_scan_mode"></a><a class="anchor" id="um_adc_w_configure_software_trigger"></a><a class="anchor" id="um_adc_w_configure_the_hardware_trigger"></a><a class="anchor" id="um_adc_w_configure_sequential_mode"></a><a class="anchor" id="um_adc_w_configure_conversion_clockdiv"></a><a class="anchor" id="um_adc_w_reference_voltage_control"></a><a class="anchor" id="um_adc_w_reading_conversion_data"></a><a class="anchor" id="um_adc_w_configure_under_interrupt"></a><a class="anchor" id="um_adc_w_configure_over_interrupt"></a><a class="anchor" id="um_adc_w_configure_fifo_interrupt"></a><a class="anchor" id="um_adc_w_configure_dma_transfer"></a> <h2>Build Time Configurations for r_adc_w</h2>
+The following build time configurations are defined in fsp_cfg/r_adc_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>Interrupt Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable Scan End Interrupt support for the ADC module. </td></tr>
+</table>
+ <h2>Configurations for Analog &gt; ADC (r_adc_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Analog &gt; ADC (r_adc_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> General  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Resolution</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+12-Bit</li>
+<li>
+10-Bit</li>
+<li>
+7-Bit</li>
+<li>
+4-Bit</li>
+</ul>
+</td><td>12-Bit </td><td>Specifies the conversion resolution for this unit. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">ADC Input Clock Divider</td><td>Must be a valid integer</td><td>3 </td><td>Specifies divider for ADC input clock. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Interrupts  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Upper threshold of conversion result</td><td>Must be a valid integer</td><td>65535 </td><td>Specify the threshold of the conversion value that corresponds to the condition to generate an interrupt request. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Lower threshold of conversion result</td><td>Must be a valid integer</td><td>0 </td><td>Specify the threshold of the conversion value that corresponds to the condition to generate an interrupt request. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Callback</td><td>Name must be a valid C symbol</td><td>NULL </td><td>A user callback function. If this callback function is provided, it is called from the interrupt service routine (ISR) whenever the AD conversion result meets the interrupt generation condition. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Scan End Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select scan end interrupt priority. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Sensor Wakeup  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Timer count clock source</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+7.81 msec</li>
+<li>
+31.25 msec</li>
+<li>
+62.5 msec</li>
+<li>
+250 msec</li>
+<li>
+1000 msec</li>
+<li>
+4000 msec</li>
+<li>
+16000 msec</li>
+<li>
+64000 msec</li>
+</ul>
+</td><td>7.81 msec </td><td>Timer count clock source used for the sensor wakeup function. (base = 32.768KHz). </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Timer value</td><td>Must be a valid integer</td><td>1 </td><td>The AD conversion period is 'Timer count clock source' multiplied by (Timer value + 1). The range of Timer value is from 1 to 0xF. ex. when 'Timer count clock source' 7.81 msec period, the cycle is 15.62 to 124.8 msec. when 'Timer count clock source' 64,000 msec period, the cycle is 128,000 ~ 1,024,000 msec (max. 17.1 min). </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Sample number for average</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+4</li>
+<li>
+8</li>
+<li>
+16</li>
+<li>
+32</li>
+<li>
+64</li>
+<li>
+128</li>
+<li>
+256</li>
+<li>
+512</li>
+</ul>
+</td><td>4 </td><td>This is the number of ADC sample data to be averaged.The average value is obtained and compared with the value set in Wake-up-threshold to check whether the condition is satisfied. </td></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_adc0 </td><td>Module name. </td></tr>
+</table>
+ <h2>Configurations for Analog &gt; ADC_W Channel Configuration (r_adc_w)</h2>
+<table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> DMA support  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">DMA support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable DMA support for this channel. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Interrupts  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Interrupt Mode of FIFO</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+HALF</li>
+</ul>
+</td><td>Disabled </td><td>Specify the interrupt mode of FIFO. If HALF is selected, an interrupt occurs when the analog to digital conversion is completed and the FIFO is filled with 4 data. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Interrupt Mode of Threshold</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Over</li>
+<li>
+Under</li>
+</ul>
+</td><td>Disabled </td><td>If Over is selected, an interrupt occurs when the conversion result exceeds the specified threshold. If Under is selected, an interrupt occurs when the conversion result falls below the specified threshold. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Sensor Wake-up  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Sensor wakeup support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable Sensor Wake-up support for this channel. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Wake-up threshold</td><td>Must be a valid integer</td><td>0 </td><td>The threshold used to wake up from Sleep mode. From 0 to 0xFFF. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Threshold mode selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Over</li>
+<li>
+Under</li>
+</ul>
+</td><td>Over </td><td>If Over threshold is selected, sleep mode ends when the input value exceeds the threshold.(If Under threshold is selected, sleep mode ends when it falls below the threshold.) </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-adc-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>The ADC input clock source is configured to use AUX_CLK with a selectable division ratio.</p>
+<h2><a class="anchor" id="r-adc-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>The ADCx pins are analog input channels that can be used with the ADC_W.</p>
+<h2>Conversion frequency</h2>
+<p>Conversion frequency depends on input clock, resolution(clock cycle per sample), and number of channels used.</p>
+<ul>
+<li>Clock cycle per sample is determined by the resolution<ul>
+<li>12-bit resolution : Clock cycle per Sample = 15</li>
+<li>10-bit resolution : Clock cycle per Sample = 12</li>
+<li>7-bit resolution : Clock cycle per Sample = 9</li>
+<li>4-bit resolution : Clock cycle per Sample = 6</li>
+</ul>
+</li>
+<li>The conversion frequency of AD conversion slows down when multiple channels are used simultaneously.<ul>
+<li>Use two channels: conversion frequency becomes 1/8 (=4 x 2 channels)</li>
+<li>Use three channels: conversion frequency becomes 1/12 (=4 x 3 channels)</li>
+<li>Use four channels: conversion frequency becomes 1/16 (=4 x 4 channels)</li>
+</ul>
+</li>
+</ul>
+<p>For example, when the input clock is 15 MHz, the resolution is 10 bits, and two channels are used, the conversion frequency is as follows.</p><ul>
+<li>15(inpuut clock) / 12(Clock cycle per Sample) / 8(two channels) = 0.15625 MHz</li>
+</ul>
+<h1><a class="anchor" id="r-adc-w-usage_notes"></a>
+Usage Notes</h1>
+<h2><a class="anchor" id="adc_w-hal-module-operational-overview"></a>
+ADC_W Operational Conversion</h2>
+<p>The driver supports an operation conversion mode: Continuous scan mode. For each time conversion, ADC peripheral only converts for each a pin.</p>
+<h3>Continuous scan mode</h3>
+<p>In Continuous scan mode, the specified channels are scanned continuously. This scan continues until <a class="el" href="group___a_d_c___w.html#ga16e461fdcad3d7ffa81aef339e1ab8e1">R_ADC_W_ScanStop()</a> is called.</p>
+<h3>When Interrupt Is Not Enabled</h3>
+<p>If interrupts are not enabled, <a class="el" href="group___a_d_c___w.html#ga4aeba717dfb9aa49fe1760c2d6e95bba">R_ADC_W_StatusGet()</a> can be used to check if AD conversion has started. The read API function is used to access the converted ADC result.</p>
+<h3>When Interrupt Is Enabled</h3>
+<p>An interrupt is generated depend on setting condition of converted ADC result is over or under the threshold value, or number of ADC results in FIFO exceed the threshold.</p>
+<dl class="section note"><dt>Note</dt><dd>If interrupts occur frequently, the interrupt handler may be called more frequently, causing the application to stop processing</dd></dl>
+<h3>Selecting ADC Input Clock Divider</h3>
+<p>The ADC input clock is configured to use the AUX_CLK with the specified division ratio.</p>
+<h2>FIFO</h2>
+<p>The FIFOs consist of 4 stages and can hold up to 4 A/D conversion data. One FIFO is implemented for each channel.</p>
+<p>Data in the FIFO can be read by <a class="el" href="group___a_d_c___w.html#ga90bb96fc2567d461edd80894c4dc2483">R_ADC_W_FifoRead()</a>.</p>
+<p><a class="anchor" id="um_adc_w_fifo_read"></a> </p><h2>Sensor Wake-up</h2>
+<p>Even in Sleep mode, when a change of an external analog signal is detected, a wakeup event occurs and normal operation is resumed.</p>
+<p>This function can be used in up to four channels. Also, when multiple external sensors are used, analog signals are detected while the channel are automatically changed. For example, if all four channels are set as input sources which have their threshold register respectively, the channels are measured sequentially from 0 to 3.</p>
+<p>If one of the four ADC channels exceed the allowed range of values set by the threshold register, the device awakes from the Sleep mode.</p>
+<p><a class="anchor" id="um_adc_w_sensor_wake_up_over"></a><a class="anchor" id="um_adc_w_sensor_wake_up_under"></a><a class="anchor" id="um_adc_w_sensor_wake_up_period"></a> </p>
+<h1><a class="anchor" id="r-adc-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the ADC_W in an application.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> adc_w_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Initializes the module. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#gab15781a5211ac681403e986828ac45d1">R_ADC_W_Open</a>(&amp;g_adc0_ctrl, &amp;g_adc0_cfg);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Enable channels. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga695e8a281a7632cd8a94c39b837f6a23">R_ADC_W_ScanCfg</a>(&amp;g_adc0_ctrl, &amp;g_adc0_scan_cfg);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* In software trigger mode, start a scan by calling R_ADC_W_ScanStart(). In other modes, enable hardware</span></div><div class="line"><span class="comment">     * triggers by calling R_ADC_W_ScanStart(). */</span></div><div class="line">    (void) <a class="code" href="group___a_d_c___w.html#gacbe5278dfaa19c55b516394c413b8050">R_ADC_W_ScanStart</a>(&amp;g_adc0_ctrl);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Wait for conversion to complete. */</span></div><div class="line">    <a class="code" href="group___a_d_c___a_p_i.html#structadc__status__t">adc_status_t</a> status;</div><div class="line">    status.<a class="code" href="group___a_d_c___a_p_i.html#a276869569116678c7838ef506fceb77b">state</a> = <a class="code" href="group___a_d_c___a_p_i.html#gga2783ab2e29809bf0a50bc66c6fa8d3c6abe1c11b191e48669cc5129aca45800d7">ADC_STATE_SCAN_IN_PROGRESS</a>;</div><div class="line"></div><div class="line">    (void) <a class="code" href="group___a_d_c___w.html#ga4aeba717dfb9aa49fe1760c2d6e95bba">R_ADC_W_StatusGet</a>(&amp;g_adc0_ctrl, &amp;status);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Read converted data. */</span></div><div class="line">    uint16_t channel0_conversion_result;</div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga82c25362de833631a07d60befb6a9187">R_ADC_W_Read</a>(&amp;g_adc0_ctrl, <a class="code" href="group___a_d_c___a_p_i.html#ggaafc4060027875f8fe46242b0656d7814a69dddf5b6edfe54ac25b653d8f62d104">ADC_CHANNEL_0</a>, &amp;channel0_conversion_result);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Stop scan */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga16e461fdcad3d7ffa81aef339e1ab8e1">R_ADC_W_ScanStop</a>(&amp;g_adc0_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>ADC-DMAC Transfer Example</h2>
+<p>This example demonstrates reading multiple data from an ADC channel and storing the data in memory through DMAC.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#define TEST_DMAC_TRANS_LEN    (32)</span></div><div class="line"><span class="preprocessor">#define BSP_VECTOR_DMA_IRQN    ((IRQn_Type) 0)</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> DMAC_Callback(<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">dmac_callback_args_t</a> * <span class="keyword">const</span> cb_data);</div><div class="line"></div><div class="line"><span class="keyword">static</span> uint8_t  dma_done_1 = 0;</div><div class="line"><span class="keyword">static</span> uint16_t adc_dmac_dst[TEST_DMAC_TRANS_LEN];</div><div class="line"></div><div class="line">dmac_instance_ctrl_t g_transfer0_ctrl;</div><div class="line"></div><div class="line"><a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__info__t">transfer_info_t</a> g_transfer0_info =</div><div class="line">{</div><div class="line">    .transfer_settings_word_b.dest_addr_mode = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadce62e6c2407d6ffd5a94636736f7c51a7665741e25c4cc78fd24745efbd2eaad">TRANSFER_ADDR_MODE_INCREMENTED</a>,</div><div class="line">    .transfer_settings_word_b.src_addr_mode  = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadce62e6c2407d6ffd5a94636736f7c51abf18f9b3701e9e91f44055ee47d0ca47">TRANSFER_ADDR_MODE_FIXED</a>,</div><div class="line">    .transfer_settings_word_b.size           = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#gga6c224e5afb174f3f6ea9eddbb9da8b12a8b6b33a085b51ea2eeed1ef119de562f">TRANSFER_SIZE_2_BYTE</a>,</div><div class="line">    .transfer_settings_word_b.mode           = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fada90d8a89f98ff82475383b14141b08d">TRANSFER_MODE_NORMAL</a>,</div><div class="line">    .transfer_settings_word_b.burst_mode     = TRANSFER_BURST_MODE_4X,</div><div class="line">    .p_dest = &amp;adc_dmac_dst,</div><div class="line">    .p_src  = (uint16_t <span class="keyword">const</span> *) (ADC_CH0_DMAC_SRC_ADDR + <a class="code" href="group___a_d_c___a_p_i.html#ggaafc4060027875f8fe46242b0656d7814a69dddf5b6edfe54ac25b653d8f62d104">ADC_CHANNEL_0</a>),</div><div class="line">    .length = TEST_DMAC_TRANS_LEN,</div><div class="line">};</div><div class="line"></div><div class="line"><a class="code" href="group___d_m_a_c___w.html#structdmac__extended__cfg__t">dmac_extended_cfg_t</a> g_transfer0_extend =</div><div class="line">{</div><div class="line">    .<a class="code" href="group___d_m_a_c___w.html#a96ee22f2e357c5098bbe67bbdf920371">channel</a>          = 0x00,</div><div class="line">    .irq              = BSP_VECTOR_DMA_IRQN,</div><div class="line">    .ipl              = (15),</div><div class="line">    .start_mode       = <a class="code" href="group___d_m_a_c___w.html#gga99a939fb0f9c0ab3b2153744595edfd6a04711eb3c3b3d00dcec95eba60159851">DMAC_START_ON_PERIPHERAL_REQUEST</a>,</div><div class="line">    .idle_mode        = <a class="code" href="group___d_m_a_c___w.html#gga4b8ac11007c3cd0c64fc997d80f09089a9d5d77f0c416d9184b604d13203e4846">DMAC_IDLE_INTERRUPTING_MODE</a>,</div><div class="line">    .init_mode        = <a class="code" href="group___d_m_a_c___w.html#gga0bbdceeefa5ff06bc382972e130d2dddae0a9a80f3b8a230c81fc8a06f5450347">DMAC_INIT_AX_BX_AY_BY</a>,</div><div class="line">    .channel_prio     = (7),</div><div class="line">    .periph_trigger   = BSP_DMAC_TRIG_AUXADC0,</div><div class="line">    .irq_num_of_trans = TEST_DMAC_TRANS_LEN,</div><div class="line">    .p_callback       = DMAC_Callback,</div><div class="line">    .p_context        = NULL,</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">const</span> <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__cfg__t">transfer_cfg_t</a> g_transfer0_cfg =</div><div class="line">{</div><div class="line">    .<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#af99b114594ac2d55aae0c9e11f703164">p_info</a>   = &amp;g_transfer0_info,</div><div class="line">    .p_extend = (<span class="keywordtype">void</span> *) &amp;g_transfer0_extend,</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">const</span> <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> g_transfer0 =</div><div class="line">{</div><div class="line">    .<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a655547e7bbc2c8be77ac085f3417a389">p_ctrl</a> = &amp;g_transfer0_ctrl,</div><div class="line">    .p_cfg  = &amp;g_transfer0_cfg,</div><div class="line">    .p_api  = &amp;g_transfer_on_dmac_w</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> DMAC_Callback (<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">dmac_callback_args_t</a> * <span class="keyword">const</span> cb_data)</div><div class="line">{</div><div class="line">    dma_done_1 = 1;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> adc_w_dmac_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Initializes the module. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#gab15781a5211ac681403e986828ac45d1">R_ADC_W_Open</a>(&amp;g_adc0_ctrl, &amp;g_adc0_cfg);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Enable channels. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga695e8a281a7632cd8a94c39b837f6a23">R_ADC_W_ScanCfg</a>(&amp;g_adc0_ctrl, &amp;g_adc0_scan_cfg);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Enable DMAC */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga50115e80e2081ea3105dba555edad4e9">R_DMAC_W_Open</a>(&amp;g_transfer0_ctrl, &amp;g_transfer0_cfg);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga77396bcd5fe3d29f8ca0d4b9810fd178">R_DMAC_W_Reconfigure</a>(&amp;g_transfer0_ctrl, &amp;g_transfer0_info);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable</a>(&amp;g_transfer0_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    (void) <a class="code" href="group___a_d_c___w.html#gacbe5278dfaa19c55b516394c413b8050">R_ADC_W_ScanStart</a>(&amp;g_adc0_ctrl);</div><div class="line"></div><div class="line"></div><div class="line">    uint32_t timeout = UINT16_MAX;</div><div class="line">    <span class="keywordflow">while</span> ((!dma_done_1) &amp;&amp; (timeout &gt; 0U))</div><div class="line">    {</div><div class="line">        timeout--;</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Stop scan */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga16e461fdcad3d7ffa81aef339e1ab8e1">R_ADC_W_ScanStop</a>(&amp;g_adc0_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Close DMAC */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga929fe480e087be66f0a5ff5b60ca8a13">R_DMAC_W_Disable</a>(&amp;g_transfer0_ctrl);</div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#gadbb898ee089aafd26bc5d794283197d0">R_DMAC_W_Close</a>(&amp;g_transfer0_ctrl);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>ADC-Sensor Wake-up Example</h2>
+<p>This is an example of using the ADC sensor wake-up function.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> adc_w_sensor_wakeup_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Initializes the module. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#gab15781a5211ac681403e986828ac45d1">R_ADC_W_Open</a>(&amp;g_adc0_ctrl, &amp;g_adc0_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Enable the channel. */</span></div><div class="line">    err = <a class="code" href="group___a_d_c___w.html#ga0745c5f9651e0dae96928009e35fb064">R_ADC_W_SensorWakeupcfg</a>(&amp;g_adc0_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line"><span class="preprocessor">#if 0                                  // TIN-TODO</span></div><div class="line">    R_PM_LowPowerModeEnter(<a class="code" href="group___p_m_g_r___w.html#ggade51e42a4fa37c52feff9496d9f6d715a229b24756b0435bc358714d7366b0722">PMGR_LLD_POWER_MODE_SLEEP3</a>, 0xFFFFFFFF);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structadc__w__scan__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#structadc__w__scan__cfg__t">adc_w_scan_cfg_t</a></td></tr>
+<tr class="separator:structadc__w__scan__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structadc__w__channel__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#structadc__w__channel__cfg__t">adc_w_channel_cfg_t</a></td></tr>
+<tr class="separator:structadc__w__channel__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structadc__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#structadc__w__extended__cfg__t">adc_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structadc__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structadc__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#structadc__w__instance__ctrl__t">adc_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structadc__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga65a8e9f7eaed21f2d45a987cf7ab7093"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga65a8e9f7eaed21f2d45a987cf7ab7093">adc_w_dma_enable_t</a> </td></tr>
+<tr class="separator:ga65a8e9f7eaed21f2d45a987cf7ab7093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3338318cd5daf50b3e7baf49b6a43cee"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga3338318cd5daf50b3e7baf49b6a43cee">adc_w_thd_interrupt_mode_t</a> </td></tr>
+<tr class="separator:ga3338318cd5daf50b3e7baf49b6a43cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c68f4e7d597ba2ab031f1eac28680b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga0c68f4e7d597ba2ab031f1eac28680b5">adc_w_fifo_interrupt_mode_t</a> </td></tr>
+<tr class="separator:ga0c68f4e7d597ba2ab031f1eac28680b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddd01aec56a19a6b5f63ce5d0ae4047c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gaddd01aec56a19a6b5f63ce5d0ae4047c">adc_w_sensorwakeup_enable_t</a> </td></tr>
+<tr class="separator:gaddd01aec56a19a6b5f63ce5d0ae4047c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2edd3ae1187e9889dfffacf66b00d8b9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga2edd3ae1187e9889dfffacf66b00d8b9">adc_w_sensorwakeup_thd_mode_t</a> </td></tr>
+<tr class="separator:ga2edd3ae1187e9889dfffacf66b00d8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga477cd285d84bb4176f45c774fd25028b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ga477cd285d84bb4176f45c774fd25028b">adc_w_timer_count_clock_source_t</a> </td></tr>
+<tr class="separator:ga477cd285d84bb4176f45c774fd25028b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaaa5909a81081f4b5c57cc04dd3fc90c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#gaaaa5909a81081f4b5c57cc04dd3fc90c">adc_w_sample_average_t</a> </td></tr>
+<tr class="separator:gaaaa5909a81081f4b5c57cc04dd3fc90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structadc__w__scan__cfg__t" id="structadc__w__scan__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structadc__w__scan__cfg__t">&#9670;&nbsp;</a></span>adc_w_scan_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct adc_w_scan_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ADC_W active channel configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8f2bca5c92a3d01d0a582c5287c6eb51"></a>uint32_t</td>
+<td class="fieldname">
+scan_mask</td>
+<td class="fielddoc">
+Channels/bits: bit 0 is ch0; bit 3 is ch3. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structadc__w__channel__cfg__t" id="structadc__w__channel__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structadc__w__channel__cfg__t">&#9670;&nbsp;</a></span>adc_w_channel_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct adc_w_channel_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ADC chennel config structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae8cb196ff3dc6761803b3f4986e0a233"></a><a class="el" href="group___a_d_c___w.html#ga0c68f4e7d597ba2ab031f1eac28680b5">adc_w_fifo_interrupt_mode_t</a></td>
+<td class="fieldname">
+interrupt_mode_fifo</td>
+<td class="fielddoc">
+FIFO interrupt settings(four data/none) </td></tr>
+<tr><td class="fieldtype">
+<a id="a2f450749a2e25cf982a29534fce62856"></a><a class="el" href="group___a_d_c___w.html#ga3338318cd5daf50b3e7baf49b6a43cee">adc_w_thd_interrupt_mode_t</a></td>
+<td class="fieldname">
+interrupt_mode_thd</td>
+<td class="fielddoc">
+Threshold interrupt setting(none/over/under) </td></tr>
+<tr><td class="fieldtype">
+<a id="a1f2dffbe8adaad471e27c667a6e340c2"></a><a class="el" href="group___a_d_c___w.html#ga65a8e9f7eaed21f2d45a987cf7ab7093">adc_w_dma_enable_t</a></td>
+<td class="fieldname">
+dma_en</td>
+<td class="fielddoc">
+Enable/disable DMA support. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac1fd24e24d6384b47a29e148e3a0336b"></a><a class="el" href="group___a_d_c___w.html#gaddd01aec56a19a6b5f63ce5d0ae4047c">adc_w_sensorwakeup_enable_t</a></td>
+<td class="fieldname">
+sensorwakeup_en</td>
+<td class="fielddoc">
+Enable/disable sensor wakeup mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae1a1b5fbdeb267b0db57e1d422b9305d"></a>uint16_t</td>
+<td class="fieldname">
+thd_value</td>
+<td class="fielddoc">
+Threshold Level for the channel. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0711d47c7179e54390cf547ee0bac656"></a><a class="el" href="group___a_d_c___w.html#ga2edd3ae1187e9889dfffacf66b00d8b9">adc_w_sensorwakeup_thd_mode_t</a></td>
+<td class="fieldname">
+threshold_mode</td>
+<td class="fielddoc">
+Use threshold as upper or lower limit. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structadc__w__extended__cfg__t" id="structadc__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structadc__w__extended__cfg__t">&#9670;&nbsp;</a></span>adc_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct adc_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ADC extended configuration data </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="aa914e99017a4150b83eadaa551b2145c"></a>uint16_t</td>
+<td class="fieldname">
+conversion_clockdiv</td>
+<td class="fielddoc">
+Divider for conversion clock (fAD) setting. </td></tr>
+<tr><td class="fieldtype">
+<a id="a30fb774c882c9a48a772343d7bcf4fc3"></a>uint16_t</td>
+<td class="fieldname">
+upper_bound_limit</td>
+<td class="fielddoc">
+Setting upper limit conversion value. </td></tr>
+<tr><td class="fieldtype">
+<a id="acb4fe382e2e78e77da29aafa8a42ed39"></a>uint16_t</td>
+<td class="fieldname">
+lower_bound_limit</td>
+<td class="fielddoc">
+Setting lower limit conversion value. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6fd5c508244e081fcbc7dca05c73ebcc"></a><a class="el" href="group___a_d_c___w.html#structadc__w__channel__cfg__t">adc_w_channel_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_channel_cfgs[BSP_FEATURE_ADC_W_MAX_NUM_CHANNELS]</td>
+<td class="fielddoc">
+Configuration for each channel, set to NULL if unused. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac9d08eacae2a8a0c638e9381641271e7"></a><a class="el" href="group___a_d_c___w.html#ga477cd285d84bb4176f45c774fd25028b">adc_w_timer_count_clock_source_t</a></td>
+<td class="fieldname">
+timer_count_clock_source</td>
+<td class="fielddoc">
+Setting lower limit conversion value. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2209ce05fd6b84e915fa6f7ba5eca59b"></a>uint16_t</td>
+<td class="fieldname">
+timer_value</td>
+<td class="fielddoc">
+Timer count clock source for sensor wakeup mode (base = 32.768KHz) </td></tr>
+<tr><td class="fieldtype">
+<a id="a50d7949d84f3b03256b16f15636dfef6"></a><a class="el" href="group___a_d_c___w.html#gaaaa5909a81081f4b5c57cc04dd3fc90c">adc_w_sample_average_t</a></td>
+<td class="fieldname">
+sample_average</td>
+<td class="fielddoc">
+Sample number for average in sensor wakeup mode. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structadc__w__instance__ctrl__t" id="structadc__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structadc__w__instance__ctrl__t">&#9670;&nbsp;</a></span>adc_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct adc_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ADC instance control block. DO NOT INITIALIZE. Initialized in <a class="el" href="group___a_d_c___a_p_i.html#afa184c06541e3fd9f90fc12ed775f468">adc_api_t::open()</a>. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a91cfda3867a6cbdd3ae3d73f35c6f954"><td class="memItemLeft" align="right" valign="top"><a id="a91cfda3867a6cbdd3ae3d73f35c6f954"></a>
+<a class="el" href="group___a_d_c___a_p_i.html#structadc__cfg__t">adc_cfg_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#a91cfda3867a6cbdd3ae3d73f35c6f954">p_cfg</a></td></tr>
+<tr class="memdesc:a91cfda3867a6cbdd3ae3d73f35c6f954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean to verify that the Unit has been initialized. <br /></td></tr>
+<tr class="separator:a91cfda3867a6cbdd3ae3d73f35c6f954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10add6dcd62c9a8a7bd11b0dc31d819e"><td class="memItemLeft" align="right" valign="top"><a id="a10add6dcd62c9a8a7bd11b0dc31d819e"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#a10add6dcd62c9a8a7bd11b0dc31d819e">p_callback</a> )(<a class="el" href="group___a_d_c___a_p_i.html#structadc__callback__args__t">adc_callback_args_t</a> *)</td></tr>
+<tr class="memdesc:a10add6dcd62c9a8a7bd11b0dc31d819e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to callback that is called when an adc_w_event_t occurs. <br /></td></tr>
+<tr class="separator:a10add6dcd62c9a8a7bd11b0dc31d819e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a865105d5e9da09b0eb9cd3578ea23bdd"><td class="memItemLeft" align="right" valign="top"><a id="a865105d5e9da09b0eb9cd3578ea23bdd"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#a865105d5e9da09b0eb9cd3578ea23bdd">p_context</a></td></tr>
+<tr class="memdesc:a865105d5e9da09b0eb9cd3578ea23bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">User defined context passed into callback function. <br /></td></tr>
+<tr class="separator:a865105d5e9da09b0eb9cd3578ea23bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97630e761eaefdfa57bd897b94d3d85"><td class="memItemLeft" align="right" valign="top"><a id="ac97630e761eaefdfa57bd897b94d3d85"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#ac97630e761eaefdfa57bd897b94d3d85">initialized</a></td></tr>
+<tr class="memdesc:ac97630e761eaefdfa57bd897b94d3d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialized status of ADC_W. <br /></td></tr>
+<tr class="separator:ac97630e761eaefdfa57bd897b94d3d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7338dc33c716449b435c82515fd7808b"><td class="memItemLeft" align="right" valign="top"><a id="a7338dc33c716449b435c82515fd7808b"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#a7338dc33c716449b435c82515fd7808b">opened</a></td></tr>
+<tr class="memdesc:a7338dc33c716449b435c82515fd7808b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open status of ADC_W. <br /></td></tr>
+<tr class="separator:a7338dc33c716449b435c82515fd7808b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7491597e0ae93340d710a312e7a9df16"><td class="memItemLeft" align="right" valign="top"><a id="a7491597e0ae93340d710a312e7a9df16"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#a7491597e0ae93340d710a312e7a9df16">scan_mask</a></td></tr>
+<tr class="memdesc:a7491597e0ae93340d710a312e7a9df16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan mask of enabled channels. <br /></td></tr>
+<tr class="separator:a7491597e0ae93340d710a312e7a9df16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add01ec2f29276d4fd3db83f432ae4fef"><td class="memItemLeft" align="right" valign="top"><a id="add01ec2f29276d4fd3db83f432ae4fef"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_d_c___w.html#add01ec2f29276d4fd3db83f432ae4fef">scan_cfg_mask</a></td></tr>
+<tr class="memdesc:add01ec2f29276d4fd3db83f432ae4fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan mask of configured channels. <br /></td></tr>
+<tr class="separator:add01ec2f29276d4fd3db83f432ae4fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga65a8e9f7eaed21f2d45a987cf7ab7093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga65a8e9f7eaed21f2d45a987cf7ab7093">&#9670;&nbsp;</a></span>adc_w_dma_enable_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#ga65a8e9f7eaed21f2d45a987cf7ab7093">adc_w_dma_enable_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMA enable </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga65a8e9f7eaed21f2d45a987cf7ab7093a7a70335aca10a262a9c745c189cf4aba"></a>ADC_W_DMA_DISABLED&#160;</td><td class="fielddoc"><p>DMA disabled </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga65a8e9f7eaed21f2d45a987cf7ab7093a57b03a850d28ecda019596b57aa4364a"></a>ADC_W_DMA_ENABLED&#160;</td><td class="fielddoc"><p>DMA enabled </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga3338318cd5daf50b3e7baf49b6a43cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3338318cd5daf50b3e7baf49b6a43cee">&#9670;&nbsp;</a></span>adc_w_thd_interrupt_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#ga3338318cd5daf50b3e7baf49b6a43cee">adc_w_thd_interrupt_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ADC Interrupt Mode Threshold </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga3338318cd5daf50b3e7baf49b6a43ceeab5decf8bb96df90284fdf60754547375"></a>ADC_W_INTERRUPT_THD_NONE&#160;</td><td class="fielddoc"><p>Threshold interrupt is disabled </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3338318cd5daf50b3e7baf49b6a43ceeac427d043f708d39f969a2b6973f22ae7"></a>ADC_W_INTERRUPT_THD_OVER&#160;</td><td class="fielddoc"><p>An interrupt occurs when the conversion result exceeds the threshold. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3338318cd5daf50b3e7baf49b6a43ceeab4940732647322c6cc99175d6fd75e69"></a>ADC_W_INTERRUPT_THD_UNDER&#160;</td><td class="fielddoc"><p>An interrupt occurs when the conversion result is below the threshold. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga0c68f4e7d597ba2ab031f1eac28680b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c68f4e7d597ba2ab031f1eac28680b5">&#9670;&nbsp;</a></span>adc_w_fifo_interrupt_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#ga0c68f4e7d597ba2ab031f1eac28680b5">adc_w_fifo_interrupt_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ADC Interrupt Mode FIFO </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0c68f4e7d597ba2ab031f1eac28680b5af497bb895aa6b84f334f83446ad03fbd"></a>ADC_W_INTERRUPT_FIFO_NONE&#160;</td><td class="fielddoc"><p>FIFO interrupt is disabled </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga0c68f4e7d597ba2ab031f1eac28680b5ae9715d06c24af60d6dbd55f4ed1767bf"></a>ADC_W_INTERRUPT_FIFO_HALF&#160;</td><td class="fielddoc"><p>An interrupt occurs when the FIFO is filled with four data. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaddd01aec56a19a6b5f63ce5d0ae4047c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddd01aec56a19a6b5f63ce5d0ae4047c">&#9670;&nbsp;</a></span>adc_w_sensorwakeup_enable_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#gaddd01aec56a19a6b5f63ce5d0ae4047c">adc_w_sensorwakeup_enable_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ADC Sensor Wakeup Mode enable </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaddd01aec56a19a6b5f63ce5d0ae4047ca95988d7c7f65f1399e081e46a961f683"></a>ADC_W_SENSOR_WAKEUP_DISABLED&#160;</td><td class="fielddoc"><p>sensor wakeup disabled </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaddd01aec56a19a6b5f63ce5d0ae4047ca615439dbcd10b1d10b21c29de811d8ea"></a>ADC_W_SENSOR_WAKEUP_ENABLED&#160;</td><td class="fielddoc"><p>sensor wakeup enabled </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga2edd3ae1187e9889dfffacf66b00d8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2edd3ae1187e9889dfffacf66b00d8b9">&#9670;&nbsp;</a></span>adc_w_sensorwakeup_thd_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#ga2edd3ae1187e9889dfffacf66b00d8b9">adc_w_sensorwakeup_thd_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Threshold mode selection for sensor wakeup mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga2edd3ae1187e9889dfffacf66b00d8b9ae626abe1169ebdee00540e030a216114"></a>ADC_W_SENSOR_WAKEUP_THD_OVER&#160;</td><td class="fielddoc"><p>Over threshold </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga2edd3ae1187e9889dfffacf66b00d8b9ad536939886666c84ad7ab7ad6503bf62"></a>ADC_W_SENSOR_WAKEUP_THD_UNDER&#160;</td><td class="fielddoc"><p>Under threshold </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga477cd285d84bb4176f45c774fd25028b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga477cd285d84bb4176f45c774fd25028b">&#9670;&nbsp;</a></span>adc_w_timer_count_clock_source_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#ga477cd285d84bb4176f45c774fd25028b">adc_w_timer_count_clock_source_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Timer count clock source for sensor wakeup mode (base = 32.768KHz) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba5438e1d9d729aa71b4fc5508c678a0b3"></a>ADC_W_TIMER_COUNT_SOURCE_8&#160;</td><td class="fielddoc"><p>7.81-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba895fce169aa31be9dbb9eebb5944167e"></a>ADC_W_TIMER_COUNT_SOURCE_31&#160;</td><td class="fielddoc"><p>31.25-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba61353c419d7ad5e0d14489a5042c51a6"></a>ADC_W_TIMER_COUNT_SOURCE_62&#160;</td><td class="fielddoc"><p>62.5-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028bae165b7e24b2e632d32746b04019bc9c0"></a>ADC_W_TIMER_COUNT_SOURCE_250&#160;</td><td class="fielddoc"><p>250-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba61803aa57726c7952154ed05a6b2994e"></a>ADC_W_TIMER_COUNT_SOURCE_1000&#160;</td><td class="fielddoc"><p>1000-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba1a8fd4fbf5f9298d373651ed4ffccff2"></a>ADC_W_TIMER_COUNT_SOURCE_4000&#160;</td><td class="fielddoc"><p>4000-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028ba6d2d5968e450a1e548064595f66cbcc2"></a>ADC_W_TIMER_COUNT_SOURCE_16000&#160;</td><td class="fielddoc"><p>16000-msec period </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga477cd285d84bb4176f45c774fd25028baa0dec13ba4b187be04a55559f68a317a"></a>ADC_W_TIMER_COUNT_SOURCE_64000&#160;</td><td class="fielddoc"><p>64,000-msec period </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaaaa5909a81081f4b5c57cc04dd3fc90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaaa5909a81081f4b5c57cc04dd3fc90c">&#9670;&nbsp;</a></span>adc_w_sample_average_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___a_d_c___w.html#gaaaa5909a81081f4b5c57cc04dd3fc90c">adc_w_sample_average_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sample number for average in sensor wakeup mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca0323601ecad838f503a4e8626e10d8e5"></a>ADC_W_SAMPLE_AVERAGE_4&#160;</td><td class="fielddoc"><p>4-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90cace1b7f66292c6e3af695dd7c87fd8442"></a>ADC_W_SAMPLE_AVERAGE_8&#160;</td><td class="fielddoc"><p>8-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca1337366cb79ad5ba9685649e7b07dbbc"></a>ADC_W_SAMPLE_AVERAGE_16&#160;</td><td class="fielddoc"><p>16-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90cae11d4a818ae535698a6a14632809ad7f"></a>ADC_W_SAMPLE_AVERAGE_32&#160;</td><td class="fielddoc"><p>32-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca1baa7af022f9b645123759231ef866cc"></a>ADC_W_SAMPLE_AVERAGE_64&#160;</td><td class="fielddoc"><p>64-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca6aa5b6e2d89bab5339638073f126b5a9"></a>ADC_W_SAMPLE_AVERAGE_128&#160;</td><td class="fielddoc"><p>128-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca8d594e6647168c5f67b6e4119e40bd4c"></a>ADC_W_SAMPLE_AVERAGE_256&#160;</td><td class="fielddoc"><p>256-sample processing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaaaa5909a81081f4b5c57cc04dd3fc90ca513a179c0f3b161170c9f378b4229013"></a>ADC_W_SAMPLE_AVERAGE_512&#160;</td><td class="fielddoc"><p>512-sample processing </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gab15781a5211ac681403e986828ac45d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab15781a5211ac681403e986828ac45d1">&#9670;&nbsp;</a></span>R_ADC_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#structadc__cfg__t">adc_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize the ADC_W peripheral. If interrupt is enabled, the function registers a callback function for notifying the user when ADC interrupt event occurrs. Implements <a class="el" href="group___a_d_c___a_p_i.html#afa184c06541e3fd9f90fc12ed775f468">adc_api_t::open</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Module is ready for use. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>The instance control structure has already been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IRQ_BSP_DISABLED</td><td>A callback is provided, but the interrupt is not enabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga695e8a281a7632cd8a94c39b837f6a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga695e8a281a7632cd8a94c39b837f6a23">&#9670;&nbsp;</a></span>R_ADC_W_ScanCfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_ScanCfg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *const&#160;</td>
+          <td class="paramname"><em>p_scan_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configures the enabled channels of the ADC. Channel specific settings are set in this function. Pass a pointer to <a class="el" href="group___a_d_c___w.html#structadc__w__scan__cfg__t">adc_w_scan_cfg_t</a> to p_extend. Implements <a class="el" href="group___a_d_c___a_p_i.html#a44289d7822720544751eb22e3d7d38ea">adc_api_t::scanCfg</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Channel specific settings applied. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Unit is not open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf62e623448e3c2d7f0d4bc965ff40f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf62e623448e3c2d7f0d4bc965ff40f9c">&#9670;&nbsp;</a></span>R_ADC_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___a_d_c___a_p_i.html#structadc__callback__args__t">adc_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#structadc__callback__args__t">adc_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback. Implements <a class="el" href="group___a_d_c___a_p_i.html#a25d62d18aadd36fe959e71aa9e3d3dc5">adc_api_t::callbackSet</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Unit is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacbe5278dfaa19c55b516394c413b8050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacbe5278dfaa19c55b516394c413b8050">&#9670;&nbsp;</a></span>R_ADC_W_ScanStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_ScanStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function starts the software triggered scan.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Call R_ADC_W_ScanCfg after R_ADC_W_Open before starting a scan. </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Scan started. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>ADC_W is not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5102e2a84e2b6c1e094a14082ed8ade8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5102e2a84e2b6c1e094a14082ed8ade8">&#9670;&nbsp;</a></span>R_ADC_W_ScanGroupStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_ScanGroupStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaee17c30275c1c9376cc485a62ea121eb">adc_group_mask_t</a>&#160;</td>
+          <td class="paramname"><em>group_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="group___a_d_c___a_p_i.html#aeae126b8a09e1ec34e8e3afb4a3344ff">adc_api_t::scanGroupStart</a> is not supported on the ADC_W. Use scanStart instead.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Function not supported in this implementation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga16e461fdcad3d7ffa81aef339e1ab8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga16e461fdcad3d7ffa81aef339e1ab8e1">&#9670;&nbsp;</a></span>R_ADC_W_ScanStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_ScanStop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Immediately stops converters. This function will abort conversions.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Scan stopped. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Unit is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Unit is not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4aeba717dfb9aa49fe1760c2d6e95bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4aeba717dfb9aa49fe1760c2d6e95bba">&#9670;&nbsp;</a></span>R_ADC_W_StatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_StatusGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#structadc__status__t">adc_status_t</a> *&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Provides the status of any scan process that was started.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Module status stored in the provided pointer p_status. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga82c25362de833631a07d60befb6a9187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga82c25362de833631a07d60befb6a9187">&#9670;&nbsp;</a></span>R_ADC_W_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const&#160;</td>
+          <td class="paramname"><em>reg_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *const&#160;</td>
+          <td class="paramname"><em>p_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads conversion results from a channel register.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read into provided p_data. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Unit is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Unit is not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga33893deb25d8e90554191042ec864ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga33893deb25d8e90554191042ec864ea8">&#9670;&nbsp;</a></span>R_ADC_W_Read32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_Read32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const&#160;</td>
+          <td class="paramname"><em>reg_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *const&#160;</td>
+          <td class="paramname"><em>p_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads conversion results from a channel register into a 32-bit result.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read into provided p_data. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>ADC_W is not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaab82154b38aec95b16407329dcb379b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab82154b38aec95b16407329dcb379b1">&#9670;&nbsp;</a></span>R_ADC_W_InfoGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_InfoGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#structadc__info__t">adc_info_t</a> *&#160;</td>
+          <td class="paramname"><em>p_adc_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the address of the lowest number configured channel, determine the size of data that must be read.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Information stored in p_adc_info. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>ADC_W is not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4aa9b26b148c207a566f70db24115a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4aa9b26b148c207a566f70db24115a22">&#9670;&nbsp;</a></span>R_ADC_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function ends any scan or select mode in progress, disables interrupts, and removes power to the A/D peripheral.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Module closed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga58f350c7a42fb003299eac130e4e17be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58f350c7a42fb003299eac130e4e17be">&#9670;&nbsp;</a></span>R_ADC_W_Calibrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_Calibrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *&#160;</td>
+          <td class="paramname"><em>p_extend</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="group___a_d_c___a_p_i.html#a1020d90e58d3bf86cee2f46a62e62fc4">adc_api_t::calibrate</a> is not supported on the ADC_W.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Function not supported in this implementation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga50c3ffd511294899f542673842130fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50c3ffd511294899f542673842130fae">&#9670;&nbsp;</a></span>R_ADC_W_OffsetSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_OffsetSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const&#160;</td>
+          <td class="paramname"><em>reg_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="group___a_d_c___a_p_i.html#a305b2c2466cd88fdddf6134db542dc7e">adc_api_t::offsetSet</a> is not supported on the ADC_W.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Function not supported in this implementation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0745c5f9651e0dae96928009e35fb064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0745c5f9651e0dae96928009e35fb064">&#9670;&nbsp;</a></span>R_ADC_W_SensorWakeupcfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_SensorWakeupcfg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare ADC_W to enter sensor wakeup mode. This function must be called before entering sleep mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the ADC control block</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>ADC is configured to request sensor wakeup mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>ADC_W is not open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga90bb96fc2567d461edd80894c4dc2483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90bb96fc2567d461edd80894c4dc2483">&#9670;&nbsp;</a></span>R_ADC_W_FifoRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_ADC_W_FifoRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaff9488cd90102a90e5c5cbd45394d426">adc_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_d_c___a_p_i.html#gaafc4060027875f8fe46242b0656d7814">adc_channel_t</a> const&#160;</td>
+          <td class="paramname"><em>reg_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *const&#160;</td>
+          <td class="paramname"><em>p_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads conversion results from FIFO for the given channel. When reading multiple data from the FIFO, call this function repeatedly.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read into provided p_data. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Unit is not open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Unit not initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

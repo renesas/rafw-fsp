@@ -1,0 +1,943 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: CRC (r_crc_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___c_r_c___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">CRC (r_crc_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___m_o_n_i_t_o_r_i_n_g___m_o_d_u_l_e_s.html">Monitoring</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga7fe96a57031b54b80419caa0ca6b0596"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga7fe96a57031b54b80419caa0ca6b0596">R_CRC_W_Open</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl, <a class="el" href="group___c_r_c___a_p_i.html#structcrc__cfg__t">crc_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga7fe96a57031b54b80419caa0ca6b0596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06297fabd753e1a56395ceba44ee3268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga06297fabd753e1a56395ceba44ee3268">R_CRC_W_Close</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga06297fabd753e1a56395ceba44ee3268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01d859e9178cb2a4f01fcb378b4a2cc6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga01d859e9178cb2a4f01fcb378b4a2cc6">R_CRC_W_Calculate</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl, <a class="el" href="group___c_r_c___a_p_i.html#structcrc__input__t">crc_input_t</a> *const p_crc_input, uint32_t *p_calculatedValue)</td></tr>
+<tr class="separator:ga01d859e9178cb2a4f01fcb378b4a2cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77fb09dc34bc56123c23c81915b8e646"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga77fb09dc34bc56123c23c81915b8e646">R_CRC_W_CalculatedValueGet</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl, uint32_t *p_calculatedValue)</td></tr>
+<tr class="separator:ga77fb09dc34bc56123c23c81915b8e646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb445b2eaa058366d7dbeda15bd30dff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#gacb445b2eaa058366d7dbeda15bd30dff">R_CRC_W_SnoopEnable</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl, uint32_t crc_seed)</td></tr>
+<tr class="separator:gacb445b2eaa058366d7dbeda15bd30dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a49758fa3a4334f18ebd0b2aae2383a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga7a49758fa3a4334f18ebd0b2aae2383a">R_CRC_W_SnoopDisable</a> (<a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga7a49758fa3a4334f18ebd0b2aae2383a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the CRC peripheral on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___c_r_c___a_p_i.html">CRC Interface</a>. </p>
+<h1><a class="anchor" id="r-crc_w-overview"></a>
+Overview</h1>
+<p>The CRC module provides an API to calculate 16 and 32-bit CRC values on a block of data in memory or a data being transferred by the bus master (DMA) using industry-standard polynomials.</p>
+<h2><a class="anchor" id="r-crc_w-features"></a>
+Features</h2>
+<ul>
+<li>Support 8-bit, 16-bit, and 32-bit data paths.</li>
+<li>Be a master on the bus and can operate over a region of memory independent of the CPU.</li>
+<li>Support various methods of calculating the CRC as defined by the following generator polynomials.<ul>
+<li>X^16+X^15+X^2+1 (CRC-16-IBM)</li>
+<li>X^16+X^12+X^5+1 (CRC-16-CCITT)</li>
+<li>X^32+X^26+X^23+X^22+X^16+X^12+X^11+X^10+X^8+X^7+X^5+X^4+X^2+X+ 1 (CRC-32)</li>
+<li>X^32+X^28+X^27+X^26+X^25+X^23+X^22+X^20+X^19+X^18+X^14+X^13+X^11+X^10+X^9+X^8+X^6+1 (CRC-32C)</li>
+</ul>
+</li>
+</ul>
+<p><a class="anchor" id="um_crc_crc32_polynomial"></a><a class="anchor" id="um_crc_crc32c_polynomial"></a><a class="anchor" id="um_crc_crc16ccitt_polynomial"></a><a class="anchor" id="um_crc_crc16ibm_polynomial"></a><a class="anchor" id="um_crc_dma_read"></a><a class="anchor" id="um_crc_dma_write"></a> </p>
+<h1><a class="anchor" id="r-crc_w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for r_crc_w</h2>
+The following build time configurations are defined in fsp_cfg/r_crc_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>DMAC Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, DMAC instance will be included in the build. </td></tr>
+</table>
+ <h2>Configurations for Monitoring &gt; CRC (r_crc_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Monitoring &gt; CRC (r_crc_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_crc0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Channel</td><td>Value must be a non-negative integer</td><td>0 </td><td>Specifies the CRC calculation channel. </td></tr>
+<tr class="tree_none">
+<td>CRC Polynomial</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+CRC-32</li>
+<li>
+CRC-32C</li>
+<li>
+CRC-16 CCITT</li>
+<li>
+CRC-16 IBM</li>
+</ul>
+</td><td>CRC-32 </td><td>Select the CRC polynomial. </td></tr>
+<tr class="tree_none">
+<td>Input Data Swap Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Normal</li>
+<li>
+Byte Swap</li>
+</ul>
+</td><td>Normal </td><td>Input data swap enable. </td></tr>
+<tr class="tree_none">
+<td>Bit Endian Type</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Big Endian</li>
+<li>
+Little Endian</li>
+</ul>
+</td><td>Big Endian </td><td>Bit endian type. </td></tr>
+<tr class="tree_none">
+<td>Parallel Type</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+8 bits</li>
+<li>
+16 bits</li>
+<li>
+32 bits</li>
+</ul>
+</td><td>8 bits </td><td>Parallel type of CRC calculation. </td></tr>
+<tr class="tree_none">
+<td>Access Type</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Read access</li>
+<li>
+Write access</li>
+</ul>
+</td><td>Read access </td><td>Access type of CRC calculation. </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-crc_w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>There is no clock configuration for the CRC module.</p>
+<h2><a class="anchor" id="r-crc_w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="r-crc_w-usage_notes"></a>
+Usage Notes</h1>
+<h2><a class="anchor" id="r-crc_w-limitations"></a>
+Limitations</h2>
+<p>When using CRC32 polynomial functions the CRC module produces the same results as popular online CRC32 calculators, but it is important to remember a few important points.</p><ul>
+<li>Online CRC32 calculators usually invert the output prior to presenting it as a result. It is up to the application program to include this step if needed.</li>
+<li>The seed value of 0xFFFFFFFF needs to be used by both the online calculator and the R_CRC module API (CRC32 polynomials)</li>
+<li>Some online CRC tools XOR the final result with 0xFFFFFFFF.</li>
+</ul>
+<h1><a class="anchor" id="r-crc_w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the CRC module in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> crc_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    uint32_t length;</div><div class="line">    uint32_t calculated_value;</div><div class="line"></div><div class="line">    length = <span class="keyword">sizeof</span>(g_crc_data) / <span class="keyword">sizeof</span>(g_crc_data[0]);</div><div class="line"></div><div class="line">    <a class="code" href="group___c_r_c___a_p_i.html#structcrc__input__t">crc_input_t</a> example_input =</div><div class="line">    {</div><div class="line">        .<a class="code" href="group___c_r_c___a_p_i.html#a0b250255a080533eb07854cbfd9ca73b">p_input_buffer</a> = g_crc_data,</div><div class="line">        .num_bytes      = length,</div><div class="line">        .crc_seed       = 0,</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="comment">/* Open CRC module */</span></div><div class="line">    <a class="code" href="group___c_r_c___w.html#ga7fe96a57031b54b80419caa0ca6b0596">R_CRC_W_Open</a>(&amp;g_crc_ctrl, &amp;g_crc_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* CRC calculation and Read CRC value */</span></div><div class="line">    <a class="code" href="group___c_r_c___w.html#ga01d859e9178cb2a4f01fcb378b4a2cc6">R_CRC_W_Calculate</a>(&amp;g_crc_ctrl, &amp;example_input, &amp;calculated_value);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>DMA Example</h2>
+<p>This example demonstrates CRC DMA operation.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> g_dmac_callback (<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">dmac_callback_args_t</a> * cb_data)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(cb_data);</div><div class="line">    g_dmac_transfer_complete = <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> crc_dma_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    uint32_t length;</div><div class="line">    uint32_t calculated_value;</div><div class="line"></div><div class="line">    length = <span class="keyword">sizeof</span>(g_crc_data) / <span class="keyword">sizeof</span>(g_crc_data[0]);</div><div class="line"></div><div class="line">    <a class="code" href="group___c_r_c___a_p_i.html#structcrc__input__t">crc_input_t</a> example_input =</div><div class="line">    {</div><div class="line">        .<a class="code" href="group___c_r_c___a_p_i.html#a0b250255a080533eb07854cbfd9ca73b">p_input_buffer</a> = g_crc_data,</div><div class="line">        .num_bytes      = length,</div><div class="line">        .crc_seed       = 0,</div><div class="line">    };</div><div class="line"></div><div class="line">    g_dmac_transfer_complete = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="comment">/* Open CRC module */</span></div><div class="line">    <a class="code" href="group___c_r_c___w.html#ga7fe96a57031b54b80419caa0ca6b0596">R_CRC_W_Open</a>(&amp;g_crc_ctrl, &amp;g_crc_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* CRC calculation */</span></div><div class="line">    <a class="code" href="group___c_r_c___w.html#ga01d859e9178cb2a4f01fcb378b4a2cc6">R_CRC_W_Calculate</a>(&amp;g_crc_ctrl, &amp;example_input, NULL);</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (!g_dmac_transfer_complete);</div><div class="line"></div><div class="line">    <span class="comment">/* Read CRC value */</span></div><div class="line">    <a class="code" href="group___c_r_c___w.html#ga77fb09dc34bc56123c23c81915b8e646">R_CRC_W_CalculatedValueGet</a>(&amp;g_crc_ctrl, &amp;calculated_value);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structcrc__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#structcrc__w__instance__ctrl__t">crc_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structcrc__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structcrc__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#structcrc__w__extended__cfg__t">crc_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structcrc__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga087c70150bd598eaaad0ca39aef73406"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga087c70150bd598eaaad0ca39aef73406">crc_w_channel_t</a> </td></tr>
+<tr class="separator:ga087c70150bd598eaaad0ca39aef73406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8986a7b861731001230edebd9145e7d5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga8986a7b861731001230edebd9145e7d5">crc_w_polynomial_t</a> </td></tr>
+<tr class="separator:ga8986a7b861731001230edebd9145e7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c391b07ca8e46b7213af8c5b73958c0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga4c391b07ca8e46b7213af8c5b73958c0">crc_w_path_selection_t</a> </td></tr>
+<tr class="separator:ga4c391b07ca8e46b7213af8c5b73958c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f36b7ccc6f800b4c0d7236763cf9ede"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga2f36b7ccc6f800b4c0d7236763cf9ede">crc_w_swap_enable_t</a> </td></tr>
+<tr class="separator:ga2f36b7ccc6f800b4c0d7236763cf9ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cc259eb923f900c9e72fb9df1e6d70f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga4cc259eb923f900c9e72fb9df1e6d70f">crc_w_endian_type_t</a> </td></tr>
+<tr class="separator:ga4cc259eb923f900c9e72fb9df1e6d70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2bbb386f425604f16fa3d33a0852b74"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#gaf2bbb386f425604f16fa3d33a0852b74">crc_w_parallel_type_t</a> </td></tr>
+<tr class="separator:gaf2bbb386f425604f16fa3d33a0852b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga856b1c992d0d552d37667db3beffb963"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga856b1c992d0d552d37667db3beffb963">crc_w_access_type_t</a> </td></tr>
+<tr class="separator:ga856b1c992d0d552d37667db3beffb963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65822fcb518d1931529477451580763e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#ga65822fcb518d1931529477451580763e">crc_w_calculation_status_t</a> </td></tr>
+<tr class="separator:ga65822fcb518d1931529477451580763e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab66cc8c75d041e5639051476af35ad0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_r_c___w.html#gaab66cc8c75d041e5639051476af35ad0">crc_w_remap_address_0_t</a> </td></tr>
+<tr class="separator:gaab66cc8c75d041e5639051476af35ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structcrc__w__instance__ctrl__t" id="structcrc__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structcrc__w__instance__ctrl__t">&#9670;&nbsp;</a></span>crc_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct crc_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Driver instance control structure. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8b068c982c58eb2e9fe6505fd4e101f4"></a>uint32_t</td>
+<td class="fieldname">
+open</td>
+<td class="fielddoc">
+Whether or not driver is open. </td></tr>
+<tr><td class="fieldtype">
+<a id="a43f531ba2dc517c05e18255ff18acd14"></a>const <a class="el" href="group___c_r_c___a_p_i.html#structcrc__cfg__t">crc_cfg_t</a> *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to initial configuration. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structcrc__w__extended__cfg__t" id="structcrc__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structcrc__w__extended__cfg__t">&#9670;&nbsp;</a></span>crc_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct crc_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Extended configuration. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae7971d078dc8a35f2526f004d487b235"></a><a class="el" href="group___c_r_c___w.html#ga087c70150bd598eaaad0ca39aef73406">crc_w_channel_t</a></td>
+<td class="fieldname">
+channel</td>
+<td class="fielddoc">
+CRC channel. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8b0ea33c1900360637bfe87b3fa82f88"></a><a class="el" href="group___c_r_c___w.html#ga8986a7b861731001230edebd9145e7d5">crc_w_polynomial_t</a></td>
+<td class="fieldname">
+polynomial</td>
+<td class="fielddoc">
+CRC Generating Polynomial. </td></tr>
+<tr><td class="fieldtype">
+<a id="af45c9091bacc054f55782315fce547b1"></a><a class="el" href="group___c_r_c___w.html#ga2f36b7ccc6f800b4c0d7236763cf9ede">crc_w_swap_enable_t</a></td>
+<td class="fieldname">
+swap_enable</td>
+<td class="fielddoc">
+Input Data Swap Enable. </td></tr>
+<tr><td class="fieldtype">
+<a id="a13d5b3420c58022da16ee43cd2ad77cf"></a><a class="el" href="group___c_r_c___w.html#ga4cc259eb923f900c9e72fb9df1e6d70f">crc_w_endian_type_t</a></td>
+<td class="fieldname">
+endian_type</td>
+<td class="fielddoc">
+Bit Endian Type. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae9fbc1fb01a784a12b70bdb0ae8b2119"></a><a class="el" href="group___c_r_c___w.html#gaf2bbb386f425604f16fa3d33a0852b74">crc_w_parallel_type_t</a></td>
+<td class="fieldname">
+parallel_type</td>
+<td class="fielddoc">
+Parallel Type of CRC Calculation. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4a4b1e3ed8a0b66f68e852fa4cfea4ef"></a><a class="el" href="group___c_r_c___w.html#ga856b1c992d0d552d37667db3beffb963">crc_w_access_type_t</a></td>
+<td class="fieldname">
+access_type</td>
+<td class="fielddoc">
+Access Type of CRC Calculation. </td></tr>
+<tr><td class="fieldtype">
+<a id="a894cd5d800eb409879b669fe429d4907"></a><a class="el" href="group___c_r_c___w.html#ga4c391b07ca8e46b7213af8c5b73958c0">crc_w_path_selection_t</a></td>
+<td class="fieldname">
+path_selection</td>
+<td class="fielddoc">
+Path Selection of CRC Calculation. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2f30d62f3ce1dd9021028f0ac810ab22"></a><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> const  *</td>
+<td class="fieldname">
+p_transfer</td>
+<td class="fielddoc">
+DMAC instance. Set to NULL if unused. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga087c70150bd598eaaad0ca39aef73406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga087c70150bd598eaaad0ca39aef73406">&#9670;&nbsp;</a></span>crc_w_channel_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga087c70150bd598eaaad0ca39aef73406">crc_w_channel_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>CRC channel. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga087c70150bd598eaaad0ca39aef73406a5cabdbce884ee8ab97c78d16582d1aaf"></a>CRC_W_CHANNEL_0&#160;</td><td class="fielddoc"><p>CRC channel 0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga087c70150bd598eaaad0ca39aef73406ad93264e5c121c180671277fd2fbb06bb"></a>CRC_W_CHANNEL_1&#160;</td><td class="fielddoc"><p>CRC channel 1. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga8986a7b861731001230edebd9145e7d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8986a7b861731001230edebd9145e7d5">&#9670;&nbsp;</a></span>crc_w_polynomial_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga8986a7b861731001230edebd9145e7d5">crc_w_polynomial_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>CRC Generating Polynomial. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga8986a7b861731001230edebd9145e7d5a9a3c151873412b559576d605a8722025"></a>CRC_W_POLYNOMIAL_CRC_32&#160;</td><td class="fielddoc"><p>32-bit CRC-32 </p>
+<p>X^32 + X^26 + X^23 + X^22 + X^16 + X^12 + X^11 + X^10 + X^8 + X^7 + X^5 + X^4 + X^2 + X + 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8986a7b861731001230edebd9145e7d5a43f32c6bc264e045f6e885a46628724e"></a>CRC_W_POLYNOMIAL_CRC_32C&#160;</td><td class="fielddoc"><p>32-bit CRC-32C </p>
+<p>X^32 + X^28 + X^27 + X^26 + X^25 + X^23 + X^22 + X^20 + X^19 + X^18 + X^14 + X^13 + X^11 + X^10 + X^9 + X^8 + X^6 + 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8986a7b861731001230edebd9145e7d5aeb18e0d97d9778c3e4cc8b656b7ccef7"></a>CRC_W_POLYNOMIAL_CRC_16_CCITT&#160;</td><td class="fielddoc"><p>16-bit CRC-16-CCITT </p>
+<p>X^16 + X^12 + X^5 + 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8986a7b861731001230edebd9145e7d5afb3586ac9cfb0e912cf28e3f95b74d6b"></a>CRC_W_POLYNOMIAL_CRC_16_IBM&#160;</td><td class="fielddoc"><p>16-bit CRC-16-IBM </p>
+<p>X^16 + X^15 + X^2 + 1 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4c391b07ca8e46b7213af8c5b73958c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4c391b07ca8e46b7213af8c5b73958c0">&#9670;&nbsp;</a></span>crc_w_path_selection_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga4c391b07ca8e46b7213af8c5b73958c0">crc_w_path_selection_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4c391b07ca8e46b7213af8c5b73958c0a2779c8eb579d5275aec87fa2daa55c4d"></a>CRC_W_PATH_SELECT_CPU&#160;</td><td class="fielddoc"><p>CPU. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga4c391b07ca8e46b7213af8c5b73958c0aeaf59d57057d2cfba1f390d6ffbcd9c9"></a>CRC_W_PATH_SELECT_DMA&#160;</td><td class="fielddoc"><p>DMA. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga2f36b7ccc6f800b4c0d7236763cf9ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2f36b7ccc6f800b4c0d7236763cf9ede">&#9670;&nbsp;</a></span>crc_w_swap_enable_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga2f36b7ccc6f800b4c0d7236763cf9ede">crc_w_swap_enable_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga2f36b7ccc6f800b4c0d7236763cf9edeab04c408ddea5c3708870fc03aba24443"></a>CRC_W_SWAP_NORMAL&#160;</td><td class="fielddoc"><p>Data swap normal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga2f36b7ccc6f800b4c0d7236763cf9edea309315784236b9eb39496f86b79f708c"></a>CRC_W_SWAP_BYTE&#160;</td><td class="fielddoc"><p>Data swap byte. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4cc259eb923f900c9e72fb9df1e6d70f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4cc259eb923f900c9e72fb9df1e6d70f">&#9670;&nbsp;</a></span>crc_w_endian_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga4cc259eb923f900c9e72fb9df1e6d70f">crc_w_endian_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4cc259eb923f900c9e72fb9df1e6d70fa0b3c992b463366acb74bde53b668a019"></a>CRC_W_ENDIAN_BIG&#160;</td><td class="fielddoc"><p>Big endian. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga4cc259eb923f900c9e72fb9df1e6d70fa0c414e9c904a91f6310a71d2f0cca5a8"></a>CRC_W_ENDIAN_LITTLE&#160;</td><td class="fielddoc"><p>Little endian. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaf2bbb386f425604f16fa3d33a0852b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2bbb386f425604f16fa3d33a0852b74">&#9670;&nbsp;</a></span>crc_w_parallel_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#gaf2bbb386f425604f16fa3d33a0852b74">crc_w_parallel_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaf2bbb386f425604f16fa3d33a0852b74ab8b1809aa837b1cdbca0d89677c32966"></a>CRC_W_PARALLEL_TYPE_8&#160;</td><td class="fielddoc"><p>8 bit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2bbb386f425604f16fa3d33a0852b74ac79b177fa65d646ae6b4caf4a9639694"></a>CRC_W_PARALLEL_TYPE_16&#160;</td><td class="fielddoc"><p>16 bit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2bbb386f425604f16fa3d33a0852b74ab3bd369fa8b5b37fac656284e5991b45"></a>CRC_W_PARALLEL_TYPE_32&#160;</td><td class="fielddoc"><p>32 bit </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga856b1c992d0d552d37667db3beffb963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga856b1c992d0d552d37667db3beffb963">&#9670;&nbsp;</a></span>crc_w_access_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga856b1c992d0d552d37667db3beffb963">crc_w_access_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga856b1c992d0d552d37667db3beffb963a8a19392addb7c4f67718c967aabbb396"></a>CRC_W_ACCESS_TYPE_READ&#160;</td><td class="fielddoc"><p>Read access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga856b1c992d0d552d37667db3beffb963a22fd70946278524391e3c93387e30424"></a>CRC_W_ACCESS_TYPE_WRITE&#160;</td><td class="fielddoc"><p>Write access. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga65822fcb518d1931529477451580763e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga65822fcb518d1931529477451580763e">&#9670;&nbsp;</a></span>crc_w_calculation_status_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#ga65822fcb518d1931529477451580763e">crc_w_calculation_status_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga65822fcb518d1931529477451580763ea06e3e4fdc4ed1c32b07cb90a7803d91b"></a>CRC_W_CAL_STATUS_IDLE&#160;</td><td class="fielddoc"><p>CRC calculation status idle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga65822fcb518d1931529477451580763ea75158565df75b05834590fb68a1ed49b"></a>CRC_W_CAL_STATUS_BUSY&#160;</td><td class="fielddoc"><p>CRC calculation status busy. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga65822fcb518d1931529477451580763ea8e16e015da02631965647a014e9880a5"></a>CRC_W_CAL_STATUS_STOP&#160;</td><td class="fielddoc"><p>CRC calculation status stop. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga65822fcb518d1931529477451580763ea4585dfb78f2236d2bcdaea9bfe8ad1e8"></a>CRC_W_CAL_STATUS_ERROR&#160;</td><td class="fielddoc"><p>CRC calculation status error. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaab66cc8c75d041e5639051476af35ad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab66cc8c75d041e5639051476af35ad0">&#9670;&nbsp;</a></span>crc_w_remap_address_0_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_r_c___w.html#gaab66cc8c75d041e5639051476af35ad0">crc_w_remap_address_0_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remap address 0. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaab66cc8c75d041e5639051476af35ad0af7158bc5683cd3f6e53661d547395a1b"></a>CRC_W_REMAP_ADDRESS_0_TO_ROM&#160;</td><td class="fielddoc"><p>ROM. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaab66cc8c75d041e5639051476af35ad0ae2366642766705252f2feaf9d2060502"></a>CRC_W_REMAP_ADDRESS_0_TO_OQSPI_FLASH&#160;</td><td class="fielddoc"><p>OQSPI. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaab66cc8c75d041e5639051476af35ad0acd176368afbeeeb64485ea0f71ab9698"></a>CRC_W_REMAP_ADDRESS_0_TO_RAM&#160;</td><td class="fielddoc"><p>RAM. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga7fe96a57031b54b80419caa0ca6b0596"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fe96a57031b54b80419caa0ca6b0596">&#9670;&nbsp;</a></span>R_CRC_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#structcrc__cfg__t">crc_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open the CRC driver module</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#ad1c70317b3a73fc3cb102e6c673111be">crc_api_t::open</a></p>
+<p>Open the CRC driver module and initialize the driver control block according to the passed-in configuration structure.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_ctrl or p_cfg is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>Module already open </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>CRC is busy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> for other possible return codes. This function internally calls <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a84d48960cdfe867ef54fd4635a85ceeb">transfer_api_t::open</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ga06297fabd753e1a56395ceba44ee3268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06297fabd753e1a56395ceba44ee3268">&#9670;&nbsp;</a></span>R_CRC_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the CRC module driver.</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#a7783105d71a3cf701d7928cba9585e6d">crc_api_t::close</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_ctrl is NULL. Status of CRC calculation is ERROR. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>CRC is not stopped. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga01d859e9178cb2a4f01fcb378b4a2cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01d859e9178cb2a4f01fcb378b4a2cc6">&#9670;&nbsp;</a></span>R_CRC_W_Calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_Calculate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#structcrc__input__t">crc_input_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_crc_input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>p_calculatedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perform a CRC calculation on a block of data.</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#ababb93aa2ede5ba3d5750bd3203ce7e3">crc_api_t::calculate</a></p>
+<p>If not using DMA, returns the calculated CRC value. If using DMA, use <a class="el" href="group___c_r_c___w.html#ga77fb09dc34bc56123c23c81915b8e646">R_CRC_W_CalculatedValueGet</a> to get the calculated value.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Calculation successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Either p_ctrl, inputBuffer, or p_calculatedValue is NULL. Status of CRC calculation is ERROR. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>length value is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>CRC is not stopped. CRC is busy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga77fb09dc34bc56123c23c81915b8e646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77fb09dc34bc56123c23c81915b8e646">&#9670;&nbsp;</a></span>R_CRC_W_CalculatedValueGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_CalculatedValueGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>p_calculatedValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the calculated value.</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#a0c748a9f3b2eb21585c97e3493f285ac">crc_api_t::crcResultGet</a></p>
+<p>CRC calculation operates on a running value. This function returns the current calculated value.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Return of calculated value successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Either p_ctrl or p_calculatedValue is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>CRC calculation is not stopped. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacb445b2eaa058366d7dbeda15bd30dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb445b2eaa058366d7dbeda15bd30dff">&#9670;&nbsp;</a></span>R_CRC_W_SnoopEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_SnoopEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>crc_seed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configure the snoop channel and set the CRC seed.</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#a4d4efcfb06b59c92801320f31e8f2eb7">crc_api_t::snoopEnable</a></p>
+<p>The CRC calculator can operate on reads and writes over any of the first ten SCI channels. For example, if set to channel 0, transmit, every byte written out SCI channel 0 is also sent to the CRC calculator as if the value was explicitly written directly to the CRC calculator.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SNOOP operation is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7a49758fa3a4334f18ebd0b2aae2383a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a49758fa3a4334f18ebd0b2aae2383a">&#9670;&nbsp;</a></span>R_CRC_W_SnoopDisable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_CRC_W_SnoopDisable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___c_r_c___a_p_i.html#ga4c9c5ebe6bb4522f76618993434459e0">crc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable snooping.</p>
+<p>Implements <a class="el" href="group___c_r_c___a_p_i.html#ab171c85217e275bda7426309bd832b02">crc_api_t::snoopDisable</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SNOOP operation is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

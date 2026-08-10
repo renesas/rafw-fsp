@@ -1,0 +1,490 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: AWSIOT_W Application (rm_awsiot_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___a_w_s_i_o_t___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a>  </div>
+  <div class="headertitle">
+<div class="title">AWSIOT_W Application (rm_awsiot_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___m_o_d_u_l_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaefdda2c08f0a8afde357c7b05fea90f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_w_s_i_o_t___w.html#gaefdda2c08f0a8afde357c7b05fea90f3">RM_AWSIOT_W_Open</a> (awsiot_w_ctrl_t *const p_ctrl, <a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html#structrm__awsiot__w__app__cfg__t">rm_awsiot_w_app_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:gaefdda2c08f0a8afde357c7b05fea90f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fd84e9d1bc1f3aca232307b4c0f30e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_w_s_i_o_t___w.html#ga0fd84e9d1bc1f3aca232307b4c0f30e5">RM_AWSIOT_W_Close</a> (awsiot_w_ctrl_t *const p_ctrl)</td></tr>
+<tr class="separator:ga0fd84e9d1bc1f3aca232307b4c0f30e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Application stack for the AWSIOT_W on RAFW. This module implements the <a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html">AWSIOT_W Application (rm_awsiot_w)</a>. </p>
+<h1><a class="anchor" id="rm-awsiot-w-app-overview"></a>
+Overview</h1>
+<p>The AWSIOT_W platform reference application provides a demonstration of an use case such as a door lock using the AWSIOT_W services provided by Amazon. AWSIOT_W is implemented using the MQTT protocol and utilizes the platform provided by Amazon. MQTT (Message Queue Telemetry Transport) is an ISO standard (ISO/IEC PRF 20922) publish-subscribe-based messaging protocol. It works on top of the TCP/IP protocol. The publisher sends (PUBLISH) messages to the subscriber through the broker. The subscriber needs to keep the connection with the broker by TCP session while the publisher can disconnect the session with the broker after sending a message. Once the broker receives a message with a specific topic the message is sent to subscribers that already registered with the topic. A subscriber can register with more than one topic. There can be many or no subscribers which registered with a specific topic. The exchange of MQTT messages supports QoS (Quality of Service). Various applications can be implemented for the AWSIOT_W platform by following this reference applicaiton.</p>
+<h2><a class="anchor" id="rm-awsiot-w-app-features"></a>
+Features</h2>
+<p>The MQTT Port module has the following key features:</p><ul>
+<li>Publish message</li>
+<li>Subscribe message</li>
+<li>QoS</li>
+</ul>
+<h1><a class="anchor" id="rm-awsiot-w-app-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_awsiot_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_awsiot_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Sleep3(DPM) Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable when using the Sleep3(DPM) Mode. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W MQTT Receive No Connected Maximum Timeout (ms)</td><td>Timeout must be an integer greater than or equal to 2000 and less than 65535</td><td>2000 </td><td>Timeout for the AWSIOT_W MQTT Receive function to check the buffer for incoming MQTT messages in milliseconds when not being connected. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W MQTT Receive Connected Maximum Timeout (ms)</td><td>Timeout must be an integer greater than or equal to 120 and less than 65535</td><td>120 </td><td>Timeout for the AWSIOT_W MQTT Receive function to check the buffer for incoming MQTT messages in milliseconds when being connected. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W MQTT Receive Sleep Maximum Timeout (ms)</td><td>Timeout must be an integer greater than or equal to 20 and less than 65535</td><td>20 </td><td>Timeout for the AWSIOT_W MQTT Receive function to check the buffer for incoming MQTT messages in milliseconds when going to sleep. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Clean Session</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable when using the clean session. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Keep Alive (s)</td><td>Must be an integer greater than 10 and less than 65535</td><td>1800 </td><td>MQTT ping period to check if connection is still active. </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Thing Name</td><td>Manual Entry</td><td>RRQ61x00 </td><td>Thing Name for AWSIOT_W Connection </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Host Name</td><td>Manual Entry</td><td>a1kzdt4nun8bnh-ats.iot.ap-northeast-2.amazonaws.com </td><td>Host Name for AWSIOT_W Connection </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W ROOT CA Certificate</td><td>Manual Entry</td><td>-----BEGIN CERTIFICATE-----/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC/G/wkjUu0yKGX9rbxenDI/msv0tadQ1wUs+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy<br />
+-----END CERTIFICATE-----<br />
+</td><td>AWS root CA Certificate </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Client Certificate</td><td>Manual Entry</td><td>-----BEGIN CERTIFICATE-----/Qq2E9ZleQWN2Gk/iPw2GMA0GCSqGSIb3DQEB/AbN7xxXgAslyB14/MPUjrpgPSnrbHcLwhOpKILoHiLO6CTqfXv/pxcXyh0UCHpp1PF63m0vmYYuA+m09GLkqdxWGz2wgKokSa8pMO/otTA+uh8y/7q5fuASGywZR5WeutH8yjw4ui5Il+66S2yUifsCDrNgsmfTIZdta4cV+tv/dFnNzRT3DLm8FJH7RD60jHiYoZQFNHWuSH98cAg3RSyuRnHx9mmD+O8jKyZ6D/7NAgMBAAGjYDBeMB8GA1UdIwQYMBaAFL6HYMtZyM54cz3RAAzyR1zF7+1TMB0G/TBBMP6Cz/qU3ljAMBgNVHRMBAf8EAjAAMA4GA1Ud/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAp9tbJ4GOFoX11trWKc/HTfdb+2ZEmxDA0bN+WDdCppQHocYoNt8h6X+Mh0h2hnfB2hPQwDX+2B4XgPZutim++8J7DHQbfHAGZwiAFN/Owx0+iO2Be7w30+CO4wes8RH5pNIOK2QrKgr9NJkA==<br />
+-----END CERTIFICATE-----<br />
+</td><td>AWS client certificate </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W Client Private key</td><td>Manual Entry</td><td>-----BEGIN RSA PRIVATE KEY-----/6cXF8odFAh6adTxet5tL5mGLgLnkYFtt7Iyj10T8hpxT1Yxp7TYZRblw+6uX7gEhssGUeVnrrR/Mo8+1xxFbhTCKxOTdp317utgl+BjppqBeIh9MOhSDZldH9LEHC0u9/rbwkf3RZzc0U9wy5vBSR+0Q+tIx4mKGUB/fHAIN0UsrkZx8fZpg/jvIysmeg6/+zQIDAQABAoIBADfE6fy/4xFj2fZF/ZpSlg0xnG8pYz0BP/5bhfSg/J32rjmWD+rmBB7xWFY1FsRiGBSL/07H9c0Tz+TksWLy6pf981zbZQxIdY5Bfg+YGtmtXJ+8SQi3FSRwDdbpyoLokUf1YaH/fAxF5F1/mD0tgUSkUptRXu879mpA5+uYD+Q/29Kq+tUNtmBdzY8gcmWr2h859x3R6wpybbYJt5KWK4NT/7yOGf8y2QJLfjW08qBAATnYZuZySrV7rNK5kxenGueZl2t52NCa/7n+cbkQbkSBmcJph8x0949c/HJ2U6xcMmwR8G4Jnlwe+w3expwKnNlpNXaZ+mm2BeXvyPJCgN/BMkDhU1xyDQBscCYrD9q41IU318CTmH6iExoUwv6NNuyOsFd+MeHpgAdfvGf1HNd77ZOgZdQI6k0w9HuMnctnO2U58z+1P0VJL6sJaP0actt58g2U4C4m73A+lEZbxVCFZNyetXQIsjTMKJ8g5PesyR8+Q/Af4fBldkcZtHIxK9uqkCgYAaqpmQwac7Bx4Xdb9NSm/wI3MUFmdg7ZM2gqJ1/9Oa4ghAiZeplYYz0sNZVWjrF68/FVNypzpfjxj5X0X+4S5UNwxGHw4cZJwAvOkkeApV3WlBSZFbbGzIxrVy79O+2HZZVSXtgsCS/fzsFjMWYpeNRX3+9wtFfGCfxoygGW0JvOyY/m7JdyOcWdbf54nhzcEqjRv1DhCA==<br />
+-----END RSA PRIVATE KEY-----<br />
+</td><td>AWS client's private key </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W MQTT Port</td><td>Must be an integer greater than 0 and less than 65535</td><td>443 </td><td>AWSIOT_W HUB endpoint port </td></tr>
+<tr class="tree_none">
+<td>SSL MAX Content Length</td><td>Must be an integer greater than 0 and less than 65535</td><td>8192 </td><td>Incoming and outgoing TLS buffer size </td></tr>
+<tr class="tree_none">
+<td>AWSIOT_W OTA RTOS NAME</td><td>Manual Entry</td><td>rm_awsiot_w_wifi_test_app.img </td><td>RTOS Name for AWSIOT_W OTA </td></tr>
+</table>
+ <h2>Configurations for Networking &gt; AWS IoT port layer (rm_awsiot_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Networking &gt; AWS IoT port layer (rm_awsiot_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> General  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Name</td><td>Name must be a valid C symbol</td><td>g_awsiot_w0 </td><td>Module name </td></tr>
+</table>
+</p>
+<h1><a class="anchor" id="rm-awsiot-w-app-clock-configuration"></a>
+Clock Configuration</h1>
+<p>This module has no required clock configurations.</p>
+<h2><a class="anchor" id="rm-awsiot-w-app-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-awsiot-w-app-usage_notes"></a>
+Usage Notes</h1>
+<p>Refer to <a class="el" href="group___w_i_f_i.html">WIFI (rm_wifi)</a>.</p>
+<ul>
+<li>This module is not a standalone module - ensure that the WiFi module APIs are invoked first to configure the RAFW module and connect to an Access Point before using the MQTT module where the default buffer size for incoming TLS is 8KB and outgoing TLS is 8KB.</li>
+<li>When the user intends to use secure TLS in their application, they need to provide certificates (root certificate authority, client certificate, and private key) in a header file</li>
+<li>The user must provide certificate macro names in the FSP Configurator properties, as well as the name of the header file (to link the module, certificates, and header together)</li>
+<li>If the user provides these credentials in the Configurator, they must create a new header file in their /src/ folder with the same name as they provided in the Configurator properties. When the code is generated, a build error will occur if the header file is not created</li>
+</ul>
+<h2><a class="anchor" id="rm-awsiot-w-app-limitations"></a>
+Limitations</h2>
+<p>Refer to <a class="el" href="group___w_i_f_i.html">WIFI (rm_wifi)</a>.</p>
+<ul>
+<li>The thing name must be set for AWSIOT_W connection.</li>
+<li>For publish/subscribe topics, a separate QoS level cannot be set per topic - only one QoS level can be set which applies to all messages</li>
+<li>Currently the module only supports secure MQTT/TLS with certificates (root CA, client certificate, and private key).</li>
+</ul>
+<h1><a class="anchor" id="rm-awsiot-w-app-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the AWSIOT_W application.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> rm_awsiot_w_example(<span class="keywordtype">void</span>) { </div><div class="line">    <a class="code" href="group___w_i_f_i.html#ga2c660a142a5efa7c5af31f79dfcb6b07">rm_wifi_open</a>(&amp;g_wifi_cfg);</div><div class="line">    vTaskDelay(portCONVERT_MS_2_TICKS(200)); </div><div class="line"></div><div class="line">    <a class="code" href="group___a_w_s_i_o_t___w.html#gaefdda2c08f0a8afde357c7b05fea90f3">RM_AWSIOT_W_Open</a>(&amp;g_rm_awsiot_w_app_ctrl, &amp;g_rm_awsiot_w_app_cfg);</div><div class="line">    <span class="keywordflow">while</span> (1)</div><div class="line">    {</div><div class="line">        vTaskDelay(portCONVERT_MS_2_TICKS(100)); </div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structrm__awsiot__w__app__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_w_s_i_o_t___w.html#structrm__awsiot__w__app__instance__ctrl__t">rm_awsiot_w_app_instance_ctrl_t</a></td></tr>
+<tr class="separator:structrm__awsiot__w__app__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structrm__awsiot__w__app__instance__ctrl__t" id="structrm__awsiot__w__app__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__awsiot__w__app__instance__ctrl__t">&#9670;&nbsp;</a></span>rm_awsiot_w_app_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_awsiot_w_app_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>AWSIOT_W control structure. DO NOT INITIALIZE. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af458a220944fb4def6bab79144673efe"></a><a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html#structrm__awsiot__w__app__cfg__t">rm_awsiot_w_app_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to initial configurations. </td></tr>
+<tr><td class="fieldtype">
+<a id="a73891e6ae05c4cb194889c8331a5df4d"></a>uint32_t</td>
+<td class="fieldname">
+open</td>
+<td class="fielddoc">
+Indicates whether the <a class="el" href="group___a_w_s_i_o_t___w.html#a73891e6ae05c4cb194889c8331a5df4d" title="Indicates whether the open() API has been successfully called. ">open()</a> API has been successfully called. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae48879bf8e5531b84354456a996d4121"></a>void const  *</td>
+<td class="fieldname">
+p_context</td>
+<td class="fielddoc">
+Placeholder for user data. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaefdda2c08f0a8afde357c7b05fea90f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaefdda2c08f0a8afde357c7b05fea90f3">&#9670;&nbsp;</a></span>RM_AWSIOT_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_AWSIOT_W_Open </td>
+          <td>(</td>
+          <td class="paramtype">awsiot_w_ctrl_t *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html#structrm__awsiot__w__app__cfg__t">rm_awsiot_w_app_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize the AWSIOT_W service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to AWSIOT_W instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to AWSIOT_W configuration structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>AWSIOT_W instance is already opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The p_cfg instance is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>Heap is too small or NULL to create a AWSIOT_W task. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0fd84e9d1bc1f3aca232307b4c0f30e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fd84e9d1bc1f3aca232307b4c0f30e5">&#9670;&nbsp;</a></span>RM_AWSIOT_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_AWSIOT_W_Close </td>
+          <td>(</td>
+          <td class="paramtype">awsiot_w_ctrl_t *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the AWSIOT_W service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to AWSIOT_W instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The p_cfg instance is NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: PMGR_W (rm_pmgr_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___p_m_g_r___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">PMGR_W (rm_pmgr_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___p_o_w_e_r___m_o_d_u_l_e_s.html">Power</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaef818aad6692d20986c00da2eaa47f94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gaef818aad6692d20986c00da2eaa47f94">RM_PMGR_W_notifier_unregister</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, uint32_t notifier_id)</td></tr>
+<tr class="separator:gaef818aad6692d20986c00da2eaa47f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a70567318512a9933e374df5c4e9e0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga5a70567318512a9933e374df5c4e9e0e">RM_PMGR_W_set_wake_source</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, <a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a> wake_source)</td></tr>
+<tr class="separator:ga5a70567318512a9933e374df5c4e9e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cda1d043b46b894a8302ab1098d33e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga4cda1d043b46b894a8302ab1098d33e1">RM_PMGR_W_clr_wake_source</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, <a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a> wake_source)</td></tr>
+<tr class="separator:ga4cda1d043b46b894a8302ab1098d33e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3eb4abe354845a526a709249566df80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gaf3eb4abe354845a526a709249566df80">RM_PMGR_W_get_wake_source</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, <a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a> *wake_source)</td></tr>
+<tr class="separator:gaf3eb4abe354845a526a709249566df80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga694c5138ca7de4aecbce5e72b656f156"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga694c5138ca7de4aecbce5e72b656f156">RM_PMGR_W_force</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, <a class="el" href="group___p_m_g_r___w.html#gade51e42a4fa37c52feff9496d9f6d715">pmgr_lld_power_mode_t</a> mode, uint64_t idle_time_us)</td></tr>
+<tr class="memdesc:ga694c5138ca7de4aecbce5e72b656f156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a specific power mode, overriding the Power Manager (PMGR) decision making. This function allows an application to force a low-power sleep mode. The behavior depends on the desired power mode and the provided idle_time_us value.  <a href="#ga694c5138ca7de4aecbce5e72b656f156">More...</a><br /></td></tr>
+<tr class="separator:ga694c5138ca7de4aecbce5e72b656f156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77c2c0b3e3646c53470eb194bfb771e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga77c2c0b3e3646c53470eb194bfb771e5">RM_PMGR_W_get_sleep_constraint_counter</a> (<a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const p_ctrl, <a class="el" href="group___p_m_g_r___a_p_i.html#ga8c1cb316570c6989413f688cf79e11df">pmgr_constraints_t</a> constraint, uint8_t *counter)</td></tr>
+<tr class="separator:ga77c2c0b3e3646c53470eb194bfb771e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c750aa12509ef4faacd365cd2031b26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a> (void)</td></tr>
+<tr class="separator:ga9c750aa12509ef4faacd365cd2031b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Middleware Power Modes on RAfW MCUs. This module implements the <a class="el" href="group___p_m_g_r___a_p_i.html">PMGR Interface</a>. </p>
+<h1><a class="anchor" id="rm-pmgr-w-overview"></a>
+Overview</h1>
+<p>The power management architecture and implementation of each chip or modem defines different power modes, ending up with uncorrelated power mode for different chips on Renesas portfolio. Due to the complexity of the connectivity protocols, new power save mode can be developed per specific use-case and customer application topology. The customer doesn’t need to define power mode nor should a customer be fully familiarized with all modes supported by every chip used by customer solution. The customer should only define constraint and abstract application mode of operation. It is the responsibility of the chip manufacturer (and FSP instance developer) to translate customer abstract application level definition of power requirements to the internal power mode for current technology.</p>
+<h2><a class="anchor" id="rm-pmgr-w-features"></a>
+Features</h2>
+<ul>
+<li>Add / remove constraint</li>
+<li>Set /clear wake source</li>
+<li>Force mode</li>
+<li>Register / unregister application</li>
+<li>Open / close PMGR driver module</li>
+<li>Enter idle for wanted time</li>
+</ul>
+<h1><a class="anchor" id="rm-pmgr-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_pmgr_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_pmgr_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> SSL Options  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">PMGR_SSL_DPM_SUPPORT</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Undefine</li>
+<li>
+Define</li>
+</ul>
+</td><td>Define </td><td>Enable DPM support. </td></tr>
+<tr class="tree_none">
+<td>MAX_NOTIFIER_ARRAY Value</td><td>Manual Entry</td><td>5 </td><td>Number of registered applications </td></tr>
+</table>
+</p>
+<dl class="section note"><dt>Note</dt><dd>Tickless Idle must set to 2 in the FreeRTOS thread config under Common|General|Use Tickless Idle.</dd></dl>
+<h2><a class="anchor" id="rm-pmgr-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>This module has no required clock configurations.</p>
+<h2><a class="anchor" id="rm-pmgr-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-pmgr-w-cli"></a>
+CLI command</h1>
+<p>The PMGR module have the next cli commands:</p>
+<ul>
+<li>status - PMGR show status</li>
+<li>add_constraint - PMGR add constraint [constraint: PMGR_CONSTRAINT_NON, PMGR_CONSTRAINT_SLEEP_PROHIBITED, PMGR_CONSTRAINT_POWER_MAC_HW, PMGR_CONSTRAINT_POWER_RAM, PMGR_CONSTRAINT_POWER_RETENTION]</li>
+<li>remove_constraint - PMGR remove constraint [constraint: PMGR_CONSTRAINT_NON, PMGR_CONSTRAINT_SLEEP_PROHIBITED, PMGR_CONSTRAINT_POWER_MAC_HW, PMGR_CONSTRAINT_POWER_RAM, PMGR_CONSTRAINT_POWER_RETENTION]</li>
+<li>set_wake_source - PMGR set wake source [wake_source: PMGR_WAKE_SOURCE_RTC, PMGR_WAKE_SOURCE_GPT, PMGR_WAKE_SOURCE_ADC, PMGR_WAKE_SOURCE_WIFI, PMGR_WAKE_SOURCE_BLE]</li>
+<li>clear_wake_source - PMGR clear wake source [wake_source: PMGR_WAKE_SOURCE_RTC, PMGR_WAKE_SOURCE_GPT, PMGR_WAKE_SOURCE_ADC, PMGR_WAKE_SOURCE_WIFI, PMGR_WAKE_SOURCE_BLE]</li>
+<li>force - PMGR force [state: PMGR_LLD_STATE2, PMGR_LLD_STATE3, PMGR_LLD_DPM, PMGR_LLD_STATE4, PMGR_LLD_CPU_CLOCK_GATING, PMGR_LLD_AUTO - for cancel]</li>
+</ul>
+<h1><a class="anchor" id="rm-pmgr-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the PMGR in an application.</p>
+<h3>Open / Close PMGR Driver Module</h3>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> rm_pmgr_open_close_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = RM_PMGR_W_Open(&amp;g_pmgr_ctrl, &amp;g_pmgr_cfg_tin);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    err = RM_PMGR_W_Close(&amp;g_pmgr_ctrl);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div></div><!-- fragment --><h3>Register / Unregister Application</h3>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> tin_pmgr_callback(pmgr_callback_args_t *args)</div><div class="line">{</div><div class="line">    pmgr_instance_info_t *p_instance_info = (pmgr_instance_info_t *)args-&gt;p_instance_info;</div><div class="line"></div><div class="line">    printf(<span class="stringliteral">&quot;tin_pmgr_callback with %s, constraints=%d, wake source=%d, p_instance_info-&gt;power_mode=%d\n&quot;</span>,</div><div class="line">           pmgr_event_to_string(args-&gt;event), args-&gt;constraints, p_instance_info-&gt;wake_source, p_instance_info-&gt;power_mode);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> rm_pmgr_notifier_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = RM_PMGR_W_Open(&amp;g_pmgr_ctrl, &amp;g_pmgr_cfg_tin);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (!<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>())</div><div class="line">    {</div><div class="line">        assert(FSP_SUCCESS == err);</div><div class="line">    }</div><div class="line"></div><div class="line">    err = RM_PMGR_W_remove_sleep_constraint(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___a_p_i.html#gga8c1cb316570c6989413f688cf79e11dfa18b9d11e7fbe703612349f56e391618d">PMGR_CONSTRAINT_POWER_RAM</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_notifier_register(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), tin_pmgr_callback, &amp;g_args, &amp;notifier_extend);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#gaef818aad6692d20986c00da2eaa47f94">RM_PMGR_W_notifier_unregister</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), notifier_extend.notifier_id);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    <span class="comment">/* Enter to sleep mode PMGR_LLD_POWER_MODE_SLEEP2 for 5 sec */</span></div><div class="line">    err = RM_PMGR_W_enter_idle(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), 5000000);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    err = RM_PMGR_W_Close(&amp;g_pmgr_ctrl);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div></div><!-- fragment --><h3>Wake source and Constraint</h3>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> rm_pmgr_constraints_wake_sources_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = RM_PMGR_W_Open(&amp;g_pmgr_ctrl, &amp;g_pmgr_cfg_tin);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (!<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>())</div><div class="line">    {</div><div class="line">        assert(FSP_SUCCESS == err);</div><div class="line">    }</div><div class="line"></div><div class="line">    err = RM_PMGR_W_remove_sleep_constraint(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___a_p_i.html#gga8c1cb316570c6989413f688cf79e11dfa18b9d11e7fbe703612349f56e391618d">PMGR_CONSTRAINT_POWER_RAM</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_notifier_register(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), tin_pmgr_callback, &amp;g_args, &amp;notifier_extend);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_add_sleep_constraint(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___a_p_i.html#gga8c1cb316570c6989413f688cf79e11dfaaaf8c3b9b7146a8910893fef854cd114">PMGR_CONSTRAINT_POWER_RETENTION</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#ga5a70567318512a9933e374df5c4e9e0e">RM_PMGR_W_set_wake_source</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___w.html#ggaeef2fec4abe5aca403c8d00f5d05124aaeba9eb1c1cadbee50ae69fd261436efb">PMGR_WAKE_SOURCE_GPT</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    <span class="comment">/* Enter to sleep mode PMGR_LLD_POWER_MODE_CPU_WFI for 2 sec */</span></div><div class="line">    err = RM_PMGR_W_enter_idle(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), 2000000);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#ga4cda1d043b46b894a8302ab1098d33e1">RM_PMGR_W_clr_wake_source</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___w.html#ggaeef2fec4abe5aca403c8d00f5d05124aaeba9eb1c1cadbee50ae69fd261436efb">PMGR_WAKE_SOURCE_GPT</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_remove_sleep_constraint(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___a_p_i.html#gga8c1cb316570c6989413f688cf79e11dfaaaf8c3b9b7146a8910893fef854cd114">PMGR_CONSTRAINT_POWER_RETENTION</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#gaef818aad6692d20986c00da2eaa47f94">RM_PMGR_W_notifier_unregister</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), notifier_extend.notifier_id);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_Close(&amp;g_pmgr_ctrl);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div></div><!-- fragment --><h3>Force state</h3>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> rm_pmgr_force_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = RM_PMGR_W_Open(&amp;g_pmgr_ctrl, &amp;g_pmgr_cfg_tin);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (!<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>())</div><div class="line">    {</div><div class="line">        assert(FSP_SUCCESS == err);</div><div class="line">    }</div><div class="line"></div><div class="line">    err = RM_PMGR_W_remove_sleep_constraint(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), <a class="code" href="group___p_m_g_r___a_p_i.html#gga8c1cb316570c6989413f688cf79e11dfa18b9d11e7fbe703612349f56e391618d">PMGR_CONSTRAINT_POWER_RAM</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = RM_PMGR_W_notifier_register(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), tin_pmgr_callback, &amp;g_args, &amp;notifier_extend);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    <span class="comment">/* Force sleep state PMGR_LLD_POWER_MODE_CPU_WFI for 2 sec */</span></div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#ga694c5138ca7de4aecbce5e72b656f156">RM_PMGR_W_force</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), PMGR_LLD_POWER_MODE_CPU_WFI, 2000000);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#gaef818aad6692d20986c00da2eaa47f94">RM_PMGR_W_notifier_unregister</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), notifier_extend.notifier_id);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    <span class="comment">/* Disable force sleep state PMGR_LLD_POWER_MODE_CPU_WFI without idle_Time */</span></div><div class="line">    err = <a class="code" href="group___p_m_g_r___w.html#ga694c5138ca7de4aecbce5e72b656f156">RM_PMGR_W_force</a>(<a class="code" href="group___p_m_g_r___w.html#ga9c750aa12509ef4faacd365cd2031b26">RM_PMGR_W_get_ctrl</a>(), PMGR_LLD_POWER_MODE_AUTO, 0);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    err = RM_PMGR_W_Close(&amp;g_pmgr_ctrl);</div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structpmgr__w__notifier__extend__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#structpmgr__w__notifier__extend__t">pmgr_w_notifier_extend_t</a></td></tr>
+<tr class="separator:structpmgr__w__notifier__extend__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structpmgr__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#structpmgr__instance__ctrl__t">pmgr_instance_ctrl_t</a></td></tr>
+<tr class="separator:structpmgr__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaa30cad9f6b0000087b5304c51886711c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gaa30cad9f6b0000087b5304c51886711c">pmgr_debug_runtime_t</a> </td></tr>
+<tr class="separator:gaa30cad9f6b0000087b5304c51886711c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeef2fec4abe5aca403c8d00f5d05124a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a> </td></tr>
+<tr class="separator:gaeef2fec4abe5aca403c8d00f5d05124a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade51e42a4fa37c52feff9496d9f6d715"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gade51e42a4fa37c52feff9496d9f6d715">pmgr_lld_power_mode_t</a> </td></tr>
+<tr class="separator:gade51e42a4fa37c52feff9496d9f6d715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07c6d21d506faf1c43317bac2009a408"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#ga07c6d21d506faf1c43317bac2009a408">pmgr_dbg_ram_constraint_counter_cause_t</a> </td></tr>
+<tr class="separator:ga07c6d21d506faf1c43317bac2009a408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa200ce1ff4c712a594cb4821193a1160"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___p_m_g_r___w.html#gaa200ce1ff4c712a594cb4821193a1160">pmgr_w_notifier_order_t</a> </td></tr>
+<tr class="separator:gaa200ce1ff4c712a594cb4821193a1160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structpmgr__w__notifier__extend__t" id="structpmgr__w__notifier__extend__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structpmgr__w__notifier__extend__t">&#9670;&nbsp;</a></span>pmgr_w_notifier_extend_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct pmgr_w_notifier_extend_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>The pmgr_w extend notifier with the following 2 features:</p><ul>
+<li>Allow multiple registration to allow multiple registration, the following is added<ul>
+<li>notifier_id - used to indicate the specific callback instance. When call to notifier_registration() notifier_id == UNDEFINE_NOTIFIER_ID</li>
+<li>order - used to define the order of callback notification , higher order executed first</li>
+</ul>
+</li>
+<li>Allow asynchronous respond. </li>
+</ul>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a7bf593a6efd50328ce4ccf20f64b6b13"></a>uint32_t</td>
+<td class="fieldname">
+order</td>
+<td class="fielddoc">
+used to define order of notifier execution, input </td></tr>
+<tr><td class="fieldtype">
+<a id="aa57f5679a677d8a12d5cb8bd62adb1cb"></a>uint32_t</td>
+<td class="fieldname">
+notifier_id</td>
+<td class="fielddoc">
+used to identify the notifier, output </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structpmgr__instance__ctrl__t" id="structpmgr__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structpmgr__instance__ctrl__t">&#9670;&nbsp;</a></span>pmgr_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct pmgr_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>PMGR private control block. Initialization occurs when RM_PMGR_W_Open() is called. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ad23d43f2f1b8367bbf2236c9b4a6505f"></a><a class="el" href="group___p_m_g_r___a_p_i.html#structpmgr__cfg__t">pmgr_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to initial configurations. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0262721f556e3b3e12eb2c0c6a2ba63c"></a>struct st_notifier_array_entry</td>
+<td class="fieldname">
+notifier_array[PMGR_MAX_NOTIFIER_ARRAY]</td>
+<td class="fielddoc">
+Array of registered applications. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2a8a60eb3afa049dfa96c4bb05e7f0ac"></a>pmgr_timer_notifier_array_entry_t</td>
+<td class="fieldname">
+timer_notifier_array[MAX_TIMER_NOTIFIER_ARRAY]</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7a4c85b56e8db680918ce105113521c0"></a>uint8_t</td>
+<td class="fieldname">
+constraint_counter[PMGR_CONSTRAINT_MAX]</td>
+<td class="fielddoc">
+Array of constraints counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="af1f27c87fa585305ee173936f706c5fc"></a>int16_t</td>
+<td class="fieldname">
+ram_counter_cause[PMGR_DBG_RAM_CONSTRAINT_MAX]</td>
+<td class="fielddoc">
+Array for debug ram constraints counter cause. </td></tr>
+<tr><td class="fieldtype">
+<a id="add56e82589bb89a1861a59e43ebd3763"></a>int</td>
+<td class="fieldname">
+debug_runtime_flag</td>
+<td class="fielddoc">
+Debug runtime flag for ram constraints counter cause. </td></tr>
+<tr><td class="fieldtype">
+<a id="a22ecba8ab5f3027c7106c83f66ad6435"></a><a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a></td>
+<td class="fieldname">
+wake_source_bitmap</td>
+<td class="fielddoc">
+Bitmap of wake sources. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4736d80961d778475214bb830d3304a1"></a><a class="el" href="group___p_m_g_r___w.html#gade51e42a4fa37c52feff9496d9f6d715">pmgr_lld_power_mode_t</a></td>
+<td class="fieldname">
+lld_power_mode</td>
+<td class="fielddoc">
+Power mode for distinction if its force. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaa30cad9f6b0000087b5304c51886711c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa30cad9f6b0000087b5304c51886711c">&#9670;&nbsp;</a></span>pmgr_debug_runtime_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___p_m_g_r___w.html#gaa30cad9f6b0000087b5304c51886711c">pmgr_debug_runtime_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Debug runtime flag for RAM constraints counter cause </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa30cad9f6b0000087b5304c51886711ca102d74a2874ef5200ef551e7b9053485"></a>PMGR_DEBUG_RAM_UNSET&#160;</td><td class="fielddoc"><p>Debug runtime flag RAM constraints unset. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa30cad9f6b0000087b5304c51886711ca479e90a1539abfe268b55b0adbcc40b7"></a>PMGR_DEBUG_RAM_DISABLED&#160;</td><td class="fielddoc"><p>Debug runtime flag RAM constraints disabled. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa30cad9f6b0000087b5304c51886711caa569c3994d30c2087e3fafb9ed91a020"></a>PMGR_DEBUG_RAM_ENABLED&#160;</td><td class="fielddoc"><p>Debug runtime flag RAM constraints enabled. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaeef2fec4abe5aca403c8d00f5d05124a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeef2fec4abe5aca403c8d00f5d05124a">&#9670;&nbsp;</a></span>pmgr_wake_source_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum pmgr_wake_source_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LLD wakeup source </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aad7713b85c5095e505ea8f3d4bf9c4f52"></a>PMGR_WAKE_SOURCE_NON&#160;</td><td class="fielddoc"><p>no wake source defined </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa14f9187b71b371d5a5d5470008e3c309"></a>PMGR_WAKE_SOURCE_RTC&#160;</td><td class="fielddoc"><p>RTC wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aaeba9eb1c1cadbee50ae69fd261436efb"></a>PMGR_WAKE_SOURCE_GPT&#160;</td><td class="fielddoc"><p>GPT wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aaf4f17ab5abf118dbc9e9766e71d062e3"></a>PMGR_WAKE_SOURCE_GPIO&#160;</td><td class="fielddoc"><p>GPIO wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa8225456a74e71f30d5e7bfbe54e59ae1"></a>PMGR_WAKE_SOURCE_ADC&#160;</td><td class="fielddoc"><p>ADC wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa016ec6a3cd61b17e935ee0b947a364e1"></a>PMGR_WAKE_SOURCE_WIFI&#160;</td><td class="fielddoc"><p>WIFI/MAC wake source. </p>
+<p>connectivity wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa1ea793b8676b4bc3b2ed7f69e9c00088"></a>PMGR_WAKE_SOURCE_BLE&#160;</td><td class="fielddoc"><p>BLE wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aaef73d2c02828f5e6120a4fe04156e3a8"></a>PMGR_WAKE_SOURCE_NONE&#160;</td><td class="fielddoc"><p>no wake source defined </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa14f9187b71b371d5a5d5470008e3c309"></a>PMGR_WAKE_SOURCE_RTC&#160;</td><td class="fielddoc"><p>RTC wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aaeba9eb1c1cadbee50ae69fd261436efb"></a>PMGR_WAKE_SOURCE_GPT&#160;</td><td class="fielddoc"><p>GPT wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aaf4f17ab5abf118dbc9e9766e71d062e3"></a>PMGR_WAKE_SOURCE_GPIO&#160;</td><td class="fielddoc"><p>GPIO wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa8225456a74e71f30d5e7bfbe54e59ae1"></a>PMGR_WAKE_SOURCE_ADC&#160;</td><td class="fielddoc"><p>ADC wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa016ec6a3cd61b17e935ee0b947a364e1"></a>PMGR_WAKE_SOURCE_WIFI&#160;</td><td class="fielddoc"><p>WIFI/MAC wake source. </p>
+<p>connectivity wake source. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeef2fec4abe5aca403c8d00f5d05124aa1ea793b8676b4bc3b2ed7f69e9c00088"></a>PMGR_WAKE_SOURCE_BLE&#160;</td><td class="fielddoc"><p>BLE wake source. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gade51e42a4fa37c52feff9496d9f6d715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade51e42a4fa37c52feff9496d9f6d715">&#9670;&nbsp;</a></span>pmgr_lld_power_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___p_m_g_r___w.html#gade51e42a4fa37c52feff9496d9f6d715">pmgr_lld_power_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggade51e42a4fa37c52feff9496d9f6d715a05b55b114a0f5ec1217bce049318fb2c"></a>PMGR_LLD_POWER_MODE_SLEEP2&#160;</td><td class="fielddoc"><p>Remain on: RTC, GPIO. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggade51e42a4fa37c52feff9496d9f6d715a229b24756b0435bc358714d7366b0722"></a>PMGR_LLD_POWER_MODE_SLEEP3&#160;</td><td class="fielddoc"><p>Remain on: RTC, GPIO, RTM. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggade51e42a4fa37c52feff9496d9f6d715a4a62ba79208fef782df37c9836be3ab1"></a>PMGR_LLD_POWER_MODE_DPM&#160;</td><td class="fielddoc"><p>Remain on: RTC, GPIO, RTM + WiFi Connected. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggade51e42a4fa37c52feff9496d9f6d715ad3f0825e823c2eaeab100fafb5f9816f"></a>PMGR_LLD_POWER_MODE_SLEEP4&#160;</td><td class="fielddoc"><p>Remain on: RTC, GPIO, RTM, RAM. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga07c6d21d506faf1c43317bac2009a408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga07c6d21d506faf1c43317bac2009a408">&#9670;&nbsp;</a></span>pmgr_dbg_ram_constraint_counter_cause_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___p_m_g_r___w.html#ga07c6d21d506faf1c43317bac2009a408">pmgr_dbg_ram_constraint_counter_cause_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga07c6d21d506faf1c43317bac2009a408a266457cf731ebab291b8d0cc76d266db"></a>PMGR_DBG_RAM_CONSTRAINT_GENERIC_FORCE&#160;</td><td class="fielddoc"><p>If PMGR cli force DPM was done, this is the cause for decrease any ram constraints. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaa200ce1ff4c712a594cb4821193a1160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa200ce1ff4c712a594cb4821193a1160">&#9670;&nbsp;</a></span>pmgr_w_notifier_order_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___p_m_g_r___w.html#gaa200ce1ff4c712a594cb4821193a1160">pmgr_w_notifier_order_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa200ce1ff4c712a594cb4821193a1160aaf1b2c9a4f6080a3010f336e8c19abb6"></a>PMGR_W_NOTIFIER_ORDER_SYS_LOW&#160;</td><td class="fielddoc"><p>10-100 are reserved for system low order </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa200ce1ff4c712a594cb4821193a1160a5db072a2d98e48431ff8962cbf38331e"></a>PMGR_W_NOTIFIER_ORDER_CUSTOMISED_LOW&#160;</td><td class="fielddoc"><p>100-199 are reserved for customised application </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa200ce1ff4c712a594cb4821193a1160a13053f1f4d640fad453ef179ea072a73"></a>PMGR_W_NOTIFIER_ORDER_SYS_HIGH&#160;</td><td class="fielddoc"><p>200-139 are reserved for system high order </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa200ce1ff4c712a594cb4821193a1160a8885cc031b41bccf780ffc753098999f"></a>PMGR_W_NOTIFIER_ORDER_HIGHEST&#160;</td><td class="fielddoc"><p>first executed </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaef818aad6692d20986c00da2eaa47f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef818aad6692d20986c00da2eaa47f94">&#9670;&nbsp;</a></span>RM_PMGR_W_notifier_unregister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_notifier_unregister </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>notifier_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Instance API extension. Unregister notifier_id from PMGR Instance</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Unregistration done successfully </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Unregistration failed: such notifier id was not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5a70567318512a9933e374df5c4e9e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a70567318512a9933e374df5c4e9e0e">&#9670;&nbsp;</a></span>RM_PMGR_W_set_wake_source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_set_wake_source </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a>&#160;</td>
+          <td class="paramname"><em>wake_source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set wake source - system middleware and customised application are allowed to specify which component are used as wake source and as such should be kept powered on. Wake source are bit map, the implementation is boolean parameter per wake source (no matter how many times a wake source is set, single clear will set it to false)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wake_source</td><td>bit wise of single wake source that should be kept powered on.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set wake source done successfully </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Set wake source failed due to the semaphore is not available </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4cda1d043b46b894a8302ab1098d33e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4cda1d043b46b894a8302ab1098d33e1">&#9670;&nbsp;</a></span>RM_PMGR_W_clr_wake_source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_clr_wake_source </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a>&#160;</td>
+          <td class="paramname"><em>wake_source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clear wake source - see set_wake_source for info</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wake_source</td><td>bit wise of single wake source that should be kept powered off.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Clear wake source done successfully </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Clear wake source failed due to the semaphore is not available </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf3eb4abe354845a526a709249566df80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf3eb4abe354845a526a709249566df80">&#9670;&nbsp;</a></span>RM_PMGR_W_get_wake_source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_get_wake_source </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___w.html#gaeef2fec4abe5aca403c8d00f5d05124a">pmgr_wake_source_t</a> *&#160;</td>
+          <td class="paramname"><em>wake_source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get wake source bitmap</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wake_source</td><td>pointer of wake source bitmap. use pmgr_wake_source_t to check which wake source is set.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Get wake source done successfully </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Get wake source failed due to the semaphore is not available </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga694c5138ca7de4aecbce5e72b656f156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga694c5138ca7de4aecbce5e72b656f156">&#9670;&nbsp;</a></span>RM_PMGR_W_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_force </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___w.html#gade51e42a4fa37c52feff9496d9f6d715">pmgr_lld_power_mode_t</a>&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>idle_time_us</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forces a specific power mode, overriding the Power Manager (PMGR) decision making. This function allows an application to force a low-power sleep mode. The behavior depends on the desired power mode and the provided idle_time_us value. </p>
+<dl class="section note"><dt>Note</dt><dd>This override can be permanent (sticky) for certain modes. To revert the force, and resume to automatic power management, you must explicitly set the mode to <code>PMGR_LLD_POWER_MODE_AUTO</code>.</dd></dl>
+<ul>
+<li>Deep sleep modes (RAM Power Off): For modes: PMGR_LLD_POWER_MODE_SLEEP2, PMGR_LLD_POWER_MODE_SLEEP3, and PMGR_LLD_POWER_MODE_DPM The forced power mode is lost upon wakeup (PMGR resumes to PMGR_LLD_POWER_MODE_AUTO) Based on idle_time_us value, the low power mode will be immediate or at next enter_idle call</li>
+<li>Light sleep modes (RAM maintained): For modes: PMGR_LLD_POWER_MODE_SLEEP4, PMGR_LLD_POWER_MODE_CPU_WFI The forced power modes is "sticky" and remains until changed by another call to 'force' idle_time_us value has no effect. The low power mode will be executed at next FreeRTOS idle context</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Defines the power mode to enter </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idle_time_us</td><td>For Deep sleep modes only: The expected idle duration in microseconds.<ul>
+<li>idle_time_us &gt; 0, low power mode executed immediately</li>
+<li>idle_time_us = 0, low power mode executed at next enter_idle call</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Force sleep mode done successfully </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga77c2c0b3e3646c53470eb194bfb771e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77c2c0b3e3646c53470eb194bfb771e5">&#9670;&nbsp;</a></span>RM_PMGR_W_get_sleep_constraint_counter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_PMGR_W_get_sleep_constraint_counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___p_m_g_r___a_p_i.html#ga8c1cb316570c6989413f688cf79e11df">pmgr_constraints_t</a>&#160;</td>
+          <td class="paramname"><em>constraint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>counter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the specified sleep constraint count</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">constraint</td><td>Defines a bit map of single constraint. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter</td><td>counter value of the specified constraint</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Getting the specified sleep constraint count done successfully </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Getting the specified sleep constraint count failed due to the semaphore is not available </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9c750aa12509ef4faacd365cd2031b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9c750aa12509ef4faacd365cd2031b26">&#9670;&nbsp;</a></span>RM_PMGR_W_get_ctrl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___p_m_g_r___a_p_i.html#gaabe24a331a7ba495c1838e017e41fcd1">pmgr_ctrl_t</a>* RM_PMGR_W_get_ctrl </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get ctrl - Return the global pointer for the PMGR control block. It is the customer responsibility to verify open was called with not NULL value before.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">p_ctrl</td><td>Pointer to the PMGR control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

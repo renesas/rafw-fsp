@@ -1,0 +1,1331 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: RM_AWS_LWIP_SOCK_WRAP_W Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">RM_AWS_LWIP_SOCK_WRAP_W Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___i_n_t_e_r_f_a_c_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga123c44ac3c9003a303c70e0db9d6a69f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga123c44ac3c9003a303c70e0db9d6a69f">app_dpm_get_sleep_flag</a> (UINT8 *p_flag)</td></tr>
+<tr class="memdesc:ga123c44ac3c9003a303c70e0db9d6a69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the flag indicating whether the API to enter or exit DPM.  <a href="#ga123c44ac3c9003a303c70e0db9d6a69f">More...</a><br /></td></tr>
+<tr class="separator:ga123c44ac3c9003a303c70e0db9d6a69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga550f45443f39862d41226be5a5c225eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga550f45443f39862d41226be5a5c225eb">app_dpm_set_sleep_flag</a> (UINT8 _flag)</td></tr>
+<tr class="memdesc:ga550f45443f39862d41226be5a5c225eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the flag indicating whether the system should enter or exit DPM.  <a href="#ga550f45443f39862d41226be5a5c225eb">More...</a><br /></td></tr>
+<tr class="separator:ga550f45443f39862d41226be5a5c225eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1541b95b3c17c74eb9b98a8d3b184fe5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga1541b95b3c17c74eb9b98a8d3b184fe5">app_dpm_info_get</a> (char *_name, <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm">app_dpm_info_rtm</a> **rtm_info)</td></tr>
+<tr class="memdesc:ga1541b95b3c17c74eb9b98a8d3b184fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get if exist or allocate if not exist the RTM resource for Server apps.  <a href="#ga1541b95b3c17c74eb9b98a8d3b184fe5">More...</a><br /></td></tr>
+<tr class="separator:ga1541b95b3c17c74eb9b98a8d3b184fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d1989f98bdfa0c73d361edc8dc5a581"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga2d1989f98bdfa0c73d361edc8dc5a581">app_dpm_get_client_socket_port</a> (UINT32 *p_port)</td></tr>
+<tr class="memdesc:ga2d1989f98bdfa0c73d361edc8dc5a581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the saved client' binding port from <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm" title="data used to save persistent information on RTM for platform ">app_dpm_info_rtm</a> struct.  <a href="#ga2d1989f98bdfa0c73d361edc8dc5a581">More...</a><br /></td></tr>
+<tr class="separator:ga2d1989f98bdfa0c73d361edc8dc5a581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0909218e6cf5aa22c6d11886b05e933"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gae0909218e6cf5aa22c6d11886b05e933">app_dpm_set_send_pub_flag</a> (UINT8 _flag)</td></tr>
+<tr class="memdesc:gae0909218e6cf5aa22c6d11886b05e933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flag whether device publish to server or not.  <a href="#gae0909218e6cf5aa22c6d11886b05e933">More...</a><br /></td></tr>
+<tr class="separator:gae0909218e6cf5aa22c6d11886b05e933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56f1387ad90a6c04acc4fa20b529dc65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga56f1387ad90a6c04acc4fa20b529dc65">app_dpm_get_send_pub_flag</a> (UINT8 *p_flag)</td></tr>
+<tr class="memdesc:ga56f1387ad90a6c04acc4fa20b529dc65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the flag whether device publish to server or not.  <a href="#ga56f1387ad90a6c04acc4fa20b529dc65">More...</a><br /></td></tr>
+<tr class="separator:ga56f1387ad90a6c04acc4fa20b529dc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15743f15f9c84df2feb96db093406a5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga15743f15f9c84df2feb96db093406a5f">app_dpm_set_wait_job_next_flag</a> (UINT8 _flag)</td></tr>
+<tr class="memdesc:ga15743f15f9c84df2feb96db093406a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flag whether device need to wait the flag for next job or not.  <a href="#ga15743f15f9c84df2feb96db093406a5f">More...</a><br /></td></tr>
+<tr class="separator:ga15743f15f9c84df2feb96db093406a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93e8598bf07b9fa4aeafa4f9eaccc09e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga93e8598bf07b9fa4aeafa4f9eaccc09e">app_dpm_get_wait_job_next_flag</a> (UINT8 *p_flag)</td></tr>
+<tr class="memdesc:ga93e8598bf07b9fa4aeafa4f9eaccc09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the flag whether device need to wait the flag for next job or not.  <a href="#ga93e8598bf07b9fa4aeafa4f9eaccc09e">More...</a><br /></td></tr>
+<tr class="separator:ga93e8598bf07b9fa4aeafa4f9eaccc09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e14c3e398784eb89e0f10ad55a9cd84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga9e14c3e398784eb89e0f10ad55a9cd84">app_get_peer_ip_str</a> (char **p_ipStr)</td></tr>
+<tr class="memdesc:ga9e14c3e398784eb89e0f10ad55a9cd84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the IP string of server to connect.  <a href="#ga9e14c3e398784eb89e0f10ad55a9cd84">More...</a><br /></td></tr>
+<tr class="separator:ga9e14c3e398784eb89e0f10ad55a9cd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46d38693f869ba5725ca66129056d911"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga46d38693f869ba5725ca66129056d911">app_get_random_local_port</a> (UINT32 *p_port)</td></tr>
+<tr class="memdesc:ga46d38693f869ba5725ca66129056d911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a randomly generated local port number for socket binding.  <a href="#ga46d38693f869ba5725ca66129056d911">More...</a><br /></td></tr>
+<tr class="separator:ga46d38693f869ba5725ca66129056d911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96eead58f49ba1fa684141ca7841cf7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga96eead58f49ba1fa684141ca7841cf7d">app_get_count_of_reconnection</a> (UINT32 *p_count)</td></tr>
+<tr class="memdesc:ga96eead58f49ba1fa684141ca7841cf7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of reconnection attempts on DPM wakeup mode.  <a href="#ga96eead58f49ba1fa684141ca7841cf7d">More...</a><br /></td></tr>
+<tr class="separator:ga96eead58f49ba1fa684141ca7841cf7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29728a924f2cfdb259d5f881b3d7fa8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga29728a924f2cfdb259d5f881b3d7fa8e">app_socket_set_port_n_filter</a> (UINT32 _defLocalPort)</td></tr>
+<tr class="memdesc:ga29728a924f2cfdb259d5f881b3d7fa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a binded local port for DPM mode and set port filter for DPM wakeup.  <a href="#ga29728a924f2cfdb259d5f881b3d7fa8e">More...</a><br /></td></tr>
+<tr class="separator:ga29728a924f2cfdb259d5f881b3d7fa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f1eef643f48fd61664df8813596f028"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga8f1eef643f48fd61664df8813596f028">app_set_persistent_session</a> (UINT8 _value)</td></tr>
+<tr class="memdesc:ga8f1eef643f48fd61664df8813596f028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flag depending on whether the persistent session exists or not.  <a href="#ga8f1eef643f48fd61664df8813596f028">More...</a><br /></td></tr>
+<tr class="separator:ga8f1eef643f48fd61664df8813596f028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70dab2e0bf45bdf68cd22ac438140316"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga70dab2e0bf45bdf68cd22ac438140316">app_is_persistent_session</a> (UINT8 *p_value)</td></tr>
+<tr class="memdesc:ga70dab2e0bf45bdf68cd22ac438140316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the flag indicating whether a persistent session is enabled.  <a href="#ga70dab2e0bf45bdf68cd22ac438140316">More...</a><br /></td></tr>
+<tr class="separator:ga70dab2e0bf45bdf68cd22ac438140316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c826ff3d61157c32f4e9a5fbb7178db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga2c826ff3d61157c32f4e9a5fbb7178db">app_is_reconnected</a> (UINT8 *p_value)</td></tr>
+<tr class="memdesc:ga2c826ff3d61157c32f4e9a5fbb7178db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the flag whether reconnection happened or not.  <a href="#ga2c826ff3d61157c32f4e9a5fbb7178db">More...</a><br /></td></tr>
+<tr class="separator:ga2c826ff3d61157c32f4e9a5fbb7178db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d1a258a260c1fcea53d6f79bdd2a4fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga2d1a258a260c1fcea53d6f79bdd2a4fe">app_set_reconnect_flag</a> (UINT8 _value)</td></tr>
+<tr class="memdesc:ga2d1a258a260c1fcea53d6f79bdd2a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the reconnection flag to the input paramter.  <a href="#ga2d1a258a260c1fcea53d6f79bdd2a4fe">More...</a><br /></td></tr>
+<tr class="separator:ga2d1a258a260c1fcea53d6f79bdd2a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b2649c50f8fe7f1f88201bb928def1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga1b2649c50f8fe7f1f88201bb928def1e">app_dpm_get_recv_timeout_flag</a> (UINT8 *p_value)</td></tr>
+<tr class="memdesc:ga1b2649c50f8fe7f1f88201bb928def1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the receive timeout flag.  <a href="#ga1b2649c50f8fe7f1f88201bb928def1e">More...</a><br /></td></tr>
+<tr class="separator:ga1b2649c50f8fe7f1f88201bb928def1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad80febaf06f89fa8dafcc030393b46e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gad80febaf06f89fa8dafcc030393b46e0">app_dpm_set_recv_timeout_flag</a> (UINT8 _value)</td></tr>
+<tr class="memdesc:gad80febaf06f89fa8dafcc030393b46e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the receive timeout flag to the input paramter.  <a href="#gad80febaf06f89fa8dafcc030393b46e0">More...</a><br /></td></tr>
+<tr class="separator:gad80febaf06f89fa8dafcc030393b46e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2eb9685a8d101b418c0d3445e45175c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gac2eb9685a8d101b418c0d3445e45175c">app_dpm_get_unknown_uc_flag</a> (UINT8 *p_value)</td></tr>
+<tr class="memdesc:gac2eb9685a8d101b418c0d3445e45175c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the unknown UC flag.  <a href="#gac2eb9685a8d101b418c0d3445e45175c">More...</a><br /></td></tr>
+<tr class="separator:gac2eb9685a8d101b418c0d3445e45175c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad00b0034785c0d98f2332cb1b3864fd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gad00b0034785c0d98f2332cb1b3864fd5">app_dpm_set_unknown_uc_flag</a> (UINT8 _value)</td></tr>
+<tr class="memdesc:gad00b0034785c0d98f2332cb1b3864fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the unknown UC flag to the input paramter.  <a href="#gad00b0034785c0d98f2332cb1b3864fd5">More...</a><br /></td></tr>
+<tr class="separator:gad00b0034785c0d98f2332cb1b3864fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06384ad2110daba1ad840b1e7bf117df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga06384ad2110daba1ad840b1e7bf117df">app_set_ka_value</a> (UINT16 _kaVal)</td></tr>
+<tr class="memdesc:ga06384ad2110daba1ad840b1e7bf117df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the keepalive time interval for connection peer to the input parmeter by seconds.  <a href="#ga06384ad2110daba1ad840b1e7bf117df">More...</a><br /></td></tr>
+<tr class="separator:ga06384ad2110daba1ad840b1e7bf117df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bcb8ed5565f3675cb316208c514b450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga2bcb8ed5565f3675cb316208c514b450">app_get_ka_value</a> (UINT16 *p_kaVal)</td></tr>
+<tr class="memdesc:ga2bcb8ed5565f3675cb316208c514b450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the keepalive time interval for communication with peer.  <a href="#ga2bcb8ed5565f3675cb316208c514b450">More...</a><br /></td></tr>
+<tr class="separator:ga2bcb8ed5565f3675cb316208c514b450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab96b5d585c0da7486bb2f0ef0284af2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gaab96b5d585c0da7486bb2f0ef0284af2">app_dpm_set_rcv_ready</a> (void)</td></tr>
+<tr class="memdesc:gaab96b5d585c0da7486bb2f0ef0284af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the DPM module that the receiver is ready after DPM wakeup.  <a href="#gaab96b5d585c0da7486bb2f0ef0284af2">More...</a><br /></td></tr>
+<tr class="separator:gaab96b5d585c0da7486bb2f0ef0284af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabba1aa239e7d4ef423ef93a0393d8784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gabba1aa239e7d4ef423ef93a0393d8784">persistant_read_callback_set</a> (persistant_storage_read_cb_t cb)</td></tr>
+<tr class="memdesc:gabba1aa239e7d4ef423ef93a0393d8784"><td class="mdescLeft">&#160;</td><td class="mdescRight">set read callback function to get server IP Address from nvram  <a href="#gabba1aa239e7d4ef423ef93a0393d8784">More...</a><br /></td></tr>
+<tr class="separator:gabba1aa239e7d4ef423ef93a0393d8784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae46750d02a97b2bd577ed64b96935b2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gae46750d02a97b2bd577ed64b96935b2d">persistant_write_callback_set</a> (persistant_storage_write_cb_t cb)</td></tr>
+<tr class="memdesc:gae46750d02a97b2bd577ed64b96935b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set write callback function to set server IP Address to nvram  <a href="#gae46750d02a97b2bd577ed64b96935b2d">More...</a><br /></td></tr>
+<tr class="separator:gae46750d02a97b2bd577ed64b96935b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0299f8e81eadbe755a412f20fd6f510a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#ga0299f8e81eadbe755a412f20fd6f510a">awsiot_app_print_elapse_time_ms</a> (const char *fmt,...)</td></tr>
+<tr class="memdesc:ga0299f8e81eadbe755a412f20fd6f510a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check passed time.  <a href="#ga0299f8e81eadbe755a412f20fd6f510a">More...</a><br /></td></tr>
+<tr class="separator:ga0299f8e81eadbe755a412f20fd6f510a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for accessing AWS_LWIP_SOCK_WRAP_W Storage. </p>
+<h1><a class="anchor" id="RM_AWS_LWIP_SOCK_WRAP_W_API_SUMMARY"></a>
+Summary</h1>
+<p>This section defines the API for the AWS_LWIP_SOCK_WRAP_W ( Networking) Module. The AWS_LWIP_SOCK_WRAP_W Module provides interface to control, access, write to lwIP . </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structapp__dpm__info__rtm"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm">app_dpm_info_rtm</a></td></tr>
+<tr class="memdesc:structapp__dpm__info__rtm"><td class="mdescLeft">&#160;</td><td class="mdescRight">data used to save persistent information on RTM for platform  <a href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm">More...</a><br /></td></tr>
+<tr class="separator:structapp__dpm__info__rtm"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_internal_r_t_m"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#struct_internal_r_t_m">InternalRTM</a></td></tr>
+<tr class="memdesc:struct_internal_r_t_m"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal used RTM structure  <a href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#struct_internal_r_t_m">More...</a><br /></td></tr>
+<tr class="separator:struct_internal_r_t_m"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structdpm_app_thread_info"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structdpm_app_thread_info">dpmAppThreadInfo</a></td></tr>
+<tr class="memdesc:structdpm_app_thread_info"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure for DPM App thread  <a href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structdpm_app_thread_info">More...</a><br /></td></tr>
+<tr class="separator:structdpm_app_thread_info"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaab38d3a2bbb421e6b4cb845f48903088"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gaab38d3a2bbb421e6b4cb845f48903088">APPSleepMode</a> <tr class="memdesc:gaab38d3a2bbb421e6b4cb845f48903088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep mode enum.  <a href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gaab38d3a2bbb421e6b4cb845f48903088">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:gaab38d3a2bbb421e6b4cb845f48903088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc2c7200846a47add9bd75bbf1f38832"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gabc2c7200846a47add9bd75bbf1f38832">APPTimerMode</a> <tr class="memdesc:gabc2c7200846a47add9bd75bbf1f38832"><td class="mdescLeft">&#160;</td><td class="mdescRight">The mode types of KA or RTC wakeup timer.  <a href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gabc2c7200846a47add9bd75bbf1f38832">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:gabc2c7200846a47add9bd75bbf1f38832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structapp__dpm__info__rtm" id="structapp__dpm__info__rtm"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structapp__dpm__info__rtm">&#9670;&nbsp;</a></span>app_dpm_info_rtm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct app_dpm_info_rtm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>data used to save persistent information on RTM for platform </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ab0efe8905d1f85d470dc2fcc9f8fe136"></a>INT32</td>
+<td class="fieldname">
+tid</td>
+<td class="fielddoc">
+doorlock close user timer id </td></tr>
+<tr><td class="fieldtype">
+<a id="abfcc0c28c7598cc45087bdf98776096a"></a>INT32</td>
+<td class="fieldname">
+interval</td>
+<td class="fielddoc">
+doorlock close user timer timeout(sec) default 10sec. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1d619ca1cb2de78c2fa38e68b2bd7552"></a>INT32</td>
+<td class="fieldname">
+bindPort</td>
+<td class="fielddoc">
+tcp client bind port number </td></tr>
+<tr><td class="fieldtype">
+<a id="ab232d8dcd6aac5aee39b47c6ecef4e80"></a>INT32</td>
+<td class="fieldname">
+deltaDir</td>
+<td class="fielddoc">
+delta direction </td></tr>
+<tr><td class="fieldtype">
+<a id="aa845f464a44038c988a6c719a43d0984"></a>INT32</td>
+<td class="fieldname">
+FOTAStat</td>
+<td class="fielddoc">
+FOTA status. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad65985860db07e8d82a69c05dbe12a0a"></a>UINT8</td>
+<td class="fieldname">
+FOTAUrl[256]</td>
+<td class="fielddoc">
+Server S3 url for FOTA. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3933f2b1959a3f6e4864179b303a4069"></a>char</td>
+<td class="fieldname">
+ServrIp[16]</td>
+<td class="fielddoc">
+server ip string of the server </td></tr>
+</table>
+
+</div>
+</div>
+<a name="struct_internal_r_t_m" id="struct_internal_r_t_m"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_internal_r_t_m">&#9670;&nbsp;</a></span>InternalRTM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct InternalRTM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>internal used RTM structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="aa1b30905eb592cb53df7efb591089bf7"></a>INT32</td>
+<td class="fieldname">
+tid</td>
+<td class="fielddoc">
+timer id </td></tr>
+<tr><td class="fieldtype">
+<a id="aed1c050bad717c3524fe4e6662dabfca"></a>INT32</td>
+<td class="fieldname">
+interval</td>
+<td class="fielddoc">
+timer timeout (by seconds) </td></tr>
+<tr><td class="fieldtype">
+<a id="a506994bb46d342600bf67ef87d6779cf"></a>UINT8</td>
+<td class="fieldname">
+mode</td>
+<td class="fielddoc">
+timer purpose - 0: normal, 1~9: abnormal </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structdpm_app_thread_info" id="structdpm_app_thread_info"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdpm_app_thread_info">&#9670;&nbsp;</a></span>dpmAppThreadInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dpmAppThreadInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>structure for DPM App thread </p>
+</div>
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaab38d3a2bbb421e6b4cb845f48903088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab38d3a2bbb421e6b4cb845f48903088">&#9670;&nbsp;</a></span>APPSleepMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gaab38d3a2bbb421e6b4cb845f48903088">APPSleepMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sleep mode enum. </p>
+<p>Enumeration structure for Sleep mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaab38d3a2bbb421e6b4cb845f48903088a6a244ff60b0abcb3f6fb80e68d58176b"></a>SLEEP_MODE_2&#160;</td><td class="fielddoc"><p>PMGR_LLD_STATE2 or PMGR_LLD_STATE3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaab38d3a2bbb421e6b4cb845f48903088a5704d5e7107a1b503cd9823eaca4911a"></a>SLEEP_MODE_3&#160;</td><td class="fielddoc"><p>PMGR_LLD_DPM: DPM mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gabc2c7200846a47add9bd75bbf1f38832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabc2c7200846a47add9bd75bbf1f38832">&#9670;&nbsp;</a></span>APPTimerMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#gabc2c7200846a47add9bd75bbf1f38832">APPTimerMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The mode types of KA or RTC wakeup timer. </p>
+<p>Enumeration structure for wakeup timer mode </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga123c44ac3c9003a303c70e0db9d6a69f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga123c44ac3c9003a303c70e0db9d6a69f">&#9670;&nbsp;</a></span>app_dpm_get_sleep_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_sleep_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the flag indicating whether the API to enter or exit DPM. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_flag</td><td>Pointer to a variable where the current DPM flag value will be stored.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga550f45443f39862d41226be5a5c225eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga550f45443f39862d41226be5a5c225eb">&#9670;&nbsp;</a></span>app_dpm_set_sleep_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_sleep_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the flag indicating whether the system should enter or exit DPM. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_flag</td><td>go DPM (1) or exit DPM (0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful.</li>
+<li>FSP_ERR_INVALID_ARGUMENT: Invalid flag value. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga1541b95b3c17c74eb9b98a8d3b184fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1541b95b3c17c74eb9b98a8d3b184fe5">&#9670;&nbsp;</a></span>app_dpm_info_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_info_get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm">app_dpm_info_rtm</a> **&#160;</td>
+          <td class="paramname"><em>rtm_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get if exist or allocate if not exist the RTM resource for Server apps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">rtm_info</td><td>Pointer to store the address of the retrieved or newly allocated RTM resource </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_name</td><td>if null passed, _name will be assigned as predefined name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>NULL if failure, an <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm" title="data used to save persistent information on RTM for platform ">app_dpm_info_rtm</a> pointer if success </dd></dl>
+
+</div>
+</div>
+<a id="ga2d1989f98bdfa0c73d361edc8dc5a581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d1989f98bdfa0c73d361edc8dc5a581">&#9670;&nbsp;</a></span>app_dpm_get_client_socket_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_client_socket_port </td>
+          <td>(</td>
+          <td class="paramtype">UINT32 *&#160;</td>
+          <td class="paramname"><em>p_port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the saved client' binding port from <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html#structapp__dpm__info__rtm" title="data used to save persistent information on RTM for platform ">app_dpm_info_rtm</a> struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_port</td><td>Pointer to a variable where the retrieved client binding port number will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The saved client' binding port if DPM mode or NX_SUCCESS if not DPM mode </dd></dl>
+
+</div>
+</div>
+<a id="gae0909218e6cf5aa22c6d11886b05e933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0909218e6cf5aa22c6d11886b05e933">&#9670;&nbsp;</a></span>app_dpm_set_send_pub_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_send_pub_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the flag whether device publish to server or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_flag</td><td>1(increase) or 0(decrease) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga56f1387ad90a6c04acc4fa20b529dc65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga56f1387ad90a6c04acc4fa20b529dc65">&#9670;&nbsp;</a></span>app_dpm_get_send_pub_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_send_pub_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the flag whether device publish to server or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_flag</td><td>Pointer to a variable where the publish flag will be stored.<ul>
+<li>0: Device has not published to the server.</li>
+<li>1: Device has published to the server. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga15743f15f9c84df2feb96db093406a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga15743f15f9c84df2feb96db093406a5f">&#9670;&nbsp;</a></span>app_dpm_set_wait_job_next_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_wait_job_next_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the flag whether device need to wait the flag for next job or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_flag</td><td>1 or 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga93e8598bf07b9fa4aeafa4f9eaccc09e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga93e8598bf07b9fa4aeafa4f9eaccc09e">&#9670;&nbsp;</a></span>app_dpm_get_wait_job_next_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_wait_job_next_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the flag whether device need to wait the flag for next job or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_flag</td><td>Pointer to a variable where the wait flag will be stored.<ul>
+<li>0: Device does not need to wait for the next job.</li>
+<li>1: Device needs to wait for the next job.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga9e14c3e398784eb89e0f10ad55a9cd84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e14c3e398784eb89e0f10ad55a9cd84">&#9670;&nbsp;</a></span>app_get_peer_ip_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_get_peer_ip_str </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>p_ipStr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the IP string of server to connect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_ipStr</td><td>Pointer to a variable that will receive the address of the server IP string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga46d38693f869ba5725ca66129056d911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46d38693f869ba5725ca66129056d911">&#9670;&nbsp;</a></span>app_get_random_local_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_get_random_local_port </td>
+          <td>(</td>
+          <td class="paramtype">UINT32 *&#160;</td>
+          <td class="paramname"><em>p_port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves a randomly generated local port number for socket binding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_port</td><td>Pointer to a variable where the generated local port number will be stored.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga96eead58f49ba1fa684141ca7841cf7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga96eead58f49ba1fa684141ca7841cf7d">&#9670;&nbsp;</a></span>app_get_count_of_reconnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_get_count_of_reconnection </td>
+          <td>(</td>
+          <td class="paramtype">UINT32 *&#160;</td>
+          <td class="paramname"><em>p_count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the number of reconnection attempts on DPM wakeup mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_count</td><td>Pointer to a variable where the reconnection attempt count will be stored.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga29728a924f2cfdb259d5f881b3d7fa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga29728a924f2cfdb259d5f881b3d7fa8e">&#9670;&nbsp;</a></span>app_socket_set_port_n_filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_socket_set_port_n_filter </td>
+          <td>(</td>
+          <td class="paramtype">UINT32&#160;</td>
+          <td class="paramname"><em>_defLocalPort</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register a binded local port for DPM mode and set port filter for DPM wakeup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_defLocalPort</td><td>port number for registration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga8f1eef643f48fd61664df8813596f028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f1eef643f48fd61664df8813596f028">&#9670;&nbsp;</a></span>app_set_persistent_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_set_persistent_session </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the flag depending on whether the persistent session exists or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_value</td><td>1 or 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga70dab2e0bf45bdf68cd22ac438140316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70dab2e0bf45bdf68cd22ac438140316">&#9670;&nbsp;</a></span>app_is_persistent_session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_is_persistent_session </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the flag indicating whether a persistent session is enabled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_value</td><td>Pointer to a variable where the persistent session flag will be stored.<ul>
+<li>0: Persistent session disabled.</li>
+<li>1: Persistent session enabled.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga2c826ff3d61157c32f4e9a5fbb7178db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c826ff3d61157c32f4e9a5fbb7178db">&#9670;&nbsp;</a></span>app_is_reconnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_is_reconnected </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the flag whether reconnection happened or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_value</td><td>Pointer to a variable where the reconnection flag will be stored.<ul>
+<li>0: No reconnection has occurred.</li>
+<li>1: Reconnection has occurred.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga2d1a258a260c1fcea53d6f79bdd2a4fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d1a258a260c1fcea53d6f79bdd2a4fe">&#9670;&nbsp;</a></span>app_set_reconnect_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_set_reconnect_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the reconnection flag to the input paramter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_value</td><td>true or false </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful.</li>
+<li>FSP_ERR_INVALID_ARGUMENT: _value is not 0 or 1. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga1b2649c50f8fe7f1f88201bb928def1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b2649c50f8fe7f1f88201bb928def1e">&#9670;&nbsp;</a></span>app_dpm_get_recv_timeout_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_recv_timeout_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the receive timeout flag. </p>
+<dl class="section return"><dt>Returns</dt><dd>DPM_RCV_NO_CONNECT, DPM_RCV_OK_CONNECT, or DPM_RCV_OK_SLEEP </dd></dl>
+
+</div>
+</div>
+<a id="gad80febaf06f89fa8dafcc030393b46e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad80febaf06f89fa8dafcc030393b46e0">&#9670;&nbsp;</a></span>app_dpm_set_recv_timeout_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_recv_timeout_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the receive timeout flag to the input paramter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_value</td><td>Receive timeout flag value. Possible values:<ul>
+<li>DPM_RCV_NO_CONNECT: No connection received.</li>
+<li>DPM_RCV_OK_CONNECT: Connection received successfully.</li>
+<li>DPM_RCV_OK_SLEEP: Connection received, then system entered sleep.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful.</li>
+<li>FSP_ERR_INVALID_ARGUMENT: _value is not a valid flag. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gac2eb9685a8d101b418c0d3445e45175c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2eb9685a8d101b418c0d3445e45175c">&#9670;&nbsp;</a></span>app_dpm_get_unknown_uc_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_get_unknown_uc_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8 *&#160;</td>
+          <td class="paramname"><em>p_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the unknown UC flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_value</td><td>Pointer to a variable where the unknown UC flag will be stored.<ul>
+<li>0: No unknown UC detected.</li>
+<li>1: Unknown UC detected.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gad00b0034785c0d98f2332cb1b3864fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad00b0034785c0d98f2332cb1b3864fd5">&#9670;&nbsp;</a></span>app_dpm_set_unknown_uc_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_unknown_uc_flag </td>
+          <td>(</td>
+          <td class="paramtype">UINT8&#160;</td>
+          <td class="paramname"><em>_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the unknown UC flag to the input paramter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_value</td><td>1 or 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga06384ad2110daba1ad840b1e7bf117df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06384ad2110daba1ad840b1e7bf117df">&#9670;&nbsp;</a></span>app_set_ka_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_set_ka_value </td>
+          <td>(</td>
+          <td class="paramtype">UINT16&#160;</td>
+          <td class="paramname"><em>_kaVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the keepalive time interval for connection peer to the input parmeter by seconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_kaVal</td><td>keepalive time interval by seconds </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga2bcb8ed5565f3675cb316208c514b450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2bcb8ed5565f3675cb316208c514b450">&#9670;&nbsp;</a></span>app_get_ka_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_get_ka_value </td>
+          <td>(</td>
+          <td class="paramtype">UINT16 *&#160;</td>
+          <td class="paramname"><em>p_kaVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the keepalive time interval for communication with peer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_kaVal</td><td>Pointer to a UINT16 variable where the keepalive interval (in seconds) will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gaab96b5d585c0da7486bb2f0ef0284af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab96b5d585c0da7486bb2f0ef0284af2">&#9670;&nbsp;</a></span>app_dpm_set_rcv_ready()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> app_dpm_set_rcv_ready </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Notify the DPM module that the receiver is ready after DPM wakeup. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Notification sent successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_FAILURE</td><td>Failed to notify the DPM module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabba1aa239e7d4ef423ef93a0393d8784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabba1aa239e7d4ef423ef93a0393d8784">&#9670;&nbsp;</a></span>persistant_read_callback_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> persistant_read_callback_set </td>
+          <td>(</td>
+          <td class="paramtype">persistant_storage_read_cb_t&#160;</td>
+          <td class="paramname"><em>cb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set read callback function to get server IP Address from nvram </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cb</td><td>callback function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gae46750d02a97b2bd577ed64b96935b2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae46750d02a97b2bd577ed64b96935b2d">&#9670;&nbsp;</a></span>persistant_write_callback_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> persistant_write_callback_set </td>
+          <td>(</td>
+          <td class="paramtype">persistant_storage_write_cb_t&#160;</td>
+          <td class="paramname"><em>cb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set write callback function to set server IP Address to nvram </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cb</td><td>callback function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga0299f8e81eadbe755a412f20fd6f510a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0299f8e81eadbe755a412f20fd6f510a">&#9670;&nbsp;</a></span>awsiot_app_print_elapse_time_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> awsiot_app_print_elapse_time_ms </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check passed time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fmt</td><td>formatted string for debug </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fsp_err_t Function execution status.<ul>
+<li>FSP_SUCCESS: Operation successful. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

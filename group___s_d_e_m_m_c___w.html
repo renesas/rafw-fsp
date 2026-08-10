@@ -1,0 +1,1618 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: SD/MMC (r_sdemmc_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___s_d_e_m_m_c___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">SD/MMC (r_sdemmc_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gadd540e6393d43d9af258904c69ca55a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gadd540e6393d43d9af258904c69ca55a4">R_SDEMMC_W_Open</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__cfg__t">sdmmc_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:gadd540e6393d43d9af258904c69ca55a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae17b58bf967189e00f5a51c26cb2062e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__device__t">sdmmc_device_t</a> *const p_device)</td></tr>
+<tr class="separator:gae17b58bf967189e00f5a51c26cb2062e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a9245ead25850236ff65565ee993810"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga0a9245ead25850236ff65565ee993810">R_SDEMMC_W_Read</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_dest, uint32_t const start_sector, uint32_t const sector_count)</td></tr>
+<tr class="separator:ga0a9245ead25850236ff65565ee993810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cc3895a1202caf9a6c012d50a41c155"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga2cc3895a1202caf9a6c012d50a41c155">R_SDEMMC_W_Write</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t const *const p_source, uint32_t const start_sector, uint32_t const sector_count)</td></tr>
+<tr class="separator:ga2cc3895a1202caf9a6c012d50a41c155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81ab560d15c9f46765fc8a3897b5e0ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga81ab560d15c9f46765fc8a3897b5e0ad">R_SDEMMC_W_ReadIo</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_data, uint32_t const function, uint32_t const address)</td></tr>
+<tr class="separator:ga81ab560d15c9f46765fc8a3897b5e0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80e24a93bd84755b33c4c730226c4e6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga80e24a93bd84755b33c4c730226c4e6a">R_SDEMMC_W_WriteIo</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_data, uint32_t const function, uint32_t const address, <a class="el" href="group___s_d_m_m_c___a_p_i.html#ga55695633a9591a08f956911271fba9fd">sdmmc_io_write_mode_t</a> const read_after_write)</td></tr>
+<tr class="separator:ga80e24a93bd84755b33c4c730226c4e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab05b8ededacab8b83560dfaf7e6728a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gab05b8ededacab8b83560dfaf7e6728a2">R_SDEMMC_W_ReadIoExt</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_dest, uint32_t const function, uint32_t const address, uint32_t *const count, <a class="el" href="group___s_d_m_m_c___a_p_i.html#gabce3d8ad0d84595d7579a5c5efa4306e">sdmmc_io_transfer_mode_t</a> transfer_mode, <a class="el" href="group___s_d_m_m_c___a_p_i.html#gafa20c01a4dbbd10b3de7fde3ab252df3">sdmmc_io_address_mode_t</a> address_mode)</td></tr>
+<tr class="separator:gab05b8ededacab8b83560dfaf7e6728a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c85f9f978bff3c0b62d3bb899cd712a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga2c85f9f978bff3c0b62d3bb899cd712a">R_SDEMMC_W_WriteIoExt</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint8_t const *const p_source, uint32_t const function, uint32_t const address, uint32_t const count, <a class="el" href="group___s_d_m_m_c___a_p_i.html#gabce3d8ad0d84595d7579a5c5efa4306e">sdmmc_io_transfer_mode_t</a> transfer_mode, <a class="el" href="group___s_d_m_m_c___a_p_i.html#gafa20c01a4dbbd10b3de7fde3ab252df3">sdmmc_io_address_mode_t</a> address_mode)</td></tr>
+<tr class="separator:ga2c85f9f978bff3c0b62d3bb899cd712a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cd8cde36d762d6450c729fb02384d7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga9cd8cde36d762d6450c729fb02384d7f">R_SDEMMC_W_IoIntEnable</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, bool enable)</td></tr>
+<tr class="separator:ga9cd8cde36d762d6450c729fb02384d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1325b22572a48b7ed5cfca81a755a228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> *const p_status)</td></tr>
+<tr class="separator:ga1325b22572a48b7ed5cfca81a755a228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23a49257fc5adbb91551ee0d1dbbdd5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga23a49257fc5adbb91551ee0d1dbbdd5a">R_SDEMMC_W_Erase</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, uint32_t const start_sector, uint32_t const sector_count)</td></tr>
+<tr class="separator:ga23a49257fc5adbb91551ee0d1dbbdd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaadc114984173eff82c6ec8c6407a4976"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gaadc114984173eff82c6ec8c6407a4976">R_SDEMMC_W_CallbackSet</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *), void *const p_context, <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:gaadc114984173eff82c6ec8c6407a4976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga709c5bb4643df7bd047573e2adff96a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga709c5bb4643df7bd047573e2adff96a1">R_SDEMMC_W_ResultGet</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__transfer__result__t">sdemmc_w_transfer_result_t</a> *p_result)</td></tr>
+<tr class="separator:ga709c5bb4643df7bd047573e2adff96a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb20a1d2c1011f5e49c07d274d1b363a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gaeb20a1d2c1011f5e49c07d274d1b363a">R_SDEMMC_W_Close</a> (<a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:gaeb20a1d2c1011f5e49c07d274d1b363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the SD/MMC Host Interface (SDEMMC_W) peripheral on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___s_d_m_m_c___a_p_i.html">SD/MMC Interface</a>. </p>
+<h1><a class="anchor" id="r-sdemmc-w-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="r-sdemmc-w-features"></a>
+Features</h2>
+<ul>
+<li>Supports SDSC (SD Standard Capacity), SDHC (SD High Capacity), SDXC (SD Extended Capacity) and eMMC (embedded Multi Media Card) memory devices and SDIO device.<a class="anchor" id="um_sdmmc_sdhcsdxc_cards"></a><a class="anchor" id="um_sdmmc_sdsc_cards"></a><ul>
+<li>Supports reading, writing and erasing SD memory devices</li>
+<li>Supports 1, 4 or 8-bit data bus (8-bit bus is supported for eMMC only)<a class="anchor" id="um_sdmmc_bus_width"></a></li>
+<li>Supports detection of device write protection (SD cards only)<a class="anchor" id="um_sdmmc_write_unsupported_if_write_protected"></a><a class="anchor" id="um_sdmmc_erase_unsupported_if_write_protected"></a></li>
+<li>Supports high speed mode<a class="anchor" id="um_sdmmc_high_speed_emmc"></a></li>
+<li>Supports SDIO interface</li>
+</ul>
+</li>
+<li>Automatically configures the clock to the maximum clock rate supported by both host (MCU) and device<a class="anchor" id="um_sdmmc_clock_configuration"></a></li>
+<li>Supports callback notification when an operation completes or an error occurs<a class="anchor" id="um_sdmmc_operation_complete_notification"></a><a class="anchor" id="um_sdmmc_error_notification"></a><a class="anchor" id="um_sdmmc_sector_write_dma"></a><a class="anchor" id="um_sdmmc_sector_read_dma"></a> </li>
+</ul>
+<h1><a class="anchor" id="r-sdemmc-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for r_sdemmc_w</h2>
+The following build time configurations are defined in fsp_cfg/r_sdemmc_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>SD Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>If selected code for SD card support is included in the build. </td></tr>
+<tr class="tree_none">
+<td>eMMC Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>If selected code for eMMC device support is included in the build. </td></tr>
+<tr class="tree_none">
+<td>SDIO Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>If selected code for SDIO card support is included in the build. </td></tr>
+</table>
+ <h2>Configurations for Storage &gt; SD/MMC/SDIO (r_sdemmc_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Storage &gt; SD/MMC/SDIO (r_sdemmc_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_sdmmc0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Bus Width</td><td>MCU Specific Options</td><td></td><td>Select the bus width. </td></tr>
+<tr class="tree_none">
+<td>Block Size</td><td>Value must be an integer between 1 and 512</td><td>512 </td><td>Select the media block size. Must be 512 for SD cards or eMMC devices. Must be 1-512 for SDIO. </td></tr>
+<tr class="tree_none">
+<td>Clk_div</td><td>Value must be an integer between 0 and 255</td><td>0 </td><td>Clock divide value. Must be 0-255. </td></tr>
+<tr class="tree_none">
+<td>Port Selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Port P0_[13:4]</li>
+<li>
+Port P1_[3:0] and P1_[15:10]</li>
+</ul>
+</td><td>Port P1_[3:0] and P1_[15:10] </td><td>Select SD/eMMC/SDIO host port. Must be 0 or 1. </td></tr>
+<tr class="tree_none">
+<td>rxclk_in selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+clkout signal</li>
+<li>
+clkout_inv signal</li>
+</ul>
+</td><td>clkout signal </td><td>Select SD/eMMC/SDIO rxclk_in selection. Must be 0 or 1. </td></tr>
+<tr class="tree_none">
+<td>Pull enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+All lines pull disabled</li>
+<li>
+CMD and Datas pull enabled</li>
+</ul>
+</td><td>CMD and Datas pull enabled </td><td>Select SD/eMMC/SDIO PADS mode pull enable. </td></tr>
+<tr class="tree_none">
+<td>Pull selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Pull down</li>
+<li>
+Pull up</li>
+</ul>
+</td><td>Pull up </td><td>Set SD/eMMC/SDIO PADS mode pull selection. </td></tr>
+<tr class="tree_none">
+<td>Card Detection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Not Used</li>
+<li>
+CD Pin</li>
+</ul>
+</td><td>Not Used </td><td>Select the card detection method. </td></tr>
+<tr class="tree_none">
+<td>Write Protection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Not Used</li>
+<li>
+WP Pin</li>
+</ul>
+</td><td>Not Used </td><td>Select whether or not to use the write protect pin. Select Not Used if the MCU or device does not have a write protect pin. </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>g_sdmmc0_callback </td><td>A user callback function can be provided. If this callback function is provided, it will be called from the interrupt service routine (ISR). </td></tr>
+<tr class="tree_none">
+<td>Access and Card Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the access and card interrupt priority. </td></tr>
+</table>
+ <h2>Configurations for Connectivity &gt; SDIO Device (r_sdemmc_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Connectivity &gt; SDIO Device (r_sdemmc_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_sdmmc_sdio_device0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Bus Width</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1 Bit</li>
+<li>
+4 Bits</li>
+<li>
+8 Bits</li>
+</ul>
+</td><td>4 Bits </td><td>Select the bus width. </td></tr>
+<tr class="tree_none">
+<td>Block Size</td><td>Value must be an integer between 1 and 512</td><td>512 </td><td>Select the media block size. Must be 512 for SD cards or eMMC devices. Must be 1-512 for SDIO. </td></tr>
+<tr class="tree_none">
+<td>Drive current</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+2mA</li>
+<li>
+4mA</li>
+<li>
+8mA</li>
+<li>
+14mA</li>
+</ul>
+</td><td>2mA </td><td>Pads drive current </td></tr>
+<tr class="tree_none">
+<td>Port Selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Port P0_[13:8]</li>
+<li>
+Port P1_[15:10]</li>
+</ul>
+</td><td>Port P0_[13:8] </td><td>Select SDIO device port. Must be 0 or 1. </td></tr>
+<tr class="tree_none">
+<td>Pull enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+All lines pull disabled</li>
+<li>
+CMD and Datas pull enabled</li>
+</ul>
+</td><td>CMD and Datas pull enabled </td><td>Select SDIO device PADS mode pull enable. </td></tr>
+<tr class="tree_none">
+<td>Pull selection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Pull down</li>
+<li>
+Pull up</li>
+</ul>
+</td><td>Pull up </td><td>Set SDIO device PADS mode pull selection. </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>g_sdio0_callback </td><td>A user callback function can be provided. If this callback function is provided, it will be called from the interrupt service routine (ISR). </td></tr>
+<tr class="tree_none">
+<td>SDIO Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the SDIO interrupt priority. </td></tr>
+</table>
+</p>
+<h2>Interrupt Configurations:</h2>
+<p>The following interrupts are required to use the r_sdemmc_w module:</p>
+<p>Using SD/MMC:</p><ul>
+<li>Access and Card Interrupt</li>
+</ul>
+<p>Using SDIO Device:</p><ul>
+<li>SDIO Interrupt</li>
+</ul>
+<p>The Card interrupt is optional and only available on MCU packages that have the CDETECT pin.</p>
+<h2><a class="anchor" id="r-sdemmc-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>The SDMMC MCU peripheral (SDEMMC_W) uses the PERI_CLK for its clock source. The SDMMC driver selects the optimal built-in divider based on the PERI_CLK frequency and the maximum clock rate allowed by the device obtained at media initialization.</p>
+<h2><a class="anchor" id="r-sdemmc-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>The SDMMC driver supports the following pins: port_sel 0</p><ul>
+<li>eMMC0_CLK / SDIO0_CLK P0_08</li>
+<li>eMMC0_CMD / SDIO0_CMD P0_09</li>
+<li>eMMC0_DIO0 / SDIO0_D0 P0_10</li>
+<li>eMMC0_DIO1 / SDIO0_D1 P0_11</li>
+<li>eMMC0_DIO2 / SDIO0_D2 P0_12</li>
+<li>eMMC0_DIO3 / SDIO0_D3 P0_13</li>
+<li>eMMC0_DIO4 P0_4</li>
+<li>eMMC0_DIO5 P0_5</li>
+<li>eMMC0_DIO6 P0_6</li>
+<li>eMMC0_DIO7 P0_7</li>
+</ul>
+<p>port_sel 1</p><ul>
+<li>eMMC1_CLK / SDIO1_CLK P1_11</li>
+<li>eMMC1_CMD / SDIO1_CMD P1_10</li>
+<li>eMMC1_DIO0 / SDIO1_D0 P1_12</li>
+<li>eMMC1_DIO1 / SDIO1_D1 P1_13</li>
+<li>eMMC1_DIO2 / SDIO1_D2 P1_14</li>
+<li>eMMC1_DIO3 / SDIO1_D3 P1_15</li>
+<li>eMMC1_DIO4 P1_00</li>
+<li>eMMC1_DIO5 P1_01</li>
+<li>eMMC1_DIO6 P1_02</li>
+<li>eMMC1_DIO7 P1_03</li>
+</ul>
+<p>CDETECT can be assigned any GPIO.</p>
+<p>WPROTECT can be assigned any GPIO.</p>
+<p>Once the SD host use the port_sel 0, SDIO device should use port_sel 1. And the SD host use the port_sel 1, SDIO device should use port_sel 0.</p>
+<p>The drive capacity for each pin should be set to "Medium" or "High" for most hardware designs. This can be configured in the <b>Pins</b> tab of the RA6W1/RA6W2 Configuration editor by selecting the pin under Pin Selection -&gt; Ports.</p>
+<h1><a class="anchor" id="r-sdemmc-w-usage_notes"></a>
+Usage Notes</h1>
+<h2>Card Detection</h2>
+<p><a class="anchor" id="um_sdmmc_card_removal_notification"></a><a class="anchor" id="um_sdmmc_card_insertion_notification"></a> When Card Detection is configured to "CD Pin" in the RA6W1/RA6W2 Configuration editor, interrupt flags are cleared and card detection is enabled during <a class="el" href="group___s_d_e_m_m_c___w.html#gadd540e6393d43d9af258904c69ca55a4">R_SDEMMC_W_Open()</a>.</p>
+<p><a class="el" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet()</a> can be called to retrieve the current status of the card (including whether a card is present). If the Card Interrupt Priority is enabled, a callback is called when a card is inserted or removed.</p>
+<p>If a card is removed and reinserted, <a class="el" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit()</a> must be called before reading from the card or writing to the card.</p>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet()</a> should be used to initially determine the card state after opening the interface.</dd></dl>
+<h2>Timing Notes for R_SDEMMC_W_MediaInit</h2>
+<p><a class="anchor" id="um_sdmmc_initialization"></a> The <a class="el" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit()</a> API completes the entire device identification and configuration process. This involves several command-response cycles at a bus width of 1 bit and a bus speed of 400 kHz or less.</p>
+<h2><a class="anchor" id="r-sdemmc-w-limitations"></a>
+Limitations</h2>
+<p>Developers should be aware of the following limitations when using the SDEMMC_W:</p>
+<h3>Blocking Calls</h3>
+<p>The following functions block execution until the response is received for at least one command:</p><ul>
+<li><a class="el" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a></li>
+</ul>
+<p>Once the function returns the status of the operation can be determined via <a class="el" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a> or through receipt of a callback.</p>
+<dl class="section note"><dt>Note</dt><dd>Due to the variability in clocking configurations it is recommended to determine blocking delays experimentally on the target system.</dd></dl>
+<h1><a class="anchor" id="r-sdemmc-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the r_sdemmc_w in an application.</p>
+<div class="fragment"><div class="line">uint8_t  g_dest[SDEMMC_W_MAX_BLOCK_SIZE] BSP_ALIGN_VARIABLE(4);</div><div class="line">uint8_t  g_src[SDEMMC_W_MAX_BLOCK_SIZE]  BSP_ALIGN_VARIABLE(4);</div><div class="line">uint32_t g_transfer_complete = 0;</div><div class="line"></div><div class="line"><span class="comment">/* The callback is called when a transfer completes. */</span></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> r_sdemmc_example_callback (<a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___s_d_m_m_c___a_p_i.html#ggacf3d8d33331e1ae9810f56d2410ea524a07f4a417555c6cae25fc3d0ccfba499b">SDMMC_EVENT_TRANSFER_COMPLETE</a> == p_args-&gt;<a class="code" href="group___s_d_m_m_c___a_p_i.html#a0d7d301a941f2d863035acb5574719e3">event</a>)</div><div class="line">    {</div><div class="line">        g_transfer_complete = 1;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> r_sdemmc_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Initialize g_src to known data */</span></div><div class="line">    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; SDEMMC_W_MAX_BLOCK_SIZE; i++)</div><div class="line">    {</div><div class="line">        g_src[i] = (uint8_t) (<span class="charliteral">&#39;A&#39;</span> + (i % 26));</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Open the SDEMMC_W driver. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___s_d_e_m_m_c___w.html#gadd540e6393d43d9af258904c69ca55a4">R_SDEMMC_W_Open</a>(&amp;g_sdmmc0_ctrl, &amp;g_sdmmc0_cfg);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* A device shall be ready to accept the first command within 1ms from detecting VDD min. Reference section 6.4.1.1</span></div><div class="line"><span class="comment">     * &quot;Power Up Time of Card&quot; in the SD Physical Layer Simplified Specification Version 6.00. */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1U, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2ba59fcc4e8d51046d4a1bd63c87ac64913">BSP_DELAY_UNITS_MILLISECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the SD card.  This should not be done until the card is plugged in for SD devices. */</span></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a>(&amp;g_sdmmc0_ctrl, &amp;g_device0);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gaadc114984173eff82c6ec8c6407a4976">R_SDEMMC_W_CallbackSet</a>(&amp;g_sdmmc0_ctrl, r_sdemmc_example_callback, NULL, NULL);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="comment">/* Store SDIO status. */</span></div><div class="line">    g_sdio_uut0 = (<a class="code" href="group___s_d_m_m_c___a_p_i.html#gga8922cf164eae071d1669d245d710cd8ea7c6fc11eb077b53305cab04f52701326">SDMMC_CARD_TYPE_SDIO</a> == g_device0.card_type);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span>(!g_sdio_uut0)</div><div class="line">    {</div><div class="line"></div><div class="line">        err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga2cc3895a1202caf9a6c012d50a41c155">R_SDEMMC_W_Write</a>(&amp;g_sdmmc0_ctrl, g_src, 3, 1);</div><div class="line"></div><div class="line">        <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">        {</div><div class="line">            <a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> status;</div><div class="line">            uint32_t timeout = 0x1000000;</div><div class="line">            err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">            <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">            <span class="keywordflow">while</span> ((status.<a class="code" href="group___s_d_m_m_c___a_p_i.html#a6f796677f6203ef572b998bb32740f91">transfer_in_progress</a>) &amp;&amp; (timeout &gt; 0U))</div><div class="line">            {</div><div class="line">                <span class="comment">/* Wait for a data line free. */</span></div><div class="line">                <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">                timeout--;</div><div class="line">            }</div><div class="line">        }</div><div class="line"></div><div class="line"></div><div class="line">        err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga0a9245ead25850236ff65565ee993810">R_SDEMMC_W_Read</a>(&amp;g_sdmmc0_ctrl, g_dest, 3, 1);</div><div class="line"></div><div class="line">        <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">        {</div><div class="line">            <a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> status;</div><div class="line">            uint32_t timeout = 0x1000000;</div><div class="line">            err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">            <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">            <span class="keywordflow">while</span> ((status.<a class="code" href="group___s_d_m_m_c___a_p_i.html#a6f796677f6203ef572b998bb32740f91">transfer_in_progress</a>) &amp;&amp; (timeout &gt; 0U))</div><div class="line">            {</div><div class="line">                <span class="comment">/* Wait for a data line free. */</span></div><div class="line">                <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">                timeout--;</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    <a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> status;</div><div class="line">    uint32_t timeout = 0x1000000;</div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> ((status.<a class="code" href="group___s_d_m_m_c___a_p_i.html#a6f796677f6203ef572b998bb32740f91">transfer_in_progress</a>) &amp;&amp; (timeout &gt; 0U))</div><div class="line">    {</div><div class="line">        <span class="comment">/* Wait for a data line free. */</span></div><div class="line">        <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">        timeout--;</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gaeb20a1d2c1011f5e49c07d274d1b363a">R_SDEMMC_W_Close</a>(&amp;g_sdmmc0_ctrl);</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> err;</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>Card Detection Example</h2>
+<p>This is an example of using SDEMMC_W when the card may not be plugged in. The card detection interrupt must be enabled to use this example.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">bool</span> g_card_inserted = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="comment">/* The callback is called when a card detection event occurs if the card detection interrupt is enabled. */</span></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> r_sdemmc_card_detect_example_callback (<a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___s_d_m_m_c___a_p_i.html#ggacf3d8d33331e1ae9810f56d2410ea524af72a094283f5c4ed2bda7d27ec19df80">SDMMC_EVENT_CARD_INSERTED</a> == p_args-&gt;<a class="code" href="group___s_d_m_m_c___a_p_i.html#a0d7d301a941f2d863035acb5574719e3">event</a>)</div><div class="line">    {</div><div class="line">        g_card_inserted = <span class="keyword">true</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___s_d_m_m_c___a_p_i.html#ggacf3d8d33331e1ae9810f56d2410ea524a878321ce4dc90270cc95f3019ee1aad6">SDMMC_EVENT_CARD_REMOVED</a> == p_args-&gt;<a class="code" href="group___s_d_m_m_c___a_p_i.html#a0d7d301a941f2d863035acb5574719e3">event</a>)</div><div class="line">    {</div><div class="line">        g_card_inserted = <span class="keyword">false</span>;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> r_sdemmc_card_detect_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Open the SDEMMC_W driver. This enables the card detection interrupt. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___s_d_e_m_m_c___w.html#gadd540e6393d43d9af258904c69ca55a4">R_SDEMMC_W_Open</a>(&amp;g_sdmmc0_ctrl, &amp;g_sdmmc0_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="comment">/* A device shall be ready to accept the first command within 1ms from detecting VDD min. Reference section 6.4.1.1</span></div><div class="line"><span class="comment">     * &quot;Power Up Time of Card&quot; in the SD Physical Layer Simplified Specification Version 6.00. */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1U, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2ba59fcc4e8d51046d4a1bd63c87ac64913">BSP_DELAY_UNITS_MILLISECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the SD card after card insertion is detected. */</span></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a>(&amp;g_sdmmc0_ctrl, &amp;g_device0);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gaadc114984173eff82c6ec8c6407a4976">R_SDEMMC_W_CallbackSet</a>(&amp;g_sdmmc0_ctrl, r_sdemmc_card_detect_example_callback, NULL, NULL);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Check if card is inserted. */</span></div><div class="line">    <a class="code" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> status;</div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga1325b22572a48b7ed5cfca81a755a228">R_SDEMMC_W_StatusGet</a>(&amp;g_sdmmc0_ctrl, &amp;status);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (!status.<a class="code" href="group___s_d_m_m_c___a_p_i.html#a5cba3f15b550023a08fa16e446cf2a35">card_inserted</a>)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">while</span> (!g_card_inserted)</div><div class="line">        {</div><div class="line">            <span class="comment">/* Wait for a card insertion interrupt. */</span></div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gaeb20a1d2c1011f5e49c07d274d1b363a">R_SDEMMC_W_Close</a>(&amp;g_sdmmc0_ctrl);</div><div class="line">    <span class="keywordflow">return</span> err;</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:unionsdemmc__w__event__t"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#unionsdemmc__w__event__t">sdemmc_w_event_t</a></td></tr>
+<tr class="separator:unionsdemmc__w__event__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsdio__device__dma__config"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#structsdio__device__dma__config">sdio_device_dma_config</a></td></tr>
+<tr class="separator:structsdio__device__dma__config"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsdemmc__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__extended__cfg__t">sdemmc_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structsdemmc__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsdemmc__w__transfer__result__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__transfer__result__t">sdemmc_w_transfer_result_t</a></td></tr>
+<tr class="separator:structsdemmc__w__transfer__result__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsdemmc__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__instance__ctrl__t">sdemmc_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structsdemmc__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga0fff6d2c4197d53303fa6e33bd2f85c9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga0fff6d2c4197d53303fa6e33bd2f85c9">sdemmc_w_transfer_dir_t</a> </td></tr>
+<tr class="separator:ga0fff6d2c4197d53303fa6e33bd2f85c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5219b926ab6f992e48b9af8b223eb015"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga5219b926ab6f992e48b9af8b223eb015">sdemmc_w_priv_event_t</a> </td></tr>
+<tr class="separator:ga5219b926ab6f992e48b9af8b223eb015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed0a03a5d29ff11839d9d64a7290d5de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#gaed0a03a5d29ff11839d9d64a7290d5de">sdemmc_w_sdio_device_drive_current_t</a> </td></tr>
+<tr class="separator:gaed0a03a5d29ff11839d9d64a7290d5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a4bce0a361e43892f9f637951b3fcba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ga7a4bce0a361e43892f9f637951b3fcba">sdemmc_w_role_t</a> </td></tr>
+<tr class="separator:ga7a4bce0a361e43892f9f637951b3fcba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="unionsdemmc__w__event__t" id="unionsdemmc__w__event__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#unionsdemmc__w__event__t">&#9670;&nbsp;</a></span>sdemmc_w_event_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union sdemmc_w_event_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Private structure used in <a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__instance__ctrl__t">sdemmc_w_instance_ctrl_t</a>. </p>
+</div>
+</div>
+</div>
+<a name="structsdio__device__dma__config" id="structsdio__device__dma__config"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsdio__device__dma__config">&#9670;&nbsp;</a></span>sdio_device_dma_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sdio_device_dma_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>SDIO DMA configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a358d12a4c1857a8c371975f97a9fa028"></a>uint32_t</td>
+<td class="fieldname">
+sdio_dma_length</td>
+<td class="fielddoc">
+DMA length. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae45170f1b1dd446e1360faf95ca89ee8"></a>uint32_t</td>
+<td class="fieldname">
+sdio_dma_buf_address</td>
+<td class="fielddoc">
+DMA buffer address. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structsdemmc__w__extended__cfg__t" id="structsdemmc__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsdemmc__w__extended__cfg__t">&#9670;&nbsp;</a></span>sdemmc_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sdemmc_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Extended SDMMC interface configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a67752df5b4f5d91af9fad796693d792c"></a><a class="el" href="group___s_d_e_m_m_c___w.html#structsdio__device__dma__config">sdio_device_dma_config</a></td>
+<td class="fieldname">
+dma_config_tx</td>
+<td class="fielddoc">
+ADMA Region physical memory. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad4fe28444573dec149ac78a17187ab94"></a><a class="el" href="group___s_d_e_m_m_c___w.html#structsdio__device__dma__config">sdio_device_dma_config</a></td>
+<td class="fieldname">
+dma_config_rx</td>
+<td class="fielddoc">
+ADMA Region physical memory. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4d197ea16c71c47997f9193362419893"></a>uint32_t</td>
+<td class="fieldname">
+sdemmc_w_role</td>
+<td class="fielddoc">
+SD/eMMC/SDIO host or SDIO device. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa6d5cd7aac7b82b0e9845a52b50a24f5"></a>uint8_t</td>
+<td class="fieldname">
+clk_div</td>
+<td class="fielddoc">
+Clock divider value. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4aa6492035ea8a80861156485b403305"></a>uint8_t</td>
+<td class="fieldname">
+host_port_sel</td>
+<td class="fielddoc">
+SD/eMMC/SDIO host port selection. 0: P0_[13:4], 1: P1_[3:0] and P1_[15:10]. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2e7520c96bd6c373d835357ee4f99128"></a>uint8_t</td>
+<td class="fieldname">
+host_rxclk_in_sel</td>
+<td class="fielddoc">
+SD/eMMC/SDIO host rxclk_in selection. 0: clkout signal, 1: clkout_inv signal. </td></tr>
+<tr><td class="fieldtype">
+<a id="aea2d634b6fc333690904c0aaf4ebdcc3"></a>uint8_t</td>
+<td class="fieldname">
+host_pull_en_cfg</td>
+<td class="fielddoc">
+SD/eMMC/SDIO host PADs mode pull enable. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3b4f77d3cfff79da09d40fbabe1dc356"></a>uint8_t</td>
+<td class="fieldname">
+host_pull_sel_cfg</td>
+<td class="fielddoc">
+SD/eMMC/SDIO host PADs mode pull selection. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3f6fce4afbaa8c49bd62a670204fa356"></a>uint8_t</td>
+<td class="fieldname">
+device_port_sel</td>
+<td class="fielddoc">
+SDIO device port selection. 0: Port P0_[13:8], 1: Port P1_[15:10]. </td></tr>
+<tr><td class="fieldtype">
+<a id="aaceba84582d4b2938c509fbefaf6e7b5"></a>uint8_t</td>
+<td class="fieldname">
+device_pull_en_cfg</td>
+<td class="fielddoc">
+SDIO device PADs mode pull enable. </td></tr>
+<tr><td class="fieldtype">
+<a id="a101c13ae31a80334f8dc610fe56a4fcd"></a>uint8_t</td>
+<td class="fieldname">
+device_pull_sel_cfg</td>
+<td class="fielddoc">
+SDIO device PADs mode pull selection. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3cb83c4a2938f4de4f2b35100410fba3"></a><a class="el" href="group___s_d_e_m_m_c___w.html#gaed0a03a5d29ff11839d9d64a7290d5de">sdemmc_w_sdio_device_drive_current_t</a></td>
+<td class="fieldname">
+drive_current</td>
+<td class="fielddoc">
+Drive current. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structsdemmc__w__transfer__result__t" id="structsdemmc__w__transfer__result__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsdemmc__w__transfer__result__t">&#9670;&nbsp;</a></span>sdemmc_w_transfer_result_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sdemmc_w_transfer_result_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>SDMMC extended callback arguments structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a756e0c8512544c100cbe941ec791d90d"></a>uint32_t</td>
+<td class="fieldname">
+sdio_blk_or_byte</td>
+<td class="fielddoc">
+This bit indicates current transaction is Block(1)/Byte(0) </td></tr>
+<tr><td class="fieldtype">
+<a id="a7adcd57d3a7252f22a0be887f229d85a"></a>uint32_t</td>
+<td class="fieldname">
+sdio_blk_size</td>
+<td class="fielddoc">
+The block size programmed by the SD host. </td></tr>
+<tr><td class="fieldtype">
+<a id="abd37a2b31ff8709ab2c5ef84e2cb07b2"></a>uint32_t</td>
+<td class="fieldname">
+sdio_blk_count</td>
+<td class="fielddoc">
+The block count transferred from/to the SD host. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structsdemmc__w__instance__ctrl__t" id="structsdemmc__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsdemmc__w__instance__ctrl__t">&#9670;&nbsp;</a></span>sdemmc_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sdemmc_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>SDMMC instance control block. This is private to the FSP and should not be used or modified by the application. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:adb258ec44c2198d2c0ed7a383d2f65ad"><td class="memItemLeft" align="right" valign="top"><a id="adb258ec44c2198d2c0ed7a383d2f65ad"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#adb258ec44c2198d2c0ed7a383d2f65ad">open</a></td></tr>
+<tr class="memdesc:adb258ec44c2198d2c0ed7a383d2f65ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the <a class="el" href="group___s_d_e_m_m_c___w.html#adb258ec44c2198d2c0ed7a383d2f65ad" title="Indicates whether the open() API has been successfully called. ">open()</a> API has been successfully called. <br /></td></tr>
+<tr class="separator:adb258ec44c2198d2c0ed7a383d2f65ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cd902562800780cbe70f7666e81e89c"><td class="memItemLeft" align="right" valign="top"><a id="a7cd902562800780cbe70f7666e81e89c"></a>
+<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__cfg__t">sdmmc_cfg_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a7cd902562800780cbe70f7666e81e89c">p_cfg</a></td></tr>
+<tr class="memdesc:a7cd902562800780cbe70f7666e81e89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to instance configuration. <br /></td></tr>
+<tr class="separator:a7cd902562800780cbe70f7666e81e89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5d1f1fba7e2a22fc183a07b04f9322"><td class="memItemLeft" align="right" valign="top"><a id="a4e5d1f1fba7e2a22fc183a07b04f9322"></a>
+<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__device__t">sdmmc_device_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a4e5d1f1fba7e2a22fc183a07b04f9322">device</a></td></tr>
+<tr class="memdesc:a4e5d1f1fba7e2a22fc183a07b04f9322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information of the media device used. <br /></td></tr>
+<tr class="separator:a4e5d1f1fba7e2a22fc183a07b04f9322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae92a817fa2f535d847e5f0c5d4144040"><td class="memItemLeft" align="right" valign="top"><a id="ae92a817fa2f535d847e5f0c5d4144040"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ae92a817fa2f535d847e5f0c5d4144040">sector_addressing</a></td></tr>
+<tr class="memdesc:ae92a817fa2f535d847e5f0c5d4144040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not use sector addressing in transfer. <br /></td></tr>
+<tr class="separator:ae92a817fa2f535d847e5f0c5d4144040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0693253645b68a14e3b092627326a3be"><td class="memItemLeft" align="right" valign="top"><a id="a0693253645b68a14e3b092627326a3be"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a0693253645b68a14e3b092627326a3be">transfer_in_progress</a></td></tr>
+<tr class="memdesc:a0693253645b68a14e3b092627326a3be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not transfer is in progress. <br /></td></tr>
+<tr class="separator:a0693253645b68a14e3b092627326a3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dfc3aab4849a620e777b545f97bec75"><td class="memItemLeft" align="right" valign="top"><a id="a0dfc3aab4849a620e777b545f97bec75"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a0dfc3aab4849a620e777b545f97bec75">initialized</a></td></tr>
+<tr class="memdesc:a0dfc3aab4849a620e777b545f97bec75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not driver is initialized. <br /></td></tr>
+<tr class="separator:a0dfc3aab4849a620e777b545f97bec75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88aae71fc47e11820f4aa510dc2b1071"><td class="memItemLeft" align="right" valign="top"><a id="a88aae71fc47e11820f4aa510dc2b1071"></a>
+SDIO_Type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a88aae71fc47e11820f4aa510dc2b1071">p_reg</a></td></tr>
+<tr class="memdesc:a88aae71fc47e11820f4aa510dc2b1071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base SDIO register for this channel. <br /></td></tr>
+<tr class="separator:a88aae71fc47e11820f4aa510dc2b1071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eac51581c30a1beeef32e794075fa8c"><td class="memItemLeft" align="right" valign="top"><a id="a7eac51581c30a1beeef32e794075fa8c"></a>
+SDEMMC_Type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a7eac51581c30a1beeef32e794075fa8c">p_reg_mmc</a></td></tr>
+<tr class="memdesc:a7eac51581c30a1beeef32e794075fa8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base SD/eMMC register for this channel. <br /></td></tr>
+<tr class="separator:a7eac51581c30a1beeef32e794075fa8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ca5d784c49dabb651ba50cd33c274c"><td class="memItemLeft" align="right" valign="top"><a id="ab0ca5d784c49dabb651ba50cd33c274c"></a>
+volatile <a class="el" href="group___s_d_e_m_m_c___w.html#unionsdemmc__w__event__t">sdemmc_w_event_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ab0ca5d784c49dabb651ba50cd33c274c">sdemmc_w_event</a></td></tr>
+<tr class="memdesc:ab0ca5d784c49dabb651ba50cd33c274c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Events of SDEMMC_W. <br /></td></tr>
+<tr class="separator:ab0ca5d784c49dabb651ba50cd33c274c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac47193d4611ba35d17c57b7dceb125b5"><td class="memItemLeft" align="right" valign="top"><a id="ac47193d4611ba35d17c57b7dceb125b5"></a>
+<a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__transfer__result__t">sdemmc_w_transfer_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ac47193d4611ba35d17c57b7dceb125b5">result</a></td></tr>
+<tr class="memdesc:ac47193d4611ba35d17c57b7dceb125b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended callback arguments. <br /></td></tr>
+<tr class="separator:ac47193d4611ba35d17c57b7dceb125b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41544e590225ef44bb2862c424df49ca"><td class="memItemLeft" align="right" valign="top"><a id="a41544e590225ef44bb2862c424df49ca"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a41544e590225ef44bb2862c424df49ca">p_callback</a> )(<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *)</td></tr>
+<tr class="memdesc:a41544e590225ef44bb2862c424df49ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to callback. <br /></td></tr>
+<tr class="separator:a41544e590225ef44bb2862c424df49ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87da03d289425fde9343128eb9a76a2b"><td class="memItemLeft" align="right" valign="top"><a id="a87da03d289425fde9343128eb9a76a2b"></a>
+<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#a87da03d289425fde9343128eb9a76a2b">p_callback_memory</a></td></tr>
+<tr class="memdesc:a87da03d289425fde9343128eb9a76a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to optional callback argument memory. <br /></td></tr>
+<tr class="separator:a87da03d289425fde9343128eb9a76a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ca20cbf1e494e1ab40913ee417eac2"><td class="memItemLeft" align="right" valign="top"><a id="ae4ca20cbf1e494e1ab40913ee417eac2"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_d_e_m_m_c___w.html#ae4ca20cbf1e494e1ab40913ee417eac2">p_context</a></td></tr>
+<tr class="memdesc:ae4ca20cbf1e494e1ab40913ee417eac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to context to be passed into callback function. <br /></td></tr>
+<tr class="separator:ae4ca20cbf1e494e1ab40913ee417eac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga0fff6d2c4197d53303fa6e33bd2f85c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fff6d2c4197d53303fa6e33bd2f85c9">&#9670;&nbsp;</a></span>sdemmc_w_transfer_dir_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_d_e_m_m_c___w.html#ga0fff6d2c4197d53303fa6e33bd2f85c9">sdemmc_w_transfer_dir_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Private enumeration used in <a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__instance__ctrl__t">sdemmc_w_instance_ctrl_t</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0fff6d2c4197d53303fa6e33bd2f85c9a11298f4c8d06afa4c5650cbbb639bae8"></a>SDEMMC_W_TRANSFER_DIR_NONE&#160;</td><td class="fielddoc"><p>The transfer direction is none. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga0fff6d2c4197d53303fa6e33bd2f85c9a159dcd1d84957bb780972a460ae7af05"></a>SDEMMC_W_TRANSFER_DIR_READ&#160;</td><td class="fielddoc"><p>The transfer direction is read. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga0fff6d2c4197d53303fa6e33bd2f85c9af275544c6406adeab9a206cd6cfc5d52"></a>SDEMMC_W_TRANSFER_DIR_WRITE&#160;</td><td class="fielddoc"><p>The transfer direction is write. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga5219b926ab6f992e48b9af8b223eb015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5219b926ab6f992e48b9af8b223eb015">&#9670;&nbsp;</a></span>sdemmc_w_priv_event_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_d_e_m_m_c___w.html#ga5219b926ab6f992e48b9af8b223eb015">sdemmc_w_priv_event_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Private enumeration used in <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015ab7dbc79182d9896b795a30815c48fb08"></a>SDEMMC_W_PRIV_EVENT_CARD_REMOVED&#160;</td><td class="fielddoc"><p>Card removed event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a374b44f2fc8322f5f07515120ad82c9b"></a>SDEMMC_W_PRIV_EVENT_CARD_INSERTED&#160;</td><td class="fielddoc"><p>Card inserted event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a481d08a444be252e4aa3f8ed445bee3c"></a>SDEMMC_W_PRIV_EVENT_RESPONSE&#160;</td><td class="fielddoc"><p>Response event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a2a5766d5a0058dd95dd430fc78289296"></a>SDEMMC_W_PRIV_EVENT_SDIO&#160;</td><td class="fielddoc"><p>IO event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015aeef8b12ddcc5e6ba06145fd5c19c8473"></a>SDEMMC_W_PRIV_EVENT_TRANSFER_COMPLETE&#160;</td><td class="fielddoc"><p>Read or write complete. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015ab3fe76c8a58e8e1e5a1fdc17f0ebb43a"></a>SDEMMC_W_PRIV_EVENT_TRANSFER_ERROR&#160;</td><td class="fielddoc"><p>Read or write failed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a1cde480f6c21c3ef3ef7cd2bf22538d0"></a>SDEMMC_W_PRIV_EVENT_ERASE_COMPLETE&#160;</td><td class="fielddoc"><p>Erase completed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a7949321fc4498656618ee2953eff05bd"></a>SDEMMC_W_PRIV_EVENT_ERASE_BUSY&#160;</td><td class="fielddoc"><p>Erase timeout, poll <a class="el" href="group___s_d_m_m_c___a_p_i.html#a5bb1be42ac391c9016bd3f6efb3a6b68">sdmmc_api_t::statusGet</a>. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a2a75a5640be543bdce852c1c1fa73229"></a>SDEMMC_W_PRIV_EVENT_SDIO_FN1_WR_OVR&#160;</td><td class="fielddoc"><p>IO event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015ab12e4ef9c9b90dbf525902324b9f5f37"></a>SDEMMC_W_PRIV_EVENT_SDIO_FN1_RD_OVR&#160;</td><td class="fielddoc"><p>IO event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015a8f91db4e81d7d93a37a75767b18fe1bb"></a>SDEMMC_W_PRIV_EVENT_SDIO_FN1_MSG_RDY&#160;</td><td class="fielddoc"><p>IO event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5219b926ab6f992e48b9af8b223eb015aa05fee87e5935956b1c73037d4233219"></a>SDEMMC_W_PRIV_EVENT_SDIO_FN1_ACK_TO_ARM&#160;</td><td class="fielddoc"><p>IO event. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaed0a03a5d29ff11839d9d64a7290d5de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaed0a03a5d29ff11839d9d64a7290d5de">&#9670;&nbsp;</a></span>sdemmc_w_sdio_device_drive_current_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_d_e_m_m_c___w.html#gaed0a03a5d29ff11839d9d64a7290d5de">sdemmc_w_sdio_device_drive_current_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SDIO pads drive current </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaed0a03a5d29ff11839d9d64a7290d5dea6e7ff2035aeb18c3bc352dbb941bcde8"></a>SDEMMC_W_SDIO_DEVICE_DRIVE_CURRENT_2&#160;</td><td class="fielddoc"><p>2 mA @3.3V </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaed0a03a5d29ff11839d9d64a7290d5deaa022e949a598bfe08d514b8ed6edb1ab"></a>SDEMMC_W_SDIO_DEVICE_DRIVE_CURRENT_4&#160;</td><td class="fielddoc"><p>4 mA @3.3V </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaed0a03a5d29ff11839d9d64a7290d5dea4262d046f3a0eadd73c0b0f11c6b183d"></a>SDEMMC_W_SDIO_DEVICE_DRIVE_CURRENT_8&#160;</td><td class="fielddoc"><p>8 mA @3.3V </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaed0a03a5d29ff11839d9d64a7290d5dea12689637000e65ecd08bb4282f76afa4"></a>SDEMMC_W_SDIO_DEVICE_DRIVE_CURRENT_14&#160;</td><td class="fielddoc"><p>14 mA @3.3V </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga7a4bce0a361e43892f9f637951b3fcba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a4bce0a361e43892f9f637951b3fcba">&#9670;&nbsp;</a></span>sdemmc_w_role_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_d_e_m_m_c___w.html#ga7a4bce0a361e43892f9f637951b3fcba">sdemmc_w_role_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SDIO role used in <a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__cfg__t">sdmmc_cfg_t</a> p_extend. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga7a4bce0a361e43892f9f637951b3fcbaa57d194ae9bdb9a3f70f48e3662ea74b1"></a>SDEMMC_W_ROLE_HOST&#160;</td><td class="fielddoc"><p>Act as SD/eMMC/SDIO host. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga7a4bce0a361e43892f9f637951b3fcbaa2341dea8733708994c4c4399bcc0d731"></a>SDEMMC_W_ROLE_DEVICE&#160;</td><td class="fielddoc"><p>Act as SDIO device. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gadd540e6393d43d9af258904c69ca55a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd540e6393d43d9af258904c69ca55a4">&#9670;&nbsp;</a></span>R_SDEMMC_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__cfg__t">sdmmc_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opens the driver. Resets SDEMMC_W, and enables card detection interrupts if card detection is enabled. <a class="el" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a> must be called after this function before any other functions can be used.</p>
+<p>Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#afa538bb4e713dfc116e12417376c5ce4">sdmmc_api_t::open()</a>.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">    <span class="comment">/* Open the SDEMMC_W driver. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___s_d_e_m_m_c___w.html#gadd540e6393d43d9af258904c69ca55a4">R_SDEMMC_W_Open</a>(&amp;g_sdmmc0_ctrl, &amp;g_sdmmc0_cfg);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Module is now open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer or block size is not in the valid range of 1-512. Block size must be 512 bytes for SD cards and eMMC devices. It is configurable for SDIO only. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>Driver has already been opened with this instance of the control structure. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IRQ_BSP_DISABLED</td><td>Access interrupt is not enabled. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IP_CHANNEL_NOT_PRESENT</td><td>Requested channel does not exist on this MCU. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae17b58bf967189e00f5a51c26cb2062e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae17b58bf967189e00f5a51c26cb2062e">&#9670;&nbsp;</a></span>R_SDEMMC_W_MediaInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_MediaInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__device__t">sdmmc_device_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_device</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes the SDEMMC_W hardware and completes identification and configuration for the SD or eMMC or SDIO device. This procedure requires several sequential commands. This function blocks until all identification and configuration commands are complete.</p>
+<p>Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a2e756a69a66f0a6ae00eaa8a33f36243">sdmmc_api_t::mediaInit()</a>.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">    <span class="comment">/* A device shall be ready to accept the first command within 1ms from detecting VDD min. Reference section 6.4.1.1</span></div><div class="line"><span class="comment">     * &quot;Power Up Time of Card&quot; in the SD Physical Layer Simplified Specification Version 6.00. */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1U, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2ba59fcc4e8d51046d4a1bd63c87ac64913">BSP_DELAY_UNITS_MILLISECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the SD card.  This should not be done until the card is plugged in for SD devices. */</span></div><div class="line">    err = <a class="code" href="group___s_d_e_m_m_c___w.html#gae17b58bf967189e00f5a51c26cb2062e">R_SDEMMC_W_MediaInit</a>(&amp;g_sdmmc0_ctrl, &amp;g_device0);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Module is now ready for read/write access. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer or block size is not in the valid range of 1-512. Block size must be 512 bytes for SD cards and eMMC devices. It is configurable for SDIO only. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_DATA</td><td>Unrecognized structure version. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Unsupported device. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_STATE</td><td>Sending command retry failure. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_FOUND</td><td>Card not exist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0a9245ead25850236ff65565ee993810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a9245ead25850236ff65565ee993810">&#9670;&nbsp;</a></span>R_SDEMMC_W_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>start_sector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>sector_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads data from an SD or eMMC device. Up to 0x10000 sectors can be read at a time. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a932862661f24778adfa5302e1bc1f7ae">sdmmc_api_t::read()</a>.</p>
+<p>A callback with the event SDMMC_EVENT_TRANSFER_COMPLETE is called when the read data is available.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">        err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga0a9245ead25850236ff65565ee993810">R_SDEMMC_W_Read</a>(&amp;g_sdmmc0_ctrl, g_dest, 3, 1);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Driver is busy with a previous operation. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SD and eMMC support disabled in SDEMMC_W_CFG_SD_SUPPORT_ENABLE and SDEMMC_W_CFG_EMMC_SUPPORT_ENABLE. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2cc3895a1202caf9a6c012d50a41c155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2cc3895a1202caf9a6c012d50a41c155">&#9670;&nbsp;</a></span>R_SDEMMC_W_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>start_sector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>sector_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes data to an SD or eMMC device. Up to 0x10000 sectors can be written at a time. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a5294db71da024eb9721ea38723ef5508">sdmmc_api_t::write()</a>.</p>
+<p>A callback with the event SDMMC_EVENT_TRANSFER_COMPLETE is called when the all data has been written and the device is no longer holding DAT0 low to indicate it is busy.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">        err = <a class="code" href="group___s_d_e_m_m_c___w.html#ga2cc3895a1202caf9a6c012d50a41c155">R_SDEMMC_W_Write</a>(&amp;g_sdmmc0_ctrl, g_src, 3, 1);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Card write finished successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Handle or Source address is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Driver is busy with a previous operation. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_WRITE_PROTECTED</td><td>SD card is Write Protected. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WRITE_FAILED</td><td>Write operation failed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SD and eMMC support disabled in SDEMMC_W_CFG_SD_SUPPORT_ENABLE and SDEMMC_W_CFG_EMMC_SUPPORT_ENABLE. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga81ab560d15c9f46765fc8a3897b5e0ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga81ab560d15c9f46765fc8a3897b5e0ad">&#9670;&nbsp;</a></span>R_SDEMMC_W_ReadIo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_ReadIo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The Read function reads a one byte register from an SDIO card. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a24e4210d2ec82b9524d91ee080bae26e">sdmmc_api_t::readIo()</a>.</p>
+<p>This function blocks until the command is sent and the response is received. p_data contains the register value read when this function returns.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Device is holding DAT0 low (device is busy) or another operation is ongoing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga80e24a93bd84755b33c4c730226c4e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80e24a93bd84755b33c4c730226c4e6a">&#9670;&nbsp;</a></span>R_SDEMMC_W_WriteIo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_WriteIo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga55695633a9591a08f956911271fba9fd">sdmmc_io_write_mode_t</a> const&#160;</td>
+          <td class="paramname"><em>read_after_write</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes a one byte register to an SDIO card. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a99dfa8f5b48ee979c98f638c341a1ebb">sdmmc_api_t::writeIo()</a>.</p>
+<p>This function blocks until the command is sent and the response is received. The register has been written when this function returns. If read_after_write is true, p_data contains the register value read when this function returns.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Card write finished successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Handle or Source address is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WRITE_FAILED</td><td>Write operation failed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Device is holding DAT0 low (device is busy) or another operation is ongoing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab05b8ededacab8b83560dfaf7e6728a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab05b8ededacab8b83560dfaf7e6728a2">&#9670;&nbsp;</a></span>R_SDEMMC_W_ReadIoExt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_ReadIoExt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *const&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#gabce3d8ad0d84595d7579a5c5efa4306e">sdmmc_io_transfer_mode_t</a>&#160;</td>
+          <td class="paramname"><em>transfer_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#gafa20c01a4dbbd10b3de7fde3ab252df3">sdmmc_io_address_mode_t</a>&#160;</td>
+          <td class="paramname"><em>address_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads data from an SDIO card function. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a9f70fd005c73c7e65366aacf5e3b249f">sdmmc_api_t::readIoExt()</a>.</p>
+<p>This function blocks until the command is sent and the response is received. A callback with the event SDMMC_EVENT_TRANSFER_COMPLETE is called when the read data is available.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Data read successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer, or count is not in the valid range of 1-512 for byte mode or 1-511 for block mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Driver is busy with a previous operation. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Parameter passed into function was invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2c85f9f978bff3c0b62d3bb899cd712a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c85f9f978bff3c0b62d3bb899cd712a">&#9670;&nbsp;</a></span>R_SDEMMC_W_WriteIoExt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_WriteIoExt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#gabce3d8ad0d84595d7579a5c5efa4306e">sdmmc_io_transfer_mode_t</a>&#160;</td>
+          <td class="paramname"><em>transfer_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#gafa20c01a4dbbd10b3de7fde3ab252df3">sdmmc_io_address_mode_t</a>&#160;</td>
+          <td class="paramname"><em>address_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes data to an SDIO card function. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a085fee74e5231b23d6ecd9120caf3fa9">sdmmc_api_t::writeIoExt()</a>.</p>
+<p>This function blocks until the command is sent and the response is received. A callback with the event SDMMC_EVENT_TRANSFER_COMPLETE is called when the all data has been written.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Card write finished successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer, or count is not in the valid range of 1-512 for byte mode or 1-511 for block mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Driver is busy with a previous operation. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Parameter passed into function was invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9cd8cde36d762d6450c729fb02384d7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9cd8cde36d762d6450c729fb02384d7f">&#9670;&nbsp;</a></span>R_SDEMMC_W_IoIntEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_IoIntEnable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enables or disables the SDIO Interrupt. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a3a7228d697b714229e37a1bf54352f5a">sdmmc_api_t::ioIntEnable()</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Card enabled or disabled SDIO interrupts successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Driver is busy with a previous operation. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SDIO support disabled in SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1325b22572a48b7ed5cfca81a755a228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1325b22572a48b7ed5cfca81a755a228">&#9670;&nbsp;</a></span>R_SDEMMC_W_StatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_StatusGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__status__t">sdmmc_status_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Provides driver status. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a5bb1be42ac391c9016bd3f6efb3a6b68">sdmmc_api_t::statusGet()</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Status stored in p_status. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga23a49257fc5adbb91551ee0d1dbbdd5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga23a49257fc5adbb91551ee0d1dbbdd5a">&#9670;&nbsp;</a></span>R_SDEMMC_W_Erase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_Erase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>start_sector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>sector_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Erases sectors of an SD card or eMMC device. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#adeb37ae1b226f926ffe36f5dc19f47b2">sdmmc_api_t::erase()</a>.</p>
+<p>Poll the status to determine when erase is complete.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Erase operation requested. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL or an argument is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_NOT_INITIALIZED</td><td>Card was unplugged. </td></tr>
+    <tr><td class="paramname">FSP_ERR_CARD_WRITE_PROTECTED</td><td>SD card is Write Protected. </td></tr>
+    <tr><td class="paramname">FSP_ERR_RESPONSE</td><td>Device responded with an error. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>SD and eMMC support disabled in SDEMMC_W_CFG_SD_SUPPORT_ENABLE and SDEMMC_W_CFG_EMMC_SUPPORT_ENABLE. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>Device is holding DAT0 low (device is busy) or another operation is ongoing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaadc114984173eff82c6ec8c6407a4976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaadc114984173eff82c6ec8c6407a4976">&#9670;&nbsp;</a></span>R_SDEMMC_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#structsdmmc__callback__args__t">sdmmc_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback with the option to provide memory for the callback argument structure. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a0941852f918ca36c68c0856ec959289f">sdmmc_api_t::callbackSet</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga709c5bb4643df7bd047573e2adff96a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga709c5bb4643df7bd047573e2adff96a1">&#9670;&nbsp;</a></span>R_SDEMMC_W_ResultGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_ResultGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_d_e_m_m_c___w.html#structsdemmc__w__transfer__result__t">sdemmc_w_transfer_result_t</a> *&#160;</td>
+          <td class="paramname"><em>p_result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the SDEMMC transfer result.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function should only be called from an ISR or within a critical section to ensure the result reflects the current transfer and not a subsequent one. </dd></dl>
+
+</div>
+</div>
+<a id="gaeb20a1d2c1011f5e49c07d274d1b363a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb20a1d2c1011f5e49c07d274d1b363a">&#9670;&nbsp;</a></span>R_SDEMMC_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SDEMMC_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_d_m_m_c___a_p_i.html#ga81be65bcaee41616f4702b84eb51a499">sdmmc_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Closes an open SD/MMC device. Implements <a class="el" href="group___s_d_m_m_c___a_p_i.html#a36c443d21eb54717d3658aada3ba1720">sdmmc_api_t::close()</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful close. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The parameter p_ctrl is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver has not been initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Device did not respond. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

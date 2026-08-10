@@ -1,0 +1,832 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: Certificates on Flash (rm_cert)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___c_e_r_t.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">Certificates on Flash (rm_cert)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga3456c7b655400c16b190fb00a1256606"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga3456c7b655400c16b190fb00a1256606">RM_CERT_DeleteAll</a> (void)</td></tr>
+<tr class="memdesc:ga3456c7b655400c16b190fb00a1256606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all the certificates stored in the flash memory.  <a href="#ga3456c7b655400c16b190fb00a1256606">More...</a><br /></td></tr>
+<tr class="separator:ga3456c7b655400c16b190fb00a1256606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae39e23d4caae7c717e1d1cb664960a51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#gae39e23d4caae7c717e1d1cb664960a51">RM_CERT_Write</a> (<a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> module, <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> type, <a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a> format, uint8_t *in, size_t inlen)</td></tr>
+<tr class="memdesc:gae39e23d4caae7c717e1d1cb664960a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the certificate specified by module and type to the flash memory.  <a href="#gae39e23d4caae7c717e1d1cb664960a51">More...</a><br /></td></tr>
+<tr class="separator:gae39e23d4caae7c717e1d1cb664960a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9727273dcf7ce7d93d1ca96053c82485"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga9727273dcf7ce7d93d1ca96053c82485">RM_CERT_Read</a> (<a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> module, <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> type, <a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a> *format, uint8_t *out, size_t *outlen)</td></tr>
+<tr class="memdesc:ga9727273dcf7ce7d93d1ca96053c82485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the certificate specified by module and type from the flash memory.  <a href="#ga9727273dcf7ce7d93d1ca96053c82485">More...</a><br /></td></tr>
+<tr class="separator:ga9727273dcf7ce7d93d1ca96053c82485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ce8b00d48772db37d39c941e761aa89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga5ce8b00d48772db37d39c941e761aa89">RM_CERT_Delete</a> (<a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> module, <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> type)</td></tr>
+<tr class="memdesc:ga5ce8b00d48772db37d39c941e761aa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the certificate specified by module and type from the flash memory.  <a href="#ga5ce8b00d48772db37d39c941e761aa89">More...</a><br /></td></tr>
+<tr class="separator:ga5ce8b00d48772db37d39c941e761aa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga638bc7427adf6524871011277bbe6ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga638bc7427adf6524871011277bbe6ab6">RM_CERT_IsExistCert</a> (<a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> module, <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> type)</td></tr>
+<tr class="memdesc:ga638bc7427adf6524871011277bbe6ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the certificate specified by module and type exists or not in the flash memory.  <a href="#ga638bc7427adf6524871011277bbe6ab6">More...</a><br /></td></tr>
+<tr class="separator:ga638bc7427adf6524871011277bbe6ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1bff8a9e056deb0b7204269b20936fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#gaa1bff8a9e056deb0b7204269b20936fe">RM_CERT_GetModule</a> (uint32_t flash_addr)</td></tr>
+<tr class="memdesc:gaa1bff8a9e056deb0b7204269b20936fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get module ID from specific flash memory address.  <a href="#gaa1bff8a9e056deb0b7204269b20936fe">More...</a><br /></td></tr>
+<tr class="separator:gaa1bff8a9e056deb0b7204269b20936fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab21426664e1e215773cb2f604724722"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#gaab21426664e1e215773cb2f604724722">RM_CERT_GetType</a> (uint32_t flash_addr)</td></tr>
+<tr class="memdesc:gaab21426664e1e215773cb2f604724722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get certificate type from specific flash memory address.  <a href="#gaab21426664e1e215773cb2f604724722">More...</a><br /></td></tr>
+<tr class="separator:gaab21426664e1e215773cb2f604724722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66e5bc184903521e05d4291f54371e67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga66e5bc184903521e05d4291f54371e67">RM_CERT_IsPemFormat</a> (const char *buf)</td></tr>
+<tr class="memdesc:ga66e5bc184903521e05d4291f54371e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the certificate is pem format or not.  <a href="#ga66e5bc184903521e05d4291f54371e67">More...</a><br /></td></tr>
+<tr class="separator:ga66e5bc184903521e05d4291f54371e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h1><a class="anchor" id="rm-cert-overview"></a>
+Overview</h1>
+<p>This module reads/writes/deletes certificates from/to flash memory.</p>
+<h2><a class="anchor" id="rm-cert-features"></a>
+Features</h2>
+<ul>
+<li>Writing certificates to flash memory.</li>
+<li>Reading certificates from flash memory.</li>
+<li>Deleting certificates from flash memory.</li>
+</ul>
+<h1><a class="anchor" id="rm-cert-configuration"></a>
+Configuration</h1>
+<p>This module is generated with <a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html">Virtual EEPROM on Flash (rm_vee_flash_w)</a>. This module has no configurations.</p>
+<h2><a class="anchor" id="rm-cert-clock-configuration"></a>
+Clock Configuration</h2>
+<p>There is no clock configuration for the rm_cert module.</p>
+<h2><a class="anchor" id="rm-cert-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-cert-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the RM_CERT module in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;rm_cert.h&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> error_handler ();</div><div class="line"><span class="keywordtype">void</span> rm_cert_example ();</div><div class="line"></div><div class="line"><span class="preprocessor">#define EXAMPLE_ROOTCA                                                 \</span></div><div class="line"><span class="preprocessor">    &quot;-----BEGIN CERTIFICATE-----\n&quot;                                      \</span></div><div class="line"><span class="preprocessor">    &quot;MIIDUTCCAjkCFE5zJ+Pa9oKE1/+wPkASd2rm53KHMA0GCSqGSIb3DQEBCwUAMGUx\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;CzAJBgNVBAYTAmpwMQ4wDAYDVQQIDAVPc2FrYTESMBAGA1UEBwwJT3Nha2Etc2hp\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;MRYwFAYDVQQKDA0iRXhhbXBsZSBJbmMiMQwwCgYDVQQLDANGb28xDDAKBgNVBAMM\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;A3RlazAeFw0yNDA5MTAyMjI0NTBaFw0yNTA5MTAyMjI0NTBaMGUxCzAJBgNVBAYT\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;AmpwMQ4wDAYDVQQIDAVPc2FrYTESMBAGA1UEBwwJT3Nha2Etc2hpMRYwFAYDVQQK\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;DA0iRXhhbXBsZSBJbmMiMQwwCgYDVQQLDANGb28xDDAKBgNVBAMMA3RlazCCASIw\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANJbt7+igiNpXlquBLnbn2urT9sz\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;g5NKG7vL6JckAYm9Am/M/KGrcN3U7z6AKQI0Zt0uigN4b5QF3aeVqbwKXJO8lYCS\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;LeRpyl64pXwIuSQa0x21SNFqojDLl7Bk520DqD76mG1MLq/HZirR6R5+VIJV182x\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;c5ZqhskWLPQJ+ASdkYxYbma2FWeLClfJIdo6L6q1om6OB9jIc3wWqfE9ZFo7JHH2\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;5fJAErRAF4jgVGFZOsXW8eVxjT5uTXHT7NKIqGmMjRjUlO/n5IBcsD+PE/jJh/Br\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;gy+wU3cgfYudmirzueuoQipgrmCTBg5TCiXYrXQchwjenRjm3+PG1JLU/UcCAwEA\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;ATANBgkqhkiG9w0BAQsFAAOCAQEAHTeQqLy6aB+GqDEfs6tE3p3kZOkjSw29hZDg\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;CBnbGsh4BrGO/GBesTuRIV6Gl2g8tsGVeHMSnYw50hMtoLeDIjWL2jOElDlV/xxG\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;6DOYGNYQ3W3uqsu4oEBZyoPTXEikeSB9i5AQUlqvH6vRxj35TD/U61Yd6sibT1OY\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;jzk0NC1VmhHao3XcAsvJxxrkwj+vjMfairl6AYrSUqm0YImnxSnymF1f72rR+ZbP\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;TEh6ddww5+UjlYt3arWx7EtZ1GGBTL1WJQXcdVKYn6/AUbqdhXWghO47KDjy8cAM\n&quot; \</span></div><div class="line"><span class="preprocessor">    &quot;k7+DzGzGV4OTzGjLKCZYKveYCIPCTaacnv/yALJG+p9qvi26UQ==\n&quot;             \</span></div><div class="line"><span class="preprocessor">    &quot;-----END CERTIFICATE-----\n&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * p_root_ca;</div><div class="line">uint32_t     root_ca_size;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> error_handler ()</div><div class="line">{</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> rm_cert_example ()</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a>    status;</div><div class="line">    <a class="code" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a> format               = <a class="code" href="group___r_m___c_e_r_t.html#ggab8f9b9247a22f1bc0f34946a5edb62cbaf7c17ea35f791098e82468f045946907">RM_CERT_FORMAT_NONE</a>;</div><div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>    buf[CERT_MAX_LENGTH] = {};</div><div class="line">    <span class="keywordtype">size_t</span>           buflen               = CERT_MAX_LENGTH;</div><div class="line"></div><div class="line">    p_root_ca    = EXAMPLE_ROOTCA;</div><div class="line">    root_ca_size = <span class="keyword">sizeof</span>(EXAMPLE_ROOTCA);</div><div class="line"></div><div class="line">    status = <a class="code" href="group___r_m___c_e_r_t.html#gae39e23d4caae7c717e1d1cb664960a51">RM_CERT_Write</a>(<a class="code" href="group___r_m___c_e_r_t.html#gaa1bff8a9e056deb0b7204269b20936fe">RM_CERT_GetModule</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR),</div><div class="line">                           <a class="code" href="group___r_m___c_e_r_t.html#gaab21426664e1e215773cb2f604724722">RM_CERT_GetType</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR), <a class="code" href="group___r_m___c_e_r_t.html#ggab8f9b9247a22f1bc0f34946a5edb62cba5c5a2128d622423a73aad6bbea90df34">RM_CERT_FORMAT_PEM</a>,</div><div class="line">                           (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)p_root_ca, root_ca_size);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a3f55e4a8c8e91f8cf1da2aee45505223">RM_CERT_ERR_OK</a> != status)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line"></div><div class="line">    status = <a class="code" href="group___r_m___c_e_r_t.html#ga9727273dcf7ce7d93d1ca96053c82485">RM_CERT_Read</a>(<a class="code" href="group___r_m___c_e_r_t.html#gaa1bff8a9e056deb0b7204269b20936fe">RM_CERT_GetModule</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR),</div><div class="line">                          <a class="code" href="group___r_m___c_e_r_t.html#gaab21426664e1e215773cb2f604724722">RM_CERT_GetType</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR), &amp;format,</div><div class="line">                          buf, &amp;buflen);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a3f55e4a8c8e91f8cf1da2aee45505223">RM_CERT_ERR_OK</a> != status)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (pdTRUE == <a class="code" href="group___r_m___c_e_r_t.html#ga638bc7427adf6524871011277bbe6ab6">RM_CERT_IsExistCert</a>(<a class="code" href="group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a7d884a8d898f88685b7b15203e7f5eff">RM_CERT_MODULE_MQTT</a>, <a class="code" href="group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a9334c89d8963fac991252440a875497a">RM_CERT_TYPE_CA_CERT</a>))</div><div class="line">    {</div><div class="line">        status = <a class="code" href="group___r_m___c_e_r_t.html#ga5ce8b00d48772db37d39c941e761aa89">RM_CERT_Delete</a>(<a class="code" href="group___r_m___c_e_r_t.html#gaa1bff8a9e056deb0b7204269b20936fe">RM_CERT_GetModule</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR),</div><div class="line">                                <a class="code" href="group___r_m___c_e_r_t.html#gaab21426664e1e215773cb2f604724722">RM_CERT_GetType</a>(SF_TLS_CERT_MQTT_CLI_CA_ADDR));</div><div class="line"></div><div class="line">        <span class="keywordflow">if</span> (<a class="code" href="group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a3f55e4a8c8e91f8cf1da2aee45505223">RM_CERT_ERR_OK</a> != status)</div><div class="line">        {</div><div class="line">            error_handler();</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga3dd17b5331d489c630586ef6f1ce4f58"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a> </td></tr>
+<tr class="separator:ga3dd17b5331d489c630586ef6f1ce4f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8bca935cdc7d0a8ce804a49a46bb362"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> </td></tr>
+<tr class="separator:gac8bca935cdc7d0a8ce804a49a46bb362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24f36475b931a09e52d335d2882cb429"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> </td></tr>
+<tr class="separator:ga24f36475b931a09e52d335d2882cb429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8f9b9247a22f1bc0f34946a5edb62cb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a> </td></tr>
+<tr class="separator:gab8f9b9247a22f1bc0f34946a5edb62cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga3dd17b5331d489c630586ef6f1ce4f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3dd17b5331d489c630586ef6f1ce4f58">&#9670;&nbsp;</a></span>rm_cert_err_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Error codes for rm_cert </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a3f55e4a8c8e91f8cf1da2aee45505223"></a>RM_CERT_ERR_OK&#160;</td><td class="fielddoc"><p>The operation succeeded. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a1fb30e5d868f27da30ecc3d7840ce780"></a>RM_CERT_ERR_NOK&#160;</td><td class="fielddoc"><p>The operation failed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a8ef6761c30837962d9705039d437511e"></a>RM_CERT_ERR_INVALID_MODULE&#160;</td><td class="fielddoc"><p>Invalid module. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58ae14ae2aec709733e6ba153a5e2b28e7e"></a>RM_CERT_ERR_INVALID_TYPE&#160;</td><td class="fielddoc"><p>Invalid type. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58acacf0d9ce017014b2767f7e398bf96d8"></a>RM_CERT_ERR_INVALID_FORMAT&#160;</td><td class="fielddoc"><p>Invalid format. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58ae765301ba2b3a80b087ece9e4ea8688f"></a>RM_CERT_ERR_INVALID_LENGTH&#160;</td><td class="fielddoc"><p>Invalid length. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a60b3d99017fc8f968ccbdf553ec4c8bc"></a>RM_CERT_ERR_INVALID_FLASH_ADDR&#160;</td><td class="fielddoc"><p>Failed to get flash memory. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a7a7c2dbe4ed4bc7d5eaa7de4d933ed69"></a>RM_CERT_ERR_INVALID_PARAMS&#160;</td><td class="fielddoc"><p>Invalid certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a63689623fbe3d2c9b7c3e41bb4cd78fb"></a>RM_CERT_ERR_FOPEN_FAILED&#160;</td><td class="fielddoc"><p>Failed to open. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a90e2839d8cffcd2b52b001e76313eb6f"></a>RM_CERT_ERR_MEM_FAILED&#160;</td><td class="fielddoc"><p>Failed to allocate memory. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga3dd17b5331d489c630586ef6f1ce4f58a94caba518b08ac7e82438696e4e8af8f"></a>RM_CERT_ERR_EMPTY_CERTIFICATE&#160;</td><td class="fielddoc"><p>No certificate. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gac8bca935cdc7d0a8ce804a49a46bb362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8bca935cdc7d0a8ce804a49a46bb362">&#9670;&nbsp;</a></span>rm_cert_module_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Module ID </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362ac2da8b8661a81c431a22f4eee1384d65"></a>RM_CERT_MODULE_NONE&#160;</td><td class="fielddoc"><p>Invalid module. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a7d884a8d898f88685b7b15203e7f5eff"></a>RM_CERT_MODULE_MQTT&#160;</td><td class="fielddoc"><p>MQTT. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362af2e5501fbcbd83a47be65cfcf3efbf83"></a>RM_CERT_MODULE_HTTPS_CLIENT&#160;</td><td class="fielddoc"><p>HTTPS client. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362ac8cf5f3ffc23d18e8b06ba840763343b"></a>RM_CERT_MODULE_WPA_ENTERPRISE&#160;</td><td class="fielddoc"><p>WPA enterprise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362ac770097ec67a96eaddda185cece7f43d"></a>RM_CERT_MODULE_OTA&#160;</td><td class="fielddoc"><p>OTA. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a05c214cbba272bf1aa2b20e0bbe4e4d0"></a>RM_CERT_MODULE_HTTPS_SERVER&#160;</td><td class="fielddoc"><p>HTTPS server. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a9795525e7510ae43e3946c7cabe41b06"></a>RM_CERT_MODULE_ATCMD&#160;</td><td class="fielddoc"><p>AT command. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a24de46cc3a8fd783799abe17f2512cad"></a>RM_CERT_MODULE_AWS&#160;</td><td class="fielddoc"><p>AWS. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a8ae0c1c6a9a6be736c407f6e8220657e"></a>RM_CERT_MODULE_MATTER&#160;</td><td class="fielddoc"><p>Matter/Connectedhomeip. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a21ec6b33683a47c3f4308916a1880ae8"></a>RM_CERT_MODULE_MISC1&#160;</td><td class="fielddoc"><p>Miscellaneous Application 1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a052500b529fb5f8b18e7b159ab4e0402"></a>RM_CERT_MODULE_MISC2&#160;</td><td class="fielddoc"><p>Miscellaneous Application 2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a4a35e790e665004e48e458ec5647a6c2"></a>RM_CERT_MODULE_MISC3&#160;</td><td class="fielddoc"><p>Miscellaneous Application 3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a21e9d65b4cb9366592b8f2907b9a2299"></a>RM_CERT_MODULE_MISC4&#160;</td><td class="fielddoc"><p>Miscellaneous Application 4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a50c1b20c31bddcab66766b2035c85845"></a>RM_CERT_MODULE_MISC5&#160;</td><td class="fielddoc"><p>Miscellaneous Application 5. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a54434b8760c71da42878e8e256e96a31"></a>RM_CERT_MODULE_MISC6&#160;</td><td class="fielddoc"><p>Miscellaneous Application 6. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a8753c34c557df821c4140f5821eb2adc"></a>RM_CERT_MODULE_MISC7&#160;</td><td class="fielddoc"><p>Miscellaneous Application 7. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac8bca935cdc7d0a8ce804a49a46bb362a475f886fe2c743eb019135ce9ea52568"></a>RM_CERT_MODULE_MISC8&#160;</td><td class="fielddoc"><p>Miscellaneous Application 8. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga24f36475b931a09e52d335d2882cb429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga24f36475b931a09e52d335d2882cb429">&#9670;&nbsp;</a></span>rm_cert_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Certificate type </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a0ea5fca101fd741c26a5e0a33025691b"></a>RM_CERT_TYPE_NONE&#160;</td><td class="fielddoc"><p>Invalid type. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a9334c89d8963fac991252440a875497a"></a>RM_CERT_TYPE_CA_CERT&#160;</td><td class="fielddoc"><p>CA certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a71b608bd2073dd53c69a13ed585bfe06"></a>RM_CERT_TYPE_CERT&#160;</td><td class="fielddoc"><p>Certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a65cc1622c401fabf2ccb0ae37aa2303b"></a>RM_CERT_TYPE_PRIVATE_KEY&#160;</td><td class="fielddoc"><p>Private key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429ac26e7b64579f5ccfde97bc543a8b7aab"></a>RM_CERT_TYPE_DH_PARAMS&#160;</td><td class="fielddoc"><p>DH params. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a845114f895bb4ed1a54c45b5f3c94227"></a>RM_CERT_TYPE_INITIAL_CERT&#160;</td><td class="fielddoc"><p>AWS Initial Certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429ac774027aa2555fd4e8f3d74591224cf2"></a>RM_CERT_TYPE_INITIAL_PRIV_KEY&#160;</td><td class="fielddoc"><p>AWS Initial Private key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a6c5d6cebd7f43b5046ae8ca6d35dfc1f"></a>RM_CERT_TYPE_UNIQUE_CERT&#160;</td><td class="fielddoc"><p>AWS Unique Certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429ae34a788bd8919958eecc9b2b83747c25"></a>RM_CERT_TYPE_UNIQUE_PRIV_KEY&#160;</td><td class="fielddoc"><p>AWS Unique Private key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429aef86d688fef72d1856049c74cb898e10"></a>RM_CERT_TYPE_EXCHANGE&#160;</td><td class="fielddoc"><p>Any negotiation parameter used. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a8753770f0f2b63b26541e3fdf0c4152e"></a>RM_CERT_TYPE_CD&#160;</td><td class="fielddoc"><p>Matter Certificate Declaration. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a5193c53b7994c0f771729e025c5196d2"></a>RM_CERT_TYPE_DAC_CERT&#160;</td><td class="fielddoc"><p>Matter DAC Certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429ad567dee0a7944956a278d74bf3414188"></a>RM_CERT_TYPE_PAI_CERT&#160;</td><td class="fielddoc"><p>Matter PAI Certificate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429a74f4ee01d050f7ee9eb514d7980f9a7c"></a>RM_CERT_TYPE_DAC_PRIV_KEY&#160;</td><td class="fielddoc"><p>Matter DAC Private Key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga24f36475b931a09e52d335d2882cb429ab76329f9ea2dab89d5b15d0d1100011b"></a>RM_CERT_TYPE_DAC_PUB_KEY&#160;</td><td class="fielddoc"><p>Matter DAC Public Key. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gab8f9b9247a22f1bc0f34946a5edb62cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8f9b9247a22f1bc0f34946a5edb62cb">&#9670;&nbsp;</a></span>rm_cert_format_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Certificate format </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggab8f9b9247a22f1bc0f34946a5edb62cbaf7c17ea35f791098e82468f045946907"></a>RM_CERT_FORMAT_NONE&#160;</td><td class="fielddoc"><p>Invalid format. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab8f9b9247a22f1bc0f34946a5edb62cba83e6fa6af85eab1de2b9e36f2c059a5f"></a>RM_CERT_FORMAT_DER&#160;</td><td class="fielddoc"><p>DER format. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab8f9b9247a22f1bc0f34946a5edb62cba5c5a2128d622423a73aad6bbea90df34"></a>RM_CERT_FORMAT_PEM&#160;</td><td class="fielddoc"><p>PEM format. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3456c7b655400c16b190fb00a1256606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3456c7b655400c16b190fb00a1256606">&#9670;&nbsp;</a></span>RM_CERT_DeleteAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RM_CERT_DeleteAll </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete all the certificates stored in the flash memory. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">RM_CERT_ERR_OK</td><td>The operation succeeded. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_NOK</td><td>Failed to erase data. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_MODULE</td><td>Invaild module. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_TYPE</td><td>Invaild type. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_FLASH_ADDR</td><td>Failed to get flash memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae39e23d4caae7c717e1d1cb664960a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae39e23d4caae7c717e1d1cb664960a51">&#9670;&nbsp;</a></span>RM_CERT_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a> RM_CERT_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a>&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>inlen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write the certificate specified by module and type to the flash memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>Module ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Certificate type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>Certificate format. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>Pointer to write certificate. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inlen</td><td>Length of certificate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">RM_CERT_ERR_OK</td><td>The operation succeeded. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_NOK</td><td>The operation failed. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_MODULE</td><td>Invaild module. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_TYPE</td><td>Invaild type. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_FORMAT</td><td>Invaild format. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_LENGTH</td><td>Invaild length. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_FLASH_ADDR</td><td>Failed to get flash memory. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_PARAMS</td><td>Invalid certificate. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_MEM_FAILED</td><td>Failed to allocate memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9727273dcf7ce7d93d1ca96053c82485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9727273dcf7ce7d93d1ca96053c82485">&#9670;&nbsp;</a></span>RM_CERT_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a> RM_CERT_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb">rm_cert_format_t</a> *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>outlen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the certificate specified by module and type from the flash memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>Module ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Certificate type. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">format</td><td>Certificate format. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>Pointer to read certificate. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">outlen</td><td>Length of certificate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">RM_CERT_ERR_OK</td><td>The operation succeeded. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_MODULE</td><td>Invaild module. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_TYPE</td><td>Invaild type. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_LENGTH</td><td>Not enough space. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_FLASH_ADDR</td><td>Failed to get flash memory. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_MEM_FAILED</td><td>Failed to allocate memory. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_EMPTY_CERTIFICATE</td><td>No certificate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5ce8b00d48772db37d39c941e761aa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5ce8b00d48772db37d39c941e761aa89">&#9670;&nbsp;</a></span>RM_CERT_Delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58">rm_cert_err_t</a> RM_CERT_Delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete the certificate specified by module and type from the flash memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>Module ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Certificate type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">RM_CERT_ERR_OK</td><td>The operation succeeded. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_NOK</td><td>Failed to erase data. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_MODULE</td><td>Invaild module. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_TYPE</td><td>Invaild type. </td></tr>
+    <tr><td class="paramname">RM_CERT_ERR_INVALID_FLASH_ADDR</td><td>Failed to get flash memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga638bc7427adf6524871011277bbe6ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga638bc7427adf6524871011277bbe6ab6">&#9670;&nbsp;</a></span>RM_CERT_IsExistCert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RM_CERT_IsExistCert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>&#160;</td>
+          <td class="paramname"><em>module</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether the certificate specified by module and type exists or not in the flash memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">module</td><td>Module ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Certificate type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>The certificate exists. </td></tr>
+    <tr><td class="paramname">false</td><td>The certificate does not exist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa1bff8a9e056deb0b7204269b20936fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa1bff8a9e056deb0b7204269b20936fe">&#9670;&nbsp;</a></span>RM_CERT_GetModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a> RM_CERT_GetModule </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>flash_addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get module ID from specific flash memory address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">flash_addr</td><td>Specific flash memory address to get module ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Module ID. See <a class="el" href="group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362">rm_cert_module_t</a>. </dd></dl>
+
+</div>
+</div>
+<a id="gaab21426664e1e215773cb2f604724722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab21426664e1e215773cb2f604724722">&#9670;&nbsp;</a></span>RM_CERT_GetType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a> RM_CERT_GetType </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>flash_addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get certificate type from specific flash memory address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">flash_addr</td><td>Specific flash memory address to get certificate type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Certificate type. See <a class="el" href="group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429">rm_cert_type_t</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ga66e5bc184903521e05d4291f54371e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66e5bc184903521e05d4291f54371e67">&#9670;&nbsp;</a></span>RM_CERT_IsPemFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RM_CERT_IsPemFormat </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>buf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether the certificate is pem format or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>Pointer to the buffer of certificate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>PEM format. </td></tr>
+    <tr><td class="paramname">false</td><td>Other format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

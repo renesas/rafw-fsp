@@ -1,0 +1,413 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: API Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('modules.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">API Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock">This section includes the FSP API Reference for the Module and Interface level functions.</div><div class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span><span onclick="javascript:toggleLevel(4);">4</span>]</div><table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><a class="el" href="group___r_e_n_e_s_a_s___c_o_m_m_o_n.html" target="_self">BSP</a></td><td class="desc">Common code shared by FSP drivers </td></tr>
+<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___b_s_p___i_o.html" target="_self">BSP I/O access</a></td><td class="desc">This module provides basic read/write access to port pins </td></tr>
+<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html" target="_self">Common Error Codes</a></td><td class="desc"></td></tr>
+<tr id="row_0_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_2_" class="arrow" onclick="toggleFolder('0_2_')">&#9658;</span><a class="el" href="group___b_s_p___m_c_u.html" target="_self">MCU Board Support Package</a></td><td class="desc">The BSP is responsible for getting the MCU from reset to the user's application. Before reaching the user's application, the BSP sets up the stacks, heap, clocks, interrupts, C runtime environment, and stack monitor </td></tr>
+<tr id="row_0_2_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___b_s_p___m_c_u___r_a6_w1.html" target="_self">RA6W1</a></td><td class="desc"></td></tr>
+<tr id="row_1_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9660;</span><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html" target="_self">Modules</a></td><td class="desc">Modules are the smallest unit of software available in FSP. Each module implements one interface </td></tr>
+<tr id="row_1_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_0_" class="arrow" onclick="toggleFolder('1_0_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___a_n_a_l_o_g___m_o_d_u_l_e_s.html" target="_self">Analog</a></td><td class="desc">Analog Modules </td></tr>
+<tr id="row_1_0_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_d_c___w.html" target="_self">ADC (r_adc_w)</a></td><td class="desc">Driver for ADC_W version of the ADC peripheral on RAFW MCUs. This module implements the <a class="el" href="group___a_d_c___a_p_i.html">ADC Interface</a> </td></tr>
+<tr id="row_1_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___r_e_n_e_s_a_s___a_u_d_i_o___m_o_d_u_l_e_s.html" target="_self">Audio</a></td><td class="desc">Audio Modules </td></tr>
+<tr id="row_1_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_2_" class="arrow" onclick="toggleFolder('1_2_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___m_o_d_u_l_e_s.html" target="_self">Connectivity</a></td><td class="desc">Connectivity Modules </td></tr>
+<tr id="row_1_2_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___d_m_i_c.html" target="_self">DMIC (r_dmic_w)</a></td><td class="desc">Driver for the DMIC peripheral on RAFW MCUs. This module implements the <a class="el" href="group___d_m_i_c___a_p_i.html">DMIC Interface</a> </td></tr>
+<tr id="row_1_2_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_c___m_a_s_t_e_r___w.html" target="_self">I2C Master (r_i2c_master_w)</a></td><td class="desc">Driver for the I2C peripheral on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___i2_c___m_a_s_t_e_r___a_p_i.html">I2C Master Interface</a> </td></tr>
+<tr id="row_1_2_2_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_c___s_l_a_v_e___w.html" target="_self">I2C Slave (r_i2c_slave_w)</a></td><td class="desc">Driver for the I2C peripheral on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___i2_c___s_l_a_v_e___a_p_i.html">I2C Slave Interface</a> </td></tr>
+<tr id="row_1_2_3_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_s___w.html" target="_self">I2S (r_i2s_w)</a></td><td class="desc">Driver for the I2S_W peripheral on RAFW MCUs. This module implements the <a class="el" href="group___i2_s___a_p_i.html">I2S Interface</a> </td></tr>
+<tr id="row_1_2_4_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_p_i___w.html" target="_self">SPI_W (r_spi_w)</a></td><td class="desc">Driver for the SPI_W peripheral on RA for Wireless MCUs. This module implements the <a class="el" href="group___s_p_i___a_p_i.html">SPI Interface</a> </td></tr>
+<tr id="row_1_2_5_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___u_a_r_t___w.html" target="_self">UART (r_uart_w)</a></td><td class="desc">Driver for the UART peripheral on RAFW MCUs. This module implements the <a class="el" href="group___u_a_r_t___a_p_i.html">UART Interface</a> </td></tr>
+<tr id="row_1_2_6_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html" target="_self">UART Communication Device (rm_comms_uart_w)</a></td><td class="desc">Middleware to implement a generic communications interface over UART. This module implements the <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html">Communications Middleware Interface</a> </td></tr>
+<tr id="row_1_3_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_3_" class="arrow" onclick="toggleFolder('1_3_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___i_n_p_u_t___m_o_d_u_l_e_s.html" target="_self">Input</a></td><td class="desc">Input Modules </td></tr>
+<tr id="row_1_3_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___e_x_t___i_r_q___w.html" target="_self">External IRQ (r_ext_irq_w)</a></td><td class="desc">Driver for the External IRQ on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___e_x_t_e_r_n_a_l___i_r_q___a_p_i.html">External IRQ Interface</a> </td></tr>
+<tr id="row_1_4_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_4_" class="arrow" onclick="toggleFolder('1_4_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___m_a_t_t_e_r___m_o_d_u_l_e_s.html" target="_self">Matter</a></td><td class="desc">Matter Modules </td></tr>
+<tr id="row_1_4_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___m_a_t_t_e_r___a_p_p___p_o_r_t___w.html" target="_self">Matter Lock Application (rm_matter_app_port_w)</a></td><td class="desc">Application porting layer for the MATTER on RAFW. This module implements the <a class="el" href="group___m_a_t_t_e_r___a_p_i.html">Matter Interface</a> </td></tr>
+<tr id="row_1_5_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_5_" class="arrow" onclick="toggleFolder('1_5_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___m_o_n_i_t_o_r_i_n_g___m_o_d_u_l_e_s.html" target="_self">Monitoring</a></td><td class="desc">Monitoring Modules </td></tr>
+<tr id="row_1_5_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_r_c___w.html" target="_self">CRC (r_crc_w)</a></td><td class="desc">Driver for the CRC peripheral on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___c_r_c___a_p_i.html">CRC Interface</a> </td></tr>
+<tr id="row_1_5_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_d_o_g___w.html" target="_self">Watchdog (r_wdog_w)</a></td><td class="desc">Driver for the WDOG peripheral on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___w_d_t___a_p_i.html">WDT Interface</a> </td></tr>
+<tr id="row_1_5_2_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___w.html" target="_self">Watchdog Service (rm_watchdog_service_w)</a></td><td class="desc">Watchdog Service to monitor system tasks and avoid system freezes. This module implements the <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html">Watchdog Service Interface</a> </td></tr>
+<tr id="row_1_6_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_6_" class="arrow" onclick="toggleFolder('1_6_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___m_o_d_u_l_e_s.html" target="_self">Networking</a></td><td class="desc">Networking Modules </td></tr>
+<tr id="row_1_6_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_t_c_m_d___w.html" target="_self">ATCMD_W Middleware (rm_atcmd_w)</a></td><td class="desc">Middleware for the AT peripheral module on RAFW MCUs. This module implements the <a class="el" href="group___a_t___a_p_i.html">AT Interface</a> </td></tr>
+<tr id="row_1_6_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group__lw_i_p___s_o_c_k_e_t_s___w_r_a_p.html" target="_self">AWS lwIP Sockets Wrapper (rm_aws_lwip_sock_wrap_w)</a></td><td class="desc">LwIP Sockets Wrapper provides an abstraction over lwIP sockets. This module implements the <a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html">RM_AWS_LWIP_SOCK_WRAP_W Interface</a> </td></tr>
+<tr id="row_1_6_2_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_w_s_i_o_t___w.html" target="_self">AWSIOT_W Application (rm_awsiot_w)</a></td><td class="desc">Application stack for the AWSIOT_W on RAFW. This module implements the <a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html">AWSIOT_W Application (rm_awsiot_w)</a> </td></tr>
+<tr id="row_1_6_3_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___e_c_l_i_p_s_e___m_o_s_q_u_i_t_t_o.html" target="_self">Eclipse Mosquitto (MQTT)</a></td><td class="desc">Eclipse Mosquitto is publish-subscribe-based messaging protocol </td></tr>
+<tr id="row_1_6_4_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___b_l_e___a_b_s___g_t_l___b.html" target="_self">GTL BLE Abstraction (rm_ble_abs_gtl_b)</a></td><td class="desc">Middleware for the Bluetooth peripheral on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html">BLE ABS Interface</a> </td></tr>
+<tr id="row_1_6_5_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___h_t_t_p_s___w.html" target="_self">HTTPS (rm_https_w)</a></td><td class="desc">HTTPS_W to networking system tasks and avoid system freezes. This module implements the <a class="el" href="group___h_t_t_p_s___a_p_i.html">HTTPS Interface</a> </td></tr>
+<tr id="row_1_6_6_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___m_q_t_t___p_o_r_t___w.html" target="_self">MQTT Port (rm_mqtt_port_w)</a></td><td class="desc">MQTT Port is publish-subscribe-based messaging protocol </td></tr>
+<tr id="row_1_6_7_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_i_f_i.html" target="_self">WIFI (rm_wifi)</a></td><td class="desc">Driver for the WIFI device on RA6W1/RA6W2. This module implements the <a class="el" href="group___w_i_f_i___a_p_i.html">WiFi Interface</a> </td></tr>
+<tr id="row_1_6_8_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group__lw_i_p.html" target="_self">lwIP (rm_lwip_w)</a></td><td class="desc">Middleware lwIP on RAFW MCUs </td></tr>
+<tr id="row_1_7_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_7_" class="arrow" onclick="toggleFolder('1_7_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___p_o_w_e_r___m_o_d_u_l_e_s.html" target="_self">Power</a></td><td class="desc">Power Modules </td></tr>
+<tr id="row_1_7_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___p_m_g_r___w.html" target="_self">PMGR_W (rm_pmgr_w)</a></td><td class="desc">Middleware Power Modes on RAfW MCUs. This module implements the <a class="el" href="group___p_m_g_r___a_p_i.html">PMGR Interface</a> </td></tr>
+<tr id="row_1_8_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_8_" class="arrow" onclick="toggleFolder('1_8_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___r_t_o_s___m_o_d_u_l_e_s.html" target="_self">RTOS</a></td><td class="desc">RTOS Modules </td></tr>
+<tr id="row_1_8_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___f_r_e_e_r_t_o_s___p_o_r_t___w.html" target="_self">FreeRTOS Port (rm_freertos_port_w)</a></td><td class="desc">FreeRTOS port for RAfW MCUs </td></tr>
+<tr id="row_1_9_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_9_" class="arrow" onclick="toggleFolder('1_9_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___s_e_c_u_r_i_t_y___m_o_d_u_l_e_s.html" target="_self">Security</a></td><td class="desc">Security Modules </td></tr>
+<tr id="row_1_9_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r___c_c312___p_r_o_p_e_r_t_y___w.html" target="_self">CC312 Crypto Core (r_cc312_property_w)</a></td><td class="desc">Crypto Core Layer for CC312 on RAFW MCUs. This module implements the CC312 Core library </td></tr>
+<tr id="row_1_9_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___p_s_a___c_r_y_p_t_o___w.html" target="_self">Mbed Crypto H/W Acceleration (rm_psa_crypto_w)</a></td><td class="desc">Hardware acceleration for the mbedCrypto implementation of the Arm PSA Crypto API </td></tr>
+<tr id="row_1_10_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_10_" class="arrow" onclick="toggleFolder('1_10_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html" target="_self">Storage</a></td><td class="desc">Storage Modules </td></tr>
+<tr id="row_1_10_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___b_l_o_c_k___m_e_d_i_a___s_p_i___w.html" target="_self">Block Media SPI Flash (rm_block_media_spi_w)</a></td><td class="desc">Middleware to implement the block media interface on SPI flash memory. This module implements the <a class="el" href="group___r_m___b_l_o_c_k___m_e_d_i_a___a_p_i.html">Block Media Interface</a> </td></tr>
+<tr id="row_1_10_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___c_e_r_t.html" target="_self">Certificates on Flash (rm_cert)</a></td><td class="desc"></td></tr>
+<tr id="row_1_10_2_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___f_r_e_e_r_t_o_s___p_l_u_s___f_a_t___w.html" target="_self">FreeRTOS+FAT Port for RA6W1/RA6W2 (rm_freertos_plus_fat_w)</a></td><td class="desc">Middleware for the FAT File System control on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___r_m___f_r_e_e_r_t_o_s___p_l_u_s___f_a_t___a_p_i.html">FreeRTOS+FAT Port Interface</a> </td></tr>
+<tr id="row_1_10_3_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___l_i_t_t_l_e_f_s___f_l_a_s_h___w.html" target="_self">LittleFS on Flash (rm_littlefs_flash_w)</a></td><td class="desc">Middleware for the LittleFS File System control on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___r_m___l_i_t_t_l_e_f_s___a_p_i.html">LittleFS Interface</a> </td></tr>
+<tr id="row_1_10_4_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___l_i_t_t_l_e_f_s___s_p_i___f_l_a_s_h___w.html" target="_self">LittleFS on SPI Flash (rm_littlefs_spi_flash_w)</a></td><td class="desc">Middleware for the LittleFS File System control using external SPI Flash on RA6W1/RA6W2. This module implements the <a class="el" href="group___r_m___l_i_t_t_l_e_f_s___a_p_i.html">LittleFS Interface</a> </td></tr>
+<tr id="row_1_10_5_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html" target="_self">MAP PERSISTANT_W (rm_map_persistant_w)</a></td><td class="desc">Middleware to implement READ/WRITE/ERASE from Persistant storage. This module implements the <a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html">RM_MAP_PERSISTANT_W Interface</a> </td></tr>
+<tr id="row_1_10_6_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___o_s_p_i___w.html" target="_self">OSPI_W (r_ospi_w)</a></td><td class="desc">Driver for the OSPI peripheral on RRQ MCUs. This module implements the <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html">SPI Flash Interface</a> </td></tr>
+<tr id="row_1_10_7_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___q_s_p_i___w.html" target="_self">QSPI_W (r_qspi_w)</a></td><td class="desc">Driver for the QSPI peripheral on RRQ MCUs. This module implements the <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html">SPI Flash Interface</a> </td></tr>
+<tr id="row_1_10_8_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_d_e_m_m_c___w.html" target="_self">SD/MMC (r_sdemmc_w)</a></td><td class="desc">Driver for the SD/MMC Host Interface (SDEMMC_W) peripheral on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___s_d_m_m_c___a_p_i.html">SD/MMC Interface</a> </td></tr>
+<tr id="row_1_10_9_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html" target="_self">Virtual EEPROM on Flash (rm_vee_flash_w)</a></td><td class="desc">Virtual EEPROM on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___r_m___v_e_e___a_p_i.html">Virtual EEPROM Interface</a> </td></tr>
+<tr id="row_1_11_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_11_" class="arrow" onclick="toggleFolder('1_11_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___s_y_s_t_e_m___m_o_d_u_l_e_s.html" target="_self">System</a></td><td class="desc">System Modules </td></tr>
+<tr id="row_1_11_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___g_p_i_o___w.html" target="_self">I/O Port (W) (r_gpio_w)</a></td><td class="desc">Driver for the I/O Ports peripheral on RAFW MCUs. This module implements the <a class="el" href="group___i_o_p_o_r_t___a_p_i.html">I/O Port Interface</a> </td></tr>
+<tr id="row_1_11_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___o_t_a___w.html" target="_self">Over The Air update (rm_ota_w)</a></td><td class="desc">Middleware for the OTA module on RAFW. This module implements the <a class="el" href="group___o_t_a___a_p_i.html">OTA Interface</a> </td></tr>
+<tr id="row_1_12_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_12_" class="arrow" onclick="toggleFolder('1_12_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___t_i_m_e_r_s___m_o_d_u_l_e_s.html" target="_self">Timers</a></td><td class="desc">Timers Modules </td></tr>
+<tr id="row_1_12_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_t_c___w.html" target="_self">Realtime Clock (r_rtc_w)</a></td><td class="desc">Driver for the RTC peripheral on RAFW MCUs. This module implements the <a class="el" href="group___r_t_c___a_p_i.html">RTC Interface</a> </td></tr>
+<tr id="row_1_12_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___t_i_m___w.html" target="_self">Timer, General Purpose (r_tim_w)</a></td><td class="desc">Driver for the TIM_W peripherals on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___t_i_m_e_r___a_p_i.html">Timer Interface</a> </td></tr>
+<tr id="row_1_13_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_1_13_" class="arrow" onclick="toggleFolder('1_13_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___t_r_a_n_s_f_e_r___m_o_d_u_l_e_s.html" target="_self">Transfer</a></td><td class="desc">Transfer Modules </td></tr>
+<tr id="row_1_13_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___d_m_a_c___w.html" target="_self">Transfer (r_dmac_w)</a></td><td class="desc">Driver for the DMAC peripheral on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html">Transfer Interface</a> </td></tr>
+<tr id="row_2_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html" target="_self">Interfaces</a></td><td class="desc">FSP interfaces provide APIs for common functionality. They can be implemented by one or more modules. Modules can use other modules as dependencies using this interface layer </td></tr>
+<tr id="row_2_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_0_" class="arrow" onclick="toggleFolder('2_0_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___a_n_a_l_o_g___i_n_t_e_r_f_a_c_e_s.html" target="_self">Analog</a></td><td class="desc">Analog Interfaces </td></tr>
+<tr id="row_2_0_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_d_c___a_p_i.html" target="_self">ADC Interface</a></td><td class="desc">Interface for A/D Converters </td></tr>
+<tr id="row_2_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___r_e_n_e_s_a_s___a_u_d_i_o___i_n_t_e_r_f_a_c_e_s.html" target="_self">Audio</a></td><td class="desc">Audio Interfaces </td></tr>
+<tr id="row_2_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_2_" class="arrow" onclick="toggleFolder('2_2_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___i_n_t_e_r_f_a_c_e_s.html" target="_self">Connectivity</a></td><td class="desc">Connectivity Interfaces </td></tr>
+<tr id="row_2_2_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_t___a_p_i.html" target="_self">AT Interface</a></td><td class="desc">Interface for AT communications </td></tr>
+<tr id="row_2_2_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html" target="_self">Communications Middleware Interface</a></td><td class="desc">Interface for Communications Middleware functions </td></tr>
+<tr id="row_2_2_2_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___d_m_i_c___a_p_i.html" target="_self">DMIC Interface</a></td><td class="desc">Interface for DMIC audio communication </td></tr>
+<tr id="row_2_2_3_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_c___m_a_s_t_e_r___a_p_i.html" target="_self">I2C Master Interface</a></td><td class="desc">Interface for I2C master communication </td></tr>
+<tr id="row_2_2_4_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_c___s_l_a_v_e___a_p_i.html" target="_self">I2C Slave Interface</a></td><td class="desc">Interface for I2C slave communication </td></tr>
+<tr id="row_2_2_5_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i2_s___a_p_i.html" target="_self">I2S Interface</a></td><td class="desc">Interface for I2S audio communication </td></tr>
+<tr id="row_2_2_6_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_p_i___a_p_i.html" target="_self">SPI Interface</a></td><td class="desc">Interface for SPI communications </td></tr>
+<tr id="row_2_2_7_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___u_a_r_t___a_p_i.html" target="_self">UART Interface</a></td><td class="desc">Interface for UART communications </td></tr>
+<tr id="row_2_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_3_" class="arrow" onclick="toggleFolder('2_3_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___i_n_p_u_t___i_n_t_e_r_f_a_c_e_s.html" target="_self">Input</a></td><td class="desc">Input Interfaces </td></tr>
+<tr id="row_2_3_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___e_x_t_e_r_n_a_l___i_r_q___a_p_i.html" target="_self">External IRQ Interface</a></td><td class="desc">Interface for detecting external interrupts </td></tr>
+<tr id="row_2_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_4_" class="arrow" onclick="toggleFolder('2_4_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___m_a_t_t_e_r___i_n_t_e_r_f_a_c_e_s.html" target="_self">Matter</a></td><td class="desc">Matter Interfaces </td></tr>
+<tr id="row_2_4_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___m_a_t_t_e_r___a_p_i.html" target="_self">Matter Interface</a></td><td class="desc">Interface for Matter functions </td></tr>
+<tr id="row_2_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_5_" class="arrow" onclick="toggleFolder('2_5_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___m_o_n_i_t_o_r_i_n_g___i_n_t_e_r_f_a_c_e_s.html" target="_self">Monitoring</a></td><td class="desc">Monitoring Interfaces </td></tr>
+<tr id="row_2_5_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_r_c___a_p_i.html" target="_self">CRC Interface</a></td><td class="desc">Interface for cyclic redundancy checking </td></tr>
+<tr id="row_2_5_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_d_t___a_p_i.html" target="_self">WDT Interface</a></td><td class="desc">Interface for watch dog timer functions </td></tr>
+<tr id="row_2_5_2_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html" target="_self">Watchdog Service Interface</a></td><td class="desc">Interface for Watchdog Service APIs </td></tr>
+<tr id="row_2_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_6_" class="arrow" onclick="toggleFolder('2_6_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___i_n_t_e_r_f_a_c_e_s.html" target="_self">Networking</a></td><td class="desc">Networking Interfaces </td></tr>
+<tr id="row_2_6_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___a_w_s_i_o_t___w___a_p_i.html" target="_self">AWSIOT_W Application (rm_awsiot_w)</a></td><td class="desc">Interface for AWSIOT_W Application APIs </td></tr>
+<tr id="row_2_6_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___b_l_e___a_b_s___a_p_i.html" target="_self">BLE ABS Interface</a></td><td class="desc">Interface for BLE Abstraction functions </td></tr>
+<tr id="row_2_6_2_" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span id="arr_2_6_2_" class="arrow" onclick="toggleFolder('2_6_2_')">&#9658;</span><a class="el" href="group___b_l_e___a_p_i.html" target="_self">BLE Interface</a></td><td class="desc">Interface for Bluetooth Low Energy (BLE) functions </td></tr>
+<tr id="row_2_6_2_0_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___g_a_p___a_p_i.html" target="_self">GAP</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_1_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___i_s_o___a_p_i.html" target="_self">ISO</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_2_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___e_a_t_t___a_p_i.html" target="_self">EATT</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_3_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___g_a_t_t___c_o_m_m_o_n___a_p_i.html" target="_self">GATT_COMMON</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_4_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___g_a_t_t___s_e_r_v_e_r___a_p_i.html" target="_self">GATT_SERVER</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_5_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___g_a_t_t___c_l_i_e_n_t___a_p_i.html" target="_self">GATT_CLIENT</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_6_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___l2_c_a_p___a_p_i.html" target="_self">L2CAP</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_2_7_" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___v_s___a_p_i.html" target="_self">VS</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_3_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___h_t_t_p_s___a_p_i.html" target="_self">HTTPS Interface</a></td><td class="desc">Interface for HTTPS APIs </td></tr>
+<tr id="row_2_6_4_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___a_w_s___l_w_i_p___s_o_c_k___w_r_a_p___w___a_p_i.html" target="_self">RM_AWS_LWIP_SOCK_WRAP_W Interface</a></td><td class="desc">Interface for accessing AWS_LWIP_SOCK_WRAP_W Storage </td></tr>
+<tr id="row_2_6_5_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___w_i_f_i___a_p_i.html" target="_self">WiFi Interface</a></td><td class="desc">Interface for common WiFi APIs </td></tr>
+<tr id="row_2_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_7_" class="arrow" onclick="toggleFolder('2_7_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___p_o_w_e_r___i_n_t_e_r_f_a_c_e_s.html" target="_self">Power</a></td><td class="desc">Power Interfaces </td></tr>
+<tr id="row_2_7_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___p_m_g_r___a_p_i.html" target="_self">PMGR Interface</a></td><td class="desc">Interface for accessing Middleware power modes </td></tr>
+<tr id="row_2_8_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___r_e_n_e_s_a_s___s_e_c_u_r_i_t_y___i_n_t_e_r_f_a_c_e_s.html" target="_self">Security</a></td><td class="desc">Security Interfaces </td></tr>
+<tr id="row_2_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_9_" class="arrow" onclick="toggleFolder('2_9_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___i_n_t_e_r_f_a_c_e_s.html" target="_self">Storage</a></td><td class="desc">Storage Interfaces </td></tr>
+<tr id="row_2_9_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___b_l_o_c_k___m_e_d_i_a___a_p_i.html" target="_self">Block Media Interface</a></td><td class="desc">Interface for block media memory access </td></tr>
+<tr id="row_2_9_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___f_l_a_s_h___a_p_i.html" target="_self">Flash Interface</a></td><td class="desc">Interface for the Flash Memory </td></tr>
+<tr id="row_2_9_2_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___f_r_e_e_r_t_o_s___p_l_u_s___f_a_t___a_p_i.html" target="_self">FreeRTOS+FAT Port Interface</a></td><td class="desc">Interface for FreeRTOS+FAT port </td></tr>
+<tr id="row_2_9_3_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___l_i_t_t_l_e_f_s___a_p_i.html" target="_self">LittleFS Interface</a></td><td class="desc">Interface for LittleFS access </td></tr>
+<tr id="row_2_9_4_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html" target="_self">RM_MAP_PERSISTANT_W Interface</a></td><td class="desc">Interface for accessing MAP_PERSISTANT_W Storage </td></tr>
+<tr id="row_2_9_5_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_d_m_m_c___a_p_i.html" target="_self">SD/MMC Interface</a></td><td class="desc">Interface for accessing SD, eMMC, and SDIO devices </td></tr>
+<tr id="row_2_9_6_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html" target="_self">SPI Flash Interface</a></td><td class="desc">Interface for accessing external SPI flash devices </td></tr>
+<tr id="row_2_9_7_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_m___v_e_e___a_p_i.html" target="_self">Virtual EEPROM Interface</a></td><td class="desc">Interface for Virtual EEPROM access </td></tr>
+<tr id="row_2_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_10_" class="arrow" onclick="toggleFolder('2_10_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___s_y_s_t_e_m___i_n_t_e_r_f_a_c_e_s.html" target="_self">System</a></td><td class="desc">System Interfaces </td></tr>
+<tr id="row_2_10_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i_o_p_o_r_t___a_p_i.html" target="_self">I/O Port Interface</a></td><td class="desc">Interface for accessing I/O ports and configuring I/O functionality </td></tr>
+<tr id="row_2_10_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___o_t_a___a_p_i.html" target="_self">OTA Interface</a></td><td class="desc">Interface for the OTA Functionality </td></tr>
+<tr id="row_2_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_11_" class="arrow" onclick="toggleFolder('2_11_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___t_i_m_e_r_s___i_n_t_e_r_f_a_c_e_s.html" target="_self">Timers</a></td><td class="desc">Timers Interfaces </td></tr>
+<tr id="row_2_11_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_t_c___a_p_i.html" target="_self">RTC Interface</a></td><td class="desc">Interface for accessing the Realtime Clock </td></tr>
+<tr id="row_2_11_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___t_i_m_e_r___a_p_i.html" target="_self">Timer Interface</a></td><td class="desc">Interface for timer functions </td></tr>
+<tr id="row_2_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_12_" class="arrow" onclick="toggleFolder('2_12_')">&#9658;</span><a class="el" href="group___r_e_n_e_s_a_s___t_r_a_n_s_f_e_r___i_n_t_e_r_f_a_c_e_s.html" target="_self">Transfer</a></td><td class="desc">Transfer Interfaces </td></tr>
+<tr id="row_2_12_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html" target="_self">Transfer Interface</a></td><td class="desc">Interface for data transfer functions </td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_3_" class="arrow" onclick="toggleFolder('3_')">&#9660;</span><a class="el" href="group___b_s_p.html" target="_self">BSP</a></td><td class="desc"></td></tr>
+<tr id="row_3_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_3_0_" class="arrow" onclick="toggleFolder('3_0_')">&#9658;</span><a class="el" href="group___d_e_v_i_c_e_s.html" target="_self">DEVICES</a></td><td class="desc"></td></tr>
+<tr id="row_3_0_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_l_k.html" target="_self">CLK</a></td><td class="desc"></td></tr>
+<tr id="row_4_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_4_" class="arrow" onclick="toggleFolder('4_')">&#9660;</span><a class="el" href="group___p_l_a___d_r_i___p_e_r___a_n_a_l_o_g.html" target="_self">PLA_DRI_PER_ANALOG</a></td><td class="desc"></td></tr>
+<tr id="row_4_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___h_w___s_y_s.html" target="_self">System Hardware Driver</a></td><td class="desc">System Driver </td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_5_" class="arrow" onclick="toggleFolder('5_')">&#9660;</span><a class="el" href="group___p_l_a___b_s_p___s_y_s_t_e_m.html" target="_self">PLA_BSP_SYSTEM</a></td><td class="desc"></td></tr>
+<tr id="row_5_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___b_s_p___i_n_t_e_r_r_u_p_t_s.html" target="_self">Interrupts</a></td><td class="desc">Interrupt priority configuration </td></tr>
+<tr id="row_5_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html" target="_self">SDK Platform Definitions</a></td><td class="desc">Platform definitions </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_6_" class="arrow" onclick="toggleFolder('6_')">&#9660;</span><a class="el" href="group___m_i_d___s_y_s___a_d_a_p_t_e_r_s.html" target="_self">MID_SYS_ADAPTERS</a></td><td class="desc"></td></tr>
+<tr id="row_6_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___a_d_a_p_t_e_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html" target="_self">ADAPTER_CONFIGURATION</a></td><td class="desc"></td></tr>
+<tr id="row_7_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_7_" class="arrow" onclick="toggleFolder('7_')">&#9660;</span><a class="el" href="group___p_l_a___b_s_p___c_o_n_f_i_g.html" target="_self">PLA_BSP_CONFIG</a></td><td class="desc"></td></tr>
+<tr id="row_7_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_7_0_" class="arrow" onclick="toggleFolder('7_0_')">&#9658;</span><a class="el" href="group___b_s_p___d_e_b_u_g.html" target="_self">Debug Configuration</a></td><td class="desc">Board debug support configuration definitions </td></tr>
+<tr id="row_7_0_0_" class="even" style="display:none;"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span id="arr_7_0_0_" class="arrow" onclick="toggleFolder('7_0_0_')">&#9658;</span><a class="el" href="group___d_e_b_u_g___s_e_t_t_i_n_g_s.html" target="_self">DEBUG_SETTINGS</a></td><td class="desc">Debugging settings </td></tr>
+<tr id="row_7_0_0_0_" class="even" style="display:none;"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a class="el" href="group___s_y_s_t_e_m___v_i_e_w.html" target="_self">SYSTEM_VIEW</a></td><td class="desc">System View configuration settings </td></tr>
+<tr id="row_7_1_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_7_1_" class="arrow" onclick="toggleFolder('7_1_')">&#9658;</span><a class="el" href="group___b_s_p___c_o_n_f_i_g___d_e_f_a_u_l_t_s.html" target="_self">BSP Default Configuration Values</a></td><td class="desc">Board support package default configuration values </td></tr>
+<tr id="row_7_1_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html" target="_self">Clock Settings (Low Power, XTAL etc.)</a></td><td class="desc">Settings for the different clock-types of the chip </td></tr>
+<tr id="row_7_1_1_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___i_m_a_g_e___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html" target="_self">Image configuration settings</a></td><td class="desc">Image configuration settings </td></tr>
+<tr id="row_7_1_2_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html" target="_self">System configuration settings</a></td><td class="desc">Generic System Configuration Settings </td></tr>
+<tr id="row_7_1_3_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___u_s_b___s_e_t_t_i_n_g_s.html" target="_self">USB configuration settings</a></td><td class="desc">USB configuration settings </td></tr>
+<tr id="row_7_1_4_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html" target="_self">Flash configuration settings</a></td><td class="desc">Flash configuration settings </td></tr>
+<tr id="row_7_1_5_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_a_c_h_e___s_e_t_t_i_n_g_s.html" target="_self">Cache configuration settings</a></td><td class="desc">Cache configuration settings </td></tr>
+<tr id="row_7_1_6_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___u_a_r_t___s_e_t_t_i_n_g_s.html" target="_self">UART configuration settings</a></td><td class="desc">UART configuration settings </td></tr>
+<tr id="row_7_1_7_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___r_f___d_r_i_v_e_r___s_e_t_t_i_n_g_s.html" target="_self">Radio Driver Settings</a></td><td class="desc">Doxygen documentation is not yet available for this module. Please check the source code file(s) </td></tr>
+<tr id="row_7_1_8_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___p_e_r_i_p_h_e_r_a_l_s__690.html" target="_self">Peripherals for DA1487x</a></td><td class="desc">Peripheral Selection for the DA1487x Device Family </td></tr>
+<tr id="row_7_1_9_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_h_a_r_g_e_r___s_e_t_t_i_n_g_s.html" target="_self">Charger configuration settings</a></td><td class="desc"></td></tr>
+<tr id="row_7_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_7_2_" class="arrow" onclick="toggleFolder('7_2_')">&#9658;</span><a class="el" href="group___b_s_p___c_o_n_f_i_g___d_e_f_i_n_i_t_i_o_n_s.html" target="_self">Configuration Definitions</a></td><td class="desc">Doxygen documentation is not yet available for this module. Please check the source code file(s) </td></tr>
+<tr id="row_7_2_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___b_s_p___c_f_g___d_e_f___d_e_v_i_c_e___m_a_p.html" target="_self">Device-Map Definitions</a></td><td class="desc">Device-Map Definitions. Macros for all the devices supported by SDK10 </td></tr>
+<tr id="row_7_3_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_7_3_" class="arrow" onclick="toggleFolder('7_3_')">&#9658;</span><a class="el" href="group___b_s_p___m_e_m_o_r_y___d_e_f_a_u_l_t_s.html" target="_self">Memory Default Configuration Values</a></td><td class="desc">BSP memory default configuration values </td></tr>
+<tr id="row_7_3_0_" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___m_e_m_o_r_y___l_a_y_o_u_t___s_e_t_t_i_n_g_s.html" target="_self">Memory Layout Configuration Settings</a></td><td class="desc">Memory Layout Configuration Settings </td></tr>
+<tr id="row_7_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___p_l_a___b_s_p___c_f_g___b_o_a_r_d_s.html" target="_self">PLA_BSP_CFG_BOARDS</a></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_8_" class="arrow" onclick="toggleFolder('8_')">&#9660;</span><a class="el" href="group___m_i_d_d_l_e_w_a_r_e___c_o_n_f_i_g___d_e_f_a_u_l_t_s.html" target="_self">MIDDLEWARE_CONFIG_DEFAULTS</a></td><td class="desc">Middleware default configuration values </td></tr>
+<tr id="row_8_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_8_0_" class="arrow" onclick="toggleFolder('8_0_')">&#9658;</span><a class="el" href="group___a_d_a_p_t_e_r___s_e_l_e_c_t_i_o_n.html" target="_self">Adapters enabled by default</a></td><td class="desc">Adapter selection </td></tr>
+<tr id="row_8_0_0_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___c_o_n_s_o_l_e___i_o___s_e_t_t_i_n_g_s.html" target="_self">Console I/O Settings</a></td><td class="desc">Console IO configuration settings </td></tr>
+<tr id="row_8_0_1_" class="even" style="display:none;"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a class="el" href="group___m_i_d_d_l_e_w_a_r_e___d_e_b_u_g___s_e_t_t_i_n_g_s.html" target="_self">Debug Settings</a></td><td class="desc"></td></tr>
+<tr id="row_9_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___m_i_d___r_t_o___o_s_a_l.html" target="_self">MID_RTO_OSAL</a></td><td class="desc">OS Abstraction Layer </td></tr>
+<tr id="row_10_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___i2_s.html" target="_self">I2S</a></td><td class="desc"></td></tr>
+<tr id="row_11_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___b_l_e___l_o_a_d_e_r___i_o_p_o_r_t.html" target="_self">BLE_LOADER_IOPORT</a></td><td class="desc"></td></tr>
+<tr id="row_12_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___m_a_t_t_e_r___w_i_f_i___a_p_p_s___l_o_c_k___w.html" target="_self">MATTER_WIFI_APPS_LOCK_W</a></td><td class="desc"></td></tr>
+<tr id="row_13_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html" target="_self">R_CC312_OPENABLE_W</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

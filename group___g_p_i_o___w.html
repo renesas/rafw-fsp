@@ -1,0 +1,1139 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: I/O Port (W) (r_gpio_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___g_p_i_o___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">I/O Port (W) (r_gpio_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_y_s_t_e_m___m_o_d_u_l_e_s.html">System</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga87120c13c285bb397f84d6c97d6a664f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, const <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#structioport__cfg__t">ioport_cfg_t</a> *p_cfg)</td></tr>
+<tr class="separator:ga87120c13c285bb397f84d6c97d6a664f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00aaed94d33cf4a1a2601ee8af0e1a6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga00aaed94d33cf4a1a2601ee8af0e1a6f">R_GPIO_W_Close</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga00aaed94d33cf4a1a2601ee8af0e1a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafee9489386515220fbae3878b791dff2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gafee9489386515220fbae3878b791dff2">R_GPIO_W_PinsCfg</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, const <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#structioport__cfg__t">ioport_cfg_t</a> *p_cfg)</td></tr>
+<tr class="separator:gafee9489386515220fbae3878b791dff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c1d5cfce2faf09c48208a4d728a25a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a> pin, uint32_t cfg)</td></tr>
+<tr class="separator:ga9c1d5cfce2faf09c48208a4d728a25a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga248f47a5119b0f1f4b0d87341ca17a4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a> pin, <a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> *p_pin_value)</td></tr>
+<tr class="separator:ga248f47a5119b0f1f4b0d87341ca17a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa403649eb8616ead410585443160326b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gaa403649eb8616ead410585443160326b">R_GPIO_W_PortRead</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a> port, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> *p_port_value)</td></tr>
+<tr class="separator:gaa403649eb8616ead410585443160326b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6d4755c30d88afa49df20c0e44564d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gaa6d4755c30d88afa49df20c0e44564d1">R_GPIO_W_PortWrite</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a> port, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> value, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> mask)</td></tr>
+<tr class="separator:gaa6d4755c30d88afa49df20c0e44564d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbe745253bbd2127c57aa630d6459a84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gacbe745253bbd2127c57aa630d6459a84">R_GPIO_W_PinWrite</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a> pin, <a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> level)</td></tr>
+<tr class="separator:gacbe745253bbd2127c57aa630d6459a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79cd044a43dec51cc6fe313e56ea9481"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga79cd044a43dec51cc6fe313e56ea9481">R_GPIO_W_PortDirectionSet</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a> port, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> direction_values, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> mask)</td></tr>
+<tr class="separator:ga79cd044a43dec51cc6fe313e56ea9481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga874babf94afeb2d07fdb974fcd21a558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga874babf94afeb2d07fdb974fcd21a558">R_GPIO_W_PortEventInputRead</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a> port, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> *p_event_data)</td></tr>
+<tr class="separator:ga874babf94afeb2d07fdb974fcd21a558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab71814d1e4be2366b2eaff2c1c718002"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gab71814d1e4be2366b2eaff2c1c718002">R_GPIO_W_PinEventInputRead</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a> pin, <a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> *p_pin_event)</td></tr>
+<tr class="separator:gab71814d1e4be2366b2eaff2c1c718002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9f407a7c25cd63375557119c050441d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#gac9f407a7c25cd63375557119c050441d">R_GPIO_W_PortEventOutputWrite</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a> port, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> event_data, <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> mask_value)</td></tr>
+<tr class="separator:gac9f407a7c25cd63375557119c050441d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga806dce3ede9ce9ffb3cabe9bb2b46f0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga806dce3ede9ce9ffb3cabe9bb2b46f0e">R_GPIO_W_PinEventOutputWrite</a> (<a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a> pin, <a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> pin_value)</td></tr>
+<tr class="separator:ga806dce3ede9ce9ffb3cabe9bb2b46f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the I/O Ports peripheral on RAFW MCUs. This module implements the <a class="el" href="group___i_o_p_o_r_t___a_p_i.html">I/O Port Interface</a>. </p>
+<h1><a class="anchor" id="r-gpio_w-overview"></a>
+Overview</h1>
+<p>The I/O port pins operate as general I/O port pins, I/O pins for peripheral modules, interrupt input pins, analog I/O, response pins for the ELC, or bus control pins.</p>
+<h2><a class="anchor" id="r-gpio_w-features"></a>
+Features</h2>
+<p>The GPIO_W HAL module can configure the following pin settings:</p><ul>
+<li>Pin direction</li>
+<li>Default output state</li>
+<li>Pull-up</li>
+<li>NMOS/PMOS</li>
+<li>Drive strength</li>
+<li>Peripheral Event assignment linked with other events via ELC</li>
+<li>Response task assignment (SET,RESET,TOGGLE)</li>
+</ul>
+<table class="doxtable">
+<tr>
+<th>--&mdash;Features-------------&mdash;</th><th>RA6B1 </th><th>RA6U1 </th><th>RA6B2 </th><th>RA6W1 </th><th>RA6W3  </th></tr>
+<tr>
+<td>Peripheral event assignment </td><td>Supported</td><td>Supported</td><td>Supported </td><td>Not Supported </td><td>Supported </td></tr>
+<tr>
+<td>Response task assignment </td><td>Supported</td><td>Supported</td><td>Supported </td><td>Not Supported </td><td>Supported </td></tr>
+</table>
+<ul>
+<li>Whether the pin is to be used as an IRQ pin</li>
+<li>Whether the pin is to be used as an analog pin</li>
+<li>Peripheral connection</li>
+</ul>
+<p>The module also provides the following functionality:</p><ul>
+<li>Read/write GPIO pins/ports</li>
+</ul>
+<h1><a class="anchor" id="r-gpio_w-configuration"></a>
+Configuration</h1>
+<p>The I/O PORT HAL module must be configured by the user for the desired operation. The operating state of an I/O pin can be set via the RA Configuraton tool. When the project is built a pin configuration file is created. The BSP will automatically configure the MCU IO ports accordingly at startup using the same API functions mentioned in this document.</p>
+<p><a class="anchor" id="um_gpio_w_initialize_io_port_module"></a><a class="anchor" id="um_gpio_w_configure_multiple_pins"></a><a class="anchor" id="um_gpio_w_module_initialization_data_dependency"></a><a class="anchor" id="um_gpio_w_configure_direction_of_io_port_pins"></a><a class="anchor" id="um_gpio_w_configure_pfs_register"></a><a class="anchor" id="um_gpio_w_map_clock_on_selected_pin"></a><a class="anchor" id="um_gpio_w_map_clock_on_dedicated_pin"></a> <a class="anchor" id="um_gpio_w_write_and_read_pin_level"></a><a class="anchor" id="um_gpio_w_toggle_all_gpio_pins"></a><a class="anchor" id="um_gpio_w_set_weak_pad_drive"></a><a class="anchor" id="um_gpio_w_set_pin_voltage_level"></a> <h2>Build Time Configurations for r_gpio_w</h2>
+The following build time configurations are defined in fsp_cfg/r_gpio_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+</table>
+ <h2>Configurations for System &gt; I/O Port (r_gpio_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; System &gt; I/O Port (r_gpio_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_gpio_w </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Pin Configuration Name</td><td>Name must be a valid C symbol</td><td>g_bsp_pin_cfg </td><td>Name for pin configuration structure </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-gpio_w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>The GPIO_W HAL module does not require a specific clock configuration.</p>
+<h2><a class="anchor" id="r-gpio_w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>The GPIO_W module is used for configuring pins.</p>
+<h1>Usage Notes</h1>
+<h1><a class="anchor" id="r-gpio_w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the GPIO_W in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> readLevel;</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>      err;</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the GPIO_W module and configure the pins</span></div><div class="line"><span class="comment">     * Note: The default pin configuration name in the RAFW Configuration tool is g_bsp_pin_cfg_exmpl */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open</a>(&amp;g_gpio_w_ctrl, &amp;g_bsp_pin_cfg_exmpl);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Call R_GPIO_W_PinsCfg if the configuration was not part of initial configurations made in open */</span></div><div class="line"><span class="preprocessor">#if !defined(BSP_MCU_GROUP_RA6W1)</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#gafee9489386515220fbae3878b791dff2">R_GPIO_W_PinsCfg</a>(&amp;g_gpio_w_ctrl, &amp;g_runtime_pin_cfg);</div><div class="line"><span class="preprocessor">#else</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#gafee9489386515220fbae3878b791dff2">R_GPIO_W_PinsCfg</a>(&amp;g_gpio_w_ctrl, &amp;g_bsp_pin_cfg_runtime_exmpl);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Set Pin 00 of Port 00 to High */</span></div><div class="line"><span class="preprocessor">#if !defined(BSP_MCU_GROUP_RA6W1)</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#gacbe745253bbd2127c57aa630d6459a84">R_GPIO_W_PinWrite</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa62ce6a7aef8164ea6bce7a9209b2506f">BSP_IO_PORT_00_PIN_00</a>, <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>);</div><div class="line"><span class="preprocessor">#else</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#gacbe745253bbd2127c57aa630d6459a84">R_GPIO_W_PinWrite</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aaacb245caefdfe06fbcbbab664d8203ed">BSP_IO_PORT_00_PIN_11</a>, <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Read Pin 00 of Port 00 */</span></div><div class="line"><span class="preprocessor">#if !defined(BSP_MCU_GROUP_RA6W1)</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa62ce6a7aef8164ea6bce7a9209b2506f">BSP_IO_PORT_00_PIN_00</a>, &amp;readLevel);</div><div class="line"><span class="preprocessor">#else</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aaacb245caefdfe06fbcbbab664d8203ed">BSP_IO_PORT_00_PIN_11</a>, &amp;readLevel);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>Blinky Example</h2>
+<p>This example uses GPIO_W to configure and toggle a pin to blink an LED.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#if !defined(BSP_MCU_GROUP_RA6W1)</span></div><div class="line"><span class="keywordtype">void</span> blinky_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line"><span class="preprocessor">#if defined(BSP_MCU_GROUP_RA6W1)</span></div><div class="line">    <a class="code" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> level = <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>;</div><div class="line">    R_BSP_IrqEnable(BSP_VECTOR_GPIO_P0_INT);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the GPIO_W module and configure the pins */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open</a>(&amp;g_gpio_w_ctrl, &amp;g_bsp_pin_cfg_exmpl);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Configure Pin as output</span></div><div class="line"><span class="comment">     * Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa62ce6a7aef8164ea6bce7a9209b2506f">BSP_IO_PORT_00_PIN_00</a>, GPIO_W_CFG_PORT_DIRECTION_OUTPUT);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> level = <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0abb31064742440cdbdd638330a1cf7a9f">BSP_IO_LEVEL_LOW</a>;</div><div class="line">    <span class="keywordflow">while</span> (1)</div><div class="line">    {</div><div class="line">        <span class="comment">/* Determine the next state of the LEDs */</span></div><div class="line">        <span class="keywordflow">if</span> (<a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0abb31064742440cdbdd638330a1cf7a9f">BSP_IO_LEVEL_LOW</a> == level)</div><div class="line">        {</div><div class="line">            level = <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>;</div><div class="line">        }</div><div class="line">        <span class="keywordflow">else</span></div><div class="line">        {</div><div class="line">            level = <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0abb31064742440cdbdd638330a1cf7a9f">BSP_IO_LEVEL_LOW</a>;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="comment">/* Update LED on RA6B1-PRODK */</span></div><div class="line">        err = <a class="code" href="group___g_p_i_o___w.html#gacbe745253bbd2127c57aa630d6459a84">R_GPIO_W_PinWrite</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa62ce6a7aef8164ea6bce7a9209b2506f">BSP_IO_PORT_00_PIN_00</a>, level);</div><div class="line">        assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">        <span class="comment">/* Delay */</span></div><div class="line">        <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(100, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2ba59fcc4e8d51046d4a1bd63c87ac64913">BSP_DELAY_UNITS_MILLISECONDS</a>); <span class="comment">// NOLINT</span></div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="preprocessor">#else</span></div><div class="line"><span class="keywordtype">void</span> blinky_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> level = <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>;</div><div class="line">    R_BSP_IrqEnable(BSP_VECTOR_GPIO_P0_INT);</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the GPIO_W module and configure the pins */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open</a>(&amp;g_gpio_w_ctrl, &amp;g_bsp_pin_cfg_exmpl);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Configure Pin as output</span></div><div class="line"><span class="comment">     * Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa75f46b7e6fc545357caf3e296d76449a">BSP_IO_PORT_00_PIN_10</a>, GPIO_W_CFG_PULLUP_ENABLE);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Configure Pin as output</span></div><div class="line"><span class="comment">     * Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aaacb245caefdfe06fbcbbab664d8203ed">BSP_IO_PORT_00_PIN_11</a>, GPIO_W_CFG_PORT_DIRECTION_OUTPUT);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (1)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">if</span> (toggle)</div><div class="line">        {</div><div class="line">            level = !level;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="comment">/* Update LED on EK-RQ61 */</span></div><div class="line">        err = <a class="code" href="group___g_p_i_o___w.html#gacbe745253bbd2127c57aa630d6459a84">R_GPIO_W_PinWrite</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aaacb245caefdfe06fbcbbab664d8203ed">BSP_IO_PORT_00_PIN_11</a>, level);</div><div class="line">        assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">        <span class="comment">/* Delay */</span></div><div class="line">        <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(100, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2ba59fcc4e8d51046d4a1bd63c87ac64913">BSP_DELAY_UNITS_MILLISECONDS</a>); <span class="comment">// NOLINT</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div></div><!-- fragment --> <h2>ELC Example</h2>
+<p>ELC Example is available only in supported devices:</p>
+<table class="doxtable">
+<tr>
+<th>RA6B1 </th><th>RA6U1 </th><th>RA6B2 </th><th>RA6W1 </th><th>RA6W3  </th></tr>
+<tr>
+<td>Supported</td><td>Supported</td><td>Supported </td><td>Not Supported </td><td>Supported </td></tr>
+</table>
+<p>This is an example of using GPIO_W with ELC events. Any pin can be assigned to 1) a peripheral event which can be linked to any event via ELC. 2) a response task performed when the linked event occurs. SET,RESET or TOGGLE. The response can be found by simply reading the corresponding data register.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keyword">static</span> elc_w_instance_ctrl_t g_elc_ctrl;</div><div class="line"><span class="keyword">static</span> elc_cfg_t             g_elc_cfg;</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> gpio_w_elc_example ()</div><div class="line">{</div><div class="line">    <a class="code" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> eventValue;</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>      err;</div><div class="line"></div><div class="line">    <span class="comment">/* Initializes the software and sets the links defined in the control structure. */</span></div><div class="line">    err = R_ELC_W_Open(&amp;g_elc_ctrl, &amp;g_elc_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Create or modify a link between a peripheral function and an event source. */</span></div><div class="line">    err = R_ELC_W_LinkSet(&amp;g_elc_ctrl, (elc_peripheral_t) ELC_PERIPHERAL_GPIOW2, ELC_EVENT_ELCW_SWEVT0);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Globally enable event linking in the ELC. */</span></div><div class="line">    err = R_ELC_W_Enable(&amp;g_elc_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the GPIO_W module and configure the pins */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open</a>(&amp;g_gpio_w_ctrl, &amp;g_bsp_pin_cfg_exmpl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* SET ELC action */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open</span></div><div class="line"><span class="comment">     * Use the mask-macro-function with desired ELC_GPIO_EVT for SET elc task */</span></div><div class="line">    err =</div><div class="line">        <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>, SET_GPIO_EVENTx_MASK(ELC_PERIPHERAL_GPIOW2));</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Generate an event signal through software to the linked peripheral. */</span></div><div class="line">    err = R_ELC_W_SoftwareEventGenerate(&amp;g_elc_ctrl, ELC_SOFTWARE_EVENT_0);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Wait for event to occur */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2baa0312618f2508347a9a815b5887c12ae">BSP_DELAY_UNITS_MICROSECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Read Pin Event Output. */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>, &amp;eventValue);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    assert(<a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a> == eventValue);</div><div class="line"></div><div class="line">    <span class="comment">/* RESET ELC action */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open</span></div><div class="line"><span class="comment">     * Use the mask-macro-function with desired ELC_GPIO_EVT for RESET elc task */</span></div><div class="line">    err =</div><div class="line">        <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>, RESET_GPIO_EVENTx_MASK(ELC_PERIPHERAL_GPIOW2));</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Generate an event signal through software to the linked peripheral. */</span></div><div class="line">    err = R_ELC_W_SoftwareEventGenerate(&amp;g_elc_ctrl, ELC_SOFTWARE_EVENT_0);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Wait for event to occur */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2baa0312618f2508347a9a815b5887c12ae">BSP_DELAY_UNITS_MICROSECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Read Pin Event Output. */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>, &amp;eventValue);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    assert(<a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0abb31064742440cdbdd638330a1cf7a9f">BSP_IO_LEVEL_LOW</a> == eventValue);</div><div class="line"></div><div class="line">    <span class="comment">/* TOGGLE ELC action */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Call the R_GPIO_W_PinCfg if the configuration was not part of initial configurations made in open</span></div><div class="line"><span class="comment">     * Use the mask-macro-function with desired ELC_GPIO_EVT for TOGGLE elc task */</span></div><div class="line">    err =</div><div class="line">        <a class="code" href="group___g_p_i_o___w.html#ga9c1d5cfce2faf09c48208a4d728a25a5">R_GPIO_W_PinCfg</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>,</div><div class="line">                        TOGGLE_GPIO_EVENTx_MASK(ELC_PERIPHERAL_GPIOW2, <a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0acf9a28559b5a18ed9b8af4c2a7df10ef">BSP_IO_LEVEL_HIGH</a>));</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Generate an event signal through software to the linked peripheral. */</span></div><div class="line">    err = R_ELC_W_SoftwareEventGenerate(&amp;g_elc_ctrl, ELC_SOFTWARE_EVENT_0);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Wait for event to occur */</span></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(1, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2baa0312618f2508347a9a815b5887c12ae">BSP_DELAY_UNITS_MICROSECONDS</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Read Pin Event Output. */</span></div><div class="line">    err = <a class="code" href="group___g_p_i_o___w.html#ga248f47a5119b0f1f4b0d87341ca17a4b">R_GPIO_W_PinRead</a>(&amp;g_gpio_w_ctrl, <a class="code" href="group___b_s_p___i_o.html#gga0adbfd4b7db319886d667acb4804d80aa635ed7a090bf9052c6cfc6c225335c9a">BSP_IO_PORT_02_PIN_00</a>, &amp;eventValue);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">    assert(<a class="code" href="group___b_s_p___i_o.html#ggab4ef0cc3fce421d48310f23c614aadc0abb31064742440cdbdd638330a1cf7a9f">BSP_IO_LEVEL_LOW</a> == eventValue);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structgpio__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#structgpio__w__instance__ctrl__t">gpio_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structgpio__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structpad__power__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#structpad__power__t">pad_power_t</a></td></tr>
+<tr class="separator:structpad__power__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structpad__weak__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#structpad__weak__t">pad_weak_t</a></td></tr>
+<tr class="separator:structpad__weak__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structsel__pin__clk__out__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#structsel__pin__clk__out__t">sel_pin_clk_out_t</a></td></tr>
+<tr class="separator:structsel__pin__clk__out__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structgpio__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#structgpio__w__extended__cfg__t">gpio_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structgpio__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga04e8b33d70819b91a4c5840710ec3cef"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_p_i_o___w.html#ga04e8b33d70819b91a4c5840710ec3cef">gpio_w_peripheral_t</a> </td></tr>
+<tr class="separator:ga04e8b33d70819b91a4c5840710ec3cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structgpio__w__instance__ctrl__t" id="structgpio__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structgpio__w__instance__ctrl__t">&#9670;&nbsp;</a></span>gpio_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct gpio_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>GPIO_W private control block. DO NOT MODIFY. Initialization occurs when <a class="el" href="group___g_p_i_o___w.html#ga87120c13c285bb397f84d6c97d6a664f">R_GPIO_W_Open()</a> is called. </p>
+</div>
+</div>
+</div>
+<a name="structpad__power__t" id="structpad__power__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structpad__power__t">&#9670;&nbsp;</a></span>pad_power_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct pad_power_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Pins power configuration structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a932d3105ecbcbb75858e676b14eb8355"></a>uint32_t</td>
+<td class="fieldname">
+p0_pwr</td>
+<td class="fielddoc">
+<p>Pins output power for P0 </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a96596d7b2dee3829780582efb9391b02"></a>uint32_t</td>
+<td class="fieldname">
+p1_pwr</td>
+<td class="fielddoc">
+<p>Pins output power for P1 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structpad__weak__t" id="structpad__weak__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structpad__weak__t">&#9670;&nbsp;</a></span>pad_weak_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct pad_weak_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Pins driving strength configuration structure </p>
+</div>
+</div>
+</div>
+<a name="structsel__pin__clk__out__t" id="structsel__pin__clk__out__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structsel__pin__clk__out__t">&#9670;&nbsp;</a></span>sel_pin_clk_out_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sel_pin_clk_out_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Map clock output to selectable pin structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a86964ae7985e64d1dbbc93726446c777"></a><a class="el" href="group___b_s_p___m_c_u___r_a6_w1.html#ga1cae4df949b6b13d014ba4f672a1a150">bsp_io_clk_func_t</a></td>
+<td class="fieldname">
+clk_sel</td>
+<td class="fielddoc">
+<p>Select which clock to map </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="af31b79647701171c16cb9efa18723372"></a>bool</td>
+<td class="fieldname">
+clk_en</td>
+<td class="fielddoc">
+<p>Enable mapping of the selected clock signal </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structgpio__w__extended__cfg__t" id="structgpio__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structgpio__w__extended__cfg__t">&#9670;&nbsp;</a></span>gpio_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct gpio_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Extended configuration struct </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af08a77a59f229a1f9d48e7d7de72d057"></a><a class="el" href="group___g_p_i_o___w.html#structpad__power__t">pad_power_t</a></td>
+<td class="fieldname">
+power</td>
+<td class="fielddoc">
+<p>Pins power configuration </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="abca626fcf6135e4d4475c1bf1170fa5c"></a><a class="el" href="group___g_p_i_o___w.html#structpad__weak__t">pad_weak_t</a></td>
+<td class="fieldname">
+weak_pad_power</td>
+<td class="fielddoc">
+<p>Pins driving strength configuration </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad42b579809a95786b217e30a4cc240a7"></a><a class="el" href="group___b_s_p___m_c_u___r_a6_w1.html#ga2cb7897c9d808f5f3a6743c25b0d2328">bsp_io_clk_output_t</a></td>
+<td class="fieldname">
+fixed_pin_clk_out</td>
+<td class="fielddoc">
+<p>Map clock output to fixed pin </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a859c1878a8af6f8c7080dc86f75efdae"></a><a class="el" href="group___g_p_i_o___w.html#structsel__pin__clk__out__t">sel_pin_clk_out_t</a></td>
+<td class="fieldname">
+sel_pin_clk_out</td>
+<td class="fielddoc">
+<p>Map clock output to selectable pin </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga04e8b33d70819b91a4c5840710ec3cef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04e8b33d70819b91a4c5840710ec3cef">&#9670;&nbsp;</a></span>gpio_w_peripheral_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___g_p_i_o___w.html#ga04e8b33d70819b91a4c5840710ec3cef">gpio_w_peripheral_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Superset of all peripheral functions. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga04e8b33d70819b91a4c5840710ec3cefa7fc3fe6f50c069d0f1203fc43ab5b3bc"></a>GPIO_W_PERIPHERAL_DEBUG&#160;</td><td class="fielddoc"><p>Pin will function as a DEBUG pin (controlled by SYS_CTRL_REG[DEBUGGER_ENABLE]) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga04e8b33d70819b91a4c5840710ec3cefacc0c4af8dd3d4c988538eab5856d319d"></a>GPIO_W_PERIPHERAL_TRACE&#160;</td><td class="fielddoc"><p>Pin will function as a TRACE pin (controlled by DEBUG_REG[ETM_TRACE_MAP_ON_PINS_EN]) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga04e8b33d70819b91a4c5840710ec3cefabf9f59f4f8432c8baefb8cf4e1c7faca"></a>GPIO_W_PERIPHERAL_ACOMP&#160;</td><td class="fielddoc"><p>Pin will function as an ACOMP Channel pin </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga04e8b33d70819b91a4c5840710ec3cefa4badd8e201d798c08ac50732767f81a8"></a>GPIO_W_PERIPHERAL_QSPI&#160;</td><td class="fielddoc"><p>Pin will function as a QSPIC pin </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga04e8b33d70819b91a4c5840710ec3cefabdd5c267de0bf9d5f73740564d17e74a"></a>GPIO_W_PERIPHERAL_OSPI&#160;</td><td class="fielddoc"><p>Pin will function as a OQSPIF pin </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga87120c13c285bb397f84d6c97d6a664f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga87120c13c285bb397f84d6c97d6a664f">&#9670;&nbsp;</a></span>R_GPIO_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#structioport__cfg__t">ioport_cfg_t</a> *&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes internal driver data, then calls pin configuration function to configure pins.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin configuration data written to MODE, Set port pins and Reset port pins register(s) </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>Module is already open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga00aaed94d33cf4a1a2601ee8af0e1a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00aaed94d33cf4a1a2601ee8af0e1a6f">&#9670;&nbsp;</a></span>R_GPIO_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Resets GPIO_W registers. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#a81b125b5439058c024dbac0f57405f69">ioport_api_t::close</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The GPIO_W was successfully uninitialized </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_ctrl was NULL </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafee9489386515220fbae3878b791dff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafee9489386515220fbae3878b791dff2">&#9670;&nbsp;</a></span>R_GPIO_W_PinsCfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinsCfg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#structioport__cfg__t">ioport_cfg_t</a> *&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configures the functions of multiple pins by loading configuration data into pin MODE,Set port pins and Reset port pins registers. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#ac962e87038418a6a525ac9f763687c19">ioport_api_t::pinsCfg</a>.</p>
+<p>This function initializes the supplied list of MODE, Set port pins and Reset port pins registers with the supplied values. This data can be generated by the Pins tab of the RAFW Configuration editor or manually by the developer. Different pin configurations can be loaded for different situations such as low power modes and testing.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin configuration data written to MODE,Set port pins and Reset port pins register(s) </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9c1d5cfce2faf09c48208a4d728a25a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9c1d5cfce2faf09c48208a4d728a25a5">&#9670;&nbsp;</a></span>R_GPIO_W_PinCfg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinCfg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configures the settings of a pin. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#a72162206113e825e83aa709c106cd94e">ioport_api_t::pinCfg</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin configured </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different pins. This function will change the configuration of the pin with the new configuration. For example it is not possible with this function to change the drive strength of a pin while leaving all the other pin settings unchanged. To achieve this the original settings with the required change will need to be written using this function. </dd></dl>
+
+</div>
+</div>
+<a id="ga248f47a5119b0f1f4b0d87341ca17a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga248f47a5119b0f1f4b0d87341ca17a4b">&#9670;&nbsp;</a></span>R_GPIO_W_PinRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> *&#160;</td>
+          <td class="paramname"><em>p_pin_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads the level on a pin. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#afaba07fd298740d7a58a74720e259af2">ioport_api_t::pinRead</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin read </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different pins. </dd></dl>
+
+</div>
+</div>
+<a id="gaa403649eb8616ead410585443160326b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa403649eb8616ead410585443160326b">&#9670;&nbsp;</a></span>R_GPIO_W_PortRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PortRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> *&#160;</td>
+          <td class="paramname"><em>p_port_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads the value on an IO port. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#ac0de7591b4c5680e87ab2d219e2748c2">ioport_api_t::portRead</a>.</p>
+<p>The specified port will be read, and the levels for all the pins will be returned. Each bit in the returned value corresponds to a pin on the port. For example, bit 7 corresponds to pin 7, bit 6 to pin 6, and so on.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Port read </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. </dd></dl>
+
+</div>
+</div>
+<a id="gaa6d4755c30d88afa49df20c0e44564d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa6d4755c30d88afa49df20c0e44564d1">&#9670;&nbsp;</a></span>R_GPIO_W_PortWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PortWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes to multiple pins on a port. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#a5a71c5cffcdcacab2425d46603451cf2">ioport_api_t::portWrite</a>.</p>
+<p>The input value will be written to the specified port. Each bit in the value parameter corresponds to a bit on the port. For example, bit 7 corresponds to pin 7, bit 6 to pin 6, and so on. Each bit in the mask parameter corresponds to a pin on the port.</p>
+<p>Only the bits with the corresponding bit in the mask value set will be updated. For example, value = 0xFFFF, mask = 0x0003 results in only bits 0 and 1 being updated.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Port written to </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>The port and/or mask not valid </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointerd</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. This function makes use of the Set port pins and Reset port pins registers to atomically modify the levels on the specified pins on a port. </dd></dl>
+
+</div>
+</div>
+<a id="gacbe745253bbd2127c57aa630d6459a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacbe745253bbd2127c57aa630d6459a84">&#9670;&nbsp;</a></span>R_GPIO_W_PinWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a>&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets a pin's output either high or low. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#aad4fb5941cd80d4ed9db0262f29b30cf">ioport_api_t::pinWrite</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin written to </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>The pin and/or level not valid </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opene </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointerd</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different pins. This function makes use of the Set port pins and Reset port pins registers to atomically modify the level on the specified pin on a port. </dd></dl>
+
+</div>
+</div>
+<a id="ga79cd044a43dec51cc6fe313e56ea9481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79cd044a43dec51cc6fe313e56ea9481">&#9670;&nbsp;</a></span>R_GPIO_W_PortDirectionSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PortDirectionSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>direction_values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the direction of individual pins on a port. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#a15e2e35a9ea2163402cb38c29aaa6399">ioport_api_t::portDirectionSet()</a>.</p>
+<p>Multiple pins on a port can be set to inputs or outputs at once. Each bit in the mask parameter corresponds to a pin on the port. For example, bit 7 corresponds to pin 7, bit 6 to pin 6, and so on. If a bit is set to 1 then the corresponding pin will be changed to an input or an output as specified by the direction values. If a mask bit is set to 0 then the direction of the pin will not be changed.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Port direction updated </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>The port and/or mask not valid </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. </dd></dl>
+
+</div>
+</div>
+<a id="ga874babf94afeb2d07fdb974fcd21a558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga874babf94afeb2d07fdb974fcd21a558">&#9670;&nbsp;</a></span>R_GPIO_W_PortEventInputRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PortEventInputRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a> *&#160;</td>
+          <td class="paramname"><em>p_event_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads the value of the event input data. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#ab369548c3b66d80747df3ed29ca336f0">ioport_api_t::portEventInputRead()</a>.</p>
+<p>The event input data for the port will be read. Each bit in the returned value corresponds to a pin on the port. For example, bit 7 corresponds to pin 7, bit 6 to pin 6, and so on.</p>
+<p>The port event data is captured in response to a trigger from the ELC. This function enables this data to be read. Using the event system allows the captured data to be stored when it occurs and then read back at a later time.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Port read </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Port not a valid ELC port </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Function not supported.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. </dd></dl>
+
+</div>
+</div>
+<a id="gab71814d1e4be2366b2eaff2c1c718002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab71814d1e4be2366b2eaff2c1c718002">&#9670;&nbsp;</a></span>R_GPIO_W_PinEventInputRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinEventInputRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a> *&#160;</td>
+          <td class="paramname"><em>p_pin_event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads the value of the event input data of a specific pin. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#aed708d8a848a6e142ce5bf8cc085360f">ioport_api_t::pinEventInputRead</a>.</p>
+<p>The pin event data is captured in response to a trigger from the ELC. This function enables this data to be read. Using the event system allows the captured data to be stored when it occurs and then read back at a later time.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin read </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Port is not valid ELC PORT. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Function not supported.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant. </dd></dl>
+
+</div>
+</div>
+<a id="gac9f407a7c25cd63375557119c050441d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9f407a7c25cd63375557119c050441d">&#9670;&nbsp;</a></span>R_GPIO_W_PortEventOutputWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PortEventOutputWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga33a147902fb258f531c0bae40166f46e">bsp_io_port_t</a>&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>event_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gaf5da96a68757260a2cb370fec69f0836">ioport_size_t</a>&#160;</td>
+          <td class="paramname"><em>mask_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function writes the set and reset event output data for a port. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#afad905247e7c42fcb42d412a4e2d2d15">ioport_api_t::portEventOutputWrite</a>.</p>
+<p>Using the event system enables a port state to be stored by this function in advance of being output on the port. The output to the port will occur when the ELC event occurs.</p>
+<p>The input value will be written to the specified port when an ELC event configured for that port occurs. Each bit in the value parameter corresponds to a bit on the port. For example, bit 7 corresponds to pin 7, bit 6 to pin 6, and so on. Each bit in the mask parameter corresponds to a pin on the port.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Port event data written </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Port or Mask not valid </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. </dd></dl>
+
+</div>
+</div>
+<a id="ga806dce3ede9ce9ffb3cabe9bb2b46f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga806dce3ede9ce9ffb3cabe9bb2b46f0e">&#9670;&nbsp;</a></span>R_GPIO_W_PinEventOutputWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_GPIO_W_PinEventOutputWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_o_p_o_r_t___a_p_i.html#gafc061c58bb812cb2a8f25222353634cd">ioport_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#ga0adbfd4b7db319886d667acb4804d80a">bsp_io_port_pin_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___b_s_p___i_o.html#gab4ef0cc3fce421d48310f23c614aadc0">bsp_io_level_t</a>&#160;</td>
+          <td class="paramname"><em>pin_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function writes the event output data value to a pin. Implements <a class="el" href="group___i_o_p_o_r_t___a_p_i.html#a52c0dcf252f3502911337a9f99e17986">ioport_api_t::pinEventOutputWrite</a>.</p>
+<p>Using the event system enables a pin state to be stored by this function in advance of being output on the pin. The output to the pin will occur when the ELC event occurs.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Pin event data written </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Port or Pin or value not valid </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function is re-entrant for different ports. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

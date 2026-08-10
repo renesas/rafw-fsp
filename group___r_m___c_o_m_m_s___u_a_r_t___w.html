@@ -1,0 +1,693 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: UART Communication Device (rm_comms_uart_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___c_o_m_m_s___u_a_r_t___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a>  </div>
+  <div class="headertitle">
+<div class="title">UART Communication Device (rm_comms_uart_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___m_o_d_u_l_e_s.html">Connectivity</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga694a0880f8ff9c6cc4e170a829c81a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga694a0880f8ff9c6cc4e170a829c81a86">RM_COMMS_UART_W_Open</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__cfg__t">rm_comms_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="memdesc:ga694a0880f8ff9c6cc4e170a829c81a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens and configures the UART Comms module. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#aef6d79b01056d9ea88e9fa5f0cd3f229">rm_comms_api_t::open</a>.  <a href="#ga694a0880f8ff9c6cc4e170a829c81a86">More...</a><br /></td></tr>
+<tr class="separator:ga694a0880f8ff9c6cc4e170a829c81a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67afd36432935e9b2cf5e7b7ba9a5058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga67afd36432935e9b2cf5e7b7ba9a5058">RM_COMMS_UART_W_Close</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="memdesc:ga67afd36432935e9b2cf5e7b7ba9a5058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables specified UART Comms module. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#abd464feb634b589687a0b8f55d0a078a">rm_comms_api_t::close</a>.  <a href="#ga67afd36432935e9b2cf5e7b7ba9a5058">More...</a><br /></td></tr>
+<tr class="separator:ga67afd36432935e9b2cf5e7b7ba9a5058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62918e8f2678c7b115e2aaa7b30ab2e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga62918e8f2678c7b115e2aaa7b30ab2e1">RM_COMMS_UART_W_CallbackSet</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__callback__args__t">rm_comms_callback_args_t</a> *), void *const p_context)</td></tr>
+<tr class="memdesc:ga62918e8f2678c7b115e2aaa7b30ab2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the UART Comms callback. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a83f31e5edbc638f47900624b563b0476">rm_comms_api_t::callbackSet</a>.  <a href="#ga62918e8f2678c7b115e2aaa7b30ab2e1">More...</a><br /></td></tr>
+<tr class="separator:ga62918e8f2678c7b115e2aaa7b30ab2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac69265c208906903510c951bbbd6bf5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#gac69265c208906903510c951bbbd6bf5a">RM_COMMS_UART_W_Read</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="memdesc:gac69265c208906903510c951bbbd6bf5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a read from the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a40779e10d71d444a436dc2382003bc0b">rm_comms_api_t::read</a>.  <a href="#gac69265c208906903510c951bbbd6bf5a">More...</a><br /></td></tr>
+<tr class="separator:gac69265c208906903510c951bbbd6bf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22c3b1b0e08b9f0360b5167650cec1cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga22c3b1b0e08b9f0360b5167650cec1cb">RM_COMMS_UART_W_Write</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl, uint8_t *const p_src, uint32_t const bytes)</td></tr>
+<tr class="memdesc:ga22c3b1b0e08b9f0360b5167650cec1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a write to the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#af5486a540964c7c37f3115739be3e6cb">rm_comms_api_t::write</a>.  <a href="#ga22c3b1b0e08b9f0360b5167650cec1cb">More...</a><br /></td></tr>
+<tr class="separator:ga22c3b1b0e08b9f0360b5167650cec1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46af2339c0b6d1b8937d49c1c8ab8293"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga46af2339c0b6d1b8937d49c1c8ab8293">RM_COMMS_UART_W_WriteRead</a> (<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__write__read__params__t">rm_comms_write_read_params_t</a> const write_read_params)</td></tr>
+<tr class="memdesc:ga46af2339c0b6d1b8937d49c1c8ab8293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a write to, then a read from the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a468f1e4f571140989fa274d8f40a5bb1">rm_comms_api_t::writeRead</a>.  <a href="#ga46af2339c0b6d1b8937d49c1c8ab8293">More...</a><br /></td></tr>
+<tr class="separator:ga46af2339c0b6d1b8937d49c1c8ab8293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Middleware to implement a generic communications interface over UART. This module implements the <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html">Communications Middleware Interface</a>. </p>
+<h1><a class="anchor" id="rm-comms-uart-w-overview"></a>
+Overview</h1>
+<p>The RM_COMMS_UART_W module implements COMMS API for UART interface.</p>
+<h2><a class="anchor" id="rm-comms-uart-w-features"></a>
+Features</h2>
+<p>The implementation of the UART communications interface has the following key features:</p><ul>
+<li>Non-blocking API for bare metal</li>
+<li>Non-blocking and blocking API for RTOS</li>
+</ul>
+<h1><a class="anchor" id="rm-comms-uart-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_comms_uart_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_comms_uart_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+</table>
+ <h2>Configurations for Connectivity &gt; UART Communication Device (rm_comms_uart_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Connectivity &gt; UART Communication Device (rm_comms_uart_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> RTOS  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Write Mutex</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Do Not Use</li>
+<li>
+Use</li>
+</ul>
+</td><td>Use </td><td>Lock device for writing in using RTOS. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Read Mutex</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Do Not Use</li>
+<li>
+Use</li>
+</ul>
+</td><td>Use </td><td>Lock device for reading in using RTOS. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Mutex Timeout</td><td>Value must be a non-negative integer</td><td>0xFFFFFFFF </td><td>Timeout for recursive mutex operation in using RTOS. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Write Semaphore</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Do Not Use</li>
+<li>
+Use</li>
+</ul>
+</td><td>Use </td><td>Block writing in using RTOS. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Read Semaphore</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Do Not Use</li>
+<li>
+Use</li>
+</ul>
+</td><td>Use </td><td>Block reading in using RTOS. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Semaphore Timeout</td><td>Value must be a non-negative integer</td><td>0xFFFFFFFF </td><td>Timeout for semaphore operation in using RTOS. </td></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_comms_uart_w0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Internal buffer overwrite protection</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Protect internal reception buffer from overwriting (works with HW flow control enabled). </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>NULL </td><td>A user callback function can be provided. </td></tr>
+</table>
+ <a class="anchor" id="um_rm_comms_read"></a><a class="anchor" id="um_rm_comms_write"></a> </p>
+<h1><a class="anchor" id="rm-comms-uart-w-notes"></a>
+Usage Notes</h1>
+<h2><a class="anchor" id="rm-comms-uart-w-limitations"></a>
+Limitations</h2>
+<ul>
+<li><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html">Communications Middleware Interface</a> are not reentrant in non blocking mode</li>
+<li>When in blocking mode, <a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga22c3b1b0e08b9f0360b5167650cec1cb">RM_COMMS_UART_W_Write()</a> and <a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#gac69265c208906903510c951bbbd6bf5a">RM_COMMS_UART_W_Read()</a> cannot be called in callback.</li>
+<li><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga46af2339c0b6d1b8937d49c1c8ab8293">RM_COMMS_UART_W_WriteRead</a> API is not implemented<a class="anchor" id="um_rm_comms_writeread"></a><a class="anchor" id="um_rm_comms_special_case"></a> </li>
+</ul>
+<h1><a class="anchor" id="rm-comms-uart-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of UART communications implementation in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> rm_comms_uart_w_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line"></div><div class="line">    err = <a class="code" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga694a0880f8ff9c6cc4e170a829c81a86">RM_COMMS_UART_W_Open</a>(&amp;g_comms_uart_w_ctrl, &amp;g_comms_uart_w_cfg);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        <span class="comment">/* Handle any errors. */</span></div><div class="line">    }</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div><div class="line">    {</div><div class="line">        <span class="comment">/* Send data. */</span></div><div class="line">        g_err_flag = 0;</div><div class="line">        g_tx_flag  = 0;</div><div class="line">        err        = <a class="code" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ga22c3b1b0e08b9f0360b5167650cec1cb">RM_COMMS_UART_W_Write</a>(&amp;g_comms_uart_w_ctrl, g_tx_buf, TX_BUF_LEN);</div><div class="line">        <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">        {</div><div class="line">            <span class="comment">/* Handle any errors. */</span></div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keywordflow">while</span> ((0 == g_tx_flag) &amp;&amp; (0 == g_err_flag))</div><div class="line">        {</div><div class="line">            <span class="comment">/* Wait callback */</span></div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="comment">/* Receive data. */</span></div><div class="line">        g_err_flag = 0;</div><div class="line">        g_rx_flag  = 0;</div><div class="line">        err        = <a class="code" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#gac69265c208906903510c951bbbd6bf5a">RM_COMMS_UART_W_Read</a>(&amp;g_comms_uart_w_ctrl, g_rx_buf, RX_BUF_LEN);</div><div class="line">        <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">        {</div><div class="line">            <span class="comment">/* Handle any errors.*/</span></div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keywordflow">while</span> ((0 == g_rx_flag) &amp;&amp; (0 == g_err_flag))</div><div class="line">        {</div><div class="line">            <span class="comment">/* Wait callback */</span></div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> rm_comms_uart_w_callback (<a class="code" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__callback__args__t">rm_comms_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    <span class="keywordflow">if</span> (p_args-&gt;event == RM_COMMS_EVENT_TX_OPERATION_COMPLETE)</div><div class="line">    {</div><div class="line">        g_tx_flag = 1;</div><div class="line">    }</div><div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (p_args-&gt;event == RM_COMMS_EVENT_RX_OPERATION_COMPLETE)</div><div class="line">    {</div><div class="line">        g_rx_flag = 1;</div><div class="line">    }</div><div class="line">    <span class="keywordflow">else</span></div><div class="line">    {</div><div class="line">        g_err_flag = 1;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structrm__comms__uart__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#structrm__comms__uart__w__instance__ctrl__t">rm_comms_uart_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structrm__comms__uart__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structrm__comms__uart__state__info__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#structrm__comms__uart__state__info__t">rm_comms_uart_state_info_t</a></td></tr>
+<tr class="separator:structrm__comms__uart__state__info__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structrm__comms__uart__w__instance__ctrl__t" id="structrm__comms__uart__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__comms__uart__w__instance__ctrl__t">&#9670;&nbsp;</a></span>rm_comms_uart_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_comms_uart_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Communications middleware control structure. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a450637ff6fb922683040a46423affd33"><td class="memItemLeft" align="right" valign="top"><a id="a450637ff6fb922683040a46423affd33"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#a450637ff6fb922683040a46423affd33">open</a></td></tr>
+<tr class="memdesc:a450637ff6fb922683040a46423affd33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open flag. <br /></td></tr>
+<tr class="separator:a450637ff6fb922683040a46423affd33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea3e264482b99c695f0bd5a015dda834"><td class="memItemLeft" align="right" valign="top"><a id="aea3e264482b99c695f0bd5a015dda834"></a>
+<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__cfg__t">rm_comms_cfg_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#aea3e264482b99c695f0bd5a015dda834">p_cfg</a></td></tr>
+<tr class="memdesc:aea3e264482b99c695f0bd5a015dda834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Middleware configuration. <br /></td></tr>
+<tr class="separator:aea3e264482b99c695f0bd5a015dda834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac674bb0665d9de481010c8a4863a9f1f"><td class="memItemLeft" align="right" valign="top"><a id="ac674bb0665d9de481010c8a4863a9f1f"></a>
+rm_comms_uart_w_extended_cfg_t const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#ac674bb0665d9de481010c8a4863a9f1f">p_extend</a></td></tr>
+<tr class="memdesc:ac674bb0665d9de481010c8a4863a9f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to extended configuration structure. <br /></td></tr>
+<tr class="separator:ac674bb0665d9de481010c8a4863a9f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e435d00cc2b02f3af083352738f694c"><td class="memItemLeft" align="right" valign="top"><a id="a1e435d00cc2b02f3af083352738f694c"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#a1e435d00cc2b02f3af083352738f694c">p_callback</a> )(<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__callback__args__t">rm_comms_callback_args_t</a> *p_args)</td></tr>
+<tr class="memdesc:a1e435d00cc2b02f3af083352738f694c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to callback that is called when a uart_event_t occurs. <br /></td></tr>
+<tr class="separator:a1e435d00cc2b02f3af083352738f694c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb4b7c369090ae2ae23371b3ff3c98a"><td class="memItemLeft" align="right" valign="top"><a id="a2eb4b7c369090ae2ae23371b3ff3c98a"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___c_o_m_m_s___u_a_r_t___w.html#a2eb4b7c369090ae2ae23371b3ff3c98a">p_context</a></td></tr>
+<tr class="memdesc:a2eb4b7c369090ae2ae23371b3ff3c98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to context passed into callback function. <br /></td></tr>
+<tr class="separator:a2eb4b7c369090ae2ae23371b3ff3c98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structrm__comms__uart__state__info__t" id="structrm__comms__uart__state__info__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__comms__uart__state__info__t">&#9670;&nbsp;</a></span>rm_comms_uart_state_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_comms_uart_state_info_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Additional rm_comms_uart info. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1c12445b8fd66c6e6afc9e115409d102"></a>uint32_t</td>
+<td class="fieldname">
+rx_buff_size</td>
+<td class="fielddoc">
+Internal buffer size. </td></tr>
+<tr><td class="fieldtype">
+<a id="adfe2e2b5657c49c8f3281843639d2ac5"></a>uint32_t</td>
+<td class="fieldname">
+rx_buff_len</td>
+<td class="fielddoc">
+Octets buffered. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga694a0880f8ff9c6cc4e170a829c81a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga694a0880f8ff9c6cc4e170a829c81a86">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__cfg__t">rm_comms_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens and configures the UART Comms module. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#aef6d79b01056d9ea88e9fa5f0cd3f229">rm_comms_api_t::open</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>UART Comms module successfully configured. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null pointer, or one or more configuration options is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>Module is already open. This module can only be opened once.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. </dd></dl>
+
+</div>
+</div>
+<a id="ga67afd36432935e9b2cf5e7b7ba9a5058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67afd36432935e9b2cf5e7b7ba9a5058">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disables specified UART Comms module. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#abd464feb634b589687a0b8f55d0a078a">rm_comms_api_t::close</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully closed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null pointer passed as a parameter. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Module is not open.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. </dd></dl>
+
+</div>
+</div>
+<a id="ga62918e8f2678c7b115e2aaa7b30ab2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga62918e8f2678c7b115e2aaa7b30ab2e1">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__callback__args__t">rm_comms_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the UART Comms callback. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a83f31e5edbc638f47900624b563b0476">rm_comms_api_t::callbackSet</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully set. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null pointer passed as a parameter. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Module is not open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac69265c208906903510c951bbbd6bf5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac69265c208906903510c951bbbd6bf5a">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a read from the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a40779e10d71d444a436dc2382003bc0b">rm_comms_api_t::read</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully data decoded. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null pointer passed as a parameter. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Module is not open.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. </dd></dl>
+
+</div>
+</div>
+<a id="ga22c3b1b0e08b9f0360b5167650cec1cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga22c3b1b0e08b9f0360b5167650cec1cb">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a write to the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#af5486a540964c7c37f3115739be3e6cb">rm_comms_api_t::write</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully writing data . </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null pointer passed as a parameter. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Module is not open.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. </dd></dl>
+
+</div>
+</div>
+<a id="ga46af2339c0b6d1b8937d49c1c8ab8293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46af2339c0b6d1b8937d49c1c8ab8293">&#9670;&nbsp;</a></span>RM_COMMS_UART_W_WriteRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_COMMS_UART_W_WriteRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#gaa137827e6f43e420c5eb269149c82f20">rm_comms_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#structrm__comms__write__read__params__t">rm_comms_write_read_params_t</a> const&#160;</td>
+          <td class="paramname"><em>write_read_params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a write to, then a read from the UART device. Implements <a class="el" href="group___r_m___c_o_m_m_s___a_p_i.html#a468f1e4f571140989fa274d8f40a5bb1">rm_comms_api_t::writeRead</a>. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

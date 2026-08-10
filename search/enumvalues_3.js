@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['dmac_5fidle_5fblocking_5fmode',['DMAC_IDLE_BLOCKING_MODE',['../group___d_m_a_c___w.html#gga4b8ac11007c3cd0c64fc997d80f09089a9631b6c41df8ec72af614dfaaedafb9a',1,'r_dmac_w.h']]],
+  ['dmac_5fidle_5finterrupting_5fmode',['DMAC_IDLE_INTERRUPTING_MODE',['../group___d_m_a_c___w.html#gga4b8ac11007c3cd0c64fc997d80f09089a9d5d77f0c416d9184b604d13203e4846',1,'r_dmac_w.h']]],
+  ['dmac_5finit_5fax_5fbx_5fay_5fby',['DMAC_INIT_AX_BX_AY_BY',['../group___d_m_a_c___w.html#gga0bbdceeefa5ff06bc382972e130d2dddae0a9a80f3b8a230c81fc8a06f5450347',1,'r_dmac_w.h']]],
+  ['dmac_5finit_5fax_5fbx_5fby',['DMAC_INIT_AX_BX_BY',['../group___d_m_a_c___w.html#gga0bbdceeefa5ff06bc382972e130d2dddaf6777bb752e916a8acc628ba1d1257f4',1,'r_dmac_w.h']]],
+  ['dmac_5fstart_5fimmediately',['DMAC_START_IMMEDIATELY',['../group___d_m_a_c___w.html#gga99a939fb0f9c0ab3b2153744595edfd6aca44a51bbbacf0350a492f759d8b8f30',1,'r_dmac_w.h']]],
+  ['dmac_5fstart_5fon_5fperipheral_5frequest',['DMAC_START_ON_PERIPHERAL_REQUEST',['../group___d_m_a_c___w.html#gga99a939fb0f9c0ab3b2153744595edfd6a04711eb3c3b3d00dcec95eba60159851',1,'r_dmac_w.h']]],
+  ['dmic_5faudio_5fclock_5fcrystal',['DMIC_AUDIO_CLOCK_CRYSTAL',['../group___d_m_i_c.html#ggaa27e45aab0489d298d07635109471cd9a4a1a7b0e34d374363a1c5fe89e54fa26',1,'r_dmic_w.h']]],
+  ['dmic_5faudio_5fclock_5ffpll',['DMIC_AUDIO_CLOCK_FPLL',['../group___d_m_i_c.html#ggaa27e45aab0489d298d07635109471cd9a58f1f40492f9aee744618afcea724144',1,'r_dmic_w.h']]],
+  ['dmic_5fdi_5f12ns_5fdelay',['DMIC_DI_12NS_DELAY',['../group___d_m_i_c___a_p_i.html#gga33501202389f1f67a549ad214e55f29aa1312279ee3967451fb84218bc61e7543',1,'r_dmic_api.h']]],
+  ['dmic_5fdi_5f18ns_5fdelay',['DMIC_DI_18NS_DELAY',['../group___d_m_i_c___a_p_i.html#gga33501202389f1f67a549ad214e55f29aa2f2527a3f0515f23c5fba752432dfcb1',1,'r_dmic_api.h']]],
+  ['dmic_5fdi_5f6ns_5fdelay',['DMIC_DI_6NS_DELAY',['../group___d_m_i_c___a_p_i.html#gga33501202389f1f67a549ad214e55f29aabd2809a80258695a1b8f56da33171a5c',1,'r_dmic_api.h']]],
+  ['dmic_5fdi_5fno_5fdelay',['DMIC_DI_NO_DELAY',['../group___d_m_i_c___a_p_i.html#gga33501202389f1f67a549ad214e55f29aa05902c47d6b7b1183cbdab9b9a63f03e',1,'r_dmic_api.h']]],
+  ['dmic_5fdirection_5finput',['DMIC_DIRECTION_INPUT',['../group___d_m_i_c___a_p_i.html#ggaddd028dea00a67d0bbbf5ef4935a9dd3acfb4a264a5ee4a0b5ddcfa3053d8ece7',1,'r_dmic_api.h']]],
+  ['dmic_5fdirection_5foutput',['DMIC_DIRECTION_OUTPUT',['../group___d_m_i_c___a_p_i.html#ggaddd028dea00a67d0bbbf5ef4935a9dd3a0ea3b620c6c7a11c08a27184ac9779ae',1,'r_dmic_api.h']]],
+  ['dmic_5fevent_5fidle',['DMIC_EVENT_IDLE',['../group___d_m_i_c___a_p_i.html#gga937cbf493b379e5b5ae02f433af89e72af71d5b1f8de8c58fe3213e521fe7302d',1,'r_dmic_api.h']]],
+  ['dmic_5fevent_5frx_5ffull',['DMIC_EVENT_RX_FULL',['../group___d_m_i_c___a_p_i.html#gga937cbf493b379e5b5ae02f433af89e72a102224ec40c85e4d8f1fdf3ed6c2d1b6',1,'r_dmic_api.h']]],
+  ['dmic_5fevent_5ftx_5fempty',['DMIC_EVENT_TX_EMPTY',['../group___d_m_i_c___a_p_i.html#gga937cbf493b379e5b5ae02f433af89e72a4592a9da6bb1e9a1db0b4f0965b7f87f',1,'r_dmic_api.h']]],
+  ['dmic_5fmode_5fmaster',['DMIC_MODE_MASTER',['../group___d_m_i_c___a_p_i.html#ggaa454f85d33fd71b49fcf85647a8ec63bad7eb7a261cdcdb5e6fb23d3ef22b84f3',1,'r_dmic_api.h']]],
+  ['dmic_5fmode_5fslave',['DMIC_MODE_SLAVE',['../group___d_m_i_c___a_p_i.html#ggaa454f85d33fd71b49fcf85647a8ec63ba9ab4d1e27f7160a7aa9fea1ea0c36ccd',1,'r_dmic_api.h']]],
+  ['dmic_5fmute_5foff',['DMIC_MUTE_OFF',['../group___d_m_i_c___a_p_i.html#gga11d8982c7393a17f938fea711aaafa59a4bc72ebaaf87471dced62e457b95f2ac',1,'r_dmic_api.h']]],
+  ['dmic_5fmute_5fon',['DMIC_MUTE_ON',['../group___d_m_i_c___a_p_i.html#gga11d8982c7393a17f938fea711aaafa59afe9712ab88b0e8c6a350406bc4c7f946',1,'r_dmic_api.h']]],
+  ['dmic_5fstate_5fin_5fuse',['DMIC_STATE_IN_USE',['../group___d_m_i_c___a_p_i.html#gga9f773e90d7243d6d457374b11a936327afa75064bbba16918264d7d6b90a5b957',1,'r_dmic_api.h']]],
+  ['dmic_5fstate_5fstopped',['DMIC_STATE_STOPPED',['../group___d_m_i_c___a_p_i.html#gga9f773e90d7243d6d457374b11a936327a27dee7dea89ddec60551099b8a256139',1,'r_dmic_api.h']]]
+];

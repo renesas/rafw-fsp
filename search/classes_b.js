@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['ospi_5fw_5fbreak_5finstr_5fcfg_5ft',['ospi_w_break_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__break__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fctrl_5fddr_5fcfg_5ft',['ospi_w_ctrl_ddr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__ctrl__ddr__cfg__t',1,'']]],
+  ['ospi_5fw_5ferase_5finstr_5fcfg_5ft',['ospi_w_erase_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__erase__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fextended_5fcfg_5ft',['ospi_w_extended_cfg_t',['../group___o_s_p_i___w.html#structospi__w__extended__cfg__t',1,'']]],
+  ['ospi_5fw_5fextra_5fregisters_5fcfg_5ft',['ospi_w_extra_registers_cfg_t',['../group___o_s_p_i___w.html#structospi__w__extra__registers__cfg__t',1,'']]],
+  ['ospi_5fw_5fflash_5fcfg_5ft',['ospi_w_flash_cfg_t',['../group___o_s_p_i___w.html#structospi__w__flash__cfg__t',1,'']]],
+  ['ospi_5fw_5finstance_5fctrl_5ft',['ospi_w_instance_ctrl_t',['../group___o_s_p_i___w.html#structospi__w__instance__ctrl__t',1,'']]],
+  ['ospi_5fw_5fmemblen_5fcfg_5ft',['ospi_w_memblen_cfg_t',['../group___o_s_p_i___w.html#structospi__w__memblen__cfg__t',1,'']]],
+  ['ospi_5fw_5fqpi_5finstr_5fcfg_5ft',['ospi_w_qpi_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__qpi__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fread_5finstr_5fcfg_5ft',['ospi_w_read_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__read__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fread_5fstatus_5finstr_5fcfg_5ft',['ospi_w_read_status_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__read__status__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fsuspend_5fresume_5finstr_5fcfg_5ft',['ospi_w_suspend_resume_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__suspend__resume__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fwrite_5fenable_5finstr_5fcfg_5ft',['ospi_w_write_enable_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__write__enable__instr__cfg__t',1,'']]],
+  ['ospi_5fw_5fwrite_5finstr_5fcfg_5ft',['ospi_w_write_instr_cfg_t',['../group___o_s_p_i___w.html#structospi__w__write__instr__cfg__t',1,'']]],
+  ['ota_5fapi_5ft',['ota_api_t',['../group___o_t_a___a_p_i.html#structota__api__t',1,'']]],
+  ['ota_5fcallback_5fargs_5ft',['ota_callback_args_t',['../group___o_t_a___a_p_i.html#structota__callback__args__t',1,'']]],
+  ['ota_5fcfg_5ft',['ota_cfg_t',['../group___o_t_a___a_p_i.html#structota__cfg__t',1,'']]],
+  ['ota_5finfo_5ft',['ota_info_t',['../group___o_t_a___a_p_i.html#structota__info__t',1,'']]],
+  ['ota_5finstance_5ft',['ota_instance_t',['../group___o_t_a___a_p_i.html#structota__instance__t',1,'']]],
+  ['ota_5fregions_5ft',['ota_regions_t',['../group___o_t_a___a_p_i.html#structota__regions__t',1,'']]]
+];

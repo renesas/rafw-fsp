@@ -1,0 +1,1085 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: MAP PERSISTANT_W (rm_map_persistant_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">MAP PERSISTANT_W (rm_map_persistant_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga17d102467d20ee0939a2e320ad0b69c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga17d102467d20ee0939a2e320ad0b69c4">RM_MAP_PERSISTANT_W_Open</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga17d102467d20ee0939a2e320ad0b69c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2665e97cf929a35621254516d48aeae2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga2665e97cf929a35621254516d48aeae2">RM_MAP_PERSISTANT_W_Close</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga2665e97cf929a35621254516d48aeae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf5abc1667a85e9c3d163da78858de44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gabf5abc1667a85e9c3d163da78858de44">RM_MAP_PERSISTANT_W_Read_UINT</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, void *value, uint16_t *data_length)</td></tr>
+<tr class="separator:gabf5abc1667a85e9c3d163da78858de44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga803d236dfad54c5933328f6e100f2a91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga803d236dfad54c5933328f6e100f2a91">RM_MAP_PERSISTANT_W_Write_UINT</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, void *value, uint32_t len)</td></tr>
+<tr class="separator:ga803d236dfad54c5933328f6e100f2a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3d4a173fb1eb1b482cf90e0677e9d5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gae3d4a173fb1eb1b482cf90e0677e9d5b">RM_MAP_PERSISTANT_W_Read_INT</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, int *val)</td></tr>
+<tr class="separator:gae3d4a173fb1eb1b482cf90e0677e9d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd283f6c84c49c60837bcbc280b7bb9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gacd283f6c84c49c60837bcbc280b7bb9c">RM_MAP_PERSISTANT_W_Write_INT</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, int value)</td></tr>
+<tr class="separator:gacd283f6c84c49c60837bcbc280b7bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39ce99899da02869751b0ea111433fb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga39ce99899da02869751b0ea111433fb6">RM_MAP_PERSISTANT_W_Read_STRING</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, char **val)</td></tr>
+<tr class="separator:ga39ce99899da02869751b0ea111433fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecef9ac4d400198d8e45a24531cf0fbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gaecef9ac4d400198d8e45a24531cf0fbe">RM_MAP_PERSISTANT_W_Write_STRING</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, const char *value)</td></tr>
+<tr class="separator:gaecef9ac4d400198d8e45a24531cf0fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87e481efe722eee99aa4cc863db5df11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga87e481efe722eee99aa4cc863db5df11">RM_MAP_PERSISTANT_W_Write_Auto</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name, const char *value)</td></tr>
+<tr class="separator:ga87e481efe722eee99aa4cc863db5df11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab00e152e7e925d496d24c93a9b6ff46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gab00e152e7e925d496d24c93a9b6ff46a">RM_MAP_PERSISTANT_W_Erase</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, const char *name)</td></tr>
+<tr class="separator:gab00e152e7e925d496d24c93a9b6ff46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80a4eac5c5844ae9281f825f2a476ecd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga80a4eac5c5844ae9281f825f2a476ecd">RM_MAP_PERSISTANT_W_Erase_GROUP</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group)</td></tr>
+<tr class="separator:ga80a4eac5c5844ae9281f825f2a476ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59ec7805442398bce8fcde2f8eecb6f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga59ec7805442398bce8fcde2f8eecb6f6">RM_MAP_PERSISTANT_W_reflash</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga59ec7805442398bce8fcde2f8eecb6f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab801f8017a2cf0205755c6c9328f52a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gab801f8017a2cf0205755c6c9328f52a9">RM_MAP_PERSISTANT_W_Display</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *groupname, int printall)</td></tr>
+<tr class="separator:gab801f8017a2cf0205755c6c9328f52a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d81f0eb0e1aecd84eb6db7af0eac8f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga6d81f0eb0e1aecd84eb6db7af0eac8f5">RM_MAP_PERSISTANT_W_Read_Auto</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *groupname, const char *envname, int8_t *data_length, uint8_t **data_ptr)</td></tr>
+<tr class="separator:ga6d81f0eb0e1aecd84eb6db7af0eac8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b42d7b6543faef7ccd42444b149df85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga2b42d7b6543faef7ccd42444b149df85">RM_MAP_PERSISTANT_W_Write_BIN</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, uint32_t id_offset, uint8_t *value)</td></tr>
+<tr class="separator:ga2b42d7b6543faef7ccd42444b149df85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7620ec9b996785ea1e38ff0989bb816d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#ga7620ec9b996785ea1e38ff0989bb816d">RM_MAP_PERSISTANT_W_Read_BIN</a> (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_api_ctrl, const char *group, uint32_t id_offset, uint8_t **value)</td></tr>
+<tr class="separator:ga7620ec9b996785ea1e38ff0989bb816d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Middleware to implement READ/WRITE/ERASE from Persistant storage. This module implements the <a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html">RM_MAP_PERSISTANT_W Interface</a>. </p>
+<h1><a class="anchor" id="rm-map-persistant-w-overview"></a>
+Overview</h1>
+<p>RM_MAP_PERSISTANT_W module will implement the API's to READ/WRITE/ERASE to persistant storage using the MAP data structure.</p>
+<h2><a class="anchor" id="rm-map-persistant-w-features"></a>
+Features</h2>
+<p>The RM_MAP_PERSISTANT_W module have the following key features:</p>
+<ul>
+<li>Writing, reading, erasing user defined records of any length to data flash.</li>
+<li>Reference data such as calibration data programmed at assembly or test time is preserved.</li>
+<li>Reference data can be updated at run time.</li>
+<li>Fault resilient design.</li>
+</ul>
+<h1><a class="anchor" id="rm-map-persistant-w-notes"></a>
+Usage Notes</h1>
+<ul>
+<li>Use the RM_MAP_PERSISTANT_W api's to read/write/erase from persistant storage.</li>
+</ul>
+<h2><a class="anchor" id="rm-map-persistant-w-limitations"></a>
+Limitations</h2>
+<p>None. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structmap__persistant__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#structmap__persistant__w__instance__ctrl__t">map_persistant_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structmap__persistant__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gabf2189ffa3d61a8a0648831c080ed3bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w.html#gabf2189ffa3d61a8a0648831c080ed3bf">MAP_PERSISTANT_W_OPEN</a></td></tr>
+<tr class="separator:gabf2189ffa3d61a8a0648831c080ed3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structmap__persistant__w__instance__ctrl__t" id="structmap__persistant__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structmap__persistant__w__instance__ctrl__t">&#9670;&nbsp;</a></span>map_persistant_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct map_persistant_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>RM_MAP_PERSISTANT_W private control block. DO NOT MODIFY. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae0fd385e125db3674f599e0752b4e4ee"></a>uint32_t</td>
+<td class="fieldname">
+map_persistant_w_open</td>
+<td class="fielddoc">
+Indicates whether the open() API has been successfully called. </td></tr>
+<tr><td class="fieldtype">
+<a id="a24450bf48d7fd3d820e6b6ca5a853ba1"></a>SemaphoreHandle_t</td>
+<td class="fieldname">
+map_persistant_w_mutex</td>
+<td class="fielddoc">
+Semaphore to handle synchronization. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gabf2189ffa3d61a8a0648831c080ed3bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf2189ffa3d61a8a0648831c080ed3bf">&#9670;&nbsp;</a></span>MAP_PERSISTANT_W_OPEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_PERSISTANT_W_OPEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>"MAP" in ASCII, used to determine if the RM_MAP_PERSISTANT_W is open. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga17d102467d20ee0939a2e320ad0b69c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga17d102467d20ee0939a2e320ad0b69c4">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Perform any necessary initialization for RM_MAP_PERSISTANT_W</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>RM_MAP_PERSISTANT_W instance opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>RM_MAP_PERSISTANT_W instance is already open </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2665e97cf929a35621254516d48aeae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2665e97cf929a35621254516d48aeae2">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP_PERSISTANT_W Instance</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabf5abc1667a85e9c3d163da78858de44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf5abc1667a85e9c3d163da78858de44">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Read_UINT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Read_UINT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>data_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read unsigned int from the MAP PERSISTANT_W storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga803d236dfad54c5933328f6e100f2a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga803d236dfad54c5933328f6e100f2a91">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Write_UINT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Write_UINT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write unsigned int to MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae3d4a173fb1eb1b482cf90e0677e9d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3d4a173fb1eb1b482cf90e0677e9d5b">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Read_INT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Read_INT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the Integer from the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacd283f6c84c49c60837bcbc280b7bb9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd283f6c84c49c60837bcbc280b7bb9c">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Write_INT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Write_INT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write Integer to the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga39ce99899da02869751b0ea111433fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39ce99899da02869751b0ea111433fb6">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Read_STRING()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Read_STRING </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read the string from the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaecef9ac4d400198d8e45a24531cf0fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaecef9ac4d400198d8e45a24531cf0fbe">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Write_STRING()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Write_STRING </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write String to the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga87e481efe722eee99aa4cc863db5df11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga87e481efe722eee99aa4cc863db5df11">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Write_Auto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Write_Auto </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write String or int to the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab00e152e7e925d496d24c93a9b6ff46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab00e152e7e925d496d24c93a9b6ff46a">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Erase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Erase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Erase the entry from MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga80a4eac5c5844ae9281f825f2a476ecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80a4eac5c5844ae9281f825f2a476ecd">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Erase_GROUP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Erase_GROUP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Erase particular group entries from the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga59ec7805442398bce8fcde2f8eecb6f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga59ec7805442398bce8fcde2f8eecb6f6">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_reflash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_reflash </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reflash the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab801f8017a2cf0205755c6c9328f52a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab801f8017a2cf0205755c6c9328f52a9">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Display </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>groupname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>printall</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Display the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6d81f0eb0e1aecd84eb6db7af0eac8f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6d81f0eb0e1aecd84eb6db7af0eac8f5">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Read_Auto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Read_Auto </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>groupname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>envname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t *&#160;</td>
+          <td class="paramname"><em>data_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **&#160;</td>
+          <td class="paramname"><em>data_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Auto the MAP_PERSISTANT_W Instance</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2b42d7b6543faef7ccd42444b149df85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2b42d7b6543faef7ccd42444b149df85">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Write_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Write_BIN </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write BINARY with index offset to the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7620ec9b996785ea1e38ff0989bb816d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7620ec9b996785ea1e38ff0989bb816d">&#9670;&nbsp;</a></span>RM_MAP_PERSISTANT_W_Read_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_MAP_PERSISTANT_W_Read_BIN </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read BINARY with index offset to the MAP PERSISTANT_W Storage</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>MAP_PERSISTANT_W driver closed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>Null Pointer </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>MAP_PERSISTANT_W instance is not open yet </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,2618 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: WIFI (rm_wifi)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___w_i_f_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">WIFI (rm_wifi)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___m_o_d_u_l_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga7664375d90bd485886faab962077f915"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga7664375d90bd485886faab962077f915">rm_wifi_wep_network_params_check</a> (const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const pxNetworkParams)</td></tr>
+<tr class="separator:ga7664375d90bd485886faab962077f915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga032f2c144d671a0ced0edc2062aecb52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga032f2c144d671a0ced0edc2062aecb52">rm_wifi_enterprise_network_params_check</a> (const <a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *const pxNetworkParamsExt)</td></tr>
+<tr class="separator:ga032f2c144d671a0ced0edc2062aecb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c660a142a5efa7c5af31f79dfcb6b07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga2c660a142a5efa7c5af31f79dfcb6b07">rm_wifi_open</a> (wifi_cfg_t const *const p_cfg)</td></tr>
+<tr class="separator:ga2c660a142a5efa7c5af31f79dfcb6b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11b435c67e60c33cabcfc82d3cf8e59d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga11b435c67e60c33cabcfc82d3cf8e59d">rm_wifi_open_connect</a> (wifi_cfg_t const *const p_cfg)</td></tr>
+<tr class="separator:ga11b435c67e60c33cabcfc82d3cf8e59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5bdce58ca0c3b726e843330984a919d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gac5bdce58ca0c3b726e843330984a919d">rm_wifi_close</a> ()</td></tr>
+<tr class="separator:gac5bdce58ca0c3b726e843330984a919d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba2eee54803aa299745fb3ad98ff7858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaba2eee54803aa299745fb3ad98ff7858">rm_wifi_connect</a> (const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const pxNetworkParams, bool hidden_ssid, <a class="el" href="group___w_i_f_i.html#gaa69e25e835f42b1b242291fe017443e1">WIFIPmf_t</a> pmf, const char *sae_groups, uint8_t ucNumChannels, uint32_t *pucChannelList)</td></tr>
+<tr class="separator:gaba2eee54803aa299745fb3ad98ff7858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79b0baee35b08aac005e2959cd2bf649"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga79b0baee35b08aac005e2959cd2bf649">rm_wifi_connect_Ext</a> (const <a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *const pxNetworkParamsExt)</td></tr>
+<tr class="separator:ga79b0baee35b08aac005e2959cd2bf649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga256e06b5315397f3da55b360ec3446d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga256e06b5315397f3da55b360ec3446d7">rm_wifi_auto_config</a> (const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const pxNetworkParams)</td></tr>
+<tr class="separator:ga256e06b5315397f3da55b360ec3446d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6d68dc949631a12d3daabcb2fc37722"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gae6d68dc949631a12d3daabcb2fc37722">rm_wifi_disconnect</a> ()</td></tr>
+<tr class="separator:gae6d68dc949631a12d3daabcb2fc37722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86116712edf72cad70cf2e32e645af79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga86116712edf72cad70cf2e32e645af79">rm_wifi_set_mode</a> (<a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a> xDeviceMode)</td></tr>
+<tr class="separator:ga86116712edf72cad70cf2e32e645af79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11521ce14ed23cda026f04895859f9c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga11521ce14ed23cda026f04895859f9c1">rm_wifi_get_mode</a> (<a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a> *xDeviceModeExt)</td></tr>
+<tr class="separator:ga11521ce14ed23cda026f04895859f9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga220370bad487086fbbc13c55bae9accc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga220370bad487086fbbc13c55bae9accc">rm_wifi_p2p</a> (unsigned char oper_chan, unsigned char listen_chan, unsigned char go_intent, const char *ssid_postfix)</td></tr>
+<tr class="separator:ga220370bad487086fbbc13c55bae9accc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1db3c97045eb5841ca68d71ce0429111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga1db3c97045eb5841ca68d71ce0429111">rm_wifi_p2p_find</a> (void)</td></tr>
+<tr class="separator:ga1db3c97045eb5841ca68d71ce0429111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ef6fa0db8e53f0b4062efbc7da37870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga6ef6fa0db8e53f0b4062efbc7da37870">rm_wifi_p2p_connect</a> (const char *p2p_addr, const char *wps_method)</td></tr>
+<tr class="separator:ga6ef6fa0db8e53f0b4062efbc7da37870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1983c488a4b43c84613c1f074bd1f7eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga1983c488a4b43c84613c1f074bd1f7eb">rm_wifi_p2p_group_remove</a> (void)</td></tr>
+<tr class="separator:ga1983c488a4b43c84613c1f074bd1f7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2dfc81408a137ca8e1ed889a85cd6449"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga2dfc81408a137ca8e1ed889a85cd6449">rm_wifi_p2p_group_add</a> (void)</td></tr>
+<tr class="separator:ga2dfc81408a137ca8e1ed889a85cd6449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa003fa1191f188e902f8d34dc1b1169c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaa003fa1191f188e902f8d34dc1b1169c">rm_wifi_p2p_peers</a> (char *reply)</td></tr>
+<tr class="separator:gaa003fa1191f188e902f8d34dc1b1169c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23d9cc049fd7c1909bd91c10026462a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga23d9cc049fd7c1909bd91c10026462a7">rm_wifi_p2p_accept</a> (void)</td></tr>
+<tr class="separator:ga23d9cc049fd7c1909bd91c10026462a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8561552c8a6946ea3a065117b6ed3cf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga8561552c8a6946ea3a065117b6ed3cf0">rm_wifi_p2p_set_oper_chan</a> (unsigned char channel)</td></tr>
+<tr class="separator:ga8561552c8a6946ea3a065117b6ed3cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b59607a2b7e3ea5bfefe68c6b1dd33d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga5b59607a2b7e3ea5bfefe68c6b1dd33d">rm_wifi_p2p_set_listen_chan</a> (unsigned char channel)</td></tr>
+<tr class="separator:ga5b59607a2b7e3ea5bfefe68c6b1dd33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b03cc4f80e9e1e32fcadbc0dafa81f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga8b03cc4f80e9e1e32fcadbc0dafa81f1">rm_wifi_p2p_set_go_intent</a> (unsigned char intent)</td></tr>
+<tr class="separator:ga8b03cc4f80e9e1e32fcadbc0dafa81f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a17ab4870b13edca390183161355870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga2a17ab4870b13edca390183161355870">rm_wifi_p2p_set_find_timeout</a> (unsigned char intent)</td></tr>
+<tr class="separator:ga2a17ab4870b13edca390183161355870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09c130db8d2cfaa079ebd2823a127f1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga09c130db8d2cfaa079ebd2823a127f1c">rm_wifi_p2p_set_ssid_postfix</a> (const char *ssid_postfix)</td></tr>
+<tr class="separator:ga09c130db8d2cfaa079ebd2823a127f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fe7f8ddf3e35da2fac2b624d3026b6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga3fe7f8ddf3e35da2fac2b624d3026b6d">rm_wifi_p2p_get</a> (char *p2pconfig)</td></tr>
+<tr class="separator:ga3fe7f8ddf3e35da2fac2b624d3026b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacce08b65f720664a3ec86c01da86da6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gacce08b65f720664a3ec86c01da86da6f">rm_wifi_isolate</a> (bool enable_isolation)</td></tr>
+<tr class="separator:gacce08b65f720664a3ec86c01da86da6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06f665003ee0a627d6c4621343216e76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga06f665003ee0a627d6c4621343216e76">rm_wifi_acl_mac</a> (const char *mac_addr)</td></tr>
+<tr class="separator:ga06f665003ee0a627d6c4621343216e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bdfaca0001b6a75fb152607d5b84c67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga6bdfaca0001b6a75fb152607d5b84c67">rm_wifi_acl</a> (const char *filter_mode)</td></tr>
+<tr class="separator:ga6bdfaca0001b6a75fb152607d5b84c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d19832272ee1b0417bca09ace8345e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga1d19832272ee1b0417bca09ace8345e1">rm_wifi_wmm</a> (bool enable_wmm)</td></tr>
+<tr class="separator:ga1d19832272ee1b0417bca09ace8345e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ce7de6c4dea6f14b040ea61ca9205f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga2ce7de6c4dea6f14b040ea61ca9205f7">rm_wifi_wmm_ps</a> (bool enable_wmm_ps)</td></tr>
+<tr class="separator:ga2ce7de6c4dea6f14b040ea61ca9205f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63ed370c34b85a2115950b0c7c5146fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga63ed370c34b85a2115950b0c7c5146fb">rm_wifi_wps_pbc</a> (const char *mac_addr)</td></tr>
+<tr class="separator:ga63ed370c34b85a2115950b0c7c5146fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57d413ca1c17ec98351de4eb43901053"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga57d413ca1c17ec98351de4eb43901053">rm_wifi_wps_pin</a> (const char *mac_addr, const char *pin, char *gen_pin)</td></tr>
+<tr class="separator:ga57d413ca1c17ec98351de4eb43901053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa68a677f47962a8746738e448743fc45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaa68a677f47962a8746738e448743fc45">rm_wifi_wps_cancel</a> (void)</td></tr>
+<tr class="separator:gaa68a677f47962a8746738e448743fc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ffa4b0b3897293459554a651739d11d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga9ffa4b0b3897293459554a651739d11d">rm_wifi_wps_ap_pin</a> (const char *state, const char *arg1, const char *arg2, char *gen_pin)</td></tr>
+<tr class="separator:ga9ffa4b0b3897293459554a651739d11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8fbd0ced194a252884c90e6f75bfdda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gad8fbd0ced194a252884c90e6f75bfdda">rm_wifi_network_add</a> (const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_profile__t">WIFINetworkProfile_t</a> *const pxNetworkProfile, uint16_t index)</td></tr>
+<tr class="separator:gad8fbd0ced194a252884c90e6f75bfdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9dc0a3096a9a0d9cfe3496339a10c86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gad9dc0a3096a9a0d9cfe3496339a10c86">rm_wifi_network_del</a> (uint16_t index)</td></tr>
+<tr class="separator:gad9dc0a3096a9a0d9cfe3496339a10c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga678427dbddaf98afc1d3fec1926b06a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga678427dbddaf98afc1d3fec1926b06a6">rm_wifi_mac_addr_get</a> (uint8_t *p_macaddr)</td></tr>
+<tr class="separator:ga678427dbddaf98afc1d3fec1926b06a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5dea832b798165cc85abfd7e0d2916b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga5dea832b798165cc85abfd7e0d2916b1">rm_wifi_scan</a> (<a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a> *p_results, uint32_t maxNetworks)</td></tr>
+<tr class="separator:ga5dea832b798165cc85abfd7e0d2916b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f428250a60913c618926e91e2f507f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga9f428250a60913c618926e91e2f507f6">rm_wifi_scan_extended</a> (<a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a> *p_results, uint32_t maxNetworks, WIFIScanExtendedConfig_t *pxScanConfigExtended)</td></tr>
+<tr class="separator:ga9f428250a60913c618926e91e2f507f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5024822de0cbd5de761887bca092458"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaa5024822de0cbd5de761887bca092458">rm_wifi_start_ap</a> ()</td></tr>
+<tr class="separator:gaa5024822de0cbd5de761887bca092458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad309b28f143e8b542ed0bee1d1d7e0ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gad309b28f143e8b542ed0bee1d1d7e0ba">rm_wifi_stop_ap</a> ()</td></tr>
+<tr class="separator:gad309b28f143e8b542ed0bee1d1d7e0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga367971713fbea43344155abcfefa439b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga367971713fbea43344155abcfefa439b">rm_wifi_configure_ap</a> (<a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *pxNetworkParamsExt)</td></tr>
+<tr class="separator:ga367971713fbea43344155abcfefa439b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5cebac9bdb34c8a7e1f7b98b2e7d80e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaa5cebac9bdb34c8a7e1f7b98b2e7d80e">rm_wifi_is_connected</a> (const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *pxNetworkParams)</td></tr>
+<tr class="separator:gaa5cebac9bdb34c8a7e1f7b98b2e7d80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0a302909397df62f982ad5c4b55ac0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gab0a302909397df62f982ad5c4b55ac0f">rm_wifi_get_connection_info_ext</a> (WIFIConnectionInfoExt_t *pxConnectionInfoExt, int iface_num)</td></tr>
+<tr class="separator:gab0a302909397df62f982ad5c4b55ac0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3db81d6d575dcb8c329c3a7db5e1f55e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga3db81d6d575dcb8c329c3a7db5e1f55e">rm_wifi_get_connection_info</a> (<a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_connection_info__t">WIFIConnectionInfo_t</a> *pxConnectionInfo, int iface_num)</td></tr>
+<tr class="separator:ga3db81d6d575dcb8c329c3a7db5e1f55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1892fba013874d2695a78b953b368c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gab1892fba013874d2695a78b953b368c0">rm_wifi_get_rssi</a> (int8_t *pcRSSI)</td></tr>
+<tr class="separator:gab1892fba013874d2695a78b953b368c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a3bdec87d8d46f2566f69196a41c8fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga2a3bdec87d8d46f2566f69196a41c8fa">rm_wifi_start_disconnect_station</a> (uint8_t *pucMac)</td></tr>
+<tr class="separator:ga2a3bdec87d8d46f2566f69196a41c8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab86b16b40ff53223cbe5cfbe53ed3bad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gab86b16b40ff53223cbe5cfbe53ed3bad">rm_wifi_mac_addr_set</a> (uint8_t *pucMac)</td></tr>
+<tr class="separator:gab86b16b40ff53223cbe5cfbe53ed3bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad923f24cc66f67afc2c7b741431730ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gad923f24cc66f67afc2c7b741431730ef">rm_wifi_set_country_code</a> (const char *pcCountryCode)</td></tr>
+<tr class="separator:gad923f24cc66f67afc2c7b741431730ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf5bc9b7774900064bf5c9934c61e0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gadf5bc9b7774900064bf5c9934c61e0ae">rm_wifi_get_country_code</a> (char *pcCountryCode)</td></tr>
+<tr class="separator:gadf5bc9b7774900064bf5c9934c61e0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b351ad57185dec40342407886314a15"><td class="memItemLeft" align="right" valign="top">struct netif *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga6b351ad57185dec40342407886314a15">rm_wifi_get_netif</a> (int iface_index)</td></tr>
+<tr class="memdesc:ga6b351ad57185dec40342407886314a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper function to retrieve network interface.  <a href="#ga6b351ad57185dec40342407886314a15">More...</a><br /></td></tr>
+<tr class="separator:ga6b351ad57185dec40342407886314a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09c097315f8157c80d14a2c920a1a2e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga09c097315f8157c80d14a2c920a1a2e8">WIFI_ConfigureAPExt</a> (<a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *pxNetworkParamsExt)</td></tr>
+<tr class="memdesc:ga09c097315f8157c80d14a2c920a1a2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure SoftAP.  <a href="#ga09c097315f8157c80d14a2c920a1a2e8">More...</a><br /></td></tr>
+<tr class="separator:ga09c097315f8157c80d14a2c920a1a2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfe5dcaae1f91a934247b0d24a218710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gabfe5dcaae1f91a934247b0d24a218710">rm_wifi_get_station_list</a> (<a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_station_info__t">WIFIStationInfo_t</a> *pxStationList, uint8_t *pcStationListSize)</td></tr>
+<tr class="separator:gabfe5dcaae1f91a934247b0d24a218710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2e4c6e196e039dfae0f498d0a508291"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gab2e4c6e196e039dfae0f498d0a508291">WIFI_RegisterEventExt</a> (<a class="el" href="group___w_i_f_i.html#gae7f468be04d10fc605d58f5a6ea3510a">WIFIEventExtType_t</a> xEventExtType, <a class="el" href="group___w_i_f_i.html#ga94870600e4eaf44564a191f6c154744c">WIFIEventExtHandler_t</a> xHandler)</td></tr>
+<tr class="memdesc:gab2e4c6e196e039dfae0f498d0a508291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a Wi-Fi Extended event Handler.  <a href="#gab2e4c6e196e039dfae0f498d0a508291">More...</a><br /></td></tr>
+<tr class="separator:gab2e4c6e196e039dfae0f498d0a508291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the WIFI device on RA6W1/RA6W2. This module implements the <a class="el" href="group___w_i_f_i___a_p_i.html">WiFi Interface</a>. </p>
+<h1><a class="anchor" id="rm-wifi-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="rm-wifi-features"></a>
+Features</h2>
+<ul>
+<li>Standard WIFI STA Mode</li>
+<li>Standard WIFI soft AP Mode</li>
+</ul>
+<h1><a class="anchor" id="rm-wifi-configuration"></a>
+Configuration</h1>
+<p><a class="anchor" id="um_WIFI_On"></a><a class="anchor" id="um_WIFI_OnAuto"></a><a class="anchor" id="um_WIFI_Scan"></a><a class="anchor" id="um_WIFI_ConnectAP"></a><a class="anchor" id="um_WIFI_GetRSSI"></a><a class="anchor" id="um_WIFI_Disconnect"></a><a class="anchor" id="um_COEX_On"></a></p>
+<p><h2>Build Time Configurations for rm_wifi</h2>
+The following build time configurations are defined in fsp_cfg/rm_wifi_config.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override  </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL  </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL &gt; 2.4 GHz OFDM  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x09,0x09,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c </td><td>FCC 2.4 GHz OFDM CH 1-11 power words (uint8_t dBm; sentinels 0x1f=max, 0x7f=unused). </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f,0x7f </td><td>FCC 2.4 GHz OFDM CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL &gt; 2.4 GHz DSSS  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0c,0x0c,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11,0x11 </td><td>FCC 2.4 GHz DSSS CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f,0x7f </td><td>FCC 2.4 GHz DSSS CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL &gt; 5 GHz Low  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-1 CH 36-48 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0c,0x0c,0x0c,0x0a </td><td>FCC 5 GHz UNII-1 (CH 36, 40, 44, 48) power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2 CH 52-64 DFS (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0b,0x0b,0x0b,0x09 </td><td>FCC 5 GHz UNII-2 DFS (CH 52, 56, 60, 64) power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL &gt; 5 GHz Mid  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2e CH 100-144 DFS (12 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0c,0x0c,0x0c,0x0c,0x12,0x12,0x12,0x12,0x12,0x12,0x0f,0x0f </td><td>FCC 5 GHz UNII-2e DFS (CH 100..144) power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-3 CH 149-161 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0a,0x0a,0x0c,0x0c </td><td>FCC 5 GHz UNII-3 (CH 149, 153, 157, 161) power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; FCC NCC IC ANATEL &gt; 5 GHz High  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">ISM CH 165 (1 hex byte)</td><td>Manual Entry</td><td>0x0c </td><td>FCC 5 GHz ISM (CH 165) power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-1 CH 169 (1 hex byte)</td><td>Manual Entry</td><td>0x7f </td><td>FCC 5 GHz UNII-4-1 (CH 169) power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-2 CH 173-177 (2 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f </td><td>FCC 5 GHz UNII-4-2 (CH 173, 177) power words. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable the FCC override row. Affects countries: US, CA, BR, TW. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI  </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI &gt; 2.4 GHz OFDM  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0d,0x0d,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e </td><td>ETSI 2.4 GHz OFDM CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0d,0x0d,0x7f </td><td>ETSI 2.4 GHz OFDM CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI &gt; 2.4 GHz DSSS  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x10,0x10,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c,0x0c </td><td>ETSI 2.4 GHz DSSS CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0c,0x0c,0x7f </td><td>ETSI 2.4 GHz DSSS CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI &gt; 5 GHz Low  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-1 CH 36-48 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0b,0x0b,0x0b,0x0c </td><td>ETSI 5 GHz UNII-1 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2 CH 52-64 DFS (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0b,0x0b,0x0b,0x0b </td><td>ETSI 5 GHz UNII-2 DFS power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI &gt; 5 GHz Mid  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2e CH 100-144 DFS (12 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b,0x0b </td><td>ETSI 5 GHz UNII-2e DFS power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-3 CH 149-161 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x09,0x09,0x09,0x09 </td><td>ETSI 5 GHz UNII-3 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; ETSI &gt; 5 GHz High  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">ISM CH 165 (1 hex byte)</td><td>Manual Entry</td><td>0x09 </td><td>ETSI 5 GHz ISM power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-1 CH 169 (1 hex byte)</td><td>Manual Entry</td><td>0x7f </td><td>ETSI 5 GHz UNII-4-1 power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-2 CH 173-177 (2 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f </td><td>ETSI 5 GHz UNII-4-2 power words. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable the ETSI override row. Affects countries: EU. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP  </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP &gt; 2.4 GHz OFDM  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0d,0x0d,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e,0x0e </td><td>JP 2.4 GHz OFDM CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0d,0x0d,0x0a </td><td>JP 2.4 GHz OFDM CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP &gt; 2.4 GHz DSSS  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0e,0x0e,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12,0x12 </td><td>JP 2.4 GHz DSSS CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x10,0x10,0x0a </td><td>JP 2.4 GHz DSSS CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP &gt; 5 GHz Low  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-1 CH 36-48 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0a,0x0a,0x0a,0x04 </td><td>JP 5 GHz UNII-1 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2 CH 52-64 DFS (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x04,0x0a,0x0a,0x09 </td><td>JP 5 GHz UNII-2 DFS power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP &gt; 5 GHz Mid  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2e CH 100-144 DFS (12 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0a,0x0a,0x0a,0x0a,0x0a,0x0a,0x0a,0x0a,0x0a,0x0a,0x07,0x07 </td><td>JP 5 GHz UNII-2e DFS power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-3 CH 149-161 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f,0x7f,0x7f </td><td>JP 5 GHz UNII-3 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; Telec JP &gt; 5 GHz High  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">ISM CH 165 (1 hex byte)</td><td>Manual Entry</td><td>0x7f </td><td>JP 5 GHz ISM power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-1 CH 169 (1 hex byte)</td><td>Manual Entry</td><td>0x7f </td><td>JP 5 GHz UNII-4-1 power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-2 CH 173-177 (2 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f </td><td>JP 5 GHz UNII-4-2 power words. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable the Telec/Japan override row. Affects countries: JP. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea  </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea &gt; 2.4 GHz OFDM  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10 </td><td>KC 2.4 GHz OFDM CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x10,0x10,0x7f </td><td>KC 2.4 GHz OFDM CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea &gt; 2.4 GHz DSSS  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 1-11 (11 hex bytes, CSV)</td><td>Manual Entry</td><td>0x16,0x16,0x16,0x16,0x16,0x16,0x16,0x16,0x16,0x16,0x16 </td><td>KC 2.4 GHz DSSS CH 1-11 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">CH 12-14 (3 hex bytes, CSV)</td><td>Manual Entry</td><td>0x16,0x16,0x7f </td><td>KC 2.4 GHz DSSS CH 12-14 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea &gt; 5 GHz Low  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-1 CH 36-48 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0f,0x0f,0x0f,0x0c </td><td>KC 5 GHz UNII-1 power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2 CH 52-64 DFS (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0e,0x0e,0x0e,0x0e </td><td>KC 5 GHz UNII-2 DFS power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea &gt; 5 GHz Mid  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-2e CH 100-144 DFS (12 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0f,0x0f,0x0f,0x0f,0x0f,0x0f,0x0f,0x0f,0x0e,0x0e,0x0e,0x0e </td><td>KC 5 GHz UNII-2e DFS power words. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-3 CH 149-161 (4 hex bytes, CSV)</td><td>Manual Entry</td><td>0x0e,0x0e,0x0e,0x0e </td><td>KC 5 GHz UNII-3 power words. </td></tr>
+<tr class="tree_lvl_3">
+<td class="tree_lvl_3" colspan="4"><span class="chevron-collapsed"></span> Regulatory TX Power Override &gt; KC Korea &gt; 5 GHz High  </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">ISM CH 165 (1 hex byte)</td><td>Manual Entry</td><td>0x0b </td><td>KC 5 GHz ISM power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-1 CH 169 (1 hex byte)</td><td>Manual Entry</td><td>0x7f </td><td>KC 5 GHz UNII-4-1 power word. </td></tr>
+<tr class="tree_lvl_3_item">
+<td class="tree_lvl_3_cell">UNII-4-2 CH 173-177 (2 hex bytes, CSV)</td><td>Manual Entry</td><td>0x7f,0x7f </td><td>KC 5 GHz UNII-4-2 power words. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable the KC (Korea) override row. Affects countries: KR. Defaults are seeded from the existing in-tree KC baseline (def1). </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Master Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Master enable for the customer-editable Regulatory TX Power Override table. When disabled (default), no override macros take effect and the build is byte-identical to stock. </td></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. The Default (BSP) value is BSP_CFG_PARAM_CHECKING_ENABLE. It is the value of RRQ Common|Parameter checking under BSP </td></tr>
+<tr class="tree_none">
+<td>Watchdog Service Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable when using the Watchdog Service. </td></tr>
+<tr class="tree_none">
+<td>BLE CLI</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable BLE CLI support </td></tr>
+<tr class="tree_none">
+<td>Enable MQTT on WI-FI</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable MQTT on WIFI </td></tr>
+<tr class="tree_none">
+<td>ATCMD Task Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enable</li>
+<li>
+Disable</li>
+</ul>
+</td><td>Disable </td><td>Enable support for the AT interface. </td></tr>
+</table>
+ <h2>Configurations for Networking &gt; Wi-Fi (rm_wifi)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Networking &gt; Wi-Fi (rm_wifi).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> General  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Name</td><td>Name must be a valid C symbol</td><td>g_wifi0 </td><td>Module name. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Interrupts  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Wi-Fi Interrupts Priority Level</td><td>MCU Specific Options</td><td></td><td>Select the interrupt priority </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Co-Existence  </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Co-Existence &gt; Pins  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Coex_ASC1 Port</td><td>Refer to the RAFW Configuration tool for available options.</td><td>00 </td><td>Specify the antenna selection 1 port for Co-Existence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Coex_ASC1 Pin</td><td>Refer to the RAFW Configuration tool for available options.</td><td>07 </td><td>Specify the antenna selection 1 pin for Co-Existence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Coex_ASC2 Port</td><td>Refer to the RAFW Configuration tool for available options.</td><td>00 </td><td>Specify the antenna selection 2 port for Co-Existence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Coex_ASC2 Pin</td><td>Refer to the RAFW Configuration tool for available options.</td><td>06 </td><td>Specify the antenna selection 2 pin for Co-Existence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">BT_ACT Port</td><td>Refer to the RAFW Configuration tool for available options.</td><td>01 </td><td>Specify the BT-ACT port for Co-Existence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">BT_ACT Pin</td><td>Refer to the RAFW Configuration tool for available options.</td><td>15 </td><td>Specify the BT-ACT pin for Co-Existence. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Co-Existence &gt; BLE Operation Mode  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">ASC1 Reset Value</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Low</li>
+<li>
+High</li>
+</ul>
+</td><td>High </td><td>Specify the value for antenna selection 1 in BLE operation for 5G. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">ASC2 Reset Value</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Low</li>
+<li>
+High</li>
+</ul>
+</td><td>Low </td><td>Specify the value for antenna selection 2 in BLE operation for 5G. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">ZigBee/Bluetooth Co-Existence</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable ZigBee/Bluetooth Co-Existence support </td></tr>
+</table>
+</p>
+<h1><a class="anchor" id="rm-wifi-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of WIFI STA.</p>
+<div class="fragment"><div class="line"><a class="code" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a> scan_data[MAX_WIFI_SCAN_RESULTS];</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> wifi_basic_sta_example(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a> wifi_err;</div><div class="line"></div><div class="line">    <span class="comment">/* Setup Access Point connection parameters */</span></div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> net_params =</div><div class="line">    {</div><div class="line">        .xPassword.xWPA.cPassphrase = <span class="stringliteral">&quot;&#39;password&#39;&quot;</span>,</div><div class="line">        .<a class="code" href="group___w_i_f_i___a_p_i.html#ac686b2ee9ec1fe9ce9091b2284f14b27">ucSSID</a>                     = <span class="stringliteral">&quot;&#39;access_point_ssid&#39;&quot;</span>,</div><div class="line">        .xPassword.xWPA.ucLength = 8,</div><div class="line">        .ucSSIDLength            = 17,</div><div class="line">        .xSecurity               = <a class="code" href="group___w_i_f_i___a_p_i.html#gga827dc938c214035b938c5ebe7d7b6816ac4775007ba0bfdb4e4ba754f219387df">eWiFiSecurityWPA2</a>,</div><div class="line">    };</div><div class="line"></div><div class="line">    memset(scan_data, 0, <span class="keyword">sizeof</span>(<a class="code" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a>) * MAX_WIFI_SCAN_RESULTS);</div><div class="line"></div><div class="line">    <span class="comment">/* Open connection to the Wifi Module */</span></div><div class="line">    wifi_err = <a class="code" href="group___w_i_f_i___a_p_i.html#ga2ee26776a00869c415da4a108031af1d">WIFI_On</a>();</div><div class="line">    assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == wifi_err);</div><div class="line"></div><div class="line">    vTaskDelay(DELAY_5SEC);</div><div class="line"></div><div class="line">    <span class="comment">/* Scan the local Wifi network for other APs */</span></div><div class="line">    wifi_err = <a class="code" href="group___w_i_f_i___a_p_i.html#ga4f1c2fb7ab3463f7d19afb506e945fd6">WIFI_Scan</a>(&amp;scan_data[0], MAX_WIFI_SCAN_RESULTS);</div><div class="line">    assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == wifi_err);</div><div class="line"></div><div class="line">    vTaskDelay(DELAY_5SEC);</div><div class="line"></div><div class="line">    <span class="comment">/* Connect to the Access Point */</span></div><div class="line">    wifi_err = <a class="code" href="group___w_i_f_i___a_p_i.html#ga430d72715054198b6ce0885410b027a5">WIFI_ConnectAP</a>(&amp;net_params);</div><div class="line">    assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == wifi_err);</div><div class="line"></div><div class="line">    <span class="comment">/* Shutdown the WIFI - not supported right now */</span></div><div class="line"><span class="preprocessor">#if 0 // --------------------------------------------------------------</span></div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#ga93265c46f46cb899f08adc56608b35d5">WIFI_Off</a>(); </div><div class="line"><span class="preprocessor">#endif // 0 // --------------------------------------------------------</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> wifi_basic_ap_example(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a> xWifiStatus;</div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#gac39f5f57f73b7001696721284bb4875a">WIFIDeviceMode_t</a> xDeviceMode;</div><div class="line"></div><div class="line">    <span class="comment">/* Setup Access Point connection parameters */</span></div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> net_params =</div><div class="line">    {</div><div class="line">        .xPassword.xWPA.cPassphrase = <span class="stringliteral">&quot;&#39;password&#39;&quot;</span>,</div><div class="line">        .<a class="code" href="group___w_i_f_i___a_p_i.html#ac686b2ee9ec1fe9ce9091b2284f14b27">ucSSID</a>                     = <span class="stringliteral">&quot;&#39;access_point_ssid&#39;&quot;</span>,</div><div class="line">        .xPassword.xWPA.ucLength = 8,</div><div class="line">        .ucSSIDLength            = 17,</div><div class="line">        .xSecurity               = <a class="code" href="group___w_i_f_i___a_p_i.html#gga827dc938c214035b938c5ebe7d7b6816ac4775007ba0bfdb4e4ba754f219387df">eWiFiSecurityWPA2</a>,</div><div class="line">        .ucChannel = 6,</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="comment">/* Open connection to the Wifi Module */</span></div><div class="line">    xWifiStatus = <a class="code" href="group___w_i_f_i___a_p_i.html#ga2ee26776a00869c415da4a108031af1d">WIFI_On</a>();</div><div class="line">    assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == xWifiStatus);</div><div class="line"></div><div class="line">    vTaskDelay(5000);</div><div class="line"></div><div class="line">    xWifiStatus = <a class="code" href="group___w_i_f_i___a_p_i.html#ga8ea9116b918d5832a45866bc43651b7d">WIFI_GetMode</a>(&amp;xDeviceMode);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (xWifiStatus == <a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a>) {</div><div class="line">        <span class="keywordflow">if</span> (xDeviceMode != <a class="code" href="group___w_i_f_i___a_p_i.html#ggac39f5f57f73b7001696721284bb4875aa50622cb6e22a17fba314e491bd521f42">eWiFiModeAP</a>) {</div><div class="line">            xWifiStatus = <a class="code" href="group___w_i_f_i___a_p_i.html#ga5435e7dfe81c63d2674c6257535e4e07">WIFI_SetMode</a>(<a class="code" href="group___w_i_f_i___a_p_i.html#ggac39f5f57f73b7001696721284bb4875aa50622cb6e22a17fba314e491bd521f42">eWiFiModeAP</a>);</div><div class="line">            assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == xWifiStatus);</div><div class="line">            xWifiStatus = <a class="code" href="group___w_i_f_i___a_p_i.html#ga4613d7e6ee7c2208b24b7edd68b8384c">WIFI_ConfigureAP</a>(&amp;net_params);</div><div class="line">            assert(<a class="code" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> == xWifiStatus);</div><div class="line">            reset();</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Shutdown the WIFI - not supported right now */</span></div><div class="line"><span class="preprocessor">#if 0 // --------------------------------------------------------------</span></div><div class="line">    <a class="code" href="group___w_i_f_i___a_p_i.html#ga93265c46f46cb899f08adc56608b35d5">WIFI_Off</a>(); </div><div class="line"><span class="preprocessor">#endif // 0 // --------------------------------------------------------</span></div><div class="line">}</div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structwifi__coex__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#structwifi__coex__cfg__t">wifi_coex_cfg_t</a></td></tr>
+<tr class="separator:structwifi__coex__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_w_i_f_i_network_params_ext__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a></td></tr>
+<tr class="separator:struct_w_i_f_i_network_params_ext__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga94870600e4eaf44564a191f6c154744c"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga94870600e4eaf44564a191f6c154744c">WIFIEventExtHandler_t</a>) (WIFIEventExt_t *xEventExt)</td></tr>
+<tr class="memdesc:ga94870600e4eaf44564a191f6c154744c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wi-Fi Extended event handler definition.  <a href="#ga94870600e4eaf44564a191f6c154744c">More...</a><br /></td></tr>
+<tr class="separator:ga94870600e4eaf44564a191f6c154744c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gab38729947596fa675ce3875553506526"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a> </td></tr>
+<tr class="separator:gab38729947596fa675ce3875553506526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa69e25e835f42b1b242291fe017443e1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gaa69e25e835f42b1b242291fe017443e1">WIFIPmf_t</a> </td></tr>
+<tr class="separator:gaa69e25e835f42b1b242291fe017443e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08b50d320b2a3062d97e7ec68b0326cb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#ga08b50d320b2a3062d97e7ec68b0326cb">WIFISecurityExt_t</a> </td></tr>
+<tr class="separator:ga08b50d320b2a3062d97e7ec68b0326cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7f468be04d10fc605d58f5a6ea3510a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_i_f_i.html#gae7f468be04d10fc605d58f5a6ea3510a">WIFIEventExtType_t</a> </td></tr>
+<tr class="separator:gae7f468be04d10fc605d58f5a6ea3510a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structwifi__coex__cfg__t" id="structwifi__coex__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structwifi__coex__cfg__t">&#9670;&nbsp;</a></span>wifi_coex_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct wifi_coex_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>User configuration structure, used in open function </p>
+</div>
+</div>
+</div>
+<a name="struct_w_i_f_i_network_params_ext__t" id="struct_w_i_f_i_network_params_ext__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_w_i_f_i_network_params_ext__t">&#9670;&nbsp;</a></span>WIFINetworkParamsExt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct WIFINetworkParamsExt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Parameters passed to WIFI_ConfigureAPExt API for AP configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a84f8e1e3399cd4508b86d130813aaf04"></a><a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a></td>
+<td class="fieldname">
+xNetworkParams</td>
+<td class="fielddoc">
+Basic configuration. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7ec28a9926e9305e8856ba80f2860802"></a>WIFIEnterpriseNetParams_t</td>
+<td class="fieldname">
+xEntNetParams</td>
+<td class="fielddoc">
+Enterprise security configuration. </td></tr>
+<tr><td class="fieldtype">
+<a id="a909ea599fc72b19ceb405b02ff89d494"></a>WIFIApNetParams_t</td>
+<td class="fieldname">
+xApNetParams</td>
+<td class="fielddoc">
+AP configuration. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad01ec2d1fa1c7b8d0a1979372284cdf5"></a><a class="el" href="group___w_i_f_i___a_p_i.html#gac9f8e62a77e88873fee06557d6cca62a">WIFIBand_t</a></td>
+<td class="fieldname">
+ucBand</td>
+<td class="fielddoc">
+Band to configure. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5fd72fd888a441c347bcefd97af870ea"></a>e_wifi_phy_mode_ext_t</td>
+<td class="fieldname">
+ucWiFi_mode</td>
+<td class="fielddoc">
+Wi-Fi PHY mode to configure (a, b, g ,n, ...) </td></tr>
+<tr><td class="fieldtype">
+<a id="a07f51d8d932109c2eb866ec489d38bba"></a>bool</td>
+<td class="fieldname">
+hidden_ssid</td>
+<td class="fielddoc">
+AP is using hidden SSID. </td></tr>
+<tr><td class="fieldtype">
+<a id="acfe103a8a972689c748d708d22ded7c8"></a><a class="el" href="group___w_i_f_i.html#gaa69e25e835f42b1b242291fe017443e1">WIFIPmf_t</a></td>
+<td class="fieldname">
+pmf</td>
+<td class="fielddoc">
+Protected Management Frame mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="a669968f7bd066cfdc5969ce761aa74ab"></a>char</td>
+<td class="fieldname">
+sae_groups[wificonfigMAX_SAE_GROUPS_LEN]</td>
+<td class="fielddoc">
+String contains all the WPA3 sae group ids. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6d59c112d875df3280de85a48709fd91"></a>uint8_t</td>
+<td class="fieldname">
+ucNumChannels</td>
+<td class="fielddoc">
+Number of channels to scan. </td></tr>
+<tr><td class="fieldtype">
+<a id="af2b8e4ea5eec22a8a7c1af4e7fbbd21f"></a>uint32_t *</td>
+<td class="fieldname">
+pucChannelList</td>
+<td class="fielddoc">
+Pointer to list of channels to scan. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga94870600e4eaf44564a191f6c154744c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94870600e4eaf44564a191f6c154744c">&#9670;&nbsp;</a></span>WIFIEventExtHandler_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  WIFIEventExtHandler_t) (WIFIEventExt_t *xEventExt)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wi-Fi Extended event handler definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">xEventExt</td><td>- Wi-Fi Extended event data structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gab38729947596fa675ce3875553506526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab38729947596fa675ce3875553506526">&#9670;&nbsp;</a></span>e_wifi_device_mode_ext_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526af48cdc9f6a6782a7dc0cb4ec7f807141"></a>WIFI_DEVICE_MODE_EXT_STATION&#160;</td><td class="fielddoc"><p>Station mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526ac796d04bbe77421654211b5758fed7c7"></a>WIFI_DEVICE_MODE_EXT_AP&#160;</td><td class="fielddoc"><p>Access point mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526abc7b6421432195826f7e97cb98ce8dfb"></a>WIFI_DEVICE_MODE_EXT_P2P&#160;</td><td class="fielddoc"><p>P2P mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526a6e3e781c9a5317306bdbd6901a85aec7"></a>WIFI_DEVICE_MODE_EXT_P2P_GO&#160;</td><td class="fielddoc"><p>P2P GO mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526a42f61f752826b3f3289f87de45995b09"></a>WIFI_DEVICE_MODE_EXT_AP_STATION&#160;</td><td class="fielddoc"><p>AP + Station mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526a5018c217d0d476ce74cca9941bc3f484"></a>WIFI_DEVICE_MODE_EXT_P2P_STATION&#160;</td><td class="fielddoc"><p>P2P + Station mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526aa39350dc370c89042a25d7990fa81d93"></a>WIFI_DEVICE_MODE_EXT_MESH_POINT&#160;</td><td class="fielddoc"><p>Mesh point mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526a96f0718c75f8167c4107deebe5a14ecb"></a>WIFI_DEVICE_MODE_EXT_MESH_PORTAL&#160;</td><td class="fielddoc"><p>Mesh portal mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab38729947596fa675ce3875553506526a5ec705289cab371e68b5f2aa1c2b8a82"></a>WIFI_DEVICE_MODE_EXT_NOT_SUPPORTED&#160;</td><td class="fielddoc"><p>Unsupported mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaa69e25e835f42b1b242291fe017443e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa69e25e835f42b1b242291fe017443e1">&#9670;&nbsp;</a></span>WIFIPmf_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___w_i_f_i.html#gaa69e25e835f42b1b242291fe017443e1">WIFIPmf_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wi-Fi PMF (Protected Management Frames) modes </p>
+
+</div>
+</div>
+<a id="ga08b50d320b2a3062d97e7ec68b0326cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga08b50d320b2a3062d97e7ec68b0326cb">&#9670;&nbsp;</a></span>WIFISecurityExt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___w_i_f_i.html#ga08b50d320b2a3062d97e7ec68b0326cb">WIFISecurityExt_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wi-Fi Security extended types, backwards compatible with WIFISecurity_t </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cbad3fadda029f8fd627a60d6a544096cba"></a>eWiFiSecurityOpen_ext&#160;</td><td class="fielddoc"><p>Open - No Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba906e633b89bf666607903ebe44518cb0"></a>eWiFiSecurityWEP_ext&#160;</td><td class="fielddoc"><p>WEP Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba106f86c090ade55276b227b0868e7474"></a>eWiFiSecurityWPA_ext&#160;</td><td class="fielddoc"><p>WPA Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba4618ed5156bdce6cc6232ecafb17c424"></a>eWiFiSecurityWPA2_ext&#160;</td><td class="fielddoc"><p>WPA2 Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba2e0390ab45459890e91ef59cda5d69c8"></a>eWiFiSecurityWPA2_ent_ext&#160;</td><td class="fielddoc"><p>WPA2 Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba97440aa00b32d469251c213a6b6a9a83"></a>eWiFiSecurityWPA3_ext&#160;</td><td class="fielddoc"><p>WPA3 Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba3a068beb6b00b451d9e238bb593d0550"></a>eWiFiSecurityNotSupported_ext&#160;</td><td class="fielddoc"><p>Unknown Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba8b095c5ffae7369eeecf43bbd7f06592"></a>eWiFiSecurityWPA_ent_ext&#160;</td><td class="fielddoc"><p>WPA Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cbab1833bba3f4bbb6ac3496ed7dae0eaff"></a>eWiFiSecurityWPA_WPA2_ent_ext&#160;</td><td class="fielddoc"><p>WPA + WPA2 Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cbac9a521376a2ebb9de15c3f139999d853"></a>eWiFiSecurityWPA2_WPA3_ent_ext&#160;</td><td class="fielddoc"><p>WPA2 + WPA3 Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba113ac7db141ab1ebad2f8f972973356e"></a>eWiFiSecurityWPA3_ent_ext&#160;</td><td class="fielddoc"><p>WPA3 128 Bits Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cbac97b0ed788b1b420711375af7f89caba"></a>eWiFiSecurityWPA3_192B_ent_ext&#160;</td><td class="fielddoc"><p>WPA3 192 Bits Enterprise Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba27d143f781ccd0dad876b7e75ce6b8a0"></a>eWiFiSecurityWPA_WPA2_ext&#160;</td><td class="fielddoc"><p>WPA + WPA2 Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba1d817b2653a4cefa0f3c028381ca4e25"></a>eWiFiSecurityWPA2_WPA3_ext&#160;</td><td class="fielddoc"><p>WPA2 + WPA3 Security. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga08b50d320b2a3062d97e7ec68b0326cba20acebd5454ccf25c85f4c03fdc372a0"></a>eWiFiSecurityWPA3_OWE_ext&#160;</td><td class="fielddoc"><p>WPA3-OWE Security. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gae7f468be04d10fc605d58f5a6ea3510a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7f468be04d10fc605d58f5a6ea3510a">&#9670;&nbsp;</a></span>WIFIEventExtType_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___w_i_f_i.html#gae7f468be04d10fc605d58f5a6ea3510a">WIFIEventExtType_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae7f468be04d10fc605d58f5a6ea3510aa55317af4f264034184cf9b02daa86bd2"></a>eWiFiEventExtTWT&#160;</td><td class="fielddoc"><p>TWT Event. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga7664375d90bd485886faab962077f915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7664375d90bd485886faab962077f915">&#9670;&nbsp;</a></span>rm_wifi_wep_network_params_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wep_network_params_check </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkParams</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the parameters of WEP security.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParams</td><td>Network parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WIFI successfully configured. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>The check of WEP network parameters have failed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga032f2c144d671a0ced0edc2062aecb52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga032f2c144d671a0ced0edc2062aecb52">&#9670;&nbsp;</a></span>rm_wifi_enterprise_network_params_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_enterprise_network_params_check </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkParamsExt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the parameters of Enterprise WPA/WPA2/WAP3 security.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParamsExt</td><td>Extended Network parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WIFI successfully configured. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>The check of Enterprise network parameters have failed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2c660a142a5efa7c5af31f79dfcb6b07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2c660a142a5efa7c5af31f79dfcb6b07">&#9670;&nbsp;</a></span>rm_wifi_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_open </td>
+          <td>(</td>
+          <td class="paramtype">wifi_cfg_t const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opens and configures the WIFI module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to configuration structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WIFI successfully configured. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to configuration or watchdog service instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga11b435c67e60c33cabcfc82d3cf8e59d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11b435c67e60c33cabcfc82d3cf8e59d">&#9670;&nbsp;</a></span>rm_wifi_open_connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_open_connect </td>
+          <td>(</td>
+          <td class="paramtype">wifi_cfg_t const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opens and configures the WIFI module, and connects to previously configured AP using <a class="el" href="group___w_i_f_i.html#ga256e06b5315397f3da55b360ec3446d7">rm_wifi_auto_config</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to configuration structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with retrieving AP parameters from NVRAM or with connection. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_CONFIG_FAILED</td><td>Error occurred with save_config. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>Error occurred with select_network </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac5bdce58ca0c3b726e843330984a919d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac5bdce58ca0c3b726e843330984a919d">&#9670;&nbsp;</a></span>rm_wifi_close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close WIFI module.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WIFI closed successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaba2eee54803aa299745fb3ad98ff7858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba2eee54803aa299745fb3ad98ff7858">&#9670;&nbsp;</a></span>rm_wifi_connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_connect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hidden_ssid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#gaa69e25e835f42b1b242291fe017443e1">WIFIPmf_t</a>&#160;</td>
+          <td class="paramname"><em>pmf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sae_groups</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>ucNumChannels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>pucChannelList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Connects to the specified Wifi Access Point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParams</td><td>Network parameters validated by WIFI_NetworkParams_check(). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hidden_ssid</td><td>Connect to AP with hidden SSID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pmf</td><td>Specify Protected Management Frames mode (only valid in some WIFISecurity modes) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sae_groups</td><td>Specify the SAE groups IDs (valid on WPA3 SAE security mode only) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ucNumChannels</td><td>Number of channels to scan (0 = scan all) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pucChannelList</td><td>Pointer to list of channels to scan (NULL = scan all)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_CONFIG_FAILED</td><td>Error occurred with save_config. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>Error occurred with select_network </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga79b0baee35b08aac005e2959cd2bf649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79b0baee35b08aac005e2959cd2bf649">&#9670;&nbsp;</a></span>rm_wifi_connect_Ext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_connect_Ext </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkParamsExt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Connects to the specified Wifi Access Point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParamsExt</td><td>Extended network parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_CONFIG_FAILED</td><td>Error occurred with save_config. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>Error occurred with select_network </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga256e06b5315397f3da55b360ec3446d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga256e06b5315397f3da55b360ec3446d7">&#9670;&nbsp;</a></span>rm_wifi_auto_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_auto_config </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkParams</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the Wi-Fi Access Point (AP) parameters to be used when connecting using <a class="el" href="group___w_i_f_i.html#ga11b435c67e60c33cabcfc82d3cf8e59d">rm_wifi_open_connect</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParams</td><td>Network parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae6d68dc949631a12d3daabcb2fc37722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6d68dc949631a12d3daabcb2fc37722">&#9670;&nbsp;</a></span>rm_wifi_disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_disconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disconnects from connected AP.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WIFI disconnected successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga86116712edf72cad70cf2e32e645af79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga86116712edf72cad70cf2e32e645af79">&#9670;&nbsp;</a></span>rm_wifi_set_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_set_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a>&#160;</td>
+          <td class="paramname"><em>xDeviceMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set WIFI Mode</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set Mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga11521ce14ed23cda026f04895859f9c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11521ce14ed23cda026f04895859f9c1">&#9670;&nbsp;</a></span>rm_wifi_get_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#gab38729947596fa675ce3875553506526">e_wifi_device_mode_ext_t</a> *&#160;</td>
+          <td class="paramname"><em>xDeviceModeExt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get WIFI Mode</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Get Mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga220370bad487086fbbc13c55bae9accc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga220370bad487086fbbc13c55bae9accc">&#9670;&nbsp;</a></span>rm_wifi_p2p()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>oper_chan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>listen_chan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>go_intent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ssid_postfix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set P2P successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1db3c97045eb5841ca68d71ce0429111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1db3c97045eb5841ca68d71ce0429111">&#9670;&nbsp;</a></span>rm_wifi_p2p_find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_find </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P find</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set P2P successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6ef6fa0db8e53f0b4062efbc7da37870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ef6fa0db8e53f0b4062efbc7da37870">&#9670;&nbsp;</a></span>rm_wifi_p2p_connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_connect </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p2p_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>wps_method</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P connect</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Connected to P2P device successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1983c488a4b43c84613c1f074bd1f7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1983c488a4b43c84613c1f074bd1f7eb">&#9670;&nbsp;</a></span>rm_wifi_p2p_group_remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_group_remove </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P group remove</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Removed P2P group successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2dfc81408a137ca8e1ed889a85cd6449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2dfc81408a137ca8e1ed889a85cd6449">&#9670;&nbsp;</a></span>rm_wifi_p2p_group_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_group_add </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P group add</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Added P2P group successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa003fa1191f188e902f8d34dc1b1169c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa003fa1191f188e902f8d34dc1b1169c">&#9670;&nbsp;</a></span>rm_wifi_p2p_peers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_peers </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>reply</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P peers</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Listed known P2P peers successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga23d9cc049fd7c1909bd91c10026462a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga23d9cc049fd7c1909bd91c10026462a7">&#9670;&nbsp;</a></span>rm_wifi_p2p_accept()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_accept </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P accept</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Accepted P2P connection successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8561552c8a6946ea3a065117b6ed3cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8561552c8a6946ea3a065117b6ed3cf0">&#9670;&nbsp;</a></span>rm_wifi_p2p_set_oper_chan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_set_oper_chan </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>channel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Set Operating Channel</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set operating channel successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5b59607a2b7e3ea5bfefe68c6b1dd33d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b59607a2b7e3ea5bfefe68c6b1dd33d">&#9670;&nbsp;</a></span>rm_wifi_p2p_set_listen_chan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_set_listen_chan </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>channel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Set Listen Channel</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set listen channel successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8b03cc4f80e9e1e32fcadbc0dafa81f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8b03cc4f80e9e1e32fcadbc0dafa81f1">&#9670;&nbsp;</a></span>rm_wifi_p2p_set_go_intent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_set_go_intent </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>intent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Set GO Intent</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set GO Intent successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2a17ab4870b13edca390183161355870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2a17ab4870b13edca390183161355870">&#9670;&nbsp;</a></span>rm_wifi_p2p_set_find_timeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_set_find_timeout </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>intent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Set Find Timeout</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set Find Timeout successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga09c130db8d2cfaa079ebd2823a127f1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09c130db8d2cfaa079ebd2823a127f1c">&#9670;&nbsp;</a></span>rm_wifi_p2p_set_ssid_postfix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_set_ssid_postfix </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ssid_postfix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Set SSID Postfix</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set SSID Postfix successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3fe7f8ddf3e35da2fac2b624d3026b6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3fe7f8ddf3e35da2fac2b624d3026b6d">&#9670;&nbsp;</a></span>rm_wifi_p2p_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_p2p_get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>p2pconfig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>WIFI P2P Get Parameter</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Retrieved P2P parameter successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacce08b65f720664a3ec86c01da86da6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacce08b65f720664a3ec86c01da86da6f">&#9670;&nbsp;</a></span>rm_wifi_isolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_isolate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable_isolation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Isolate STAs connected to the AP from each other (or cancel isolation).</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Isolate/connect the STAs successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga06f665003ee0a627d6c4621343216e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06f665003ee0a627d6c4621343216e76">&#9670;&nbsp;</a></span>rm_wifi_acl_mac()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_acl_mac </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mac_addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Register the MAC Address of a Station in the ACL</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>mac_addr added successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with adding to ACL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6bdfaca0001b6a75fb152607d5b84c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6bdfaca0001b6a75fb152607d5b84c67">&#9670;&nbsp;</a></span>rm_wifi_acl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_acl </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filter_mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set ACL to allow/deny/clear"</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Set the MAC Filtering to [filter_mode] successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with setting MAC Filtering to the mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1d19832272ee1b0417bca09ace8345e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d19832272ee1b0417bca09ace8345e1">&#9670;&nbsp;</a></span>rm_wifi_wmm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wmm </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable_wmm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set WMM function to enable/disable</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WMM function set successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with setting WMM. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2ce7de6c4dea6f14b040ea61ca9205f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ce7de6c4dea6f14b040ea61ca9205f7">&#9670;&nbsp;</a></span>rm_wifi_wmm_ps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wmm_ps </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable_wmm_ps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set WMM-PS function to enable/disable</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WMM-PS function set successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with setting WMM-PS. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga63ed370c34b85a2115950b0c7c5146fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga63ed370c34b85a2115950b0c7c5146fb">&#9670;&nbsp;</a></span>rm_wifi_wps_pbc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wps_pbc </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mac_addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initiate WPS Push Button Configuration (PBC)</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WPS PBC was initiated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with initiating WPS PBC. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga57d413ca1c17ec98351de4eb43901053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57d413ca1c17ec98351de4eb43901053">&#9670;&nbsp;</a></span>rm_wifi_wps_pin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wps_pin </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mac_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>gen_pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initiate WPS PIN method</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WPS PIN was initiated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with initiating WPS PIN. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa68a677f47962a8746738e448743fc45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa68a677f47962a8746738e448743fc45">&#9670;&nbsp;</a></span>rm_wifi_wps_cancel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wps_cancel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cancel any ongoing WPS operation</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WPS session was canceled successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with cancelling WPS. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9ffa4b0b3897293459554a651739d11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ffa4b0b3897293459554a651739d11d">&#9670;&nbsp;</a></span>rm_wifi_wps_ap_pin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_wps_ap_pin </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>arg2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>gen_pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Manage the WPS AP PIN state or value</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Operation was completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with enabling/disabling/generating. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad8fbd0ced194a252884c90e6f75bfdda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8fbd0ced194a252884c90e6f75bfdda">&#9670;&nbsp;</a></span>rm_wifi_network_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_network_add </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_profile__t">WIFINetworkProfile_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxNetworkProfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a network with the specified index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkProfile</td><td>Pointer to a structure which holds the Wi-Fi network parameters. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>network index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_CONFIG_FAILED</td><td>Error occurred with save_config. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad9dc0a3096a9a0d9cfe3496339a10c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9dc0a3096a9a0d9cfe3496339a10c86">&#9670;&nbsp;</a></span>rm_wifi_network_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_network_del </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete a network with specified index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>network index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with remove_network. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga678427dbddaf98afc1d3fec1926b06a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga678427dbddaf98afc1d3fec1926b06a6">&#9670;&nbsp;</a></span>rm_wifi_mac_addr_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_mac_addr_get </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>p_macaddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get MAC address.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_macaddr</td><td>Pointer array to hold mac address.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5dea832b798165cc85abfd7e0d2916b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5dea832b798165cc85abfd7e0d2916b1">&#9670;&nbsp;</a></span>rm_wifi_scan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_scan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a> *&#160;</td>
+          <td class="paramname"><em>p_results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>maxNetworks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the information about local Wifi Access Points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_results</td><td>Pointer to a structure array holding scanned Access Points. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maxNetworks</td><td>Size of the structure array for holding APs.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_SCAN_COMPLETE</td><td>Wifi scan has completed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9f428250a60913c618926e91e2f507f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f428250a60913c618926e91e2f507f6">&#9670;&nbsp;</a></span>rm_wifi_scan_extended()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_scan_extended </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_scan_result__t">WIFIScanResult_t</a> *&#160;</td>
+          <td class="paramname"><em>p_results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>maxNetworks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WIFIScanExtendedConfig_t *&#160;</td>
+          <td class="paramname"><em>pxScanConfigExtended</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the information about local Wifi Access Points.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_results</td><td>Pointer to a structure array holding scanned Access Points. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">maxNetworks</td><td>Size of the structure array for holding APs. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxScanConfigExtended</td><td>Wi-Fi scan extended configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_SCAN_COMPLETE</td><td>Wifi scan has completed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa5024822de0cbd5de761887bca092458"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa5024822de0cbd5de761887bca092458">&#9670;&nbsp;</a></span>rm_wifi_start_ap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_start_ap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start SoftAP mode.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Start SoftAP mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad309b28f143e8b542ed0bee1d1d7e0ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad309b28f143e8b542ed0bee1d1d7e0ba">&#9670;&nbsp;</a></span>rm_wifi_stop_ap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_stop_ap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop SoftAP mode.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Start SoftAP mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga367971713fbea43344155abcfefa439b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga367971713fbea43344155abcfefa439b">&#9670;&nbsp;</a></span>rm_wifi_configure_ap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_configure_ap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *&#160;</td>
+          <td class="paramname"><em>pxNetworkParamsExt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configure SoftAP.</p>
+<p>param[in] pxNetworkParams Network parameters.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configure SoftAP successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa5cebac9bdb34c8a7e1f7b98b2e7d80e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa5cebac9bdb34c8a7e1f7b98b2e7d80e">&#9670;&nbsp;</a></span>rm_wifi_is_connected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_is_connected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_network_params__t">WIFINetworkParams_t</a> *&#160;</td>
+          <td class="paramname"><em>pxNetworkParams</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the Wi-Fi is connected and the AP configuration matches the query.</p>
+<p>param[in] pxNetworkParams - Network parameters to query, if NULL then just check the Wi-Fi link status.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Wi-Fi is connected and the AP configuration matches the query. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>No connection to access point has happened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab0a302909397df62f982ad5c4b55ac0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0a302909397df62f982ad5c4b55ac0f">&#9670;&nbsp;</a></span>rm_wifi_get_connection_info_ext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_connection_info_ext </td>
+          <td>(</td>
+          <td class="paramtype">WIFIConnectionInfoExt_t *&#160;</td>
+          <td class="paramname"><em>pxConnectionInfoExt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iface_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get extended Wi-Fi info of the interfaces.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Get info successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3db81d6d575dcb8c329c3a7db5e1f55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3db81d6d575dcb8c329c3a7db5e1f55e">&#9670;&nbsp;</a></span>rm_wifi_get_connection_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_connection_info </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_connection_info__t">WIFIConnectionInfo_t</a> *&#160;</td>
+          <td class="paramname"><em>pxConnectionInfo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iface_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get Wi-Fi info of the interfaces.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Get info successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab1892fba013874d2695a78b953b368c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1892fba013874d2695a78b953b368c0">&#9670;&nbsp;</a></span>rm_wifi_get_rssi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_rssi </td>
+          <td>(</td>
+          <td class="paramtype">int8_t *&#160;</td>
+          <td class="paramname"><em>pcRSSI</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the RSSI of the connected AP.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">pcRSSI</td><td>RSSI of the connected AP.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>No connection to access point has happened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2a3bdec87d8d46f2566f69196a41c8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2a3bdec87d8d46f2566f69196a41c8fa">&#9670;&nbsp;</a></span>rm_wifi_start_disconnect_station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_start_disconnect_station </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pucMac</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AP mode disconnecting a station.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pucMac</td><td>Station MAC address do be disconnected.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Disconnection was started successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab86b16b40ff53223cbe5cfbe53ed3bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab86b16b40ff53223cbe5cfbe53ed3bad">&#9670;&nbsp;</a></span>rm_wifi_mac_addr_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_mac_addr_set </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pucMac</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set Wi-Fi MAC addresses.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pucMac</td><td>Station MAC address.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad923f24cc66f67afc2c7b741431730ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad923f24cc66f67afc2c7b741431730ef">&#9670;&nbsp;</a></span>rm_wifi_set_country_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_set_country_code </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pcCountryCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set country code.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pcCountryCode</td><td>Country code (null-terminated string, e.g. "US", "CN". See ISO-3166).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gadf5bc9b7774900064bf5c9934c61e0ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadf5bc9b7774900064bf5c9934c61e0ae">&#9670;&nbsp;</a></span>rm_wifi_get_country_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_country_code </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>pcCountryCode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the country code.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">pcCountryCode</td><td>Null-terminated string to hold the country code (ISO-3166). Must be at least 4 bytes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Function completed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_AP_NOT_CONNECTED</td><td>No connection to access point has happened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6b351ad57185dec40342407886314a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b351ad57185dec40342407886314a15">&#9670;&nbsp;</a></span>rm_wifi_get_netif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct netif* rm_wifi_get_netif </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iface_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper function to retrieve network interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">iface_index</td><td>Index of the desired interface. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>output pointer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga09c097315f8157c80d14a2c920a1a2e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09c097315f8157c80d14a2c920a1a2e8">&#9670;&nbsp;</a></span>WIFI_ConfigureAPExt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a> WIFI_ConfigureAPExt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> *&#160;</td>
+          <td class="paramname"><em>pxNetworkParamsExt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure SoftAP. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pxNetworkParamsExt</td><td>- Network parameters to configure AP.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group___w_i_f_i___a_p_i.html#ggadfe3543e18f4b10860f77c2654903222a9329b10b8a89e4ef0676b3dec41d3e6f">eWiFiSuccess</a> if SoftAP was successfully configured, failure code otherwise.</dd></dl>
+<p><b>Example</b> </p><div class="fragment"><div class="line"><a class="code" href="group___w_i_f_i.html#struct_w_i_f_i_network_params_ext__t">WIFINetworkParamsExt_t</a> xNetworkParamsExt;</div><div class="line">xNetworkParamsExt.<a class="code" href="group___w_i_f_i.html#a84f8e1e3399cd4508b86d130813aaf04">xNetworkParams</a>.<a class="code" href="group___w_i_f_i___a_p_i.html#ac686b2ee9ec1fe9ce9091b2284f14b27">ucSSID</a> = <span class="stringliteral">&quot;SSID_Name&quot;</span>;</div><div class="line">xNetworkParamsExt.<a class="code" href="group___w_i_f_i.html#a84f8e1e3399cd4508b86d130813aaf04">xNetworkParams</a>.xPassword.xWPA.cPassphrase = <span class="stringliteral">&quot;PASSWORD&quot;</span>;</div><div class="line">xNetworkParamsExt.<a class="code" href="group___w_i_f_i.html#a84f8e1e3399cd4508b86d130813aaf04">xNetworkParams</a>.<a class="code" href="group___w_i_f_i___a_p_i.html#a069e5ebdba235bdc5f7b151175e59c82">xSecurity</a> = <a class="code" href="group___w_i_f_i___a_p_i.html#gga827dc938c214035b938c5ebe7d7b6816ac4775007ba0bfdb4e4ba754f219387df">eWiFiSecurityWPA2</a>;</div><div class="line">xNetworkParamsExt.<a class="code" href="group___w_i_f_i.html#a84f8e1e3399cd4508b86d130813aaf04">xNetworkParams</a>.<a class="code" href="group___w_i_f_i___a_p_i.html#a3cbd247faa28474c860d8e9dd31cfab5">ucChannel</a> = ChannelNum;</div><div class="line">xNetworkParamsExt.<a class="code" href="group___w_i_f_i.html#ad01ec2d1fa1c7b8d0a1979372284cdf5">ucBand</a> = <a class="code" href="group___w_i_f_i___a_p_i.html#ggac9f8e62a77e88873fee06557d6cca62aa65902a73425dbd7bd277bea6e94b27fe">eWiFiBand5G</a>;</div><div class="line"><a class="code" href="group___w_i_f_i.html#ga09c097315f8157c80d14a2c920a1a2e8">WIFI_ConfigureAPExt</a>(&amp;xNetworkParamsExt);</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="gabfe5dcaae1f91a934247b0d24a218710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabfe5dcaae1f91a934247b0d24a218710">&#9670;&nbsp;</a></span>rm_wifi_get_station_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> rm_wifi_get_station_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i___a_p_i.html#struct_w_i_f_i_station_info__t">WIFIStationInfo_t</a> *&#160;</td>
+          <td class="paramname"><em>pxStationList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pcStationListSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get connected station list in softAP mode.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Get connected station list successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OUT_OF_MEMORY</td><td>There is no more heap memory available. </td></tr>
+    <tr><td class="paramname">FSP_ERR_WIFI_FAILED</td><td>Error occurred with command to Wifi module. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab2e4c6e196e039dfae0f498d0a508291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab2e4c6e196e039dfae0f498d0a508291">&#9670;&nbsp;</a></span>WIFI_RegisterEventExt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___w_i_f_i___a_p_i.html#gadfe3543e18f4b10860f77c2654903222">WIFIReturnCode_t</a> WIFI_RegisterEventExt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#gae7f468be04d10fc605d58f5a6ea3510a">WIFIEventExtType_t</a>&#160;</td>
+          <td class="paramname"><em>xEventType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___w_i_f_i.html#ga94870600e4eaf44564a191f6c154744c">WIFIEventExtHandler_t</a>&#160;</td>
+          <td class="paramname"><em>xHandler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register a Wi-Fi Extended event Handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">xEventType</td><td>- Wi-Fi Extended event type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xHandler</td><td>- Wi-Fi Extended event handler.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>eWiFiSuccess if registration is successful, failure code otherwise. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,864 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: Virtual EEPROM on Flash (rm_vee_flash_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___v_e_e___f_l_a_s_h___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a>  </div>
+  <div class="headertitle">
+<div class="title">Virtual EEPROM on Flash (rm_vee_flash_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga02d2ad17478fe1e090a94537a85deed2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga02d2ad17478fe1e090a94537a85deed2">RM_VEE_FLASH_W_Open</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__cfg__t">rm_vee_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga02d2ad17478fe1e090a94537a85deed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab3e1259db5913e403281a14d26376b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaab3e1259db5913e403281a14d26376b9">RM_VEE_FLASH_W_RecordWrite</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, uint32_t const rec_id, uint8_t const *const p_rec_data, uint32_t const num_bytes)</td></tr>
+<tr class="separator:gaab3e1259db5913e403281a14d26376b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fca6f188ec64cf53ca8b450479e16ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga2fca6f188ec64cf53ca8b450479e16ff">RM_VEE_FLASH_W_RefDataWrite</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, uint8_t const *const p_ref_data)</td></tr>
+<tr class="separator:ga2fca6f188ec64cf53ca8b450479e16ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd2e62fdc37872540109fd3450d88821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gacd2e62fdc37872540109fd3450d88821">RM_VEE_FLASH_W_RecordPtrGet</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, uint32_t const rec_id, uint8_t **const pp_rec_data, uint32_t *const p_num_bytes)</td></tr>
+<tr class="separator:gacd2e62fdc37872540109fd3450d88821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa65ac5a3649b30180c9f4c9e1eef2adf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaa65ac5a3649b30180c9f4c9e1eef2adf">RM_VEE_FLASH_W_RefDataPtrGet</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, uint8_t **const pp_ref_data)</td></tr>
+<tr class="separator:gaa65ac5a3649b30180c9f4c9e1eef2adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7455c88e7f801ff5592d7710650b9318"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga7455c88e7f801ff5592d7710650b9318">RM_VEE_FLASH_W_Refresh</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga7455c88e7f801ff5592d7710650b9318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa536400db92502666187d8600cb15627"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaa536400db92502666187d8600cb15627">RM_VEE_FLASH_W_Format</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, uint8_t const *const p_ref_data)</td></tr>
+<tr class="separator:gaa536400db92502666187d8600cb15627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b471adbe7c96fdf3830d5db923b5066"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga4b471adbe7c96fdf3830d5db923b5066">RM_VEE_FLASH_W_CallbackSet</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__callback__args__t">rm_vee_callback_args_t</a> *), void *const p_context, <a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__callback__args__t">rm_vee_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:ga4b471adbe7c96fdf3830d5db923b5066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4698e76fb114431ecb201f4eb24e02fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga4698e76fb114431ecb201f4eb24e02fe">RM_VEE_FLASH_W_StatusGet</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl, rm_vee_status_t *const p_status)</td></tr>
+<tr class="separator:ga4698e76fb114431ecb201f4eb24e02fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa87a007a124edb33bd60b3f87c6f8acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaa87a007a124edb33bd60b3f87c6f8acb">RM_VEE_FLASH_W_Close</a> (<a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:gaa87a007a124edb33bd60b3f87c6f8acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Virtual EEPROM on RA for Wireless (RAFW) MCUs. This module implements the <a class="el" href="group___r_m___v_e_e___a_p_i.html">Virtual EEPROM Interface</a>. </p>
+<h1><a class="anchor" id="rm-vee-flash-w-overview"></a>
+Overview</h1>
+<p>This VEE module emulates basic EEPROM capabilities. Support is provided for reading and writing both common records and reference data (originally programmed during product assembly or test). A count of the number of segments erased throughout the lifetime of the application is maintained and can be accessed at any time. Wear leveling is handled automatically by the driver.</p>
+<h2><a class="anchor" id="rm-vee-flash-w-features"></a>
+Features</h2>
+<ul>
+<li>Writing and reading user defined records of any length to data flash.</li>
+<li>Wear leveling is handled automatically.</li>
+<li>Reference data such as calibration data programmed at assembly or test time is preserved.</li>
+<li>Reference data can be updated at run time.</li>
+<li>Fault resilient design.</li>
+</ul>
+<p><a class="anchor" id="um_vee_write_reference_data"></a><a class="anchor" id="um_vee_read_reference_data"></a><a class="anchor" id="um_vee_write_record"></a><a class="anchor" id="um_vee_update_record"></a><a class="anchor" id="um_vee_read_record"></a> </p><h2>Data Flash Segmentation</h2>
+<p>Wear leveling is handled by changing the location in the data flash where a record is stored every time that it is updated. This change in physical location of the record is transparent to the user. Any time an update for a specific record ID is written, it is written to the next unused location in data flash and its location is stored in RAM for quick look-up later. When required, only the most recent version of these records is automatically copied to the next blank segment in data flash. The data flash area is divided into a number of equal-size segments. There is only one segment active at a time. A segment contains two areas- the record area (which is the vast majority of the segment) and the reference data area which contains optional data typically programmed during assembly or final test. Records and updated reference data are written to this segment until one of the two areas becomes full. The record area must be able to hold at least one of every record ID possible and still have space left over for record updates.</p>
+<div class="image">
+<object type="image/svg+xml" data="rm_vee_single_data_segment.svg">rm_vee_single_data_segment.svg</object>
+<div class="caption">
+Segment Data Format</div></div>
+<p> When a segment does not have sufficient space for additional records or updated reference data, a Refresh occurs. This process copies the most recent record for each ID as well as the latest version of reference data (if any) to the next segment. The very first time VEE runs on an MCU, it marks the last segment as active whether there is reference data configured or not. The end of VEE data flash area is used to provide an easily identified physical flash address that can be used while programming reference data without requiring Virtual EEPROM middleware.</p>
+<div class="image">
+<object type="image/svg+xml" data="rm_vee_segment_refresh.svg">rm_vee_segment_refresh.svg</object>
+<div class="caption">
+Refresh Operation</div></div>
+ <h2>Record Format</h2>
+<p>Each record begins with a header that contains the record size, followed by the data, and the trailer. The trailer contains a validation code which is used for internal purposes only and is not a 16-bit CRC or ECC value. If that level of error checking is desired, the user should include that in the record data passed to the driver. Padding is added between the end of user data and the trailer to ensure the trailer is aligned properly.</p>
+<div class="image">
+<object type="image/svg+xml" data="rm_vee_record_format.svg">rm_vee_record_format.svg</object>
+<div class="caption">
+Record Format</div></div>
+ <h2>Reference Data Area</h2>
+<p>VEE can be configured for the presence of reference data. The original programmed reference data must be located at the end of the VEE data flash area. An area of equal size is reserved below this in case updated reference data becomes available later. Below that is a header which indicates whether the update area has been written to.</p>
+<div class="image">
+<object type="image/svg+xml" data="rm_vee_reference_data_area.svg">rm_vee_reference_data_area.svg</object>
+<div class="caption">
+Reference Data Area Format</div></div>
+<p> Just as with records, the validation code is used for internal purposes only and is not a 16-bit CRC or ECC value. If that level of error checking is desired, the user should include that in the updated reference data passed to the driver.</p>
+<h2>Fault Tolerance</h2>
+<p>The Virtual EEPROM has a fault tolerant design. If for any reason an operation fails before it is completed the next time the module is opened a refresh will occur. Any corrupted data will be discarded.</p>
+<h1><a class="anchor" id="rm-vee-flash-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_vee_flash_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_vee_flash_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>Reference Data Support</td><td>Enabled</td><td>Enabled </td><td>Support writing reference data to the end of the segment. </td></tr>
+<tr class="tree_none">
+<td>Refresh Buffer Size</td><td>Value must be an integer greater than 0 and a multiple of 4 bytes.</td><td>32 </td><td>The size of the internal buffer used to copying data from one flash segment to another during a refresh operation. This is required because data flash to data flash transfers are not supported by the hardware. </td></tr>
+</table>
+ <h2>Configurations for Storage &gt; Virtual EEPROM on Flash (rm_vee_flash_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Storage &gt; Virtual EEPROM on Flash (rm_vee_flash_w). Non-secure callable guard functions can be generated for this module by right clicking the module in the RA Configuration tool and checking the "Non-secure Callable" box.<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_vee0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Record Max ID</td><td>Value must be an integer.</td><td>2048 </td><td>Set this value to the highest record ID in use. </td></tr>
+<tr class="tree_none">
+<td>Number of Segments</td><td>Value must be an integer.</td><td>2 </td><td>Set value to number of segments desired in data flash (minimum 2). The fewer the segments, the fewer refreshes occur, but the longer refreshes take to complete (erase time). </td></tr>
+<tr class="tree_none">
+<td>Start Address</td><td>Manual Entry</td><td>0x2A300000 </td><td>Start address of the flash area used by Virtual EEPROM. </td></tr>
+<tr class="tree_none">
+<td>Total Size</td><td>Manual Entry</td><td>0x4000 </td><td>The total size (In bytes) of the flash area used by Virtual EEPROM. </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>NULL </td><td>A user callback function can be provided. If this callback function is provided, it will be called from the flash interrupt service routine (ISR). </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="rm-vee-flash-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>There is no clock configuration for the RM_VEE_FLASH_W module.</p>
+<h2><a class="anchor" id="rm-vee-flash-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-vee-flash-w-usage-notes"></a>
+Usage Notes</h1>
+<p>A refresh buffer is required to copy data between segments. Data flash cannot be simultaneously read from and written to. Data will be temporarily copied into RAM during refresh operations.</p>
+<h1><a class="anchor" id="rm-vee-flash-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the RM_VEE_FLASH_W module in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keyword">volatile</span> <span class="keywordtype">bool</span> callback_called = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="comment">/* Record ID to use for storing pressure data. */</span></div><div class="line"><span class="preprocessor">#define ID_PRESSURE    (0U)</span></div><div class="line"></div><div class="line"><span class="comment">/* Example data structure. */</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>st_pressure</div><div class="line">{</div><div class="line">    uint32_t timestamp;</div><div class="line">    uint16_t low;</div><div class="line">    uint16_t average;</div><div class="line">    uint16_t high;</div><div class="line">} pressure_t;</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> rm_vee_example ()</div><div class="line">{</div><div class="line">    <span class="comment">/* Open the Virtual EEPROM Module. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___r_m___v_e_e___f_l_a_s_h___w.html#ga02d2ad17478fe1e090a94537a85deed2">RM_VEE_FLASH_W_Open</a>(&amp;g_vee_ctrl, &amp;g_vee_cfg);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read pressure data from external sensor. */</span></div><div class="line">    pressure_t pressure_data;</div><div class="line">    get_pressure_data(&amp;pressure_data);</div><div class="line"></div><div class="line">    <span class="comment">/* Write the pressure data to a Virtual EEPROM Record. */</span></div><div class="line">    err = <a class="code" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaab3e1259db5913e403281a14d26376b9">RM_VEE_FLASH_W_RecordWrite</a>(&amp;g_vee_ctrl, ID_PRESSURE, (uint8_t *) &amp;pressure_data, <span class="keyword">sizeof</span>(pressure_t));</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Wait for the Virtual EEPROM callback to indicate it finished writing data. */</span></div><div class="line">    <span class="keywordflow">while</span> (<span class="keyword">false</span> == callback_called)</div><div class="line">    {</div><div class="line">        ;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Get a pointer to the record that is stored in data flash. */</span></div><div class="line">    uint32_t     length;</div><div class="line">    pressure_t * p_pressure_data;</div><div class="line">    err = <a class="code" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gacd2e62fdc37872540109fd3450d88821">RM_VEE_FLASH_W_RecordPtrGet</a>(&amp;g_vee_ctrl, ID_PRESSURE, (uint8_t **) &amp;p_pressure_data, &amp;length);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Close the Virtual EEPROM Module. */</span></div><div class="line">    err = <a class="code" href="group___r_m___v_e_e___f_l_a_s_h___w.html#gaa87a007a124edb33bd60b3f87c6f8acb">RM_VEE_FLASH_W_Close</a>(&amp;g_vee_ctrl);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        error_handler();</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> rm_vee_w_tests_callback (<a class="code" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__callback__args__t">rm_vee_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    callback_called = <span class="keyword">true</span>;</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(p_args);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structrm__vee__flash__w__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#structrm__vee__flash__w__cfg__t">rm_vee_flash_w_cfg_t</a></td></tr>
+<tr class="separator:structrm__vee__flash__w__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structrm__vee__flash__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___v_e_e___f_l_a_s_h___w.html#structrm__vee__flash__w__instance__ctrl__t">rm_vee_flash_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structrm__vee__flash__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structrm__vee__flash__w__cfg__t" id="structrm__vee__flash__w__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__vee__flash__w__cfg__t">&#9670;&nbsp;</a></span>rm_vee_flash_w_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_vee_flash_w_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>User configuration structure, used in open function </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae082dbb6b729e2fb6fea315772360783"></a><a class="el" href="group___f_l_a_s_h___a_p_i.html#structflash__instance__t">flash_instance_t</a> const  *</td>
+<td class="fieldname">
+p_flash</td>
+<td class="fielddoc">
+Pointer to a flash instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="a20fdfdd6f690261fa4499293c11e0128"></a><a class="el" href="group___r_m___b_l_o_c_k___m_e_d_i_a___a_p_i.html#structrm__block__media__instance__t">rm_block_media_instance_t</a> const  *</td>
+<td class="fieldname">
+p_media</td>
+<td class="fielddoc">
+Pointer to a block media instance. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structrm__vee__flash__w__instance__ctrl__t" id="structrm__vee__flash__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__vee__flash__w__instance__ctrl__t">&#9670;&nbsp;</a></span>rm_vee_flash_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_vee_flash_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Instance control block. This is private to the FSP and should not be used or modified by the application. </p>
+</div>
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga02d2ad17478fe1e090a94537a85deed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga02d2ad17478fe1e090a94537a85deed2">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__cfg__t">rm_vee_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open the RM_VEE_FLASH_W driver module</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a5f9d456c3dfb6ee20259e591e8279b62">rm_vee_api_t::open</a></p>
+<p>Initializes the driver's internal structures and opens the Flash driver. The Flash driver must be closed prior to opening VEE. The error code FSP_SUCCESS_RECOVERY indicates that VEE detected corrupted data; most likely due to a power loss during a data flash write or erase. In these cases, an automatic internal Refresh is performed and the partially written data is lost.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. FSP_SUCCESS_RECOVERY changed to FSP_SUCCESS </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>This function has already been called. </td></tr>
+    <tr><td class="paramname">FSP_ERR_PE_FAILURE</td><td>This error indicates that a flash programming, erase, or blankcheck operation has failed in hardware. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Interrupts disabled outside of VEE </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Corruption found. A refresh is required. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>The supplied configuration is invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaab3e1259db5913e403281a14d26376b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab3e1259db5913e403281a14d26376b9">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_RecordWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_RecordWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>rec_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_rec_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>num_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes a record to data flash.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a637948b75158fe47b318c6186b63f701">rm_vee_api_t::recordWrite</a></p>
+<p>This function writes num_bytes of data pointed to by p_rec_data to data flash. This function returns immediately after starting the flash write. BE SURE NOT TO MODIFY the data buffer contents until after the write completes. This includes exiting the calling function when the data buffer is a local variable (stack may be used by another function and corrupt the data buffer contents).</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Write started successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>An argument contains an illegal value. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>The operation cannot be started in the current mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_PE_FAILURE</td><td>This error indicates that a flash programming, erase, or blankcheck operation has failed in hardware. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Flash write timed out (Should not be possible when flash bgo is used). </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Corruption found. A refresh is required. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2fca6f188ec64cf53ca8b450479e16ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2fca6f188ec64cf53ca8b450479e16ff">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_RefDataWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_RefDataWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_ref_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes new Reference data to the reference update area.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a37728b42299e1f7f25c9ed13235aca8d">rm_vee_api_t::refDataWrite</a></p>
+<p>This function writes VEE_CFG_REF_DATA_SIZE bytes pointed to by p_ref_data to data flash. This function returns immediately after starting the flash write. BE SURE NOT TO MODIFY the data buffer contents until after the write completes.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Write started successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>The operation cannot be started in the current mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_PE_FAILURE</td><td>This error indicates that a flash programming, erase, or blankcheck operation has failed in hardware. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Flash write timed out (Should not be possible when flash bgo is used). </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Reference data is not supported in the current configuration. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Corruption found. A refresh is required. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacd2e62fdc37872540109fd3450d88821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd2e62fdc37872540109fd3450d88821">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_RecordPtrGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_RecordPtrGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>rec_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **const&#160;</td>
+          <td class="paramname"><em>pp_rec_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *const&#160;</td>
+          <td class="paramname"><em>p_num_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a pointer to the most recent record data.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a20e88931fb315f6bc3ac67e8424adb4d">rm_vee_api_t::recordPtrGet</a></p>
+<p>This function sets the argument pointer to the most recent version of the record data in flash. Flash cannot be accessed for reading and writing at the same time. Therefore, reading the data at p_ref_data must be completed prior to initiating any type of Flash write.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_ref_data is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Record data not configured. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_FOUND</td><td>The record associated with the requested ID could not be found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa65ac5a3649b30180c9f4c9e1eef2adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa65ac5a3649b30180c9f4c9e1eef2adf">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_RefDataPtrGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_RefDataPtrGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t **const&#160;</td>
+          <td class="paramname"><em>pp_ref_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets a pointer to the most recent reference data.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a20e88931fb315f6bc3ac67e8424adb4d">rm_vee_api_t::recordPtrGet</a></p>
+<p>This function sets the argument pointer to the most recent version of the reference data in flash. Flash cannot be accessed for reading and writing at the same time.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Reference data is not supported in the current configuration. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_FOUND</td><td>No reference data was found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7455c88e7f801ff5592d7710650b9318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7455c88e7f801ff5592d7710650b9318">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_Refresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_Refresh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Manually start a refresh operation</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#af9b151f78090db849beecfad30c734ae">rm_vee_api_t::refresh</a></p>
+<p>This function is used to start a segment Refresh at any time. The Refresh process by default occurs automatically when no more record or reference data space is available and a Write is requested. However, the app may desire to force a refresh when it knows it is running low on space and large amounts of data are about to be recorded.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_PE_FAILURE</td><td>This error indicates that a flash programming, erase, or blankcheck operation has failed in hardware. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>The operation cannot be started in the current mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Flash write timed out (Should not be possible when flash bgo is used). </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Corruption found. A refresh is required. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa536400db92502666187d8600cb15627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa536400db92502666187d8600cb15627">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_Format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_Format </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_ref_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start a manual format operation.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a8dfcc3419ebd36cf3081a6b0a87618cc">rm_vee_api_t::format</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Last API call still executing. </td></tr>
+    <tr><td class="paramname">FSP_ERR_PE_FAILURE</td><td>This error indicates that a flash programming, erase, or blankcheck operation has failed </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>Flash write timed out (Should not be possible when flash bgo is used). </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_INITIALIZED</td><td>Corruption found. A refresh is required. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4b471adbe7c96fdf3830d5db923b5066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b471adbe7c96fdf3830d5db923b5066">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__callback__args__t">rm_vee_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#structrm__vee__callback__args__t">rm_vee_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback with the option to provide memory for the callback argument structure.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a523f381debb383e99117ca3af38b0d09">rm_vee_api_t::callbackSet</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NO_CALLBACK_MEMORY</td><td>p_callback is non-secure and p_callback_memory is either secure or NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4698e76fb114431ecb201f4eb24e02fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4698e76fb114431ecb201f4eb24e02fe">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_StatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_StatusGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">rm_vee_status_t *const&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current status of the driver.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#a3bdb3d09f70fca2b78380d2dfb8eefc3">rm_vee_api_t::statusGet</a></p>
+<p>This command is typically used to verify that the last Write or Refresh command has completed before attempting to perform another API call.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa87a007a124edb33bd60b3f87c6f8acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa87a007a124edb33bd60b3f87c6f8acb">&#9670;&nbsp;</a></span>RM_VEE_FLASH_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_VEE_FLASH_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r_m___v_e_e___a_p_i.html#gacd1c2d7f2cdb4933944fd00d0350b3b1">rm_vee_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Closes the Flash driver and VEE driver.</p>
+<p>Implements <a class="el" href="group___r_m___v_e_e___a_p_i.html#ac275b976b44492bffacf67e6badcab7b">rm_vee_api_t::close</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The module has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

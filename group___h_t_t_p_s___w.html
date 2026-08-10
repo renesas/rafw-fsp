@@ -1,0 +1,651 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: HTTPS (rm_https_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___h_t_t_p_s___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a>  </div>
+  <div class="headertitle">
+<div class="title">HTTPS (rm_https_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___m_o_d_u_l_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga377aa8fd78251cf6bf52ed98208771f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#ga377aa8fd78251cf6bf52ed98208771f0">RM_HTTPS_W_Open</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__cfg__t">https_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga377aa8fd78251cf6bf52ed98208771f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72b0c9a370c6eb7f2e89f3068cdd655a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#ga72b0c9a370c6eb7f2e89f3068cdd655a">RM_HTTPS_W_Close</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga72b0c9a370c6eb7f2e89f3068cdd655a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabb7ff31bb134215e335cf615157e0f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#gaabb7ff31bb134215e335cf615157e0f8">RM_HTTPS_W_ServerStart</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl, https_server_sec_t *p_sec)</td></tr>
+<tr class="separator:gaabb7ff31bb134215e335cf615157e0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14ed0da8491f172c76fe9ddbefbfda72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#ga14ed0da8491f172c76fe9ddbefbfda72">RM_HTTPS_W_ServerStop</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga14ed0da8491f172c76fe9ddbefbfda72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18bb22d4b7c79a3cac6041da956d95e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#ga18bb22d4b7c79a3cac6041da956d95e4">RM_HTTPS_W_CallbackSet</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *), void const *const p_context, <a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:ga18bb22d4b7c79a3cac6041da956d95e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedd9185ef3d214332f29664c252675ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#gaedd9185ef3d214332f29664c252675ca">RM_HTTPS_W_ServerGetStatus</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl, https_server_status_t *p_status)</td></tr>
+<tr class="separator:gaedd9185ef3d214332f29664c252675ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3456de5000ab8cbe9094924a0049094c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#ga3456de5000ab8cbe9094924a0049094c">RM_HTTPS_W_ClientSendRequest</a> (<a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttp__client__request__t">http_client_request_t</a> *p_request)</td></tr>
+<tr class="separator:ga3456de5000ab8cbe9094924a0049094c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>HTTPS_W to networking system tasks and avoid system freezes. This module implements the <a class="el" href="group___h_t_t_p_s___a_p_i.html">HTTPS Interface</a>. </p>
+<h1><a class="anchor" id="rm-https-w-overview"></a>
+Overview</h1>
+<p>HTTPS_W (Hypertext Transfer Protocol Secure) is a protocol that encrypts data and transmits it between a web server and a client (such as a browser). Its primary function is to facilitate the transfer of data, including web pages, images, and other content, between the server and the client. It works on top of the TCP/IP protocol.</p>
+<h2><a class="anchor" id="rm-https-w-features"></a>
+Features</h2>
+<p>The HTTPS_W module has the following key features:</p><ul>
+<li>Start HTTP Server</li>
+<li>Stop HTTP Server</li>
+<li>Send HTTP request to Server</li>
+</ul>
+<h1><a class="anchor" id="rm-https-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_https_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_https_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>Watchdog Service Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable when using the Watchdog Service. </td></tr>
+<tr class="tree_none">
+<td>HTTP Server</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>If selected HTTP Server role support is included in the build. </td></tr>
+<tr class="tree_none">
+<td>HTTP Client</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Enabled </td><td>If selected HTTP Client role support is included in the build. </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="rm-https-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>This module has no required clock configurations.</p>
+<h2><a class="anchor" id="rm-https-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-https-w-usage_notes"></a>
+Usage Notes</h1>
+<ul>
+<li>This module is not a standalone module - ensure that the Wi-Fi module APIs are invoked first to configure the RA6W1/RA6W2 module and use the HTTPS APIs.</li>
+</ul>
+<h2><a class="anchor" id="rm-https-w-limitations"></a>
+Limitations</h2>
+<dl class="section note"><dt>Note</dt><dd>Should not use this the HTTPS APIs in interrupt context.</dd></dl>
+<h1><a class="anchor" id="rm-https-w-examples"></a>
+Examples</h1>
+<h2>HTTPS Basic Example</h2>
+<p>This is a basic example of minimal use of the HTTPS_W in an application.</p>
+<div class="fragment"><div class="line"><a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> https_basic_example(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line">    <span class="comment">/* Open the HTTPS module. */</span></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#ga377aa8fd78251cf6bf52ed98208771f0">RM_HTTPS_W_Open</a>(&amp;g_https_w0_ctrl, &amp;g_https_w0_cfg);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#ga18bb22d4b7c79a3cac6041da956d95e4">RM_HTTPS_W_CallbackSet</a>(&amp;g_https_w0_ctrl, rm_https_example_callback, NULL, NULL);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="comment">/* Server Start */</span></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#gaabb7ff31bb134215e335cf615157e0f8">RM_HTTPS_W_ServerStart</a>(&amp;g_https_w0_ctrl, NULL);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="comment">/* Client Send Request */</span></div><div class="line">    <a class="code" href="group___h_t_t_p_s___a_p_i.html#structhttp__client__request__t">http_client_request_t</a> request = {</div><div class="line">        .<a class="code" href="group___h_t_t_p_s___a_p_i.html#a10cbc99afebcceaee8b5369b97b74d37">op_code</a> = <a class="code" href="group___h_t_t_p_s___a_p_i.html#ggaa5e64899c58ca1c8eecac44908a6d4c7a7c69946c6f02a60eac43b9de4fe932f0">HTTP_CLIENT_OPCODE_GET</a>,</div><div class="line">        .port = HTTP_SERVER_PORT,</div><div class="line">        .insecure = pdFALSE,</div><div class="line">        .hostname = <span class="stringliteral">&quot;localhost&quot;</span>,</div><div class="line">        .path = <span class="stringliteral">&quot;http://localhost/index.html&quot;</span>,</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="comment">/* Send Request. */</span></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#ga3456de5000ab8cbe9094924a0049094c">RM_HTTPS_W_ClientSendRequest</a>(&amp;g_https_w0_ctrl, &amp;request);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    err = wait_for_client_transfer_complete(<span class="keyword">false</span>);</div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="comment">/* Stop Server. */</span></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#ga14ed0da8491f172c76fe9ddbefbfda72">RM_HTTPS_W_ServerStop</a>(&amp;g_https_w0_ctrl);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    err = <a class="code" href="group___h_t_t_p_s___w.html#ga72b0c9a370c6eb7f2e89f3068cdd655a">RM_HTTPS_W_Close</a>(&amp;g_https_w0_ctrl);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga577e9b015e1b0794934fa4f2b229e52f">FSP_ERROR_RETURN</a>(FSP_SUCCESS == err, err);</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> err;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> wait_for_client_transfer_complete (<span class="keywordtype">bool</span> allow_error)</div><div class="line">{</div><div class="line">    uint32_t timeout = 1000000;</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (timeout &gt; 0)</div><div class="line">    {</div><div class="line">        <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(10, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2baa0312618f2508347a9a815b5887c12ae">BSP_DELAY_UNITS_MICROSECONDS</a>);</div><div class="line">        timeout--;</div><div class="line"></div><div class="line">        <span class="keywordflow">if</span> (client_transfer_error)</div><div class="line">        {</div><div class="line">            <span class="keywordflow">if</span> (allow_error)</div><div class="line">            {</div><div class="line">                <span class="keywordflow">break</span>;</div><div class="line">            }</div><div class="line"></div><div class="line">            client_transfer_error = 0U;</div><div class="line">            <span class="keywordflow">return</span> <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#ggadfb1288da0fcc7ae1dc88c58601374f8af39326ab50613d8779ebc84e5da8ffbc">FSP_ERR_INVALID_STATE</a>;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keywordflow">if</span> (client_transfer_complete)</div><div class="line">        {</div><div class="line">            <span class="keywordflow">break</span>;</div><div class="line">        }</div><div class="line">        ulTaskNotifyTake(pdFALSE, portMAX_DELAY);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (0U == timeout)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#ggadfb1288da0fcc7ae1dc88c58601374f8a922f76a3a941dd4d49cc55d382cb16f4">FSP_ERR_TIMEOUT</a>;</div><div class="line">    }</div><div class="line"></div><div class="line">    client_transfer_complete = 0U;</div><div class="line">    client_transfer_error    = 0U;</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> FSP_SUCCESS;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/* The callback is called when a transfer completes. */</span></div><div class="line"><span class="keywordtype">void</span> rm_https_example_callback (<a class="code" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    <span class="keywordflow">switch</span> (p_args-&gt;<a class="code" href="group___h_t_t_p_s___a_p_i.html#a90824b679692a7305d28994234b02aae">event</a>)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">case</span> HTTPS_EVENT_CLIENT_RESULT:</div><div class="line">        {</div><div class="line">            err_t err = *(int8_t *)p_args-&gt;p_param;</div><div class="line"></div><div class="line">            if (ERR_OK == err)</div><div class="line">            {</div><div class="line">                client_transfer_complete = 1;</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span></div><div class="line">            {</div><div class="line">                client_transfer_error = 1;</div><div class="line">            }</div><div class="line">            <span class="keywordflow">break</span>;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keywordflow">default</span>:</div><div class="line">            <span class="keywordflow">break</span>;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structhttps__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#structhttps__w__instance__ctrl__t">https_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structhttps__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structhttps__w__instance__ctrl__t" id="structhttps__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structhttps__w__instance__ctrl__t">&#9670;&nbsp;</a></span>https_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct https_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Private control block. DO NOT MODIFY. Initialization occurs when <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___w.html#ga7ff4ee37e7475ac0777f66e9cde70235">RM_WATCHDOG_SERVICE_W_Open()</a> is called. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a9deeb00eed873f1750fc5f8efd789123"><td class="memItemLeft" align="right" valign="top"><a id="a9deeb00eed873f1750fc5f8efd789123"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#a9deeb00eed873f1750fc5f8efd789123">open</a></td></tr>
+<tr class="memdesc:a9deeb00eed873f1750fc5f8efd789123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the <a class="el" href="group___h_t_t_p_s___w.html#a9deeb00eed873f1750fc5f8efd789123" title="Indicates whether the open() API has been successfully called. ">open()</a> API has been successfully called. <br /></td></tr>
+<tr class="separator:a9deeb00eed873f1750fc5f8efd789123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa580a1d5696b6fa0074752e0da74b2fc"><td class="memItemLeft" align="right" valign="top"><a id="aa580a1d5696b6fa0074752e0da74b2fc"></a>
+<a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__cfg__t">https_cfg_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#aa580a1d5696b6fa0074752e0da74b2fc">p_cfg</a></td></tr>
+<tr class="memdesc:aa580a1d5696b6fa0074752e0da74b2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to instance configuration. <br /></td></tr>
+<tr class="separator:aa580a1d5696b6fa0074752e0da74b2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2251bea3d4945d0041bc2935597c62ec"><td class="memItemLeft" align="right" valign="top"><a id="a2251bea3d4945d0041bc2935597c62ec"></a>
+<a class="el" href="group___h_t_t_p_s___a_p_i.html#ga8ce779093f30f1b0bc7113d77e9f9261">https_client_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#a2251bea3d4945d0041bc2935597c62ec">server_status</a></td></tr>
+<tr class="memdesc:a2251bea3d4945d0041bc2935597c62ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server Status. <br /></td></tr>
+<tr class="separator:a2251bea3d4945d0041bc2935597c62ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd11a0b50b5793c2aeb769ca39dd835"><td class="memItemLeft" align="right" valign="top"><a id="aebd11a0b50b5793c2aeb769ca39dd835"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#aebd11a0b50b5793c2aeb769ca39dd835">p_callback</a> )(<a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *)</td></tr>
+<tr class="memdesc:aebd11a0b50b5793c2aeb769ca39dd835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to callback. <br /></td></tr>
+<tr class="separator:aebd11a0b50b5793c2aeb769ca39dd835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d25bf1ecd84c02ce2cbd9290b68f0f"><td class="memItemLeft" align="right" valign="top"><a id="a29d25bf1ecd84c02ce2cbd9290b68f0f"></a>
+<a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#a29d25bf1ecd84c02ce2cbd9290b68f0f">p_callback_memory</a></td></tr>
+<tr class="memdesc:a29d25bf1ecd84c02ce2cbd9290b68f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to optional callback argument memory. <br /></td></tr>
+<tr class="separator:a29d25bf1ecd84c02ce2cbd9290b68f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0c268b75a9a1a618b40d48726d601c"><td class="memItemLeft" align="right" valign="top"><a id="a8c0c268b75a9a1a618b40d48726d601c"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p_s___w.html#a8c0c268b75a9a1a618b40d48726d601c">p_context</a></td></tr>
+<tr class="memdesc:a8c0c268b75a9a1a618b40d48726d601c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to context to be passed into callback function. <br /></td></tr>
+<tr class="separator:a8c0c268b75a9a1a618b40d48726d601c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga377aa8fd78251cf6bf52ed98208771f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga377aa8fd78251cf6bf52ed98208771f0">&#9670;&nbsp;</a></span>RM_HTTPS_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__cfg__t">https_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open Https module.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>HTTPS module was opened successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>HTTPS module is already opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga72b0c9a370c6eb7f2e89f3068cdd655a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72b0c9a370c6eb7f2e89f3068cdd655a">&#9670;&nbsp;</a></span>RM_HTTPS_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close Https module.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>HTTPS module was closed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaabb7ff31bb134215e335cf615157e0f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaabb7ff31bb134215e335cf615157e0f8">&#9670;&nbsp;</a></span>RM_HTTPS_W_ServerStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_ServerStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">https_server_sec_t *&#160;</td>
+          <td class="paramname"><em>p_sec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start HTTP server.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>HTTPS server was started successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_STATE</td><td>Task was not created successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga14ed0da8491f172c76fe9ddbefbfda72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14ed0da8491f172c76fe9ddbefbfda72">&#9670;&nbsp;</a></span>RM_HTTPS_W_ServerStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_ServerStop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop HTTP server.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>HTTPS server was stopped successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga18bb22d4b7c79a3cac6041da956d95e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18bb22d4b7c79a3cac6041da956d95e4">&#9670;&nbsp;</a></span>RM_HTTPS_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttps__callback__args__t">https_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback with the option to provide memory for the callback argument structure.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaedd9185ef3d214332f29664c252675ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaedd9185ef3d214332f29664c252675ca">&#9670;&nbsp;</a></span>RM_HTTPS_W_ServerGetStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_ServerGetStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">https_server_status_t *&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get HTTP server status.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully get the server status. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3456de5000ab8cbe9094924a0049094c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3456de5000ab8cbe9094924a0049094c">&#9670;&nbsp;</a></span>RM_HTTPS_W_ClientSendRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> RM_HTTPS_W_ClientSendRequest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#gaae18bd0ab69f1a1f97a50982abb18ff5">https_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___h_t_t_p_s___a_p_i.html#structhttp__client__request__t">http_client_request_t</a> *&#160;</td>
+          <td class="paramname"><em>p_request</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send HTTP request to HTTP server.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successfully send a HTTP request. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to parameters in argument. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>HTTPS module has not been opened </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Parameter passed into function was invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_STATE</td><td>Mutex was not created successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

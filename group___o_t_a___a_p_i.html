@@ -1,0 +1,874 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: OTA Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___o_t_a___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">OTA Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_y_s_t_e_m___i_n_t_e_r_f_a_c_e_s.html">System</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for the OTA Functionality. </p>
+<h1><a class="anchor" id="OTA_API_SUMMARY"></a>
+Summary</h1>
+<p>The OTA interface provides the ability to read, write, erase, and blank check the FW versions and data regions. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structrm__ota__w__update__proc__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__update__proc__t">rm_ota_w_update_proc_t</a></td></tr>
+<tr class="separator:structrm__ota__w__update__proc__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structrm__ota__w__image__header__data__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__image__header__data__t">rm_ota_w_image_header_data_t</a></td></tr>
+<tr class="separator:structrm__ota__w__image__header__data__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__regions__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__regions__t">ota_regions_t</a></td></tr>
+<tr class="separator:structota__regions__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__info__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__info__t">ota_info_t</a></td></tr>
+<tr class="separator:structota__info__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__callback__args__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__callback__args__t">ota_callback_args_t</a></td></tr>
+<tr class="separator:structota__callback__args__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a></td></tr>
+<tr class="separator:structota__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__api__t">ota_api_t</a></td></tr>
+<tr class="separator:structota__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structota__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#structota__instance__t">ota_instance_t</a></td></tr>
+<tr class="separator:structota__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga02dc241703d79917f2f118d4ad092b60"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a></td></tr>
+<tr class="separator:ga02dc241703d79917f2f118d4ad092b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaf2dae2280163e181de63894b8f165a71"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> </td></tr>
+<tr class="separator:gaf2dae2280163e181de63894b8f165a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8b73934da2b137d24d46ed7dbdaea31"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#gae8b73934da2b137d24d46ed7dbdaea31">ota_event_t</a> </td></tr>
+<tr class="separator:gae8b73934da2b137d24d46ed7dbdaea31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structrm__ota__w__update__proc__t" id="structrm__ota__w__update__proc__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__ota__w__update__proc__t">&#9670;&nbsp;</a></span>rm_ota_w_update_proc_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_ota_w_update_proc_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Settings structure used for ota update requests </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:acb52bbc6c6c2018e638168ecdd386ef9"><td class="memItemLeft" align="right" valign="top"><a id="acb52bbc6c6c2018e638168ecdd386ef9"></a>
+<a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#acb52bbc6c6c2018e638168ecdd386ef9">update_type</a></td></tr>
+<tr class="memdesc:acb52bbc6c6c2018e638168ecdd386ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">FW type being downloaded. <br /></td></tr>
+<tr class="separator:acb52bbc6c6c2018e638168ecdd386ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ebda6cf1b5ec0b247dae54491603c6"><td class="memItemLeft" align="right" valign="top"><a id="ac2ebda6cf1b5ec0b247dae54491603c6"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ac2ebda6cf1b5ec0b247dae54491603c6">update_cache</a> [RM_OTA_W_CACHE_LEN]</td></tr>
+<tr class="memdesc:ac2ebda6cf1b5ec0b247dae54491603c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache data from last update. <br /></td></tr>
+<tr class="separator:ac2ebda6cf1b5ec0b247dae54491603c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e984f340952562e2202abde9a43eda3"><td class="memItemLeft" align="right" valign="top"><a id="a3e984f340952562e2202abde9a43eda3"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a3e984f340952562e2202abde9a43eda3">auto_swap</a></td></tr>
+<tr class="memdesc:a3e984f340952562e2202abde9a43eda3"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the value is true, if the new firmware download is successful, it will reboot with the new firmware. Only for RTOS. <br /></td></tr>
+<tr class="separator:a3e984f340952562e2202abde9a43eda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a512157480e114a21fb6d21ce181d0598"><td class="memItemLeft" align="right" valign="top"><a id="a512157480e114a21fb6d21ce181d0598"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a512157480e114a21fb6d21ce181d0598">download_sflash_addr</a></td></tr>
+<tr class="memdesc:a512157480e114a21fb6d21ce181d0598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash address where the downloaded FW is written. <br /></td></tr>
+<tr class="separator:a512157480e114a21fb6d21ce181d0598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37893485ce70b55dcd4aacf925a1fd3"><td class="memItemLeft" align="right" valign="top"><a id="ae37893485ce70b55dcd4aacf925a1fd3"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ae37893485ce70b55dcd4aacf925a1fd3">download_notify</a> )(<a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> <a class="el" href="group___o_t_a___a_p_i.html#acb52bbc6c6c2018e638168ecdd386ef9">update_type</a>, uint32_t ret_status, uint32_t progress)</td></tr>
+<tr class="memdesc:ae37893485ce70b55dcd4aacf925a1fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function pointer to check the download status. <br /></td></tr>
+<tr class="separator:ae37893485ce70b55dcd4aacf925a1fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f209221bdd7c87b71ce6ca784e7e613"><td class="memItemLeft" align="right" valign="top"><a id="a3f209221bdd7c87b71ce6ca784e7e613"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a3f209221bdd7c87b71ce6ca784e7e613">swap_notify</a> )(uint32_t ret_status)</td></tr>
+<tr class="memdesc:a3f209221bdd7c87b71ce6ca784e7e613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function pointer to check the swap state. Only for RTOS. <br /></td></tr>
+<tr class="separator:a3f209221bdd7c87b71ce6ca784e7e613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f50152e62e891e77ca88f06e5a0c6c"><td class="memItemLeft" align="right" valign="top"><a id="ae1f50152e62e891e77ca88f06e5a0c6c"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ae1f50152e62e891e77ca88f06e5a0c6c">update_state</a></td></tr>
+<tr class="memdesc:ae1f50152e62e891e77ca88f06e5a0c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the download process (not_ready, ready, progress, finish, stop). <br /></td></tr>
+<tr class="separator:ae1f50152e62e891e77ca88f06e5a0c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173439ec53b17f00c8bf4dd67818d0a3"><td class="memItemLeft" align="right" valign="top"><a id="a173439ec53b17f00c8bf4dd67818d0a3"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a173439ec53b17f00c8bf4dd67818d0a3">status</a></td></tr>
+<tr class="memdesc:a173439ec53b17f00c8bf4dd67818d0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Download status. (success or failed) <br /></td></tr>
+<tr class="separator:a173439ec53b17f00c8bf4dd67818d0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9119e902dbb6053e287ddca96546a75f"><td class="memItemLeft" align="right" valign="top"><a id="a9119e902dbb6053e287ddca96546a75f"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a9119e902dbb6053e287ddca96546a75f">progress_rtos</a></td></tr>
+<tr class="memdesc:a9119e902dbb6053e287ddca96546a75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">RTOS download progress. <br /></td></tr>
+<tr class="separator:a9119e902dbb6053e287ddca96546a75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad95908e3d057a8a3945c7ae9a6b4378"><td class="memItemLeft" align="right" valign="top"><a id="aad95908e3d057a8a3945c7ae9a6b4378"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#aad95908e3d057a8a3945c7ae9a6b4378">progress_mcu_fw</a></td></tr>
+<tr class="memdesc:aad95908e3d057a8a3945c7ae9a6b4378"><td class="mdescLeft">&#160;</td><td class="mdescRight">MCU FW download progress. <br /></td></tr>
+<tr class="separator:aad95908e3d057a8a3945c7ae9a6b4378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1f594db08938ce9e06e17fffaeca6c"><td class="memItemLeft" align="right" valign="top"><a id="aee1f594db08938ce9e06e17fffaeca6c"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#aee1f594db08938ce9e06e17fffaeca6c">progress_cert_key</a></td></tr>
+<tr class="memdesc:aee1f594db08938ce9e06e17fffaeca6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">CERT_KEY download progress. <br /></td></tr>
+<tr class="separator:aee1f594db08938ce9e06e17fffaeca6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structrm__ota__w__image__header__data__t" id="structrm__ota__w__image__header__data__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structrm__ota__w__image__header__data__t">&#9670;&nbsp;</a></span>rm_ota_w_image_header_data_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct rm_ota_w_image_header_data_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Image header data for updates </p>
+</div>
+</div>
+</div>
+<a name="structota__regions__t" id="structota__regions__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__regions__t">&#9670;&nbsp;</a></span>ota_regions_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_regions_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>OTA block details </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a2e4ddad8eb73a4eb21370d1c9e531ea6"></a>uint32_t</td>
+<td class="fieldname">
+num_regions</td>
+<td class="fielddoc">
+Length of block info array. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6fccea2500e51d68609a8a8396f64456"></a>ota_block_info_t const  *</td>
+<td class="fieldname">
+p_block_array</td>
+<td class="fielddoc">
+Block info array base address. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structota__info__t" id="structota__info__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__info__t">&#9670;&nbsp;</a></span>ota_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_info_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Information about the ota blocks </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a364ed37117c3193e88df9f5399ac761a"></a><a class="el" href="group___o_t_a___a_p_i.html#structota__regions__t">ota_regions_t</a></td>
+<td class="fieldname">
+code_ota</td>
+<td class="fielddoc">
+Information about the code ota regions. </td></tr>
+<tr><td class="fieldtype">
+<a id="a23e967bcf27a2a5deb78a79374ff7362"></a><a class="el" href="group___o_t_a___a_p_i.html#structota__regions__t">ota_regions_t</a></td>
+<td class="fieldname">
+data_ota</td>
+<td class="fielddoc">
+Information about the code ota regions. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structota__callback__args__t" id="structota__callback__args__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__callback__args__t">&#9670;&nbsp;</a></span>ota_callback_args_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_callback_args_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Callback function parameter data </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a5adca5db6520ddb1116eb7fced72860d"></a><a class="el" href="group___o_t_a___a_p_i.html#gae8b73934da2b137d24d46ed7dbdaea31">ota_event_t</a></td>
+<td class="fieldname">
+event</td>
+<td class="fielddoc">
+Event can be used to identify what caused the callback (ota ready or error). </td></tr>
+<tr><td class="fieldtype">
+<a id="adb0a3d34cf732b333e88a7fb5f122597"></a>void const  *</td>
+<td class="fieldname">
+p_context</td>
+<td class="fielddoc">
+Placeholder for user data. Set in <a class="el" href="group___o_t_a___a_p_i.html#a1e98ab810178c98d0aada0d0c6554678">ota_api_t::open</a> function in::ota_cfg_t. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structota__cfg__t" id="structota__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__cfg__t">&#9670;&nbsp;</a></span>ota_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>OTA Configuration </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a701c000d911e8f0e47aa5dfc6024a9e0"><td class="memItemLeft" align="right" valign="top"><a id="a701c000d911e8f0e47aa5dfc6024a9e0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a701c000d911e8f0e47aa5dfc6024a9e0">data_ota_bgo</a></td></tr>
+<tr class="memdesc:a701c000d911e8f0e47aa5dfc6024a9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if BGO (Background Operation) is enabled for Data OTA. <br /></td></tr>
+<tr class="separator:a701c000d911e8f0e47aa5dfc6024a9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0745930fd73a21c4dc1808ada68bfec"><td class="memItemLeft" align="right" valign="top"><a id="ac0745930fd73a21c4dc1808ada68bfec"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ac0745930fd73a21c4dc1808ada68bfec">p_callback</a> )(<a class="el" href="group___o_t_a___a_p_i.html#structota__callback__args__t">ota_callback_args_t</a> *p_args)</td></tr>
+<tr class="memdesc:ac0745930fd73a21c4dc1808ada68bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback provided when a OTA interrupt ISR occurs. <br /></td></tr>
+<tr class="separator:ac0745930fd73a21c4dc1808ada68bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07feb0b2dad768c92e9a97c096c3abde"><td class="memItemLeft" align="right" valign="top"><a id="a07feb0b2dad768c92e9a97c096c3abde"></a>
+<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__instance__t">spi_flash_instance_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a07feb0b2dad768c92e9a97c096c3abde">p_spi_flash</a></td></tr>
+<tr class="memdesc:a07feb0b2dad768c92e9a97c096c3abde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to SPI Flash instance structure. <br /></td></tr>
+<tr class="separator:a07feb0b2dad768c92e9a97c096c3abde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1284a59ddcb8080b2ffa6d7ac68ecd81"><td class="memItemLeft" align="right" valign="top"><a id="a1284a59ddcb8080b2ffa6d7ac68ecd81"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a1284a59ddcb8080b2ffa6d7ac68ecd81">p_extend</a></td></tr>
+<tr class="memdesc:a1284a59ddcb8080b2ffa6d7ac68ecd81"><td class="mdescLeft">&#160;</td><td class="mdescRight">OTA hardware dependent configuration. <br /></td></tr>
+<tr class="separator:a1284a59ddcb8080b2ffa6d7ac68ecd81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24ea0cd6d28f0242c93a1d603c04eaf6"><td class="memItemLeft" align="right" valign="top"><a id="a24ea0cd6d28f0242c93a1d603c04eaf6"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a24ea0cd6d28f0242c93a1d603c04eaf6">p_context</a></td></tr>
+<tr class="memdesc:a24ea0cd6d28f0242c93a1d603c04eaf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placeholder for user data. Passed to user callback in <a class="el" href="group___o_t_a___a_p_i.html#structota__callback__args__t">ota_callback_args_t</a>. <br /></td></tr>
+<tr class="separator:a24ea0cd6d28f0242c93a1d603c04eaf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc31d173cd1c7f5a7261a62d3c293edb"><td class="memItemLeft" align="right" valign="top"><a id="abc31d173cd1c7f5a7261a62d3c293edb"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#abc31d173cd1c7f5a7261a62d3c293edb">ipl</a></td></tr>
+<tr class="memdesc:abc31d173cd1c7f5a7261a62d3c293edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">OTA ready interrupt priority. <br /></td></tr>
+<tr class="separator:abc31d173cd1c7f5a7261a62d3c293edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917efb555c35952be9986f26e8b9517d"><td class="memItemLeft" align="right" valign="top"><a id="a917efb555c35952be9986f26e8b9517d"></a>
+IRQn_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a917efb555c35952be9986f26e8b9517d">irq</a></td></tr>
+<tr class="memdesc:a917efb555c35952be9986f26e8b9517d"><td class="mdescLeft">&#160;</td><td class="mdescRight">OTA ready interrupt number. <br /></td></tr>
+<tr class="separator:a917efb555c35952be9986f26e8b9517d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38414a8ebc061b1d190ed1ca89ec19cb"><td class="memItemLeft" align="right" valign="top"><a id="a38414a8ebc061b1d190ed1ca89ec19cb"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a38414a8ebc061b1d190ed1ca89ec19cb">err_ipl</a></td></tr>
+<tr class="memdesc:a38414a8ebc061b1d190ed1ca89ec19cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">OTA error interrupt priority. <br /></td></tr>
+<tr class="separator:a38414a8ebc061b1d190ed1ca89ec19cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb034f91d66aa7070d69fa5f62f4d997"><td class="memItemLeft" align="right" valign="top"><a id="adb034f91d66aa7070d69fa5f62f4d997"></a>
+IRQn_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#adb034f91d66aa7070d69fa5f62f4d997">err_irq</a></td></tr>
+<tr class="memdesc:adb034f91d66aa7070d69fa5f62f4d997"><td class="mdescLeft">&#160;</td><td class="mdescRight">OTA error interrupt number. <br /></td></tr>
+<tr class="separator:adb034f91d66aa7070d69fa5f62f4d997"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structota__api__t" id="structota__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__api__t">&#9670;&nbsp;</a></span>ota_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Shared Interface definition for OTA </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a1e98ab810178c98d0aada0d0c6554678"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a1e98ab810178c98d0aada0d0c6554678">open</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:a1e98ab810178c98d0aada0d0c6554678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419490394ca8f8a21f1f2247a3c75163"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a419490394ca8f8a21f1f2247a3c75163">swap</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a419490394ca8f8a21f1f2247a3c75163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f1e6e3fa0ea15c13649f9a05db70f92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a6f1e6e3fa0ea15c13649f9a05db70f92">getImageInfo</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t sector_addr, <a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__image__header__data__t">rm_ota_w_image_header_data_t</a> *info_image)</td></tr>
+<tr class="separator:a6f1e6e3fa0ea15c13649f9a05db70f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a330f0dd8d090a14c3c12483a66254665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a330f0dd8d090a14c3c12483a66254665">bootIdxSet</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t boot_idx)</td></tr>
+<tr class="separator:a330f0dd8d090a14c3c12483a66254665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73d28993704fd3b48294a196d356d05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ab73d28993704fd3b48294a196d356d05">bootIdxGet</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t *boot_idx)</td></tr>
+<tr class="separator:ab73d28993704fd3b48294a196d356d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed12d778a0b3b40133f35cd8bc11001"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#aaed12d778a0b3b40133f35cd8bc11001">getAddr</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t state, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t *addr)</td></tr>
+<tr class="separator:aaed12d778a0b3b40133f35cd8bc11001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61a88b8661bcdb37ac36ff3e9d3a7b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ad61a88b8661bcdb37ac36ff3e9d3a7b0">setAddr</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t key_type, uint32_t key_val)</td></tr>
+<tr class="separator:ad61a88b8661bcdb37ac36ff3e9d3a7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e48475b326bd3f90e9a73f33a4034c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#ab4e48475b326bd3f90e9a73f33a4034c">cert</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t cert_type, uint32_t sector_addr)</td></tr>
+<tr class="separator:ab4e48475b326bd3f90e9a73f33a4034c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9333cfa6763e0e2798e57a0f864abead"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___o_t_a___a_p_i.html#a9333cfa6763e0e2798e57a0f864abead">close</a> )(<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a9333cfa6763e0e2798e57a0f864abead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="a1e98ab810178c98d0aada0d0c6554678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e98ab810178c98d0aada0d0c6554678">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::open) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open OTA device.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. Must be declared by user. Value set here. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a></td><td>Pointer to OTA configuration structure. All elements of this structure must be set by the user. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a419490394ca8f8a21f1f2247a3c75163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419490394ca8f8a21f1f2247a3c75163">&#9670;&nbsp;</a></span>swap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::swap) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Swap is the process for swapping programs after 2nd download program is valid. When the program data is successfully applied, the new program data will be executed after reboot. The swap process will trigger the reset if version check is pass.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6f1e6e3fa0ea15c13649f9a05db70f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f1e6e3fa0ea15c13649f9a05db70f92">&#9670;&nbsp;</a></span>getImageInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::getImageInfo) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t sector_addr, <a class="el" href="group___o_t_a___a_p_i.html#structrm__ota__w__image__header__data__t">rm_ota_w_image_header_data_t</a> *info_image)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get program image in a specific location</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">update_type</td><td>Specifies the update type id for info request. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sector_addr</td><td>Sector address for version header info. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">info_image</td><td>Parsed data of the image information. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a330f0dd8d090a14c3c12483a66254665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a330f0dd8d090a14c3c12483a66254665">&#9670;&nbsp;</a></span>bootIdxSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::bootIdxSet) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t boot_idx)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the image index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">boot_idx</td><td>Boot index to be set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab73d28993704fd3b48294a196d356d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab73d28993704fd3b48294a196d356d05">&#9670;&nbsp;</a></span>bootIdxGet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::bootIdxGet) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t *boot_idx)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get Current image index which is set</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">boot_idx</td><td>Boot index to get. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaed12d778a0b3b40133f35cd8bc11001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed12d778a0b3b40133f35cd8bc11001">&#9670;&nbsp;</a></span>getAddr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::getAddr) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t state, <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a> update_type, uint32_t *addr)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load key data value from device</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>Specifies which program data, current or other. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">update_type</td><td>Specifies the update type id for info request. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">addr</td><td>Pointer for the version address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad61a88b8661bcdb37ac36ff3e9d3a7b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61a88b8661bcdb37ac36ff3e9d3a7b0">&#9670;&nbsp;</a></span>setAddr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::setAddr) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t key_type, uint32_t key_val)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set Address value for user device</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">update_type</td><td>Specifies which program data, current or other. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>New address value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab4e48475b326bd3f90e9a73f33a4034c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e48475b326bd3f90e9a73f33a4034c">&#9670;&nbsp;</a></span>cert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::cert) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl, uint8_t cert_type, uint32_t sector_addr)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data validation of image data</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to OTA device control. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cert_type</td><td>Type of the validation data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sector_addr</td><td>Address for sector data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9333cfa6763e0e2798e57a0f864abead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9333cfa6763e0e2798e57a0f864abead">&#9670;&nbsp;</a></span>close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ota_api_t::close) (<a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close FLASH device.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to FLASH device control. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structota__instance__t" id="structota__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structota__instance__t">&#9670;&nbsp;</a></span>ota_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ota_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a6307aa8a780f6f7fd1649b58d0a152b2"></a><a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab9ffbc02d2f72b0b638a377dd0ef21cf"></a><a class="el" href="group___o_t_a___a_p_i.html#structota__cfg__t">ota_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="a94041da105d52f84ccb8de5b52014673"></a><a class="el" href="group___o_t_a___a_p_i.html#structota__api__t">ota_api_t</a> const  *</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga02dc241703d79917f2f118d4ad092b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga02dc241703d79917f2f118d4ad092b60">&#9670;&nbsp;</a></span>ota_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___o_t_a___a_p_i.html#ga02dc241703d79917f2f118d4ad092b60">ota_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>OTA control block. Allocate an instance specific control block to pass into the OTA API calls. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaf2dae2280163e181de63894b8f165a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2dae2280163e181de63894b8f165a71">&#9670;&nbsp;</a></span>rm_ota_w_update_type_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___o_t_a___a_p_i.html#gaf2dae2280163e181de63894b8f165a71">rm_ota_w_update_type_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Update type for certain operations </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71a4e7218813d9ae38299322531194f4a9b"></a>RM_OTA_W_TYPE_INIT&#160;</td><td class="fielddoc"><p>INIT value. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71a09b8c502b213fa64cc9b35e68554ce8e"></a>RM_OTA_W_TYPE_RTOS&#160;</td><td class="fielddoc"><p>RTOS FW update. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71a22787d32a3accd0c05762bdaca3b0465"></a>RM_OTA_W_TYPE_BLE_FW&#160;</td><td class="fielddoc"><p>BLE FW update. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71a8fc8a015c10ba86f91b685db17014bc0"></a>RM_OTA_W_TYPE_BLE_COMBO&#160;</td><td class="fielddoc"><p>RTOS and BLE FW update. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71aba76e96a8113ce75f3fb08b331a1b8f8"></a>RM_OTA_W_TYPE_MCU_FW&#160;</td><td class="fielddoc"><p>MCU FW update. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf2dae2280163e181de63894b8f165a71a6ec9a35b3769a74adf95f98489caea77"></a>RM_OTA_W_TYPE_CERT_KEY&#160;</td><td class="fielddoc"><p>Certification key update. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gae8b73934da2b137d24d46ed7dbdaea31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8b73934da2b137d24d46ed7dbdaea31">&#9670;&nbsp;</a></span>ota_event_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___o_t_a___a_p_i.html#gae8b73934da2b137d24d46ed7dbdaea31">ota_event_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Event types returned by the ISR callback when used in Data OTA BGO mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31ac556e0a60b20936958a946e2d313a3f1"></a>RM_OTA_W_DOWNLOAD_RESULT_OK&#160;</td><td class="fielddoc"><p>File successfully received. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31a55f18b01475dcf61957f9389e208ad8f"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown error. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31ad701f3c91b4c9420369a73f6f7b7557a"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_CONNECT&#160;</td><td class="fielddoc"><p>Connection to server failed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31ac228e7ea5d47df70a98f356e26902067"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_HOSTNAME&#160;</td><td class="fielddoc"><p>Failed to resolve server hostname. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31a9cb66e5af3f6b2baea326ada53b76f40"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_CLOSED&#160;</td><td class="fielddoc"><p>Connection unexpectedly closed by remote server. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31a5635b9b200b60fff48935be5c74ffb89"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_TIMEOUT&#160;</td><td class="fielddoc"><p>Connection timed out (server didn't respond in time) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31acb57cf765031c044c7e10c3c2316c27f"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_SVR_RESP&#160;</td><td class="fielddoc"><p>Server responded with an error code. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31aa55b86cb04ed0304e5e5759692e6ddd5"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_MEM&#160;</td><td class="fielddoc"><p>Local memory error. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31afaeea6506bc9d424ee63cadb76756cec"></a>RM_OTA_W_DOWNLOAD_RESULT_LOCAL_ABORT&#160;</td><td class="fielddoc"><p>Local abort. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae8b73934da2b137d24d46ed7dbdaea31a47dfcbd0244e522964e8428bced43d14"></a>RM_OTA_W_DOWNLOAD_RESULT_ERR_CONTENT_LEN&#160;</td><td class="fielddoc"><p>Content length mismatch. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

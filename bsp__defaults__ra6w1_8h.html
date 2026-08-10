@@ -1,0 +1,376 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: bsp_defaults_ra6w1.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('bsp__defaults__ra6w1_8h.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">bsp_defaults_ra6w1.h File Reference<div class="ingroups"><a class="el" href="group___p_l_a___b_s_p___c_o_n_f_i_g.html">PLA_BSP_CONFIG</a> &raquo; <a class="el" href="group___b_s_p___c_o_n_f_i_g___d_e_f_a_u_l_t_s.html">BSP Default Configuration Values</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Board Support Package. Device-specific system configuration default values.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="brd__io__config__ra6w1_8h.html">boards/brd_io_config_ra6w1.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga8cf28ccc9800f08a0ff2e9b113632dcc"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga8cf28ccc9800f08a0ff2e9b113632dcc">dg_configRC32K_FREQ</a></td></tr>
+<tr class="memdesc:ga8cf28ccc9800f08a0ff2e9b113632dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of the RC32K oscilator frequency in Hz. <br /></td></tr>
+<tr class="separator:ga8cf28ccc9800f08a0ff2e9b113632dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2148b8a736311ff168abe6e3aefd1791"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga2148b8a736311ff168abe6e3aefd1791">dg_configLP_CLK_DRIFT</a></td></tr>
+<tr class="memdesc:ga2148b8a736311ff168abe6e3aefd1791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceptable clock tick drift (in parts per million) for the Low-power clock. <br /></td></tr>
+<tr class="separator:ga2148b8a736311ff168abe6e3aefd1791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa62fe5c740e66e33b2c1b4a4f5614031"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gaa62fe5c740e66e33b2c1b4a4f5614031">dg_configXTAL32K_SETTLE_TIME</a></td></tr>
+<tr class="memdesc:gaa62fe5c740e66e33b2c1b4a4f5614031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time needed for the settling of the LP clock, in msec. <br /></td></tr>
+<tr class="separator:gaa62fe5c740e66e33b2c1b4a4f5614031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab52af747180fbccf331192d26b1f2069"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gab52af747180fbccf331192d26b1f2069">dg_configXTAL40M_SETTLE_TIME_IN_USEC</a></td></tr>
+<tr class="memdesc:gab52af747180fbccf331192d26b1f2069"><td class="mdescLeft">&#160;</td><td class="mdescRight">XTAL40M settle time.  <a href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gab52af747180fbccf331192d26b1f2069">More...</a><br /></td></tr>
+<tr class="separator:gab52af747180fbccf331192d26b1f2069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10ae1476d2fbadc9dfc3c678c89423d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga10ae1476d2fbadc9dfc3c678c89423d3">dg_configENABLE_XTAL40M_ON_WAKEUP</a></td></tr>
+<tr class="memdesc:ga10ae1476d2fbadc9dfc3c678c89423d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable XTAL40M upon system wake-up.  <a href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga10ae1476d2fbadc9dfc3c678c89423d3">More...</a><br /></td></tr>
+<tr class="separator:ga10ae1476d2fbadc9dfc3c678c89423d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbb8d8bdfe85d28c0628a9334df99c76"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gafbb8d8bdfe85d28c0628a9334df99c76">dg_configVOLTAGE_CHECK_LP_CYCLES</a></td></tr>
+<tr class="memdesc:gafbb8d8bdfe85d28c0628a9334df99c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of LP clock cycles required to check the voltage of an LDO during startup. <br /></td></tr>
+<tr class="separator:gafbb8d8bdfe85d28c0628a9334df99c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5b8160a007284e0237bf27593371745"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gab5b8160a007284e0237bf27593371745">dg_configHW_FSM_WAKEUP_CYCLES</a></td></tr>
+<tr class="memdesc:gab5b8160a007284e0237bf27593371745"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of LP clock cycles required for the HW FSM to detect the wake-up signal. <br /></td></tr>
+<tr class="separator:gab5b8160a007284e0237bf27593371745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad4d22f33ba3252e761038fd0621985a"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gaad4d22f33ba3252e761038fd0621985a">dg_configSYSTEM_STARTUP_CYCLES</a></td></tr>
+<tr class="memdesc:gaad4d22f33ba3252e761038fd0621985a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of LP clock cycles required for the system to start-up. <br /></td></tr>
+<tr class="separator:gaad4d22f33ba3252e761038fd0621985a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b659a9795293ece9f97556aedff7750"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga8b659a9795293ece9f97556aedff7750">dg_configWAKEUP_RC32_TIME_SLOW</a></td></tr>
+<tr class="memdesc:ga8b659a9795293ece9f97556aedff7750"><td class="mdescLeft">&#160;</td><td class="mdescRight">RC32 wake-up time in slow wake-up mode.  <a href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#ga8b659a9795293ece9f97556aedff7750">More...</a><br /></td></tr>
+<tr class="separator:ga8b659a9795293ece9f97556aedff7750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabebc8377aafecd2bade0a4bac503a40d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gabebc8377aafecd2bade0a4bac503a40d">dg_configWAKEUP_RC32_TIME_FAST</a></td></tr>
+<tr class="memdesc:gabebc8377aafecd2bade0a4bac503a40d"><td class="mdescLeft">&#160;</td><td class="mdescRight">RC32 wake-up time in fast wake-up mode.  <a href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gabebc8377aafecd2bade0a4bac503a40d">More...</a><br /></td></tr>
+<tr class="separator:gabebc8377aafecd2bade0a4bac503a40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab27f214e1eea45547c593ddf2960d976"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gab27f214e1eea45547c593ddf2960d976">dg_configWAKEUP_RC32_TIME_ULTRA_FAST</a></td></tr>
+<tr class="memdesc:gab27f214e1eea45547c593ddf2960d976"><td class="mdescLeft">&#160;</td><td class="mdescRight">RC32 wake-up time.  <a href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gab27f214e1eea45547c593ddf2960d976">More...</a><br /></td></tr>
+<tr class="separator:gab27f214e1eea45547c593ddf2960d976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4730e53326ed4119a41c5d366d199f2"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_o_c_k___s_e_t_t_i_n_g_s.html#gaf4730e53326ed4119a41c5d366d199f2">dg_configDEFAULT_CLK_FREQ_TRIM_REG__XTAL32M_TRIM__VALUE</a></td></tr>
+<tr class="memdesc:gaf4730e53326ed4119a41c5d366d199f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">XTAL32M trimming default settings. <br /></td></tr>
+<tr class="separator:gaf4730e53326ed4119a41c5d366d199f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02ac3bc0dfd0fae3e5b6ba5afd488ace"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html#ga02ac3bc0dfd0fae3e5b6ba5afd488ace">dg_configWDOG_IDLE_RESET_VALUE</a></td></tr>
+<tr class="memdesc:ga02ac3bc0dfd0fae3e5b6ba5afd488ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset value for Watchdog when system is idle. <br /></td></tr>
+<tr class="separator:ga02ac3bc0dfd0fae3e5b6ba5afd488ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9efba193851820899f0d52b827c67430"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html#ga9efba193851820899f0d52b827c67430">dg_configWDOG_MAX_TASKS_CNT</a></td></tr>
+<tr class="memdesc:ga9efba193851820899f0d52b827c67430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum watchdog tasks.  <a href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html#ga9efba193851820899f0d52b827c67430">More...</a><br /></td></tr>
+<tr class="separator:ga9efba193851820899f0d52b827c67430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6cb802e85ca27bd555d1935b0cfa372"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html#gad6cb802e85ca27bd555d1935b0cfa372">dg_configWDOG_EXT</a></td></tr>
+<tr class="memdesc:gad6cb802e85ca27bd555d1935b0cfa372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend maximum watchdog tasks.  <a href="group___s_y_s_t_e_m___c_o_n_f_i_g_u_r_a_t_i_o_n___s_e_t_t_i_n_g_s.html#gad6cb802e85ca27bd555d1935b0cfa372">More...</a><br /></td></tr>
+<tr class="separator:gad6cb802e85ca27bd555d1935b0cfa372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42f16610ba9d8b73a3efafb1b902656c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga42f16610ba9d8b73a3efafb1b902656c">dg_configPOWER_1V8_ACTIVE</a></td></tr>
+<tr class="memdesc:ga42f16610ba9d8b73a3efafb1b902656c"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, the 1V8 rail is powered, when the system is in active state. When set to 2 the rail configuration will be defined by the application. <br /></td></tr>
+<tr class="separator:ga42f16610ba9d8b73a3efafb1b902656c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae517693714bdf31b5f1be4788732bdee"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gae517693714bdf31b5f1be4788732bdee">dg_configPOWER_1V8_SLEEP</a></td></tr>
+<tr class="memdesc:gae517693714bdf31b5f1be4788732bdee"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, the 1V8 is powered during sleep. When set to 2 the rail configuration will be defined by the application. <br /></td></tr>
+<tr class="separator:gae517693714bdf31b5f1be4788732bdee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa792ce5d887feb5669ad09f7a6313866"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gaa792ce5d887feb5669ad09f7a6313866">dg_configPOWER_1V8P_ACTIVE</a></td></tr>
+<tr class="memdesc:gaa792ce5d887feb5669ad09f7a6313866"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, the 1V8P rail is powered.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gaa792ce5d887feb5669ad09f7a6313866">More...</a><br /></td></tr>
+<tr class="separator:gaa792ce5d887feb5669ad09f7a6313866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2d238bc2faa09bf8e29202cb0fe28a5"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gad2d238bc2faa09bf8e29202cb0fe28a5">dg_configPOWER_1V8P_SLEEP</a></td></tr>
+<tr class="memdesc:gad2d238bc2faa09bf8e29202cb0fe28a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, the 1V8P is powered during sleep. When set to 2 the rail configuration will be defined by the application. <br /></td></tr>
+<tr class="separator:gad2d238bc2faa09bf8e29202cb0fe28a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae258a97d29b449f5212970749f9f3173"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gae258a97d29b449f5212970749f9f3173">dg_configFLASH_POWER_OFF</a></td></tr>
+<tr class="memdesc:gae258a97d29b449f5212970749f9f3173"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, the Flash is powered off during sleep. <br /></td></tr>
+<tr class="separator:gae258a97d29b449f5212970749f9f3173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41cd183a60f306e659a8932d0df45933"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga41cd183a60f306e659a8932d0df45933">dg_configQSPIC2_DEV_AUTODETECT</a></td></tr>
+<tr class="memdesc:ga41cd183a60f306e659a8932d0df45933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the Auto-detection mode for QSPIC2 device.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga41cd183a60f306e659a8932d0df45933">More...</a><br /></td></tr>
+<tr class="separator:ga41cd183a60f306e659a8932d0df45933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63313b2f29cedd8c36fcefeb03e9d28e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga63313b2f29cedd8c36fcefeb03e9d28e">dg_configQSPIC2_DEV_HEADER_FILE</a></td></tr>
+<tr class="memdesc:ga63313b2f29cedd8c36fcefeb03e9d28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The QSPI 2 Driver header file to include.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga63313b2f29cedd8c36fcefeb03e9d28e">More...</a><br /></td></tr>
+<tr class="separator:ga63313b2f29cedd8c36fcefeb03e9d28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7e89032a4409dabc30eb4013ffa4e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gae7e89032a4409dabc30eb4013ffa4e72">dg_configQSPIC2_DEV_CONFIG</a></td></tr>
+<tr class="memdesc:gae7e89032a4409dabc30eb4013ffa4e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The QSPI 2 Driver configuration structure.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#gae7e89032a4409dabc30eb4013ffa4e72">More...</a><br /></td></tr>
+<tr class="separator:gae7e89032a4409dabc30eb4013ffa4e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a8e04e98a3b20b074085ab5789ee1d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga4a8e04e98a3b20b074085ab5789ee1d9">dg_configFLASH_HEADER_FILE</a></td></tr>
+<tr class="memdesc:ga4a8e04e98a3b20b074085ab5789ee1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Flash Driver header file to include.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga4a8e04e98a3b20b074085ab5789ee1d9">More...</a><br /></td></tr>
+<tr class="separator:ga4a8e04e98a3b20b074085ab5789ee1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50766ee7a8ebcdb3e6775cb88bf31a3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga50766ee7a8ebcdb3e6775cb88bf31a3c">dg_configFLASH_CONFIG</a></td></tr>
+<tr class="memdesc:ga50766ee7a8ebcdb3e6775cb88bf31a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Flash Driver configuration structure.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga50766ee7a8ebcdb3e6775cb88bf31a3c">More...</a><br /></td></tr>
+<tr class="separator:ga50766ee7a8ebcdb3e6775cb88bf31a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35a3ca982831537dc0e209888ec52495"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga35a3ca982831537dc0e209888ec52495">dg_configFLASH_CONFIG_VERIFY</a></td></tr>
+<tr class="memdesc:ga35a3ca982831537dc0e209888ec52495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash device configuration verification.  <a href="group___f_l_a_s_h___s_e_t_t_i_n_g_s.html#ga35a3ca982831537dc0e209888ec52495">More...</a><br /></td></tr>
+<tr class="separator:ga35a3ca982831537dc0e209888ec52495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23b6a782cfd26786533c7b41b119d452"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_h_a_r_g_e_r___s_e_t_t_i_n_g_s.html#ga23b6a782cfd26786533c7b41b119d452">dg_configUSE_SOC</a></td></tr>
+<tr class="memdesc:ga23b6a782cfd26786533c7b41b119d452"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set to 1, State of Charge function is enabled. <br /></td></tr>
+<tr class="separator:ga23b6a782cfd26786533c7b41b119d452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb120dd6f3a23d46603eda165af44809"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___s_e_t_t_i_n_g_s.html#gafb120dd6f3a23d46603eda165af44809">dg_configUART3_SOFTWARE_FIFO_SIZE</a></td></tr>
+<tr class="memdesc:gafb120dd6f3a23d46603eda165af44809"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART3's software FIFO size. <br /></td></tr>
+<tr class="separator:gafb120dd6f3a23d46603eda165af44809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96b0dbe7db777513bd1d4524fed68d1d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___s_e_t_t_i_n_g_s.html#ga96b0dbe7db777513bd1d4524fed68d1d">dg_configUART3_RX_CIRCULAR_DMA_BUF_SIZE</a></td></tr>
+<tr class="memdesc:ga96b0dbe7db777513bd1d4524fed68d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART3's Circular DMA buffer size for RX. <br /></td></tr>
+<tr class="separator:ga96b0dbe7db777513bd1d4524fed68d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f5c31684538b6bfbd7b501b3558e94d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_s_p___c_o_n_f_i_g___d_e_f_a_u_l_t_s.html#ga7f5c31684538b6bfbd7b501b3558e94d">dg_configUSE_BOARD</a></td></tr>
+<tr class="memdesc:ga7f5c31684538b6bfbd7b501b3558e94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the board that is used. <br /></td></tr>
+<tr class="separator:ga7f5c31684538b6bfbd7b501b3558e94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Board Support Package. Device-specific system configuration default values. </p>
+<p>Copyright (c) 2023-2024 Renesas Electronics. All rights reserved.</p>
+<p>This software ("Software") is owned by Renesas Electronics.</p>
+<p>By using this Software you agree that Renesas Electronics retains all intellectual property and proprietary rights in and to this Software and any use, reproduction, disclosure or distribution of the Software without express written permission or a license agreement from Renesas Electronics is strictly prohibited. This Software is solely for use on or in conjunction with Renesas Electronics products.</p>
+<p>EXCEPT AS OTHERWISE PROVIDED IN A LICENSE AGREEMENT BETWEEN THE PARTIES, THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. EXCEPT AS OTHERWISE PROVIDED IN A LICENSE AGREEMENT BETWEEN THE PARTIES, IN NO EVENT SHALL RENESAS ELECTRONICS BE LIABLE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE SOFTWARE. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_b18d2d13694890cc5ac49a5be67e3b2d.html">ra</a></li><li class="navelem"><a class="el" href="dir_d71e6481d15bd93e41670a57fe245af4.html">fsp</a></li><li class="navelem"><a class="el" href="dir_cc90537d9d9120754144c336f41d5945.html">src</a></li><li class="navelem"><a class="el" href="dir_a9dbbd8183447f404096ada37fe92bc6.html">bsp_w</a></li><li class="navelem"><a class="el" href="dir_e3508acd47009e47386b8460513c0cd6.html">mcu</a></li><li class="navelem"><a class="el" href="dir_df7d643ef1b8a4dda53906e1f4f66656.html">ra6w1</a></li><li class="navelem"><a class="el" href="dir_42429fd075ef487b503eaebab1db7a7b.html">config</a></li><li class="navelem"><a class="el" href="bsp__defaults__ra6w1_8h.html">bsp_defaults_ra6w1.h</a></li>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

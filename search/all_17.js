@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['xapnetparams',['xApNetParams',['../group___w_i_f_i.html#a909ea599fc72b19ceb405b02ff89d494',1,'WIFINetworkParamsExt_t']]],
+  ['xband',['xBand',['../group___w_i_f_i___a_p_i.html#abc6f695b21555ff821ddedeb7d99b0b9',1,'WIFICapabilityInfo_t']]],
+  ['xbandwidth',['xBandwidth',['../group___w_i_f_i___a_p_i.html#a417f6ccc63d76e056aae94fbbb8559c7',1,'WIFICapabilityInfo_t']]],
+  ['xdns1',['xDns1',['../group___w_i_f_i___a_p_i.html#a4a054fbbf444287b4cd3a1c7e7e25d87',1,'WIFIIPConfiguration_t']]],
+  ['xdns2',['xDns2',['../group___w_i_f_i___a_p_i.html#a86329f066deffb9e87d6f1ca09033b0a',1,'WIFIIPConfiguration_t']]],
+  ['xentnetparams',['xEntNetParams',['../group___w_i_f_i.html#a7ec28a9926e9305e8856ba80f2860802',1,'WIFINetworkParamsExt_t']]],
+  ['xgateway',['xGateway',['../group___w_i_f_i___a_p_i.html#a187b462b0e587cccd5cf3836e852d876',1,'WIFIIPConfiguration_t']]],
+  ['xip_5fenter_5fcommand',['xip_enter_command',['../group___s_p_i___f_l_a_s_h___a_p_i.html#accd8433fbfc03e8a8bdb209c583c6ce9',1,'spi_flash_cfg_t']]],
+  ['xip_5fexit_5fcommand',['xip_exit_command',['../group___s_p_i___f_l_a_s_h___a_p_i.html#a315a0b4fc25c20262fdbf762c389c109',1,'spi_flash_cfg_t']]],
+  ['xip_5fmode_5fis_5fenabled',['xip_mode_is_enabled',['../group___o_s_p_i___w.html#a02863d7254a5553da3ebd54ed805e5e8',1,'ospi_w_instance_ctrl_t::xip_mode_is_enabled()'],['../group___q_s_p_i___w.html#a83648527d4841c551c2d56c6ff116201',1,'qspi_w_instance_ctrl_t::xip_mode_is_enabled()']]],
+  ['xipaddress',['xIPAddress',['../group___w_i_f_i___a_p_i.html#a1d56b0ba18aebe3a61a4fd6a413b35db',1,'WIFIIPConfiguration_t::xIPAddress()'],['../group___w_i_f_i___a_p_i.html#a467859b25245ee82149fca3ec1040e9c',1,'WiFiEventInfoIPReady_t::xIPAddress()']]],
+  ['xipenter',['xipEnter',['../group___s_p_i___f_l_a_s_h___a_p_i.html#a48a9a0db1f5bcb24acc9cc1cea14f0ab',1,'spi_flash_api_t']]],
+  ['xipexit',['xipExit',['../group___s_p_i___f_l_a_s_h___a_p_i.html#a00317079cf31b5311592d0845caa4d8a',1,'spi_flash_api_t']]],
+  ['xmpu_5fsettings',['xMPU_SETTINGS',['../structx_m_p_u___s_e_t_t_i_n_g_s.html',1,'']]],
+  ['xnetmask',['xNetMask',['../group___w_i_f_i___a_p_i.html#ab814aa673351a6bb37d9183a5d2dfcc1',1,'WIFIIPConfiguration_t']]],
+  ['xnetworkparams',['xNetworkParams',['../group___w_i_f_i.html#a84f8e1e3399cd4508b86d130813aaf04',1,'WIFINetworkParamsExt_t']]],
+  ['xphymode',['xPhyMode',['../group___w_i_f_i___a_p_i.html#acfeb8d1ca7d3a50c62e3e4a2e06f8020',1,'WIFICapabilityInfo_t']]],
+  ['xreason',['xReason',['../group___w_i_f_i___a_p_i.html#a976e0d2c4bc9b0e59a7740cf03b965ff',1,'WiFiEventInfoDisconnected_t::xReason()'],['../group___w_i_f_i___a_p_i.html#ab619d23d660e9fb257291a26051b1d4c',1,'WiFiEventInfoConnectionFailed_t::xReason()'],['../group___w_i_f_i___a_p_i.html#a3242fbf68231f2a857d987c5a872c36b',1,'WiFiEventInfoAPStationDisconnected_t::xReason()']]],
+  ['xregionssettings',['xRegionsSettings',['../structx_m_p_u___s_e_t_t_i_n_g_s.html#abe271f8ea47271a114bc8a0bebc285c4',1,'xMPU_SETTINGS']]],
+  ['xsecurity',['xSecurity',['../group___w_i_f_i___a_p_i.html#a069e5ebdba235bdc5f7b151175e59c82',1,'WIFINetworkParams_t::xSecurity()'],['../group___w_i_f_i___a_p_i.html#aeab8da0d63ce4ffc7a3018a4a61bc0d1',1,'WIFIScanResult_t::xSecurity()'],['../group___w_i_f_i___a_p_i.html#adb17eee7fa43600fce3a8cba0d9165f3',1,'WIFINetworkProfile_t::xSecurity()'],['../group___w_i_f_i___a_p_i.html#a8d86cc12be9c5a977aefd0bd0ccff82e',1,'WIFIConnectionInfo_t::xSecurity()']]],
+  ['xtype',['xType',['../group___w_i_f_i___a_p_i.html#a2e8547e94dd12a62d599fba66420c435',1,'WIFIIPAddress_t']]]
+];

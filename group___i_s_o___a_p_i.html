@@ -1,0 +1,3008 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: ISO</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___i_s_o___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">ISO<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___i_n_t_e_r_f_a_c_e_s.html">Networking</a> &raquo; <a class="el" href="group___b_l_e___a_p_i.html">BLE Interface</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaafda6cc6c342fd81c828cc58f50a81a3"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gaafda6cc6c342fd81c828cc58f50a81a3">R_BLE_ISO_CreateBig</a> (uint8_t big_hdl, uint8_t adv_hdl, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__param__t">st_ble_iso_big_param_t</a> *p_big_param)</td></tr>
+<tr class="memdesc:gaafda6cc6c342fd81c828cc58f50a81a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a BIG.  <a href="#gaafda6cc6c342fd81c828cc58f50a81a3">More...</a><br /></td></tr>
+<tr class="separator:gaafda6cc6c342fd81c828cc58f50a81a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88a962c774146d405f1b396ff6ecb4bb"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga88a962c774146d405f1b396ff6ecb4bb">R_BLE_ISO_TerminateBig</a> (uint8_t big_hdl, uint8_t reason)</td></tr>
+<tr class="memdesc:ga88a962c774146d405f1b396ff6ecb4bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate a BIG of the big_handle.  <a href="#ga88a962c774146d405f1b396ff6ecb4bb">More...</a><br /></td></tr>
+<tr class="separator:ga88a962c774146d405f1b396ff6ecb4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2039f24a506662c6ea5894742c8380ce"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga2039f24a506662c6ea5894742c8380ce">R_BLE_ISO_CreateBigSync</a> (uint8_t big_hdl, uint16_t sync_hdl, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__param__t">st_ble_iso_big_sync_param_t</a> *p_big_sync_param)</td></tr>
+<tr class="memdesc:ga2039f24a506662c6ea5894742c8380ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a BIG sync.  <a href="#ga2039f24a506662c6ea5894742c8380ce">More...</a><br /></td></tr>
+<tr class="separator:ga2039f24a506662c6ea5894742c8380ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aa47fe71f43b17324f182946d3cf0d4"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga7aa47fe71f43b17324f182946d3cf0d4">R_BLE_ISO_TerminateBigSync</a> (uint8_t big_hdl)</td></tr>
+<tr class="memdesc:ga7aa47fe71f43b17324f182946d3cf0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate a BIG sync.  <a href="#ga7aa47fe71f43b17324f182946d3cf0d4">More...</a><br /></td></tr>
+<tr class="separator:ga7aa47fe71f43b17324f182946d3cf0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71764cf46562bf617c4ebbcdd68297ba"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga71764cf46562bf617c4ebbcdd68297ba">R_BLE_ISO_SetCigParam</a> (uint8_t cig_id, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__param__t">st_ble_iso_cig_param_t</a> *p_cig_param)</td></tr>
+<tr class="memdesc:ga71764cf46562bf617c4ebbcdd68297ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a CIG with param.  <a href="#ga71764cf46562bf617c4ebbcdd68297ba">More...</a><br /></td></tr>
+<tr class="separator:ga71764cf46562bf617c4ebbcdd68297ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ee201ec2119d29813ca04f95cdfac88"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga1ee201ec2119d29813ca04f95cdfac88">R_BLE_ISO_CreateCis</a> (<a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__conn__t">st_ble_iso_cis_conn_t</a> *p_cis_conn)</td></tr>
+<tr class="memdesc:ga1ee201ec2119d29813ca04f95cdfac88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create one or more CISes using the CIS param.  <a href="#ga1ee201ec2119d29813ca04f95cdfac88">More...</a><br /></td></tr>
+<tr class="separator:ga1ee201ec2119d29813ca04f95cdfac88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74080c38c6968c14619e05cc1473df9c"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga74080c38c6968c14619e05cc1473df9c">R_BLE_ISO_RemoveCig</a> (uint8_t cig_id)</td></tr>
+<tr class="memdesc:ga74080c38c6968c14619e05cc1473df9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove a CIG of id and all of CIS streams in this CIG.  <a href="#ga74080c38c6968c14619e05cc1473df9c">More...</a><br /></td></tr>
+<tr class="separator:ga74080c38c6968c14619e05cc1473df9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca0ec4f123f0e1a6c111c3fc06402b1e"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gaca0ec4f123f0e1a6c111c3fc06402b1e">R_BLE_ISO_TerminateCis</a> (uint16_t cis_conn_hdl)</td></tr>
+<tr class="memdesc:gaca0ec4f123f0e1a6c111c3fc06402b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate a CIS.  <a href="#gaca0ec4f123f0e1a6c111c3fc06402b1e">More...</a><br /></td></tr>
+<tr class="separator:gaca0ec4f123f0e1a6c111c3fc06402b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6f11c77997f8a5890f49124c3676de6"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gaf6f11c77997f8a5890f49124c3676de6">R_BLE_ISO_ReplyCisRequest</a> (uint16_t cis_conn_hdl, uint8_t response, uint8_t reason)</td></tr>
+<tr class="memdesc:gaf6f11c77997f8a5890f49124c3676de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reply the CIS request from a remote device.  <a href="#gaf6f11c77997f8a5890f49124c3676de6">More...</a><br /></td></tr>
+<tr class="separator:gaf6f11c77997f8a5890f49124c3676de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac63deee2067ea28a4edfa584f28b90ea"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gac63deee2067ea28a4edfa584f28b90ea">R_BLE_ISO_SetupDataPath</a> (uint16_t conn_hdl, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__data__path__t">st_ble_iso_data_path_t</a> *p_path)</td></tr>
+<tr class="memdesc:gac63deee2067ea28a4edfa584f28b90ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the ISO data path between the Host and the Controller for a CIS.  <a href="#gac63deee2067ea28a4edfa584f28b90ea">More...</a><br /></td></tr>
+<tr class="separator:gac63deee2067ea28a4edfa584f28b90ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8e1eb11496d3540d50f34112a827e84"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gae8e1eb11496d3540d50f34112a827e84">R_BLE_ISO_SendData</a> (uint16_t conn_hdl, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__sdu__t">st_ble_iso_sdu_t</a> *p_sdu_info)</td></tr>
+<tr class="memdesc:gae8e1eb11496d3540d50f34112a827e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a SDU payload to a ISO channel of conn_hdl.  <a href="#gae8e1eb11496d3540d50f34112a827e84">More...</a><br /></td></tr>
+<tr class="separator:gae8e1eb11496d3540d50f34112a827e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3407d2ddfc8bbafccc5e24c8c98b287d"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga3407d2ddfc8bbafccc5e24c8c98b287d">R_BLE_ISO_CreateBigTest</a> (uint8_t big_hdl, uint8_t adv_hdl, <a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__test__param__t">st_ble_iso_big_test_param_t</a> *p_big_test_param)</td></tr>
+<tr class="memdesc:ga3407d2ddfc8bbafccc5e24c8c98b287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create one or more BISes of a BIG (see [Vol 6] Part B, Section 4.4.6). All BISes in the BIG have the same values for all parameters.  <a href="#ga3407d2ddfc8bbafccc5e24c8c98b287d">More...</a><br /></td></tr>
+<tr class="separator:ga3407d2ddfc8bbafccc5e24c8c98b287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f88a6692defdb3b35052b9f5f9b7edc"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga6f88a6692defdb3b35052b9f5f9b7edc">R_BLE_ISO_SetCigParamTest</a> (uint8_t cig_id, st_ble_iso_cig_test_param_t *p_cig_test_param)</td></tr>
+<tr class="memdesc:ga6f88a6692defdb3b35052b9f5f9b7edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a CIG and set the parameters of one or more CISes that are associated with a CIG in the Controller.  <a href="#ga6f88a6692defdb3b35052b9f5f9b7edc">More...</a><br /></td></tr>
+<tr class="separator:ga6f88a6692defdb3b35052b9f5f9b7edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c247db41647044e2252015e02e9ec7c"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga0c247db41647044e2252015e02e9ec7c">R_BLE_ISO_TransmitTest</a> (uint16_t conn_hdl, uint8_t payload_type)</td></tr>
+<tr class="memdesc:ga0c247db41647044e2252015e02e9ec7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an established CIS or BIS and transmit test payloads which are generated by the Controller.  <a href="#ga0c247db41647044e2252015e02e9ec7c">More...</a><br /></td></tr>
+<tr class="separator:ga0c247db41647044e2252015e02e9ec7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5bc020d69a2bbe5eee6521510c7eaae5"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga5bc020d69a2bbe5eee6521510c7eaae5">R_BLE_ISO_ReceiveTest</a> (uint16_t conn_hdl, uint8_t payload_type)</td></tr>
+<tr class="memdesc:ga5bc020d69a2bbe5eee6521510c7eaae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure an established CIS or a synchronized BIG to receive payloads.  <a href="#ga5bc020d69a2bbe5eee6521510c7eaae5">More...</a><br /></td></tr>
+<tr class="separator:ga5bc020d69a2bbe5eee6521510c7eaae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe02d686f07dd812e482a93fd18628fb"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gabe02d686f07dd812e482a93fd18628fb">R_BLE_ISO_ReadTestCounters</a> (uint16_t conn_hdl)</td></tr>
+<tr class="memdesc:gabe02d686f07dd812e482a93fd18628fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the test counters (see [Vol 6] Part B, Section 7) in the Controller which is configured in ISO Receive Test mode for a CIS or BIS specified by the Connection_Handle. Reading the test counters does not reset the test counters.  <a href="#gabe02d686f07dd812e482a93fd18628fb">More...</a><br /></td></tr>
+<tr class="separator:gabe02d686f07dd812e482a93fd18628fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98108bf64b81a1e4a0e1afa9027ec91e"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga98108bf64b81a1e4a0e1afa9027ec91e">R_BLE_ISO_TestEnd</a> (uint16_t conn_hdl)</td></tr>
+<tr class="memdesc:ga98108bf64b81a1e4a0e1afa9027ec91e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate the ISO Transmit and/or Receive Test mode for a CIS or BIS specified by the Connection_Handle parameter but does not terminate the CIS or BIS.  <a href="#ga98108bf64b81a1e4a0e1afa9027ec91e">More...</a><br /></td></tr>
+<tr class="separator:ga98108bf64b81a1e4a0e1afa9027ec91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30db32efbae01f58007f3f1ca7760050"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga30db32efbae01f58007f3f1ca7760050">R_BLE_ISO_ReadLinkQuality</a> (uint16_t conn_hdl)</td></tr>
+<tr class="memdesc:ga30db32efbae01f58007f3f1ca7760050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the values of various counters related to link quality that are associated with the isochronous stream specified by the Connection_Handle parameter.  <a href="#ga30db32efbae01f58007f3f1ca7760050">More...</a><br /></td></tr>
+<tr class="separator:ga30db32efbae01f58007f3f1ca7760050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09563a8a213062d9bc3ab503ca674250"><td class="memItemLeft" align="right" valign="top">ble_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga09563a8a213062d9bc3ab503ca674250">R_BLE_ISO_RemoveDataPath</a> (uint16_t conn_hdl, uint8_t path_dir)</td></tr>
+<tr class="memdesc:ga09563a8a213062d9bc3ab503ca674250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the input and/or output data path(s) associated with a CIS, CIS configuration, or BIS identified by the Connection_Handle parameter.  <a href="#ga09563a8a213062d9bc3ab503ca674250">More...</a><br /></td></tr>
+<tr class="separator:ga09563a8a213062d9bc3ab503ca674250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structst__ble__iso__big__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__param__t">st_ble_iso_big_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">big param  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__sync__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__param__t">st_ble_iso_big_sync_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__sync__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">big sync param  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__sync__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cis__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__param__t">st_ble_iso_cis_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cis__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIS channel parameter.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cis__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cig__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__param__t">st_ble_iso_cig_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cig__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIG group param.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cig__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cis__conn__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__conn__t">st_ble_iso_cis_conn_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cis__conn__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIS stream param.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__conn__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cis__conn__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__data__path__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__data__path__t">st_ble_iso_data_path_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__data__path__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO channel path param.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__data__path__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__data__path__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__sdu__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__sdu__t">st_ble_iso_sdu_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__sdu__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDU data structure.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__sdu__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__sdu__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__test__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__test__param__t">st_ble_iso_big_test_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__test__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the parameters used in <a class="el" href="group___i_s_o___a_p_i.html#ga3407d2ddfc8bbafccc5e24c8c98b287d" title="Create one or more BISes of a BIG (see [Vol 6] Part B, Section 4.4.6). All BISes in the BIG have the ...">R_BLE_ISO_CreateBigTest()</a>.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__test__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__test__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__comp__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__comp__evt__t">st_ble_iso_big_comp_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__comp__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">BIG info of a created BIG.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__comp__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__comp__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__sync__est__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__est__evt__t">st_ble_iso_big_sync_est_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__sync__est__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">BIG info of a sync established BIG.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__est__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__sync__est__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__biginfo__rept__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__biginfo__rept__evt__t">st_ble_iso_biginfo_rept_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__biginfo__rept__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">BIG info report in a periodic adv.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__biginfo__rept__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__biginfo__rept__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cig__set__comp__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__set__comp__evt__t">st_ble_iso_cig_set_comp_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cig__set__comp__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIS.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__set__comp__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cig__set__comp__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cis__req__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__req__evt__t">st_ble_iso_cis_req_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cis__req__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIS reqest from remote device.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__req__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cis__req__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__reply__cis__req__comp__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__reply__cis__req__comp__evt__t">st_ble_iso_reply_cis_req_comp_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__reply__cis__req__comp__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reply CIS reqest Complete event.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__reply__cis__req__comp__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__reply__cis__req__comp__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cis__est__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__est__evt__t">st_ble_iso_cis_est_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cis__est__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information of CIS that was estabilished.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__est__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cis__est__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cis__term__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__term__evt__t">st_ble_iso_cis_term_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cis__term__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIS terminate event.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__term__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cis__term__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__rx__data__ind__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__rx__data__ind__evt__t">st_ble_iso_rx_data_ind_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__rx__data__ind__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO SDU Rx data event structure.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__rx__data__ind__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__rx__data__ind__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__tx__comp__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__comp__evt__t">st_ble_iso_tx_comp_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__tx__comp__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information of ISO SDU that was sent.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__comp__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__tx__comp__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__test__cnt__info__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__test__cnt__info__evt__t">st_ble_iso_test_cnt_info_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__test__cnt__info__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO test count.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__test__cnt__info__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__test__cnt__info__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__test__end__rept__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__test__end__rept__evt__t">st_ble_iso_test_end_rept_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__test__end__rept__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO test report.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__test__end__rept__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__test__end__rept__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__link__quality__info__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__link__quality__info__evt__t">st_ble_iso_link_quality_info_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__link__quality__info__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO link qulity information.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__link__quality__info__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__link__quality__info__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__tx__sync__info__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__sync__info__evt__t">st_ble_iso_tx_sync_info_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__tx__sync__info__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">iso TX sync information  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__sync__info__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__tx__sync__info__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__cig__id__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__id__evt__t">st_ble_iso_cig_id_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__cig__id__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIG id.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__id__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__cig__id__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__hdl__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__hdl__evt__t">st_ble_iso_big_hdl_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__hdl__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big handle.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__hdl__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__hdl__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__terminate__comp__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__terminate__comp__evt__t">st_ble_iso_big_terminate_comp_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__terminate__comp__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big handle and big terminate reason. </p><pre class="fragment"></pre><p>.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__terminate__comp__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__terminate__comp__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__big__sync__lost__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__lost__evt__t">st_ble_iso_big_sync_lost_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__big__sync__lost__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big handle and big terminate reason.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__lost__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__big__sync__lost__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__conn__hdl__evt__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t">st_ble_iso_conn_hdl_evt_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__conn__hdl__evt__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO Connection handle.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__conn__hdl__evt__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__cig__param__test__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__cig__param__test__t">st_ble_cig_param_test_t</a></td></tr>
+<tr class="memdesc:structst__ble__cig__param__test__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the member variables used in st_ble_iso_cig_test_param_t.  <a href="group___i_s_o___a_p_i.html#structst__ble__cig__param__test__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__cig__param__test__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structst__ble__iso__set__cig__param__test__param__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__set__cig__param__test__param__t">st_ble_iso_set_cig_param_test_param_t</a></td></tr>
+<tr class="memdesc:structst__ble__iso__set__cig__param__test__param__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the parameters used in <a class="el" href="group___i_s_o___a_p_i.html#ga6f88a6692defdb3b35052b9f5f9b7edc" title="Create a CIG and set the parameters of one or more CISes that are associated with a CIG in the Contro...">R_BLE_ISO_SetCigParamTest()</a>.  <a href="group___i_s_o___a_p_i.html#structst__ble__iso__set__cig__param__test__param__t">More...</a><br /></td></tr>
+<tr class="separator:structst__ble__iso__set__cig__param__test__param__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gafe9c2ed8063aeb31ae3bf0073bc4d88e"><td class="memItemLeft" align="right" valign="top"><a id="gafe9c2ed8063aeb31ae3bf0073bc4d88e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gafe9c2ed8063aeb31ae3bf0073bc4d88e">BLE_ISO_PACKING_SEQUENTIAL</a></td></tr>
+<tr class="memdesc:gafe9c2ed8063aeb31ae3bf0073bc4d88e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sequential method of arranging subevents of multiple ISO stream <br /></td></tr>
+<tr class="separator:gafe9c2ed8063aeb31ae3bf0073bc4d88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3cb34ec0e9cb724cc18711194afc201e"><td class="memItemLeft" align="right" valign="top"><a id="ga3cb34ec0e9cb724cc18711194afc201e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga3cb34ec0e9cb724cc18711194afc201e">BLE_ISO_PACKING_INTERLEAVED</a></td></tr>
+<tr class="memdesc:ga3cb34ec0e9cb724cc18711194afc201e"><td class="mdescLeft">&#160;</td><td class="mdescRight">interleaved method of arranging subevents of multiple ISO stream <br /></td></tr>
+<tr class="separator:ga3cb34ec0e9cb724cc18711194afc201e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c188e145bfd29421f243bab099d9cb2"><td class="memItemLeft" align="right" valign="top"><a id="ga9c188e145bfd29421f243bab099d9cb2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga9c188e145bfd29421f243bab099d9cb2">BLE_ISO_FRAMING_UNFRAMED</a></td></tr>
+<tr class="memdesc:ga9c188e145bfd29421f243bab099d9cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unframed format for sending ISO PDUs. <br /></td></tr>
+<tr class="separator:ga9c188e145bfd29421f243bab099d9cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7d704a20f7e19add3cf5e366faa40aa"><td class="memItemLeft" align="right" valign="top"><a id="gab7d704a20f7e19add3cf5e366faa40aa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gab7d704a20f7e19add3cf5e366faa40aa">BLE_ISO_FRAMING_FRAMED</a></td></tr>
+<tr class="memdesc:gab7d704a20f7e19add3cf5e366faa40aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Framed format for sending ISO PDUs. <br /></td></tr>
+<tr class="separator:gab7d704a20f7e19add3cf5e366faa40aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaff7e992bb41cc03a7d9b5851f5eeef1"><td class="memItemLeft" align="right" valign="top"><a id="gaaff7e992bb41cc03a7d9b5851f5eeef1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gaaff7e992bb41cc03a7d9b5851f5eeef1">BLE_ISO_BROADCAST_CODE_SIZE</a></td></tr>
+<tr class="memdesc:gaaff7e992bb41cc03a7d9b5851f5eeef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast code size in BIG. <br /></td></tr>
+<tr class="separator:gaaff7e992bb41cc03a7d9b5851f5eeef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d322db0636ccca167d21232d6990a71"><td class="memItemLeft" align="right" valign="top"><a id="ga3d322db0636ccca167d21232d6990a71"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga3d322db0636ccca167d21232d6990a71">BLE_ISO_TIMESTAMP_NONE</a></td></tr>
+<tr class="memdesc:ga3d322db0636ccca167d21232d6990a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">timestamp value when ts_valid is 0 <br /></td></tr>
+<tr class="separator:ga3d322db0636ccca167d21232d6990a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3aa23cdcb465779491c6b981203cdf95"><td class="memItemLeft" align="right" valign="top"><a id="ga3aa23cdcb465779491c6b981203cdf95"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga3aa23cdcb465779491c6b981203cdf95">BLE_ISO_SYNC_MSE_AUTO</a></td></tr>
+<tr class="memdesc:ga3aa23cdcb465779491c6b981203cdf95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let controller choose the max subevent. <br /></td></tr>
+<tr class="separator:ga3aa23cdcb465779491c6b981203cdf95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga899e177a9c1fbf509952fd9e2264e111"><td class="memItemLeft" align="right" valign="top"><a id="ga899e177a9c1fbf509952fd9e2264e111"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga899e177a9c1fbf509952fd9e2264e111">BLE_ISO_CIS_ACCEPT</a></td></tr>
+<tr class="memdesc:ga899e177a9c1fbf509952fd9e2264e111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a CIS request. <br /></td></tr>
+<tr class="separator:ga899e177a9c1fbf509952fd9e2264e111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga094f618aaa5270a6e655cbf9fad37ff4"><td class="memItemLeft" align="right" valign="top"><a id="ga094f618aaa5270a6e655cbf9fad37ff4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga094f618aaa5270a6e655cbf9fad37ff4">BLE_ISO_CIS_REJECT</a></td></tr>
+<tr class="memdesc:ga094f618aaa5270a6e655cbf9fad37ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reject a CIS request. <br /></td></tr>
+<tr class="separator:ga094f618aaa5270a6e655cbf9fad37ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b02c1bb2b299e8a9a19a8b83185882f"><td class="memItemLeft" align="right" valign="top"><a id="ga9b02c1bb2b299e8a9a19a8b83185882f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga9b02c1bb2b299e8a9a19a8b83185882f">BLE_ISO_DATA_PATH_HCI</a></td></tr>
+<tr class="memdesc:ga9b02c1bb2b299e8a9a19a8b83185882f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value to set the ISO data path over HCI. <br /></td></tr>
+<tr class="separator:ga9b02c1bb2b299e8a9a19a8b83185882f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga161e01f4004db057f7be2294e1086bec"><td class="memItemLeft" align="right" valign="top"><a id="ga161e01f4004db057f7be2294e1086bec"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga161e01f4004db057f7be2294e1086bec">BLE_ISO_DATA_PATH_DIR_INPUT</a></td></tr>
+<tr class="memdesc:ga161e01f4004db057f7be2294e1086bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio datapath directions: App to BLE <br /></td></tr>
+<tr class="separator:ga161e01f4004db057f7be2294e1086bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad09e6704ad94089050be664cbb89724d"><td class="memItemLeft" align="right" valign="top"><a id="gad09e6704ad94089050be664cbb89724d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#gad09e6704ad94089050be664cbb89724d">BLE_ISO_DATA_PATH_DIR_OUTPUT</a></td></tr>
+<tr class="memdesc:gad09e6704ad94089050be664cbb89724d"><td class="mdescLeft">&#160;</td><td class="mdescRight">audio datapath directions: BLE to App <br /></td></tr>
+<tr class="separator:gad09e6704ad94089050be664cbb89724d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91a4ae96e09483fb8efc0fe171c343c9"><td class="memItemLeft" align="right" valign="top"><a id="ga91a4ae96e09483fb8efc0fe171c343c9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga91a4ae96e09483fb8efc0fe171c343c9">BLE_ISO_DATA_MAX_PDU</a></td></tr>
+<tr class="memdesc:ga91a4ae96e09483fb8efc0fe171c343c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum number of data octets of ISO Data PDU <br /></td></tr>
+<tr class="separator:ga91a4ae96e09483fb8efc0fe171c343c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9908607143e04d56dbb8c92e632a95a6"><td class="memItemLeft" align="right" valign="top"><a id="ga9908607143e04d56dbb8c92e632a95a6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga9908607143e04d56dbb8c92e632a95a6">BLE_ISO_DATA_MAX_SDU</a></td></tr>
+<tr class="memdesc:ga9908607143e04d56dbb8c92e632a95a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum number of data octets of ISO Data SDU <br /></td></tr>
+<tr class="separator:ga9908607143e04d56dbb8c92e632a95a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga38cfc9b28ef377abe7773a7ad6c0fb17"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i_s_o___a_p_i.html#ga38cfc9b28ef377abe7773a7ad6c0fb17">e_ble_iso_evt_t</a> <tr class="memdesc:ga38cfc9b28ef377abe7773a7ad6c0fb17"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO Event Identifier.  <a href="group___i_s_o___a_p_i.html#ga38cfc9b28ef377abe7773a7ad6c0fb17">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ga38cfc9b28ef377abe7773a7ad6c0fb17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structst__ble__iso__big__param__t" id="structst__ble__iso__big__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__param__t">&#9670;&nbsp;</a></span>st_ble_iso_big_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>big param </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9291dcff9203f9ee411b699d4ab29849"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+Number channels. <p>Maximum number of channels in a single group is BLE_ISO_MAX_GROUP_ISO_COUNT </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a165ef24500a3c2b4c88480ded7f08ef4"></a>uint32_t</td>
+<td class="fieldname">
+sdu_intv</td>
+<td class="fielddoc">
+Channel interval in microseconds. <p>Value range 0x0000FF - 0x0FFFFF. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a5eba1458f375928fe5d29937acb01523"></a>uint16_t</td>
+<td class="fieldname">
+max_sdu</td>
+<td class="fielddoc">
+Maximum size of an SDU. <p>Value range 0x0001 to 0x0FFF </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a3faba678cdf2c02d8ae1702ef4e91970"></a>uint16_t</td>
+<td class="fieldname">
+max_latency</td>
+<td class="fielddoc">
+Channel Latency in ms. <p>Value range 0x0005 to 0x0FA0 </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a3b6eee1340e9be08b8eab1bf4f289cb7"></a>uint8_t</td>
+<td class="fieldname">
+rtn</td>
+<td class="fielddoc">
+The number of times that every BIS Data PDU should be retransmitted. <p>Value range 0x00 to 0x1E </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="abc7048eb76b560b940e3c184237d1f91"></a>uint8_t</td>
+<td class="fieldname">
+phy</td>
+<td class="fielddoc">
+Advertising PHY. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_1M </td><td align="left">0x01 </td><td align="left">Advertiser PHY is 1M PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_2M </td><td align="left">0x02 </td><td align="left">Advertiser PHY is 2M PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_CD </td><td align="left">0x04 </td><td align="left">Advertiser PHY is Coded PHY. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a24fdb113e179b24a6300e9972dced3a5"></a>uint8_t</td>
+<td class="fieldname">
+packing</td>
+<td class="fielddoc">
+Channel packing mode. <p>the preferred method of arranging subevents of multiple BISes. BLE_ISO_PACKING_SEQUENTIAL for Sequential or BLE_ISO_PACKING_INTERLEAVED for Interleaved </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a49df40644448072b02b772165b8f9ac9"></a>uint8_t</td>
+<td class="fieldname">
+framing</td>
+<td class="fielddoc">
+Channel framing mode. <p>the format of the BIS Data PDUs. BLE_ISO_FRAMING_UNFRAMED for unframed or BLE_ISO_FRAMING_FRAMED for framed. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a3b99e6c2ab8b26c79b23f02dc8cbeace"></a>uint8_t</td>
+<td class="fieldname">
+encryption</td>
+<td class="fielddoc">
+Whether or not to encrypt the streams. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th>description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_UNENCRYPTED </td><td align="left">0x00 </td><td>Unencrypted. </td></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_ENCRYPTED </td><td align="left">0x01 </td><td>Encrypted. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="abb1a33a0f237cb6a830946e96b9ba3a5"></a>uint8_t</td>
+<td class="fieldname">
+bcode[<a class="el" href="group___i_s_o___a_p_i.html#gaaff7e992bb41cc03a7d9b5851f5eeef1">BLE_ISO_BROADCAST_CODE_SIZE</a>]</td>
+<td class="fielddoc">
+Broadcast code. <p>The code used to derive the session key that is used to encrypt and decrypt BIS payloads. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__sync__param__t" id="structst__ble__iso__big__sync__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__sync__param__t">&#9670;&nbsp;</a></span>st_ble_iso_big_sync_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_sync_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>big sync param </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a7a0b759adacd0086e67e8ea284187731"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+Number channels in <code>bis_bitfield</code>. <p>Maximum number of channels in a single group is BLE_ISO_MAX_GROUP_ISO_COUNT </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a20ce98b8dda4a74ea86ada24404701f5"></a>uint32_t</td>
+<td class="fieldname">
+bis_bitfield</td>
+<td class="fielddoc">
+Bitfield of the BISes to sync to. <p>The BIS indexes start from 0x01, so the lowest allowed bit is bit0 that represents index 0x01. To synchronize to e.g. BIS indexes bit1 and bit2, the bitfield value should be bit0 | bit1. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aed663fd166164b983119f172f8f1e8aa"></a>uint8_t</td>
+<td class="fieldname">
+max_subevents</td>
+<td class="fielddoc">
+maximum number of subevents that a Controller should use to receive data payloads in each interval for a BIS. BLE_ISO_SYNC_MSE_AUTO to let controller choose. value range: BLE_ISO_SYNC_MSE_AUTO or 0x01 to 0x1F </td></tr>
+<tr><td class="fieldtype">
+<a id="a009131da796ea3d1d81f8cf7948ac202"></a>uint16_t</td>
+<td class="fieldname">
+sync_timeout</td>
+<td class="fielddoc">
+Synchronization timeout for the BIG Range: 0x000A to 0x4000 Time = Value*10 ms. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0605516c2c0f85138d36b4360c589c39"></a>uint8_t</td>
+<td class="fieldname">
+encryption</td>
+<td class="fielddoc">
+Whether or not to encrypt the streams. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th>description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_UNENCRYPTED </td><td align="left">0x00 </td><td>Unencrypted. </td></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_ENCRYPTED </td><td align="left">0x01 </td><td>Encrypted. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a58c572f0790239780430948cfa70ada0"></a>uint8_t</td>
+<td class="fieldname">
+bcode[<a class="el" href="group___i_s_o___a_p_i.html#gaaff7e992bb41cc03a7d9b5851f5eeef1">BLE_ISO_BROADCAST_CODE_SIZE</a>]</td>
+<td class="fielddoc">
+Broadcast code. <p>The code used to derive the session key that is used to encrypt and decrypt BIS payloads. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cis__param__t" id="structst__ble__iso__cis__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cis__param__t">&#9670;&nbsp;</a></span>st_ble_iso_cis_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cis_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIS channel parameter. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a229f82d7d89098fff4128128b553a8a1"></a>uint8_t</td>
+<td class="fieldname">
+cis_id</td>
+<td class="fielddoc">
+cis identifer </td></tr>
+<tr><td class="fieldtype">
+<a id="ab0d77b865160757afb8f318b13798d44"></a>uint16_t</td>
+<td class="fieldname">
+max_sdu_c2p</td>
+<td class="fielddoc">
+max sdu size of input and output </td></tr>
+<tr><td class="fieldtype">
+<a id="aee715002a27142fe53dfb4598aa2585a"></a>uint16_t</td>
+<td class="fieldname">
+max_sdu_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="af5ee1bd0292348f57c8ef993c0d83c38"></a>uint8_t</td>
+<td class="fieldname">
+rtn_c2p</td>
+<td class="fielddoc">
+number of times that a CIS Data PDU should be retransmitted. </td></tr>
+<tr><td class="fieldtype">
+<a id="a601dfd4afe4f35e2948c96cf3b267dab"></a>uint8_t</td>
+<td class="fieldname">
+rtn_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a9bbca9ef0a2edf27fbce44e63fc7942f"></a>uint8_t</td>
+<td class="fieldname">
+phy_c2p</td>
+<td class="fielddoc">
+Transmitter PHY preference. <p>The phy_c2p and phy_p2c field is set to a bitwise OR of the following values. All other values are ignored. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_1M(0x01) </td><td align="left">Use 1M PHY for Transmitter PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_2M(0x02) </td><td align="left">Use 2M PHY for Transmitter PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_CD(0x04) </td><td align="left">Use Coded PHY for Transmitter PHY. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a4f207a7108e385529b61919d4bd37ade"></a>uint8_t</td>
+<td class="fieldname">
+phy_p2c</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cig__param__t" id="structst__ble__iso__cig__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cig__param__t">&#9670;&nbsp;</a></span>st_ble_iso_cig_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cig_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIG group param. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a2e6d2c1f10d1dabf398492794541fa98"></a>uint8_t</td>
+<td class="fieldname">
+num_cis</td>
+<td class="fielddoc">
+Number channels of CIG. <p>Maximum number of channels in a single group is BLE_ISO_MAX_GROUP_ISO_COUNT </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad45ef30f1ba6e6d7d7d19dfd9d1dce79"></a>uint32_t</td>
+<td class="fieldname">
+sdu_intv_c2p</td>
+<td class="fielddoc">
+Channel interval in us. <p>Value range 0x0000FF - 0x0FFFFF. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a228e4a379d54f486c19b652b435ed073"></a>uint32_t</td>
+<td class="fieldname">
+sdu_intv_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ab64b0b76a6c1309e1c4b37f97ade712b"></a>uint16_t</td>
+<td class="fieldname">
+max_latency_c2p</td>
+<td class="fielddoc">
+Channel Latency in ms. <p>Value range 0x0005 - 0x0FA0. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a203e0ddad904c39cef9422758dd7124b"></a>uint16_t</td>
+<td class="fieldname">
+max_latency_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a0f93696d6af0c95a09655ec00cef20de"></a>uint8_t</td>
+<td class="fieldname">
+packing</td>
+<td class="fielddoc">
+Channel packing mode. <p>the preferred method of arranging subevents of multiple CISes. BLE_ISO_PACKING_SEQUENTIAL for Sequential or BLE_ISO_PACKING_INTERLEAVED for Interleaved </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a6c7909a391f3585ceafd99872ea4d5e2"></a>uint8_t</td>
+<td class="fieldname">
+framing</td>
+<td class="fielddoc">
+Channel framing mode. <p>the format of the CIS Data PDUs. BLE_ISO_FRAMING_UNFRAMED for unframed or BLE_ISO_FRAMING_FRAMED for framed. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7119bd70c5b2c33f7da880f50c72ad3b"></a><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__param__t">st_ble_iso_cis_param_t</a></td>
+<td class="fieldname">
+cis_param[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+cis param. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cis__conn__t" id="structst__ble__iso__cis__conn__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cis__conn__t">&#9670;&nbsp;</a></span>st_ble_iso_cis_conn_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cis_conn_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIS stream param. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae75787a313c89dca9fb36a54af1f985a"></a>uint8_t</td>
+<td class="fieldname">
+cig_id</td>
+<td class="fielddoc">
+CIG id of this group. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8a2c273e7dfe30c60665963e4156b0e7"></a>uint8_t</td>
+<td class="fieldname">
+num_cis</td>
+<td class="fielddoc">
+Number channels of CIG. <p>Maximum number of channels in a single group is BLE_ISO_MAX_GROUP_ISO_COUNT </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac3590e03bcfef3c40644e4527e1fdc82"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+connection handles for every CIS. <p>CIS handles are got from event BLE_ISO_EVENT_CIG_PARAM_SET_COMP. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a946143bafca9c7f329c4150b0a773032"></a>uint16_t</td>
+<td class="fieldname">
+acl_conn_hdl[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+connection handles of ACL for every CIS. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__data__path__t" id="structst__ble__iso__data__path__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__data__path__t">&#9670;&nbsp;</a></span>st_ble_iso_data_path_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_data_path_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO channel path param. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ad2676b57e4d3fbad8f634c195e8c448e"></a>uint8_t</td>
+<td class="fieldname">
+path_dir</td>
+<td class="fielddoc">
+path direction. <p>Select value from BLE_ISO_DATA_PATH_DIR_INPUT or BLE_ISO_DATA_PATH_DIR_OUTPUT </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a334f77203c65c8cab1488d3bb78651d9"></a>uint8_t</td>
+<td class="fieldname">
+path_id</td>
+<td class="fielddoc">
+path ID <p>Only BLE_ISO_DATA_PATH_HCI is accepted. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7006dea0f7fb9b00f46ae88ba1e0defb"></a>uint8_t</td>
+<td class="fieldname">
+coding_format</td>
+<td class="fielddoc">
+Coding Format. <p>Refer Bluetooth SIG Assigned Number(<a href="https://www.bluetooth.com/specifications/assigned-numbers">https://www.bluetooth.com/specifications/assigned-numbers</a>). </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1c4c59b23c586539c3c941b525fb749f"></a>uint16_t</td>
+<td class="fieldname">
+company_id</td>
+<td class="fielddoc">
+Company ID. </td></tr>
+<tr><td class="fieldtype">
+<a id="a670c341017872e0ac076cb596a8e35d2"></a>uint16_t</td>
+<td class="fieldname">
+vcodec_id</td>
+<td class="fielddoc">
+Vendor-defined Codec ID. <p>Shall be ignored if coding_format is not 0xFF </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a4ead3e53146eee5debdae43ee345b106"></a>uint32_t</td>
+<td class="fieldname">
+delay</td>
+<td class="fielddoc">
+Controller Delay. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9d2eebee33d5db89600cf48874b4ea35"></a>uint8_t</td>
+<td class="fieldname">
+codec_conf_len</td>
+<td class="fielddoc">
+Codec Configuration length. </td></tr>
+<tr><td class="fieldtype">
+<a id="a84fdf8c0b7fe916ec4e38aa376d9660c"></a>uint8_t *</td>
+<td class="fieldname">
+p_codec_conf</td>
+<td class="fielddoc">
+Pointer to an array containing the Codec Configuration. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__sdu__t" id="structst__ble__iso__sdu__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__sdu__t">&#9670;&nbsp;</a></span>st_ble_iso_sdu_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_sdu_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>SDU data structure. </p>
+<p>param of R_BLE_ISO_SendData.</p>
+<p>ISO SDU structure </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af70d70ae6586c41d0787548433589f7f"></a>uint16_t</td>
+<td class="fieldname">
+ts_valid</td>
+<td class="fielddoc">
+if 0 then timestamp value is invalid. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa4b495e26dcd76bae2000da8d4b8b7bb"></a>uint32_t</td>
+<td class="fieldname">
+timestamp</td>
+<td class="fielddoc">
+timestamp of SDU. Valid when ts_valid is not 0. </td></tr>
+<tr><td class="fieldtype">
+<a id="afc06963fcae300e6e0916048460271f3"></a>uint16_t</td>
+<td class="fieldname">
+seq_num</td>
+<td class="fielddoc">
+sequence number </td></tr>
+<tr><td class="fieldtype">
+<a id="a64759d020551c52cde91ab3a776622e3"></a>uint16_t</td>
+<td class="fieldname">
+sdu_len</td>
+<td class="fielddoc">
+Length of SDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a16957e646b23f15f4fa9c5afacbf1efa"></a>uint8_t *</td>
+<td class="fieldname">
+p_sdu_data</td>
+<td class="fielddoc">
+SDU data. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__test__param__t" id="structst__ble__iso__big__test__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__test__param__t">&#9670;&nbsp;</a></span>st_ble_iso_big_test_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_test_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This is the parameters used in <a class="el" href="group___i_s_o___a_p_i.html#ga3407d2ddfc8bbafccc5e24c8c98b287d" title="Create one or more BISes of a BIG (see [Vol 6] Part B, Section 4.4.6). All BISes in the BIG have the ...">R_BLE_ISO_CreateBigTest()</a>. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ab84c774633bd2cc98a703a753411e67a"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+Total number of BISes in the BIG. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3e9cb02bc4fb9b8213781f6d7e5d3457"></a>uint32_t</td>
+<td class="fieldname">
+sdu_intv</td>
+<td class="fielddoc">
+The interval, in microseconds, of periodic SDUs. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac3f0308b726320609559fed0791def63"></a>uint16_t</td>
+<td class="fieldname">
+iso_intv</td>
+<td class="fielddoc">
+The time between consecutive BIG anchor points. </td></tr>
+<tr><td class="fieldtype">
+<a id="afc61439c86b68901801b9c815c37763b"></a>uint8_t</td>
+<td class="fieldname">
+nse</td>
+<td class="fielddoc">
+The total number of subevents in each interval of each BIS in the BIG. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9b4e97ba6c37424ccfbcab926592f84f"></a>uint16_t</td>
+<td class="fieldname">
+max_sdu</td>
+<td class="fielddoc">
+Maximum size, in octets, of an SDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a15bbb4b71b1be3bc1f92138fcd6e8db0"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu</td>
+<td class="fielddoc">
+Maximum size, in octets, of payload. </td></tr>
+<tr><td class="fieldtype">
+<a id="a581cb2251377ce944c0cb47ec4cfc1a6"></a>uint8_t</td>
+<td class="fieldname">
+phy</td>
+<td class="fielddoc">
+Advertising PHY. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_1M </td><td align="left">0x01 </td><td align="left">Advertiser PHY is 1M PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_2M </td><td align="left">0x02 </td><td align="left">Advertiser PHY is 2M PHY. </td></tr>
+<tr>
+<td align="left">BLE_ISO_HOST_PREF_PHY_CD </td><td align="left">0x04 </td><td align="left">Advertiser PHY is Coded PHY. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a497215f555f2c17b7a1f76a959f02d6b"></a>uint8_t</td>
+<td class="fieldname">
+packing</td>
+<td class="fielddoc">
+The preferred method of arranging subevents of multiple BISes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7e223a4afba7a44b3c2150fda4389630"></a>uint8_t</td>
+<td class="fieldname">
+framing</td>
+<td class="fielddoc">
+The format for sending BIS Data PDUs. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1ba2aadb9fdfcce07cc9a8aedc676033"></a>uint8_t</td>
+<td class="fieldname">
+bn</td>
+<td class="fielddoc">
+Number of new payloads for each BIS in a BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae4401ad1685f25e778b080e5ddb9ca31"></a>uint8_t</td>
+<td class="fieldname">
+irc</td>
+<td class="fielddoc">
+Number of times the scheduled data packet is transmitted. </td></tr>
+<tr><td class="fieldtype">
+<a id="a85c2e97892e7c739ec7916c11b1a768e"></a>uint8_t</td>
+<td class="fieldname">
+pto</td>
+<td class="fielddoc">
+Offset in number of ISO_Intervals for pre transmissions of data packets. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3080d96d2ded6f65b2ade666406aabf6"></a>uint8_t</td>
+<td class="fieldname">
+encryption</td>
+<td class="fielddoc">
+Whether or not to encrypt the streams. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th>description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_UNENCRYPTED </td><td align="left">0x00 </td><td>Unencrypted. </td></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_ENCRYPTED </td><td align="left">0x01 </td><td>Encrypted. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a15b30b0c910ab2dcda22e2414505e895"></a>uint8_t</td>
+<td class="fieldname">
+bcode[<a class="el" href="group___i_s_o___a_p_i.html#gaaff7e992bb41cc03a7d9b5851f5eeef1">BLE_ISO_BROADCAST_CODE_SIZE</a>]</td>
+<td class="fielddoc">
+Used to generate the session key to encrypt payloads of all BISes in the BIG. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__comp__evt__t" id="structst__ble__iso__big__comp__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__comp__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_big_comp_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_comp_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>BIG info of a created BIG. </p>
+<p>Event Code : BLE_ISO_EVENT_CREATE_BIG_COMP </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a01033d40b62de6e7baaaea8a55866aa2"></a>uint8_t</td>
+<td class="fieldname">
+status</td>
+<td class="fielddoc">
+status of BIG creation </td></tr>
+<tr><td class="fieldtype">
+<a id="a81fdcaa5fc7795600a8169d12638c6ad"></a>uint8_t</td>
+<td class="fieldname">
+big_hdl</td>
+<td class="fielddoc">
+BIG handle. </td></tr>
+<tr><td class="fieldtype">
+<a id="af61c16c45dc82d851d5ed51929d8d77b"></a>uint32_t</td>
+<td class="fieldname">
+sync_delay</td>
+<td class="fielddoc">
+BIG sync delay. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae3657ca1e7e4e8530edf5c913d4b84e9"></a>uint32_t</td>
+<td class="fieldname">
+latency</td>
+<td class="fielddoc">
+Actual latency returned by controller. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa12e2a8fdc5c15a5dd803bf13941d4cc"></a>uint8_t</td>
+<td class="fieldname">
+phy</td>
+<td class="fielddoc">
+BIG PHY. <table class="doxtable">
+<tr>
+<th align="left">value </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">0x01 </td><td align="left">Broadcast isochronous stream PHY is 1M PHY. </td></tr>
+<tr>
+<td align="left">0x02 </td><td align="left">Broadcast isochronous stream PHY is 2M PHY. </td></tr>
+<tr>
+<td align="left">0x03 </td><td align="left">Broadcast isochronous stream PHY is Coded PHY. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad07b5117d3ad9ace4296bf321b08ff1b"></a>uint8_t</td>
+<td class="fieldname">
+nse</td>
+<td class="fielddoc">
+Maximum number of subevents in each isochronous event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7259c10dd6314eebd8f83188edcec8b9"></a>uint8_t</td>
+<td class="fieldname">
+bn</td>
+<td class="fielddoc">
+The number of new payloads in each BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="af84b63e54e8e696fc7b4d6f33c70f4a0"></a>uint8_t</td>
+<td class="fieldname">
+pto</td>
+<td class="fielddoc">
+Offset used for pre-transmissions. </td></tr>
+<tr><td class="fieldtype">
+<a id="abd904405a4dc1b411bfa6ee9793bfa06"></a>uint8_t</td>
+<td class="fieldname">
+irc</td>
+<td class="fielddoc">
+The number of times a payload is transmitted in a BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a02e8a147a3e6d60c12b7a1ebdf54b9ad"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu</td>
+<td class="fielddoc">
+Maximum size, in octets, of the payload. </td></tr>
+<tr><td class="fieldtype">
+<a id="aef46b76cc8d88de5bbc2c56fd75cde52"></a>uint16_t</td>
+<td class="fieldname">
+iso_intv</td>
+<td class="fielddoc">
+The interval, in microseconds, of periodic SDUs. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2f82874cc839ee4cd9f4693ab3090327"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+number of streams in the group </td></tr>
+<tr><td class="fieldtype">
+<a id="ab83e0bb903ee6fbcac2550faf45e0683"></a>uint16_t</td>
+<td class="fieldname">
+bis_conn_hdl[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+handles of all streams </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__sync__est__evt__t" id="structst__ble__iso__big__sync__est__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__sync__est__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_big_sync_est_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_sync_est_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>BIG info of a sync established BIG. </p>
+<p>Event Code : BLE_ISO_EVENT_BIG_SYNC_EST </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af4d2f106cd462d4b4562f19af6b74614"></a>uint8_t</td>
+<td class="fieldname">
+status</td>
+<td class="fielddoc">
+status of BIG creation </td></tr>
+<tr><td class="fieldtype">
+<a id="a9aadc179d8540cc5b8fd2e4397916e62"></a>uint8_t</td>
+<td class="fieldname">
+big_hdl</td>
+<td class="fielddoc">
+BIG handle. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1370dea928df245a8f718f1423382acd"></a>uint32_t</td>
+<td class="fieldname">
+latency</td>
+<td class="fielddoc">
+Actual latency returned by controller. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8eda33aca779f69d78f025f12f80e981"></a>uint8_t</td>
+<td class="fieldname">
+nse</td>
+<td class="fielddoc">
+Maximum number of subevents in each isochronous event. </td></tr>
+<tr><td class="fieldtype">
+<a id="abf4d213ec72a82d88319341233d9266f"></a>uint8_t</td>
+<td class="fieldname">
+bn</td>
+<td class="fielddoc">
+The number of new payloads in each BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a856a0c846c27d31650f7f9cb8c298da5"></a>uint8_t</td>
+<td class="fieldname">
+pto</td>
+<td class="fielddoc">
+Offset used for pre-transmissions. </td></tr>
+<tr><td class="fieldtype">
+<a id="aba73c764d9a380e71abb5928fd2d3ca9"></a>uint8_t</td>
+<td class="fieldname">
+irc</td>
+<td class="fielddoc">
+The number of times a payload is transmitted in a BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a736e048764a457a26371b2249cb55de4"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu</td>
+<td class="fielddoc">
+Maximum size, in octets, of the payload. </td></tr>
+<tr><td class="fieldtype">
+<a id="a10996a86b988a6802441eadd8c7b56df"></a>uint16_t</td>
+<td class="fieldname">
+iso_intv</td>
+<td class="fielddoc">
+The interval, in microseconds, of periodic SDUs. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9e7342c0994632d169667e2e717f6e4f"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+number of streams in the group </td></tr>
+<tr><td class="fieldtype">
+<a id="a62649b8c584d13135033199561615c59"></a>uint16_t</td>
+<td class="fieldname">
+bis_conn_hdl[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+handles of all streams </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__biginfo__rept__evt__t" id="structst__ble__iso__biginfo__rept__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__biginfo__rept__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_biginfo_rept_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_biginfo_rept_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>BIG info report in a periodic adv. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8ff72bc10323770b1e2a9ea28f3018e8"></a>uint16_t</td>
+<td class="fieldname">
+sync_hdl</td>
+<td class="fielddoc">
+Periodic Sync that has been established for BIG. </td></tr>
+<tr><td class="fieldtype">
+<a id="a50bca39ede3221488abf699e841c47ef"></a>uint8_t</td>
+<td class="fieldname">
+num_bis</td>
+<td class="fielddoc">
+Number of BISes in the BIG. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7319d03f95c609be84c99a6677ac02d3"></a>uint8_t</td>
+<td class="fieldname">
+sub_evt_count</td>
+<td class="fielddoc">
+Maximum number of subevents in each isochronous event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3a050329935b8cc59b81e524c3d5de8e"></a>uint16_t</td>
+<td class="fieldname">
+iso_intv</td>
+<td class="fielddoc">
+Interval between two BIG anchor point (N * 1.25 ms) </td></tr>
+<tr><td class="fieldtype">
+<a id="a1c0d64a5937f006f520c41478ab9975d"></a>uint8_t</td>
+<td class="fieldname">
+burst_number</td>
+<td class="fielddoc">
+The number of new payloads in each BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5826e0e2aecace746cfde1b254328c4f"></a>uint8_t</td>
+<td class="fieldname">
+pto</td>
+<td class="fielddoc">
+Offset used for pre-transmissions. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7a5b2ce9bc899f08e7be5ed4d9c99c7a"></a>uint8_t</td>
+<td class="fieldname">
+rep_count</td>
+<td class="fielddoc">
+The number of times a payload is transmitted in a BIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa9989e8ca784fd83eec15497e3bec769"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu</td>
+<td class="fielddoc">
+Maximum size, in octets, of the payload. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5bea86f31a4d0a78621ac972a2df8648"></a>uint32_t</td>
+<td class="fieldname">
+sdu_intv</td>
+<td class="fielddoc">
+The interval, in microseconds, of periodic SDUs. </td></tr>
+<tr><td class="fieldtype">
+<a id="aab404ffeea745f9414241e731d42d939"></a>uint16_t</td>
+<td class="fieldname">
+max_sdu</td>
+<td class="fielddoc">
+Maximum size of an SDU, in octets. </td></tr>
+<tr><td class="fieldtype">
+<a id="aac044f239d06dcfca98ec5ade2cdd6d2"></a>uint8_t</td>
+<td class="fieldname">
+phy</td>
+<td class="fielddoc">
+BIG PHY. <table class="doxtable">
+<tr>
+<th align="left">value </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">0x01 </td><td align="left">Broadcast isochronous stream PHY is 1M PHY. </td></tr>
+<tr>
+<td align="left">0x02 </td><td align="left">Broadcast isochronous stream PHY is 2M PHY. </td></tr>
+<tr>
+<td align="left">0x03 </td><td align="left">Broadcast isochronous stream PHY is Coded PHY. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a80dd70e2b54f953ed1e60cdb192cf268"></a>uint8_t</td>
+<td class="fieldname">
+framing</td>
+<td class="fielddoc">
+Channel framing mode. <p>the format of the BIS Data PDUs. BLE_ISO_FRAMING_UNFRAMED for unframed or BLE_ISO_FRAMING_FRAMED for framed. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a06ea806b8858b4427fe3eef38eb75601"></a>uint8_t</td>
+<td class="fieldname">
+encryption</td>
+<td class="fielddoc">
+Whether or not to encrypt the streams. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">value </th><th>description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_UNENCRYPTED </td><td align="left">0x00 </td><td>Unencrypted. </td></tr>
+<tr>
+<td align="left">BLE_ISO_BIG_ENCRYPTED </td><td align="left">0x01 </td><td>Encrypted. </td></tr>
+</table>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cig__set__comp__evt__t" id="structst__ble__iso__cig__set__comp__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cig__set__comp__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_cig_set_comp_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cig_set_comp_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIS. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ad589c70be420682df0abbb5bddae7c9e"></a>uint8_t</td>
+<td class="fieldname">
+cig_id</td>
+<td class="fielddoc">
+number of CIG streams </td></tr>
+<tr><td class="fieldtype">
+<a id="acb66603a0640cc55daa52c85a7da3539"></a>uint8_t</td>
+<td class="fieldname">
+num_cis</td>
+<td class="fielddoc">
+number of CIS streams </td></tr>
+<tr><td class="fieldtype">
+<a id="a73f6ae56cce0dc34d43c3e711be79b4e"></a>uint8_t</td>
+<td class="fieldname">
+cis_id[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+CIS Ids. </td></tr>
+<tr><td class="fieldtype">
+<a id="a689f8e61bca3e774458cbf1895828783"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl[BLE_ISO_MAX_GROUP_ISO_COUNT]</td>
+<td class="fielddoc">
+CIS connection handle. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cis__req__evt__t" id="structst__ble__iso__cis__req__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cis__req__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_cis_req_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cis_req_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIS reqest from remote device. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a65d6ee7ad691fbeda36b15fef868334b"></a>uint8_t</td>
+<td class="fieldname">
+cig_id</td>
+<td class="fielddoc">
+cig_id over peers. Application should check the request by cig_id and cis_id </td></tr>
+<tr><td class="fieldtype">
+<a id="a839bdb5bd62fbff77a71a60f4fb0c872"></a>uint8_t</td>
+<td class="fieldname">
+cis_id</td>
+<td class="fielddoc">
+cis_id over peers. Application should check the request by cig_id and cis_id </td></tr>
+<tr><td class="fieldtype">
+<a id="ac088b22fcb400672add0b1f957031bc2"></a>uint16_t</td>
+<td class="fieldname">
+acl_conn_hdl</td>
+<td class="fielddoc">
+The ACL connection handle over which this cis is created. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa52d490f6ec0bf2763fe7243c4b1fe2b"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl</td>
+<td class="fielddoc">
+The CIS connection handle over which this cis is created. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__reply__cis__req__comp__evt__t" id="structst__ble__iso__reply__cis__req__comp__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__reply__cis__req__comp__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_reply_cis_req_comp_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_reply_cis_req_comp_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Reply CIS reqest Complete event. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8bf36cd666e80c0f08319b8d7c4383bf"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl</td>
+<td class="fielddoc">
+The CIS handle over which this cis is created. </td></tr>
+<tr><td class="fieldtype">
+<a id="afff290f12066041cdd34cc0a40f68d2e"></a>uint8_t</td>
+<td class="fieldname">
+response</td>
+<td class="fielddoc">
+Whether the local device rejected or accepted. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___i_s_o___a_p_i.html#ga899e177a9c1fbf509952fd9e2264e111" title="Accept a CIS request. ">BLE_ISO_CIS_ACCEPT(0x00)</a> </td><td align="left">Accept the CIS request. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___i_s_o___a_p_i.html#ga094f618aaa5270a6e655cbf9fad37ff4" title="Reject a CIS request. ">BLE_ISO_CIS_REJECT(0x01)</a> </td><td align="left">Reject the CIS request. </td></tr>
+</table>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cis__est__evt__t" id="structst__ble__iso__cis__est__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cis__est__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_cis_est_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cis_est_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Information of CIS that was estabilished. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ace5bd16db5e50dfc456d73a91634a87c"></a>uint8_t</td>
+<td class="fieldname">
+status</td>
+<td class="fielddoc">
+status of CIS established </td></tr>
+<tr><td class="fieldtype">
+<a id="a5e17ff27fd57c8e22f2cc6994a960a01"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl</td>
+<td class="fielddoc">
+CIS handler. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6bf7655c114ad05b3c77e72952d7191c"></a>uint32_t</td>
+<td class="fieldname">
+cig_sync_delay</td>
+<td class="fielddoc">
+CIG sync delay. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae915f0414f3e9a209dbb1af62729ae07"></a>uint32_t</td>
+<td class="fieldname">
+cis_sync_delay</td>
+<td class="fielddoc">
+CIS sync delay. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8509d85d53169746e2b20264092f06f6"></a>uint32_t</td>
+<td class="fieldname">
+latency_c2p</td>
+<td class="fielddoc">
+latency of each direction </td></tr>
+<tr><td class="fieldtype">
+<a id="ae9ec4bcf5f3d53e26fdc7cdacec98867"></a>uint32_t</td>
+<td class="fieldname">
+latency_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a3e5640f4eebb37748264c811d89d317e"></a>uint8_t</td>
+<td class="fieldname">
+phy_c2p</td>
+<td class="fielddoc">
+PHY of each direction. </td></tr>
+<tr><td class="fieldtype">
+<a id="a596eb63fdd2f4dd0b9c77aaf1331324c"></a>uint8_t</td>
+<td class="fieldname">
+phy_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a9f01b5f7fc6b36647c2668be95cdb77d"></a>uint8_t</td>
+<td class="fieldname">
+nse</td>
+<td class="fielddoc">
+Maximum number of subevents in each isochronous event. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6e103b82d5478054df24f4a8dbce3beb"></a>uint8_t</td>
+<td class="fieldname">
+bn_c2p</td>
+<td class="fielddoc">
+The number of new payloads in each CIS event. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad6cfeea1314eed1c2f03adecd9c6879c"></a>uint8_t</td>
+<td class="fieldname">
+bn_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa13ffd9dae9a9e89e65170da153512fc"></a>uint8_t</td>
+<td class="fieldname">
+flush_to_c2p</td>
+<td class="fielddoc">
+The flush timeout, in multiples of the ISO_Interval for the CIS. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab473168f2708a2f439e509bfc96a328f"></a>uint8_t</td>
+<td class="fieldname">
+flush_to_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad9820892e634d2410aeb3d089c3ba108"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu_c2p</td>
+<td class="fielddoc">
+Maximum size, in octets, of the payload. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8c9521fe43b1e7a30d1987a8ddafe8b5"></a>uint16_t</td>
+<td class="fieldname">
+max_pdu_p2c</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="abfda5a0626c6c71a8dfcacb976bc9c8b"></a>uint16_t</td>
+<td class="fieldname">
+iso_intv</td>
+<td class="fielddoc">
+The time between two consecutive CIS anchor points. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cis__term__evt__t" id="structst__ble__iso__cis__term__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cis__term__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_cis_term_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cis_term_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIS terminate event. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af476ed08baacee4d40377f27cba0eb02"></a>uint16_t</td>
+<td class="fieldname">
+cis_conn_hdl</td>
+<td class="fielddoc">
+The CIS Connection handle that cis is terminated. </td></tr>
+<tr><td class="fieldtype">
+<a id="a01d2f254bc93ec4de781f06a52fbcf8a"></a>uint8_t</td>
+<td class="fieldname">
+reason</td>
+<td class="fielddoc">
+cis terminated reason. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__rx__data__ind__evt__t" id="structst__ble__iso__rx__data__ind__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__rx__data__ind__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_rx_data_ind_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_rx_data_ind_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO SDU Rx data event structure. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="abcaf2733ab83ab81cc36c357b0e8957f"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Identifier of the logical channel. Should use BIS or CIS handle for this field. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0d74b252aa47f1c98812fda352ac5395"></a>uint16_t</td>
+<td class="fieldname">
+ts_valid</td>
+<td class="fielddoc">
+if 0 then timestamp value is invalid. </td></tr>
+<tr><td class="fieldtype">
+<a id="a59bbe0cb2f6dfb50be7a470a5e256774"></a>uint32_t</td>
+<td class="fieldname">
+timestamp</td>
+<td class="fielddoc">
+timestamp of SDU. Valid when ts_valid is not 0. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4ba4332dd8a1f1d3e1713e79cdaf06d8"></a>uint16_t</td>
+<td class="fieldname">
+seq_num</td>
+<td class="fielddoc">
+sequence number </td></tr>
+<tr><td class="fieldtype">
+<a id="a5177b5a49f7bb83fc6c88a3022c71a3e"></a>uint16_t</td>
+<td class="fieldname">
+sdu_status</td>
+<td class="fielddoc">
+SDU packet status. <p>The sdu_status indicates the status of the packet that the Controller receives over the ISO channel. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ISO_RX_SDU_DATA_VALID(0x00) </td><td align="left">The complete SDU was received correctly. </td></tr>
+<tr>
+<td align="left">BLE_ISO_RX_SDU_DATA_POSSIBLLY_INVALID(0x01) </td><td align="left">SDU data with possible errors. </td></tr>
+<tr>
+<td align="left">BLE_ISO_RX_SDU_DATA_LOST(0x02) </td><td align="left">Parts of the SDU were not received correctly. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1d11de6a777c8684a0c3c7caf4f55b24"></a>uint16_t</td>
+<td class="fieldname">
+sdu_len</td>
+<td class="fielddoc">
+Length of SDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4dcdbed3a666d3c0a442d57314d0d5e5"></a>uint8_t *</td>
+<td class="fieldname">
+p_sdu_data</td>
+<td class="fielddoc">
+SDU data. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__tx__comp__evt__t" id="structst__ble__iso__tx__comp__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__tx__comp__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_tx_comp_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_tx_comp_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Information of ISO SDU that was sent. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af39a8fae6a9d49d53dcdd18d0660d581"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+connection handle of the ISO packet that was sent </td></tr>
+<tr><td class="fieldtype">
+<a id="ace5589b2750e3139c0ed1a40720345b8"></a>uint32_t</td>
+<td class="fieldname">
+seq_num</td>
+<td class="fielddoc">
+sequence number of ISO packet that was sent </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__test__cnt__info__evt__t" id="structst__ble__iso__test__cnt__info__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__test__cnt__info__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_test_cnt_info_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_test_cnt_info_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO test count. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a96fabbb64e2ad2ac8471a1a1a1439fd0"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Indicate an BIS or CIS. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7949488044370caad689c98d6481c7d7"></a>uint32_t</td>
+<td class="fieldname">
+received_cnt</td>
+<td class="fielddoc">
+Number in the Received_SDU_Count. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad7b6d9e0cb0518e98ce8d22cff55d7af"></a>uint32_t</td>
+<td class="fieldname">
+missed_cnt</td>
+<td class="fielddoc">
+Number in the Missed_SDU_Count. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2475d8830d151d6e64727386c14af8ff"></a>uint32_t</td>
+<td class="fieldname">
+failed_cnt</td>
+<td class="fielddoc">
+Number in the Failed_SDU_Count. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__test__end__rept__evt__t" id="structst__ble__iso__test__end__rept__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__test__end__rept__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_test_end_rept_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_test_end_rept_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO test report. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a043156c5f79548b5bed7b69b82c8feba"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Indicate an BIS or CIS. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad9541d7e931f530bd18b4e84c15593f8"></a>uint32_t</td>
+<td class="fieldname">
+received_cnt</td>
+<td class="fielddoc">
+Number in the Received_SDU_Count. </td></tr>
+<tr><td class="fieldtype">
+<a id="a71ac72d83b38b69fdbcc371c9767b987"></a>uint32_t</td>
+<td class="fieldname">
+missed_cnt</td>
+<td class="fielddoc">
+Number in the Missed_SDU_Count. </td></tr>
+<tr><td class="fieldtype">
+<a id="af8c2c2d1a4351f7163027f4ee6165cdb"></a>uint32_t</td>
+<td class="fieldname">
+failed_cnt</td>
+<td class="fielddoc">
+Number in the Failed_SDU_Count. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__link__quality__info__evt__t" id="structst__ble__iso__link__quality__info__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__link__quality__info__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_link_quality_info_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_link_quality_info_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO link qulity information. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a95825c7b79a54e6b44d7a4fccbc549da"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Indicate an BIS or CIS. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8ffb935dfae97e6b57dd15ff56136aa3"></a>uint32_t</td>
+<td class="fieldname">
+tx_unacked_packets</td>
+<td class="fielddoc">
+Value of the Tx_UnACKed_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a23958fb456e6e04c6757b9f0e3cddb7d"></a>uint32_t</td>
+<td class="fieldname">
+tx_flushed_packets</td>
+<td class="fielddoc">
+Value of the Tx_Flushed_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2765c638014578d42ef3498efe36f6f9"></a>uint32_t</td>
+<td class="fieldname">
+tx_last_subevent_packets</td>
+<td class="fielddoc">
+Value of the Tx_Last_Subevent_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a62d1fcdb438ca6a3d5331f3ef7e97ca7"></a>uint32_t</td>
+<td class="fieldname">
+retransmitted_packets</td>
+<td class="fielddoc">
+Value of the Retransmitted_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="aad0d6f3dc78feff568cc8cb14f51c581"></a>uint32_t</td>
+<td class="fieldname">
+crc_error_packets</td>
+<td class="fielddoc">
+Value of the CRC_Error_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a97a937fff4ad0427e2d95c046197edd4"></a>uint32_t</td>
+<td class="fieldname">
+rx_unreceived_packets</td>
+<td class="fielddoc">
+Value of the Rx_Unreceived_Packets counter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a71af2e928a50cd5040252e1698770d67"></a>uint32_t</td>
+<td class="fieldname">
+duplicate_packets</td>
+<td class="fielddoc">
+Value of the Duplicate_Packets counter. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__tx__sync__info__evt__t" id="structst__ble__iso__tx__sync__info__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__tx__sync__info__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_tx_sync_info_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_tx_sync_info_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>iso TX sync information </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="abd588bd033883212fe08dba70e779682"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Indicate an BIS or CIS. </td></tr>
+<tr><td class="fieldtype">
+<a id="a458723d3dee01c7733848c5787c96b77"></a>uint32_t</td>
+<td class="fieldname">
+ts</td>
+<td class="fielddoc">
+CIG reference point or BIG anchor point of a transmitted SDU, in microseconds. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0324f10a3eeeb130f5b87f2d083e0c49"></a>uint32_t</td>
+<td class="fieldname">
+offset</td>
+<td class="fielddoc">
+Time offset, in microseconds. </td></tr>
+<tr><td class="fieldtype">
+<a id="afcc94aaa732d404485f2d5784ecea2d5"></a>uint16_t</td>
+<td class="fieldname">
+seq_num</td>
+<td class="fielddoc">
+Packet sequence number. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__cig__id__evt__t" id="structst__ble__iso__cig__id__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__cig__id__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_cig_id_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_cig_id_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>CIG id. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9be037c65b10529019202707935aaa30"></a>uint8_t</td>
+<td class="fieldname">
+cig_id</td>
+<td class="fielddoc">
+CIG id. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__hdl__evt__t" id="structst__ble__iso__big__hdl__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__hdl__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_big_hdl_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_hdl_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Big handle. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae6c330b33387ff89a88cde0edcb7642a"></a>uint8_t</td>
+<td class="fieldname">
+big_hdl</td>
+<td class="fielddoc">
+BIG handle. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__terminate__comp__evt__t" id="structst__ble__iso__big__terminate__comp__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__terminate__comp__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_big_terminate_comp_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_terminate_comp_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Big handle and big terminate reason. </p><pre class="fragment"></pre><p>. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a465f21da3bdb8ad7269b1bb9da155fd0"></a>uint8_t</td>
+<td class="fieldname">
+big_hdl</td>
+<td class="fielddoc">
+BIG handle. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae305e0e0618c6423840062c9f3c4938a"></a>uint8_t</td>
+<td class="fieldname">
+reason</td>
+<td class="fielddoc">
+Terminate BIG reason. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__big__sync__lost__evt__t" id="structst__ble__iso__big__sync__lost__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__big__sync__lost__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_big_sync_lost_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_big_sync_lost_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Big handle and big terminate reason. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9a23b21d1b821cbcfa1b0d6a9724fec0"></a>uint8_t</td>
+<td class="fieldname">
+big_hdl</td>
+<td class="fielddoc">
+BIG handle. </td></tr>
+<tr><td class="fieldtype">
+<a id="a900b74bd7614f8e6ecfb10f24aeaece9"></a>uint8_t</td>
+<td class="fieldname">
+reason</td>
+<td class="fielddoc">
+Sync Lost reason. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__iso__conn__hdl__evt__t" id="structst__ble__iso__conn__hdl__evt__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__conn__hdl__evt__t">&#9670;&nbsp;</a></span>st_ble_iso_conn_hdl_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_conn_hdl_evt_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>ISO Connection handle. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a091a43c26565e1c43c5c1fdc76bf76bf"></a>uint16_t</td>
+<td class="fieldname">
+conn_hdl</td>
+<td class="fielddoc">
+Indicate an BIS or CIS. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structst__ble__cig__param__test__t" id="structst__ble__cig__param__test__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__cig__param__test__t">&#9670;&nbsp;</a></span>st_ble_cig_param_test_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_cig_param_test_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This is the member variables used in st_ble_iso_cig_test_param_t. </p>
+</div>
+</div>
+</div>
+<a name="structst__ble__iso__set__cig__param__test__param__t" id="structst__ble__iso__set__cig__param__test__param__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structst__ble__iso__set__cig__param__test__param__t">&#9670;&nbsp;</a></span>st_ble_iso_set_cig_param_test_param_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct st_ble_iso_set_cig_param_test_param_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This is the parameters used in <a class="el" href="group___i_s_o___a_p_i.html#ga6f88a6692defdb3b35052b9f5f9b7edc" title="Create a CIG and set the parameters of one or more CISes that are associated with a CIG in the Contro...">R_BLE_ISO_SetCigParamTest()</a>. </p>
+</div>
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga38cfc9b28ef377abe7773a7ad6c0fb17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38cfc9b28ef377abe7773a7ad6c0fb17">&#9670;&nbsp;</a></span>e_ble_iso_evt_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___i_s_o___a_p_i.html#ga38cfc9b28ef377abe7773a7ad6c0fb17">e_ble_iso_evt_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ISO Event Identifier. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17afbef1bdf6069eecc08b01940f82fed2a"></a>BLE_ISO_EVENT_CREATE_BIG_COMP&#160;</td><td class="fielddoc"><p><a class="el" href="group___i_s_o___a_p_i.html#gaafda6cc6c342fd81c828cc58f50a81a3" title="Create a BIG. ">R_BLE_ISO_CreateBig()</a> created a big successfully. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__comp__evt__t" title="BIG info of a created BIG. ">st_ble_iso_big_comp_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a8ffbf1713d896517a52059dcd64ed081"></a>BLE_ISO_EVENT_BIGINFO_REPT&#160;</td><td class="fielddoc"><p>Big Info is detected in a periodic adv data. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__biginfo__rept__evt__t" title="BIG info report in a periodic adv. ">st_ble_iso_biginfo_rept_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a6dbbcb957907a3fc2a25d900db9e8083"></a>BLE_ISO_EVENT_CREATE_BIG_SYNC_COMP&#160;</td><td class="fielddoc"><p>The sync-id specified by <a class="el" href="group___i_s_o___a_p_i.html#ga2039f24a506662c6ea5894742c8380ce" title="Create a BIG sync. ">R_BLE_ISO_CreateBigSync()</a> has already established a big sync. </p>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__hdl__evt__t" title="Big handle. ">st_ble_iso_big_hdl_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a214de507bb5cd864c99b5a51a66cfa4a"></a>BLE_ISO_EVENT_ISO_RX_DATA_IND&#160;</td><td class="fielddoc"><p>An ISO SDU is received. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__rx__data__ind__evt__t" title="ISO SDU Rx data event structure. ">st_ble_iso_rx_data_ind_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a0daca2dc0952a5eec67ef811725dc5cc"></a>BLE_ISO_EVENT_ISO_TX_COMP&#160;</td><td class="fielddoc"><p>An ISO SDU is sent. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__comp__evt__t" title="Information of ISO SDU that was sent. ">st_ble_iso_tx_comp_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a2bb9dbddcc82bcc4f4fa4d1b3ea37778"></a>BLE_ISO_EVENT_BIG_SYNC_EST&#160;</td><td class="fielddoc"><p>The sync-id specified by <a class="el" href="group___i_s_o___a_p_i.html#ga2039f24a506662c6ea5894742c8380ce" title="Create a BIG sync. ">R_BLE_ISO_CreateBigSync()</a> has already established a big sync. </p>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__est__evt__t" title="BIG info of a sync established BIG. ">st_ble_iso_big_sync_est_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a3d574517bc6f757efc61871eb07a0182"></a>BLE_ISO_EVENT_BIG_SYNC_LOST&#160;</td><td class="fielddoc"><p>This event notifies the application layer that the ISO sync has failed. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__lost__evt__t" title="Big handle and big terminate reason. ">st_ble_iso_big_sync_lost_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17aff5dd7f79a012051b547a0a2b8b0c6c5"></a>BLE_ISO_EVENT_BIG_SYNC_TERM&#160;</td><td class="fielddoc"><p>This event notifies the application layer that the BIG sync has been terminated. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__hdl__evt__t" title="Big handle. ">st_ble_iso_big_hdl_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a2f6ed722a5da2d35df4741bc18597780"></a>BLE_ISO_EVENT_CIG_PARAM_SET_COMP&#160;</td><td class="fielddoc"><p>The request for CIG setting parameter has been sent to Controller. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__set__comp__evt__t" title="CIS. ">st_ble_iso_cig_set_comp_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a34a52f32b0a897b2a966f27ea7a86aa2"></a>BLE_ISO_EVENT_CREATE_CIS_COMP&#160;</td><td class="fielddoc"><p>CrateCIS Complete. </p>
+<h2>Event Data:</h2>
+<p>None </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17ad57eee4e4d27743a18e061731c31221a"></a>BLE_ISO_EVENT_CIS_REQ&#160;</td><td class="fielddoc"><p>The CIS request has been received from to remote device. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__req__evt__t" title="CIS reqest from remote device. ">st_ble_iso_cis_req_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17affe9f380a4d1cbebc72938e6ceac09f6"></a>BLE_ISO_EVENT_CIS_EST&#160;</td><td class="fielddoc"><p>An CIS connection is estabilished. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__est__evt__t" title="Information of CIS that was estabilished. ">st_ble_iso_cis_est_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a252303509f399376ac58f99944ba557e"></a>BLE_ISO_EVENT_CIS_TERM&#160;</td><td class="fielddoc"><p>An CIS connection is terminated. </p>
+<h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__term__evt__t" title="CIS terminate event. ">st_ble_iso_cis_term_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a7ba91e7fbf52366f2bf52b27e5ed653d"></a>BLE_ISO_EVENT_SETUP_DATA_PATH_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t" title="ISO Connection handle. ">st_ble_iso_conn_hdl_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17aef7017d637bcb1a0e69545507230f53b"></a>BLE_ISO_EVENT_CIG_REMOVE_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__id__evt__t" title="CIG id. ">st_ble_iso_cig_id_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a0d6fc3a15d1a91b1334d23ef38c73c0c"></a>BLE_ISO_EVENT_TERMINATE_BIG_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__terminate__comp__evt__t" title="Big handle and big terminate reason. . ">st_ble_iso_big_terminate_comp_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a5b6aa97abc6973353e3c713368d9e48f"></a>BLE_ISO_EVENT_REPLY_CIS_REQ_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__reply__cis__req__comp__evt__t" title="Reply CIS reqest Complete event. ">st_ble_iso_reply_cis_req_comp_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17ae831f508c89c3314083b9a1f0a412d4b"></a>BLE_ISO_EVENT_GET_TX_SYNC_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__tx__sync__info__evt__t" title="iso TX sync information ">st_ble_iso_tx_sync_info_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17af57dc64c2705f4de93f7e3ff4df5a8dc"></a>BLE_ISO_EVENT_READ_ANT_INFO_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___g_a_p___a_p_i.html#structst__ble__gap__cte__antenna__info__t" title="This is the parameters used in R_BLE_GAP_GetAntennaInfo(). ">st_ble_gap_cte_antenna_info_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17ac7226b30f05fb1b4dc1001672d70459b"></a>BLE_ISO_EVENT_TX_TEST_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t" title="ISO Connection handle. ">st_ble_iso_conn_hdl_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17ad6a90c8033acbd02681abc3f8c84daed"></a>BLE_ISO_EVENT_RX_TEST_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t" title="ISO Connection handle. ">st_ble_iso_conn_hdl_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a2f6a507eae6eb9c82309f496fffbab37"></a>BLE_ISO_EVENT_READ_TEST_CNT_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__test__cnt__info__evt__t" title="ISO test count. ">st_ble_iso_test_cnt_info_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a28325fba76a3cc7979c0d7ed8e8f4621"></a>BLE_ISO_EVENT_TEST_ENDED&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__test__end__rept__evt__t" title="ISO test report. ">st_ble_iso_test_end_rept_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a8324b77778f7021c3bc8a8aa3b108dbe"></a>BLE_ISO_EVENT_READ_LINK_QUALITY_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__link__quality__info__evt__t" title="ISO link qulity information. ">st_ble_iso_link_quality_info_evt_t</a> </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga38cfc9b28ef377abe7773a7ad6c0fb17a66a7375e646e57571f4d23381877b4e7"></a>BLE_ISO_EVENT_REMOVE_DATA_PATH_COMP&#160;</td><td class="fielddoc"><h2>Event Data:</h2>
+<p><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__conn__hdl__evt__t" title="ISO Connection handle. ">st_ble_iso_conn_hdl_evt_t</a> </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaafda6cc6c342fd81c828cc58f50a81a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaafda6cc6c342fd81c828cc58f50a81a3">&#9670;&nbsp;</a></span>R_BLE_ISO_CreateBig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_CreateBig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>big_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>adv_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__param__t">st_ble_iso_big_param_t</a> *&#160;</td>
+          <td class="paramname"><em>p_big_param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a BIG. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">big_hdl</td><td>BIG handle is assigned by application and identify created big. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">adv_hdl</td><td>Periodic adv handle which carries the biginfo. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_big_param</td><td>BIG param </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga88a962c774146d405f1b396ff6ecb4bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga88a962c774146d405f1b396ff6ecb4bb">&#9670;&nbsp;</a></span>R_BLE_ISO_TerminateBig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_TerminateBig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>big_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reason</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminate a BIG of the big_handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">big_hdl</td><td>handle of the BIG to be terminated. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reason</td><td>The reason for disconnection. Usually, set 0x13 which indicates that a user disconnects the link. If setting other than 0x13, refer the error code described in Core Specification Vol.2 Part D ,"2 Error Code Descriptions". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2039f24a506662c6ea5894742c8380ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2039f24a506662c6ea5894742c8380ce">&#9670;&nbsp;</a></span>R_BLE_ISO_CreateBigSync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_CreateBigSync </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>big_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>sync_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__sync__param__t">st_ble_iso_big_sync_param_t</a> *&#160;</td>
+          <td class="paramname"><em>p_big_sync_param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a BIG sync. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">big_hdl</td><td>BIG handle is assigned by application, and value is passed out. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sync_hdl</td><td>Periodic adv sid which carries the biginfo. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_big_sync_param</td><td>BIG param which is got from biginfo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7aa47fe71f43b17324f182946d3cf0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7aa47fe71f43b17324f182946d3cf0d4">&#9670;&nbsp;</a></span>R_BLE_ISO_TerminateBigSync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_TerminateBigSync </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>big_hdl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminate a BIG sync. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">big_hdl</td><td>handle of the BIG sync to be terminated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga71764cf46562bf617c4ebbcdd68297ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga71764cf46562bf617c4ebbcdd68297ba">&#9670;&nbsp;</a></span>R_BLE_ISO_SetCigParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_SetCigParam </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>cig_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cig__param__t">st_ble_iso_cig_param_t</a> *&#160;</td>
+          <td class="paramname"><em>p_cig_param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a CIG with param. </p>
+<p>This function requests BLE system to create a CIG. The result of this API call is notified in <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17a2f6ed722a5da2d35df4741bc18597780">BLE_ISO_EVENT_CIG_PARAM_SET_COMP</a> event. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cig_id</td><td>CIG is assigned by application, and value is passed out. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cig_param</td><td>CIG param </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1ee201ec2119d29813ca04f95cdfac88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ee201ec2119d29813ca04f95cdfac88">&#9670;&nbsp;</a></span>R_BLE_ISO_CreateCis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_CreateCis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__cis__conn__t">st_ble_iso_cis_conn_t</a> *&#160;</td>
+          <td class="paramname"><em>p_cis_conn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create one or more CISes using the CIS param. </p>
+<p>This function send the CIS requests to the remote devices. The result of this API call is returned by a return value. Remote device receives BLE_ISO_EVENT_CIS_REQ event. The response from remote device is notified in <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17affe9f380a4d1cbebc72938e6ceac09f6">BLE_ISO_EVENT_CIS_EST</a> event. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cis_conn</td><td>CIS param </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga74080c38c6968c14619e05cc1473df9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74080c38c6968c14619e05cc1473df9c">&#9670;&nbsp;</a></span>R_BLE_ISO_RemoveCig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">R_BLE_ISO_RemoveCig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>cig_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>remove a CIG of id and all of CIS streams in this CIG. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cig_id</td><td>CIG id to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaca0ec4f123f0e1a6c111c3fc06402b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca0ec4f123f0e1a6c111c3fc06402b1e">&#9670;&nbsp;</a></span>R_BLE_ISO_TerminateCis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_TerminateCis </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>cis_conn_hdl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminate a CIS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cis_conn_hdl</td><td>connection handle of the CIS to be terminated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf6f11c77997f8a5890f49124c3676de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf6f11c77997f8a5890f49124c3676de6">&#9670;&nbsp;</a></span>R_BLE_ISO_ReplyCisRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_ReplyCisRequest </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>cis_conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>response</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reason</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reply the CIS request from a remote device. </p>
+<p>This function replies to the CIS request from the remote device. The CIS request from the remote device is notified in <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17ad57eee4e4d27743a18e061731c31221a">BLE_ISO_EVENT_CIS_REQ</a> event. The result of this API call is returned by a return value. After this API is executed, <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17a5b6aa97abc6973353e3c713368d9e48f">BLE_ISO_EVENT_REPLY_CIS_REQ_COMP</a> is notified. <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17affe9f380a4d1cbebc72938e6ceac09f6">BLE_ISO_EVENT_CIS_EST</a> is notified when CIS is established. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cis_conn_hdl</td><td>Connection Handle for CIS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">response</td><td>Accept or reject the pairing request from the remote device. <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___i_s_o___a_p_i.html#ga899e177a9c1fbf509952fd9e2264e111" title="Accept a CIS request. ">BLE_ISO_CIS_ACCEPT(0x00)</a> </td><td align="left">Accept the CIS request. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___i_s_o___a_p_i.html#ga094f618aaa5270a6e655cbf9fad37ff4" title="Reject a CIS request. ">BLE_ISO_CIS_REJECT(0x01)</a> </td><td align="left">Reject the CIS request. </td></tr>
+</table>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reason</td><td>The reason for rejecting CIS request. This parameter is ignored when response is BLE_ISO_CIS_ACCEPT. Refer the error code described in Core Specification Vol.2 Part D ,"2 Error Code Descriptions". </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac63deee2067ea28a4edfa584f28b90ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac63deee2067ea28a4edfa584f28b90ea">&#9670;&nbsp;</a></span>R_BLE_ISO_SetupDataPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_SetupDataPath </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__data__path__t">st_ble_iso_data_path_t</a> *&#160;</td>
+          <td class="paramname"><em>p_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create the ISO data path between the Host and the Controller for a CIS. </p>
+<p>This function behaviors depending on the platform. For SoC without Bluetooth Audio support, only the following value are valid in param path: </p><table class="doxtable">
+<tr>
+<th align="left">field </th><th align="left">value  </th></tr>
+<tr>
+<td align="left">path_id </td><td align="left">BLE_ISO_DATA_PATH_HCI </td></tr>
+<tr>
+<td align="left">coding_format </td><td align="left">0xFF (Vendor specific coding format) </td></tr>
+</table>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>CIS handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_path</td><td>data path configuration </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae8e1eb11496d3540d50f34112a827e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8e1eb11496d3540d50f34112a827e84">&#9670;&nbsp;</a></span>R_BLE_ISO_SendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_SendData </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__sdu__t">st_ble_iso_sdu_t</a> *&#160;</td>
+          <td class="paramname"><em>p_sdu_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a SDU payload to a ISO channel of conn_hdl. </p>
+<p>This function copies SDU payload into host's buffer and push the buffer into host's TX queue. Once the payload is accepted by controller scheduler, <a class="el" href="group___i_s_o___a_p_i.html#gga38cfc9b28ef377abe7773a7ad6c0fb17a0daca2dc0952a5eec67ef811725dc5cc">BLE_ISO_EVENT_ISO_TX_COMP</a> event is sent back to application. The maximum size of SDU payload defined by <a class="el" href="group___i_s_o___a_p_i.html#ga9908607143e04d56dbb8c92e632a95a6">BLE_ISO_DATA_MAX_SDU</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>CIS or BIS handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_sdu_info</td><td>SDU info and data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+    <tr><td class="paramname">BLE_ERR_INVALID_PTR(0x0001)</td><td>The reason for this error is as follows.<ul>
+<li>p_sdu_info is specified as NULL.</li>
+<li>p_sdu_data in p_sdu_info is specified as NULL. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">BLE_ERR_INVALID_ARG(0x0003)</td><td>The reason for this error is as follows.<ul>
+<li>ts_valid in p_sdu_info is out of range.</li>
+<li>sdu_len in p_sdu_info is out of range. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">BLE_ERR_MEM_ALLOC_FAILED(0x000C)</td><td>Insufficient memory is needed to generate this function. </td></tr>
+    <tr><td class="paramname">BLE_ERR_INVALID_HDL(0x000E)</td><td>The reason for this error is as follows.<ul>
+<li>Specified unmanaged conn_hdl.</li>
+<li>Specified conn_hdl that is not assigned to the ISO channel (BIS/CIS). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga3407d2ddfc8bbafccc5e24c8c98b287d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3407d2ddfc8bbafccc5e24c8c98b287d">&#9670;&nbsp;</a></span>R_BLE_ISO_CreateBigTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_CreateBigTest </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>big_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>adv_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i_s_o___a_p_i.html#structst__ble__iso__big__test__param__t">st_ble_iso_big_test_param_t</a> *&#160;</td>
+          <td class="paramname"><em>p_big_test_param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create one or more BISes of a BIG (see [Vol 6] Part B, Section 4.4.6). All BISes in the BIG have the same values for all parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">big_hdl</td><td>Used to identify a BIG. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">adv_hdl</td><td>Used to identify an advertising set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_big_test_param</td><td>specified parameter of BIG param test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6f88a6692defdb3b35052b9f5f9b7edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f88a6692defdb3b35052b9f5f9b7edc">&#9670;&nbsp;</a></span>R_BLE_ISO_SetCigParamTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_SetCigParamTest </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>cig_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">st_ble_iso_cig_test_param_t *&#160;</td>
+          <td class="paramname"><em>p_cig_test_param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a CIG and set the parameters of one or more CISes that are associated with a CIG in the Controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cig_id</td><td>cig ID is assigned by host stack, and value is passed out. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cig_test_param</td><td>specified parameter of CIG param_test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0c247db41647044e2252015e02e9ec7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c247db41647044e2252015e02e9ec7c">&#9670;&nbsp;</a></span>R_BLE_ISO_TransmitTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_TransmitTest </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>payload_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure an established CIS or BIS and transmit test payloads which are generated by the Controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">payload_type</td><td>Configuration of SDUs in the payload. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5bc020d69a2bbe5eee6521510c7eaae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5bc020d69a2bbe5eee6521510c7eaae5">&#9670;&nbsp;</a></span>R_BLE_ISO_ReceiveTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_ReceiveTest </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>payload_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure an established CIS or a synchronized BIG to receive payloads. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">payload_type</td><td>Configuration of SDUs in the payload. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabe02d686f07dd812e482a93fd18628fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabe02d686f07dd812e482a93fd18628fb">&#9670;&nbsp;</a></span>R_BLE_ISO_ReadTestCounters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_ReadTestCounters </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the test counters (see [Vol 6] Part B, Section 7) in the Controller which is configured in ISO Receive Test mode for a CIS or BIS specified by the Connection_Handle. Reading the test counters does not reset the test counters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga98108bf64b81a1e4a0e1afa9027ec91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98108bf64b81a1e4a0e1afa9027ec91e">&#9670;&nbsp;</a></span>R_BLE_ISO_TestEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_TestEnd </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Terminate the ISO Transmit and/or Receive Test mode for a CIS or BIS specified by the Connection_Handle parameter but does not terminate the CIS or BIS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga30db32efbae01f58007f3f1ca7760050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30db32efbae01f58007f3f1ca7760050">&#9670;&nbsp;</a></span>R_BLE_ISO_ReadLinkQuality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ble_status_t R_BLE_ISO_ReadLinkQuality </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the values of various counters related to link quality that are associated with the isochronous stream specified by the Connection_Handle parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success, otherwise "HCI Spec Error" in enum RBLE_STATUS_enum. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga09563a8a213062d9bc3ab503ca674250"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09563a8a213062d9bc3ab503ca674250">&#9670;&nbsp;</a></span>R_BLE_ISO_RemoveDataPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">R_BLE_ISO_RemoveDataPath </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>conn_hdl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>path_dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove the input and/or output data path(s) associated with a CIS, CIS configuration, or BIS identified by the Connection_Handle parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_hdl</td><td>Connection handle of the CIS or BIS </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path_dir</td><td>Data path direction.This parameter set by bitfield. <table class="doxtable">
+<tr>
+<th align="left">bit_numer </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">0 </td><td align="left">Remove Input DataPath </td></tr>
+<tr>
+<td align="left">1 </td><td align="left">Remove Output DataPath. </td></tr>
+</table>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">BLE_SUCCESS(0x0000)</td><td>Success </td></tr>
+    <tr><td class="paramname">BLE_ERR_INVALID_CHAN(0x0005)</td><td>The handle does not indicate a CIS or BIS channel. </td></tr>
+    <tr><td class="paramname">BLE_ERR_UNSPECIFIED(0x0013)</td><td>Unspecified error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

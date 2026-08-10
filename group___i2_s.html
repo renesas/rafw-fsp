@@ -1,0 +1,664 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: I2S</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___i2_s.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">I2S</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf8f03ef4bf1e7160445f399154a4af05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#gaf8f03ef4bf1e7160445f399154a4af05">R_I2S_W_Open</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, <a class="el" href="group___i2_s___a_p_i.html#structi2s__cfg__t">i2s_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:gaf8f03ef4bf1e7160445f399154a4af05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaafda558ddb079c710f2914ae227ce081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#gaafda558ddb079c710f2914ae227ce081">R_I2S_W_Write</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, void const *const p_src, uint32_t const bytes)</td></tr>
+<tr class="separator:gaafda558ddb079c710f2914ae227ce081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdfc70658a16dd53df95caa5c9c69c86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#gacdfc70658a16dd53df95caa5c9c69c86">R_I2S_W_Read</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, void *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:gacdfc70658a16dd53df95caa5c9c69c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04b8e2215b1553f465ce9c888824406e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#ga04b8e2215b1553f465ce9c888824406e">R_I2S_W_WriteRead</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, void const *const p_src, void *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:ga04b8e2215b1553f465ce9c888824406e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37c587330b3e1a6a4cd264f44c1a3551"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#ga37c587330b3e1a6a4cd264f44c1a3551">R_I2S_W_Stop</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga37c587330b3e1a6a4cd264f44c1a3551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3d4bcb3454b04c4387064e94dca6820"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#gae3d4bcb3454b04c4387064e94dca6820">R_I2S_W_Mute</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, <a class="el" href="group___i2_s___a_p_i.html#ga59e0c765fddd3ab6aba0d87aaaff0b3b">i2s_mute_t</a> const mute_enable)</td></tr>
+<tr class="separator:gae3d4bcb3454b04c4387064e94dca6820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45f6e65372548c93d92936ce355216e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#ga45f6e65372548c93d92936ce355216e8">R_I2S_W_StatusGet</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl, <a class="el" href="group___i2_s___a_p_i.html#structi2s__status__t">i2s_status_t</a> *const p_status)</td></tr>
+<tr class="separator:ga45f6e65372548c93d92936ce355216e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga519a780d84b0352974326f8abce598ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#ga519a780d84b0352974326f8abce598ad">R_I2S_W_Close</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:ga519a780d84b0352974326f8abce598ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfae81d275553f13f7a4893fc6d8cba6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_s.html#gadfae81d275553f13f7a4893fc6d8cba6">R_I2S_W_CallbackSet</a> (<a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___i2_s___a_p_i.html#structi2s__callback__args__t">i2s_callback_args_t</a> *), void *const p_context, <a class="el" href="group___i2_s___a_p_i.html#structi2s__callback__args__t">i2s_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:gadfae81d275553f13f7a4893fc6d8cba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaf8f03ef4bf1e7160445f399154a4af05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8f03ef4bf1e7160445f399154a4af05">&#9670;&nbsp;</a></span>R_I2S_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#structi2s__cfg__t">i2s_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opens the I2S. Implements <a class="el" href="group___i2_s___a_p_i.html#a126cf17d3f087c894b25e519583e3c7a">i2s_api_t::open</a>.</p>
+<p>This function sets this clock divisor and the configurations specified in <a class="el" href="group___i2_s___a_p_i.html#structi2s__cfg__t">i2s_cfg_t</a>. It also opens the timer and transfer instances if they are provided.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Ready for I2S communication. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl or p_cfg is null. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>The control block has already been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IP_CHANNEL_NOT_PRESENT</td><td>Channel number is not available on this MCU. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. This function calls:<ul>
+<li><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a84d48960cdfe867ef54fd4635a85ceeb">transfer_api_t::open</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gaafda558ddb079c710f2914ae227ce081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaafda558ddb079c710f2914ae227ce081">&#9670;&nbsp;</a></span>R_I2S_W_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *const&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes data buffer to I2S. Implements <a class="el" href="group___i2_s___a_p_i.html#a686e36c470790ae87da1ec6d3aee1058">i2s_api_t::write</a>.</p>
+<p>This function resets the transfer if the transfer interface is used, or writes the length of data that fits in the FIFO then stores the remaining write buffer in the control block to be written in the ISR.</p>
+<p>Write() cannot be called if another write(), read() or writeRead() operation is in progress. Write can be called when the I2S is idle, or after the I2S_EVENT_TX_EMPTY event.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Write initiated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl or p_src was null, or bytes requested was 0. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Another transfer is in progress, data was not written. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNDERFLOW</td><td>A transmit underflow error is pending. Wait for the I2S to go idle before resuming communication. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. This function calls:<ul>
+<li><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a9c096c8d0e78dfbf8b3809a4598b8619">transfer_api_t::reset</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gacdfc70658a16dd53df95caa5c9c69c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacdfc70658a16dd53df95caa5c9c69c86">&#9670;&nbsp;</a></span>R_I2S_W_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads data into provided buffer. Implements <a class="el" href="group___i2_s___a_p_i.html#ae4d0afd7d33ccf206e4dc3ca5227ecd9">i2s_api_t::read</a>.</p>
+<p>This function resets the transfer if the transfer interface is used, or reads the length of data available in the FIFO then stores the remaining read buffer in the control block to be filled in the ISR.</p>
+<p>Read() cannot be called if another write(), read() or writeRead() operation is in progress. Read can be called when the I2S is idle, or after the I2S_EVENT_RX_FULL event.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Read initiated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Peripheral is in the wrong mode or not idle. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl or p_dest was null, or bytes requested was 0. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OVERFLOW</td><td>A receive overflow error is pending. Wait for the I2S to go idle before resuming communication. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. This function calls:<ul>
+<li><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a9c096c8d0e78dfbf8b3809a4598b8619">transfer_api_t::reset</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga04b8e2215b1553f465ce9c888824406e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04b8e2215b1553f465ce9c888824406e">&#9670;&nbsp;</a></span>R_I2S_W_WriteRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_WriteRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *const&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes from source buffer and reads data into destination buffer. Implements <a class="el" href="group___i2_s___a_p_i.html#a0268adf9536947ac5cd8ac2795416a18">i2s_api_t::writeRead</a>.</p>
+<p>writeRead() cannot be called if another write(), read() or writeRead() operation is in progress. writeRead() can be called when the I2S is idle, or after the I2S_EVENT_RX_FULL event.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Write and read initiated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>Peripheral is in the wrong mode or not idle. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter was invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNDERFLOW</td><td>A transmit underflow error is pending. Wait for the I2S to go idle before resuming communication. </td></tr>
+    <tr><td class="paramname">FSP_ERR_OVERFLOW</td><td>A receive overflow error is pending. Wait for the I2S to go idle before resuming communication. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. This function calls:<ul>
+<li><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a9c096c8d0e78dfbf8b3809a4598b8619">transfer_api_t::reset</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga37c587330b3e1a6a4cd264f44c1a3551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga37c587330b3e1a6a4cd264f44c1a3551">&#9670;&nbsp;</a></span>R_I2S_W_Stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Stop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stops I2S. Implements <a class="el" href="group___i2_s___a_p_i.html#a3a101cfd39c85cca163c5daf6bf29e34">i2s_api_t::stop</a>.</p>
+<p>This function disables both transmission and reception, and disables any transfer instances used.</p>
+<p>The I2S will stop on the next frame boundary. Do not restart I2S until it is idle.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>I2S communication stop request issued. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl was null. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or lower level drivers for other possible return codes. </dd></dl>
+
+</div>
+</div>
+<a id="gae3d4bcb3454b04c4387064e94dca6820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3d4bcb3454b04c4387064e94dca6820">&#9670;&nbsp;</a></span>R_I2S_W_Mute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Mute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga59e0c765fddd3ab6aba0d87aaaff0b3b">i2s_mute_t</a> const&#160;</td>
+          <td class="paramname"><em>mute_enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mutes I2S on the next frame boundary. Implements <a class="el" href="group___i2_s___a_p_i.html#ade8bbdbcd534fb6c85d54f770b851d5f">i2s_api_t::mute</a>.</p>
+<p>Data is still written while mute is enabled, but the transmit line outputs zeros.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Transmission is muted. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl was null. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga45f6e65372548c93d92936ce355216e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45f6e65372548c93d92936ce355216e8">&#9670;&nbsp;</a></span>R_I2S_W_StatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_StatusGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#structi2s__status__t">i2s_status_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets I2S status and stores it in provided pointer p_status. Implements <a class="el" href="group___i2_s___a_p_i.html#a1f88823bc677660a18881e9a348e6af0">i2s_api_t::statusGet</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Information stored successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The p_instance_ctrl or p_status parameter was null. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga519a780d84b0352974326f8abce598ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga519a780d84b0352974326f8abce598ad">&#9670;&nbsp;</a></span>R_I2S_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Closes I2S. Implements <a class="el" href="group___i2_s___a_p_i.html#a8c2a70075e8e8b976cf1664f034cc68e">i2s_api_t::close</a>.</p>
+<p>This function powers down the I2S and closes the lower level timer and transfer drivers if they are used.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Device closed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>The pointer to p_ctrl was null. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gadfae81d275553f13f7a4893fc6d8cba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadfae81d275553f13f7a4893fc6d8cba6">&#9670;&nbsp;</a></span>R_I2S_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_I2S_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#ga0fa2b29e32a127c3151b9da8b91e67d6">i2s_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___i2_s___a_p_i.html#structi2s__callback__args__t">i2s_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___i2_s___a_p_i.html#structi2s__callback__args__t">i2s_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback and has option of providing memory for callback structure. Implements <a class="el" href="group___i2_s___a_p_i.html#abfa80234b4d0d03cc916ac431aa49527">i2s_api_t::callbackSet</a></p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NO_CALLBACK_MEMORY</td><td>p_callback is non-secure and p_callback_memory is either secure or NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

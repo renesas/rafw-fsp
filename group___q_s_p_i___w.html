@@ -1,0 +1,2686 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: QSPI_W (r_qspi_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___q_s_p_i___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">QSPI_W (r_qspi_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___m_o_d_u_l_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga5cd02409d5c29d24e026d56bb4d00123"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, uint8_t const *const p_src, uint32_t const bytes, bool const read_after_write)</td></tr>
+<tr class="separator:ga5cd02409d5c29d24e026d56bb4d00123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad027e92524824e95134db199b578aba6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gad027e92524824e95134db199b578aba6">R_QSPI_W_DirectRead</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:gad027e92524824e95134db199b578aba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c826205ab44f757133968d64b60d3b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga6c826205ab44f757133968d64b60d3b0">R_QSPI_W_DirectTransfer</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__direct__transfer__t">spi_flash_direct_transfer_t</a> *const p_transfer, <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga80ecf65e658f5b36bfe0bf2d88dd3ca5">spi_flash_direct_transfer_dir_t</a> direction)</td></tr>
+<tr class="separator:ga6c826205ab44f757133968d64b60d3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55812e3aad4ad743a654df7a282ec28e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga55812e3aad4ad743a654df7a282ec28e">R_QSPI_W_XipEnter</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:ga55812e3aad4ad743a654df7a282ec28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58da5de0e55ec0009aec8fdf0ce5f189"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga58da5de0e55ec0009aec8fdf0ce5f189">R_QSPI_W_XipExit</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:ga58da5de0e55ec0009aec8fdf0ce5f189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaad6b313ea5c3d23a3b213e68691699"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gacaad6b313ea5c3d23a3b213e68691699">R_QSPI_W_Write</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, uint8_t const *const p_src, uint8_t *const p_dest, uint32_t byte_count)</td></tr>
+<tr class="separator:gacaad6b313ea5c3d23a3b213e68691699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3b0ca4ed38da1cbdbc39b644c22bd12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gae3b0ca4ed38da1cbdbc39b644c22bd12">R_QSPI_W_Erase</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, uint8_t *const p_device_address, uint32_t byte_count)</td></tr>
+<tr class="separator:gae3b0ca4ed38da1cbdbc39b644c22bd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab09bb0121aa42364b0866be470234987"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gab09bb0121aa42364b0866be470234987">R_QSPI_W_StatusGet</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__status__t">spi_flash_status_t</a> *const p_status)</td></tr>
+<tr class="separator:gab09bb0121aa42364b0866be470234987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0db3443fe52f29cbc359bc7cd90d486"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gae0db3443fe52f29cbc359bc7cd90d486">R_QSPI_W_BankSet</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, uint32_t bank)</td></tr>
+<tr class="separator:gae0db3443fe52f29cbc359bc7cd90d486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga144e07a35584486828c4d6569d2df812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga144e07a35584486828c4d6569d2df812">R_QSPI_W_SpiProtocolSet</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl, <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga17c347a498a8a9d38ffc36c0de49a535">spi_flash_protocol_t</a> spi_protocol)</td></tr>
+<tr class="separator:ga144e07a35584486828c4d6569d2df812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacebdcf1d1cb164530588c3685f91c159"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gacebdcf1d1cb164530588c3685f91c159">R_QSPI_W_AutoCalibrate</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:gacebdcf1d1cb164530588c3685f91c159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae90ed5c3780af0a9e819b385ef3e454f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gae90ed5c3780af0a9e819b385ef3e454f">R_QSPI_W_Close</a> (<a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *p_ctrl)</td></tr>
+<tr class="separator:gae90ed5c3780af0a9e819b385ef3e454f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the QSPI peripheral on RRQ MCUs. This module implements the <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html">SPI Flash Interface</a>. </p>
+<h1><a class="anchor" id="r-qspi_w-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="r-qspi_w-features"></a>
+Features</h2>
+<p>The QSPI driver has the following key features:</p><ul>
+<li>Support Double Data Rate</li>
+<li>Memory mapped read access to the QSPI flash</li>
+<li>Programming the QSPI flash device<a class="anchor" id="um_qspi_w_page_program"></a></li>
+<li>Erasing the QSPI flash device<a class="anchor" id="um_qspi_w_erase"></a></li>
+<li>Sending device specific commands and reading back responses<a class="anchor" id="um_qspi_w_custom_write"></a><a class="anchor" id="um_qspi_w_custom_read"></a></li>
+<li>Entering and exiting QPI mode</li>
+<li>Entering and exiting XIP mode<a class="anchor" id="um_qspi_w_xip_mode"></a></li>
+<li>3 or 4 byte addressing<a class="anchor" id="um_qspi_w_4byte_address"></a> </li>
+</ul>
+<h1><a class="anchor" id="r-qspi_w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for r_qspi_w</h2>
+The following build time configurations are defined in fsp_cfg/r_qspi_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+</table>
+ <h2>Configurations for Storage &gt; QSPI FLASH (r_qspi_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Storage &gt; QSPI FLASH (r_qspi_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> General  </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Name</td><td>Name must be a valid C symbol</td><td>g_qspi_w0 </td><td>Module name. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Channel</td><td>Channel not available on selected MCU</td><td>0 </td><td>Module Channel. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Address Bytes</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+3</li>
+<li>
+4</li>
+<li>
+4 with 4-byte read code</li>
+</ul>
+</td><td>3 </td><td>Select the number of address bytes. Selecting '4 with 4-byte read code' converts the default read code determined in Read Mode to the 4-byte version. If 4-byte mode is selected without using 4-byte commands, the application must issue the EN4B command using R_QSPI_W_Direct(). </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Page Size Bytes</td><td>Must be an integer greater than 0</td><td>256 </td><td>The maximum number of bytes allowed for a single write. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Data Rate Mode</td><td>SDR</td><td>SDR </td><td>Select QSPI Mode. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Drive Current</td><td>MCU Specific Options</td><td></td><td>Set the Drive Strength of the QSPI Controller. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Slew Rate</td><td>MCU Specific Options</td><td></td><td>Set the Slew Rate of the QSPI Controller. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Data Cache</td><td>MCU Specific Options</td><td></td><td>Enable the dCache Controller. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">SPI Clock Polarity</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Low</li>
+<li>
+High</li>
+</ul>
+</td><td>Low </td><td>Select the polarity of QSPI_W_CLK when QSPI_W_CS is high. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Wrap Mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+TX/RX Disabled</li>
+<li>
+RX Enabled/TX Disabled</li>
+<li>
+TX Enabled/RX Disabled</li>
+<li>
+TX/RX Enabled</li>
+</ul>
+</td><td>module.driver.qspi_w.wrap_mode.disabled </td><td>Select if Wrapping Burst is enabled. </td></tr>
+<tr class="tree_lvl_1_item">
+<td class="tree_lvl_1_cell">Memory Burst Length</td><td>MCU Specific Options</td><td></td><td>Set the external memory burst length of the QSPI Controller. </td></tr>
+<tr class="tree_lvl_1">
+<td class="tree_lvl_1" colspan="4"><span class="chevron-collapsed"></span> Command Definitions  </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; Read Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Read Mode Opcode</td><td>Value must be a non-negative integer</td><td>0xEB </td><td>Select the read mode for memory mapped access. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Read Mode Wrapping Burst Opcode</td><td>Value must be a non-negative integer</td><td>0 </td><td>Enter the read opcode for wrapping burst memory mapped access. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Extra Byte Value</td><td>Value must be a non-negative integer</td><td>0xFF </td><td>Enter the value for the extra byte. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Extra Byte Enable</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+Enabled</li>
+</ul>
+</td><td>Disabled </td><td>Enable the transmission of the extra byte. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">CS High Minimum Cycles</td><td>Value must be a non-negative integer</td><td>0x01 </td><td>Between the transmissions of two different instructions to the memory device, the SPI bus stays in idle state (QSPI_CS high) for at least this number of QSPI_SCK clock cycles. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Instruction Opcode Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for sending the instruction's opcode. This can be determined by referencing the datasheet for the external QSPI. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Address &amp; Dummy Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>4 </td><td>Select the number of lines to use for the address bytes &amp; dummy bytes. This can be determined by referencing the datasheet for the external QSPI. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>4 </td><td>Select the number of lines to use for the data bytes. This can be determined by referencing the datasheet for the external QSPI. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Dummy Clocks</td><td>MCU Specific Options</td><td></td><td>Select the number of dummy clocks for fast read operations. Default is 6 clocks for Fast Read Quad I/O, 4 clocks for Fast Read Dual I/O, and 8 clocks for other fast read instructions including Fast Read Quad Output, Fast Read Dual Output, and Fast Read </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Instruction Mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+TX Instr At Any Burst Access</li>
+<li>
+TX Instr Only At First Access</li>
+</ul>
+</td><td>TX Instr At Any Burst Access </td><td>Select whether you want to transmit instruction at any burst access or only in the first access after the selection of Auto Mode. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; Page Program Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Page Program Command Opcode</td><td>Must be an 8-bit QSPI Page Program Command</td><td>0x02 </td><td>The command to program a page. If 'Support Multiple Line Program in Extended SPI Mode' is Enabled, this command must use the same number of data lines as the selected read mode. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Page Program Command Wrapping Burst Opcode</td><td>Value must be a non-negative integer</td><td>0 </td><td>Enter the page program opcode for wrapping burst memory mapped access. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">CS High Minimum Cycles</td><td>Value must be a non-negative integer</td><td>0x01 </td><td>After the execution of the write command, the QSPI_CS remains high for at least this number of QSPI_SCK clock cycles. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Instruction Opcode Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for sending the instruction's opcode. This can be determined by referencing the datasheet for the external QSPI. It should either be 1 or match the number of data lines used for memory mapped fast read operations. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Address, Dummy Data &amp; Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for the address bytes, dummy bytes &amp; data bytes. This can be determined by referencing the datasheet for the external QSPI. It should either be 1 or match the number of data lines used for memory mapped fast read operations. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Dummy Clocks</td><td>MCU Specific Options</td><td></td><td>Select the number of dummy clocks for fast read operations. Default is 6 clocks for Fast Read Quad I/O, 4 clocks for Fast Read Dual I/O, and 8 clocks for other fast read instructions including Fast Read Quad Output, Fast Read Dual Output, and Fast Read </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; Status Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Opcode</td><td>Must be an 8-bit QSPI Status Command</td><td>0x05 </td><td>The command to query the status of a write or erase command. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Instruction Opcode Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for sending the instruction's opcode. This can be determined by referencing the datasheet for the external QSPI. It should either be 1 or match the number of data lines used for memory mapped fast read operations. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Receive Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for the received data bytes. This can be determined by referencing the datasheet for the external QSPI. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Write Status Bit Pos</td><td>Must be an integer between 0 and 7</td><td>0 </td><td>Which bit contains the write in progress status returned from the Write Status Command. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; Write Enable Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Opcode</td><td>Must be an 8-bit QSPI Write Enable Command</td><td>0x06 </td><td>The command to enable write. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Write Enable Bit Pos</td><td>Must be an integer between 0 and 7</td><td>1 </td><td>This bit will wait until the write data to be available before to start sending the write command sequence. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for the opcode byte. This can be determined by referencing the datasheet for the external QSPI. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; Erase Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Sector Erase Opcode</td><td>Must be an 8-bit QSPI Sector Erase Opcode under Command Definitions|Erase Command</td><td>0x20 </td><td>The command to erase a sector. Set Sector Erase Size to 0 if unused. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Sector Erase Size</td><td>Must be an integer greater than or equal to 0</td><td>4096 </td><td>The sector erase size. Set Sector Erase Size to 0 if Sector Erase is not supported. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Block Erase Opcode</td><td>Must be an 8-bit QSPI Block Erase Opcode under Command Definitions|Erase Command</td><td>0xD8 </td><td>The command to erase a block. Set Block Erase Size to 0 if unused. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Block Erase Size</td><td>Must be an integer greater than or equal to 0</td><td>65536 </td><td>The block erase size. Set Block Erase Size to 0 if Block Erase is not supported. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Block Erase 32KB Opcode</td><td>Must be an 8-bit QSPI Block Erase 32KB Opcode under Command Definitions|Erase Command</td><td>0x52 </td><td>The command to erase a 32KB block. Set Block Erase Size to 0 if unused. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Block Erase 32KB Size</td><td>Must be an integer greater than or equal to 0</td><td>32768 </td><td>The block erase 32KB size. Set Block Erase 32KB Size to 0 if Block Erase 32KB is not supported. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Chip Erase Opcode</td><td>Must be an 8-bit QSPI Chip Erase Opcode under Command Definitions|Erase Command</td><td>0xC7 </td><td>The command to erase the entire chip. Set Chip Erase Command to 0 if unused. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Instruction Opcode Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for sending the instruction's opcode. This can be determined by referencing the datasheet for the external QSPI. It should either be 1 or match the number of data lines used for memory mapped fast read operations. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Dummy Data &amp; Data Bus Lines</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1</li>
+<li>
+2</li>
+<li>
+4</li>
+</ul>
+</td><td>1 </td><td>Select the number of lines to use for the address bytes, dummy bytes &amp; data bytes. This can be determined by referencing the datasheet for the external QSPI. It should either be 1 or match the number of data lines used for memory mapped fast read operations. </td></tr>
+<tr class="tree_lvl_2">
+<td class="tree_lvl_2" colspan="4"><span class="chevron-collapsed"></span> Command Definitions &gt; XIP Command  </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Enter Command</td><td>Must be an 8-bit QSPI XIP Enter M7-M0 command under Command Definitions|XIPCommand</td><td>0xA5 </td><td>How to set M7-M0 to enter XIP mode. </td></tr>
+<tr class="tree_lvl_2_item">
+<td class="tree_lvl_2_cell">Exit Command</td><td>Must be an 8-bit QSPI XIP Exit M7-M0 command under Command Definitions|XIPCommand</td><td>0xFF </td><td>How to set M7-M0 exit XIP mode. </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-qspi_w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>The QSPI clock is derived from PCLKA.</p>
+<h2><a class="anchor" id="r-qspi_w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>The following pins are available to connect to an external QSPI device:</p><ul>
+<li>QSPICLK: QSPI clock output</li>
+<li>QSPICS: QSPI Chip select</li>
+<li>QSPIDQS:Data Strobe</li>
+<li>QSPID0: Data 0 I/O</li>
+<li>QSPID1: Data 1 I/O</li>
+<li>QSPID2: Data 2 I/O</li>
+<li>QSPID3: Data 3 I/O</li>
+</ul>
+<h1><a class="anchor" id="r-qspi_w-usage_notes"></a>
+Usage Notes</h1>
+<h2>QSPI Memory Mapped Access</h2>
+<p>After R_QSPI_W_Open() completes successfully, the QSPI flash device contents are mapped to address 0x16000000 and can be read like on-chip flash.</p>
+<h1><a class="anchor" id="r-qspi_w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p><a class="anchor" id="um_qspi_w_sections"></a> This is a basic example of minimal use of the QSPI in an application.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define QSPI_W_EXAMPLE_DATA_LENGTH    (1024)</span></div><div class="line"></div><div class="line">uint8_t g_dest[QSPI_W_EXAMPLE_DATA_LENGTH];</div><div class="line"></div><div class="line"><span class="comment">/* Place data in the .qspi_flash section to flash it during programming. */</span></div><div class="line"><span class="keyword">const</span> uint8_t g_src[QSPI_W_EXAMPLE_DATA_LENGTH] BSP_PLACE_IN_SECTION(<span class="stringliteral">&quot;.qspi_flash&quot;</span>) = <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>;</div><div class="line"></div><div class="line"><span class="comment">/* Place code in the .qspi_flash_code section to flash it during programming. */</span></div><div class="line"><span class="keywordtype">void</span> r_qspi_w_example_function(<span class="keywordtype">void</span>) BSP_PLACE_IN_SECTION(<span class="stringliteral">&quot;.qspi_flash_code&quot;</span>) __attribute__((noinline));</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> r_qspi_w_example_function (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Add code here. */</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> r_qspi_w_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line"></div><div class="line">    <span class="comment">/* Open the QSPI instance. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = R_QSPI_W_Open(&amp;g_qspi0_ctrl, &amp;g_qspi0_cfg);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* (Optional) Send device specific initialization commands. */</span></div><div class="line">    r_qspi_w_example_init();</div><div class="line"></div><div class="line">    <span class="comment">/* After R_QSPI_W_Open() and any required device specific intiialization, data can be read directly from the QSPI flash. */</span></div><div class="line">    memcpy(&amp;g_dest[0], &amp;g_src[0], QSPI_W_EXAMPLE_DATA_LENGTH);</div><div class="line"></div><div class="line">    <span class="comment">/* After R_QSPI_W_Open() and any required device specific intiialization, functions in the QSPI flash can be called. */</span></div><div class="line">    r_qspi_w_example_function();</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>Initialization Command Structure Example</h2>
+<p>This is an example of the types of commands that can be used to initialize the QSPI.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define QSPI_W_COMMAND_WRITE_ENABLE             (0x06U)</span></div><div class="line"><span class="preprocessor">#define QSPI_W_COMMAND_WRITE_STATUS_REGISTER    (0x01U)</span></div><div class="line"><span class="preprocessor">#define QSPI_W_COMMAND_ENTER_QPI_MODE           (0x35U)</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define QSPI_W_EXAMPLE_STATUS_REGISTER_1        (0x40)</span></div><div class="line"><span class="preprocessor">#define QSPI_W_EXAMPLE_STATUS_REGISTER_2        (0x00)</span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> r_qspi_w_example_init (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Write status registers */</span></div><div class="line">    <span class="comment">/* Write one byte to enable writing to the status register, then deassert QSSL. */</span></div><div class="line">    uint8_t   data[4];</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line">    data[0] = QSPI_W_COMMAND_WRITE_ENABLE;</div><div class="line">    err     = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;data[0], 1, <span class="keyword">false</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Write 3 bytes, including the write status register command followed by values for both status registers. In the</span></div><div class="line"><span class="comment">     * status registers, set QE to 1 and other bits to their default setting. After all data is written, deassert the</span></div><div class="line"><span class="comment">     * QSSL line. */</span></div><div class="line">    data[0] = QSPI_W_COMMAND_WRITE_STATUS_REGISTER;</div><div class="line">    data[1] = QSPI_W_EXAMPLE_STATUS_REGISTER_1;</div><div class="line">    data[2] = QSPI_W_EXAMPLE_STATUS_REGISTER_2;</div><div class="line">    err     = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;data[0], 3, <span class="keyword">false</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Wait for status register to update. */</span></div><div class="line">    <a class="code" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__status__t">spi_flash_status_t</a> status;</div><div class="line">    <span class="keywordflow">do</span></div><div class="line">    {</div><div class="line">        (void) <a class="code" href="group___q_s_p_i___w.html#gab09bb0121aa42364b0866be470234987">R_QSPI_W_StatusGet</a>(&amp;g_qspi0_ctrl, &amp;status);</div><div class="line">    } <span class="keywordflow">while</span> (<span class="keyword">true</span> == status.<a class="code" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ae20d4bed523ca4e802f5da6fdec4ca43">write_in_progress</a>);</div><div class="line"></div><div class="line">    <span class="comment">/* Write one byte to enter QSPI mode, then deassert QSSL. After entering QPI mode on the device, change the SPI</span></div><div class="line"><span class="comment">     * protocol to QPI mode on the MCU peripheral. */</span></div><div class="line">    data[0] = QSPI_W_COMMAND_ENTER_QPI_MODE;</div><div class="line">    err     = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;data[0], 1, <span class="keyword">false</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    (void) <a class="code" href="group___q_s_p_i___w.html#ga144e07a35584486828c4d6569d2df812">R_QSPI_W_SpiProtocolSet</a>(&amp;g_qspi0_ctrl, <a class="code" href="group___s_p_i___f_l_a_s_h___a_p_i.html#gga17c347a498a8a9d38ffc36c0de49a535abf7718fe53c0e4daa1dcad6f4d6d215e">SPI_FLASH_PROTOCOL_QPI</a>);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>Reading Status Register Example (R_QSPI_W_DirectWrite, R_QSPI_W_DirectRead)</h2>
+<p>This is an example of using R_QSPI_W_DirectWrite followed by R_QSPI_W_DirectRead to send the read status register command and read back the status register from the device.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define QSPI_W_COMMAND_READ_STATUS_REGISTER    (0x05U)</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> r_qspi_w_direct_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Read a status register. */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Write one byte to read the status register. Do not deassert QSSL. */</span></div><div class="line">    uint8_t   data;</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line">    data = QSPI_W_COMMAND_READ_STATUS_REGISTER;</div><div class="line">    err  = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;data, 1, <span class="keyword">true</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read one byte. After all data is read, deassert the QSSL line. */</span></div><div class="line">    err = <a class="code" href="group___q_s_p_i___w.html#gad027e92524824e95134db199b578aba6">R_QSPI_W_DirectRead</a>(&amp;g_qspi0_ctrl, &amp;data, 1);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Status register contents are available in variable &#39;data&#39;. */</span></div><div class="line">}</div><div class="line"></div></div><!-- fragment --> <h2>Querying Device Size Example (R_QSPI_W_DirectWrite, R_QSPI_W_DirectRead)</h2>
+<p>This is an example of using R_QSPI_W_DirectWrite followed by R_QSPI_W_DirectRead to query the device size.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#define QSPI_W_EXAMPLE_COMMAND_READ_ID      (0x9F)</span></div><div class="line"><span class="preprocessor">#define QSPI_W_EXAMPLE_COMMAND_READ_SFDP    (0x5A)</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> r_qspi_w_size_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Many QSPI devices support more than one way to query the device size. Consult the datasheet for your</span></div><div class="line"><span class="comment">     * QSPI device to determine which of these methods are supported (if any). */</span></div><div class="line">    uint32_t  device_size_bytes;</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err;</div><div class="line"></div><div class="line"><span class="preprocessor">#ifdef QSPI_W_EXAMPLE_COMMAND_READ_ID</span></div><div class="line"></div><div class="line">    <span class="comment">/* This example shows how to get the device size by reading the manufacturer ID. */</span></div><div class="line">    uint8_t data[4];</div><div class="line">    data[0] = QSPI_W_EXAMPLE_COMMAND_READ_ID;</div><div class="line">    err     = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;data[0], 1, <span class="keyword">true</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read 3 bytes. The third byte often represents the size of the QSPI, where the size of the QSPI = 2 ^ N. */</span></div><div class="line">    err = <a class="code" href="group___q_s_p_i___w.html#gad027e92524824e95134db199b578aba6">R_QSPI_W_DirectRead</a>(&amp;g_qspi0_ctrl, &amp;data[0], 3);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    device_size_bytes = 1U &lt;&lt; data[2];</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(device_size_bytes);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div><div class="line"><span class="preprocessor">#ifdef QSPI_W_EXAMPLE_COMMAND_READ_SFDP</span></div><div class="line"></div><div class="line">    <span class="comment">/* Read the JEDEC SFDP header to locate the JEDEC flash parameters table. Reference JESD216 &quot;Serial Flash</span></div><div class="line"><span class="comment">     * Discoverable Parameters (SFDP)&quot;. */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Send the standard 0x5A command followed by 3 address bytes (SFDP header is at address 0). */</span></div><div class="line">    uint8_t buffer[16];</div><div class="line">    memset(&amp;buffer[0], 0, <span class="keyword">sizeof</span>(buffer));</div><div class="line">    buffer[0] = QSPI_W_EXAMPLE_COMMAND_READ_SFDP;</div><div class="line">    err       = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;buffer[0], 4, <span class="keyword">true</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read out 16 bytes (1 dummy byte followed by 15 data bytes). */</span></div><div class="line">    err = <a class="code" href="group___q_s_p_i___w.html#gad027e92524824e95134db199b578aba6">R_QSPI_W_DirectRead</a>(&amp;g_qspi0_ctrl, &amp;buffer[0], 16);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read the JEDEC flash parameters to locate the memory size. */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Send the standard 0x5A command followed by 3 address bytes (located in big endian order at offset 0xC-0xE).</span></div><div class="line"><span class="comment">     * These bytes are accessed at 0xD-0xF because the first byte read is a dummy byte. */</span></div><div class="line">    buffer[0] = QSPI_W_EXAMPLE_COMMAND_READ_SFDP;</div><div class="line">    buffer[1] = buffer[0xF];</div><div class="line">    buffer[2] = buffer[0xE];</div><div class="line">    buffer[3] = buffer[0xD];</div><div class="line">    err       = <a class="code" href="group___q_s_p_i___w.html#ga5cd02409d5c29d24e026d56bb4d00123">R_QSPI_W_DirectWrite</a>(&amp;g_qspi0_ctrl, &amp;buffer[0], 4, <span class="keyword">true</span>);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read out 9 bytes (1 dummy byte followed by 8 data bytes). */</span></div><div class="line">    err = <a class="code" href="group___q_s_p_i___w.html#gad027e92524824e95134db199b578aba6">R_QSPI_W_DirectRead</a>(&amp;g_qspi0_ctrl, &amp;buffer[0], 9);</div><div class="line">    <span class="keywordflow">if</span> (FSP_SUCCESS != err)</div><div class="line">    {</div><div class="line">        __BKPT(0);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/* Read the memory density (located in big endian order at offset 0x4-0x7). These bytes are accessed at 0x5-0x8</span></div><div class="line"><span class="comment">     * because the first byte read is a dummy byte. */</span></div><div class="line">    uint32_t memory_density = (uint32_t) ((buffer[8] &lt;&lt; 24) | (buffer[7] &lt;&lt; 16) | (buffer[6] &lt;&lt; 8) | buffer[5]);</div><div class="line">    <span class="keywordflow">if</span> ((1U &lt;&lt; 31) &amp; memory_density)</div><div class="line">    {</div><div class="line">        <span class="comment">/* For densities 4 gigabits and above, bit-31 is set to 1b.  The field 30:0 defines ‘N’ where the density is</span></div><div class="line"><span class="comment">         * computed as 2^N bits (N must be &gt;= 32). This code subtracts 3 from N to divide by 8 to get the size in</span></div><div class="line"><span class="comment">         * bytes instead of bits. */</span></div><div class="line">        device_size_bytes = 1U &lt;&lt; ((memory_density &amp; ~(1U &lt;&lt; 31)) - 3U);</div><div class="line">    }</div><div class="line">    <span class="keywordflow">else</span></div><div class="line">    {</div><div class="line">        <span class="comment">/* For densities 2 gigabits or less, bit-31 is set to 0b.  The field 30:0 defines the size in bits. This</span></div><div class="line"><span class="comment">         * code divides the memory density by 8 to get the size in bytes instead of bits. */</span></div><div class="line">        device_size_bytes = (memory_density / 8) + 1;</div><div class="line">    }</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(device_size_bytes);</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structqspi__w__read__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__read__instr__cfg__t">qspi_w_read_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__read__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__read__status__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__read__status__instr__cfg__t">qspi_w_read_status_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__read__status__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__erase__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__erase__instr__cfg__t">qspi_w_erase_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__erase__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__suspend__resume__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__suspend__resume__instr__cfg__t">qspi_w_suspend_resume_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__suspend__resume__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__break__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__break__instr__cfg__t">qspi_w_break_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__break__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__memblen__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__memblen__cfg__t">qspi_w_memblen_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__memblen__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__write__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__write__instr__cfg__t">qspi_w_write_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__write__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__write__enable__instr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__write__enable__instr__cfg__t">qspi_w_write_enable_instr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__write__enable__instr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__ctrl__ddr__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__ctrl__ddr__cfg__t">qspi_w_ctrl_ddr_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__ctrl__ddr__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__extra__registers__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__extra__registers__cfg__t">qspi_w_extra_registers_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__extra__registers__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__flash__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__flash__cfg__t">qspi_w_flash_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__flash__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__extended__cfg__t">qspi_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structqspi__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqspi__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#structqspi__w__instance__ctrl__t">qspi_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structqspi__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga555b7c2ea30659cb15993953ffc14b1f"><td class="memItemLeft" align="right" valign="top"><a id="ga555b7c2ea30659cb15993953ffc14b1f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga555b7c2ea30659cb15993953ffc14b1f">SPI_FLASH_DUMMY_CLOCKS_32</a></td></tr>
+<tr class="memdesc:ga555b7c2ea30659cb15993953ffc14b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 dummy clocks <br /></td></tr>
+<tr class="separator:ga555b7c2ea30659cb15993953ffc14b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga94a1dfedfafdc945afc11ef1db766bd0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga94a1dfedfafdc945afc11ef1db766bd0">qspi_w_dcache_t</a> </td></tr>
+<tr class="separator:ga94a1dfedfafdc945afc11ef1db766bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7c5c316acf07ec0498b5aade08f1c50"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gae7c5c316acf07ec0498b5aade08f1c50">qspi_w_access_mode_t</a> </td></tr>
+<tr class="separator:gae7c5c316acf07ec0498b5aade08f1c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeaae5bcb37fa2036ce946d47bde26d61"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a> </td></tr>
+<tr class="separator:gaeaae5bcb37fa2036ce946d47bde26d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa767966cdc5fc576fbb1abd07819df9b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gaa767966cdc5fc576fbb1abd07819df9b">qspi_w_qspclk_div_t</a> </td></tr>
+<tr class="separator:gaa767966cdc5fc576fbb1abd07819df9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32b2dee92a757d90d4e2fba074966811"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga32b2dee92a757d90d4e2fba074966811">qspi_w_ers_t</a> </td></tr>
+<tr class="separator:ga32b2dee92a757d90d4e2fba074966811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6d256c6f288af75ec56279db69df96f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gab6d256c6f288af75ec56279db69df96f">qspi_w_clk_mode_t</a> </td></tr>
+<tr class="separator:gab6d256c6f288af75ec56279db69df96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20e3b8d669e42f5535b2ccc0332390fc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga20e3b8d669e42f5535b2ccc0332390fc">qspi_w_drive_current_t</a> </td></tr>
+<tr class="separator:ga20e3b8d669e42f5535b2ccc0332390fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad701214699bc9bd472a8bff2d32c6b54"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gad701214699bc9bd472a8bff2d32c6b54">qspi_w_read_pipe_t</a> </td></tr>
+<tr class="separator:gad701214699bc9bd472a8bff2d32c6b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa15385eb9fcb48ba202edda279481467"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gaa15385eb9fcb48ba202edda279481467">qspi_w_read_pipe_delay_t</a> </td></tr>
+<tr class="separator:gaa15385eb9fcb48ba202edda279481467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5570c5edcda32142da32b314e90d806"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gaf5570c5edcda32142da32b314e90d806">qspi_w_slew_rate_t</a> </td></tr>
+<tr class="separator:gaf5570c5edcda32142da32b314e90d806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6db99a2ad14e2a38e9ce3fab885db67f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga6db99a2ad14e2a38e9ce3fab885db67f">qspi_w_hready_mode_t</a> </td></tr>
+<tr class="separator:ga6db99a2ad14e2a38e9ce3fab885db67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2570e81fb5a9cbb4741ca7d09769fe52"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga2570e81fb5a9cbb4741ca7d09769fe52">qspi_w_instr_md_t</a> </td></tr>
+<tr class="separator:ga2570e81fb5a9cbb4741ca7d09769fe52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f09dc64a2aeb7f45b8d888f508f7822"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga1f09dc64a2aeb7f45b8d888f508f7822">qspi_w_wrap_md_t</a> </td></tr>
+<tr class="separator:ga1f09dc64a2aeb7f45b8d888f508f7822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5f6378f8f285c3495d959bb85fe41f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gae5f6378f8f285c3495d959bb85fe41f1">qspi_w_wrap_wr_en_t</a> </td></tr>
+<tr class="separator:gae5f6378f8f285c3495d959bb85fe41f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac12607790e31c0eb034fa4215b40af2d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gac12607790e31c0eb034fa4215b40af2d">qspi_w_rd_bend_md_t</a> </td></tr>
+<tr class="separator:gac12607790e31c0eb034fa4215b40af2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd865fc96460fc0a3e8f9a6fcf0f803a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gadd865fc96460fc0a3e8f9a6fcf0f803a">qspi_w_rd_rdb_en_t</a> </td></tr>
+<tr class="separator:gadd865fc96460fc0a3e8f9a6fcf0f803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20de929d5b3d1311a40c9be26d402c60"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga20de929d5b3d1311a40c9be26d402c60">qspi_w_extra_byte_t</a> </td></tr>
+<tr class="separator:ga20de929d5b3d1311a40c9be26d402c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab280171d72a023d6ea6e0c59a0c95850"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gab280171d72a023d6ea6e0c59a0c95850">qspi_w_extra_byte_half_t</a> </td></tr>
+<tr class="separator:gab280171d72a023d6ea6e0c59a0c95850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1717c647eea4b057c94e50efba52fd4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gac1717c647eea4b057c94e50efba52fd4">qspi_w_break_t</a> </td></tr>
+<tr class="separator:gac1717c647eea4b057c94e50efba52fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88577dfb55342bc38013117feff25602"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga88577dfb55342bc38013117feff25602">qspi_w_break_sec_hf_t</a> </td></tr>
+<tr class="separator:ga88577dfb55342bc38013117feff25602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ed1516ad8c43285033b1c22699de7e3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga4ed1516ad8c43285033b1c22699de7e3">qspi_w_t_cem_t</a> </td></tr>
+<tr class="separator:ga4ed1516ad8c43285033b1c22699de7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6eb19025df82ff19fa9fc9bea946bec0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga6eb19025df82ff19fa9fc9bea946bec0">qspi_w_memblen_burst_t</a> </td></tr>
+<tr class="separator:ga6eb19025df82ff19fa9fc9bea946bec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadac0452791b732ff593052d45e262d2c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gadac0452791b732ff593052d45e262d2c">qspi_w_sampling_edge_t</a> </td></tr>
+<tr class="separator:gadac0452791b732ff593052d45e262d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f96328e5872388cd3f22d46afd79453"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga0f96328e5872388cd3f22d46afd79453">qspi_w_mode_t</a> </td></tr>
+<tr class="separator:ga0f96328e5872388cd3f22d46afd79453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga274b3ef240f6eaf98c2b38196e6c0461"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga274b3ef240f6eaf98c2b38196e6c0461">qspi_w_busy_level_t</a> </td></tr>
+<tr class="separator:ga274b3ef240f6eaf98c2b38196e6c0461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad964757b5cf02889e16032b676c6576e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#gad964757b5cf02889e16032b676c6576e">qspi_w_stsdly_sel_t</a> </td></tr>
+<tr class="separator:gad964757b5cf02889e16032b676c6576e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga102443117c6c758375463e3818f647f3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q_s_p_i___w.html#ga102443117c6c758375463e3818f647f3">qspi_w_dummy_value_t</a> </td></tr>
+<tr class="separator:ga102443117c6c758375463e3818f647f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structqspi__w__read__instr__cfg__t" id="structqspi__w__read__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__read__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_read_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_read_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Read instruction configuration structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a02399a35259fe80ba3ba74dcc817b750"></a>uint8_t</td>
+<td class="fieldname">
+opcode</td>
+<td class="fielddoc">
+Read command opcode for Incremental Burst or Single read access. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa31e8b7703c1dd98a38059f5606037fd"></a>uint8_t</td>
+<td class="fieldname">
+opcode_wb</td>
+<td class="fielddoc">
+Read command opcode for Wrapping Burst. </td></tr>
+<tr><td class="fieldtype">
+<a id="a541d93ecacd013d9a0f6d594294f1523"></a>uint8_t</td>
+<td class="fieldname">
+extra_byte_value</td>
+<td class="fielddoc">
+Extra Byte value. </td></tr>
+<tr><td class="fieldtype">
+<a id="a94ee85b82a790078f41f086f5e2321f8"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+opcode_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the opcode phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a167cb9a948d56549f4fe7bf036927f4a"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+addr_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the address phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac0c05c7c18e8b230f66e731d6a5ecbea"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+extra_byte_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the extra byte phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="af551232e23ed94f8aca4ce8d814f18d4"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+dummy_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the dummy phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a436cab36f42cb7a5af7ff1a9ab0dd6c9"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+data_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the data phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1d6f7be51a093cf12d14e8d73712033f"></a><a class="el" href="group___q_s_p_i___w.html#ga20de929d5b3d1311a40c9be26d402c60">qspi_w_extra_byte_t</a></td>
+<td class="fieldname">
+extra_byte_en: 1</td>
+<td class="fielddoc">
+Enable Extra Byte. </td></tr>
+<tr><td class="fieldtype">
+<a id="a86c6b7ab0b2742e67508e90eb2025a30"></a><a class="el" href="group___q_s_p_i___w.html#gab280171d72a023d6ea6e0c59a0c95850">qspi_w_extra_byte_half_t</a></td>
+<td class="fieldname">
+extra_byte_half_cfg: 1</td>
+<td class="fielddoc">
+Enable Extra Byte Half. </td></tr>
+<tr><td class="fieldtype">
+<a id="abd0c4e6e00a13e0431947bc635d9ee77"></a>uint8_t</td>
+<td class="fieldname">
+dummy_bytes: 5</td>
+<td class="fielddoc">
+The number of dummy bytes. Valid values are 0..31 i.e. 1..32 dummy bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0ec7e0bc3c3f7df0ad6d6f6de61a15c9"></a>bool</td>
+<td class="fieldname">
+dummy_en</td>
+<td class="fielddoc">
+Enable dummy bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4176ee91b52f5b5a4c6b3cb181dad592"></a>bool</td>
+<td class="fieldname">
+dummy_force</td>
+<td class="fielddoc">
+On setting this bit the no: of dummy bytes is set to 3 always irrespective of value provided in dummy_bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae742eaa8cd4ab19fb9c481e2904e9470"></a><a class="el" href="group___q_s_p_i___w.html#ga2570e81fb5a9cbb4741ca7d09769fe52">qspi_w_instr_md_t</a></td>
+<td class="fieldname">
+instr_md: 1</td>
+<td class="fielddoc">
+Instruction mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="abc5c3be61d77bae3c1789e4631ddcf9f"></a><a class="el" href="group___q_s_p_i___w.html#ga1f09dc64a2aeb7f45b8d888f508f7822">qspi_w_wrap_md_t</a></td>
+<td class="fieldname">
+wrap_md: 1</td>
+<td class="fielddoc">
+Wrap mode enable bit. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac6cb6a22935fad39746e50093ad79d3e"></a>uint8_t</td>
+<td class="fieldname">
+wrap_blen: 3</td>
+<td class="fielddoc">
+It describes the length in number of bytes of the selected wrapping burst(see also the register QSPIC_WRAP_MD). </td></tr>
+<tr><td class="fieldtype">
+<a id="aad02ff5ebb12d4e8674938e2c909787b"></a>uint8_t</td>
+<td class="fieldname">
+wrap_size: 2</td>
+<td class="fielddoc">
+Selected data size of a wrapping burst. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8431155bd2e3bed8485b80f67cb736d5"></a><a class="el" href="group___q_s_p_i___w.html#gae5f6378f8f285c3495d959bb85fe41f1">qspi_w_wrap_wr_en_t</a></td>
+<td class="fieldname">
+wrap_wr_en: 1</td>
+<td class="fielddoc">
+By setting (1) this bit, any write wrapping burst will be implemented by using a special write instruction. </td></tr>
+<tr><td class="fieldtype">
+<a id="a09064b95c211a2ae29013e94e8dcfaad"></a>uint8_t</td>
+<td class="fieldname">
+cs_high_min_cycles: 5</td>
+<td class="fielddoc">
+The SPI bus stays in idle state (QSPI_CS high) for at least this number of QSPI_SCK clock cycles between two consecutive read commands. </td></tr>
+<tr><td class="fieldtype">
+<a id="a82677ad567d9a66b002ee69000630513"></a><a class="el" href="group___q_s_p_i___w.html#gac12607790e31c0eb034fa4215b40af2d">qspi_w_rd_bend_md_t</a></td>
+<td class="fieldname">
+rd_bend_md: 1</td>
+<td class="fielddoc">
+Defines the behavior of the controller when a read burst is terminated early in the AMBA bus. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4d6c6221ea4694c94e6546e658c05199"></a><a class="el" href="group___q_s_p_i___w.html#gadd865fc96460fc0a3e8f9a6fcf0f803a">qspi_w_rd_rdb_en_t</a></td>
+<td class="fieldname">
+rd_rdb_en: 1</td>
+<td class="fielddoc">
+Write 1 to set the read pipeline in burst mode while are retrieved the data of the memory device. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__read__status__instr__cfg__t" id="structqspi__w__read__status__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__read__status__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_read_status_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_read_status_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC read status instruction configuration structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a0cf5ff423b03254ff97e7a46b6e98722"></a>uint8_t</td>
+<td class="fieldname">
+opcode</td>
+<td class="fielddoc">
+Read Status command opcode. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8ab1e9f23f9a4035c3be1c4eab0d785c"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+opcode_bus_mode: 2</td>
+<td class="fielddoc">
+The bus mode of the opcode phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad3d311b23830c39f73d27ab51153ef16"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+receive_bus_mode: 2</td>
+<td class="fielddoc">
+The bus mode of the receive data phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="ada0e0017022a3b2d765f50c8b6896e2c"></a>uint32_t</td>
+<td class="fieldname">
+busy_pos: 3</td>
+<td class="fielddoc">
+The position of the Busy bit in the status register (0 - 7). </td></tr>
+<tr><td class="fieldtype">
+<a id="ab2c5bba7be7d9aca9246da6d1afb9dac"></a>uint8_t</td>
+<td class="fieldname">
+delay_cycles: 7</td>
+<td class="fielddoc">
+The minimum delay in clock cycles between a Read Status command and the previous Erase command. Usually NOT needed thus is set equal to 0. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7b7ab40057f4ba14faec97e5bc8ee867"></a><a class="el" href="group___q_s_p_i___w.html#gad964757b5cf02889e16032b676c6576e">qspi_w_stsdly_sel_t</a></td>
+<td class="fieldname">
+stsdly_sel: 1</td>
+<td class="fielddoc">
+Select the timer which is used to count the delay before reading the flash status register, after an erase or an erase resume command. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab35a67a98d187519ae3311e1bb602b38"></a><a class="el" href="group___q_s_p_i___w.html#ga274b3ef240f6eaf98c2b38196e6c0461">qspi_w_busy_level_t</a></td>
+<td class="fieldname">
+busy_level: 1</td>
+<td class="fielddoc">
+Busy bit level. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2ebb3f9f936376057627dd2ab9e9c78f"></a>uint8_t</td>
+<td class="fieldname">
+rstat_dmy_num: 4</td>
+<td class="fielddoc">
+Number of dummy bytes (minus 1). </td></tr>
+<tr><td class="fieldtype">
+<a id="a8ed139eec94afd11c0eba348a485f350"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+dummy_bus_mode: 2</td>
+<td class="fielddoc">
+The bus mode of the dummy data phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="aafba46072cbb13e9f78e196b8147b798"></a><a class="el" href="group___q_s_p_i___w.html#ga102443117c6c758375463e3818f647f3">qspi_w_dummy_value_t</a></td>
+<td class="fieldname">
+dummy_value: 1</td>
+<td class="fielddoc">
+Define the value that is transferred on the SPI bus during the phase of the dummy bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8f1569fbb32fb0d04697cfe178b6ece9"></a>bool</td>
+<td class="fieldname">
+rstat_dmy_en</td>
+<td class="fielddoc">
+Enables the transmission of dummy bytes, immediately after the instruction code of the read status command. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2b099abbf324439f053702def8860265"></a>bool</td>
+<td class="fieldname">
+rstat_rdb_en</td>
+<td class="fielddoc">
+If enabled, sets the read pipeline in burst mode while is retrieved the status of the memory device. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3f44b1f3ed6182b961412c2609493d46"></a>bool</td>
+<td class="fieldname">
+rstat_split_en</td>
+<td class="fielddoc">
+If enabled, a long sequence for the continuous reading of the status register will be divided into individual accesses. </td></tr>
+<tr><td class="fieldtype">
+<a id="a612176fe4f3a7ae629e882cad17d544a"></a>bool</td>
+<td class="fieldname">
+rstat_req</td>
+<td class="fielddoc">
+If enabled, the value of the status register of the memory device will be retrieved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__erase__instr__cfg__t" id="structqspi__w__erase__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__erase__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_erase_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_erase_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Erase instruction configuration structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a4567034915c42251cb532920ac263fef"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+opcode_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the opcode phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="af632559671566d563f0caf67656460da"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+addr_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the address phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a17635c1c0befb3e53832f2cd87edba70"></a>uint32_t</td>
+<td class="fieldname">
+hclk_cycles: 4</td>
+<td class="fielddoc">
+The number of AMBA AHB hclk cycles (0..15) without memory read requests before executing an erase or erase resume command. Use this setting to delay one of the aforementioned commands otherwise keep it 0. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3bcd5419ccb32c1dcc6704d8e311ee11"></a>uint8_t</td>
+<td class="fieldname">
+opcode</td>
+<td class="fielddoc">
+Erase command opcode. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae13af2dfb83b04f33d6a8e9ceea11df2"></a>uint8_t</td>
+<td class="fieldname">
+cs_idle_delay_cycles: 5</td>
+<td class="fielddoc">
+The minimum CS idle delay in clock cycles (&lt; 32) between a Write Enable, Erase, Erase Suspend or Erase Resume command and the next consecutive command. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__suspend__resume__instr__cfg__t" id="structqspi__w__suspend__resume__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__suspend__resume__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_suspend_resume_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_suspend_resume_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Erase suspend/resume instruction structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ac442231137e9325b782c8589215cdb40"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+suspend_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode during the erase suspend command phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1fdc1cc8e79cc685669d84887166a70e"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+resume_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode during the erase resume command phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a504ff090db33b659a4a78788f7d995b5"></a>uint8_t</td>
+<td class="fieldname">
+suspend_opcode</td>
+<td class="fielddoc">
+Erase suspend instruction code. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6d08f994b003e5c3f8b4545389144698"></a>uint8_t</td>
+<td class="fieldname">
+resume_opcode</td>
+<td class="fielddoc">
+Erase resume instruction code. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0695b74b18b9de5fc8f8a2e77a609efe"></a>uint8_t</td>
+<td class="fieldname">
+res_sus_latency_clk_cycles: 6</td>
+<td class="fielddoc">
+The minimum required latency (clock cycles) between an erase resume and the next consequent erase suspend command. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac6a8a0ac8fbcc77c30be85bf6777bc2e"></a>uint8_t</td>
+<td class="fieldname">
+sussts_dly: 6</td>
+<td class="fielddoc">
+Defines a timer that counts the minimum allowed delay between an erase suspend command and the next read status command. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__break__instr__cfg__t" id="structqspi__w__break__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__break__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_break_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_break_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Read break sequence structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a7a6e53f3fdc00733d79e20529cf14b87"></a>uint16_t</td>
+<td class="fieldname">
+break_opcode</td>
+<td class="fielddoc">
+The code value of the read break instruction. </td></tr>
+<tr><td class="fieldtype">
+<a id="a136adaadd6e576e029ca4594b0e05777"></a>uint8_t</td>
+<td class="fieldname">
+break_sz: 4</td>
+<td class="fielddoc">
+The size of Burst Break Sequence 1..16 bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa5e660ffca17378c011addf9a7ac6a0d"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+break_tx_md: 2</td>
+<td class="fielddoc">
+The mode of the QSPI Bus during the transmission of the burst break sequence. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae03d3130731ebd33582ddfdfefae2252"></a><a class="el" href="group___q_s_p_i___w.html#ga88577dfb55342bc38013117feff25602">qspi_w_break_sec_hf_t</a></td>
+<td class="fieldname">
+break_sec_hf: 1</td>
+<td class="fielddoc">
+Disable output during the transmission of the second half. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6f26e0a27463b4411983f3d48a05dd7f"></a><a class="el" href="group___q_s_p_i___w.html#gac1717c647eea4b057c94e50efba52fd4">qspi_w_break_t</a></td>
+<td class="fieldname">
+break_en: 1</td>
+<td class="fielddoc">
+Controls the application of a special command (read burst break sequence) that is used in order to force the device to abandon the continuous read mode. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__memblen__cfg__t" id="structqspi__w__memblen__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__memblen__cfg__t">&#9670;&nbsp;</a></span>qspi_w_memblen_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_memblen_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC External memory burst length configuration. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1177ad234404e52179d59b7f55f4462e"></a><a class="el" href="group___q_s_p_i___w.html#ga6eb19025df82ff19fa9fc9bea946bec0">qspi_w_memblen_burst_t</a></td>
+<td class="fieldname">
+memblen: 4</td>
+<td class="fielddoc">
+In this register is defined the expected behavior of the external memory device regarding the length of a burst operation. </td></tr>
+<tr><td class="fieldtype">
+<a id="a63e14f10eda39d9376628f1006c22af6"></a>uint16_t</td>
+<td class="fieldname">
+tcem_cc: 12</td>
+<td class="fielddoc">
+Defines the maximum allowed time tCEM for which the QSPIC_CS can stay active (when tcem_en=1). </td></tr>
+<tr><td class="fieldtype">
+<a id="a481e3c124b2503c8d677aa299296f41f"></a><a class="el" href="group___q_s_p_i___w.html#ga4ed1516ad8c43285033b1c22699de7e3">qspi_w_t_cem_t</a></td>
+<td class="fieldname">
+tcem_en: 1</td>
+<td class="fielddoc">
+This bit enables the controlling of the maximum time tCEM for which the QSPI_CS remains active (auto mode and PSRAM). </td></tr>
+<tr><td class="fieldtype">
+<a id="aba16a867248cc5e71e95372d6910f80e"></a>bool</td>
+<td class="fieldname">
+rd_lin_en: 1</td>
+<td class="fielddoc">
+By setting (1) in this bit the access limits that are set with the QSPIC_MEMBLEN are ignored for the read operation. </td></tr>
+<tr><td class="fieldtype">
+<a id="aed758060942f541e7de7674e061e1f56"></a>bool</td>
+<td class="fieldname">
+keep_active: 1</td>
+<td class="fielddoc">
+By setting (1) in this bit the controller will keep the access active in order to serve consecutive accesses, without toggling the chip select of the memory,when this is possible. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6b7057297e73caca92882b1ec2a0765a"></a>bool</td>
+<td class="fieldname">
+wcmd_hybrid: 1</td>
+<td class="fielddoc">
+By setting (1) in this bit, the special commands that used during wrap bursts. </td></tr>
+<tr><td class="fieldtype">
+<a id="af80b2bfc7c412e57c340f2ed00f0d7d5"></a>uint8_t</td>
+<td class="fieldname">
+dielen: 4</td>
+<td class="fielddoc">
+The size of each die from which the memory device is consisted. </td></tr>
+<tr><td class="fieldtype">
+<a id="a46c5c5a82ab9ff16d0ddbef9e28f8f82"></a>uint8_t</td>
+<td class="fieldname">
+active_thr: 4</td>
+<td class="fielddoc">
+Defines the maximum number of AHB clock cycles for which the memory should stay without access, before the active access to be aborted. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__write__instr__cfg__t" id="structqspi__w__write__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__write__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_write_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_write_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Write instruction structure (manual &amp; auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a336dabf84a1e327d0faae5afaf2bba9f"></a>uint8_t</td>
+<td class="fieldname">
+write_opcode</td>
+<td class="fielddoc">
+The code value of the write instruction. </td></tr>
+<tr><td class="fieldtype">
+<a id="a753d8b5ff788fbc810838238590123f4"></a>uint8_t</td>
+<td class="fieldname">
+write_opcode_wb</td>
+<td class="fielddoc">
+The code value of the write instruction in wrapping burst. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad7cfac4a666fa40a9846cd95c0faefe5"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+opcode_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the opcode phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab29549d63285ed13280a4c79cc15edd1"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+addr_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the address phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a348086af6bf274c243cc42d7fc2a9dc9"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+data_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the data phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a689a1700eb7f18363b295958ffa11010"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+dummy_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the dummy data phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="aaf03681913a8ffdf21b34cfc035f1023"></a>uint8_t</td>
+<td class="fieldname">
+dummy_bytes: 5</td>
+<td class="fielddoc">
+The number of dummy bytes. Valid values are 0..31 i.e. 1..32 dummy bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9361b638b1b3c80e71d9d6c961e14bdc"></a>bool</td>
+<td class="fieldname">
+dummy_en</td>
+<td class="fielddoc">
+Enable dummy bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="a848dbb989d6e0ee5e9eb338d1fad8b6a"></a>bool</td>
+<td class="fieldname">
+wdex_en</td>
+<td class="fielddoc">
+If enabled wait until the write data to be available before to start sending the write command sequence. </td></tr>
+<tr><td class="fieldtype">
+<a id="a59394b6482127405f5c025b277b21c9c"></a>uint8_t</td>
+<td class="fieldname">
+cs_hi_min_clk_cycles: 5</td>
+<td class="fielddoc">
+After the execution of the write command, the QSPI_CS remains high for at least this number of QSPI_SCK clock cycles. </td></tr>
+<tr><td class="fieldtype">
+<a id="a64cdca1dba5ac86e879a45e289becec9"></a>bool</td>
+<td class="fieldname">
+send_wen_req</td>
+<td class="fielddoc">
+If enabled the controller will apply the write enable command. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__write__enable__instr__cfg__t" id="structqspi__w__write__enable__instr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__write__enable__instr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_write_enable_instr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_write_enable_instr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC write enable instruction configuration structure (auto access mode). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a4c8c1a575bf76b0f500ede8230284b8c"></a><a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+<td class="fieldname">
+opcode_bus_mode: 2</td>
+<td class="fielddoc">
+Bus mode of the opcode phase. </td></tr>
+<tr><td class="fieldtype">
+<a id="a95cd73f8840557f82a3a2af4ff5455cf"></a>uint8_t</td>
+<td class="fieldname">
+opcode</td>
+<td class="fielddoc">
+Write Enable command opcode. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__ctrl__ddr__cfg__t" id="structqspi__w__ctrl__ddr__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__ctrl__ddr__cfg__t">&#9670;&nbsp;</a></span>qspi_w_ctrl_ddr_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_ctrl_ddr_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Double Data Rate (DDR) configuration structure. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a48d5af84373762347b4c8e13330d2fcd"></a>uint32_t</td>
+<td class="fieldname">
+ctrl_ddra</td>
+<td class="fielddoc">
+DDR Control register A. </td></tr>
+<tr><td class="fieldtype">
+<a id="acbf8711737a92d98df9cf5ba21740995"></a>uint32_t</td>
+<td class="fieldname">
+ctrl_ddrb</td>
+<td class="fielddoc">
+DDR Control register B. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__extra__registers__cfg__t" id="structqspi__w__extra__registers__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__extra__registers__cfg__t">&#9670;&nbsp;</a></span>qspi_w_extra_registers_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_extra_registers_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPIC Double Data Rate (DDR) configuration structure. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ac13449e4c7376c2f43fdd824f67f5f43"></a>uint32_t</td>
+<td class="fieldname">
+ctrl_mr_reg</td>
+<td class="fielddoc">
+Control MR register. </td></tr>
+<tr><td class="fieldtype">
+<a id="a62c74e1239ab018f0e0bc8e11492ef50"></a>uint32_t</td>
+<td class="fieldname">
+drst_cmd_reg</td>
+<td class="fielddoc">
+DRST command register. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__flash__cfg__t" id="structqspi__w__flash__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__flash__cfg__t">&#9670;&nbsp;</a></span>qspi_w_flash_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_flash_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>QSPI memory configuration structure.</p>
+<p>This struct is used to define a driver for a specific QSPI memory. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8b564f80ea857405881157fb70291eba"></a>bool</td>
+<td class="fieldname">
+is_ram</td>
+<td class="fielddoc">
+Is QSPIC interfaced with a PSRAM device. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5f750d673ce91f4be0be8a49cd54400b"></a><a class="el" href="group___q_s_p_i___w.html#gab6d256c6f288af75ec56279db69df96f">qspi_w_clk_mode_t</a></td>
+<td class="fieldname">
+clk_mode: 1</td>
+<td class="fielddoc">
+Clock Mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="a74243e1dfa92b1454150c2e96b92edb9"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__read__instr__cfg__t">qspi_w_read_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_read_instr_cfg</td>
+<td class="fielddoc">
+Read instruction configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="a32c11e5bf3bcf0958681e9da71170ec2"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__erase__instr__cfg__t">qspi_w_erase_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_erase_instr_cfg</td>
+<td class="fielddoc">
+Erase instruction configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4a9215a16411411e498f5d5fb22de42e"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__suspend__resume__instr__cfg__t">qspi_w_suspend_resume_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_suspend_resume_instr_cfg</td>
+<td class="fielddoc">
+configuration struct. <p>Program and erase suspend/resume instruction </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a19d66dcc3c6863c5fcb8e5a86c9ad3cc"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__write__enable__instr__cfg__t">qspi_w_write_enable_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_write_enable_instr_cfg</td>
+<td class="fielddoc">
+Write enable instruction configuration. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac22e01eefb05705f7b516a37b4febc02"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__read__status__instr__cfg__t">qspi_w_read_status_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_read_status_instr_cfg</td>
+<td class="fielddoc">
+configuration struct. <p>Read status register instruction </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a8488783d46282f23b7fb06e6065f773d"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__write__instr__cfg__t">qspi_w_write_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_write_instr_cfg</td>
+<td class="fielddoc">
+Write instruction configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2b4a2bada40b37b785094a60f13e3c96"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__break__instr__cfg__t">qspi_w_break_instr_cfg_t</a> *</td>
+<td class="fieldname">
+p_break_instr_cfg</td>
+<td class="fielddoc">
+Burst break instruction configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae6f4662c0013c0d407874ed46a7073b3"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__memblen__cfg__t">qspi_w_memblen_cfg_t</a> *</td>
+<td class="fieldname">
+p_memblen_cfg</td>
+<td class="fielddoc">
+External memory burst length configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9b36709b570a8c759ca619924b35bf88"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__ctrl__ddr__cfg__t">qspi_w_ctrl_ddr_cfg_t</a> *</td>
+<td class="fieldname">
+p_ctrl_ddr</td>
+<td class="fielddoc">
+QSPI DDR Control registers configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab8f3ab9bb5be3ace82ad12b7dd0b98ce"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__extra__registers__cfg__t">qspi_w_extra_registers_cfg_t</a> *</td>
+<td class="fieldname">
+p_extra_regs</td>
+<td class="fielddoc">
+QSPI Extra registers configuration struct. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__extended__cfg__t" id="structqspi__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__extended__cfg__t">&#9670;&nbsp;</a></span>qspi_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Extended configuration for QSPIC. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a68929119e1c0e21bda002d7b548e75eb"></a>uint8_t</td>
+<td class="fieldname">
+channel</td>
+<td class="fielddoc">
+Channel number to be used (0..1). </td></tr>
+<tr><td class="fieldtype">
+<a id="a97f4ea7028c988404d2b261434747d1c"></a><a class="el" href="group___q_s_p_i___w.html#ga0f96328e5872388cd3f22d46afd79453">qspi_w_mode_t</a></td>
+<td class="fieldname">
+qspi_mode</td>
+<td class="fielddoc">
+QSPI DDR or SDR mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="ab08564ec4f5b34a84db49ee50fd7f95b"></a><a class="el" href="group___q_s_p_i___w.html#gaa767966cdc5fc576fbb1abd07819df9b">qspi_w_qspclk_div_t</a></td>
+<td class="fieldname">
+qspclk_div</td>
+<td class="fielddoc">
+QSPCLK divider. </td></tr>
+<tr><td class="fieldtype">
+<a id="a15e2ed3a6e97bb820954e1063de3e9cf"></a><a class="el" href="group___q_s_p_i___w.html#ga20e3b8d669e42f5535b2ccc0332390fc">qspi_w_drive_current_t</a></td>
+<td class="fieldname">
+qspi_drive_current</td>
+<td class="fielddoc">
+Set the Drive Strength of the QSPI Controller. </td></tr>
+<tr><td class="fieldtype">
+<a id="afa4617bbe9aece5441864d4916477657"></a><a class="el" href="group___q_s_p_i___w.html#gaf5570c5edcda32142da32b314e90d806">qspi_w_slew_rate_t</a></td>
+<td class="fieldname">
+qspi_slew_rate</td>
+<td class="fielddoc">
+Set the Slew Rate of the QSPI Controller. </td></tr>
+<tr><td class="fieldtype">
+<a id="aef9152961ffab6c9c070df236fbaae84"></a><a class="el" href="group___q_s_p_i___w.html#structqspi__w__flash__cfg__t">qspi_w_flash_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_qspi_flash_cfg</td>
+<td class="fielddoc">
+Pointer to qspi controller configuration struct. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac27ea2b22cfd77b9979c9c876be7416e"></a><a class="el" href="group___q_s_p_i___w.html#ga94a1dfedfafdc945afc11ef1db766bd0">qspi_w_dcache_t</a></td>
+<td class="fieldname">
+qspi_dcache</td>
+<td class="fielddoc">
+Data cache. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqspi__w__instance__ctrl__t" id="structqspi__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqspi__w__instance__ctrl__t">&#9670;&nbsp;</a></span>qspi_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qspi_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Instance control block. DO NOT INITIALIZE. Initialization occurs when <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a75a4468493abb92f6bf484ed93718f6f">spi_flash_api_t::open</a> is called. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a4f74bd71f3407fd2b5c1b39bc9f1eaf7"></a><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__cfg__t">spi_flash_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to initial configuration. </td></tr>
+<tr><td class="fieldtype">
+<a id="abf21b48135c9e5d09847ce6fa48eebee"></a><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#gaae5c8f99b61e37b40b13f52e146f0bc5">spi_flash_data_lines_t</a></td>
+<td class="fieldname">
+data_lines</td>
+<td class="fielddoc">
+Data lines. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1d17df2d1aaf2fd8c36e68573ef5f71e"></a>uint32_t</td>
+<td class="fieldname">
+total_size_bytes</td>
+<td class="fielddoc">
+Total size of the flash in bytes. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae43416793aa7b5973166156e6bbf7e9f"></a>uint32_t</td>
+<td class="fieldname">
+open</td>
+<td class="fielddoc">
+Whether or not driver is open. </td></tr>
+<tr><td class="fieldtype">
+<a id="a83648527d4841c551c2d56c6ff116201"></a>bool</td>
+<td class="fieldname">
+xip_mode_is_enabled</td>
+<td class="fielddoc">
+XiP mode is enabled or disabled. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga94a1dfedfafdc945afc11ef1db766bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94a1dfedfafdc945afc11ef1db766bd0">&#9670;&nbsp;</a></span>qspi_w_dcache_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga94a1dfedfafdc945afc11ef1db766bd0">qspi_w_dcache_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cache control. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga94a1dfedfafdc945afc11ef1db766bd0a11d0dabe46d72160db2a9f3e9b3a0cfd"></a>QSPI_W_DCACHE_DISABLE&#160;</td><td class="fielddoc"><p>Disable dcache. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga94a1dfedfafdc945afc11ef1db766bd0a2551bcf697127e8dd883ce6ca4c5578e"></a>QSPI_W_DCACHE_ENABLE&#160;</td><td class="fielddoc"><p>Enable dcache. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gae7c5c316acf07ec0498b5aade08f1c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7c5c316acf07ec0498b5aade08f1c50">&#9670;&nbsp;</a></span>qspi_w_access_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gae7c5c316acf07ec0498b5aade08f1c50">qspi_w_access_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI_W memory access mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae7c5c316acf07ec0498b5aade08f1c50ab1c7da2179434c526f24eff2ecb2e032"></a>QSPI_W_ACCESS_MODE_MANUAL&#160;</td><td class="fielddoc"><p>Direct register access using the QSPI_W register file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae7c5c316acf07ec0498b5aade08f1c50afb320f5365e7f1f8045ac1fe6e951c1d"></a>QSPI_W_ACCESS_MODE_AUTO&#160;</td><td class="fielddoc"><p>Up to 32 MB memory-mapped access with 3- and 4-byte addressing modes. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaeaae5bcb37fa2036ce946d47bde26d61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeaae5bcb37fa2036ce946d47bde26d61">&#9670;&nbsp;</a></span>qspi_w_bus_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gaeaae5bcb37fa2036ce946d47bde26d61">qspi_w_bus_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI_W Bus mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaeaae5bcb37fa2036ce946d47bde26d61a067d0c112ed183a8b29d77d2f0ef303d"></a>QSPI_W_BUS_MODE_SINGLE&#160;</td><td class="fielddoc"><p>Bus mode in single mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeaae5bcb37fa2036ce946d47bde26d61a4a65690e55966f06fef85566b3ddba7d"></a>QSPI_W_BUS_MODE_DUAL&#160;</td><td class="fielddoc"><p>Bus mode in dual mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaeaae5bcb37fa2036ce946d47bde26d61a7ef36db50ce1be3416f0b8a4ac828822"></a>QSPI_W_BUS_MODE_QUAD&#160;</td><td class="fielddoc"><p>Bus mode in quad mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaa767966cdc5fc576fbb1abd07819df9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa767966cdc5fc576fbb1abd07819df9b">&#9670;&nbsp;</a></span>qspi_w_qspclk_div_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gaa767966cdc5fc576fbb1abd07819df9b">qspi_w_qspclk_div_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPCLK divider. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa767966cdc5fc576fbb1abd07819df9ba65836b3e177b56f18ebc874fc6a40a63"></a>QSPI_W_QSPCLK_DIV_1&#160;</td><td class="fielddoc"><p>QSPI_CLK = SYS_CLK / 1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa767966cdc5fc576fbb1abd07819df9baf70bf974cbdb1272b9477f946098c571"></a>QSPI_W_QSPCLK_DIV_2&#160;</td><td class="fielddoc"><p>QSPI_CLK = SYS_CLK / 2. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga32b2dee92a757d90d4e2fba074966811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga32b2dee92a757d90d4e2fba074966811">&#9670;&nbsp;</a></span>qspi_w_ers_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga32b2dee92a757d90d4e2fba074966811">qspi_w_ers_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The progress of sector/block erasing. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga32b2dee92a757d90d4e2fba074966811ab1679701b517b086a9a2aa62cac2a437"></a>QSPI_W_ERS_NO&#160;</td><td class="fielddoc"><p>No erase. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga32b2dee92a757d90d4e2fba074966811a57bf2f46d4af45afc252f3d1badac70b"></a>QSPI_W_ERS_PENDING&#160;</td><td class="fielddoc"><p>Pending erase request. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga32b2dee92a757d90d4e2fba074966811a0d48957023bd4a99cf09cf9389b1d081"></a>QSPI_W_ERS_RUNNING&#160;</td><td class="fielddoc"><p>Erase procedure is running. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga32b2dee92a757d90d4e2fba074966811a2cd20e5006b5689b132cd6548d8ee76a"></a>QSPI_W_ERS_SUSPENDED&#160;</td><td class="fielddoc"><p>Suspended erase procedure. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga32b2dee92a757d90d4e2fba074966811a6dfcf1c110b647909cf6d75a59504244"></a>QSPI_W_ERS_FINISHING&#160;</td><td class="fielddoc"><p>Finishing the erase procedure. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gab6d256c6f288af75ec56279db69df96f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6d256c6f288af75ec56279db69df96f">&#9670;&nbsp;</a></span>qspi_w_clk_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gab6d256c6f288af75ec56279db69df96f">qspi_w_clk_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI clock mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggab6d256c6f288af75ec56279db69df96fa779376f70197d2c5fc653776b2b86ef3"></a>QSPI_W_CLK_MODE_LOW&#160;</td><td class="fielddoc"><p>Mode 0: QSPI_SCK is low when QSPI_CS is high. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab6d256c6f288af75ec56279db69df96fa2dc509fdce99b3a44256425dec7b87a8"></a>QSPI_W_CLK_MODE_HIGH&#160;</td><td class="fielddoc"><p>Mode 3: QSPI_SCK is high when QSPI_CS is high. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga20e3b8d669e42f5535b2ccc0332390fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga20e3b8d669e42f5535b2ccc0332390fc">&#9670;&nbsp;</a></span>qspi_w_drive_current_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga20e3b8d669e42f5535b2ccc0332390fc">qspi_w_drive_current_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC pads drive current strength. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga20e3b8d669e42f5535b2ccc0332390fcaeeee1d389153892213c2cc9d2d72d5e4"></a>QSPI_W_DRIVE_CURRENT_4&#160;</td><td class="fielddoc"><p>4 mA. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga20e3b8d669e42f5535b2ccc0332390fca76e1edfddc8cd834ef0e519937457561"></a>QSPI_W_DRIVE_CURRENT_8&#160;</td><td class="fielddoc"><p>8 mA. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga20e3b8d669e42f5535b2ccc0332390fca53ef8ac79421cf4388860cf3e7567bbb"></a>QSPI_W_DRIVE_CURRENT_12&#160;</td><td class="fielddoc"><p>12 mA. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga20e3b8d669e42f5535b2ccc0332390fcaf7fb673854bf3419576311759a097430"></a>QSPI_W_DRIVE_CURRENT_16&#160;</td><td class="fielddoc"><p>16 mA. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gad701214699bc9bd472a8bff2d32c6b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad701214699bc9bd472a8bff2d32c6b54">&#9670;&nbsp;</a></span>qspi_w_read_pipe_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gad701214699bc9bd472a8bff2d32c6b54">qspi_w_read_pipe_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC read pipe setting.</p>
+<p>When read pipe is disabled the sampling clock is determined by QSPI_W_SAMPLING_EDGE otherwise by QSPI_W_READ_PIPE_DELAY. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad701214699bc9bd472a8bff2d32c6b54a9126c2367ad53c5f93db1119bd024262"></a>QSPI_W_READ_PIPE_DISABLE&#160;</td><td class="fielddoc"><p>Disable read pipe delay. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad701214699bc9bd472a8bff2d32c6b54a49dac1c86de329b8b23bfd14db46e2b4"></a>QSPI_W_READ_PIPE_ENABLE&#160;</td><td class="fielddoc"><p>Enable read pipe delay. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaa15385eb9fcb48ba202edda279481467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa15385eb9fcb48ba202edda279481467">&#9670;&nbsp;</a></span>qspi_w_read_pipe_delay_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gaa15385eb9fcb48ba202edda279481467">qspi_w_read_pipe_delay_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC Read pipe clock delay in relation to the falling edge of QSPI_SCK.</p>
+<p>The read pipe delay should be set based on the voltage level of the power rail V12. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467ace4c9ea4da89bac0f3a239eef43067ce"></a>QSPI_W_READ_PIPE_DELAY_0&#160;</td><td class="fielddoc"><p>Set read pipe delay to 0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467a9db76654af91ec244a889f4fa7e1b79b"></a>QSPI_W_READ_PIPE_DELAY_1&#160;</td><td class="fielddoc"><p>Set read pipe delay to 1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467a452e7c2d3d7c912983f944d17f34779b"></a>QSPI_W_READ_PIPE_DELAY_2&#160;</td><td class="fielddoc"><p>Set read pipe delay to 2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467a78dabb18ec04d7e1102ecefb6aa5938c"></a>QSPI_W_READ_PIPE_DELAY_3&#160;</td><td class="fielddoc"><p>Set read pipe delay to 3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467a7bf51f473ad511e16e1411465508110a"></a>QSPI_W_READ_PIPE_DELAY_4&#160;</td><td class="fielddoc"><p>Set read pipe delay to 4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467ac66ad895d6ed7ac88d5403898a3fc6c1"></a>QSPI_W_READ_PIPE_DELAY_5&#160;</td><td class="fielddoc"><p>Set read pipe delay to 5. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467af18666b7fb52790fae0889995caf9b09"></a>QSPI_W_READ_PIPE_DELAY_6&#160;</td><td class="fielddoc"><p>Set read pipe delay to 6. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa15385eb9fcb48ba202edda279481467adb67dc26fac95d3c4492531efb9268c3"></a>QSPI_W_READ_PIPE_DELAY_7&#160;</td><td class="fielddoc"><p>Set read pipe delay to 7. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaf5570c5edcda32142da32b314e90d806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf5570c5edcda32142da32b314e90d806">&#9670;&nbsp;</a></span>qspi_w_slew_rate_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gaf5570c5edcda32142da32b314e90d806">qspi_w_slew_rate_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC pads slew rate. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaf5570c5edcda32142da32b314e90d806a4c10942b5e8e55f42647d35ebfb97ffb"></a>QSPI_W_SLEW_RATE_FAST&#160;</td><td class="fielddoc"><p>Fast Slew Rate. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaf5570c5edcda32142da32b314e90d806a8fd29dc5fd93c17015a4eb7a75a84ad6"></a>QSPI_W_SLEW_RATE_SLOW&#160;</td><td class="fielddoc"><p>Slower Slew Rate. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga6db99a2ad14e2a38e9ce3fab885db67f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6db99a2ad14e2a38e9ce3fab885db67f">&#9670;&nbsp;</a></span>qspi_w_hready_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga6db99a2ad14e2a38e9ce3fab885db67f">qspi_w_hready_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC HREADY signal mode when accessing the WRITEDATA, READDATA and DUMMYDATA registers.</p>
+<p>This configuration is useful when the frequency of the QSPI clock is much lower than the clock of the AMBA bus, in order to avoid locking the AMBA bus for a long time. When is set to QSPI_W_HREADY_MODE_WAIT there is no need to check the QSPIC_BUSY for detecting completion of the requested access. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga6db99a2ad14e2a38e9ce3fab885db67fa51aff10949d3a264eb043bf0205841cc"></a>QSPI_W_HREADY_MODE_WAIT&#160;</td><td class="fielddoc"><p>Adds wait states via hready signal when accessing the QSPIC_WRITEDATA, QSPIC_READDATA and QSPIC_DUMMYDATA registers. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6db99a2ad14e2a38e9ce3fab885db67fa5c55a58763e189546d9ab889d35ee8ad"></a>QSPI_W_HREADY_MODE_NO_WAIT&#160;</td><td class="fielddoc"><p>Don't add wait states via the HREADY signal. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga2570e81fb5a9cbb4741ca7d09769fe52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2570e81fb5a9cbb4741ca7d09769fe52">&#9670;&nbsp;</a></span>qspi_w_instr_md_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga2570e81fb5a9cbb4741ca7d09769fe52">qspi_w_instr_md_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC instruction mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga2570e81fb5a9cbb4741ca7d09769fe52a7c9840f373a28033928c61b71f84ca67"></a>QSPI_W_INSTR_MD_TX_AT_ANY_BURST_ACCESS&#160;</td><td class="fielddoc"><p>Transmit instruction at any burst access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga2570e81fb5a9cbb4741ca7d09769fe52aee852d6b5ae14e8c91ff587ccf4737ac"></a>QSPI_W_INSTR_MD_TX_ONLY_IN_FIRST_ACCESS&#160;</td><td class="fielddoc"><p>Transmit instruction only in the first access after the selection of Auto Mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga1f09dc64a2aeb7f45b8d888f508f7822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f09dc64a2aeb7f45b8d888f508f7822">&#9670;&nbsp;</a></span>qspi_w_wrap_md_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga1f09dc64a2aeb7f45b8d888f508f7822">qspi_w_wrap_md_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC wrap mode enable bit. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga1f09dc64a2aeb7f45b8d888f508f7822aa09a2aa5d99339189001ebd971f385fb"></a>QSPI_W_WRAP_MD_SEL_INSTR&#160;</td><td class="fielddoc"><p>The QSPIC_INST is the selected instruction at any read access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga1f09dc64a2aeb7f45b8d888f508f7822a72e05cf694fcddc78a2d1ce612d6059e"></a>QSPI_W_WRAP_MD_SEL_INSTR_WB&#160;</td><td class="fielddoc"><p>The QSPIC_INST_WB is the selected instruction at any read wrapping burst access. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gae5f6378f8f285c3495d959bb85fe41f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5f6378f8f285c3495d959bb85fe41f1">&#9670;&nbsp;</a></span>qspi_w_wrap_wr_en_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gae5f6378f8f285c3495d959bb85fe41f1">qspi_w_wrap_wr_en_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC write wrapping burst will be implemented by using a special write instruction. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae5f6378f8f285c3495d959bb85fe41f1a394193a2fb4ca7442633b0ab22aa0303"></a>QSPI_W_WRAP_WR_EN_INST&#160;</td><td class="fielddoc"><p>Select QSPIC_WR_INST. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae5f6378f8f285c3495d959bb85fe41f1ab6ff844d467994c69415ebe93ab09d85"></a>QSPI_W_WRAP_WR_EN_INST_WB&#160;</td><td class="fielddoc"><p>Select QSPIC_WR_INST_WB. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gac12607790e31c0eb034fa4215b40af2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac12607790e31c0eb034fa4215b40af2d">&#9670;&nbsp;</a></span>qspi_w_rd_bend_md_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gac12607790e31c0eb034fa4215b40af2d">qspi_w_rd_bend_md_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC behavior when a read burst is terminated early in the AMBA bus. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggac12607790e31c0eb034fa4215b40af2dac3afbb5b1c32e50dc71be09f62450e17"></a>QSPI_W_RD_BEND_MD_TERMINATE_ASAP&#160;</td><td class="fielddoc"><p>The corresponding read burst in the memory device will be terminated as soon as possible, based on the pipeline of the controller. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac12607790e31c0eb034fa4215b40af2daea2b16d3045435c2b5ae0f74de0db2bf"></a>QSPI_W_RD_BEND_MD_TERMINATE_WHEN_DONE&#160;</td><td class="fielddoc"><p>The read burst in the memory device will be terminated only after filling the last position of the current read buffer. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gadd865fc96460fc0a3e8f9a6fcf0f803a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd865fc96460fc0a3e8f9a6fcf0f803a">&#9670;&nbsp;</a></span>qspi_w_rd_rdb_en_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gadd865fc96460fc0a3e8f9a6fcf0f803a">qspi_w_rd_rdb_en_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the read pipeline in burst mode while retrieving the data of the memory device. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggadd865fc96460fc0a3e8f9a6fcf0f803aaa6f0f4aa95ebc2ff6c89eb82413c8009"></a>QSPI_W_RD_RDB_EN_MIN_CLK_PULSES&#160;</td><td class="fielddoc"><p>The controller will provide the minimum required number of clock pulses in the interface during the reading of the data. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggadd865fc96460fc0a3e8f9a6fcf0f803aa415abc6c9fb4078d784c0455a1e59ed8"></a>QSPI_W_RD_RDB_EN_UNTIL_DONE&#160;</td><td class="fielddoc"><p>Set the read pipeline in burst mode while the data are retrieved of the memory device. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga20de929d5b3d1311a40c9be26d402c60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga20de929d5b3d1311a40c9be26d402c60">&#9670;&nbsp;</a></span>qspi_w_extra_byte_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga20de929d5b3d1311a40c9be26d402c60">qspi_w_extra_byte_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC extra byte setting in auto access mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga20de929d5b3d1311a40c9be26d402c60a147e546bae5461070c03bac8660fe6c3"></a>QSPI_W_EXTRA_BYTE_DISABLE&#160;</td><td class="fielddoc"><p>Disable extra byte phase. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga20de929d5b3d1311a40c9be26d402c60a8c63dc172a501fb72a0dc2504935efc7"></a>QSPI_W_EXTRA_BYTE_ENABLE&#160;</td><td class="fielddoc"><p>Enable extra byte phase. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gab280171d72a023d6ea6e0c59a0c95850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab280171d72a023d6ea6e0c59a0c95850">&#9670;&nbsp;</a></span>qspi_w_extra_byte_half_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gab280171d72a023d6ea6e0c59a0c95850">qspi_w_extra_byte_half_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC extra byte half setting in auto access mode.</p>
+<p>This setting is out of scope if the extra byte is disabled. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggab280171d72a023d6ea6e0c59a0c95850a5c2307a627a55db55efae7f56b2eacdd"></a>QSPI_W_EXTRA_BYTE_HALF_DISABLE&#160;</td><td class="fielddoc"><p>Transmit the complete extra byte. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab280171d72a023d6ea6e0c59a0c95850a522225f01ec95a4958a7b448f3317905"></a>QSPI_W_EXTRA_BYTE_HALF_ENABLE&#160;</td><td class="fielddoc"><p>The output switches to Hi-Z during the transmission of the low nibble of the extra byte. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gac1717c647eea4b057c94e50efba52fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1717c647eea4b057c94e50efba52fd4">&#9670;&nbsp;</a></span>qspi_w_break_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gac1717c647eea4b057c94e50efba52fd4">qspi_w_break_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC break enable/disable. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggac1717c647eea4b057c94e50efba52fd4a24bed05e7cbf2ff81d1a855aa8f0944d"></a>QSPI_W_BREAK_DISABLE&#160;</td><td class="fielddoc"><p>Disable break command. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac1717c647eea4b057c94e50efba52fd4af9a831861687872b26d9a0979ef7ed72"></a>QSPI_W_BREAK_ENABLE&#160;</td><td class="fielddoc"><p>Enable break command. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga88577dfb55342bc38013117feff25602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga88577dfb55342bc38013117feff25602">&#9670;&nbsp;</a></span>qspi_w_break_sec_hf_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga88577dfb55342bc38013117feff25602">qspi_w_break_sec_hf_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC Disable output during the transmission of the second half (QSPIC_BRK_WRD[3:0]).</p>
+<p>Setting this bit is only useful if QSPIC_BRK_EN =1 and QSPIC_BRK_SZ= 1. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga88577dfb55342bc38013117feff25602a8c81ce7c11236ece7843a56aead77475"></a>QSPI_W_BREAK_SEC_HF_DRIVE&#160;</td><td class="fielddoc"><p>The controller drives the SPI bus during the transmission of the QSPIC_BRK_WRD[3:0]. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga88577dfb55342bc38013117feff25602a725af8a4065c7fb291cae387330cabfa"></a>QSPI_W_BREAK_SEC_HF_HIZ&#160;</td><td class="fielddoc"><p>The controller leaves the SPI bus in Hi-Z during the transmission of the QSPIC_BRK_WORD[3:0]. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4ed1516ad8c43285033b1c22699de7e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ed1516ad8c43285033b1c22699de7e3">&#9670;&nbsp;</a></span>qspi_w_t_cem_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga4ed1516ad8c43285033b1c22699de7e3">qspi_w_t_cem_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC tCEM enable/disable. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4ed1516ad8c43285033b1c22699de7e3a12bb2c1d0b11ee0484a7e3208ed8159e"></a>QSPI_W_T_CEM_DISABLE&#160;</td><td class="fielddoc"><p>Disable tCEM control. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga4ed1516ad8c43285033b1c22699de7e3af7ad8df22b84694ada8734c01a020488"></a>QSPI_W_T_CEM_ENABLE&#160;</td><td class="fielddoc"><p>Enable tCEM control. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga6eb19025df82ff19fa9fc9bea946bec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6eb19025df82ff19fa9fc9bea946bec0">&#9670;&nbsp;</a></span>qspi_w_memblen_burst_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga6eb19025df82ff19fa9fc9bea946bec0">qspi_w_memblen_burst_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Length of a burst operation for a QSPI RAM device. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a9bc025a01928c3daebee8bd2290e0417"></a>QSPI_W_MEMBLEN_BURST_INCR_UNSPECIFIED&#160;</td><td class="fielddoc"><p>The external memory device implements incremental burst of unspecified length. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0aed489c53cb3a0ed188712cdb2ea2a0cf"></a>QSPI_W_MEMBLEN_BURST_WRAP_4B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 4 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0ae6f64e02c67ce445e420d52cf153740a"></a>QSPI_W_MEMBLEN_BURST_WRAP_8B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 8 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0acc74fea59e0afd5ea7be9f86d4f17fb6"></a>QSPI_W_MEMBLEN_BURST_WRAP_16B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 16 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a8022abf1eaacf67c10fb5bb68e59e4cf"></a>QSPI_W_MEMBLEN_BURST_WRAP_32B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 32 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a65be639e4810cf271a26198f1ad14c4a"></a>QSPI_W_MEMBLEN_BURST_WRAP_64B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 64 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0aba8f89484786552c29cc9d06b8601377"></a>QSPI_W_MEMBLEN_BURST_WRAP_128B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 128 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a246c5c6b2a6191308a569dbcd99c9e01"></a>QSPI_W_MEMBLEN_BURST_WRAP_256B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 256 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a22851ed6c929c149a0e9d0b9851b6b1c"></a>QSPI_W_MEMBLEN_BURST_WRAP_512B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 512 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a143b66d89c95eb71107527c78e99a404"></a>QSPI_W_MEMBLEN_BURST_WRAP_1024B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 1024 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a13d9f54435cef3219394e25771bd7a1e"></a>QSPI_W_MEMBLEN_BURST_WRAP_2048B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 2048 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0ace7e62b3ad5b49e91847e7e28db01390"></a>QSPI_W_MEMBLEN_BURST_WRAP_4096B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 4096 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a749ca550456a9a66d0300355de7ea15a"></a>QSPI_W_MEMBLEN_BURST_WRAP_8192B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 8192 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a5a9aafa7cbf06cce60a240abc3cdd047"></a>QSPI_W_MEMBLEN_BURST_WRAP_16384B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 16384 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a13e5d3d9176e2d1efe6afc15347db9ae"></a>QSPI_W_MEMBLEN_BURST_WRAP_32768B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 32768 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6eb19025df82ff19fa9fc9bea946bec0a83fe09d89b6b9ffce0b3d20f8f7714a6"></a>QSPI_W_MEMBLEN_BURST_WRAP_65536B&#160;</td><td class="fielddoc"><p>The external memory device implements a wrapping burst of length 65536 bytes. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gadac0452791b732ff593052d45e262d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadac0452791b732ff593052d45e262d2c">&#9670;&nbsp;</a></span>qspi_w_sampling_edge_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gadac0452791b732ff593052d45e262d2c">qspi_w_sampling_edge_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI clock edge setting for the sampling of the incoming data when the read pipe is disabled. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggadac0452791b732ff593052d45e262d2caf3668a442ba51f4e3cfa848804a6d47a"></a>QSPI_W_SAMPLING_EDGE_POS&#160;</td><td class="fielddoc"><p>The incoming data sampling is triggered by the positive edge of QSPI clock signal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggadac0452791b732ff593052d45e262d2cac2c04f4d3807109a402fcfa6eb9b42c4"></a>QSPI_W_SAMPLING_EDGE_NEG&#160;</td><td class="fielddoc"><p>The incoming data sampling is triggered by the negative edge of QSPI clock signal. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga0f96328e5872388cd3f22d46afd79453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f96328e5872388cd3f22d46afd79453">&#9670;&nbsp;</a></span>qspi_w_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga0f96328e5872388cd3f22d46afd79453">qspi_w_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI DDR or SDR mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0f96328e5872388cd3f22d46afd79453a53babeac837c3a982e8fe709b1dfa1e9"></a>QSPI_W_MODE_DDR&#160;</td><td class="fielddoc"><p>QSPI DDR (double data rate) mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga0f96328e5872388cd3f22d46afd79453ad12cc5270d5acd5a7400c204b3619ab5"></a>QSPI_W_MODE_SDR&#160;</td><td class="fielddoc"><p>QSPI SDR (single data rate) mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga274b3ef240f6eaf98c2b38196e6c0461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga274b3ef240f6eaf98c2b38196e6c0461">&#9670;&nbsp;</a></span>qspi_w_busy_level_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga274b3ef240f6eaf98c2b38196e6c0461">qspi_w_busy_level_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPI device busy status setting. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga274b3ef240f6eaf98c2b38196e6c0461a43b0fa802744a83a0108d9af3dbdc576"></a>QSPI_W_BUSY_LEVEL_LOW&#160;</td><td class="fielddoc"><p>The QSPI device is busy when the pin level bit is low. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga274b3ef240f6eaf98c2b38196e6c0461ad83edc946ddc9344575ff3459ef8e6a3"></a>QSPI_W_BUSY_LEVEL_HIGH&#160;</td><td class="fielddoc"><p>The QSPI device is busy when the pin level bit is high. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gad964757b5cf02889e16032b676c6576e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad964757b5cf02889e16032b676c6576e">&#9670;&nbsp;</a></span>qspi_w_stsdly_sel_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#gad964757b5cf02889e16032b676c6576e">qspi_w_stsdly_sel_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC timer which is used to count the delay that it has to wait before to read the Flash status register, after an erase or an erase resume command. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad964757b5cf02889e16032b676c6576eab27f43e9f2425c883cc2cda8a9922ee0"></a>QSPI_W_STSDLY_SEL_RESSTS_DLY&#160;</td><td class="fielddoc"><p>The delay is controlled by the QSPIC_RESSTS_DLY which counts on the QSPI_SCK clock. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad964757b5cf02889e16032b676c6576eaa2685fde2a410bdf61a6701d4637665b"></a>QSPI_W_STSDLY_SEL_RESSUS_DLY&#160;</td><td class="fielddoc"><p>The delay is controlled by the QSPIC_RESSUS_DLY which counts on the 222 kHz clock. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga102443117c6c758375463e3818f647f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga102443117c6c758375463e3818f647f3">&#9670;&nbsp;</a></span>qspi_w_dummy_value_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q_s_p_i___w.html#ga102443117c6c758375463e3818f647f3">qspi_w_dummy_value_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSPIC value that is transferred on the SPI bus during the phase of the dummy bytes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga102443117c6c758375463e3818f647f3a8be6516eb9af4da4280db133a67ba5c9"></a>QSPI_W_RSTAT_DMY_ZERO_KEEP_UNCHANGED&#160;</td><td class="fielddoc"><p>The controller keeps the data in the bus unchanged, until to change the bus direction in input mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga102443117c6c758375463e3818f647f3abe7bc88599a33dceebc57b95aad38c15"></a>QSPI_W_RSTAT_DMY_ZERO_FORCE_ZERO&#160;</td><td class="fielddoc"><p>Forces the dummy bytes to get the zero value (only for the cycles that are not in input mode). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga5cd02409d5c29d24e026d56bb4d00123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cd02409d5c29d24e026d56bb4d00123">&#9670;&nbsp;</a></span>R_QSPI_W_DirectWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_DirectWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>read_after_write</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes raw data directly to the QSPI_W.</p>
+<dl class="section note"><dt>Note</dt><dd>Use R_QSPI_W_SpiProtocolSet before a direct write to set the bus mode in the appropriate manual mode.</dd></dl>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#aebfa0317034f04f53b6b788da0debe80">spi_flash_api_t::directWrite</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Pointer to the data to write. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Number of bytes to write. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">read_after_write</td><td>Whether or not to close the SPI bus cycle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Directly write raw data successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>This function can't be called when XiP mode is enabled. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>The device is busy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad027e92524824e95134db199b578aba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad027e92524824e95134db199b578aba6">&#9670;&nbsp;</a></span>R_QSPI_W_DirectRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_DirectRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reads raw data directly from the QSPI_W. This API can only be called after R_QSPI_W_DirectWrite with read_after_write set to true.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a4b3bfefb3b1ff0580fe1cce97b81c56f">spi_flash_api_t::directRead</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_dest</td><td>Pointer to the destination buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Number of bytes to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Directly read raw data successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>This function must be called after R_QSPI_W_DirectWrite with read_after_write set to true. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6c826205ab44f757133968d64b60d3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6c826205ab44f757133968d64b60d3b0">&#9670;&nbsp;</a></span>R_QSPI_W_DirectTransfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_DirectTransfer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__direct__transfer__t">spi_flash_direct_transfer_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_transfer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga80ecf65e658f5b36bfe0bf2d88dd3ca5">spi_flash_direct_transfer_dir_t</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read/Write raw data directly with the OctaFlash/OctaRAM device. Unsupported by QSPI_W.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a875857cdb3d6ebf0971115737b9e2989">spi_flash_api_t::directTransfer</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_transfer</td><td>Pointer to <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__direct__transfer__t">spi_flash_direct_transfer_t</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">direction</td><td>Direct read or write direction.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>API not supported by QSPI_W. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga55812e3aad4ad743a654df7a282ec28e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga55812e3aad4ad743a654df7a282ec28e">&#9670;&nbsp;</a></span>R_QSPI_W_XipEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_XipEnter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enters XiP (execute in place) mode.</p>
+<dl class="section note"><dt>Note</dt><dd>XiP mode refers to random access read mode, also known as Fast Read Quad I/O (EBh), 4READ: 4 x I/O READ (EBh), etc.</dd></dl>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a48a9a0db1f5bcb24acc9cc1cea14f0ab">spi_flash_api_t::xipEnter</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The flash enters XiP mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga58da5de0e55ec0009aec8fdf0ce5f189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58da5de0e55ec0009aec8fdf0ce5f189">&#9670;&nbsp;</a></span>R_QSPI_W_XipExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_XipExit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Exits XiP (execute in place) mode.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a00317079cf31b5311592d0845caa4d8a">spi_flash_api_t::xipExit</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The flash exits XiP mode successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacaad6b313ea5c3d23a3b213e68691699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacaad6b313ea5c3d23a3b213e68691699">&#9670;&nbsp;</a></span>R_QSPI_W_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t const *const&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>byte_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Program a page of data to the flash.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a35480fe077054fff8bd41c67dbce88fb">spi_flash_api_t::write</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Pointer to the source data. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_dest</td><td>Pointer to the destination. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">byte_count</td><td>Number of bytes to write.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The flash was programmed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_instance_ctrl, p_dest or p_src is NULL, or byte_count crosses a page boundary. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>This function can't be called when XiP mode is enabled. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>The device is busy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae3b0ca4ed38da1cbdbc39b644c22bd12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3b0ca4ed38da1cbdbc39b644c22bd12">&#9670;&nbsp;</a></span>R_QSPI_W_Erase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_Erase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *const&#160;</td>
+          <td class="paramname"><em>p_device_address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>byte_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Erase a block or sector of flash. The byte_count must exactly match one of the erase sizes defined in <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__cfg__t">spi_flash_cfg_t</a>. For chip erase, byte_count must be SPI_FLASH_ERASE_SIZE_CHIP_ERASE.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a4fb48ee9af80243cf7f8f966b4c6c56e">spi_flash_api_t::erase</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_device_address</td><td>Pointer to the device address. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">byte_count</td><td>Number of bytes to be erased.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The command to erase the flash was executed successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_instance_ctrl or p_device_address is NULL, or byte_count doesn't match an erase size defined in <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__cfg__t">spi_flash_cfg_t</a>, or device is in XiP mode. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>This function can't be called when XiP mode is enabled. </td></tr>
+    <tr><td class="paramname">FSP_ERR_DEVICE_BUSY</td><td>The device is busy. </td></tr>
+    <tr><td class="paramname">FSP_ERR_TIMEOUT</td><td>The erase operation timed out. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab09bb0121aa42364b0866be470234987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab09bb0121aa42364b0866be470234987">&#9670;&nbsp;</a></span>R_QSPI_W_StatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_StatusGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__status__t">spi_flash_status_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the write or erase status of the flash.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a36600006109effd5c9d47283a7760ce6">spi_flash_api_t::statusGet</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_status</td><td>Pointer to the status <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__status__t">spi_flash_status_t</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>The write status is in p_status. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_instance_ctrl or p_status is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_MODE</td><td>This function can't be called when XiP mode is enabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae0db3443fe52f29cbc359bc7cd90d486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0db3443fe52f29cbc359bc7cd90d486">&#9670;&nbsp;</a></span>R_QSPI_W_BankSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_BankSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bank</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Selects the bank to access.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ae581e587fb514ab784257d07a77d6b32">spi_flash_api_t::bankSet</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bank</td><td>The bank which need to access.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>API not supported by QSPI_W. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga144e07a35584486828c4d6569d2df812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga144e07a35584486828c4d6569d2df812">&#9670;&nbsp;</a></span>R_QSPI_W_SpiProtocolSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_SpiProtocolSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga17c347a498a8a9d38ffc36c0de49a535">spi_flash_protocol_t</a>&#160;</td>
+          <td class="paramname"><em>spi_protocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the SPI protocol.</p>
+<dl class="section note"><dt>Note</dt><dd>Updates QSPI_W manual mode bus mode registers.</dd></dl>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a423e63cd15ce3984410c2f5cdf717e35">spi_flash_api_t::spiProtocolSet</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">spi_protocol</td><td>The type of SPI Flash protocol.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>SPI protocol registers updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_INVALID_ARGUMENT</td><td>Invalid SPI protocol requested. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacebdcf1d1cb164530588c3685f91c159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacebdcf1d1cb164530588c3685f91c159">&#9670;&nbsp;</a></span>R_QSPI_W_AutoCalibrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_AutoCalibrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Auto-calibrate the OctaRAM device using the preamble pattern. Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ac78c55ffe2b7d99681612ce796a384c5">spi_flash_api_t::autoCalibrate</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>API not supported by QSPI_W. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae90ed5c3780af0a9e819b385ef3e454f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae90ed5c3780af0a9e819b385ef3e454f">&#9670;&nbsp;</a></span>R_QSPI_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE_IN_RAM_SECTION <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_QSPI_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#ga0f14c8b55d2948c30b99ab157e16488f">spi_flash_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the QSPI_W driver module.</p>
+<p>Implements <a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#a28bdae798428b85222739a0b9fd43a15">spi_flash_api_t::close</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Close module successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>p_instance_ctrl is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Driver is not opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

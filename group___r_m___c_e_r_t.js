@@ -1,0 +1,65 @@
+var group___r_m___c_e_r_t =
+[
+    [ "rm_cert_err_t", "group___r_m___c_e_r_t.html#ga3dd17b5331d489c630586ef6f1ce4f58", [
+      [ "RM_CERT_ERR_OK", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a3f55e4a8c8e91f8cf1da2aee45505223", null ],
+      [ "RM_CERT_ERR_NOK", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a1fb30e5d868f27da30ecc3d7840ce780", null ],
+      [ "RM_CERT_ERR_INVALID_MODULE", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a8ef6761c30837962d9705039d437511e", null ],
+      [ "RM_CERT_ERR_INVALID_TYPE", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58ae14ae2aec709733e6ba153a5e2b28e7e", null ],
+      [ "RM_CERT_ERR_INVALID_FORMAT", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58acacf0d9ce017014b2767f7e398bf96d8", null ],
+      [ "RM_CERT_ERR_INVALID_LENGTH", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58ae765301ba2b3a80b087ece9e4ea8688f", null ],
+      [ "RM_CERT_ERR_INVALID_FLASH_ADDR", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a60b3d99017fc8f968ccbdf553ec4c8bc", null ],
+      [ "RM_CERT_ERR_INVALID_PARAMS", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a7a7c2dbe4ed4bc7d5eaa7de4d933ed69", null ],
+      [ "RM_CERT_ERR_FOPEN_FAILED", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a63689623fbe3d2c9b7c3e41bb4cd78fb", null ],
+      [ "RM_CERT_ERR_MEM_FAILED", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a90e2839d8cffcd2b52b001e76313eb6f", null ],
+      [ "RM_CERT_ERR_EMPTY_CERTIFICATE", "group___r_m___c_e_r_t.html#gga3dd17b5331d489c630586ef6f1ce4f58a94caba518b08ac7e82438696e4e8af8f", null ]
+    ] ],
+    [ "rm_cert_module_t", "group___r_m___c_e_r_t.html#gac8bca935cdc7d0a8ce804a49a46bb362", [
+      [ "RM_CERT_MODULE_NONE", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362ac2da8b8661a81c431a22f4eee1384d65", null ],
+      [ "RM_CERT_MODULE_MQTT", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a7d884a8d898f88685b7b15203e7f5eff", null ],
+      [ "RM_CERT_MODULE_HTTPS_CLIENT", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362af2e5501fbcbd83a47be65cfcf3efbf83", null ],
+      [ "RM_CERT_MODULE_WPA_ENTERPRISE", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362ac8cf5f3ffc23d18e8b06ba840763343b", null ],
+      [ "RM_CERT_MODULE_OTA", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362ac770097ec67a96eaddda185cece7f43d", null ],
+      [ "RM_CERT_MODULE_HTTPS_SERVER", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a05c214cbba272bf1aa2b20e0bbe4e4d0", null ],
+      [ "RM_CERT_MODULE_ATCMD", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a9795525e7510ae43e3946c7cabe41b06", null ],
+      [ "RM_CERT_MODULE_AWS", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a24de46cc3a8fd783799abe17f2512cad", null ],
+      [ "RM_CERT_MODULE_MATTER", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a8ae0c1c6a9a6be736c407f6e8220657e", null ],
+      [ "RM_CERT_MODULE_MISC1", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a21ec6b33683a47c3f4308916a1880ae8", null ],
+      [ "RM_CERT_MODULE_MISC2", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a052500b529fb5f8b18e7b159ab4e0402", null ],
+      [ "RM_CERT_MODULE_MISC3", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a4a35e790e665004e48e458ec5647a6c2", null ],
+      [ "RM_CERT_MODULE_MISC4", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a21e9d65b4cb9366592b8f2907b9a2299", null ],
+      [ "RM_CERT_MODULE_MISC5", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a50c1b20c31bddcab66766b2035c85845", null ],
+      [ "RM_CERT_MODULE_MISC6", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a54434b8760c71da42878e8e256e96a31", null ],
+      [ "RM_CERT_MODULE_MISC7", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a8753c34c557df821c4140f5821eb2adc", null ],
+      [ "RM_CERT_MODULE_MISC8", "group___r_m___c_e_r_t.html#ggac8bca935cdc7d0a8ce804a49a46bb362a475f886fe2c743eb019135ce9ea52568", null ]
+    ] ],
+    [ "rm_cert_type_t", "group___r_m___c_e_r_t.html#ga24f36475b931a09e52d335d2882cb429", [
+      [ "RM_CERT_TYPE_NONE", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a0ea5fca101fd741c26a5e0a33025691b", null ],
+      [ "RM_CERT_TYPE_CA_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a9334c89d8963fac991252440a875497a", null ],
+      [ "RM_CERT_TYPE_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a71b608bd2073dd53c69a13ed585bfe06", null ],
+      [ "RM_CERT_TYPE_PRIVATE_KEY", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a65cc1622c401fabf2ccb0ae37aa2303b", null ],
+      [ "RM_CERT_TYPE_DH_PARAMS", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429ac26e7b64579f5ccfde97bc543a8b7aab", null ],
+      [ "RM_CERT_TYPE_INITIAL_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a845114f895bb4ed1a54c45b5f3c94227", null ],
+      [ "RM_CERT_TYPE_INITIAL_PRIV_KEY", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429ac774027aa2555fd4e8f3d74591224cf2", null ],
+      [ "RM_CERT_TYPE_UNIQUE_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a6c5d6cebd7f43b5046ae8ca6d35dfc1f", null ],
+      [ "RM_CERT_TYPE_UNIQUE_PRIV_KEY", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429ae34a788bd8919958eecc9b2b83747c25", null ],
+      [ "RM_CERT_TYPE_EXCHANGE", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429aef86d688fef72d1856049c74cb898e10", null ],
+      [ "RM_CERT_TYPE_CD", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a8753770f0f2b63b26541e3fdf0c4152e", null ],
+      [ "RM_CERT_TYPE_DAC_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a5193c53b7994c0f771729e025c5196d2", null ],
+      [ "RM_CERT_TYPE_PAI_CERT", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429ad567dee0a7944956a278d74bf3414188", null ],
+      [ "RM_CERT_TYPE_DAC_PRIV_KEY", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429a74f4ee01d050f7ee9eb514d7980f9a7c", null ],
+      [ "RM_CERT_TYPE_DAC_PUB_KEY", "group___r_m___c_e_r_t.html#gga24f36475b931a09e52d335d2882cb429ab76329f9ea2dab89d5b15d0d1100011b", null ]
+    ] ],
+    [ "rm_cert_format_t", "group___r_m___c_e_r_t.html#gab8f9b9247a22f1bc0f34946a5edb62cb", [
+      [ "RM_CERT_FORMAT_NONE", "group___r_m___c_e_r_t.html#ggab8f9b9247a22f1bc0f34946a5edb62cbaf7c17ea35f791098e82468f045946907", null ],
+      [ "RM_CERT_FORMAT_DER", "group___r_m___c_e_r_t.html#ggab8f9b9247a22f1bc0f34946a5edb62cba83e6fa6af85eab1de2b9e36f2c059a5f", null ],
+      [ "RM_CERT_FORMAT_PEM", "group___r_m___c_e_r_t.html#ggab8f9b9247a22f1bc0f34946a5edb62cba5c5a2128d622423a73aad6bbea90df34", null ]
+    ] ],
+    [ "RM_CERT_DeleteAll", "group___r_m___c_e_r_t.html#ga3456c7b655400c16b190fb00a1256606", null ],
+    [ "RM_CERT_Write", "group___r_m___c_e_r_t.html#gae39e23d4caae7c717e1d1cb664960a51", null ],
+    [ "RM_CERT_Read", "group___r_m___c_e_r_t.html#ga9727273dcf7ce7d93d1ca96053c82485", null ],
+    [ "RM_CERT_Delete", "group___r_m___c_e_r_t.html#ga5ce8b00d48772db37d39c941e761aa89", null ],
+    [ "RM_CERT_IsExistCert", "group___r_m___c_e_r_t.html#ga638bc7427adf6524871011277bbe6ab6", null ],
+    [ "RM_CERT_GetModule", "group___r_m___c_e_r_t.html#gaa1bff8a9e056deb0b7204269b20936fe", null ],
+    [ "RM_CERT_GetType", "group___r_m___c_e_r_t.html#gaab21426664e1e215773cb2f604724722", null ],
+    [ "RM_CERT_IsPemFormat", "group___r_m___c_e_r_t.html#ga66e5bc184903521e05d4291f54371e67", null ]
+];

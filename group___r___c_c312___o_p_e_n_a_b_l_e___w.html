@@ -1,0 +1,1502 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: R_CC312_OPENABLE_W</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r___c_c312___o_p_e_n_a_b_l_e___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">R_CC312_OPENABLE_W</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac2efb749d42bcea041b0bc53f2ae854c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gac2efb749d42bcea041b0bc53f2ae854c">init_crypto_primitives</a> (const <a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e">CRYPTO_PRIMITIVE_TYPE</a> *primitive)</td></tr>
+<tr class="memdesc:gac2efb749d42bcea041b0bc53f2ae854c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiaize ROMCrypto Library.  <a href="#gac2efb749d42bcea041b0bc53f2ae854c">More...</a><br /></td></tr>
+<tr class="separator:gac2efb749d42bcea041b0bc53f2ae854c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b35247a7ddcc15b270001982f9b4cb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga9b35247a7ddcc15b270001982f9b4cb0">R_CC312_Debug_SecureBoot</a> (uint32_t mode)</td></tr>
+<tr class="memdesc:ga9b35247a7ddcc15b270001982f9b4cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Debug Mode.  <a href="#ga9b35247a7ddcc15b270001982f9b4cb0">More...</a><br /></td></tr>
+<tr class="separator:ga9b35247a7ddcc15b270001982f9b4cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f62a87cdcac2c6d9ed7a0709c6135fe"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga9f62a87cdcac2c6d9ed7a0709c6135fe">R_CC312_Debug_SecureBoot_Mode</a> (void)</td></tr>
+<tr class="memdesc:ga9f62a87cdcac2c6d9ed7a0709c6135fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Debug Mode.  <a href="#ga9f62a87cdcac2c6d9ed7a0709c6135fe">More...</a><br /></td></tr>
+<tr class="separator:ga9f62a87cdcac2c6d9ed7a0709c6135fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cadaf035c016e27f69afc4da0d8df6c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga0cadaf035c016e27f69afc4da0d8df6c">R_CC312_Debug_Get_ErrorCode</a> (void)</td></tr>
+<tr class="memdesc:ga0cadaf035c016e27f69afc4da0d8df6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Error Mode.  <a href="#ga0cadaf035c016e27f69afc4da0d8df6c">More...</a><br /></td></tr>
+<tr class="separator:ga0cadaf035c016e27f69afc4da0d8df6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f376506d8466eac41f70be1a2c088aa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga2f376506d8466eac41f70be1a2c088aa">R_CC312_SecureBoot</a> (uint32_t taddress, uint32_t *jaddress, void(*stopproc)(void *))</td></tr>
+<tr class="memdesc:ga2f376506d8466eac41f70be1a2c088aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run SecureBoot.  <a href="#ga2f376506d8466eac41f70be1a2c088aa">More...</a><br /></td></tr>
+<tr class="separator:ga2f376506d8466eac41f70be1a2c088aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd28eaaf26967253106bf16dfeed46c6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gabd28eaaf26967253106bf16dfeed46c6">R_CC312_SecureDebug</a> (void *fhandler, uint32_t faddress)</td></tr>
+<tr class="memdesc:gabd28eaaf26967253106bf16dfeed46c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run SecureDebug for DCU Protection.  <a href="#gabd28eaaf26967253106bf16dfeed46c6">More...</a><br /></td></tr>
+<tr class="separator:gabd28eaaf26967253106bf16dfeed46c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf937fcce95f145ed78c9c592bf74104"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gaaf937fcce95f145ed78c9c592bf74104">R_CC312_SecureSocID</a> (void)</td></tr>
+<tr class="memdesc:gaaf937fcce95f145ed78c9c592bf74104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check Soc-ID.  <a href="#gaaf937fcce95f145ed78c9c592bf74104">More...</a><br /></td></tr>
+<tr class="separator:gaaf937fcce95f145ed78c9c592bf74104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae85e709f35ae992dd25ea46f74b6bc60"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gae85e709f35ae992dd25ea46f74b6bc60">R_CC312_SecureSocID_internal</a> (uint8_t *pSocID)</td></tr>
+<tr class="memdesc:gae85e709f35ae992dd25ea46f74b6bc60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Soc-ID.  <a href="#gae85e709f35ae992dd25ea46f74b6bc60">More...</a><br /></td></tr>
+<tr class="separator:gae85e709f35ae992dd25ea46f74b6bc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8976e00517b128ada6ff47e1fa3e5b4d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga8976e00517b128ada6ff47e1fa3e5b4d">R_CC312_SecureBoot_Fatal</a> (uint32_t *rcRmaFlag)</td></tr>
+<tr class="memdesc:ga8976e00517b128ada6ff47e1fa3e5b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force the Fatal Error for Secure Boot (test only)  <a href="#ga8976e00517b128ada6ff47e1fa3e5b4d">More...</a><br /></td></tr>
+<tr class="separator:ga8976e00517b128ada6ff47e1fa3e5b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa467b282238f7a33b3f0ffc4913a3c2b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gaa467b282238f7a33b3f0ffc4913a3c2b">R_CC312_SecureBoot_RMA</a> (void)</td></tr>
+<tr class="memdesc:gaa467b282238f7a33b3f0ffc4913a3c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manually run the RMA process to erase the OTP secrets. (test only)  <a href="#gaa467b282238f7a33b3f0ffc4913a3c2b">More...</a><br /></td></tr>
+<tr class="separator:gaa467b282238f7a33b3f0ffc4913a3c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga133e0f3d3b36e1c6339a45eef0b37a67"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga133e0f3d3b36e1c6339a45eef0b37a67">R_CC312_SecureBoot_CMPU</a> (uint8_t *pCmpuData, uint32_t rflag)</td></tr>
+<tr class="memdesc:ga133e0f3d3b36e1c6339a45eef0b37a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register CMPU to write HUKey &amp; CMKeys in OTP.  <a href="#ga133e0f3d3b36e1c6339a45eef0b37a67">More...</a><br /></td></tr>
+<tr class="separator:ga133e0f3d3b36e1c6339a45eef0b37a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f8f93dad38a9f5a5cdcf97a525a0b8a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga9f8f93dad38a9f5a5cdcf97a525a0b8a">R_CC312_SecureBoot_DMPU</a> (uint8_t *pDmpuData)</td></tr>
+<tr class="memdesc:ga9f8f93dad38a9f5a5cdcf97a525a0b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register DMPU to write DMKeys in OTP.  <a href="#ga9f8f93dad38a9f5a5cdcf97a525a0b8a">More...</a><br /></td></tr>
+<tr class="separator:ga9f8f93dad38a9f5a5cdcf97a525a0b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f129bdc424ad1620b4ed60d0b81adca"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga0f129bdc424ad1620b4ed60d0b81adca">R_CC312_SecureBoot_GetLock</a> (void)</td></tr>
+<tr class="memdesc:ga0f129bdc424ad1620b4ed60d0b81adca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the OTP flag used to check whether to run a SecureBoot.  <a href="#ga0f129bdc424ad1620b4ed60d0b81adca">More...</a><br /></td></tr>
+<tr class="separator:ga0f129bdc424ad1620b4ed60d0b81adca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb1e431df97eddf9d2f279dd04e78987"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gacb1e431df97eddf9d2f279dd04e78987">R_CC312_SecureBoot_SetLock</a> (void)</td></tr>
+<tr class="memdesc:gacb1e431df97eddf9d2f279dd04e78987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the OTP flag to lock the SecureBoot.  <a href="#gacb1e431df97eddf9d2f279dd04e78987">More...</a><br /></td></tr>
+<tr class="separator:gacb1e431df97eddf9d2f279dd04e78987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedd77f793e1f6a6b5b21d5da4ddfed3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gaedd77f793e1f6a6b5b21d5da4ddfed3a">R_CC312_SecureBoot_OTPLock</a> (uint32_t mode)</td></tr>
+<tr class="memdesc:gaedd77f793e1f6a6b5b21d5da4ddfed3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock/Unlock the OTP Protection.  <a href="#gaedd77f793e1f6a6b5b21d5da4ddfed3a">More...</a><br /></td></tr>
+<tr class="separator:gaedd77f793e1f6a6b5b21d5da4ddfed3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50dbb6dd155625d0211914c47b279c6c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga50dbb6dd155625d0211914c47b279c6c">R_CC312_SecureBoot_SecureLCS</a> (void)</td></tr>
+<tr class="memdesc:ga50dbb6dd155625d0211914c47b279c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if current state is a Secure-Lcs.  <a href="#ga50dbb6dd155625d0211914c47b279c6c">More...</a><br /></td></tr>
+<tr class="separator:ga50dbb6dd155625d0211914c47b279c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2daa8587bb7d350cd4397dc00295f10e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga2daa8587bb7d350cd4397dc00295f10e">R_CC312_SecureBoot_GetLock2</a> (void)</td></tr>
+<tr class="memdesc:ga2daa8587bb7d350cd4397dc00295f10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the OTP flag used to check whether to run a SecureBoot (optional).  <a href="#ga2daa8587bb7d350cd4397dc00295f10e">More...</a><br /></td></tr>
+<tr class="separator:ga2daa8587bb7d350cd4397dc00295f10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2494c8d369d011b1debb2e82abb463c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gaf2494c8d369d011b1debb2e82abb463c">R_CC312_SecureBoot_SetLock2</a> (void)</td></tr>
+<tr class="memdesc:gaf2494c8d369d011b1debb2e82abb463c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the OTP flag to lock the SecureBoot (optional).  <a href="#gaf2494c8d369d011b1debb2e82abb463c">More...</a><br /></td></tr>
+<tr class="separator:gaf2494c8d369d011b1debb2e82abb463c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga875c9a0e6964a2c488785d4f99ea7e39"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga875c9a0e6964a2c488785d4f99ea7e39">R_CC312_Secure_Asset</a> (uint32_t Owner, uint32_t AssetID, uint32_t *InAssetData, uint32_t AssetSize, uint32_t *OutAssetData, uint32_t *OutAssetSize)</td></tr>
+<tr class="memdesc:ga875c9a0e6964a2c488785d4f99ea7e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypt SecureAsset.  <a href="#ga875c9a0e6964a2c488785d4f99ea7e39">More...</a><br /></td></tr>
+<tr class="separator:ga875c9a0e6964a2c488785d4f99ea7e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21731c5b04020aa0209f5943e8bfea49"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga21731c5b04020aa0209f5943e8bfea49">R_CC312_Secure_Asset_RuntimePack</a> (<a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a> KeyType, uint32_t noncetype, <a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">AssetUserKeyData_t</a> *KeyData, uint32_t AssetID, char *title, uint8_t *InAssetData, uint32_t AssetSize, uint8_t *OutAssetPkgData)</td></tr>
+<tr class="memdesc:ga21731c5b04020aa0209f5943e8bfea49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypt RuntimeAsset.  <a href="#ga21731c5b04020aa0209f5943e8bfea49">More...</a><br /></td></tr>
+<tr class="separator:ga21731c5b04020aa0209f5943e8bfea49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ee45826c9e8e7a755b55570a0136a23"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga1ee45826c9e8e7a755b55570a0136a23">R_CC312_Secure_Asset_RuntimeUnpack</a> (<a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a> KeyType, <a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">AssetUserKeyData_t</a> *KeyData, uint32_t AssetID, uint8_t *InAssetPkgData, uint32_t AssetPkgSize, uint8_t *OutAssetData)</td></tr>
+<tr class="memdesc:ga1ee45826c9e8e7a755b55570a0136a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypt RuntimeAsset.  <a href="#ga1ee45826c9e8e7a755b55570a0136a23">More...</a><br /></td></tr>
+<tr class="separator:ga1ee45826c9e8e7a755b55570a0136a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11734178b9dcb06e510ecdf7f645ae31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga11734178b9dcb06e510ecdf7f645ae31">R_CC312_Crypto_ClkMgmt</a> (uint32_t mode)</td></tr>
+<tr class="memdesc:ga11734178b9dcb06e510ecdf7f645ae31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Crypto Clock.  <a href="#ga11734178b9dcb06e510ecdf7f645ae31">More...</a><br /></td></tr>
+<tr class="separator:ga11734178b9dcb06e510ecdf7f645ae31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga502ec43e406a361defe1ae60c8ddafab"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga502ec43e406a361defe1ae60c8ddafab">R_CC312_Crypto_Init</a> (uint32_t rflag)</td></tr>
+<tr class="memdesc:ga502ec43e406a361defe1ae60c8ddafab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Crypto Engine.  <a href="#ga502ec43e406a361defe1ae60c8ddafab">More...</a><br /></td></tr>
+<tr class="separator:ga502ec43e406a361defe1ae60c8ddafab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6c800bc5c421e061754f49407c96689"><td class="memItemLeft" align="right" valign="top"><a id="gaf6c800bc5c421e061754f49407c96689"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gaf6c800bc5c421e061754f49407c96689">R_CC312_Crypto_ReInit</a> (void)</td></tr>
+<tr class="memdesc:gaf6c800bc5c421e061754f49407c96689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-initialize Crypto Engine after wakeup. <br /></td></tr>
+<tr class="separator:gaf6c800bc5c421e061754f49407c96689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f2c0e51c98d7464aad5dc19f9f6a21e"><td class="memItemLeft" align="right" valign="top"><a id="ga4f2c0e51c98d7464aad5dc19f9f6a21e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga4f2c0e51c98d7464aad5dc19f9f6a21e">R_CC312_Crypto_Finish</a> (void)</td></tr>
+<tr class="memdesc:ga4f2c0e51c98d7464aad5dc19f9f6a21e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize Crypto Engine. <br /></td></tr>
+<tr class="separator:ga4f2c0e51c98d7464aad5dc19f9f6a21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1c8e5871e3fca9e56ddf04baa38cf22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gac1c8e5871e3fca9e56ddf04baa38cf22">R_CC312_SetCryptoCoreClkGating</a> (uint32_t mode)</td></tr>
+<tr class="memdesc:gac1c8e5871e3fca9e56ddf04baa38cf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the clock of HW Crypto.  <a href="#gac1c8e5871e3fca9e56ddf04baa38cf22">More...</a><br /></td></tr>
+<tr class="separator:gac1c8e5871e3fca9e56ddf04baa38cf22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad365aca0673ffa278456dad3f45f50c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#gad365aca0673ffa278456dad3f45f50c2">R_CC312_Crypto_TRNG</a> (uint32_t sampleCount, uint32_t buffSize, uint8_t *pRndWorkBuff)</td></tr>
+<tr class="memdesc:gad365aca0673ffa278456dad3f45f50c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads requested length of random data from the TRNG. Generate <code>buffSize</code> of random bytes and store them in <code>pRndWorkBuff</code> buffer.  <a href="#gad365aca0673ffa278456dad3f45f50c2">More...</a><br /></td></tr>
+<tr class="separator:gad365aca0673ffa278456dad3f45f50c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e">CRYPTO_PRIMITIVE_TYPE</a></td></tr>
+<tr class="memdesc:struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for Retargeted symbols in ROMCrypto.  <a href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e">More...</a><br /></td></tr>
+<tr class="separator:struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_asset_user_key_data__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">AssetUserKeyData_t</a></td></tr>
+<tr class="memdesc:struct_asset_user_key_data__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">User Key Format.  <a href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">More...</a><br /></td></tr>
+<tr class="separator:struct_asset_user_key_data__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_asset_info_data__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_info_data__t">AssetInfoData_t</a></td></tr>
+<tr class="memdesc:struct_asset_info_data__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypted RunTime Asset Info.  <a href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_info_data__t">More...</a><br /></td></tr>
+<tr class="separator:struct_asset_info_data__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga899b325714ea4eae1aa9393f954515f6"><td class="memItemLeft" align="right" valign="top"><a id="ga899b325714ea4eae1aa9393f954515f6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga899b325714ea4eae1aa9393f954515f6">CC_RUNASSET_PROV_TOKEN</a></td></tr>
+<tr class="memdesc:ga899b325714ea4eae1aa9393f954515f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID code for RunTime Asset. <br /></td></tr>
+<tr class="separator:ga899b325714ea4eae1aa9393f954515f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01ce235aff2f78761bf65384e9666cd0"><td class="memItemLeft" align="right" valign="top"><a id="ga01ce235aff2f78761bf65384e9666cd0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga01ce235aff2f78761bf65384e9666cd0">CC_RUNASSET_PROV_VERSION</a></td></tr>
+<tr class="memdesc:ga01ce235aff2f78761bf65384e9666cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version code for RunTime Asset. <br /></td></tr>
+<tr class="separator:ga01ce235aff2f78761bf65384e9666cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga45204f00336ced3935d3c69dc5329232"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a> <tr class="memdesc:ga45204f00336ced3935d3c69dc5329232"><td class="mdescLeft">&#160;</td><td class="mdescRight">KEY Type list.  <a href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ga45204f00336ced3935d3c69dc5329232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e" id="struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e">&#9670;&nbsp;</a></span>CRYPTO_PRIMITIVE_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct CRYPTO_PRIMITIVE_TYPE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Structure for Retargeted symbols in ROMCrypto. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a9797f6c3f04b4483d86af8a6ed5659f2"><td class="memItemLeft" align="right" valign="top"><a id="a9797f6c3f04b4483d86af8a6ed5659f2"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a9797f6c3f04b4483d86af8a6ed5659f2">retarget_dump</a> )(uint16_t tag, void *srcdata, uint16_t len)</td></tr>
+<tr class="memdesc:a9797f6c3f04b4483d86af8a6ed5659f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of hexadump function <br /></td></tr>
+<tr class="separator:a9797f6c3f04b4483d86af8a6ed5659f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed87792a8ca1978e4d2fdca7b2d70bdc"><td class="memItemLeft" align="right" valign="top"><a id="aed87792a8ca1978e4d2fdca7b2d70bdc"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#aed87792a8ca1978e4d2fdca7b2d70bdc">retarget_text</a> )(uint16_t tag, void *srcdata, uint16_t len)</td></tr>
+<tr class="memdesc:aed87792a8ca1978e4d2fdca7b2d70bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of puts function <br /></td></tr>
+<tr class="separator:aed87792a8ca1978e4d2fdca7b2d70bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60aea261151af8ab81ce2b10f7693a3"><td class="memItemLeft" align="right" valign="top"><a id="af60aea261151af8ab81ce2b10f7693a3"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#af60aea261151af8ab81ce2b10f7693a3">retarget_vprint</a> )(uint16_t tag, const char *format, va_list arg)</td></tr>
+<tr class="memdesc:af60aea261151af8ab81ce2b10f7693a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of vprintf function <br /></td></tr>
+<tr class="separator:af60aea261151af8ab81ce2b10f7693a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9779639277385c901a5bb9814d6f4dc2"><td class="memItemLeft" align="right" valign="top"><a id="a9779639277385c901a5bb9814d6f4dc2"></a>
+char(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a9779639277385c901a5bb9814d6f4dc2">retarget_getchar</a> )(uint32_t mode)</td></tr>
+<tr class="memdesc:a9779639277385c901a5bb9814d6f4dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of getchar function <br /></td></tr>
+<tr class="separator:a9779639277385c901a5bb9814d6f4dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac97aa6c0c63a829cb0fff5a9f95360"><td class="memItemLeft" align="right" valign="top"><a id="a7ac97aa6c0c63a829cb0fff5a9f95360"></a>
+void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a7ac97aa6c0c63a829cb0fff5a9f95360">raw_malloc</a> )(size_t size)</td></tr>
+<tr class="memdesc:a7ac97aa6c0c63a829cb0fff5a9f95360"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of malloc function <br /></td></tr>
+<tr class="separator:a7ac97aa6c0c63a829cb0fff5a9f95360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e353980554bec17604aedda68750011"><td class="memItemLeft" align="right" valign="top"><a id="a0e353980554bec17604aedda68750011"></a>
+void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a0e353980554bec17604aedda68750011">raw_realloc</a> )(void *Buffer, size_t NewSize)</td></tr>
+<tr class="memdesc:a0e353980554bec17604aedda68750011"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of realloc function <br /></td></tr>
+<tr class="separator:a0e353980554bec17604aedda68750011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f7ca28556d9917722af2d146eb7bf1"><td class="memItemLeft" align="right" valign="top"><a id="a00f7ca28556d9917722af2d146eb7bf1"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a00f7ca28556d9917722af2d146eb7bf1">raw_free</a> )(void *f)</td></tr>
+<tr class="memdesc:a00f7ca28556d9917722af2d146eb7bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of free function <br /></td></tr>
+<tr class="separator:a00f7ca28556d9917722af2d146eb7bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd14e902e2b36c99b25e90402fd968b"><td class="memItemLeft" align="right" valign="top"><a id="a6bd14e902e2b36c99b25e90402fd968b"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a6bd14e902e2b36c99b25e90402fd968b">raw_otpread</a> )(uint32_t otpwoffset)</td></tr>
+<tr class="memdesc:a6bd14e902e2b36c99b25e90402fd968b"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of OTP read Wrapper <br /></td></tr>
+<tr class="separator:a6bd14e902e2b36c99b25e90402fd968b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed00030a32f2bf22e88052465a9bd275"><td class="memItemLeft" align="right" valign="top"><a id="aed00030a32f2bf22e88052465a9bd275"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#aed00030a32f2bf22e88052465a9bd275">raw_otpwrite</a> )(uint32_t otpwoffset, uint32_t otpData)</td></tr>
+<tr class="memdesc:aed00030a32f2bf22e88052465a9bd275"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of OTP write Wrapper <br /></td></tr>
+<tr class="separator:aed00030a32f2bf22e88052465a9bd275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2880b16776721e9f243fd545968245a6"><td class="memItemLeft" align="right" valign="top"><a id="a2880b16776721e9f243fd545968245a6"></a>
+void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a2880b16776721e9f243fd545968245a6">flash_image_open</a> )(uint32_t mode, uint32_t imghdr_offset, void *locker)</td></tr>
+<tr class="memdesc:a2880b16776721e9f243fd545968245a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:a2880b16776721e9f243fd545968245a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdce00771477b916d1f783163f98d17d"><td class="memItemLeft" align="right" valign="top"><a id="afdce00771477b916d1f783163f98d17d"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#afdce00771477b916d1f783163f98d17d">flash_image_close</a> )(void *handler)</td></tr>
+<tr class="memdesc:afdce00771477b916d1f783163f98d17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:afdce00771477b916d1f783163f98d17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0d48455126bd3f762c088305f42528"><td class="memItemLeft" align="right" valign="top"><a id="a6d0d48455126bd3f762c088305f42528"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a6d0d48455126bd3f762c088305f42528">flash_image_check</a> )(void *handler, uint32_t imgtype, uint32_t imghdr_offset)</td></tr>
+<tr class="memdesc:a6d0d48455126bd3f762c088305f42528"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:a6d0d48455126bd3f762c088305f42528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe826649ad0435b7a6db5266459c268"><td class="memItemLeft" align="right" valign="top"><a id="aabe826649ad0435b7a6db5266459c268"></a>
+void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#aabe826649ad0435b7a6db5266459c268">flash_image_certificate</a> )(void *handler, uint32_t imghdr_offset, uint32_t certindex, uint32_t *certsize)</td></tr>
+<tr class="memdesc:aabe826649ad0435b7a6db5266459c268"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:aabe826649ad0435b7a6db5266459c268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb1708ca7674d46f6747a634aa4c242"><td class="memItemLeft" align="right" valign="top"><a id="a4eb1708ca7674d46f6747a634aa4c242"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a4eb1708ca7674d46f6747a634aa4c242">flash_image_extract</a> )(void *handler, uint32_t imghdr_offset, uint32_t *load_addr, uint32_t *jmp_addr)</td></tr>
+<tr class="memdesc:a4eb1708ca7674d46f6747a634aa4c242"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:a4eb1708ca7674d46f6747a634aa4c242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af13a4246d588a8ae093b5d1fbac1daba"><td class="memItemLeft" align="right" valign="top"><a id="af13a4246d588a8ae093b5d1fbac1daba"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#af13a4246d588a8ae093b5d1fbac1daba">flash_image_load</a> )(void *handler, uint32_t imghdr_offset, uint32_t *load_addr, uint32_t *jmp_addr)</td></tr>
+<tr class="memdesc:af13a4246d588a8ae093b5d1fbac1daba"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:af13a4246d588a8ae093b5d1fbac1daba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fad904b15197b25fdbdb23ed669d81"><td class="memItemLeft" align="right" valign="top"><a id="a92fad904b15197b25fdbdb23ed669d81"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a92fad904b15197b25fdbdb23ed669d81">flash_image_read</a> )(void *handler, uint32_t img_offset, void *load_addr, uint32_t img_secsize)</td></tr>
+<tr class="memdesc:a92fad904b15197b25fdbdb23ed669d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for flash access <br /></td></tr>
+<tr class="separator:a92fad904b15197b25fdbdb23ed669d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac835500fa432c36d614e4ed56cad3470"><td class="memItemLeft" align="right" valign="top"><a id="ac835500fa432c36d614e4ed56cad3470"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ac835500fa432c36d614e4ed56cad3470">rtosdelay</a> )(uint32_t usec)</td></tr>
+<tr class="memdesc:ac835500fa432c36d614e4ed56cad3470"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback of OS delay function <br /></td></tr>
+<tr class="separator:ac835500fa432c36d614e4ed56cad3470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5b073f9ff3fdb3697a1d9c7528b91f"><td class="memItemLeft" align="right" valign="top"><a id="a1e5b073f9ff3fdb3697a1d9c7528b91f"></a>
+uint64_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#a1e5b073f9ff3fdb3697a1d9c7528b91f">tickmeasure</a> )(uint32_t flag)</td></tr>
+<tr class="memdesc:a1e5b073f9ff3fdb3697a1d9c7528b91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback for time measurement <br /></td></tr>
+<tr class="separator:a1e5b073f9ff3fdb3697a1d9c7528b91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<a name="struct_asset_user_key_data__t" id="struct_asset_user_key_data__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_asset_user_key_data__t">&#9670;&nbsp;</a></span>AssetUserKeyData_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct AssetUserKeyData_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>User Key Format. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9387ef08063ac5571e7125703ee63837"></a>uint8_t *</td>
+<td class="fieldname">
+pKey</td>
+<td class="fielddoc">
+<p>key data </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ae1f048c002930cb8a0aa2906f5920f4b"></a>size_t</td>
+<td class="fieldname">
+keySize</td>
+<td class="fielddoc">
+<p>key size </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="struct_asset_info_data__t" id="struct_asset_info_data__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_asset_info_data__t">&#9670;&nbsp;</a></span>AssetInfoData_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct AssetInfoData_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Encrypted RunTime Asset Info. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="aca3784b485642a789835901d7ba61db0"></a>uint32_t</td>
+<td class="fieldname">
+token</td>
+<td class="fielddoc">
+<p>ID for package provisioning </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a4e0d622a1ce1815fd3ad221f8241ef91"></a>uint32_t</td>
+<td class="fieldname">
+version</td>
+<td class="fielddoc">
+<p>version info </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a6eae047ed2a85bf8ed55bd0690aa33a5"></a>uint32_t</td>
+<td class="fieldname">
+assetSize</td>
+<td class="fielddoc">
+<p>size of asset </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga45204f00336ced3935d3c69dc5329232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45204f00336ced3935d3c69dc5329232">&#9670;&nbsp;</a></span>AssetKeyType_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>KEY Type list. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232a5ab814ff7f74c90a5069a217750f59aa"></a>ASSET_USER_KEY&#160;</td><td class="fielddoc"><p>User Key </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232ac3ae435d39efe87ee9e72fb5e595526b"></a>ASSET_ROOT_KEY&#160;</td><td class="fielddoc"><p>HUK Key </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232ad697b4bb1bc6f5c377fe802751191f1f"></a>ASSET_KCP_KEY&#160;</td><td class="fielddoc"><p>DMKey - Kcp, asset(product) encryption key </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232adf73f7ea592bc915144c0fff040325b0"></a>ASSET_KCE_KEY&#160;</td><td class="fielddoc"><p>DMKey - Kcp, code encryption key </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232a4e1487c3ddf79eeeb08869b690683c34"></a>ASSET_KPICV_KEY&#160;</td><td class="fielddoc"><p>CMKey - Kpicv, asset(product) encryption key </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga45204f00336ced3935d3c69dc5329232a22bea8a644864a03724612071e8c6fd4"></a>ASSET_KCEICV_KEY&#160;</td><td class="fielddoc"><p>CMKey - Kceicv, code encryption key </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gac2efb749d42bcea041b0bc53f2ae854c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2efb749d42bcea041b0bc53f2ae854c">&#9670;&nbsp;</a></span>init_crypto_primitives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_crypto_primitives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_c_r_y_p_t_o___p_r_i_m_i_t_i_v_e___t_y_p_e">CRYPTO_PRIMITIVE_TYPE</a> *&#160;</td>
+          <td class="paramname"><em>primitive</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initiaize ROMCrypto Library. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">primitive</td><td>retargeted symbols used in RomCrypto </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9b35247a7ddcc15b270001982f9b4cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b35247a7ddcc15b270001982f9b4cb0">&#9670;&nbsp;</a></span>R_CC312_Debug_SecureBoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void R_CC312_Debug_SecureBoot </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Debug Mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>debug mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9f62a87cdcac2c6d9ed7a0709c6135fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f62a87cdcac2c6d9ed7a0709c6135fe">&#9670;&nbsp;</a></span>R_CC312_Debug_SecureBoot_Mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_Debug_SecureBoot_Mode </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Debug Mode. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">mode</td><td>current debug mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0cadaf035c016e27f69afc4da0d8df6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0cadaf035c016e27f69afc4da0d8df6c">&#9670;&nbsp;</a></span>R_CC312_Debug_Get_ErrorCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_Debug_Get_ErrorCode </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get Error Mode. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">code</td><td>lastest error mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2f376506d8466eac41f70be1a2c088aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2f376506d8466eac41f70be1a2c088aa">&#9670;&nbsp;</a></span>R_CC312_SecureBoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>taddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>jaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>stopproc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run SecureBoot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">taddress</td><td>flash memory offset of the image </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">jaddress</td><td>entry point address of the bootable image <br />
+ if jaddress == NULL, then CPU will branch into the APP automatically. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stopproc</td><td>callback to safely finish a boot sequence before branching APP</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabd28eaaf26967253106bf16dfeed46c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd28eaaf26967253106bf16dfeed46c6">&#9670;&nbsp;</a></span>R_CC312_SecureDebug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureDebug </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>fhandler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>faddress</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run SecureDebug for DCU Protection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fhandler</td><td>SFLASH handler </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">faddress</td><td>flash memory offset of the image</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function runs internally during POR boot. <br />
+ So if you run this function in your app, it won't work. </dd></dl>
+
+</div>
+</div>
+<a id="gaaf937fcce95f145ed78c9c592bf74104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf937fcce95f145ed78c9c592bf74104">&#9670;&nbsp;</a></span>R_CC312_SecureSocID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureSocID </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check Soc-ID. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">In</td><td>Secure-Lcs, SocID is returned </td></tr>
+    <tr><td class="paramname">otherwise</td><td>curruent Lcs is returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae85e709f35ae992dd25ea46f74b6bc60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae85e709f35ae992dd25ea46f74b6bc60">&#9670;&nbsp;</a></span>R_CC312_SecureSocID_internal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureSocID_internal </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pSocID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get Soc-ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pSocID</td><td>empty output buffer for storing the SocID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8976e00517b128ada6ff47e1fa3e5b4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8976e00517b128ada6ff47e1fa3e5b4d">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_Fatal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_Fatal </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>rcRmaFlag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Force the Fatal Error for Secure Boot (test only) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rcRmaFlag</td><td>RMA flag</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Zero</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">Non-Zero</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa467b282238f7a33b3f0ffc4913a3c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa467b282238f7a33b3f0ffc4913a3c2b">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_RMA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_RMA </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Manually run the RMA process to erase the OTP secrets. (test only) </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga133e0f3d3b36e1c6339a45eef0b37a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga133e0f3d3b36e1c6339a45eef0b37a67">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_CMPU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_CMPU </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pCmpuData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>rflag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register CMPU to write HUKey &amp; CMKeys in OTP. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pCmpuData</td><td>data pointer of CMPU </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rflag</td><td>TRNG test feature. Set '0' to avoid the collision of HUKey between products.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9f8f93dad38a9f5a5cdcf97a525a0b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f8f93dad38a9f5a5cdcf97a525a0b8a">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_DMPU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_DMPU </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pDmpuData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register DMPU to write DMKeys in OTP. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pDmpuData</td><td>data pointer of DMPU</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0f129bdc424ad1620b4ed60d0b81adca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f129bdc424ad1620b4ed60d0b81adca">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_GetLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_GetLock </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the OTP flag used to check whether to run a SecureBoot. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>SecureBoot locked (enabled) </td></tr>
+    <tr><td class="paramname">false</td><td>SecureBoot unlocked (disabled) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacb1e431df97eddf9d2f279dd04e78987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb1e431df97eddf9d2f279dd04e78987">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_SetLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_SetLock </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the OTP flag to lock the SecureBoot. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaedd77f793e1f6a6b5b21d5da4ddfed3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaedd77f793e1f6a6b5b21d5da4ddfed3a">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_OTPLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void R_CC312_SecureBoot_OTPLock </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lock/Unlock the OTP Protection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>lock value (1 : unlock for writing data, 0: lock) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga50dbb6dd155625d0211914c47b279c6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50dbb6dd155625d0211914c47b279c6c">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_SecureLCS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_SecureLCS </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if current state is a Secure-Lcs. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2daa8587bb7d350cd4397dc00295f10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2daa8587bb7d350cd4397dc00295f10e">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_GetLock2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_GetLock2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the OTP flag used to check whether to run a SecureBoot (optional). </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>SecureBoot locked (enabled) </td></tr>
+    <tr><td class="paramname">false</td><td>SecureBoot unlocked (disabled) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf2494c8d369d011b1debb2e82abb463c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2494c8d369d011b1debb2e82abb463c">&#9670;&nbsp;</a></span>R_CC312_SecureBoot_SetLock2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_SecureBoot_SetLock2 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the OTP flag to lock the SecureBoot (optional). </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga875c9a0e6964a2c488785d4f99ea7e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga875c9a0e6964a2c488785d4f99ea7e39">&#9670;&nbsp;</a></span>R_CC312_Secure_Asset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_Secure_Asset </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>Owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>InAssetData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>OutAssetData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>OutAssetSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decrypt SecureAsset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Owner</td><td>key type (1: CMKey - Kpicv, 2: DMKey - Kcp) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetID</td><td>unique id (part of nonce) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InAssetData</td><td>encrypted asset data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetSize</td><td>size of InAssetData </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">OutAssetData</td><td>decrypted asset data </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">OutAssetSize</td><td>size of decrypted asset data</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Non-Zero</td><td>size of OutAssetData </td></tr>
+    <tr><td class="paramname">Zero</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga21731c5b04020aa0209f5943e8bfea49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21731c5b04020aa0209f5943e8bfea49">&#9670;&nbsp;</a></span>R_CC312_Secure_Asset_RuntimePack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t R_CC312_Secure_Asset_RuntimePack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a>&#160;</td>
+          <td class="paramname"><em>KeyType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>noncetype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">AssetUserKeyData_t</a> *&#160;</td>
+          <td class="paramname"><em>KeyData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>InAssetData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>OutAssetPkgData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encrypt RuntimeAsset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">KeyType</td><td>key type (</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232" title="KEY Type list. ">AssetKeyType_t</a>) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">noncetype</td><td>method to generate a nonce (0xFFFFFFFF: PRNG, otherwise: TRNG) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">KeyData</td><td>User Key data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetID</td><td>unique id of RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>unique tag of RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InAssetData</td><td>plaintext of RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetSize</td><td>size of the plaintext. it must be multiply of 16 bytes. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">OutAssetPkgData</td><td>empty output buffer for storing the encrypted RuntimeAsset</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Non-Zero</td><td>size of OutAssetData </td></tr>
+    <tr><td class="paramname">Zero</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1ee45826c9e8e7a755b55570a0136a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ee45826c9e8e7a755b55570a0136a23">&#9670;&nbsp;</a></span>R_CC312_Secure_Asset_RuntimeUnpack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t R_CC312_Secure_Asset_RuntimeUnpack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232">AssetKeyType_t</a>&#160;</td>
+          <td class="paramname"><em>KeyType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#struct_asset_user_key_data__t">AssetUserKeyData_t</a> *&#160;</td>
+          <td class="paramname"><em>KeyData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>InAssetPkgData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>AssetPkgSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>OutAssetData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decrypt RuntimeAsset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">KeyType</td><td>key type (</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group___r___c_c312___o_p_e_n_a_b_l_e___w.html#ga45204f00336ced3935d3c69dc5329232" title="KEY Type list. ">AssetKeyType_t</a>) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">KeyData</td><td>User Key data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetID</td><td>unique id of RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">InAssetPkgData</td><td>encrypted RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">AssetPkgSize</td><td>size of the encrypted RuntimeAsset </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">OutAssetData</td><td>empty output buffer for storing the decrypted RuntimeAsset</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Non-Zero</td><td>size of OutAssetData </td></tr>
+    <tr><td class="paramname">Zero</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga11734178b9dcb06e510ecdf7f645ae31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11734178b9dcb06e510ecdf7f645ae31">&#9670;&nbsp;</a></span>R_CC312_Crypto_ClkMgmt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void R_CC312_Crypto_ClkMgmt </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize Crypto Clock. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>pll callbak mode <br />
+ TRUE is support the pll callback of Crypto Engine. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga502ec43e406a361defe1ae60c8ddafab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga502ec43e406a361defe1ae60c8ddafab">&#9670;&nbsp;</a></span>R_CC312_Crypto_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t R_CC312_Crypto_Init </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>rflag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize Crypto Engine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rflag</td><td>parameter for TRNG initialization</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">false</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac1c8e5871e3fca9e56ddf04baa38cf22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1c8e5871e3fca9e56ddf04baa38cf22">&#9670;&nbsp;</a></span>R_CC312_SetCryptoCoreClkGating()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void R_CC312_SetCryptoCoreClkGating </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable the clock of HW Crypto. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>if true, then the clock is enabled, othersize it is diabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad365aca0673ffa278456dad3f45f50c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad365aca0673ffa278456dad3f45f50c2">&#9670;&nbsp;</a></span>R_CC312_Crypto_TRNG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int R_CC312_Crypto_TRNG </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sampleCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>buffSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pRndWorkBuff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads requested length of random data from the TRNG. Generate <code>buffSize</code> of random bytes and store them in <code>pRndWorkBuff</code> buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sampleCount</td><td>set sampling ratio (rng_clocks) between consecutive bits. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffSize</td><td>the length of random bytes. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pRndWorkBuff</td><td>empty output buffer for storing the random bytes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Zero</td><td>function succeeded </td></tr>
+    <tr><td class="paramname">Non-Zero</td><td>function failed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

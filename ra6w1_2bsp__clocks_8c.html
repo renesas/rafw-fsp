@@ -1,0 +1,308 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: bsp_clocks.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('ra6w1_2bsp__clocks_8c.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">ra6w1/bsp_clocks.c File Reference<div class="ingroups"><a class="el" href="group___b_s_p.html">BSP</a> &raquo; <a class="el" href="group___d_e_v_i_c_e_s.html">DEVICES</a> &raquo; <a class="el" href="group___c_l_k.html">CLK</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Clock Driver.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;bsp_api.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="sdk__defs_8h.html">sdk_defs.h</a>&quot;</code><br />
+<code>#include &quot;bsp_clocks.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga9b2ccb1e3f8ebc8c8573522db81b2154"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga9b2ccb1e3f8ebc8c8573522db81b2154">bsp_clock_xtalm_is_settled</a> (void)</td></tr>
+<tr class="separator:ga9b2ccb1e3f8ebc8c8573522db81b2154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58bd8838b22788726a10767707e6a14c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga58bd8838b22788726a10767707e6a14c">hw_clk_xtalm_update_rdy_cnt</a> (void)</td></tr>
+<tr class="memdesc:ga58bd8838b22788726a10767707e6a14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update XTAL40M Ready IRQ counter.  <a href="group___c_l_k.html#ga58bd8838b22788726a10767707e6a14c">More...</a><br /></td></tr>
+<tr class="separator:ga58bd8838b22788726a10767707e6a14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b9cea52c004b7b1c882eb029b3a149b"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga5b9cea52c004b7b1c882eb029b3a149b">hw_clk_xtalm_compensate_amp</a> (void)</td></tr>
+<tr class="memdesc:ga5b9cea52c004b7b1c882eb029b3a149b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform XTAL40M RCOSC amplitude temperature compensation. <br /></td></tr>
+<tr class="separator:ga5b9cea52c004b7b1c882eb029b3a149b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae82ecb2e3653f2e2c1050adc9c5ea1f5"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#gae82ecb2e3653f2e2c1050adc9c5ea1f5">hw_clk_xtalm_configure</a> (void)</td></tr>
+<tr class="memdesc:gae82ecb2e3653f2e2c1050adc9c5ea1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure XTAL40M. <br /></td></tr>
+<tr class="separator:gae82ecb2e3653f2e2c1050adc9c5ea1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad33d3656e96be964e4d4f07d125f0638"><td class="memItemLeft" align="right" valign="top">
+BSP_PLACE_CODE_IN_RAM uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#gad33d3656e96be964e4d4f07d125f0638">hw_clk_pll_sys_on</a> (void)</td></tr>
+<tr class="memdesc:gad33d3656e96be964e4d4f07d125f0638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the PLL. <br /></td></tr>
+<tr class="separator:gad33d3656e96be964e4d4f07d125f0638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ae42390108a2b7726582010e0abf6b6"><td class="memItemLeft" align="right" valign="top">BSP_PLACE_CODE_IN_RAM void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga4ae42390108a2b7726582010e0abf6b6">hw_clk_pll_sys_off</a> (void)</td></tr>
+<tr class="memdesc:ga4ae42390108a2b7726582010e0abf6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the PLL.  <a href="group___c_l_k.html#ga4ae42390108a2b7726582010e0abf6b6">More...</a><br /></td></tr>
+<tr class="separator:ga4ae42390108a2b7726582010e0abf6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga510a06df35c935d233ceb709885029a8"><td class="memItemLeft" align="right" valign="top">
+BSP_PLACE_CODE_IN_RAM void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga510a06df35c935d233ceb709885029a8">pll_on</a> (void)</td></tr>
+<tr class="memdesc:ga510a06df35c935d233ceb709885029a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable PLL. <br /></td></tr>
+<tr class="separator:ga510a06df35c935d233ceb709885029a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga144ea2f45ef72f05465aed2c075b39f8"><td class="memItemLeft" align="right" valign="top">
+BSP_PLACE_CODE_IN_RAM void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga144ea2f45ef72f05465aed2c075b39f8">pll_off</a> (void)</td></tr>
+<tr class="memdesc:ga144ea2f45ef72f05465aed2c075b39f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable PLL. <br /></td></tr>
+<tr class="separator:ga144ea2f45ef72f05465aed2c075b39f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88784696b33e6b5dd3f057e41ba5f391"><td class="memItemLeft" align="right" valign="top">BSP_PLACE_CODE_IN_RAM void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga88784696b33e6b5dd3f057e41ba5f391">bsp_prv_rtc_mirror_init</a> (void)</td></tr>
+<tr class="separator:ga88784696b33e6b5dd3f057e41ba5f391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e4da85e369b6134485b4e043212d5f1"><td class="memItemLeft" align="right" valign="top">BSP_PLACE_CODE_IN_RAM lp_clk_is_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#ga1e4da85e369b6134485b4e043212d5f1">bsp_prv_lpclk_get</a> ()</td></tr>
+<tr class="separator:ga1e4da85e369b6134485b4e043212d5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac640468417157ac7cfca15bfaf1bf8bf"><td class="memItemLeft" align="right" valign="top">BSP_PLACE_CODE_IN_RAM <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_l_k.html#gac640468417157ac7cfca15bfaf1bf8bf">bsp_prv_lpclk_select</a> (lp_clk_is_t type)</td></tr>
+<tr class="memdesc:gac640468417157ac7cfca15bfaf1bf8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects the low power clock source.  <a href="group___c_l_k.html#gac640468417157ac7cfca15bfaf1bf8bf">More...</a><br /></td></tr>
+<tr class="separator:gac640468417157ac7cfca15bfaf1bf8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Clock Driver. </p>
+<p>Copyright (c) 2016-2020 Renesas Electronics. All rights reserved.</p>
+<p>This software ("Software") is owned by Renesas Electronics.</p>
+<p>By using this Software you agree that Renesas Electronics retains all intellectual property and proprietary rights in and to this Software and any use, reproduction, disclosure or distribution of the Software without express written permission or a license agreement from Renesas Electronics is strictly prohibited. This Software is solely for use on or in conjunction with Renesas Electronics products.</p>
+<p>EXCEPT AS OTHERWISE PROVIDED IN A LICENSE AGREEMENT BETWEEN THE PARTIES, THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. EXCEPT AS OTHERWISE PROVIDED IN A LICENSE AGREEMENT BETWEEN THE PARTIES, IN NO EVENT SHALL RENESAS ELECTRONICS BE LIABLE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE SOFTWARE. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_b18d2d13694890cc5ac49a5be67e3b2d.html">ra</a></li><li class="navelem"><a class="el" href="dir_d71e6481d15bd93e41670a57fe245af4.html">fsp</a></li><li class="navelem"><a class="el" href="dir_cc90537d9d9120754144c336f41d5945.html">src</a></li><li class="navelem"><a class="el" href="dir_a9dbbd8183447f404096ada37fe92bc6.html">bsp_w</a></li><li class="navelem"><a class="el" href="dir_e3508acd47009e47386b8460513c0cd6.html">mcu</a></li><li class="navelem"><a class="el" href="dir_df7d643ef1b8a4dda53906e1f4f66656.html">ra6w1</a></li><li class="navelem"><a class="el" href="ra6w1_2bsp__clocks_8c.html">bsp_clocks.c</a></li>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

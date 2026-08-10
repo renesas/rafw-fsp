@@ -1,0 +1,2234 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: BLE ABS Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___b_l_e___a_b_s___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">BLE ABS Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___i_n_t_e_r_f_a_c_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for BLE Abstraction functions. </p>
+<h1><a class="anchor" id="BLE_ABS_API_Summary"></a>
+Summary</h1>
+<p>The BLE Abstraction (BLE ABS) interface provides an abstraction layer for various Renesas BLE hardware. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structble__device__address__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a></td></tr>
+<tr class="separator:structble__device__address__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__gap__connection__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__connection__parameter__t">ble_gap_connection_parameter_t</a></td></tr>
+<tr class="separator:structble__gap__connection__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__gap__connection__phy__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__connection__phy__parameter__t">ble_gap_connection_phy_parameter_t</a></td></tr>
+<tr class="separator:structble__gap__connection__phy__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__gap__scan__phy__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__scan__phy__parameter__t">ble_gap_scan_phy_parameter_t</a></td></tr>
+<tr class="separator:structble__gap__scan__phy__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__gap__scan__on__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__scan__on__t">ble_gap_scan_on_t</a></td></tr>
+<tr class="separator:structble__gap__scan__on__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__callback__args__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__callback__args__t">ble_abs_callback_args_t</a></td></tr>
+<tr class="separator:structble__abs__callback__args__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__pairing__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__pairing__parameter__t">ble_abs_pairing_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__pairing__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__gatt__server__callback__set__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__gatt__server__callback__set__t">ble_abs_gatt_server_callback_set_t</a></td></tr>
+<tr class="separator:structble__abs__gatt__server__callback__set__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__gatt__client__callback__set__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__gatt__client__callback__set__t">ble_abs_gatt_client_callback_set_t</a></td></tr>
+<tr class="separator:structble__abs__gatt__client__callback__set__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__legacy__advertising__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__legacy__advertising__parameter__t">ble_abs_legacy_advertising_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__legacy__advertising__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__extend__advertising__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__extend__advertising__parameter__t">ble_abs_extend_advertising_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__extend__advertising__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__non__connectable__advertising__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__non__connectable__advertising__parameter__t">ble_abs_non_connectable_advertising_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__non__connectable__advertising__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__periodic__advertising__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__periodic__advertising__parameter__t">ble_abs_periodic_advertising_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__periodic__advertising__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__scan__phy__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__phy__parameter__t">ble_abs_scan_phy_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__scan__phy__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__scan__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__parameter__t">ble_abs_scan_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__scan__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__connection__phy__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__phy__parameter__t">ble_abs_connection_phy_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__connection__phy__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__connection__parameter__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__parameter__t">ble_abs_connection_parameter_t</a></td></tr>
+<tr class="separator:structble__abs__connection__parameter__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__cfg__t">ble_abs_cfg_t</a></td></tr>
+<tr class="separator:structble__abs__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__api__t">ble_abs_api_t</a></td></tr>
+<tr class="separator:structble__abs__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structble__abs__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__instance__t">ble_abs_instance_t</a></td></tr>
+<tr class="separator:structble__abs__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga0a65defedf447cedd4296620694528cf"><td class="memItemLeft" align="right" valign="top"><a id="ga0a65defedf447cedd4296620694528cf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga0a65defedf447cedd4296620694528cf">BLE_ABS_ADVERTISING_PHY_LEGACY</a></td></tr>
+<tr class="memdesc:ga0a65defedf447cedd4296620694528cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-Connectable Legacy Advertising phy setting. <br /></td></tr>
+<tr class="separator:ga0a65defedf447cedd4296620694528cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga423d7479d7d81c474ad321f5aa76e939"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga423d7479d7d81c474ad321f5aa76e939">ble_gap_application_callback_t</a>) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_p___a_p_i.html#structst__ble__evt__data__t">st_ble_evt_data_t</a> *p_event_data)</td></tr>
+<tr class="separator:ga423d7479d7d81c474ad321f5aa76e939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ce85fc03a2dab118c422d5cbcdc178c"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga0ce85fc03a2dab118c422d5cbcdc178c">ble_vendor_specific_application_callback_t</a>) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___v_s___a_p_i.html#structst__ble__vs__evt__data__t">st_ble_vs_evt_data_t</a> *p_event_data)</td></tr>
+<tr class="separator:ga0ce85fc03a2dab118c422d5cbcdc178c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69790145005d03f5503c4d1338956e83"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga69790145005d03f5503c4d1338956e83">ble_gatt_server_application_callback_t</a>) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_t_t___s_e_r_v_e_r___a_p_i.html#structst__ble__gatts__evt__data__t">st_ble_gatts_evt_data_t</a> *p_event_data)</td></tr>
+<tr class="separator:ga69790145005d03f5503c4d1338956e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad877e721a58a6783c472f3022304f7f9"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#gad877e721a58a6783c472f3022304f7f9">ble_gatt_client_application_callback_t</a>) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_t_t___c_l_i_e_n_t___a_p_i.html#structst__ble__gattc__evt__data__t">st_ble_gattc_evt_data_t</a> *p_event_data)</td></tr>
+<tr class="separator:gad877e721a58a6783c472f3022304f7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ba4dba2dff7da80f1ead1e0ef94b613"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga2ba4dba2dff7da80f1ead1e0ef94b613">ble_abs_delete_bond_application_callback_t</a>) (<a class="el" href="group___g_a_p___a_p_i.html#structst__ble__dev__addr__t">st_ble_dev_addr_t</a> *p_addr)</td></tr>
+<tr class="separator:ga2ba4dba2dff7da80f1ead1e0ef94b613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga933069f10ed98538549bc7a4298a3923"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a></td></tr>
+<tr class="separator:ga933069f10ed98538549bc7a4298a3923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga77ed02034d3aa2e83b97680eb15bb01f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga77ed02034d3aa2e83b97680eb15bb01f">ble_abs_advertising_filter_t</a> </td></tr>
+<tr class="separator:ga77ed02034d3aa2e83b97680eb15bb01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga326be6526889c57ef80bf9821d12c8e6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga326be6526889c57ef80bf9821d12c8e6">ble_abs_local_bond_information_t</a> </td></tr>
+<tr class="separator:ga326be6526889c57ef80bf9821d12c8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18554897bd2c017f794125cd4ca1764b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga18554897bd2c017f794125cd4ca1764b">ble_abs_remote_bond_information_t</a> </td></tr>
+<tr class="separator:ga18554897bd2c017f794125cd4ca1764b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf67724f2be90aa139e93499fe456b80"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#gacf67724f2be90aa139e93499fe456b80">ble_abs_delete_non_volatile_area_t</a> </td></tr>
+<tr class="separator:gacf67724f2be90aa139e93499fe456b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structble__device__address__t" id="structble__device__address__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__device__address__t">&#9670;&nbsp;</a></span>ble_device_address_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_device_address_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_device_address is the type of bluetooth device address(BD_ADDR). </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a702aa4dedd35e5896d70a54064566159"></a>uint8_t</td>
+<td class="fieldname">
+addr[<a class="el" href="group___g_a_p___a_p_i.html#ga49b4250b2230cea15e06b11d90738f92">BLE_BD_ADDR_LEN</a>]</td>
+<td class="fielddoc">
+bluetooth device address. </td></tr>
+<tr><td class="fieldtype">
+<a id="a619a60fe41e2b470a2c8f614bae024c9"></a>uint8_t</td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+the type of bluetooth device address. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__gap__connection__parameter__t" id="structble__gap__connection__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__gap__connection__parameter__t">&#9670;&nbsp;</a></span>ble_gap_connection_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_gap_connection_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__connection__parameter__t">ble_gap_connection_parameter_t</a> is Connection parameters included in connection interval, slave latency, supervision timeout, ce length. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ab6b2109ea21bf3660883d91fdd0f4c00"></a>uint16_t</td>
+<td class="fieldname">
+conn_intv_min</td>
+<td class="fielddoc">
+Minimum connection interval. </td></tr>
+<tr><td class="fieldtype">
+<a id="a50db79aa1263747d8afb05b55e637b47"></a>uint16_t</td>
+<td class="fieldname">
+conn_intv_max</td>
+<td class="fielddoc">
+Maximum connection interval. </td></tr>
+<tr><td class="fieldtype">
+<a id="a52557c3bfff9288154f94be1414c0c88"></a>uint16_t</td>
+<td class="fieldname">
+conn_latency</td>
+<td class="fielddoc">
+Slave latency. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9fd832147e9e8ac4030134ffa9e65b55"></a>uint16_t</td>
+<td class="fieldname">
+sup_to</td>
+<td class="fielddoc">
+Supervision timeout. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2c8f555b37ac21aacac1de8cd670ca23"></a>uint16_t</td>
+<td class="fieldname">
+min_ce_length</td>
+<td class="fielddoc">
+Minimum CE Length. </td></tr>
+<tr><td class="fieldtype">
+<a id="a674c281b82a1f3c750481c475a908045"></a>uint16_t</td>
+<td class="fieldname">
+max_ce_length</td>
+<td class="fielddoc">
+Maximum CE Length. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__gap__connection__phy__parameter__t" id="structble__gap__connection__phy__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__gap__connection__phy__parameter__t">&#9670;&nbsp;</a></span>ble_gap_connection_phy_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_gap_connection_phy_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__connection__phy__parameter__t">ble_gap_connection_phy_parameter_t</a> is Connection parameters per PHY. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae467656ef75b70265e2ecdd860cc04d9"></a>uint16_t</td>
+<td class="fieldname">
+scan_intv</td>
+<td class="fielddoc">
+Scan interval. </td></tr>
+<tr><td class="fieldtype">
+<a id="a376ff828ee89b31939655ed50e7ca8c3"></a>uint16_t</td>
+<td class="fieldname">
+scan_window</td>
+<td class="fielddoc">
+Scan window. </td></tr>
+<tr><td class="fieldtype">
+<a id="a6dd231955349e9c2ced716b4d3756cfe"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__gap__connection__parameter__t">ble_gap_connection_parameter_t</a> *</td>
+<td class="fieldname">
+p_conn_param</td>
+<td class="fielddoc">
+Connection interval, slave latency, supervision timeout, and CE length. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__gap__scan__phy__parameter__t" id="structble__gap__scan__phy__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__gap__scan__phy__parameter__t">&#9670;&nbsp;</a></span>ble_gap_scan_phy_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_gap_scan_phy_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Scan parameters per scan PHY. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a90c90cf176b2e644ed7f7bf38c41f6d5"></a>uint8_t</td>
+<td class="fieldname">
+scan_type</td>
+<td class="fielddoc">
+Scan type. </td></tr>
+<tr><td class="fieldtype">
+<a id="a134ec8f867e83aac9ae1cef0453bd5ac"></a>uint16_t</td>
+<td class="fieldname">
+scan_intv</td>
+<td class="fielddoc">
+Scan interval. </td></tr>
+<tr><td class="fieldtype">
+<a id="a327822c8ee16f606a66aeabefdbb6a5f"></a>uint16_t</td>
+<td class="fieldname">
+scan_window</td>
+<td class="fielddoc">
+Scan window. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__gap__scan__on__t" id="structble__gap__scan__on__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__gap__scan__on__t">&#9670;&nbsp;</a></span>ble_gap_scan_on_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_gap_scan_on_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Parameters configured when scanning starts. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a18cd9438fc595b8f9a595270923ff09c"></a>uint8_t</td>
+<td class="fieldname">
+proc_type</td>
+<td class="fielddoc">
+Procedure type. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa4be57dbb8020e7163bf0144bb24476d"></a>uint8_t</td>
+<td class="fieldname">
+filter_dups</td>
+<td class="fielddoc">
+Filter duplicates. </td></tr>
+<tr><td class="fieldtype">
+<a id="a9a252ed315ca87dddc1e2a35410f862f"></a>uint16_t</td>
+<td class="fieldname">
+duration</td>
+<td class="fielddoc">
+Scan duration. </td></tr>
+<tr><td class="fieldtype">
+<a id="aba38dab3be662138b4ecfa3b0a4ed17f"></a>uint16_t</td>
+<td class="fieldname">
+period</td>
+<td class="fielddoc">
+Scan period. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__callback__args__t" id="structble__abs__callback__args__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__callback__args__t">&#9670;&nbsp;</a></span>ble_abs_callback_args_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_callback_args_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Callback function parameter data </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a55069a32d1fe62a328139e86fee08652"></a>uint32_t</td>
+<td class="fieldname">
+channel</td>
+<td class="fielddoc">
+Select a channel corresponding to the channel number of the hardware. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2f46a0de959760cb1c11fbf1e73f041f"></a><a class="el" href="group___b_l_e___a_p_i.html#gaa6c920c309a2765c1c27954de0cfcb4b">ble_event_cb_t</a></td>
+<td class="fieldname">
+ble_abs_event</td>
+<td class="fielddoc">
+The event can be used to identify what caused the callback. </td></tr>
+<tr><td class="fieldtype">
+<a id="a317cb4f47a259c5e47ac28b3b0ddd813"></a>void *</td>
+<td class="fieldname">
+p_context</td>
+<td class="fielddoc">
+Placeholder for user data. Set in <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a84d7676435519fb9b324c484e4ce8b24">ble_abs_api_t::open</a> function in <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__cfg__t">ble_abs_cfg_t</a>. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__pairing__parameter__t" id="structble__abs__pairing__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__pairing__parameter__t">&#9670;&nbsp;</a></span>ble_abs_pairing_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_pairing_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_pairing_parameter_t includes the pairing parameters. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a350c0b4ed8b33b913a5d55cc50061f5b"></a>uint8_t</td>
+<td class="fieldname">
+io_capabilitie_local_device</td>
+<td class="fielddoc">
+IO capabilities of local device. </td></tr>
+<tr><td class="fieldtype">
+<a id="a89b2f771a9e0c2a4df0eb181b360ea0b"></a>uint8_t</td>
+<td class="fieldname">
+mitm_protection_policy</td>
+<td class="fielddoc">
+MITM protection policy. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2c9ca16bc7771d7327f9054b5bb37332"></a>uint8_t</td>
+<td class="fieldname">
+secure_connection_only</td>
+<td class="fielddoc">
+Determine whether to accept only Secure Connections or not. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2b38b1558b6aa62e5fa7f859b2f0be3d"></a>uint8_t</td>
+<td class="fieldname">
+local_key_distribute</td>
+<td class="fielddoc">
+Type of keys to be distributed from local device. </td></tr>
+<tr><td class="fieldtype">
+<a id="a82ea1bfab5af53c56c3ccd0ab8c3a6f0"></a>uint8_t</td>
+<td class="fieldname">
+remote_key_distribute</td>
+<td class="fielddoc">
+Type of keys which local device requests a remote device to distribute. </td></tr>
+<tr><td class="fieldtype">
+<a id="a410e1ee4e1300e3e4023b4e668acce99"></a>uint8_t</td>
+<td class="fieldname">
+maximum_key_size</td>
+<td class="fielddoc">
+Maximum LTK size. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa575456ebe55e6920d3e5d6bb6e92189"></a>uint8_t</td>
+<td class="fieldname">
+padding[2]</td>
+<td class="fielddoc">
+Reserved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__gatt__server__callback__set__t" id="structble__abs__gatt__server__callback__set__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__gatt__server__callback__set__t">&#9670;&nbsp;</a></span>ble_abs_gatt_server_callback_set_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_gatt_server_callback_set_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>GATT Server callback function and the priority. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9f30f0960db2900f2af91af3ad03347d"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga69790145005d03f5503c4d1338956e83">ble_gatt_server_application_callback_t</a></td>
+<td class="fieldname">
+gatt_server_callback_function</td>
+<td class="fielddoc">
+GATT Server callback function. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8ad3745358b99efabe11bfb712e17649"></a>uint8_t</td>
+<td class="fieldname">
+gatt_server_callback_priority</td>
+<td class="fielddoc">
+The priority number of GATT Server callback function. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__gatt__client__callback__set__t" id="structble__abs__gatt__client__callback__set__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__gatt__client__callback__set__t">&#9670;&nbsp;</a></span>ble_abs_gatt_client_callback_set_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_gatt_client_callback_set_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>GATT Client callback function and the priority. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a7da921553bf4bdfacfa2932d9a209379"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#gad877e721a58a6783c472f3022304f7f9">ble_gatt_client_application_callback_t</a></td>
+<td class="fieldname">
+gatt_client_callback_function</td>
+<td class="fielddoc">
+GATT Client callback function. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7d0f63ab46db8d76b953658dab82a1a1"></a>uint8_t</td>
+<td class="fieldname">
+gatt_client_callback_priority</td>
+<td class="fielddoc">
+The priority number of GATT Client callback function. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__legacy__advertising__parameter__t" id="structble__abs__legacy__advertising__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__legacy__advertising__parameter__t">&#9670;&nbsp;</a></span>ble_abs_legacy_advertising_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_legacy_advertising_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_legacy_advertising_parameter_t is the parameters for legacy advertising. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1a0cc062f4555c2acaf34576e9420a20"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *</td>
+<td class="fieldname">
+p_peer_address</td>
+<td class="fielddoc">
+The remote device address.<br />
+If the p_peer_address parameter is not NULL, Direct Connectable Advertising is performed to the remote address. <br />
+If the p_peer_address parameter is NULL, Undirect Connectable Advertising is performed according to <br />
+the advertising filter policy specified by the filter parameter. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa047fc1d5ba117feb584b60968f716df"></a>uint8_t *</td>
+<td class="fieldname">
+p_advertising_data</td>
+<td class="fielddoc">
+Advertising Data. <br />
+If the p_advertising_data is specified as NULL, Advertising Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a267b7dc6b82c5deb36f061123a4d3361"></a>uint8_t *</td>
+<td class="fieldname">
+p_scan_response_data</td>
+<td class="fielddoc">
+Scan Response Data. <br />
+If the p_scan_response_data is specified as NULL, Scan Response Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="aceb0d0f5219f668f7cb3f5f4cce528ec"></a>uint32_t</td>
+<td class="fieldname">
+fast_advertising_interval</td>
+<td class="fielddoc">
+Advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aceb0d0f5219f668f7cb3f5f4cce528ec">fast_advertising_interval</a> parameter continues for the period specified <br />
+by the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa60c5b227db005d12f08b230d33957a7">fast_advertising_period</a> parameter.<br />
+Time(ms) = <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aceb0d0f5219f668f7cb3f5f4cce528ec">fast_advertising_interval</a> * 0.625. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa60c5b227db005d12f08b230d33957a7">fast_advertising_period</a> parameter is 0, this parameter is ignored.<br />
+Valid range is 0x00000020 - 0x00FFFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0bf4026c588d7df66eeaa89e89a0c77d"></a>uint32_t</td>
+<td class="fieldname">
+slow_advertising_interval</td>
+<td class="fielddoc">
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa60c5b227db005d12f08b230d33957a7">fast_advertising_period</a>, advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0bf4026c588d7df66eeaa89e89a0c77d">slow_advertising_interval</a> parameter continues <br />
+for the period specified by the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a4089b4f63cdb65248bae31b53072ace5">slow_advertising_period</a> parameter.<br />
+Time(ms) = <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0bf4026c588d7df66eeaa89e89a0c77d">slow_advertising_interval</a> * 0.625. <br />
+Valid range is 0x00000020 - 0x00FFFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa60c5b227db005d12f08b230d33957a7"></a>uint16_t</td>
+<td class="fieldname">
+fast_advertising_period</td>
+<td class="fielddoc">
+The period which advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aceb0d0f5219f668f7cb3f5f4cce528ec">fast_advertising_interval</a> parameter continues for. <br />
+Time = duration * 10ms.<br />
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa60c5b227db005d12f08b230d33957a7">fast_advertising_period</a>, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791ad5aa4042475ab2fb29a8a00b4e6e192b">BLE_GAP_EVENT_ADV_OFF</a> event notifies that the advertising has stopped.<br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa60c5b227db005d12f08b230d33957a7">fast_advertising_period</a> parameter is 0x0000, advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aceb0d0f5219f668f7cb3f5f4cce528ec">fast_advertising_interval</a> parameter is not performed. </td></tr>
+<tr><td class="fieldtype">
+<a id="a4089b4f63cdb65248bae31b53072ace5"></a>uint16_t</td>
+<td class="fieldname">
+slow_advertising_period</td>
+<td class="fielddoc">
+The period which advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0bf4026c588d7df66eeaa89e89a0c77d">slow_advertising_interval</a> parameter continues for. Time = duration * 10ms. <br />
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a4089b4f63cdb65248bae31b53072ace5">slow_advertising_period</a>, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791ad5aa4042475ab2fb29a8a00b4e6e192b">BLE_GAP_EVENT_ADV_OFF</a> event notifies that the advertising has stopped. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a4089b4f63cdb65248bae31b53072ace5">slow_advertising_period</a> parameter is 0x0000, the advertising continues. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7f7d1f671a851ece4facf1605ed9c23f"></a>uint16_t</td>
+<td class="fieldname">
+advertising_data_length</td>
+<td class="fielddoc">
+Advertising data length(byte). <br />
+Valid range is 0-31. <br />
+If the advertising_data_length is 0, Advertising Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a8fea198319dffde4e58bde7eaea818c1"></a>uint16_t</td>
+<td class="fieldname">
+scan_response_data_length</td>
+<td class="fielddoc">
+Scan response data length (in bytes). <br />
+Scan Response Data(byte). <br />
+Valid range is 0-31. <br />
+If the scan_response_data_length is 0, Scan Response Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="adc2360bab7a643ef3b87480688713648"></a>uint8_t</td>
+<td class="fieldname">
+advertising_channel_map</td>
+<td class="fielddoc">
+The channel map used for the advertising packet transmission. <br />
+It is a bitwise OR of the following values.<br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga363fedd67d5094e8849374e24092506f" title="Use 37 CH. ">BLE_GAP_ADV_CH_37(0x01)</a> </td><td align="left">Use 37 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga6ae20f2ddea23255c21344c417b23c5c" title="Use 38 CH. ">BLE_GAP_ADV_CH_38(0x02)</a> </td><td align="left">Use 38 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga9f93462459e29deb5f1ee4ae853675ef" title="Use 39 CH. ">BLE_GAP_ADV_CH_39(0x04)</a> </td><td align="left">Use 39 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gad7210a9b041b1bf67a702ad158c6028e" title="Use 37 - 39 CH. ">BLE_GAP_ADV_CH_ALL(0x07)</a> </td><td align="left">Use 37 - 39 CH. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac6295a200ef37e0cd040fcc3406ff2fa"></a>uint8_t</td>
+<td class="fieldname">
+advertising_filter_policy</td>
+<td class="fielddoc">
+Advertising filter policy. <br />
+If the p_peer_address parameter is NULL, the advertising is performed according to the advertising filter policy. <br />
+If the p_peer_address parameter is not NULL, this parameter is ignored. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ABS_ADVERTISING_FILTER_ALLOW_ANY(0x00) </td><td align="left">Process scan and connection requests from all devices. </td></tr>
+<tr>
+<td align="left">BLE_ABS_ADVERTISING_FILTER_ALLOW_WHITE_LIST(0x01) </td><td align="left">Process scan and connection requests from only devices in the White List. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a620d8776cb88b066a2bf17117ff235e0"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address_type</td>
+<td class="fielddoc">
+Own Bluetooth address type. <br />
+ Select one of the following. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaf6e63e384a70bf085ad012ef48c38281">BLE_GAP_ADDR_PUBLIC(0x00)</a> </td><td align="left">Public Address </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga2f8d1eee6460c16864b67674dd42e4f3" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_PUBLIC(0x02)</a> </td><td align="left">Resolvable Private Address. <br />
+ If the IRK (Identity Resolving Key) of local device has not been registered in Resolving List, public address is used. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7736a2335c51d2e7f5260258263c2d78"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address[6]</td>
+<td class="fielddoc">
+Own Bluetooth address. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0be901b7d9623f19f8dc7332bb49af56"></a>uint8_t</td>
+<td class="fieldname">
+padding[3]</td>
+<td class="fielddoc">
+Reserved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__extend__advertising__parameter__t" id="structble__abs__extend__advertising__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__extend__advertising__parameter__t">&#9670;&nbsp;</a></span>ble_abs_extend_advertising_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_extend_advertising_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_extend_advertising_parameter_t is the parameters for extended advertising. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a7d5d583ca32036c53cd0076c66141b8f"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *</td>
+<td class="fieldname">
+p_peer_address</td>
+<td class="fielddoc">
+The remote device address. <br />
+If the p_addr parameter is not NULL, Direct Connectable Advertising is performed to the remote address. <br />
+If the p_addr parameter is NULL, Undirect Connectable Advertising is performed <br />
+according to the advertising filter policy specified by the filter parameter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a459c623731815c6d350906be9359436e"></a>uint8_t *</td>
+<td class="fieldname">
+p_advertising_data</td>
+<td class="fielddoc">
+Advertising data. If p_adv_data is specified as NULL, advertising data is not set. </td></tr>
+<tr><td class="fieldtype">
+<a id="a70126a0241219b40414e7edf08bb72bd"></a>uint32_t</td>
+<td class="fieldname">
+fast_advertising_interval</td>
+<td class="fielddoc">
+Advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a70126a0241219b40414e7edf08bb72bd">fast_advertising_interval</a> parameter continues for <br />
+the period specified by the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7ec4dfbd8ed04ebe41015f4d0ac3bb38">fast_advertising_period</a> parameter. <br />
+Time(ms) = <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a70126a0241219b40414e7edf08bb72bd">fast_advertising_interval</a> * 0.625. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7ec4dfbd8ed04ebe41015f4d0ac3bb38">fast_advertising_period</a> parameter is 0, this parameter is ignored. <br />
+Valid range is 0x00000020 - 0x00FFFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0a6e67ba6debdfbb031e17140c17f2cb"></a>uint32_t</td>
+<td class="fieldname">
+slow_advertising_interval</td>
+<td class="fielddoc">
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7ec4dfbd8ed04ebe41015f4d0ac3bb38">fast_advertising_period</a>, advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0a6e67ba6debdfbb031e17140c17f2cb">slow_advertising_interval</a> parameter <br />
+continues for the period specified by the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ad7a6da96e6ca0d13892cc7aa1f2428bb">slow_advertising_period</a> parameter. <br />
+Time(ms) = <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0a6e67ba6debdfbb031e17140c17f2cb">slow_advertising_interval</a> * 0.625. <br />
+Valid range is 0x00000020 - 0x00FFFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7ec4dfbd8ed04ebe41015f4d0ac3bb38"></a>uint16_t</td>
+<td class="fieldname">
+fast_advertising_period</td>
+<td class="fielddoc">
+The period which advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a70126a0241219b40414e7edf08bb72bd">fast_advertising_interval</a> parameter continues for. <br />
+Time = duration * 10ms. <br />
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7ec4dfbd8ed04ebe41015f4d0ac3bb38">fast_advertising_period</a>, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791ad5aa4042475ab2fb29a8a00b4e6e192b">BLE_GAP_EVENT_ADV_OFF</a> event notifies that the advertising has stopped. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7ec4dfbd8ed04ebe41015f4d0ac3bb38">fast_advertising_period</a> parameter is 0x0000, the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a70126a0241219b40414e7edf08bb72bd">fast_advertising_interval</a> parameter is ignored. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad7a6da96e6ca0d13892cc7aa1f2428bb"></a>uint16_t</td>
+<td class="fieldname">
+slow_advertising_period</td>
+<td class="fielddoc">
+The period which advertising with the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a0a6e67ba6debdfbb031e17140c17f2cb">slow_advertising_interval</a> parameter continues for. <br />
+Time = duration * 10ms. <br />
+After the elapse of the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ad7a6da96e6ca0d13892cc7aa1f2428bb">slow_advertising_period</a>, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791ad5aa4042475ab2fb29a8a00b4e6e192b">BLE_GAP_EVENT_ADV_OFF</a> event notifies that the advertising has stopped. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ad7a6da96e6ca0d13892cc7aa1f2428bb">slow_advertising_period</a> parameter is 0x0000, the advertising continues. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae0be5b133d30b92c241b6515bc7b7830"></a>uint16_t</td>
+<td class="fieldname">
+advertising_data_length</td>
+<td class="fielddoc">
+Advertising data length (in bytes). <br />
+Valid range is 0-229. <br />
+If the adv_data_length is 0, Advertising Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a59fca89dba9679b7612e7ad278e652b9"></a>uint8_t</td>
+<td class="fieldname">
+advertising_channel_map</td>
+<td class="fielddoc">
+The channel map used for the advertising packet transmission. <br />
+It is a bitwise OR of the following values. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga363fedd67d5094e8849374e24092506f" title="Use 37 CH. ">BLE_GAP_ADV_CH_37(0x01)</a> </td><td align="left">Use 37 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga6ae20f2ddea23255c21344c417b23c5c" title="Use 38 CH. ">BLE_GAP_ADV_CH_38(0x02)</a> </td><td align="left">Use 38 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga9f93462459e29deb5f1ee4ae853675ef" title="Use 39 CH. ">BLE_GAP_ADV_CH_39(0x04)</a> </td><td align="left">Use 39 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gad7210a9b041b1bf67a702ad158c6028e" title="Use 37 - 39 CH. ">BLE_GAP_ADV_CH_ALL(0x07)</a> </td><td align="left">Use 37 - 39 CH. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a6f599f4754f776b61ba050d2b5c7b613"></a>uint8_t</td>
+<td class="fieldname">
+advertising_filter_policy</td>
+<td class="fielddoc">
+Advertising filter policy. <br />
+If the p_peer_address parameter is NULL, the advertising is performed according to the advertising filter policy. <br />
+If the p_peer_address parameter is not NULL, this parameter is ignored. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left">BLE_ABS_ADVERTISING_FILTER_ALLOW_ANY(0x00) </td><td align="left">Process scan and connection requests from all devices. </td></tr>
+<tr>
+<td align="left">BLE_ABS_ADVERTISING_FILTER_ALLOW_WHITE_LIST(0x01) </td><td align="left">Process scan and connection requests from only devices in the White List. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac8762071d7f70948eea90a8720b5ca01"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address_type</td>
+<td class="fielddoc">
+Own Bluetooth address type. Select one of the following. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaf6e63e384a70bf085ad012ef48c38281">BLE_GAP_ADDR_PUBLIC(0x00)</a> </td><td align="left">Public Address </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga2f8d1eee6460c16864b67674dd42e4f3" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_PUBLIC(0x02)</a> </td><td align="left">Resolvable Private Address. <br />
+ If the IRK (Identity Resolving Key) of local device has not been registered in Resolving List, public address is used. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a38862ae563c53f26041bdf4ba76c1a86"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address[6]</td>
+<td class="fielddoc">
+Own Bluetooth address. </td></tr>
+<tr><td class="fieldtype">
+<a id="a62eead3312bad4c0759e6d88cbeb2b61"></a>uint8_t</td>
+<td class="fieldname">
+primary_advertising_phy</td>
+<td class="fielddoc">
+Primary advertising PHY. <br />
+In this parameter, only 1M PHY and Coded PHY can be specified, and 2M PHY cannot be specified. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga1fbdd0bde9e09e398a6056b5420f75e8" title="Use 1M PHY. ">BLE_GAP_ADV_PHY_1M(0x01)</a> </td><td align="left">Use 1M PHY as Primary Advertising PHY. <br />
+ When the adv_prop_type field is Legacy Advertising PDU type, this field shall be set to BLE_GAP_ADV_PHY_1M. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gab5bf4b5cf1883ac0b192a6292b5a7a09" title="Use Coded PHY. ">BLE_GAP_ADV_PHY_CD(0x03)</a> </td><td align="left">Use Coded PHY as Primary Advertising PHY. <br />
+ Coding scheme is configured by <a class="el" href="group___v_s___a_p_i.html#ga2d6f33cab97a873d8471fe52f33ed97d">R_BLE_VS_SetCodingScheme()</a>. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a50c297464a06c1c6b6ff725ebdba50f2"></a>uint8_t</td>
+<td class="fieldname">
+secondary_advertising_phy</td>
+<td class="fielddoc">
+Secondary advertising Phy. Select one of the following. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga1fbdd0bde9e09e398a6056b5420f75e8" title="Use 1M PHY. ">BLE_GAP_ADV_PHY_1M(0x01)</a> </td><td align="left">Use 1M PHY as Secondary Advertising PHY. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gacd6807d43a9b5c898d6253a9e20962cc" title="Use 2M PHY. ">BLE_GAP_ADV_PHY_2M(0x02)</a> </td><td align="left">Use 2M PHY as Secondary Advertising PHY. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gab5bf4b5cf1883ac0b192a6292b5a7a09" title="Use Coded PHY. ">BLE_GAP_ADV_PHY_CD(0x03)</a> </td><td align="left">Use Coded PHY(S=8) as Secondary Advertising PHY. <br />
+ Coding scheme is configured by <a class="el" href="group___v_s___a_p_i.html#ga2d6f33cab97a873d8471fe52f33ed97d">R_BLE_VS_SetCodingScheme()</a>. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ae582bf2de9337c297a12ca91ac11077c"></a>uint8_t</td>
+<td class="fieldname">
+padding[3]</td>
+<td class="fielddoc">
+Reserved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__non__connectable__advertising__parameter__t" id="structble__abs__non__connectable__advertising__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__non__connectable__advertising__parameter__t">&#9670;&nbsp;</a></span>ble_abs_non_connectable_advertising_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_non_connectable_advertising_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_non_connectable_advertising_parameter_t is the parameters for non-connectable advertising. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a0102de6fc9e075231e9401b646038598"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *</td>
+<td class="fieldname">
+p_peer_address</td>
+<td class="fielddoc">
+The remote device address. <br />
+If the p_peer_address parameter is not NULL, Direct Connectable Advertising is performed to the remote address. <br />
+If the p_peer_address parameter is NULL, Undirect Connectable Advertising is performed <br />
+according to the advertising filter policy specified by the filter parameter. </td></tr>
+<tr><td class="fieldtype">
+<a id="a3ac9061dce8abf995d0a734f8d8ff432"></a>uint8_t *</td>
+<td class="fieldname">
+p_advertising_data</td>
+<td class="fielddoc">
+Advertising data. If p_adv_data is specified as NULL, advertising data is not set. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac92e4c17cabe8fca671db7a5c2bd95bd"></a>uint32_t</td>
+<td class="fieldname">
+advertising_interval</td>
+<td class="fielddoc">
+Advertising with the advertising_interval parameter continues for the period specified by the duration parameter.<br />
+Time(ms) = advertising_interval * 0.625. <br />
+If the duration parameter is 0x0000, the advertising with the advertising_interval parameter continue. <br />
+Valid range is 0x00000020 - 0x00FFFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="afe73c4f7a21dbb26aaf70bc0f7a21377"></a>uint16_t</td>
+<td class="fieldname">
+advertising_duration</td>
+<td class="fielddoc">
+The period which advertising with the advertising_interval parameter continues for. <br />
+Time = advertising_duration * 10ms.<br />
+After the elapse of the advertising_duration, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791ad5aa4042475ab2fb29a8a00b4e6e192b">BLE_GAP_EVENT_ADV_OFF</a> event notifies that the advertising has stopped. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the advertising_duration parameter is 0x0000, the advertising continues. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad2eddff7ce35cea9ff55369a01d8f20f"></a>uint16_t</td>
+<td class="fieldname">
+advertising_data_length</td>
+<td class="fielddoc">
+Advertising data length (in bytes).<br />
+If the primary_advertising_phy parameter is <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga0a65defedf447cedd4296620694528cf">BLE_ABS_ADVERTISING_PHY_LEGACY(0x00)</a>, the valid range is 0-31. <br />
+If the primary_advertising_phy parameter is the other values, the valid range is 0-1650. <br />
+If the advertising_data_length parameter is 0, Advertising Data is not included in the advertising PDU. </td></tr>
+<tr><td class="fieldtype">
+<a id="a891a38a02d8113f1be25bee047efba1f"></a>uint8_t</td>
+<td class="fieldname">
+advertising_channel_map</td>
+<td class="fielddoc">
+The channel map used for the advertising packet transmission. <br />
+It is a bitwise OR of the following values. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga363fedd67d5094e8849374e24092506f" title="Use 37 CH. ">BLE_GAP_ADV_CH_37(0x01)</a> </td><td align="left">Use 37 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga6ae20f2ddea23255c21344c417b23c5c" title="Use 38 CH. ">BLE_GAP_ADV_CH_38(0x02)</a> </td><td align="left">Use 38 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga9f93462459e29deb5f1ee4ae853675ef" title="Use 39 CH. ">BLE_GAP_ADV_CH_39(0x04)</a> </td><td align="left">Use 39 CH. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gad7210a9b041b1bf67a702ad158c6028e" title="Use 37 - 39 CH. ">BLE_GAP_ADV_CH_ALL(0x07)</a> </td><td align="left">Use 37 - 39 CH. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad9cc941edfdea4a4aa871581d6a17845"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address_type</td>
+<td class="fielddoc">
+Own Bluetooth address type. Select one of the following. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaf6e63e384a70bf085ad012ef48c38281">BLE_GAP_ADDR_PUBLIC(0x00)</a> </td><td align="left">Public Address </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga2f8d1eee6460c16864b67674dd42e4f3" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_PUBLIC(0x02)</a> </td><td align="left">Resolvable Private Address. <br />
+ If the IRK (Identity Resolving Key) of local device has not been registered in Resolving List, public address is used. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a2896b77fc4edb71758563b54f3d965e7"></a>uint8_t</td>
+<td class="fieldname">
+own_bluetooth_address[6]</td>
+<td class="fielddoc">
+Own Bluetooth address. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0286071339604eccba8a645b16ed2fd9"></a>uint8_t</td>
+<td class="fieldname">
+primary_advertising_phy</td>
+<td class="fielddoc">
+Primary advertising PHY. <br />
+In this parameter, only 1M PHY and Coded PHY can be specified, and 2M PHY cannot be specified. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga0a65defedf447cedd4296620694528cf" title="Non-Connectable Legacy Advertising phy setting. ">BLE_ABS_ADVERTISING_PHY_LEGACY(0x00)</a> </td><td align="left">Use 1M PHY as Primary Advertising PHY for Non-Connectable Legacy Advertising. <br />
+ If Periodic Advertising is performed, this value shall not set to the adv_phy parameter. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga1fbdd0bde9e09e398a6056b5420f75e8" title="Use 1M PHY. ">BLE_GAP_ADV_PHY_1M(0x01)</a> </td><td align="left">Use 1M PHY as Primary Advertising PHY. <br />
+ When the adv_prop_type field is Legacy Advertising PDU type, this field shall be set to BLE_GAP_ADV_PHY_1M. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gab5bf4b5cf1883ac0b192a6292b5a7a09" title="Use Coded PHY. ">BLE_GAP_ADV_PHY_CD(0x03)</a> </td><td align="left">Use Coded PHY as Primary Advertising PHY. <br />
+ Coding scheme is configured by <a class="el" href="group___v_s___a_p_i.html#ga2d6f33cab97a873d8471fe52f33ed97d">R_BLE_VS_SetCodingScheme()</a>. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a2c32a344fb45fd9da0341dbb9a2156ed"></a>uint8_t</td>
+<td class="fieldname">
+secondary_advertising_phy</td>
+<td class="fielddoc">
+Secondary advertising Phy. Select one of the following. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga1fbdd0bde9e09e398a6056b5420f75e8" title="Use 1M PHY. ">BLE_GAP_ADV_PHY_1M(0x01)</a> </td><td align="left">Use 1M PHY as Secondary Advertising PHY. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gacd6807d43a9b5c898d6253a9e20962cc" title="Use 2M PHY. ">BLE_GAP_ADV_PHY_2M(0x02)</a> </td><td align="left">Use 2M PHY as Secondary Advertising PHY. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gab5bf4b5cf1883ac0b192a6292b5a7a09" title="Use Coded PHY. ">BLE_GAP_ADV_PHY_CD(0x03)</a> </td><td align="left">Use Coded PHY(S=8) as Secondary Advertising PHY. <br />
+ Coding scheme is configured by <a class="el" href="group___v_s___a_p_i.html#ga2d6f33cab97a873d8471fe52f33ed97d">R_BLE_VS_SetCodingScheme()</a>. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a9713f797b30e762fea0c96263c43d59f"></a>uint8_t</td>
+<td class="fieldname">
+padding[2]</td>
+<td class="fielddoc">
+Reserved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__periodic__advertising__parameter__t" id="structble__abs__periodic__advertising__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__periodic__advertising__parameter__t">&#9670;&nbsp;</a></span>ble_abs_periodic_advertising_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_periodic_advertising_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_periodic_advertising_parameter_t is the parameters for periodic advertising. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a116799f417af6bb5f7c20cc240dce09d"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__non__connectable__advertising__parameter__t">ble_abs_non_connectable_advertising_parameter_t</a></td>
+<td class="fieldname">
+advertising_parameter</td>
+<td class="fielddoc">
+Advertising parameters. </td></tr>
+<tr><td class="fieldtype">
+<a id="a30a829f4df49f4aa67e104e43f5de0ce"></a>uint8_t *</td>
+<td class="fieldname">
+p_periodic_advertising_data</td>
+<td class="fielddoc">
+Periodic advertising data. If p_perd_adv_data is specified as NULL, periodic advertising data is not set. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7587c5d6a0047f121dfa5fc70f635b55"></a>uint16_t</td>
+<td class="fieldname">
+periodic_advertising_interval</td>
+<td class="fielddoc">
+Periodic advertising interval. <br />
+Time(ms) = periodic_advertising_interval * 1.25. <br />
+Valid range is 0x0006 - 0xFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa8ff1ca8ea4c2dc028deeab1724e0407"></a>uint16_t</td>
+<td class="fieldname">
+periodic_advertising_data_length</td>
+<td class="fielddoc">
+Periodic advertising data length (in bytes). <br />
+Valid range is 0 - 1650. <br />
+If the periodic_advertising_data_length is 0, Periodic Advertising Data is not included in the advertising PDU. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__scan__phy__parameter__t" id="structble__abs__scan__phy__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__scan__phy__parameter__t">&#9670;&nbsp;</a></span>ble_abs_scan_phy_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_scan_phy_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_scan_phy_parameter_t is the phy parameters for scan. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="add7523c70e3ef09bd03b8f441503b206"></a>uint16_t</td>
+<td class="fieldname">
+fast_scan_interval</td>
+<td class="fielddoc">
+Fast scan interval. <br />
+Interval(ms) = fast_scan_interval * 0.625. <br />
+Valid range is 0x0004 - 0xFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7628d2f985b5b7cba1573b641b045db9"></a>uint16_t</td>
+<td class="fieldname">
+slow_scan_interval</td>
+<td class="fielddoc">
+Slow Scan interval. <br />
+Slow Scan interval(ms) = slow_scan_interval * 0.625. <br />
+Valid range is 0x0004 - 0xFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a717c67b4bdd76053c9a2027261a638b4"></a>uint16_t</td>
+<td class="fieldname">
+fast_scan_window</td>
+<td class="fielddoc">
+Fast Scan window. <br />
+Fast Scan window(ms) = fast_scan_window * 0.625. <br />
+Valid range is 0x0004 - 0xFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="a33a1c4fe7e79a568775beedd4f65dc57"></a>uint16_t</td>
+<td class="fieldname">
+slow_scan_window</td>
+<td class="fielddoc">
+Slow Scan window. <br />
+Slow Scan window(ms) = slow_scan_window * 0.625. <br />
+Valid range is 0x0004 - 0xFFFF. </td></tr>
+<tr><td class="fieldtype">
+<a id="acc114c3751a0c9f034a22e50df3a58f7"></a>uint8_t</td>
+<td class="fieldname">
+scan_type</td>
+<td class="fielddoc">
+Scan type. </p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga5c065921bac8d2a6108e930e16c5f4ce" title="Passive Scan. ">BLE_GAP_SCAN_PASSIVE(0x00)</a> </td><td align="left">Passive Scan. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gafada4216232197784d8d131a25cc8c97" title="Active Scan. ">BLE_GAP_SCAN_ACTIVE(0x01)</a> </td><td align="left">Active Scan. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a406ed7d187154c5385903e3c88cabf66"></a>uint8_t</td>
+<td class="fieldname">
+padding[3]</td>
+<td class="fielddoc">
+Reserved. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__scan__parameter__t" id="structble__abs__scan__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__scan__parameter__t">&#9670;&nbsp;</a></span>ble_abs_scan_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_scan_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_scan_parameter_t is the parameters for scan. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af391af0ab971aff71712e2fa33eeef88"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__phy__parameter__t">ble_abs_scan_phy_parameter_t</a> *</td>
+<td class="fieldname">
+p_phy_parameter_1M</td>
+<td class="fielddoc">
+Scan parameters for receiving the advertising packets in 1M PHY. <br />
+In case of not receiving the advertising packets in 1M PHY, this field is specified as NULL. <br />
+p_phy_parameter_1M or p_phy_parameter_coded field shall be set to scan parameters. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7f3a0d97eff54e5a36b8c2a38669e712"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__phy__parameter__t">ble_abs_scan_phy_parameter_t</a> *</td>
+<td class="fieldname">
+p_phy_parameter_coded</td>
+<td class="fielddoc">
+Scan parameters for receiving the advertising packets in Coded PHY. <br />
+In case of not receiving the advertising packets in Coded PHY, this field is specified as NULL. <br />
+p_phy_parameter_1M or p_phy_parameter_coded field shall be set to scan parameters. </td></tr>
+<tr><td class="fieldtype">
+<a id="a1145d8bc872dd0f52d6cba043878db1b"></a>uint8_t *</td>
+<td class="fieldname">
+p_filter_data</td>
+<td class="fielddoc">
+Data for Advertising Data filtering. <br />
+The p_filter_data parameter is used for the advertising data in single advertising report. <br />
+The advertising data composed of multiple advertising reports is not filtered by this parameter. <br />
+If the p_filter_data parameter is specified as NULL, the filtering is not done. </td></tr>
+<tr><td class="fieldtype">
+<a id="a720e1811a9ea867d752d24e481729c37"></a>uint16_t</td>
+<td class="fieldname">
+fast_scan_period</td>
+<td class="fielddoc">
+The period which scan with the fast scan interval/fast scan window continues for. <br />
+Time(ms) = fast_scan_period * 10. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the fast_scan_period parameter is 0x0000, scan with the fast scan interval/fast scan window is not performed. <br />
+After the elapse of the fast_scan_period, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791adaf4d3bebeb5c8e7f8042061472ea853">BLE_GAP_EVENT_SCAN_TO</a> event notifies that the scan has stopped. </td></tr>
+<tr><td class="fieldtype">
+<a id="a98d9e75c976d90dea9dece0123ed12d9"></a>uint16_t</td>
+<td class="fieldname">
+slow_scan_period</td>
+<td class="fielddoc">
+The period which scan with the slow scan interval/slow scan window continues for. <br />
+Time = slow_scan_period * 10ms. <br />
+Valid range is 0x0000 - 0xFFFF. <br />
+If the slow_scan_period parameter is 0x0000, the scan continues. <br />
+After the elapse of the slow_scan_period, <a class="el" href="group___g_a_p___a_p_i.html#ggae2663e6d4f0cb98892400997e4479791adaf4d3bebeb5c8e7f8042061472ea853">BLE_GAP_EVENT_SCAN_TO</a> event notifies that the scan has stopped. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad2ccfcf15b4dc1dd87d7443839622399"></a>uint16_t</td>
+<td class="fieldname">
+filter_data_length</td>
+<td class="fielddoc">
+The length of the data specified by the p_filter_data parameter. <br />
+Valid range is 0x0000-0x0010. <br />
+If the filter_data_length parameter is 0, the filtering is not done. </td></tr>
+<tr><td class="fieldtype">
+<a id="a501555d708a0c8398d912598487445ff"></a>uint8_t</td>
+<td class="fieldname">
+device_scan_filter_policy</td>
+<td class="fielddoc">
+Scan Filter Policy. Select one of the following.<br />
+. <ul>
+<li>Address type setting (Field [7:4]) <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaf6e63e384a70bf085ad012ef48c38281">BLE_GAP_ADDR_PUBLIC(0x00)</a> </td><td align="left">Use Public Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga9e780870a7451000b7a0d78c767b1499">BLE_GAP_ADDR_RAND(0x01)</a> </td><td align="left">Use Random Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga2f8d1eee6460c16864b67674dd42e4f3" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_PUBLIC(0x02)</a> </td><td align="left">If the IRK (Identity Resolving Key) of local device has been registered in Resolving list, use RPA. If not, use Public Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga50ae4657d7dc5ff04c1e38a7e38671ba" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_RANDOM(0x03)</a> </td><td align="left">If the IRK (Identity Resolving Key) of local device has been registered in Resolving list, use RPA. If not, use Random Address. </td></tr>
+</table>
+</li>
+<li>White list setting (Field [3:0]) <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gab53d509592cb3c9993f4edc71e325d40" title="Accept all advertising and scan response PDUs except directed advertising PDUs not addressed to local...">BLE_GAP_SCAN_ALLOW_ADV_ALL(0x00)</a> </td><td align="left">Accept all advertising and scan response PDUs except directed advertising PDUs not addressed to local device. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga6faf5c678879f323e1934da0de08b3e6" title="Accept only advertising and scan response PDUs from remote devices whose address is registered in the...">BLE_GAP_SCAN_ALLOW_ADV_WLST(0x01)</a> </td><td align="left">Accept only advertising and scan response PDUs from remote devices whose address is registered in the White List. <br />
+ Directed advertising PDUs which are not addressed to local device is ignored. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga06eb39bdfa05367800882f1377397792" title="Accept all advertising and scan response PDUs except directed advertising PDUs whose the target addre...">BLE_GAP_SCAN_ALLOW_ADV_EXCEPT_DIRECTED(0x02)</a> </td><td align="left">Accept all advertising and scan response PDUs except directed advertising PDUs whose the target address is identity address but doesn't address local device. However directed advertising PDUs whose the target address is the local resolvable private address are accepted. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaffc095c73712cb64849cba8d83f4ee3d" title="Accept all advertising and scan response PDUs.  The following are excluded. ">BLE_GAP_SCAN_ALLOW_ADV_EXCEPT_DIRECTED_WLST(0x03)</a> </td><td align="left">Accept all advertising and scan response PDUs. The following are excluded. <br />
+ <ul>
+<li>Advertising and scan response PDUs where the advertiser's identity address is not in the White List. <br />
+ </li>
+<li>Directed advertising PDUs whose the target address is identity address but doesn't address local device. However directed advertising PDUs whose the target address is the local resolvable private address are accepted. </li>
+</ul>
+</td></tr>
+</table>
+</li>
+</ul>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a2a0e2e70352ff320d84f39f2bd93bdd6"></a>uint8_t</td>
+<td class="fieldname">
+filter_duplicate</td>
+<td class="fielddoc">
+Filter duplicates. <br />
+Maximum number of filtered devices is 8. <br />
+The 9th and subsequent devices are not filtered by this parameter. <br />
+</p><table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga3b631288b6a4fbd71cba210fd44c1a12" title="Duplicate filter disabled. ">BLE_GAP_SCAN_FILT_DUPLIC_DISABLE(0x00)</a> </td><td align="left">Duplicate filter disabled. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga5d816bfe5c9c25d2ea98f6c94b6f2a55" title="Duplicate filter enabled. ">BLE_GAP_SCAN_FILT_DUPLIC_ENABLE(0x01)</a> </td><td align="left">Duplicate filter enabled. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gae05180af9cccf10d61cbe13f2bcad52c" title="Duplicate filtering enabled, reset for each scan period. ">BLE_GAP_SCAN_FILT_DUPLIC_ENABLE_FOR_PERIOD(0x02)</a>) </td><td align="left">Duplicate filtering enabled, reset for each scan period. </td></tr>
+</table>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aedbe31e58f486dd5fd8df8ad5b2bd7a4"></a>uint8_t</td>
+<td class="fieldname">
+filter_ad_type</td>
+<td class="fielddoc">
+The AD type of the data specified by the p_filter_data parameter.<br />
+The AD type identifier values are defined in Bluetooth SIG Assigned Number <br />
+(<a href="https://www.bluetooth.com/specifications/assigned-numbers">https://www.bluetooth.com/specifications/assigned-numbers</a>). </td></tr>
+<tr><td class="fieldtype">
+<a id="a01f73da78291ad9f909bf83cf6e48dee"></a>uint8_t</td>
+<td class="fieldname">
+padding[3]</td>
+<td class="fielddoc">
+Padding. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__connection__phy__parameter__t" id="structble__abs__connection__phy__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__connection__phy__parameter__t">&#9670;&nbsp;</a></span>ble_abs_connection_phy_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_connection_phy_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_connection_phy_parameter_t is the phy parameters for create connection. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1aaee7434373635d321f1efc5d3dc44d"></a>uint16_t</td>
+<td class="fieldname">
+connection_interval</td>
+<td class="fielddoc">
+Connection interval. <br />
+Time(ms) = connection_interval * 1.25. <br />
+Valid range is 0x0006 - 0x0C80. </td></tr>
+<tr><td class="fieldtype">
+<a id="af0677cf23c42fd6b39a6dd4fae000b67"></a>uint16_t</td>
+<td class="fieldname">
+connection_slave_latency</td>
+<td class="fielddoc">
+Slave latency. <br />
+Valid range is 0x0000 - 0x01F3. </td></tr>
+<tr><td class="fieldtype">
+<a id="a60076e3c3bed59417b975a5b267affb7"></a>uint16_t</td>
+<td class="fieldname">
+supervision_timeout</td>
+<td class="fielddoc">
+Supervision timeout. <br />
+Time(ms) = supervision_timeout * 10. <br />
+Valid range is 0x000A - 0x0C80. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5e03abfab0d325177ecb5992639ffc78"></a>uint8_t</td>
+<td class="fieldname">
+padding[2]</td>
+<td class="fielddoc">
+Padding. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__connection__parameter__t" id="structble__abs__connection__parameter__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__connection__parameter__t">&#9670;&nbsp;</a></span>ble_abs_connection_parameter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_connection_parameter_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>st_ble_abs_connection_parameter_t is the parameters for create connection. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a94c6577f5738ce4542c9c45f975a3967"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__phy__parameter__t">ble_abs_connection_phy_parameter_t</a> *</td>
+<td class="fieldname">
+p_connection_phy_parameter_1M</td>
+<td class="fielddoc">
+Connection interval, slave latency, supervision timeout for 1M PHY. <br />
+The p_connection_phy_parameter_1M is specified as NULL, a connection request is not sent with 1M PHY. </td></tr>
+<tr><td class="fieldtype">
+<a id="a556612658845833cdabdf36e61b121cf"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__phy__parameter__t">ble_abs_connection_phy_parameter_t</a> *</td>
+<td class="fieldname">
+p_connection_phy_parameter_2M</td>
+<td class="fielddoc">
+Connection interval, slave latency, supervision timeout for 2M PHY. <br />
+The p_connection_phy_parameter_2M is specified as NULL, a connection request is not sent with 2M PHY. </td></tr>
+<tr><td class="fieldtype">
+<a id="a162c2cd5d5b65d21158701b0720ad905"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__phy__parameter__t">ble_abs_connection_phy_parameter_t</a> *</td>
+<td class="fieldname">
+p_connection_phy_parameter_coded</td>
+<td class="fielddoc">
+Connection interval, slave latency, supervision timeout for Coded PHY. <br />
+The p_connection_phy_parameter_coded is specified as NULL, a connection request is not sent with Coded PHY. </td></tr>
+<tr><td class="fieldtype">
+<a id="a65df6d3db816da335df8d0e1909621f6"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *</td>
+<td class="fieldname">
+p_device_address</td>
+<td class="fielddoc">
+Address of the device to be connected. <br />
+If the filter field is <a class="el" href="group___g_a_p___a_p_i.html#ga54e2578f269da0d8866444d8d0799cef">BLE_GAP_INIT_FILT_USE_WLST(0x01)</a>, this parameter is ignored and please fill p_device_address.addr with 0x00. </td></tr>
+<tr><td class="fieldtype">
+<a id="a7373c1032f3d68c27b26f65eaf657de2"></a>uint8_t</td>
+<td class="fieldname">
+filter_parameter</td>
+<td class="fielddoc">
+The filter field specifies whether the White List is used or not, when connecting with a remote device.<br />
+. <ul>
+<li>Address type setting (Field [7:4]) <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#gaf6e63e384a70bf085ad012ef48c38281">BLE_GAP_ADDR_PUBLIC(0x00)</a> </td><td align="left">Use Public Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga9e780870a7451000b7a0d78c767b1499">BLE_GAP_ADDR_RAND(0x01)</a> </td><td align="left">Use Random Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga2f8d1eee6460c16864b67674dd42e4f3" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_PUBLIC(0x02)</a> </td><td align="left">If the IRK (Identity Resolving Key) of local device has been registered in Resolving list, use RPA. If not, use Public Address. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga50ae4657d7dc5ff04c1e38a7e38671ba" title="Resolvable Private Address. ">BLE_GAP_ADDR_RPA_ID_RANDOM(0x03)</a> </td><td align="left">If the IRK (Identity Resolving Key) of local device has been registered in Resolving list, use RPA. If not, use Random Address. </td></tr>
+</table>
+</li>
+<li>White list setting (Field [3:0]) <table class="doxtable">
+<tr>
+<th align="left">macro </th><th align="left">description  </th></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga867a5b2baea6ebb94f38ac60cd39c09c" title="White List is not used. ">BLE_GAP_INIT_FILT_USE_ADDR(0x00)</a> </td><td align="left">White List is not used. <br />
+ The remote device to be connected is specified by the p_addr field is used. </td></tr>
+<tr>
+<td align="left"><a class="el" href="group___g_a_p___a_p_i.html#ga54e2578f269da0d8866444d8d0799cef" title="White List is used. ">BLE_GAP_INIT_FILT_USE_WLST(0x01)</a> </td><td align="left">White List is used. <br />
+ The remote device registered in White List is connected with local device. <br />
+ The p_addr field is ignored. </td></tr>
+</table>
+</li>
+</ul>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="acf8c8ad5befb71c824b8ceece1854c39"></a>uint8_t</td>
+<td class="fieldname">
+connection_timeout</td>
+<td class="fielddoc">
+The time(sec) to cancel the create connection request. <br />
+Valid range is 0 &lt;= connection_timeout &lt;= 10. <br />
+If the connection_timeout field is 0, the create connection request is not canceled. <br />
+. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa760c366eabd54d7b2a5e1a5637d3bd4"></a>uint8_t</td>
+<td class="fieldname">
+padding[2]</td>
+<td class="fielddoc">
+Padding. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structble__abs__cfg__t" id="structble__abs__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__cfg__t">&#9670;&nbsp;</a></span>ble_abs_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>BLE ABS configuration parameters. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:afcb04b5317736d7ff17ce349f9d8e602"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#afcb04b5317736d7ff17ce349f9d8e602">channel</a></td></tr>
+<tr class="memdesc:afcb04b5317736d7ff17ce349f9d8e602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a channel corresponding to the channel number of the hardware.  <a href="#afcb04b5317736d7ff17ce349f9d8e602">More...</a><br /></td></tr>
+<tr class="separator:afcb04b5317736d7ff17ce349f9d8e602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf0770f676a408a966dedf9340e0f5c5"><td class="memItemLeft" align="right" valign="top"><a id="adf0770f676a408a966dedf9340e0f5c5"></a>
+<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga423d7479d7d81c474ad321f5aa76e939">ble_gap_application_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#adf0770f676a408a966dedf9340e0f5c5">gap_callback</a></td></tr>
+<tr class="memdesc:adf0770f676a408a966dedf9340e0f5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">GAP callback function. <br /></td></tr>
+<tr class="separator:adf0770f676a408a966dedf9340e0f5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad670941e6901b4d1bb2887396aae1382"><td class="memItemLeft" align="right" valign="top"><a id="ad670941e6901b4d1bb2887396aae1382"></a>
+<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga0ce85fc03a2dab118c422d5cbcdc178c">ble_vendor_specific_application_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ad670941e6901b4d1bb2887396aae1382">vendor_specific_callback</a></td></tr>
+<tr class="memdesc:ad670941e6901b4d1bb2887396aae1382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vendor Specific callback function. <br /></td></tr>
+<tr class="separator:ad670941e6901b4d1bb2887396aae1382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8b11a15033e63b807f7fb083320173"><td class="memItemLeft" align="right" valign="top"><a id="a7f8b11a15033e63b807f7fb083320173"></a>
+<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__gatt__server__callback__set__t">ble_abs_gatt_server_callback_set_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7f8b11a15033e63b807f7fb083320173">p_gatt_server_callback_list</a></td></tr>
+<tr class="memdesc:a7f8b11a15033e63b807f7fb083320173"><td class="mdescLeft">&#160;</td><td class="mdescRight">GATT Server callback set. <br /></td></tr>
+<tr class="separator:a7f8b11a15033e63b807f7fb083320173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c7aed3908566284fcc81cd92be3963"><td class="memItemLeft" align="right" valign="top"><a id="a46c7aed3908566284fcc81cd92be3963"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a46c7aed3908566284fcc81cd92be3963">gatt_server_callback_list_number</a></td></tr>
+<tr class="memdesc:a46c7aed3908566284fcc81cd92be3963"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of GATT Server callback functions. <br /></td></tr>
+<tr class="separator:a46c7aed3908566284fcc81cd92be3963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67750529dd5dd891c3efdb6972f1d34e"><td class="memItemLeft" align="right" valign="top"><a id="a67750529dd5dd891c3efdb6972f1d34e"></a>
+<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__gatt__client__callback__set__t">ble_abs_gatt_client_callback_set_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a67750529dd5dd891c3efdb6972f1d34e">p_gatt_client_callback_list</a></td></tr>
+<tr class="memdesc:a67750529dd5dd891c3efdb6972f1d34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">GATT Client callback set. <br /></td></tr>
+<tr class="separator:a67750529dd5dd891c3efdb6972f1d34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f05713b7d8ea420c2bddf643729c784"><td class="memItemLeft" align="right" valign="top"><a id="a2f05713b7d8ea420c2bddf643729c784"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a2f05713b7d8ea420c2bddf643729c784">gatt_client_callback_list_number</a></td></tr>
+<tr class="memdesc:a2f05713b7d8ea420c2bddf643729c784"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of GATT Client callback functions. <br /></td></tr>
+<tr class="separator:a2f05713b7d8ea420c2bddf643729c784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4341b88b7d3ad8a5d222726a3268b5"><td class="memItemLeft" align="right" valign="top"><a id="a2a4341b88b7d3ad8a5d222726a3268b5"></a>
+<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__pairing__parameter__t">ble_abs_pairing_parameter_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a2a4341b88b7d3ad8a5d222726a3268b5">p_pairing_parameter</a></td></tr>
+<tr class="memdesc:a2a4341b88b7d3ad8a5d222726a3268b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pairing parameters. <br /></td></tr>
+<tr class="separator:a2a4341b88b7d3ad8a5d222726a3268b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337dafcba749a53c84a5ee73df9da54c"><td class="memItemLeft" align="right" valign="top"><a id="a337dafcba749a53c84a5ee73df9da54c"></a>
+<a class="el" href="group___f_l_a_s_h___a_p_i.html#structflash__instance__t">flash_instance_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a337dafcba749a53c84a5ee73df9da54c">p_flash_instance</a></td></tr>
+<tr class="memdesc:a337dafcba749a53c84a5ee73df9da54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to flash instance. <br /></td></tr>
+<tr class="separator:a337dafcba749a53c84a5ee73df9da54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7917b26df76d7796e7e95fff90a55b18"><td class="memItemLeft" align="right" valign="top"><a id="a7917b26df76d7796e7e95fff90a55b18"></a>
+<a class="el" href="group___t_i_m_e_r___a_p_i.html#structtimer__instance__t">timer_instance_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7917b26df76d7796e7e95fff90a55b18">p_timer_instance</a></td></tr>
+<tr class="memdesc:a7917b26df76d7796e7e95fff90a55b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to timer instance. <br /></td></tr>
+<tr class="separator:a7917b26df76d7796e7e95fff90a55b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7301ed0ba8fcc1dc18517365a6483d95"><td class="memItemLeft" align="right" valign="top"><a id="a7301ed0ba8fcc1dc18517365a6483d95"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a7301ed0ba8fcc1dc18517365a6483d95">p_callback</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__callback__args__t">ble_abs_callback_args_t</a> *p_args)</td></tr>
+<tr class="memdesc:a7301ed0ba8fcc1dc18517365a6483d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback provided when a BLE ISR occurs. <br /></td></tr>
+<tr class="separator:a7301ed0ba8fcc1dc18517365a6483d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd5f65d151fabd98d2db3c4986e58e8"><td class="memItemLeft" align="right" valign="top"><a id="a5bd5f65d151fabd98d2db3c4986e58e8"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a5bd5f65d151fabd98d2db3c4986e58e8">p_context</a></td></tr>
+<tr class="memdesc:a5bd5f65d151fabd98d2db3c4986e58e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placeholder for user data. Passed to the user callback in <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__callback__args__t">ble_abs_callback_args_t</a>. <br /></td></tr>
+<tr class="separator:a5bd5f65d151fabd98d2db3c4986e58e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0260cd4f4fb66770e6ba1f034ab56c1"><td class="memItemLeft" align="right" valign="top"><a id="aa0260cd4f4fb66770e6ba1f034ab56c1"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa0260cd4f4fb66770e6ba1f034ab56c1">p_extend</a></td></tr>
+<tr class="memdesc:aa0260cd4f4fb66770e6ba1f034ab56c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placeholder for user extension. <br /></td></tr>
+<tr class="separator:aa0260cd4f4fb66770e6ba1f034ab56c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="afcb04b5317736d7ff17ce349f9d8e602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb04b5317736d7ff17ce349f9d8e602">&#9670;&nbsp;</a></span>channel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ble_abs_cfg_t::channel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Select a channel corresponding to the channel number of the hardware. </p>
+<p>the parameters for initialization. </p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structble__abs__api__t" id="structble__abs__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__api__t">&#9670;&nbsp;</a></span>ble_abs_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>BLE ABS functions implemented at the HAL layer will follow this API. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a84d7676435519fb9b324c484e4ce8b24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a84d7676435519fb9b324c484e4ce8b24">open</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__cfg__t">ble_abs_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:a84d7676435519fb9b324c484e4ce8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc48fd7588fd6d422f7bd7b4d59637a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#abdc48fd7588fd6d422f7bd7b4d59637a">close</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:abdc48fd7588fd6d422f7bd7b4d59637a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71b5f4a2de135b45195165a221a8d19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ac71b5f4a2de135b45195165a221a8d19">reset</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_p_i.html#gaa6c920c309a2765c1c27954de0cfcb4b">ble_event_cb_t</a> init_callback)</td></tr>
+<tr class="separator:ac71b5f4a2de135b45195165a221a8d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729b404106cfd3c8847f78bb4d760d98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a729b404106cfd3c8847f78bb4d760d98">startLegacyAdvertising</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__legacy__advertising__parameter__t">ble_abs_legacy_advertising_parameter_t</a> const *const p_advertising_parameter)</td></tr>
+<tr class="separator:a729b404106cfd3c8847f78bb4d760d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae630f94d36fc57dbdb3f8267b8421733"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ae630f94d36fc57dbdb3f8267b8421733">startExtendedAdvertising</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__extend__advertising__parameter__t">ble_abs_extend_advertising_parameter_t</a> const *const p_advertising_parameter)</td></tr>
+<tr class="separator:ae630f94d36fc57dbdb3f8267b8421733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44b155f06857bc1ef281eeffb1144ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#aa44b155f06857bc1ef281eeffb1144ab">startNonConnectableAdvertising</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__non__connectable__advertising__parameter__t">ble_abs_non_connectable_advertising_parameter_t</a> const *const p_advertising_parameter)</td></tr>
+<tr class="separator:aa44b155f06857bc1ef281eeffb1144ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92497c8febdba6f212827be199d0900a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a92497c8febdba6f212827be199d0900a">startPeriodicAdvertising</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__periodic__advertising__parameter__t">ble_abs_periodic_advertising_parameter_t</a> const *const p_advertising_parameter)</td></tr>
+<tr class="separator:a92497c8febdba6f212827be199d0900a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add26234f552e169063aafebcfbaada57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#add26234f552e169063aafebcfbaada57">startScanning</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__parameter__t">ble_abs_scan_parameter_t</a> const *const p_scan_parameter)</td></tr>
+<tr class="separator:add26234f552e169063aafebcfbaada57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ac3bccdd07538ecd6de9ee4eecd60a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a68ac3bccdd07538ecd6de9ee4eecd60a">createConnection</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__parameter__t">ble_abs_connection_parameter_t</a> const *const p_connection_parameter)</td></tr>
+<tr class="separator:a68ac3bccdd07538ecd6de9ee4eecd60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f9928d4535222963b96d5a88ca04986"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a6f9928d4535222963b96d5a88ca04986">setLocalPrivacy</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, uint8_t const *const p_lc_irk, uint8_t privacy_mode)</td></tr>
+<tr class="separator:a6f9928d4535222963b96d5a88ca04986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ce1d52c18d6261fa6122c50d42438f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a65ce1d52c18d6261fa6122c50d42438f">startAuthentication</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, uint16_t connection_handle)</td></tr>
+<tr class="separator:a65ce1d52c18d6261fa6122c50d42438f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a982369d158ac921397f35cf13e993ecb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a982369d158ac921397f35cf13e993ecb">deleteBondInformation</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, ble_abs_bond_information_parameter_t const *const p_bond_information_parameter)</td></tr>
+<tr class="separator:a982369d158ac921397f35cf13e993ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6390f5d0baae5ab6d69bccc36c332a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ada6390f5d0baae5ab6d69bccc36c332a">importKeyInformation</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *p_local_identity_address, uint8_t *p_local_irk, uint8_t *p_local_csrk)</td></tr>
+<tr class="separator:ada6390f5d0baae5ab6d69bccc36c332a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67fa42505ec55671611fc272283dcd65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#a67fa42505ec55671611fc272283dcd65">exportKeyInformation</a> )(<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *p_local_identity_address, uint8_t *p_local_irk, uint8_t *p_local_csrk)</td></tr>
+<tr class="separator:a67fa42505ec55671611fc272283dcd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="a84d7676435519fb9b324c484e4ce8b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d7676435519fb9b324c484e4ce8b24">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::open) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__cfg__t">ble_abs_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize the BLE ABS in register start mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abdc48fd7588fd6d422f7bd7b4d59637a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdc48fd7588fd6d422f7bd7b4d59637a">&#9670;&nbsp;</a></span>close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::close) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the BLE ABS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac71b5f4a2de135b45195165a221a8d19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac71b5f4a2de135b45195165a221a8d19">&#9670;&nbsp;</a></span>reset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::reset) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_p_i.html#gaa6c920c309a2765c1c27954de0cfcb4b">ble_event_cb_t</a> init_callback)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the BLE ABS.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">init_callback</td><td>callback function to initialize Host Stack. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a729b404106cfd3c8847f78bb4d760d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729b404106cfd3c8847f78bb4d760d98">&#9670;&nbsp;</a></span>startLegacyAdvertising</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startLegacyAdvertising) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__legacy__advertising__parameter__t">ble_abs_legacy_advertising_parameter_t</a> const *const p_advertising_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start Legacy Connectable Advertising. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_advertising_parameter</td><td>Pointer to Advertising parameters for Legacy Advertising. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae630f94d36fc57dbdb3f8267b8421733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae630f94d36fc57dbdb3f8267b8421733">&#9670;&nbsp;</a></span>startExtendedAdvertising</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startExtendedAdvertising) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__extend__advertising__parameter__t">ble_abs_extend_advertising_parameter_t</a> const *const p_advertising_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start Extended Connectable Advertising. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_advertising_parameter</td><td>Pointer to Advertising parameters for extend Advertising. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa44b155f06857bc1ef281eeffb1144ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44b155f06857bc1ef281eeffb1144ab">&#9670;&nbsp;</a></span>startNonConnectableAdvertising</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startNonConnectableAdvertising) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__non__connectable__advertising__parameter__t">ble_abs_non_connectable_advertising_parameter_t</a> const *const p_advertising_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start Non-Connectable Advertising. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_advertising_parameter</td><td>Pointer to Advertising parameters for non-connectable Advertising. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92497c8febdba6f212827be199d0900a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92497c8febdba6f212827be199d0900a">&#9670;&nbsp;</a></span>startPeriodicAdvertising</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startPeriodicAdvertising) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__periodic__advertising__parameter__t">ble_abs_periodic_advertising_parameter_t</a> const *const p_advertising_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start Periodic Advertising. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_advertising_parameter</td><td>Pointer to Advertising parameters for periodic Advertising. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add26234f552e169063aafebcfbaada57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add26234f552e169063aafebcfbaada57">&#9670;&nbsp;</a></span>startScanning</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startScanning) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__scan__parameter__t">ble_abs_scan_parameter_t</a> const *const p_scan_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start scanning. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_scan_parameter</td><td>Pointer to scan parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68ac3bccdd07538ecd6de9ee4eecd60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ac3bccdd07538ecd6de9ee4eecd60a">&#9670;&nbsp;</a></span>createConnection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::createConnection) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__connection__parameter__t">ble_abs_connection_parameter_t</a> const *const p_connection_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Request create connection. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_connection_parameter</td><td>Pointer to connection parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6f9928d4535222963b96d5a88ca04986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9928d4535222963b96d5a88ca04986">&#9670;&nbsp;</a></span>setLocalPrivacy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::setLocalPrivacy) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, uint8_t const *const p_lc_irk, uint8_t privacy_mode)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configure local device privacy. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_lc_irk</td><td>Pointer to IRK (Identity Resolving Key) to be registered in the resolving list. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">privacy_mode</td><td>privacy_mode privacy mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a65ce1d52c18d6261fa6122c50d42438f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65ce1d52c18d6261fa6122c50d42438f">&#9670;&nbsp;</a></span>startAuthentication</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::startAuthentication) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, uint16_t connection_handle)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start pairing or encryption. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">connection_handle</td><td>Connection handle identifying the remote device. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a982369d158ac921397f35cf13e993ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a982369d158ac921397f35cf13e993ecb">&#9670;&nbsp;</a></span>deleteBondInformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::deleteBondInformation) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, ble_abs_bond_information_parameter_t const *const p_bond_information_parameter)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete bond information. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_bond_information_parameter</td><td>Pointer to bond information parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada6390f5d0baae5ab6d69bccc36c332a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6390f5d0baae5ab6d69bccc36c332a">&#9670;&nbsp;</a></span>importKeyInformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::importKeyInformation) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *p_local_identity_address, uint8_t *p_local_irk, uint8_t *p_local_csrk)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Import local identity address, keys information to local storage. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_local_identity_address</td><td>Pointer to local identiry address. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">uint8_t</td><td>p_local_irk Pointer to local IRK (Identity Resolving Key) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">uint8_t</td><td>p_local_csrk Pointer to local CSRK </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a67fa42505ec55671611fc272283dcd65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67fa42505ec55671611fc272283dcd65">&#9670;&nbsp;</a></span>exportKeyInformation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  ble_abs_api_t::exportKeyInformation) (<a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *const p_ctrl, <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__device__address__t">ble_device_address_t</a> *p_local_identity_address, uint8_t *p_local_irk, uint8_t *p_local_csrk)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Export local identity address, keys information from local storage. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_local_identity_address</td><td>Pointer to local identiry address. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">uint8_t</td><td>p_local_irk Pointer to local IRK (Identity Resolving Key) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">uint8_t</td><td>p_local_csrk Pointer to local CSRK </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structble__abs__instance__t" id="structble__abs__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structble__abs__instance__t">&#9670;&nbsp;</a></span>ble_abs_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ble_abs_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="abea1433d38189ab5b3168178e645bc7e"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac5aac311aa97d3411900fe7b193d88dc"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__cfg__t">ble_abs_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa54e62139b094e60a703e14cfd4e57db"></a><a class="el" href="group___b_l_e___a_b_s___a_p_i.html#structble__abs__api__t">ble_abs_api_t</a> const  *</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga423d7479d7d81c474ad321f5aa76e939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga423d7479d7d81c474ad321f5aa76e939">&#9670;&nbsp;</a></span>ble_gap_application_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  ble_gap_application_callback_t) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_p___a_p_i.html#structst__ble__evt__data__t">st_ble_evt_data_t</a> *p_event_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ble_gap_application_callback_t is the GAP Event callback function type. </p>
+
+</div>
+</div>
+<a id="ga0ce85fc03a2dab118c422d5cbcdc178c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0ce85fc03a2dab118c422d5cbcdc178c">&#9670;&nbsp;</a></span>ble_vendor_specific_application_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  ble_vendor_specific_application_callback_t) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___v_s___a_p_i.html#structst__ble__vs__evt__data__t">st_ble_vs_evt_data_t</a> *p_event_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ble_vendor_specific_application_callback_t is the Vendor Specific Event callback function type. </p>
+
+</div>
+</div>
+<a id="ga69790145005d03f5503c4d1338956e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga69790145005d03f5503c4d1338956e83">&#9670;&nbsp;</a></span>ble_gatt_server_application_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  ble_gatt_server_application_callback_t) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_t_t___s_e_r_v_e_r___a_p_i.html#structst__ble__gatts__evt__data__t">st_ble_gatts_evt_data_t</a> *p_event_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ble_gatt_server_application_callback_t is the GATT Server Event callback function type. </p>
+
+</div>
+</div>
+<a id="gad877e721a58a6783c472f3022304f7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad877e721a58a6783c472f3022304f7f9">&#9670;&nbsp;</a></span>ble_gatt_client_application_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  ble_gatt_client_application_callback_t) (uint16_t event_type, ble_status_t event_result, <a class="el" href="group___g_a_t_t___c_l_i_e_n_t___a_p_i.html#structst__ble__gattc__evt__data__t">st_ble_gattc_evt_data_t</a> *p_event_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ble_gatt_client_application_callback_t is the GATT Server Event callback function type. </p>
+
+</div>
+</div>
+<a id="ga2ba4dba2dff7da80f1ead1e0ef94b613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ba4dba2dff7da80f1ead1e0ef94b613">&#9670;&nbsp;</a></span>ble_abs_delete_bond_application_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*  ble_abs_delete_bond_application_callback_t) (<a class="el" href="group___g_a_p___a_p_i.html#structst__ble__dev__addr__t">st_ble_dev_addr_t</a> *p_addr)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ble_abs_delete_bond_application_callback_t is the delete bond information Event callback function type. </p>
+
+</div>
+</div>
+<a id="ga933069f10ed98538549bc7a4298a3923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga933069f10ed98538549bc7a4298a3923">&#9670;&nbsp;</a></span>ble_abs_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga933069f10ed98538549bc7a4298a3923">ble_abs_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>BLE ABS control block. Allocate an instance specific control block to pass into the BLE ABS API calls. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga77ed02034d3aa2e83b97680eb15bb01f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77ed02034d3aa2e83b97680eb15bb01f">&#9670;&nbsp;</a></span>ble_abs_advertising_filter_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga77ed02034d3aa2e83b97680eb15bb01f">ble_abs_advertising_filter_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Advertising Filter Policy </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga77ed02034d3aa2e83b97680eb15bb01fa9edc780a771c3008a0d1ba1e15c3f827"></a>BLE_ABS_ADVERTISING_FILTER_ALLOW_ANY&#160;</td><td class="fielddoc"><p>Receive a connect request from all devices. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga77ed02034d3aa2e83b97680eb15bb01fa9f033087c27d8004907aa41ae03b0853"></a>BLE_ABS_ADVERTISING_FILTER_ALLOW_WHITE_LIST&#160;</td><td class="fielddoc"><p>Receive a connect request from only the devices registered in White List. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga326be6526889c57ef80bf9821d12c8e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga326be6526889c57ef80bf9821d12c8e6">&#9670;&nbsp;</a></span>ble_abs_local_bond_information_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga326be6526889c57ef80bf9821d12c8e6">ble_abs_local_bond_information_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Local keys delete policy </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga326be6526889c57ef80bf9821d12c8e6a03fbae0c7854d6928e43526ce2d1b0e2"></a>BLE_ABS_LOCAL_BOND_INFORMATION_NONE&#160;</td><td class="fielddoc"><p>Delete no local keys. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga326be6526889c57ef80bf9821d12c8e6a91f9abe24f22055f08d651ff92b11413"></a>BLE_ABS_LOCAL_BOND_INFORMATION_ALL&#160;</td><td class="fielddoc"><p>Delete all local keys. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga18554897bd2c017f794125cd4ca1764b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18554897bd2c017f794125cd4ca1764b">&#9670;&nbsp;</a></span>ble_abs_remote_bond_information_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#ga18554897bd2c017f794125cd4ca1764b">ble_abs_remote_bond_information_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remote keys delete policy </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga18554897bd2c017f794125cd4ca1764ba020984f5eece1efb24c867ee2fd81208"></a>BLE_ABS_REMOTE_BOND_INFORMATION_NONE&#160;</td><td class="fielddoc"><p>Delete no remote device keys. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga18554897bd2c017f794125cd4ca1764ba2b52e14ef60726f30a1be8b9c4ff4c21"></a>BLE_ABS_REMOTE_BOND_INFORMATION_SPECIFIED&#160;</td><td class="fielddoc"><p>Delete the keys specified by the device address. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga18554897bd2c017f794125cd4ca1764ba3f8e3dd7a7d9c073eec747e636b2bc72"></a>BLE_ABS_REMOTE_BOND_INFORMATION_ALL&#160;</td><td class="fielddoc"><p>Delete all remote device keys. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gacf67724f2be90aa139e93499fe456b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf67724f2be90aa139e93499fe456b80">&#9670;&nbsp;</a></span>ble_abs_delete_non_volatile_area_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___b_l_e___a_b_s___a_p_i.html#gacf67724f2be90aa139e93499fe456b80">ble_abs_delete_non_volatile_area_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletion policy for non-volatile memory </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggacf67724f2be90aa139e93499fe456b80a65466878d25e807f51357a208a206421"></a>BLE_ABS_DELETE_NON_VOLATILE_AREA_DISABLE&#160;</td><td class="fielddoc"><p>Delete no keys stored in storage. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggacf67724f2be90aa139e93499fe456b80abaf6badd2792553a1318e6fd03306077"></a>BLE_ABS_DELETE_NON_VOLATILE_AREA_ENABLE&#160;</td><td class="fielddoc"><p>Delete the keys stored in storage. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

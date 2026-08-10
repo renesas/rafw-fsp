@@ -1,0 +1,652 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: RM_MAP_PERSISTANT_W Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">RM_MAP_PERSISTANT_W Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___s_t_o_r_a_g_e___i_n_t_e_r_f_a_c_e_s.html">Storage</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for accessing MAP_PERSISTANT_W Storage. </p>
+<h1><a class="anchor" id="RM_MAP_PERSISTANT_W_API_SUMMARY"></a>
+Summary</h1>
+<p>This section defines the API for the MAP_PERSISTANT_W (Storage) Module. The MAP_PERSISTANT_W Module provides interface to control, access, write to persistant storage . </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structmap__persistant__w__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#structmap__persistant__w__api__t">map_persistant_w_api_t</a></td></tr>
+<tr class="separator:structmap__persistant__w__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structmap__persistant__w__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#structmap__persistant__w__instance__t">map_persistant_w_instance_t</a></td></tr>
+<tr class="separator:structmap__persistant__w__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga0fe3c033ae3af1e1508ad1dff8220599"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a></td></tr>
+<tr class="separator:ga0fe3c033ae3af1e1508ad1dff8220599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structmap__persistant__w__api__t" id="structmap__persistant__w__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structmap__persistant__w__api__t">&#9670;&nbsp;</a></span>map_persistant_w_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct map_persistant_w_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>MAP_PERSISTANT_W driver structure. General MAP_PERSISTANT_W functions implemented at the HAL layer will follow this API. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a8e05bcbd89b1477456d2073864e024eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#a8e05bcbd89b1477456d2073864e024eb">open</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a8e05bcbd89b1477456d2073864e024eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae3a275a8a8ca4edb73cecaf08f9cadb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#aae3a275a8a8ca4edb73cecaf08f9cadb">close</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:aae3a275a8a8ca4edb73cecaf08f9cadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef7ed4fbf52778c52a1d63de171e536a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#aef7ed4fbf52778c52a1d63de171e536a">read_uint</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, void *val, uint16_t *data_length)</td></tr>
+<tr class="separator:aef7ed4fbf52778c52a1d63de171e536a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02cb808c2f42a1b4d6dfbcf291ba39be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#a02cb808c2f42a1b4d6dfbcf291ba39be">write_uint</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, void *val, uint32_t len)</td></tr>
+<tr class="separator:a02cb808c2f42a1b4d6dfbcf291ba39be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45fc1acb360f27d0b7c7818f5b58ed52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#a45fc1acb360f27d0b7c7818f5b58ed52">read_int</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, int *val)</td></tr>
+<tr class="separator:a45fc1acb360f27d0b7c7818f5b58ed52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7db459c054d44fe2fc4ae53924229ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#aa7db459c054d44fe2fc4ae53924229ef">write_int</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, int val)</td></tr>
+<tr class="separator:aa7db459c054d44fe2fc4ae53924229ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694844d4fbb396e65e535441664789bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#a694844d4fbb396e65e535441664789bf">read_string</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, char **val)</td></tr>
+<tr class="separator:a694844d4fbb396e65e535441664789bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc95317bab6bb66bbdc20ac93068e229"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#afc95317bab6bb66bbdc20ac93068e229">write_string</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, const char *val)</td></tr>
+<tr class="separator:afc95317bab6bb66bbdc20ac93068e229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbad1ecaeb9625b7ff9fc0ff6f52778a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#adbad1ecaeb9625b7ff9fc0ff6f52778a">erase</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name)</td></tr>
+<tr class="separator:adbad1ecaeb9625b7ff9fc0ff6f52778a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e379643a532269f21a622193f7e100"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#a81e379643a532269f21a622193f7e100">erase_group</a> )(<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group)</td></tr>
+<tr class="separator:a81e379643a532269f21a622193f7e100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="a8e05bcbd89b1477456d2073864e024eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e05bcbd89b1477456d2073864e024eb">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::open) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open the MAP module. Add constraint for RAM</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae3a275a8a8ca4edb73cecaf08f9cadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae3a275a8a8ca4edb73cecaf08f9cadb">&#9670;&nbsp;</a></span>close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::close) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aef7ed4fbf52778c52a1d63de171e536a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7ed4fbf52778c52a1d63de171e536a">&#9670;&nbsp;</a></span>read_uint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::read_uint) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, void *val, uint16_t *data_length)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">val</td><td>Updates the return value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a02cb808c2f42a1b4d6dfbcf291ba39be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02cb808c2f42a1b4d6dfbcf291ba39be">&#9670;&nbsp;</a></span>write_uint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::write_uint) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, void *val, uint32_t len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>Value to be updated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45fc1acb360f27d0b7c7818f5b58ed52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45fc1acb360f27d0b7c7818f5b58ed52">&#9670;&nbsp;</a></span>read_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::read_int) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, int *val)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">val</td><td>Updates the return value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa7db459c054d44fe2fc4ae53924229ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7db459c054d44fe2fc4ae53924229ef">&#9670;&nbsp;</a></span>write_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::write_int) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, int val)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>Value to be updated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a694844d4fbb396e65e535441664789bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694844d4fbb396e65e535441664789bf">&#9670;&nbsp;</a></span>read_string</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::read_string) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, char **val)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afc95317bab6bb66bbdc20ac93068e229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc95317bab6bb66bbdc20ac93068e229">&#9670;&nbsp;</a></span>write_string</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::write_string) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name, const char *val)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>Value to be updated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adbad1ecaeb9625b7ff9fc0ff6f52778a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbad1ecaeb9625b7ff9fc0ff6f52778a">&#9670;&nbsp;</a></span>erase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::erase) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group, const char *name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a81e379643a532269f21a622193f7e100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e379643a532269f21a622193f7e100">&#9670;&nbsp;</a></span>erase_group</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  map_persistant_w_api_t::erase_group) (<a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *const p_ctrl, const char *group)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close the MAP module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to MAP device handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group</td><td>Group of the variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Configuration was successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structmap__persistant__w__instance__t" id="structmap__persistant__w__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structmap__persistant__w__instance__t">&#9670;&nbsp;</a></span>map_persistant_w_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct map_persistant_w_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a8d16de6e69e049e175a286da5263b3f7"></a><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="afde7ad66e9444e477c9af214b8f29afc"></a>map_persistant_w_cfg_t const <br class="typebreak" />
+ *const</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="ad2a6d0280d47efa623329308eda63205"></a><a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#structmap__persistant__w__api__t">map_persistant_w_api_t</a> const <br class="typebreak" />
+ *const</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga0fe3c033ae3af1e1508ad1dff8220599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fe3c033ae3af1e1508ad1dff8220599">&#9670;&nbsp;</a></span>map_persistant_w_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___r_m___m_a_p___p_e_r_s_i_s_t_a_n_t___w___a_p_i.html#ga0fe3c033ae3af1e1508ad1dff8220599">map_persistant_w_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MAP control block. Allocate an instance specific control block to pass into the MAP API calls. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

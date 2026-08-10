@@ -1,0 +1,628 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: Watchdog Service Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">Watchdog Service Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___m_o_n_i_t_o_r_i_n_g___i_n_t_e_r_f_a_c_e_s.html">Monitoring</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for Watchdog Service APIs. </p>
+<h1><a class="anchor" id="WATCHDOG_SERVICE_API_Summary"></a>
+Summary</h1>
+<p>The Watchdog Service provides watchdog functionality to monitor system tasks and avoid system freezes. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structwatchdog__service__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a></td></tr>
+<tr class="separator:structwatchdog__service__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwatchdog__service__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__api__t">watchdog_service_api_t</a></td></tr>
+<tr class="separator:structwatchdog__service__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structwatchdog__service__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__instance__t">watchdog_service_instance_t</a></td></tr>
+<tr class="separator:structwatchdog__service__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga57160539ab130451de6de09e10f3e2cf"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a></td></tr>
+<tr class="separator:ga57160539ab130451de6de09e10f3e2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structwatchdog__service__cfg__t" id="structwatchdog__service__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structwatchdog__service__cfg__t">&#9670;&nbsp;</a></span>watchdog_service_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct watchdog_service_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Configuration parameters. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a1912b109c4b4f8b673e2b58e5805cff5"></a><a class="el" href="group___w_d_t___a_p_i.html#structwdt__instance__t">wdt_instance_t</a> const  *</td>
+<td class="fieldname">
+p_wdt</td>
+<td class="fielddoc">
+To use WDT, link a WDT instance here. </td></tr>
+<tr><td class="fieldtype">
+<a id="a717dc140d43c946e359f364b3651e121"></a>void const  *</td>
+<td class="fieldname">
+p_context</td>
+<td class="fielddoc">
+Placeholder for user data. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0317e160e514e3ee249c7a3a60c4b1eb"></a>void const  *</td>
+<td class="fieldname">
+p_extend</td>
+<td class="fielddoc">
+Placeholder for user extension. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structwatchdog__service__api__t" id="structwatchdog__service__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structwatchdog__service__api__t">&#9670;&nbsp;</a></span>watchdog_service_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct watchdog_service_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Functions implemented at the HAL layer will follow this API. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:ac74f93006b0af4a75fb68da32de0a1f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ac74f93006b0af4a75fb68da32de0a1f6">open</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ac74f93006b0af4a75fb68da32de0a1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad8a8624868c1d45078f718eece70be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a9ad8a8624868c1d45078f718eece70be">registerTask</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t *p_id)</td></tr>
+<tr class="separator:a9ad8a8624868c1d45078f718eece70be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87b0a0c5c4d3a6cffa002f79c5d05b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ad87b0a0c5c4d3a6cffa002f79c5d05b1">unregisterTask</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td></tr>
+<tr class="separator:ad87b0a0c5c4d3a6cffa002f79c5d05b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711236ef51aa9772fb83471a007d0351"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a711236ef51aa9772fb83471a007d0351">suspend</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td></tr>
+<tr class="separator:a711236ef51aa9772fb83471a007d0351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a774ee2a70dd4721b2109b26e56e950"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a4a774ee2a70dd4721b2109b26e56e950">resume</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td></tr>
+<tr class="separator:a4a774ee2a70dd4721b2109b26e56e950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d02e6af77aad176556b9b5b2533cd80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a2d02e6af77aad176556b9b5b2533cd80">notify</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t id)</td></tr>
+<tr class="separator:a2d02e6af77aad176556b9b5b2533cd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1a1e4f997b6326eb2f8090e6eb50fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a0e1a1e4f997b6326eb2f8090e6eb50fd">resumeAndNotify</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t id)</td></tr>
+<tr class="separator:a0e1a1e4f997b6326eb2f8090e6eb50fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64562affdb489910608fb1cab9190b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ab64562affdb489910608fb1cab9190b1">notifyFromIdle</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ab64562affdb489910608fb1cab9190b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a4454513f9f7f459732e228ed76d5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a7a4454513f9f7f459732e228ed76d5dc">setLatency</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id, uint8_t latency)</td></tr>
+<tr class="separator:a7a4454513f9f7f459732e228ed76d5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eeb7b71f58b99e499d5aadc7f98e4f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#a8eeb7b71f58b99e499d5aadc7f98e4f6">setIdleId</a> )(<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td></tr>
+<tr class="separator:a8eeb7b71f58b99e499d5aadc7f98e4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="ac74f93006b0af4a75fb68da32de0a1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74f93006b0af4a75fb68da32de0a1f6">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::open) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize and start the Watchdog Service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ad8a8624868c1d45078f718eece70be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad8a8624868c1d45078f718eece70be">&#9670;&nbsp;</a></span>registerTask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::registerTask) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t *p_id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Register a current task with the Watchdog Service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_id</td><td>Pointer to id of registered task. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad87b0a0c5c4d3a6cffa002f79c5d05b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad87b0a0c5c4d3a6cffa002f79c5d05b1">&#9670;&nbsp;</a></span>unregisterTask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::unregisterTask) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unregister a task from the Watchdog Service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of unregistered task. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a711236ef51aa9772fb83471a007d0351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711236ef51aa9772fb83471a007d0351">&#9670;&nbsp;</a></span>suspend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::suspend) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Suspend monitoring a task by the Watchdog Service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of task to suspend monitoring. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4a774ee2a70dd4721b2109b26e56e950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a774ee2a70dd4721b2109b26e56e950">&#9670;&nbsp;</a></span>resume</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::resume) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Resume monitoring of a task by the Watchdog Service.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of task to resume monitoring. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d02e6af77aad176556b9b5b2533cd80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d02e6af77aad176556b9b5b2533cd80">&#9670;&nbsp;</a></span>notify</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::notify) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Notify the Watchdog Service about a task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of task for notification. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0e1a1e4f997b6326eb2f8090e6eb50fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e1a1e4f997b6326eb2f8090e6eb50fd">&#9670;&nbsp;</a></span>resumeAndNotify</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::resumeAndNotify) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Resume monitoring of a task and notify the Watchdog Service about the task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of task to resume monitoring and notify. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab64562affdb489910608fb1cab9190b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab64562affdb489910608fb1cab9190b1">&#9670;&nbsp;</a></span>notifyFromIdle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::notifyFromIdle) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Notify the Watchdog Service about the idle task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to pin configuration structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7a4454513f9f7f459732e228ed76d5dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a4454513f9f7f459732e228ed76d5dc">&#9670;&nbsp;</a></span>setLatency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::setLatency) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id, uint8_t latency)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set watchdog latency for a task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of task for setting latency. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">latency</td><td>Latency value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8eeb7b71f58b99e499d5aadc7f98e4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eeb7b71f58b99e499d5aadc7f98e4f6">&#9670;&nbsp;</a></span>setIdleId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  watchdog_service_api_t::setIdleId) (<a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *const p_ctrl, uint8_t id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set watchdog ID of the idle task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Id of idle task. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structwatchdog__service__instance__t" id="structwatchdog__service__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structwatchdog__service__instance__t">&#9670;&nbsp;</a></span>watchdog_service_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct watchdog_service_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a0fb2f9615d8fb121cea27f56f4c87aab"></a><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="a5884006d34bfa563f2503d293601c3c2"></a><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__cfg__t">watchdog_service_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="adec7c076a5a952a9c3352fc2d3865666"></a><a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#structwatchdog__service__api__t">watchdog_service_api_t</a> const  *</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga57160539ab130451de6de09e10f3e2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57160539ab130451de6de09e10f3e2cf">&#9670;&nbsp;</a></span>watchdog_service_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___w_a_t_c_h_d_o_g___s_e_r_v_i_c_e___a_p_i.html#ga57160539ab130451de6de09e10f3e2cf">watchdog_service_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Control block. Allocate an instance specific control block to pass into the API calls. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

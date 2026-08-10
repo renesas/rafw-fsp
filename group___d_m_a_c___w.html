@@ -1,0 +1,1197 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: Transfer (r_dmac_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___d_m_a_c___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">Transfer (r_dmac_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___t_r_a_n_s_f_e_r___m_o_d_u_l_e_s.html">Transfer</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga50115e80e2081ea3105dba555edad4e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga50115e80e2081ea3105dba555edad4e9">R_DMAC_W_Open</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__cfg__t">transfer_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga50115e80e2081ea3105dba555edad4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77396bcd5fe3d29f8ca0d4b9810fd178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga77396bcd5fe3d29f8ca0d4b9810fd178">R_DMAC_W_Reconfigure</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__info__t">transfer_info_t</a> *p_info)</td></tr>
+<tr class="separator:ga77396bcd5fe3d29f8ca0d4b9810fd178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae48bde872dbf7147a6e4a0700b1236ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#gae48bde872dbf7147a6e4a0700b1236ff">R_DMAC_W_Reset</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, void const *volatile p_src, void *volatile p_dest, uint16_t const num_transfers)</td></tr>
+<tr class="separator:gae48bde872dbf7147a6e4a0700b1236ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57ef0fe83e11ab78c089df816c013338"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga57ef0fe83e11ab78c089df816c013338">R_DMAC_W_SoftwareStart</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga11917a0ab2cb8b878937c97691b07fd9">transfer_start_mode_t</a> mode)</td></tr>
+<tr class="separator:ga57ef0fe83e11ab78c089df816c013338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaeec857c29b58720e8818f3a399950a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#gaaeec857c29b58720e8818f3a399950a3">R_DMAC_W_SoftwareStop</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:gaaeec857c29b58720e8818f3a399950a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fb87a3cf1d112d8d266bc95a89032a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga7fb87a3cf1d112d8d266bc95a89032a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga929fe480e087be66f0a5ff5b60ca8a13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga929fe480e087be66f0a5ff5b60ca8a13">R_DMAC_W_Disable</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga929fe480e087be66f0a5ff5b60ca8a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b1b7ba019caaccaef603af4fd8a031c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga9b1b7ba019caaccaef603af4fd8a031c">R_DMAC_W_InfoGet</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__properties__t">transfer_properties_t</a> *const p_info)</td></tr>
+<tr class="separator:ga9b1b7ba019caaccaef603af4fd8a031c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga620e4209c891291b7f3919460ec72397"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga620e4209c891291b7f3919460ec72397">R_DMAC_W_Reload</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, void const *p_src, void *p_dest, uint32_t const num_transfers)</td></tr>
+<tr class="separator:ga620e4209c891291b7f3919460ec72397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2a9ce6f60f35beacebb55160766fa7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#gae2a9ce6f60f35beacebb55160766fa7c">R_DMAC_W_CallbackSet</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *), void *const p_context, <a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:gae2a9ce6f60f35beacebb55160766fa7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb898ee089aafd26bc5d794283197d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#gadbb898ee089aafd26bc5d794283197d0">R_DMAC_W_Close</a> (<a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:gadbb898ee089aafd26bc5d794283197d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac26132d9b441ce2123a3ba399f8235f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#gac26132d9b441ce2123a3ba399f8235f7">R_DMAC_W_Freeze</a> (bool freeze)</td></tr>
+<tr class="separator:gac26132d9b441ce2123a3ba399f8235f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the DMAC peripheral on RA6W1/RA6W2 MCUs. This module implements the <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html">Transfer Interface</a>. </p>
+<h1><a class="anchor" id="r-dmac_w-overview"></a>
+Overview</h1>
+<p>The Direct Memory Access Controller (DMAC) transfers data from peripheral to memory location, from memory location to peripheral or from one memory location to another without using the CPU.</p>
+<h2><a class="anchor" id="r-dmac_w-features"></a>
+Features</h2>
+<ul>
+<li>Supports multiple transfer modes<ul>
+<li>Normal transfer</li>
+<li>Repeat transfer</li>
+</ul>
+</li>
+<li>Address increment or fixed modes<a class="anchor" id="um_transfer_address_inc_dec_fixed"></a></li>
+<li>Triggered by predefined DMA triggers</li>
+<li>Supports 1, 2, and 4 byte data units<a class="anchor" id="um_transfer_unit"></a> </li>
+</ul>
+<h1><a class="anchor" id="r-dmac_w-configuration"></a>
+Configuration</h1>
+<p><a class="anchor" id="um_transfer_normal_mode"></a><a class="anchor" id="um_dmac_repeat_transfer"></a><a class="anchor" id="um_dmac_w_burst_mode"></a><a class="anchor" id="um_dmac_w_irq_num_of_trans"></a><a class="anchor" id="um_dmac_w_software_trigger"></a><a class="anchor" id="um_transfer_activation_source"></a><a class="anchor" id="um_dmac_w_end_interrupt"></a><a class="anchor" id="um_dmac_w_each_block_interrupt"></a><a class="anchor" id="um_dmac_w_offset_mode"></a><a class="anchor" id="um_dmac_triggers_dtc"></a><a class="anchor" id="um_transfer_repeat_mode"></a><a class="anchor" id="um_transfer_block_mode"></a><a class="anchor" id="um_transfer_block_repeat_area"></a><a class="anchor" id="um_transfer_repeat_area"></a> <h2>Build Time Configurations for r_dmac_w</h2>
+The following build time configurations are defined in fsp_cfg/r_dmac_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+</table>
+ <h2>Configurations for Transfer &gt; Transfer (r_dmac_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Transfer &gt; Transfer (r_dmac_w).<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_transfer0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Channel</td><td>Value must be a non-negative integer</td><td>0 </td><td>Specify the hardware channel. </td></tr>
+<tr class="tree_none">
+<td>Mode</td><td>MCU Specific Options</td><td></td><td>Select the transfer mode. Normal: One transfer per activation, transfer ends after Number of Transfers; Repeat: One transfer per activation, Repeat Area address reset after Number of Transfers. </td></tr>
+<tr class="tree_none">
+<td>Transfer Size</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+1 Byte</li>
+<li>
+2 Bytes</li>
+<li>
+4 Bytes</li>
+</ul>
+</td><td>2 Bytes </td><td>Select the transfer size. </td></tr>
+<tr class="tree_none">
+<td>Destination Address Mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Fixed</li>
+<li>
+Incremented</li>
+</ul>
+</td><td>Fixed </td><td>Select the address mode for the destination. </td></tr>
+<tr class="tree_none">
+<td>Source Address Mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Fixed</li>
+<li>
+Incremented</li>
+</ul>
+</td><td>Fixed </td><td>Select the address mode for the source. </td></tr>
+<tr class="tree_none">
+<td>Number of Transfers</td><td>'Number of Transfers' must be a valid non negative integer between 1 and 65535.</td><td>1 </td><td>Specify the number of transfers for repeat and normal mode. </td></tr>
+<tr class="tree_none">
+<td>Number of Transfers to interrupt</td><td>Value must be a non-negative integer</td><td>0 </td><td>Specify the number of transfers before DMA interrupt generation (0 to fire IRQ after transfer ends). </td></tr>
+<tr class="tree_none">
+<td>Activation Source</td><td>MCU Specific Options</td><td></td><td>Select the DMAC transfer start event. </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>NULL </td><td>A user callback that is called at the end of the transfer. </td></tr>
+<tr class="tree_none">
+<td>Transfer End Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the transfer end interrupt priority. </td></tr>
+<tr class="tree_none">
+<td>Start mode</td><td>MCU Specific Options</td><td></td><td>Select whether DMA starts immediately, or waits for a trigger from HW. </td></tr>
+<tr class="tree_none">
+<td>DMA idle mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Blocking mode</li>
+<li>
+Interrupting mode</li>
+</ul>
+</td><td>Blocking mode </td><td>Select whether DMA blocks the bus during the transfer or allow CPU/cache activities on the bus during the transfer (relevant only for 'Request mode'='Start immediately'). </td></tr>
+<tr class="tree_none">
+<td>DMA init mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+A1 to B1, A2 to B2</li>
+<li>
+A1 to B1, B2</li>
+</ul>
+</td><td>A1 to B1, A2 to B2 </td><td>Select how DMA performs memory initialization (relevant only for 'Request mode'='Start immediately'). </td></tr>
+<tr class="tree_none">
+<td>DMA read/write bursts</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disabled</li>
+<li>
+4-beat</li>
+<li>
+8-beat</li>
+</ul>
+</td><td>Disabled </td><td>Set the DMA read/write bursts value for DMAC. The bursts are not used if 'Number of Transfers' are not multiple of 4 or 8 respectively. </td></tr>
+<tr class="tree_none">
+<td>DMA channel priority</td><td>'DMA channel priority' must be integer from '0' (Lowest) up to '7' (Highest).</td><td>0 </td><td>Select the priority of DMA channel to determine which DMA channel will be activated in case more than one DMA channel requests DMA (0 - Lowest, 7 - Highest). </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-dmac_w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>The DMAC peripheral module uses SYS_CLK as the clock source. The SYS_CLK frequency is set by using the <b>Clocks</b> tab of the RA6W1/RA6W2 Configuration editor prior to a build, or by using the CGC module at run-time.</p>
+<h2><a class="anchor" id="r-dmac_w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="r-dmac_w-usage_notes"></a>
+Usage Notes</h1>
+<h2>Transfer Modes</h2>
+<p>The DMAC Module supports two modes of operation.</p>
+<ul>
+<li><b>Normal Mode</b> - In normal mode, a single data unit is transferred every time the configured trigger event is received by the DMAC channel. A data unit can be 1-byte, 2-bytes, or 4-bytes. The source and destination addresses can be fixed or incremented to the next data unit after each transfer operation. A 16-bit counter increments after each transfer operation. The channel can be configured in a way the CPU can be interrupted to signalize the desired amount of data was transferred (by default when all the data was transferred). When the counter reaches the desired length, transfers will no longer be triggered by the trigger event.</li>
+<li><b>Repeat Mode</b> - Repeat mode works the same way as normal mode. But, when the transfer operation counter reaches the desired length, the counter is reset back to 0, the repeat area (source or/and destination address) resets to its starting address and the transfer continues. The channel can be configured in a way the CPU can be interrupted to signalize the desired amount of data was transferred (by default, the CPU is interrupted when one repeat cycle was performed).</li>
+</ul>
+<h2>DMAC Features</h2>
+<h3>Init Mode</h3>
+<p>DMAC can perform efficient memory initialization in the case of transfer triggered by the software. It can populate destination buffer with the content of the source buffer using one of the two modes:</p>
+<ul>
+<li><b>A1 to B1, A2 to B2</b> - transfers the content of source buffer to destination buffer;</li>
+<li><b>A1 to B1, B2</b> - populates the destination buffer with the content of the first data unit (reading from A1 is performed only one time).</li>
+</ul>
+<h3>DMAC Idle Operation</h3>
+<p>DMAC can work in a two different operation modes:</p>
+<ul>
+<li><b>Blocking mode</b> - DMAC blocks the bus for any lower priority DMAC operations / CPU interruptions to performs a fast back-to-back copy (for transfer triggered by a software);</li>
+<li><b>Interrupting mode</b> - DMAC inserts a wait cycle after each store allowing the CPU to steal cycles or cache to perform a burst read.</li>
+</ul>
+<h3>DMAC Channel Prioritization</h3>
+<p>DMAC channel access to the bus can be prioritized. The priority level determines which DMA channel will be granted access for transferring data, in case more than one channels are active and request the bus at the same time. The greater the value, the higher the priority.</p>
+<h3>Bursts Transfers</h3>
+<p>DMAC can perform transfer operations with bursts of 4 or 8 data units simultaneously (the buffer length in those cases should be multiple of 4 or 8 data units respectively).</p>
+<h3>Freezing of DMAC operations</h3>
+<p>The DMA controller can be frozen. The API call to freeze suspends the activity on every DMA channel until DMAC is unfrozen by the corresponding API call to unfreeze it.</p>
+<h2>Selecting the DTC or DMAC</h2>
+<p>The Transfer API is implemented by both DTC (on some MCUs) and the DMAC, so that applications can switch between the DTC and the DMAC. When selecting between them, consider these factors:</p>
+<table class="doxtable">
+<tr>
+<th></th><th>DTC </th><th>DMAC  </th></tr>
+<tr>
+<td>Repeat Mode </td><td><ul>
+<li>
+Repeats forever</li>
+<li>
+Max repeat size is 256 x 4 bytes</li>
+</ul>
+</td><td><ul>
+<li>
+Repeats forever (applicable only for transactions involving peripherals)</li>
+<li>
+Max repeat size is 65535 x 4 bytes</li>
+</ul>
+</td></tr>
+<tr>
+<td>Block Mode </td><td><ul>
+<li>
+Max transfer size is 256 x 4 bytes</li>
+</ul>
+</td><td><ul>
+<li>
+N/A</li>
+</ul>
+</td></tr>
+<tr>
+<td>Normal Mode </td><td><ul>
+<li>
+Max transfer size is 65535 x 4 bytes</li>
+</ul>
+</td><td><ul>
+<li>
+Max transfer size is 65535 x 4 bytes</li>
+</ul>
+</td></tr>
+<tr>
+<td>Channels </td><td><ul>
+<li>
+One instance per interrupt</li>
+</ul>
+</td><td><ul>
+<li>
+MCU specific (16 channels or less)</li>
+</ul>
+</td></tr>
+<tr>
+<td>Chained Transfers </td><td><ul>
+<li>
+Supported</li>
+</ul>
+</td><td><ul>
+<li>
+Not Supported</li>
+</ul>
+</td></tr>
+<tr>
+<td>Software Trigger </td><td><ul>
+<li>
+Must use the software ELC event</li>
+</ul>
+</td><td><ul>
+<li>
+Has support of software trigger without peripheral HW involvement</li>
+<li>
+Supports only TRANSFER_START_MODE_SINGLE</li>
+</ul>
+</td></tr>
+</table>
+<h3>Interrupts</h3>
+<p>The DTC and DMAC interrupts behave differently. The DTC uses the configured IELSR event IRQ as the interrupt source whereas each DMAC channel has its own IRQ (one IRQn is shared between channels on some MCUs).</p>
+<p>The transfer_info_t::irq is not used on DMAC, as DMAC provides more flexible way of interrupt generation depending on the transfer operation counter.</p>
+<h3>Additional Considerations</h3>
+<ul>
+<li>The DTC requires a moderate amount of RAM (one <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__info__t">transfer_info_t</a> struct per open instance + DTC_VECTOR_TABLE_SIZE).</li>
+<li>The DTC stores transfer information in RAM and writes back to RAM after each transfer whereas the DMAC stores all transfer information in registers.</li>
+<li>When transfers are configured for more than one activation source, the DTC must fetch the transfer info from RAM on each interrupt. This can cause a higher latency between transfers.</li>
+</ul>
+<h4>Normal Mode</h4>
+<table class="doxtable">
+<tr>
+<th></th><th>DTC </th><th>DMAC  </th></tr>
+<tr>
+<td>TRANSFER_IRQ_EACH </td><td>Interrupt after each transfer </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+<tr>
+<td>TRANSFER_IRQ_END </td><td>Interrupt after last transfer </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+</table>
+<h4>Repeat Mode</h4>
+<table class="doxtable">
+<tr>
+<th></th><th>DTC </th><th>DMAC  </th></tr>
+<tr>
+<td>TRANSFER_IRQ_EACH </td><td>Interrupt after each transfer </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+<tr>
+<td>TRANSFER_IRQ_END </td><td>Interrupt after each repeat </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+</table>
+<h4>Block Mode</h4>
+<table class="doxtable">
+<tr>
+<th></th><th>DTC </th><th>DMAC  </th></tr>
+<tr>
+<td>TRANSFER_IRQ_EACH </td><td>Interrupt after each block </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+<tr>
+<td>TRANSFER_IRQ_END </td><td>Interrupt after last block </td><td>N/A (has IRQ generation based on transfer counter) </td></tr>
+</table>
+<dl class="section note"><dt>Note</dt><dd>DTC_VECTOR_TABLE_SIZE = (ICU_NVIC_IRQ_SOURCES x 4) Bytes</dd></dl>
+<h1><a class="anchor" id="r-dmac_w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the DMAC in an application. In this case, one or more events have been routed to the DMAC for handling so it only needs to be enabled to start accepting transfers.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;r_dmac_w.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wunused-variable&quot;</span></div><div class="line"><span class="preprocessor">#pragma GCC diagnostic ignored &quot;-Wunused-but-set-variable&quot;</span></div><div class="line"></div><div class="line"><span class="comment">/***********************************************************************************************************************</span></div><div class="line"><span class="comment"> * Macro definitions</span></div><div class="line"><span class="comment"> **********************************************************************************************************************/</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define TRANSFER_LENGTH      (16U)</span></div><div class="line"><span class="preprocessor">#define BSP_VECTOR_DMAC_0    ((IRQn_Type) 0)</span></div><div class="line"></div><div class="line"><span class="comment">/***********************************************************************************************************************</span></div><div class="line"><span class="comment"> * Typedef definitions</span></div><div class="line"><span class="comment"> **********************************************************************************************************************/</span></div><div class="line"></div><div class="line"><span class="comment">/***********************************************************************************************************************</span></div><div class="line"><span class="comment"> * Private function prototypes</span></div><div class="line"><span class="comment"> **********************************************************************************************************************/</span></div><div class="line"><span class="keywordtype">int</span>  dmac_main(<span class="keywordtype">void</span>);</div><div class="line"><span class="keywordtype">void</span> dmac_minimal_example(<span class="keywordtype">void</span>);</div><div class="line"><span class="keywordtype">void</span> dmac_freeze_example(<span class="keywordtype">void</span>);</div><div class="line"><span class="keywordtype">void</span> dmac_callback(<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">dmac_callback_args_t</a> * cb_data);</div><div class="line"></div><div class="line"><span class="comment">/***********************************************************************************************************************</span></div><div class="line"><span class="comment"> * Private global variables</span></div><div class="line"><span class="comment"> **********************************************************************************************************************/</span></div><div class="line"></div><div class="line">dmac_instance_ctrl_t g_transfer_ctrl;</div><div class="line"></div><div class="line"><span class="keyword">volatile</span> <span class="keywordtype">bool</span> g_transfer_complete = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="comment">/* Transfer info that tests can use when configuring a transfer instance. */</span></div><div class="line"><a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__info__t">transfer_info_t</a> transfer_info =</div><div class="line">{</div><div class="line">    .transfer_settings_word_b.dest_addr_mode = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadce62e6c2407d6ffd5a94636736f7c51a7665741e25c4cc78fd24745efbd2eaad">TRANSFER_ADDR_MODE_INCREMENTED</a>,</div><div class="line">    .transfer_settings_word_b.src_addr_mode  = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadce62e6c2407d6ffd5a94636736f7c51a7665741e25c4cc78fd24745efbd2eaad">TRANSFER_ADDR_MODE_INCREMENTED</a>,</div><div class="line">    .length                                  = TRANSFER_LENGTH / 4,</div><div class="line">    .transfer_settings_word_b.size           = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#gga6c224e5afb174f3f6ea9eddbb9da8b12a18482bfa86e737cde78042be4db54412">TRANSFER_SIZE_4_BYTE</a>,</div><div class="line">    .p_dest = NULL,</div><div class="line">    .p_src  = NULL,</div><div class="line">    .transfer_settings_word_b.mode           = <a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ggadfb7c2a6a73bfdf993e50505aa92992fada90d8a89f98ff82475383b14141b08d">TRANSFER_MODE_NORMAL</a>,</div><div class="line">};</div><div class="line"></div><div class="line"><a class="code" href="group___d_m_a_c___w.html#structdmac__extended__cfg__t">dmac_extended_cfg_t</a> dmac_cfg =</div><div class="line">{</div><div class="line">    .<a class="code" href="group___d_m_a_c___w.html#a96ee22f2e357c5098bbe67bbdf920371">channel</a>    = 0,</div><div class="line">    .irq        = BSP_VECTOR_DMAC_0,</div><div class="line">    .ipl        = 0,</div><div class="line">    .p_callback = dmac_callback,</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">/* Transfer config that tests can use when configuring a transfer instance. */</span></div><div class="line"><a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__cfg__t">transfer_cfg_t</a> g_transfer_cfg =</div><div class="line">{</div><div class="line">    .<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#af99b114594ac2d55aae0c9e11f703164">p_info</a>   = &amp;transfer_info,</div><div class="line">    .p_extend = &amp;dmac_cfg,</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">/***********************************************************************************************************************</span></div><div class="line"><span class="comment"> * Functions</span></div><div class="line"><span class="comment"> **********************************************************************************************************************/</span></div><div class="line"></div><div class="line"><span class="keywordtype">void</span> dmac_minimal_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line"></div><div class="line">    <span class="comment">/* Open the transfer instance with initial configuration. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___d_m_a_c___w.html#ga50115e80e2081ea3105dba555edad4e9">R_DMAC_W_Open</a>(&amp;g_transfer_ctrl, &amp;g_transfer_cfg);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Enable the DMAC to start the trasnfer so that it responds to transfer requests. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable</a>(&amp;g_transfer_ctrl);</div><div class="line"></div><div class="line"></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (!g_transfer_complete)</div><div class="line">    {</div><div class="line">        <span class="comment">/* Wait for transfer complete interrupt */</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> dmac_freeze_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="comment">/* Open the transfer instance with initial configuration. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___d_m_a_c___w.html#ga50115e80e2081ea3105dba555edad4e9">R_DMAC_W_Open</a>(&amp;g_transfer_ctrl, &amp;g_transfer_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <span class="comment">/* Enable the DMAC to start the trasnfer so that it responds to transfer requests. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable</a>(&amp;g_transfer_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___b_s_p___m_c_u.html#ga9c80d272d8de8025a0716b30c1143c38">R_BSP_SoftwareDelay</a>(10, <a class="code" href="group___b_s_p___m_c_u.html#ggafd98e2a6f080d6a52a3ef72e3d731b2baa0312618f2508347a9a815b5887c12ae">BSP_DELAY_UNITS_MICROSECONDS</a>);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Temporarily disable (freeze) all channels of the DMA controller. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#gac26132d9b441ce2123a3ba399f8235f7">R_DMAC_W_Freeze</a>(<span class="keyword">true</span>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* DMAC starts transferring after unfreeze. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#gac26132d9b441ce2123a3ba399f8235f7">R_DMAC_W_Freeze</a>(<span class="keyword">false</span>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> dmac_callback (<a class="code" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">dmac_callback_args_t</a> * cb_data)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(cb_data);</div><div class="line"></div><div class="line">    g_transfer_complete = <span class="keyword">true</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> dmac_main (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    dmac_minimal_example();</div><div class="line"></div><div class="line">    <span class="comment">/* Close DMAC channel so can be reused. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___d_m_a_c___w.html#gadbb898ee089aafd26bc5d794283197d0">R_DMAC_W_Close</a>(&amp;g_transfer_ctrl);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line">    dmac_freeze_example();</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structdmac__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#structdmac__extended__cfg__t">dmac_extended_cfg_t</a></td></tr>
+<tr class="separator:structdmac__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga1e459d63cbd5b7c819ca786a55093307"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga1e459d63cbd5b7c819ca786a55093307">DMAC_MAX_NORMAL_TRANSFER_LENGTH</a></td></tr>
+<tr class="separator:ga1e459d63cbd5b7c819ca786a55093307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga4b2bd39af205df13eddc94fa34b2cd47"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">transfer_callback_args_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a></td></tr>
+<tr class="separator:ga4b2bd39af205df13eddc94fa34b2cd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga99a939fb0f9c0ab3b2153744595edfd6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga99a939fb0f9c0ab3b2153744595edfd6">dmac_start_mode_t</a> </td></tr>
+<tr class="separator:ga99a939fb0f9c0ab3b2153744595edfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b8ac11007c3cd0c64fc997d80f09089"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga4b8ac11007c3cd0c64fc997d80f09089">dmac_idle_mode_t</a> </td></tr>
+<tr class="separator:ga4b8ac11007c3cd0c64fc997d80f09089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bbdceeefa5ff06bc382972e130d2ddd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ga0bbdceeefa5ff06bc382972e130d2ddd">dmac_init_mode_t</a> </td></tr>
+<tr class="separator:ga0bbdceeefa5ff06bc382972e130d2ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structdmac__extended__cfg__t" id="structdmac__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmac__extended__cfg__t">&#9670;&nbsp;</a></span>dmac_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmac_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>DMAC transfer configuration extension. This extension is required. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a96ee22f2e357c5098bbe67bbdf920371"><td class="memItemLeft" align="right" valign="top"><a id="a96ee22f2e357c5098bbe67bbdf920371"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a96ee22f2e357c5098bbe67bbdf920371">channel</a></td></tr>
+<tr class="memdesc:a96ee22f2e357c5098bbe67bbdf920371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Channel number, does not apply to all HAL drivers. <br /></td></tr>
+<tr class="separator:a96ee22f2e357c5098bbe67bbdf920371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50d47176d2618694b18cfeb957f6036"><td class="memItemLeft" align="right" valign="top"><a id="aa50d47176d2618694b18cfeb957f6036"></a>
+IRQn_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#aa50d47176d2618694b18cfeb957f6036">irq</a></td></tr>
+<tr class="memdesc:aa50d47176d2618694b18cfeb957f6036"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMAC interrupt number. <br /></td></tr>
+<tr class="separator:aa50d47176d2618694b18cfeb957f6036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e1360a4094cbcf9d4d171223627f4c"><td class="memItemLeft" align="right" valign="top"><a id="a01e1360a4094cbcf9d4d171223627f4c"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a01e1360a4094cbcf9d4d171223627f4c">ipl</a></td></tr>
+<tr class="memdesc:a01e1360a4094cbcf9d4d171223627f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMAC interrupt priority. <br /></td></tr>
+<tr class="separator:a01e1360a4094cbcf9d4d171223627f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba6992157832efca5d35adde9e063bc"><td class="memItemLeft" align="right" valign="top"><a id="acba6992157832efca5d35adde9e063bc"></a>
+<a class="el" href="group___d_m_a_c___w.html#ga99a939fb0f9c0ab3b2153744595edfd6">dmac_start_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#acba6992157832efca5d35adde9e063bc">start_mode</a></td></tr>
+<tr class="memdesc:acba6992157832efca5d35adde9e063bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start DMA immediately or have it triggered by peripheral. <br /></td></tr>
+<tr class="separator:acba6992157832efca5d35adde9e063bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8b61cb44ff8b314eb2dd4f730cb03bf"><td class="memItemLeft" align="right" valign="top"><a id="ab8b61cb44ff8b314eb2dd4f730cb03bf"></a>
+<a class="el" href="group___d_m_a_c___w.html#ga4b8ac11007c3cd0c64fc997d80f09089">dmac_idle_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#ab8b61cb44ff8b314eb2dd4f730cb03bf">idle_mode</a></td></tr>
+<tr class="memdesc:ab8b61cb44ff8b314eb2dd4f730cb03bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Idle mode: blocking or interrupting. <br /></td></tr>
+<tr class="separator:ab8b61cb44ff8b314eb2dd4f730cb03bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943e003b56f8aff2de3746a5a420ea6f"><td class="memItemLeft" align="right" valign="top"><a id="a943e003b56f8aff2de3746a5a420ea6f"></a>
+<a class="el" href="group___d_m_a_c___w.html#ga0bbdceeefa5ff06bc382972e130d2ddd">dmac_init_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a943e003b56f8aff2de3746a5a420ea6f">init_mode</a></td></tr>
+<tr class="memdesc:a943e003b56f8aff2de3746a5a420ea6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy mode: block copy or mem init. <br /></td></tr>
+<tr class="separator:a943e003b56f8aff2de3746a5a420ea6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976b28803a41f1ecda30dfb0c6a9def2"><td class="memItemLeft" align="right" valign="top"><a id="a976b28803a41f1ecda30dfb0c6a9def2"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a976b28803a41f1ecda30dfb0c6a9def2">channel_prio</a></td></tr>
+<tr class="memdesc:a976b28803a41f1ecda30dfb0c6a9def2"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMAC channel priority. <br /></td></tr>
+<tr class="separator:a976b28803a41f1ecda30dfb0c6a9def2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edee6a280c79b460ba5acf8b892e849"><td class="memItemLeft" align="right" valign="top"><a id="a3edee6a280c79b460ba5acf8b892e849"></a>
+bsp_dmac_trig_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a3edee6a280c79b460ba5acf8b892e849">periph_trigger</a></td></tr>
+<tr class="memdesc:a3edee6a280c79b460ba5acf8b892e849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger source, if DMAC starts on a peripheral request. <br /></td></tr>
+<tr class="separator:a3edee6a280c79b460ba5acf8b892e849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188bfb8b2f920c771a61e7d6381c92d0"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a188bfb8b2f920c771a61e7d6381c92d0">irq_num_of_trans</a></td></tr>
+<tr class="separator:a188bfb8b2f920c771a61e7d6381c92d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa5df5a650e272348c4bd6c71ad4392"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a1aa5df5a650e272348c4bd6c71ad4392">p_callback</a> )(<a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *cb_data)</td></tr>
+<tr class="separator:a1aa5df5a650e272348c4bd6c71ad4392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d67e9dcb77c2929401542935579c68"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a_c___w.html#a23d67e9dcb77c2929401542935579c68">p_context</a></td></tr>
+<tr class="separator:a23d67e9dcb77c2929401542935579c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="a188bfb8b2f920c771a61e7d6381c92d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188bfb8b2f920c771a61e7d6381c92d0">&#9670;&nbsp;</a></span>irq_num_of_trans</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t dmac_extended_cfg_t::irq_num_of_trans</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of transfers before IRQ generation. Set to 0 to fire IRQ after transfer ends. </p>
+
+</div>
+</div>
+<a id="a1aa5df5a650e272348c4bd6c71ad4392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa5df5a650e272348c4bd6c71ad4392">&#9670;&nbsp;</a></span>p_callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(*  dmac_extended_cfg_t::p_callback) (<a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *cb_data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback for transfer end interrupt. </p>
+
+</div>
+</div>
+<a id="a23d67e9dcb77c2929401542935579c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d67e9dcb77c2929401542935579c68">&#9670;&nbsp;</a></span>p_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* dmac_extended_cfg_t::p_context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Placeholder for user data. Passed to the user p_callback in <a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a>. </p>
+
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga1e459d63cbd5b7c819ca786a55093307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1e459d63cbd5b7c819ca786a55093307">&#9670;&nbsp;</a></span>DMAC_MAX_NORMAL_TRANSFER_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DMAC_MAX_NORMAL_TRANSFER_LENGTH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Max configurable number of transfers in TRANSFER_MODE_NORMAL. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga4b2bd39af205df13eddc94fa34b2cd47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b2bd39af205df13eddc94fa34b2cd47">&#9670;&nbsp;</a></span>dmac_callback_args_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__callback__args__t">transfer_callback_args_t</a> <a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback function parameter data. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga99a939fb0f9c0ab3b2153744595edfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99a939fb0f9c0ab3b2153744595edfd6">&#9670;&nbsp;</a></span>dmac_start_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_a_c___w.html#ga99a939fb0f9c0ab3b2153744595edfd6">dmac_start_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMAC channel start mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga99a939fb0f9c0ab3b2153744595edfd6aca44a51bbbacf0350a492f759d8b8f30"></a>DMAC_START_IMMEDIATELY&#160;</td><td class="fielddoc"><p>DMAC channel starts immediately. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga99a939fb0f9c0ab3b2153744595edfd6a04711eb3c3b3d00dcec95eba60159851"></a>DMAC_START_ON_PERIPHERAL_REQUEST&#160;</td><td class="fielddoc"><p>DMAC channel must be triggered by a peripheral DMA request. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga4b8ac11007c3cd0c64fc997d80f09089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b8ac11007c3cd0c64fc997d80f09089">&#9670;&nbsp;</a></span>dmac_idle_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_a_c___w.html#ga4b8ac11007c3cd0c64fc997d80f09089">dmac_idle_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMA idle mode</p>
+<p>In blocking mode the DMA performs a fast back-to-back copy, disabling bus access for any bus master with lower priority. In interrupting mode the DMAC inserts a wait cycle after each store allowing other bus masters to perform a burst read. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4b8ac11007c3cd0c64fc997d80f09089a9631b6c41df8ec72af614dfaaedafb9a"></a>DMAC_IDLE_BLOCKING_MODE&#160;</td><td class="fielddoc"><p>Blocking mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga4b8ac11007c3cd0c64fc997d80f09089a9d5d77f0c416d9184b604d13203e4846"></a>DMAC_IDLE_INTERRUPTING_MODE&#160;</td><td class="fielddoc"><p>Interrupting mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga0bbdceeefa5ff06bc382972e130d2ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0bbdceeefa5ff06bc382972e130d2ddd">&#9670;&nbsp;</a></span>dmac_init_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_a_c___w.html#ga0bbdceeefa5ff06bc382972e130d2ddd">dmac_init_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0bbdceeefa5ff06bc382972e130d2dddae0a9a80f3b8a230c81fc8a06f5450347"></a>DMAC_INIT_AX_BX_AY_BY&#160;</td><td class="fielddoc"><p>DMA performs copy A1 to B1, A2 to B2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga0bbdceeefa5ff06bc382972e130d2dddaf6777bb752e916a8acc628ba1d1257f4"></a>DMAC_INIT_AX_BX_BY&#160;</td><td class="fielddoc"><p>DMA performs copy A1 to B1, B2 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga50115e80e2081ea3105dba555edad4e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50115e80e2081ea3105dba555edad4e9">&#9670;&nbsp;</a></span>R_DMAC_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__cfg__t">transfer_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Configure a DMAC channel.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">    <span class="comment">/* Open the transfer instance with initial configuration. */</span></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = <a class="code" href="group___d_m_a_c___w.html#ga50115e80e2081ea3105dba555edad4e9">R_DMAC_W_Open</a>(&amp;g_transfer_ctrl, &amp;g_transfer_cfg);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful open. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IP_CHANNEL_NOT_PRESENT</td><td>The configured channel is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IRQ_BSP_DISABLED</td><td>The IRQ associated with the activation source is not enabled in the BSP. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>The control structure is already opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>A Selected setting is not supported by this API. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga77396bcd5fe3d29f8ca0d4b9810fd178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77396bcd5fe3d29f8ca0d4b9810fd178">&#9670;&nbsp;</a></span>R_DMAC_W_Reconfigure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Reconfigure </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__info__t">transfer_info_t</a> *&#160;</td>
+          <td class="paramname"><em>p_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reconfigure the transfer with new transfer info.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Transfer is configured and will start when <a class="el" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable()</a> is called. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>A Selected setting is not supported by this API. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Handle is not initialized. Call R_DMAC_W_Open to initialize the control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae48bde872dbf7147a6e4a0700b1236ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae48bde872dbf7147a6e4a0700b1236ff">&#9670;&nbsp;</a></span>R_DMAC_W_Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *volatile&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *volatile&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t const&#160;</td>
+          <td class="paramname"><em>num_transfers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reset transfer source and destination.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>This feature is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga57ef0fe83e11ab78c089df816c013338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57ef0fe83e11ab78c089df816c013338">&#9670;&nbsp;</a></span>R_DMAC_W_SoftwareStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_SoftwareStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga11917a0ab2cb8b878937c97691b07fd9">transfer_start_mode_t</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If the mode is TRANSFER_START_MODE_SINGLE initiate a single transfer with software. If the mode is TRANSFER_START_MODE_REPEAT continue triggering transfers until all of the transfers are completed.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>This feature is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaaeec857c29b58720e8818f3a399950a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaeec857c29b58720e8818f3a399950a3">&#9670;&nbsp;</a></span>R_DMAC_W_SoftwareStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_SoftwareStop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop software transfers if they were started with TRANSFER_START_MODE_REPEAT.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>This feature is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7fb87a3cf1d112d8d266bc95a89032a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fb87a3cf1d112d8d266bc95a89032a2">&#9670;&nbsp;</a></span>R_DMAC_W_Enable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Enable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable a DMAC channel.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">    <span class="comment">/* Enable the DMAC to start the trasnfer so that it responds to transfer requests. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#ga7fb87a3cf1d112d8d266bc95a89032a2">R_DMAC_W_Enable</a>(&amp;g_transfer_ctrl);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>DMAC channel activated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Handle is not initialized. Call R_DMAC_W_Open to initialize the control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga929fe480e087be66f0a5ff5b60ca8a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga929fe480e087be66f0a5ff5b60ca8a13">&#9670;&nbsp;</a></span>R_DMAC_W_Disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Disable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable a Dmac channel.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>DMAC channel disabled successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Handle is not initialized. Call R_DMAC_W_Open to initialize the control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9b1b7ba019caaccaef603af4fd8a031c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b1b7ba019caaccaef603af4fd8a031c">&#9670;&nbsp;</a></span>R_DMAC_W_InfoGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_InfoGet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__properties__t">transfer_properties_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set driver specific information in provided pointer.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Information has been written to p_info. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Handle is not initialized. Call R_DMAC_W_Open to initialize the control block. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga620e4209c891291b7f3919460ec72397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga620e4209c891291b7f3919460ec72397">&#9670;&nbsp;</a></span>R_DMAC_W_Reload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Reload </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>num_transfers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>To update next transfer information without interruption during transfer.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>This feature is not supported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae2a9ce6f60f35beacebb55160766fa7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2a9ce6f60f35beacebb55160766fa7c">&#9670;&nbsp;</a></span>R_DMAC_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___d_m_a_c___w.html#ga4b2bd39af205df13eddc94fa34b2cd47">dmac_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback with the option to provide memory for the callback argument structure.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IRQ_BSP_DISABLED</td><td>The IRQ associated with the activation source is not enabled in the BSP. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gadbb898ee089aafd26bc5d794283197d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbb898ee089aafd26bc5d794283197d0">&#9670;&nbsp;</a></span>R_DMAC_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ga665f80fc984ccf7585606be8eeccbb98">transfer_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable transfer and clean up internal data. Implements <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#ade5973e7a8e994f9146e0db84bee8bf4">transfer_api_t::close</a>.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful close. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An input parameter is invalid. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>Handle is not initialized. Call R_DMAC_W_Open to initialize the control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac26132d9b441ce2123a3ba399f8235f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac26132d9b441ce2123a3ba399f8235f7">&#9670;&nbsp;</a></span>R_DMAC_W_Freeze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_DMAC_W_Freeze </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>freeze</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Temporarily freeze/unfreeze all channels of the DMAC controller.</p>
+<p>Example: </p><div class="fragment"><div class="line"></div><div class="line">    <span class="comment">/* Temporarily disable (freeze) all channels of the DMA controller. */</span></div><div class="line">    err = <a class="code" href="group___d_m_a_c___w.html#gac26132d9b441ce2123a3ba399f8235f7">R_DMAC_W_Freeze</a>(<span class="keyword">true</span>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div></div><!-- fragment --> <dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Successful freeze. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

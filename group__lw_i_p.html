@@ -1,0 +1,341 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: lwIP (rm_lwip_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__lw_i_p.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a>  </div>
+  <div class="headertitle">
+<div class="title">lwIP (rm_lwip_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___n_e_t_w_o_r_k_i_n_g___m_o_d_u_l_e_s.html">Networking</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Middleware lwIP on RAFW MCUs. </p>
+<h1><a class="anchor" id="rm-lwip-w-overview"></a>
+Overview</h1>
+<p>lwIP (Lightweight IP) is a widely used open-source TCP/IP stack designed for embedded systems with limited resources. Developed by Adam Dunkels at the Swedish Institute of Computer Science, lwIP is particularly suited for systems that need networking capabilities but have constraints on memory, processing power, and storage</p>
+<h2><a class="anchor" id="rm-lwip-w-features"></a>
+Features</h2>
+<p>The lwIP module has the following key features:</p><ul>
+<li>Support for Essential Protocols<ul>
+<li>IPv4 and IPv6</li>
+<li>TCP/UDP</li>
+<li>ICMP</li>
+<li>DNS</li>
+<li>DHCP</li>
+</ul>
+</li>
+<li>Raw API, Netconn API, and Socket API</li>
+<li>Event-Driven Architecture</li>
+</ul>
+<h1><a class="anchor" id="rm-lwip-w-configuration"></a>
+Configuration</h1>
+<p><h2>Build Time Configurations for rm_lwip_w</h2>
+The following build time configurations are defined in fsp_cfg/rm_lwip_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Watchdog Service Support</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Enabled </td><td>Enable when using the Watchdog Service. </td></tr>
+<tr class="tree_none">
+<td>GARP ps-mode time</td><td>Value must be greater than 1</td><td>60 </td><td>Time in seconds between Gratuitous ARP announcements sent when in power sleep mode </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="rm-lwip-w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>This module has no required clock configurations.</p>
+<h2><a class="anchor" id="rm-lwip-w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module does not use I/O pins.</p>
+<h1><a class="anchor" id="rm-lwip-w-usage_notes"></a>
+Usage Notes</h1>
+<p>The lwIP module use the next submodules:</p>
+<ul>
+<li>FreeRTOS</li>
+<li>MbedTLS</li>
+</ul>
+<h1><a class="anchor" id="rm-lwip-w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of lwIP which attaches an interface and send packets to interface and recieve in the egress handler.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#if defined(__SUPPORT_IPV4__) &amp;&amp; !defined(__SUPPORT_IPV6__)</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/udp.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/etharp.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/inet.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;netif/ethernet.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/stats.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/prot/iana.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/tcpip.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/ip4_addr.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;lwip/apps/ping.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;portmacro.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define DUMMY_MAC_ADDRESS {0x00, 0x11, 0x22, 0x33, 0x44, 0x55}</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">******************************************************************************</span></div><div class="line"><span class="comment">*       GLOBAL VARIABLES</span></div><div class="line"><span class="comment">******************************************************************************</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">struct </span>netif test_netif;               <span class="comment">/* Test interface */</span></div><div class="line"><span class="keyword">struct </span>eth_addr test_ethaddr2 = {{1,1,1,1,1,2}};</div><div class="line"><span class="keyword">static</span> ip4_addr_t test_ipaddr, test_ipaddr1, test_netmask, test_gw;</div><div class="line"><span class="keyword">const</span> uint8_t mac_addr[6] = DUMMY_MAC_ADDRESS;</div><div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> linkoutput_ctr;</div><div class="line"></div><div class="line"><span class="keyword">const</span> u8_t arp_reply[] = {</div><div class="line">    0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x00, 0x11, 0x22, 0x33,</div><div class="line">    0x44, 0x55, 0x08, 0x06, 0x00, 0x01, 0x08, 0x00, 0x06, 0x04,</div><div class="line">    0x00, 0x02, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0xc0, 0xa8,</div><div class="line">    0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0xc0, 0xa8,</div><div class="line">    0x00, 0x0a</div><div class="line">    };</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">static</span> err_t</div><div class="line">default_netif_linkoutput(<span class="keyword">struct</span> netif *netif, <span class="keyword">struct</span> pbuf *p)</div><div class="line">{</div><div class="line">    <span class="keywordtype">size_t</span> i = 0;</div><div class="line">    <span class="keyword">struct </span>eth_hdr *ethhdr;</div><div class="line">    <span class="keyword">struct </span>etharp_hdr *arphdr;</div><div class="line">    ip4_addr_t sipaddr, dipaddr;</div><div class="line"></div><div class="line">    TEST_ASSERT_EQUAL_PTR(&amp;test_netif, netif);</div><div class="line">    TEST_ASSERT_NOT_NULL_MESSAGE(p, <span class="stringliteral">&quot;PBUF is NULL&quot;</span>);</div><div class="line"></div><div class="line">    linkoutput_ctr++;</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (p-&gt;len &gt;= (<span class="keyword">sizeof</span>(<span class="keyword">struct</span> eth_hdr) + <span class="keyword">sizeof</span>(<span class="keyword">struct</span> etharp_hdr))) {</div><div class="line">        ethhdr = (<span class="keyword">struct </span>eth_hdr *)p-&gt;payload;</div><div class="line"></div><div class="line">        <span class="comment">/* Check whether ARP packet */</span></div><div class="line">        if (htons(ethhdr-&gt;type) == ETHTYPE_ARP) {</div><div class="line">            arphdr = (<span class="keyword">struct </span>etharp_hdr *)(p-&gt;payload + <span class="keyword">sizeof</span>(<span class="keyword">struct</span> eth_hdr));</div><div class="line">            uint16_t opcode = htons(arphdr-&gt;opcode);</div><div class="line"></div><div class="line">        IPADDR_WORDALIGNED_COPY_TO_IP4_ADDR_T(&amp;sipaddr, &amp;arphdr-&gt;sipaddr);</div><div class="line">        IPADDR_WORDALIGNED_COPY_TO_IP4_ADDR_T(&amp;dipaddr, &amp;arphdr-&gt;dipaddr);</div><div class="line"></div><div class="line">            <span class="keywordflow">if</span> (opcode == ARP_REPLY) {</div><div class="line">                <span class="keywordflow">if</span> (ip4_addr_cmp(&amp;sipaddr, &amp;dipaddr))</div><div class="line">                    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\nDiscard gratuitous ARP announcement pkts opcode : %d\n&quot;</span>, opcode);</div><div class="line">                <span class="keywordflow">else</span> {</div><div class="line">                    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n===pbuf payload (ARP REPLY) recieved from lwIP===&quot;</span>);</div><div class="line">                    <span class="keywordflow">for</span> (i = 0; i &lt; p-&gt;len; i++) {</div><div class="line"></div><div class="line">                    <span class="keywordflow">if</span>(i % 16 == 0)</div><div class="line">                        LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line"></div><div class="line">                    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;%02X &quot;</span>, ((<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)p-&gt;payload)[i]);</div><div class="line">                    }</div><div class="line">                    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line"></div><div class="line">                    <span class="keywordflow">if</span> (memcmp(p-&gt;payload, &amp;arp_reply, <span class="keyword">sizeof</span>(arp_reply)) == 0) {</div><div class="line">                        LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\nVerification passed , ARP REPLY matches expected o/p\n&quot;</span>);</div><div class="line">                        <span class="keywordflow">return</span> 1;</div><div class="line">                    }</div><div class="line">                }</div><div class="line">            } <span class="keywordflow">else</span> {</div><div class="line">                <span class="keywordflow">if</span> (ip4_addr_cmp(&amp;sipaddr, &amp;dipaddr))</div><div class="line">                    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\nDiscard gratuitous ARP announcement pkts opcode :%d\n&quot;</span>, opcode);</div><div class="line">            }</div><div class="line">        } <span class="keywordflow">else</span> {</div><div class="line">            LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\nNot and ARP frame failed&quot;</span>);</div><div class="line">            TEST_ASSERT(<span class="keyword">false</span>);</div><div class="line">        }</div><div class="line">    } <span class="keywordflow">else</span> {</div><div class="line">        LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\nNot and Ethernet frame failed&quot;</span>);</div><div class="line">        TEST_ASSERT(<span class="keyword">false</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> ERR_OK;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> err_t</div><div class="line">default_netif_init(<span class="keyword">struct</span> netif *netif)</div><div class="line">{</div><div class="line">    netif-&gt;linkoutput = default_netif_linkoutput;</div><div class="line">    netif-&gt;output = etharp_output;</div><div class="line">    netif-&gt;mtu = 1500;</div><div class="line">    netif-&gt;flags = NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_LINK_UP;</div><div class="line">    netif-&gt;hwaddr_len = ETHARP_HWADDR_LEN;</div><div class="line">    <span class="keywordflow">return</span> ERR_OK;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> setup_interface(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">static</span> <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (!initialized)</div><div class="line">    {</div><div class="line">        initialized = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">        ip_addr_set_zero(&amp;test_gw);</div><div class="line">        ip_addr_set_zero(&amp;test_ipaddr);</div><div class="line">        ip_addr_set_zero(&amp;test_netmask);</div><div class="line"></div><div class="line">        mem_init();</div><div class="line">        memp_init();</div><div class="line">        tcpip_init(NULL, NULL);</div><div class="line"></div><div class="line">        IP4_ADDR(&amp;test_gw, 192,168,0,1);</div><div class="line">        IP4_ADDR(&amp;test_ipaddr, 192,168,0,1);</div><div class="line">        IP4_ADDR(&amp;test_netmask, 255,255,0,0);</div><div class="line"></div><div class="line">        memcpy(&amp;test_netif.hwaddr, mac_addr, ETH_HWADDR_LEN);</div><div class="line"></div><div class="line">        <span class="keywordflow">if</span> (netif_add(&amp;test_netif,</div><div class="line">            &amp;test_ipaddr, &amp;test_netmask, &amp;test_gw,</div><div class="line">            NULL,</div><div class="line">            default_netif_init,</div><div class="line">            ethernet_input) == NULL) {</div><div class="line">                TEST_ASSERT(<span class="keyword">false</span>);</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    netif_set_default(&amp;test_netif);</div><div class="line">    netif_set_up(&amp;test_netif);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> close_interface(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    netif_remove(&amp;test_netif);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> create_send_ingress_pkt(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <span class="keywordtype">int</span> k;</div><div class="line">    <span class="keywordtype">size_t</span> i = 0;</div><div class="line">    <span class="keyword">struct </span>eth_hdr *ethhdr;</div><div class="line">    <span class="keyword">struct </span>etharp_hdr *etharphdr;</div><div class="line">    <span class="keyword">struct </span>pbuf *p = pbuf_alloc(PBUF_RAW, <span class="keyword">sizeof</span>(<span class="keyword">struct</span> eth_hdr) + <span class="keyword">sizeof</span>(<span class="keyword">struct</span> etharp_hdr), PBUF_RAM);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span>(p == NULL) {</div><div class="line">        TEST_ASSERT(<span class="keyword">false</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    ethhdr = (<span class="keyword">struct </span>eth_hdr*)p-&gt;payload;</div><div class="line">    etharphdr = (<span class="keyword">struct</span> etharp_hdr*)(ethhdr + 1);</div><div class="line"></div><div class="line">    ethhdr-&gt;dest.addr[0] = 0xFF;</div><div class="line">    ethhdr-&gt;dest.addr[1] = 0xFF;</div><div class="line">    ethhdr-&gt;dest.addr[2] = 0xFF;</div><div class="line">    ethhdr-&gt;dest.addr[3] = 0xFF;</div><div class="line">    ethhdr-&gt;dest.addr[4] = 0xFF;</div><div class="line">    ethhdr-&gt;dest.addr[5] = 0xFF;</div><div class="line"></div><div class="line">    ethhdr-&gt;src = test_ethaddr2;</div><div class="line">    ethhdr-&gt;type = htons(ETHTYPE_ARP);</div><div class="line"></div><div class="line">    etharphdr-&gt;hwtype = htons(LWIP_IANA_HWTYPE_ETHERNET);</div><div class="line">    etharphdr-&gt;proto = htons(ETHTYPE_IP);</div><div class="line">    etharphdr-&gt;hwlen = ETHARP_HWADDR_LEN;</div><div class="line">    etharphdr-&gt;protolen = <span class="keyword">sizeof</span>(ip4_addr_t);</div><div class="line">    etharphdr-&gt;opcode = htons(ARP_REQUEST);</div><div class="line"></div><div class="line">    IP4_ADDR(&amp;test_ipaddr1, 192,168,0,10);</div><div class="line">    SMEMCPY(&amp;etharphdr-&gt;sipaddr, &amp;test_ipaddr1, <span class="keyword">sizeof</span>(ip4_addr_t));</div><div class="line">    SMEMCPY(&amp;etharphdr-&gt;dipaddr, &amp;test_ipaddr, <span class="keyword">sizeof</span>(ip4_addr_t));</div><div class="line"></div><div class="line">    k = 6;</div><div class="line">    <span class="keywordflow">while</span>(k &gt; 0) {</div><div class="line">        k--;</div><div class="line">        <span class="comment">/* Write the ARP MAC-Addresses */</span></div><div class="line">        etharphdr-&gt;shwaddr.addr[k] = test_ethaddr2.addr[k];</div><div class="line">        etharphdr-&gt;dhwaddr.addr[k] = 0x00;</div><div class="line">        <span class="comment">/* Write the Ethernet MAC-Addresses */</span></div><div class="line">        ethhdr-&gt;dest.addr[k] = 0xFF;</div><div class="line">        ethhdr-&gt;src.addr[k] = test_ethaddr2.addr[k];</div><div class="line">    }</div><div class="line"></div><div class="line">    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n=====payload sent to lwIP(ARP REQ)==== &quot;</span>);</div><div class="line">    <span class="keywordflow">for</span> (i = 0; i &lt; p-&gt;len; i++) {</div><div class="line">        <span class="keywordflow">if</span>(i % 16 == 0)</div><div class="line">            LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line">      LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;%02X &quot;</span>, ((<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)p-&gt;payload)[i]);</div><div class="line">    }</div><div class="line">    LWIP_DEBUG_PRINTF(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span>(test_netif.input(p, &amp;test_netif) != ERR_OK)</div><div class="line">    {</div><div class="line">        pbuf_free(p);</div><div class="line">    }</div><div class="line"></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> lwip_main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    setup_interface();</div><div class="line">    create_send_ingress_pkt();</div><div class="line">    close_interface();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="preprocessor">#endif</span></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structlwip__w__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lw_i_p.html#structlwip__w__cfg__t">lwip_w_cfg_t</a></td></tr>
+<tr class="separator:structlwip__w__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structlwip__w__cfg__t" id="structlwip__w__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structlwip__w__cfg__t">&#9670;&nbsp;</a></span>lwip_w_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct lwip_w_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>User configuration structure, used in open function </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ae80294d73c9befe17603ea25cdcf8e9e"></a>void const  *</td>
+<td class="fieldname">
+p_extend</td>
+<td class="fielddoc">
+Pointer to extended configuration by instance of interface. </td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

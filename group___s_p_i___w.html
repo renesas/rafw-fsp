@@ -1,0 +1,1129 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: SPI_W (r_spi_w)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___s_p_i___w.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">SPI_W (r_spi_w)<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___m_o_d_u_l_e_s.html">Modules</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___m_o_d_u_l_e_s.html">Connectivity</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga42d736189f6897d204bf680b54440222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga42d736189f6897d204bf680b54440222">R_SPI_W_Open</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *p_api_ctrl, <a class="el" href="group___s_p_i___a_p_i.html#structspi__cfg__t">spi_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ga42d736189f6897d204bf680b54440222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2e6576377f8b41fb1139f2d4b7bd5ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#gac2e6576377f8b41fb1139f2d4b7bd5ce">R_SPI_W_Read</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const p_api_ctrl, void *p_dest, uint32_t const length, <a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const bit_width)</td></tr>
+<tr class="separator:gac2e6576377f8b41fb1139f2d4b7bd5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b5f7e0b93bbb863bf0fb1f13a7b0aa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga8b5f7e0b93bbb863bf0fb1f13a7b0aa3">R_SPI_W_Write</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const p_api_ctrl, void const *p_src, uint32_t const length, <a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const bit_width)</td></tr>
+<tr class="separator:ga8b5f7e0b93bbb863bf0fb1f13a7b0aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f353cea32c9877d09a502f292c6a401"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga8f353cea32c9877d09a502f292c6a401">R_SPI_W_WriteRead</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const p_api_ctrl, void const *p_src, void *p_dest, uint32_t const length, <a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const bit_width)</td></tr>
+<tr class="separator:ga8f353cea32c9877d09a502f292c6a401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70ff715b95ec6e6bc3cd233697d2bf7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga70ff715b95ec6e6bc3cd233697d2bf7b">R_SPI_W_CallbackSet</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const p_api_ctrl, void(*p_callback)(<a class="el" href="group___s_p_i___a_p_i.html#structspi__callback__args__t">spi_callback_args_t</a> *), void *const p_context, <a class="el" href="group___s_p_i___a_p_i.html#structspi__callback__args__t">spi_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:ga70ff715b95ec6e6bc3cd233697d2bf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4758a4ad6321f01252e3ed3ed6d68dec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga4758a4ad6321f01252e3ed3ed6d68dec">R_SPI_W_Close</a> (<a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const p_api_ctrl)</td></tr>
+<tr class="separator:ga4758a4ad6321f01252e3ed3ed6d68dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab43cb5bab3d16b56aa28ed77580c5e42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#gab43cb5bab3d16b56aa28ed77580c5e42">R_SPI_W_CalculateBitrate</a> (uint32_t bitrate, uint8_t *spck_div, uint8_t channel)</td></tr>
+<tr class="separator:gab43cb5bab3d16b56aa28ed77580c5e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Driver for the SPI_W peripheral on RA for Wireless MCUs. This module implements the <a class="el" href="group___s_p_i___a_p_i.html">SPI Interface</a>. </p>
+<h1><a class="anchor" id="r-spi_w-overview"></a>
+Overview</h1>
+<h2><a class="anchor" id="r-spi_w-features"></a>
+Features</h2>
+<ul>
+<li>Standard SPI_W Modes<ul>
+<li>Master and slave modes for each SPI channel</li>
+<li>Configurable bitrate with Master clock line speed</li>
+<li>Clock Polarity (CPOL)<ul>
+<li>CPOL=0 SCLK is low when idle</li>
+<li>CPOL=1 SCLK is high when idle</li>
+</ul>
+</li>
+<li>Clock Phase (CPHA)<ul>
+<li>CPHA=0 Data is sampled at an odd edge and changes at an even edge</li>
+<li>CPHA=1 Data changes at an odd edge and is sampled at an even edge</li>
+</ul>
+</li>
+<li>MSB first</li>
+<li>4-bit to 32-bit data frames<ul>
+<li>Hardware endian swap in 16-bit and 32-bit modes</li>
+</ul>
+</li>
+<li>CS level keep (burst transfer) supported if available</li>
+<li>Clock edge to capture data<ul>
+<li>Current</li>
+<li>Next (Used only for timing adjustments in master mode at high bitrate)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Interrupt generation based on configurable TX or RX FIFO thresholds</li>
+<li>Support Full Duplex Mode</li>
+<li>DTC Support (RA6B1, RA6W3, RA6U1)</li>
+<li>DMAC Support</li>
+<li>Callback Events<ul>
+<li>Transfer Complete <a class="anchor" id="um_spi_api_rx_overflow_callback"></a></li>
+<li>RX Overflow Error (The SPI shift register is copied to the data register before previous data was read)</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="r-spi_w-configuration"></a>
+Configuration</h1>
+<p><a class="anchor" id="um_spi_api_bitrate"></a><a class="anchor" id="um_spi_api_clk_polarity"></a><a class="anchor" id="um_spi_api_clock_phase"></a><a class="anchor" id="um_spi_api_transfer_count"></a><a class="anchor" id="um_spi_w_capture_edge"></a><a class="anchor" id="um_spi_w_cs_select"></a><a class="anchor" id="um_spi_w_byte_swap"></a><a class="anchor" id="um_spi_w_performance"></a> <h2>Build Time Configurations for r_spi_w</h2>
+The following build time configurations are defined in fsp_cfg/r_spi_w_cfg.h:<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Parameter Checking</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Default (BSP)</li>
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
+<tr class="tree_none">
+<td>Enable Transfer Support for using a transfer API</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+DTC</li>
+<li>
+DMAC</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, transfer instances will be included in the build for both transmission and reception. </td></tr>
+<tr class="tree_none">
+<td>Enable Transmitting from Receive Interrupt</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, all operations will be handled from the RX (receive) interrupt. This setting only provides a performance boost when neither DTC nor DMAC is used. In addition, Transmit Only mode is not supported when this configuration is enabled. </td></tr>
+<tr class="tree_none">
+<td>Enable Fast Read</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, R_SPI_W_FastRead() will be included in the build. </td></tr>
+</table>
+ <h2>Configurations for Connectivity &gt; SPI_W (r_spi_w)</h2>
+This module can be added to the Stacks tab via New Stack &gt; Connectivity &gt; SPI_W (r_spi_w). Non-secure callable guard functions can be generated for this module by right clicking the module in the RA Configuration tool and checking the "Non-secure Callable" box.<br />
+</p><table class="doxtable">
+<tr>
+<th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
+<tr class="tree_none">
+<td>Name</td><td>Name must be a valid C symbol</td><td>g_spi_w0 </td><td>Module name. </td></tr>
+<tr class="tree_none">
+<td>Channel</td><td>Value must be an integer greater than 0</td><td>1 </td><td>Select the SPI channel. </td></tr>
+<tr class="tree_none">
+<td>Generic Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the generic interrupt priority. </td></tr>
+<tr class="tree_none">
+<td>Idle Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the interrupt priority for all SPI interrupts. </td></tr>
+<tr class="tree_none">
+<td>Receive Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the receive interrupt priority. </td></tr>
+<tr class="tree_none">
+<td>Transmit Buffer Empty Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the transmit buffer empty interrupt priority. </td></tr>
+<tr class="tree_none">
+<td>Error Interrupt Priority</td><td>MCU Specific Options</td><td></td><td>Select the interrupt priority for all SPI interrupts. </td></tr>
+<tr class="tree_none">
+<td>Operating Mode</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Master</li>
+<li>
+Slave</li>
+</ul>
+</td><td>Master </td><td>Select the SPI operating mode. </td></tr>
+<tr class="tree_none">
+<td>Clock Phase</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Data sampling on odd edge, data variation on even edge</li>
+<li>
+Data sampling on even edge, data variation on odd edge</li>
+</ul>
+</td><td>Data sampling on odd edge, data variation on even edge </td><td>Select the clock edge to sample data. </td></tr>
+<tr class="tree_none">
+<td>Clock Polarity</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Low when idle</li>
+<li>
+High when idle</li>
+</ul>
+</td><td>Low when idle </td><td>Select clock level when idle. </td></tr>
+<tr class="tree_none">
+<td>Mode Fault Error</td><td>Disable</td><td>Disable </td><td>Detect master/slave mode conflicts. Mode fault error is not supported. </td></tr>
+<tr class="tree_none">
+<td>Bit Order</td><td>MSB First</td><td>MSB First </td><td>Select the data bit order. LSB First is not supported. </td></tr>
+<tr class="tree_none">
+<td>Callback</td><td>Name must be a valid C symbol</td><td>spi_callback </td><td>A user callback function can be provided. If this callback function is provided, it will be called from the interrupt service routine (ISR). </td></tr>
+<tr class="tree_none">
+<td>Select Chip(Chip Select)</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+CS0</li>
+<li>
+CS1</li>
+</ul>
+</td><td>CS0 </td><td>Select which slave to use. </td></tr>
+<tr class="tree_none">
+<td>Byte Swapping</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Disable</li>
+<li>
+Enable</li>
+</ul>
+</td><td>Disable </td><td>Select the byte swap mode for 16/32-Bit Data Frames. </td></tr>
+<tr class="tree_none">
+<td>Capture Edge</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Current</li>
+<li>
+Next</li>
+</ul>
+</td><td>Current </td><td>Select clock edge to capture data. If there is an error in the received data in Master mode at high bitrate, it may be improved by setting Next. Otherwise, set Current. </td></tr>
+<tr class="tree_none">
+<td>Rx FIFO level</td><td>Value must be a non-negative integer</td><td>0 </td><td>Select the SPI Rx FIFO threshold level. </td></tr>
+<tr class="tree_none">
+<td>Tx FIFO level</td><td>Value must be a non-negative integer</td><td>0 </td><td>Select the SPI Tx FIFO threshold level. </td></tr>
+<tr class="tree_none">
+<td>Bitrate</td><td>Value must be an integer greater than 0</td><td>5000000 </td><td>Enter the desired bitrate, change the bitrate to a value supported by MCU. If the requested bitrate cannot be achieved, the settings with the largest possible value that is less than or equal to the requested bitrate is used. The theoretical bitrate is printed in a comment in the generated <a class="el" href="group___s_p_i___w.html#structspi__w__extended__cfg__t">spi_w_extended_cfg_t</a> structure. </td></tr>
+<tr class="tree_none">
+<td>Enable skipping SPI disablement.</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, SPI will not be disabled after a read/write cycle for fast reaction. </td></tr>
+<tr class="tree_none">
+<td>Enable skipping SPI busy checks on read.</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>If enabled, SPI will not check for busy state when reading. </td></tr>
+</table>
+</p>
+<h2><a class="anchor" id="r-spi_w-clock-configuration"></a>
+Clock Configuration</h2>
+<p>(RA6W1/RA6W2) The clock for SPI can be configured via the <b>Clocks</b> tab of the RA6W1/RA6W2 Configuration editor or by using the CGC Interface at run-time.</p>
+<p>(RA6B1/RA6W3/RA6U1) The driver's clock for each SPI channel is controlled by DivN, derived from the SYSCLK. You can adjust the clock frequency for each channel by setting the desired bitrate. The driver will automatically compute and set the closest achievable clock frequency to match your specified bitrate. The formula used to calculate the divider value is:</p>
+<p>Divider = Input Clock Frequency / Desired Bitrate</p>
+<p>This formula ensures efficient operation of the SPI interface at the desired data rate by adjusting the clock frequency appropriately.</p>
+<h2><a class="anchor" id="r-spi_w-pin-configuration"></a>
+Pin Configuration</h2>
+<p>This module uses SPIn_DO, SPIn_DI, SPIn_CLK, and SPIn_CSm pins to communicate with on board devices.</p>
+<dl class="section note"><dt>Note</dt><dd>At high bitrates it may be necessary to configure the pins with IOPORT_CFG_DRIVE_HIGH to maintain signal integrity.</dd></dl>
+<h1><a class="anchor" id="r-spi_w-usage_notes"></a>
+Usage Notes</h1>
+<h2>Performance</h2>
+<p>At high bitrates, interrupts may not be able to service transfers fast enough. In master mode this means there will be a delay between each data frame. In slave mode this could result in RX Overflow errors.</p>
+<p>In order to improve performance at high bitrates, it is recommended that the instance be configured to service transfers using the DTC or DMAC.</p>
+<p>Performance can also be improved by changing TX and RX threshold levels or by setting SPI capturing data at next clock edge (Master-Mode only, recommended at high bitrate).</p>
+<p>Another way to improve performance is to transfer the data in 16/32 bit wide data frames when possible. A typical use-case where this is possible is when reading/writing to a block device.</p>
+<h3>Transmit From RXI Interrupt</h3>
+<p>After every data frame the SPI peripheral generates a transmit buffer empty interrupt and a receive buffer full interrupt. It is possible to configure the driver to handle transmit buffer empty interrupts in the receive buffer full ISR. This only improves performance when neither the DTC nor DMAC is being used.</p>
+<dl class="section note"><dt>Note</dt><dd>Configuring the module to use both RX DTC/DMAC instance and TX DTC/DMAC instance or neither the instances is required when transmit from RXI interrupt is enabled. Otherwise, it results in an invalid configuration.</dd></dl>
+<h3>Clock Auto-Stopping</h3>
+<p>In master mode, if the Receive Buffer Full Interrupts are not handled fast enough, instead of generating a RX Overflow error, the last clock cycle will be stretched until the receive buffer is read.</p>
+<h2>Parity Mode</h2>
+<p>No parity mode support in this SPI version.</p>
+<h2><a class="anchor" id="r-spi_w-limitations"></a>
+Limitations</h2>
+<p>Developers should be aware of the following limitations when using the SPI:</p>
+<ul>
+<li>The behavior for Byte Swap operation is not guaranteed for data frames other than 8-bit, 16-bit and 32bit.</li>
+</ul>
+<h1><a class="anchor" id="r-spi_w-examples"></a>
+Examples</h1>
+<h2>Basic Example</h2>
+<p>This is a basic example of minimal use of the SPI in an application.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> g_transfer_complete = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> spi_w_basic_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    uint8_t tx_buffer[TRANSFER_SIZE];</div><div class="line">    uint8_t rx_buffer[TRANSFER_SIZE];</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the SPI module. */</span></div><div class="line">    err = <a class="code" href="group___s_p_i___w.html#ga42d736189f6897d204bf680b54440222">R_SPI_W_Open</a>(&amp;g_spi_ctrl, &amp;g_spi_cfg);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"><span class="preprocessor">#ifdef NDEBUG</span></div><div class="line">    (void) err;</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Start a write/read transfer */</span></div><div class="line">    err = <a class="code" href="group___s_p_i___w.html#ga8f353cea32c9877d09a502f292c6a401">R_SPI_W_WriteRead</a>(&amp;g_spi_ctrl, tx_buffer, rx_buffer, TRANSFER_SIZE, <a class="code" href="group___s_p_i___a_p_i.html#gga6ba4a8eef274a5b227fc2ab6ee61f8fdad6fa8af050db98465c43fd25fb8e8090">SPI_BIT_WIDTH_8_BITS</a>);</div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* Wait for SPI_EVENT_TRANSFER_COMPLETE callback event. */</span></div><div class="line">    <span class="keywordflow">while</span> (<span class="keyword">false</span> == g_transfer_complete)</div><div class="line">    {</div><div class="line">        ;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> spi_w_callback (<a class="code" href="group___s_p_i___a_p_i.html#structspi__callback__args__t">spi_callback_args_t</a> * p_args)</div><div class="line">{</div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="group___s_p_i___a_p_i.html#gga6e4960e8b344a8a8ec60f0c11d60f54ca2b456074a7304b0ac4be1cbe69d6dad1">SPI_EVENT_TRANSFER_COMPLETE</a> == p_args-&gt;<a class="code" href="group___s_p_i___a_p_i.html#ae1e14270178c91fb89697630627c1eee">event</a>)</div><div class="line">    {</div><div class="line">        g_transfer_complete = <span class="keyword">true</span>;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><h2>Configuring the SPI Clock Divider Registers</h2>
+<p>This example demonstrates how to set the SPI clock divisors at runtime.</p>
+<div class="fragment"><div class="line"></div><div class="line"><span class="keywordtype">void</span> spi_w_bitrate_example (<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> err = FSP_SUCCESS;</div><div class="line"></div><div class="line">    <a class="code" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gaf0afcbc9a110ac9366a811d96ee06029">FSP_PARAMETER_NOT_USED</a>(err);</div><div class="line"></div><div class="line">    g_spi_cfg.p_extend = &amp;g_spi_extended_cfg;</div><div class="line"></div><div class="line">    <span class="comment">/* Configure SPI Clock divider to achieve largest bitrate less than or equal to the desired bitrate. */</span></div><div class="line">    err = <a class="code" href="group___s_p_i___w.html#gab43cb5bab3d16b56aa28ed77580c5e42">R_SPI_W_CalculateBitrate</a>(BITRATE, &amp;(g_spi_extended_cfg.spck_div), g_spi_cfg.channel);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line"><span class="preprocessor">#ifdef NDEBUG</span></div><div class="line">    (void) err;</div><div class="line"><span class="preprocessor">#endif</span></div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the SPI module. */</span></div><div class="line">    err = <a class="code" href="group___s_p_i___w.html#ga42d736189f6897d204bf680b54440222">R_SPI_W_Open</a>(&amp;g_spi_ctrl, &amp;g_spi_cfg);</div><div class="line"></div><div class="line">    <span class="comment">/* Handle any errors. This function should be defined by the user. */</span></div><div class="line">    assert(FSP_SUCCESS == err);</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structspi__w__extended__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#structspi__w__extended__cfg__t">spi_w_extended_cfg_t</a></td></tr>
+<tr class="separator:structspi__w__extended__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structspi__w__instance__ctrl__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#structspi__w__instance__ctrl__t">spi_w_instance_ctrl_t</a></td></tr>
+<tr class="separator:structspi__w__instance__ctrl__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gad4024d60805f4368cb430e385f5a95a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#gad4024d60805f4368cb430e385f5a95a3">SPI_W_RX_FIFO_MAX_SIZE_BYTE</a></td></tr>
+<tr class="separator:gad4024d60805f4368cb430e385f5a95a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga39ec1c1877dbe4bbea903252dab8ecde"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga39ec1c1877dbe4bbea903252dab8ecde">spi_w_cs_select_t</a> </td></tr>
+<tr class="separator:ga39ec1c1877dbe4bbea903252dab8ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga360a9d6f27340c0efb18d1106667c7d7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga360a9d6f27340c0efb18d1106667c7d7">spi_w_byte_swap_t</a> </td></tr>
+<tr class="separator:ga360a9d6f27340c0efb18d1106667c7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99a5ab7037c83cebb44158ea4e1a6f33"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ga99a5ab7037c83cebb44158ea4e1a6f33">spi_w_capture_edge_t</a> </td></tr>
+<tr class="separator:ga99a5ab7037c83cebb44158ea4e1a6f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structspi__w__extended__cfg__t" id="structspi__w__extended__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structspi__w__extended__cfg__t">&#9670;&nbsp;</a></span>spi_w_extended_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct spi_w_extended_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Extended SPI interface configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="afab10e91318ee159614bd7e3ba675124"></a><a class="el" href="group___s_p_i___w.html#ga39ec1c1877dbe4bbea903252dab8ecde">spi_w_cs_select_t</a></td>
+<td class="fieldname">
+cs_select</td>
+<td class="fielddoc">
+Select which slave to use: 0-CS0, 1-CS1. </td></tr>
+<tr><td class="fieldtype">
+<a id="ae73ceb9b0265155c1f3b8bce82fc0623"></a><a class="el" href="group___s_p_i___w.html#ga360a9d6f27340c0efb18d1106667c7d7">spi_w_byte_swap_t</a></td>
+<td class="fieldname">
+byte_swap</td>
+<td class="fielddoc">
+Select byte swap mode. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa5b823ce05b6ec1decfc901d62243717"></a><a class="el" href="group___s_p_i___w.html#ga99a5ab7037c83cebb44158ea4e1a6f33">spi_w_capture_edge_t</a></td>
+<td class="fieldname">
+cap_edge</td>
+<td class="fielddoc">
+Select capture clock edge. </td></tr>
+<tr><td class="fieldtype">
+<a id="a2a999adc4414e0ff5d9a01e829aa9735"></a>uint32_t</td>
+<td class="fieldname">
+rx_fifo_lvl_thres</td>
+<td class="fielddoc">
+Set fifo level threshold for rx. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa89cdb590de1d403d5514d9f1bd1863d"></a>uint32_t</td>
+<td class="fieldname">
+tx_fifo_lvl_thres</td>
+<td class="fielddoc">
+Set fifo level threshold for tx. </td></tr>
+<tr><td class="fieldtype">
+<a id="adf1848a466f03f5a4aa7e35798b20cab"></a>uint8_t</td>
+<td class="fieldname">
+spck_div</td>
+<td class="fielddoc">
+Register value for configuring the SPI Clock Divider. </td></tr>
+<tr><td class="fieldtype">
+<a id="a10d56fe9ea9fc20ace8f68777996f679"></a>uint8_t</td>
+<td class="fieldname">
+gen_ipl</td>
+<td class="fielddoc">
+Generic interrupt priority. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac4af14f662b1494a38cdd62b007e0463"></a>IRQn_Type</td>
+<td class="fieldname">
+gen_irq</td>
+<td class="fielddoc">
+Generic interrrupt IRQ number. </td></tr>
+<tr><td class="fieldtype">
+<a id="a10204162fc1644ca5d4283b67787adb2"></a>bool</td>
+<td class="fieldname">
+skip_busy_check</td>
+<td class="fielddoc">
+If true, SPI will not check for busy state on read. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structspi__w__instance__ctrl__t" id="structspi__w__instance__ctrl__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structspi__w__instance__ctrl__t">&#9670;&nbsp;</a></span>spi_w_instance_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct spi_w_instance_ctrl_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Channel control block. DO NOT INITIALIZE. Initialization occurs when <a class="el" href="group___s_p_i___a_p_i.html#a97177a6162ebad73907c7f23c1411426">spi_api_t::open</a> is called. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a8f299d872eb23249020367f48fe6f086"><td class="memItemLeft" align="right" valign="top"><a id="a8f299d872eb23249020367f48fe6f086"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a8f299d872eb23249020367f48fe6f086">open</a></td></tr>
+<tr class="memdesc:a8f299d872eb23249020367f48fe6f086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the <a class="el" href="group___s_p_i___w.html#a8f299d872eb23249020367f48fe6f086" title="Indicates whether the open() API has been successfully called. ">open()</a> API has been successfully called. <br /></td></tr>
+<tr class="separator:a8f299d872eb23249020367f48fe6f086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5527aba2615c1fbb28b3f55e2581360f"><td class="memItemLeft" align="right" valign="top"><a id="a5527aba2615c1fbb28b3f55e2581360f"></a>
+<a class="el" href="group___s_p_i___a_p_i.html#structspi__cfg__t">spi_cfg_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a5527aba2615c1fbb28b3f55e2581360f">p_cfg</a></td></tr>
+<tr class="memdesc:a5527aba2615c1fbb28b3f55e2581360f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to instance configuration. <br /></td></tr>
+<tr class="separator:a5527aba2615c1fbb28b3f55e2581360f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d074a24e383db7600cdbd322bb14a9"><td class="memItemLeft" align="right" valign="top"><a id="a99d074a24e383db7600cdbd322bb14a9"></a>
+SPI_Type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a99d074a24e383db7600cdbd322bb14a9">p_regs</a></td></tr>
+<tr class="memdesc:a99d074a24e383db7600cdbd322bb14a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base register for this channel. <br /></td></tr>
+<tr class="separator:a99d074a24e383db7600cdbd322bb14a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8d42d20a95562bd1b2d4c86dec132d"><td class="memItemLeft" align="right" valign="top"><a id="aaa8d42d20a95562bd1b2d4c86dec132d"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#aaa8d42d20a95562bd1b2d4c86dec132d">p_tx_data</a></td></tr>
+<tr class="memdesc:aaa8d42d20a95562bd1b2d4c86dec132d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer to transmit. <br /></td></tr>
+<tr class="separator:aaa8d42d20a95562bd1b2d4c86dec132d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e90135a5c7660f4eec0e76833a0f98"><td class="memItemLeft" align="right" valign="top"><a id="af4e90135a5c7660f4eec0e76833a0f98"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#af4e90135a5c7660f4eec0e76833a0f98">p_rx_data</a></td></tr>
+<tr class="memdesc:af4e90135a5c7660f4eec0e76833a0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer to receive. <br /></td></tr>
+<tr class="separator:af4e90135a5c7660f4eec0e76833a0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb67f3bed90935e534a18b4a45361ba"><td class="memItemLeft" align="right" valign="top"><a id="a7eb67f3bed90935e534a18b4a45361ba"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a7eb67f3bed90935e534a18b4a45361ba">tx_count</a></td></tr>
+<tr class="memdesc:a7eb67f3bed90935e534a18b4a45361ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of Data Frames to transmit (8-bit, 16-bit, 32-bit). <br /></td></tr>
+<tr class="separator:a7eb67f3bed90935e534a18b4a45361ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ccf89f4028cd9939ce43c8df76e4ae"><td class="memItemLeft" align="right" valign="top"><a id="ab4ccf89f4028cd9939ce43c8df76e4ae"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#ab4ccf89f4028cd9939ce43c8df76e4ae">rx_count</a></td></tr>
+<tr class="memdesc:ab4ccf89f4028cd9939ce43c8df76e4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of Data Frames to receive (8-bit, 16-bit, 32-bit). <br /></td></tr>
+<tr class="separator:ab4ccf89f4028cd9939ce43c8df76e4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da2cb1b422018b2b2ba835fe730b8e9"><td class="memItemLeft" align="right" valign="top"><a id="a0da2cb1b422018b2b2ba835fe730b8e9"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a0da2cb1b422018b2b2ba835fe730b8e9">count</a></td></tr>
+<tr class="memdesc:a0da2cb1b422018b2b2ba835fe730b8e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of Data Frames to transfer (8-bit, 16-bit, 32-bit). <br /></td></tr>
+<tr class="separator:a0da2cb1b422018b2b2ba835fe730b8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d64c2b6ff029292d3656f85b57e4c34"><td class="memItemLeft" align="right" valign="top"><a id="a4d64c2b6ff029292d3656f85b57e4c34"></a>
+<a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a4d64c2b6ff029292d3656f85b57e4c34">bit_width</a></td></tr>
+<tr class="memdesc:a4d64c2b6ff029292d3656f85b57e4c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits per Data frame. <br /></td></tr>
+<tr class="separator:a4d64c2b6ff029292d3656f85b57e4c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed40196b40916a6cfb3eb121fe8340f6"><td class="memItemLeft" align="right" valign="top"><a id="aed40196b40916a6cfb3eb121fe8340f6"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#aed40196b40916a6cfb3eb121fe8340f6">mask_width</a></td></tr>
+<tr class="memdesc:aed40196b40916a6cfb3eb121fe8340f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit width mask for data. <br /></td></tr>
+<tr class="separator:aed40196b40916a6cfb3eb121fe8340f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ed0b239fee3b31764199dd325904a9"><td class="memItemLeft" align="right" valign="top"><a id="a97ed0b239fee3b31764199dd325904a9"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_i___w.html#a97ed0b239fee3b31764199dd325904a9">wordsize</a></td></tr>
+<tr class="memdesc:a97ed0b239fee3b31764199dd325904a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Word size of current transmit. <br /></td></tr>
+<tr class="separator:a97ed0b239fee3b31764199dd325904a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gad4024d60805f4368cb430e385f5a95a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad4024d60805f4368cb430e385f5a95a3">&#9670;&nbsp;</a></span>SPI_W_RX_FIFO_MAX_SIZE_BYTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPI_W_RX_FIFO_MAX_SIZE_BYTE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Offset to make the SPI HW channels 0-based for the r_spi driver. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga39ec1c1877dbe4bbea903252dab8ecde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39ec1c1877dbe4bbea903252dab8ecde">&#9670;&nbsp;</a></span>spi_w_cs_select_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_p_i___w.html#ga39ec1c1877dbe4bbea903252dab8ecde">spi_w_cs_select_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The Chip Select Line. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga39ec1c1877dbe4bbea903252dab8ecdeac806394a44a76687fd33d0d73d8e2f7e"></a>SPI_W_CS_SELECT_CS0&#160;</td><td class="fielddoc"><p>Select CS0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga39ec1c1877dbe4bbea903252dab8ecdea5b4bfd5215a3081c0a609392c89aa2bf"></a>SPI_W_CS_SELECT_CS1&#160;</td><td class="fielddoc"><p>Select CS1. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga360a9d6f27340c0efb18d1106667c7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga360a9d6f27340c0efb18d1106667c7d7">&#9670;&nbsp;</a></span>spi_w_byte_swap_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_p_i___w.html#ga360a9d6f27340c0efb18d1106667c7d7">spi_w_byte_swap_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Byte Swapping Enable/Disable. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga360a9d6f27340c0efb18d1106667c7d7ae42734a6dc7820468c214b108447d967"></a>SPI_W_BYTE_SWAP_DISABLE&#160;</td><td class="fielddoc"><p>Disable Byte swapping for 16/32-Bit transfers. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga360a9d6f27340c0efb18d1106667c7d7a10c9fb9e1ef9a9119b0e0483da223fa3"></a>SPI_W_BYTE_SWAP_ENABLE&#160;</td><td class="fielddoc"><p>Enable Byte swapping for 16/32-Bit transfers. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga99a5ab7037c83cebb44158ea4e1a6f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99a5ab7037c83cebb44158ea4e1a6f33">&#9670;&nbsp;</a></span>spi_w_capture_edge_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___s_p_i___w.html#ga99a5ab7037c83cebb44158ea4e1a6f33">spi_w_capture_edge_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Capture data at current/next clock edge. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga99a5ab7037c83cebb44158ea4e1a6f33a9cffb26656f7fafe28665a8a83a36f4e"></a>SPI_W_CAPTURE_CURRENT_EDGE&#160;</td><td class="fielddoc"><p>SPI captures data at current clock edge. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga99a5ab7037c83cebb44158ea4e1a6f33ac8fadb55fc9076db39a0be63514adb74"></a>SPI_W_CAPTURE_NEXT_EDGE&#160;</td><td class="fielddoc"><p>SPI captures data at next clock edge. (only for Master mode &amp; high bitrate). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga42d736189f6897d204bf680b54440222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga42d736189f6897d204bf680b54440222">&#9670;&nbsp;</a></span>R_SPI_W_Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_Open </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#structspi__cfg__t">spi_cfg_t</a> const *const&#160;</td>
+          <td class="paramname"><em>p_cfg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This functions initializes a channel for SPI communication mode. Implements <a class="el" href="group___s_p_i___a_p_i.html#a97177a6162ebad73907c7f23c1411426">spi_api_t::open</a>.</p>
+<p>This function performs the following tasks:</p><ul>
+<li>Performs parameter checking and processes error conditions.</li>
+<li>Configures the peripheral registers according to the configuration.</li>
+<li>Initialize the control structure for use in other <a class="el" href="group___s_p_i___a_p_i.html">SPI Interface</a> functions.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Configuration structure which contains all the user provided configurations.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Channel initialized successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ALREADY_OPEN</td><td>Instance was already initialized. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>An invalid argument was given in the configuration structure. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>A requested setting is not possible on this device with the current build configuration. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IP_CHANNEL_NOT_PRESENT</td><td>The channel number is invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>See <a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html">Common Error Codes</a> or functions called by this function for other possible return codes. This function calls: <a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#a84d48960cdfe867ef54fd4635a85ceeb">transfer_api_t::open</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is reentrant. </dd></dl>
+
+</div>
+</div>
+<a id="gac2e6576377f8b41fb1139f2d4b7bd5ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2e6576377f8b41fb1139f2d4b7bd5ce">&#9670;&nbsp;</a></span>R_SPI_W_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const&#160;</td>
+          <td class="paramname"><em>bit_width</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function receives data from a SPI device. Implements <a class="el" href="group___s_p_i___a_p_i.html#a43d0988501f90910690a3357bda1a936">spi_api_t::read</a>.</p>
+<p>The function performs the following tasks:</p><ul>
+<li>Performs parameter checking and processes error conditions.</li>
+<li>Sets up the instance to complete a SPI read operation.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_dest</td><td>Reference to receiving buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>No of transfers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bit_width</td><td>Data frame width.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Read operation successfully completed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to control or destination parameters or transfer length is zero. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel has not been opened. Open channel first. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>A transfer is already in progress. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8b5f7e0b93bbb863bf0fb1f13a7b0aa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8b5f7e0b93bbb863bf0fb1f13a7b0aa3">&#9670;&nbsp;</a></span>R_SPI_W_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const&#160;</td>
+          <td class="paramname"><em>bit_width</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function transmits data to a SPI device. Implements <a class="el" href="group___s_p_i___a_p_i.html#af053cb19a14773a51d1e060c5a624555">spi_api_t::write</a>.</p>
+<p>The function performs the following tasks:</p><ul>
+<li>Performs parameter checking and processes error conditions.</li>
+<li>Sets up the instance to complete a SPI write operation.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Reference to transmitting buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>No of transfers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bit_width</td><td>Data frame width.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Write operation successfully completed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to control or source parameters or transfer length is zero. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel has not been opened. Open the channel first. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>A transfer is already in progress. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8f353cea32c9877d09a502f292c6a401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f353cea32c9877d09a502f292c6a401">&#9670;&nbsp;</a></span>R_SPI_W_WriteRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_WriteRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void const *&#160;</td>
+          <td class="paramname"><em>p_src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t const&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#ga6ba4a8eef274a5b227fc2ab6ee61f8fd">spi_bit_width_t</a> const&#160;</td>
+          <td class="paramname"><em>bit_width</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function simultaneously transmits and receive data. Implements <a class="el" href="group___s_p_i___a_p_i.html#a6ed153d8e5e54e417fda95b044ac2fd6">spi_api_t::writeRead</a>.</p>
+<p>The function performs the following tasks:</p><ul>
+<li>Performs parameter checking and processes error conditions.</li>
+<li>Sets up the instance to complete a SPI writeRead operation.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Reference to transmitting buffer. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_dest</td><td>Reference to receiving buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>No of transfers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bit_width</td><td>Data frame width.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>WriteRead operation successfully completed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>NULL pointer to control, source or destination parameters or transfer length is zero. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel has not been opened. Open the channel first. </td></tr>
+    <tr><td class="paramname">FSP_ERR_IN_USE</td><td>A transfer is already in progress. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga70ff715b95ec6e6bc3cd233697d2bf7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70ff715b95ec6e6bc3cd233697d2bf7b">&#9670;&nbsp;</a></span>R_SPI_W_CallbackSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_CallbackSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="group___s_p_i___a_p_i.html#structspi__callback__args__t">spi_callback_args_t</a> *)&#160;</td>
+          <td class="paramname"><em>p_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>p_context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#structspi__callback__args__t">spi_callback_args_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_callback_memory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the user callback and has option of providing memory for callback structure. Implements <a class="el" href="group___s_p_i___a_p_i.html#a3bc51b110de8f9ae23a752450bcaaf68">spi_api_t::callbackSet</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_callback</td><td>Pointer to user callback function. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_context</td><td>User defined context passed to callback function. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_callback_memory</td><td>Pointer to volatile memory where callback structure can be allocated.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Callback updated successfully. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The control block has not been opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4758a4ad6321f01252e3ed3ed6d68dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4758a4ad6321f01252e3ed3ed6d68dec">&#9670;&nbsp;</a></span>R_SPI_W_Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_Close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___s_p_i___a_p_i.html#gacb036be7f805dbb8d2092486d1aeb242">spi_ctrl_t</a> *const&#160;</td>
+          <td class="paramname"><em>p_api_ctrl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function manages the closing of a channel by the following task. Implements <a class="el" href="group___s_p_i___a_p_i.html#aa23ca0243886b64c90aa17744d72aee5">spi_api_t::close</a>.</p>
+<p>Disables SPI operations by disabling the SPI bus.</p><ul>
+<li>Disables the SPI peripheral.</li>
+<li>Disables all the associated interrupts.</li>
+<li>Update control structure so it will not work with <a class="el" href="group___s_p_i___a_p_i.html">SPI Interface</a> functions.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_api_ctrl</td><td>Pointer to the instance control structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Channel successfully closed. </td></tr>
+    <tr><td class="paramname">FSP_ERR_ASSERTION</td><td>A required pointer argument is NULL. </td></tr>
+    <tr><td class="paramname">FSP_ERR_NOT_OPEN</td><td>The channel has not been opened. Open the channel first. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gab43cb5bab3d16b56aa28ed77580c5e42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab43cb5bab3d16b56aa28ed77580c5e42">&#9670;&nbsp;</a></span>R_SPI_W_CalculateBitrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a> R_SPI_W_CalculateBitrate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bitrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>spck_div</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>channel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates the SPI_CLOCK_REG register value (the closest quantized value) for a desired bitrate. If the desired bitrate is faster than the maximum bitrate, then the bitrate is set to the maximum bitrate. If the desired bitrate is slower than the minimum bitrate, an error is returned.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bitrate</td><td>Desired bitrate. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">spck_div</td><td>Memory location to store bitrate register settings. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">channel</td><td>Selected channel.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FSP_SUCCESS</td><td>Valid clkdiv value was calculated. </td></tr>
+    <tr><td class="paramname">FSP_ERR_UNSUPPORTED</td><td>Bitrate is not achievable. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

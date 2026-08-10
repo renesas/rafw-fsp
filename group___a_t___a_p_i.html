@@ -1,0 +1,607 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: AT Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___a_t___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">AT Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___i_n_t_e_r_f_a_c_e_s.html">Connectivity</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for AT communications. </p>
+<h1><a class="anchor" id="AT_INTERFACE_SUMMARY"></a>
+Summary</h1>
+<p>The AT interface provides common APIs for AT HAL drivers. The AT interface supports the following features:</p><ul>
+<li>Full-duplex AT communication</li>
+<li>Interrupt driven transmit/receive processing</li>
+<li>Callback function with returned event code </li>
+</ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structatcmd__w__info__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__info__t">atcmd_w_info_t</a></td></tr>
+<tr class="separator:structatcmd__w__info__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structatcmd__w__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__cfg__t">atcmd_w_cfg_t</a></td></tr>
+<tr class="separator:structatcmd__w__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structatcmd__w__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__api__t">atcmd_w_api_t</a></td></tr>
+<tr class="separator:structatcmd__w__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structatcmd__w__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__instance__t">atcmd_w_instance_t</a></td></tr>
+<tr class="separator:structatcmd__w__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga427a7791c9254775fc8f061ef27e0f74"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a></td></tr>
+<tr class="separator:ga427a7791c9254775fc8f061ef27e0f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structatcmd__w__info__t" id="structatcmd__w__info__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structatcmd__w__info__t">&#9670;&nbsp;</a></span>atcmd_w_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct atcmd_w_info_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>AT driver specific information </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a0256e3517a61824927457901a461abbb"></a>uint32_t</td>
+<td class="fieldname">
+write_bytes_max</td>
+<td class="fielddoc">
+<p>Maximum bytes that can be written at this time. Only applies if <a class="el" href="group___a_t___a_p_i.html#a60f7eefc0102418a9f3dfe96793f105b">atcmd_w_cfg_t::p_transfer_tx</a> is not NULL. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a694d91cd39322a2347b6e96441359a83"></a>uint32_t</td>
+<td class="fieldname">
+read_bytes_max</td>
+<td class="fielddoc">
+<p>Maximum bytes that are available to read at one time. Only applies if <a class="el" href="group___a_t___a_p_i.html#a3e0c71dedb3c8d56d863269772b9cf79">atcmd_w_cfg_t::p_transfer_rx</a> is not NULL. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structatcmd__w__cfg__t" id="structatcmd__w__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structatcmd__w__cfg__t">&#9670;&nbsp;</a></span>atcmd_w_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct atcmd_w_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>AT Configuration </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a3e0c71dedb3c8d56d863269772b9cf79"></a><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> const  *</td>
+<td class="fieldname">
+p_transfer_rx</td>
+<td class="fielddoc">
+<p>Optional transfer instance used to receive multiple bytes without interrupts. Set to NULL if unused. If NULL, the number of bytes allowed in the read API is limited to one byte at a time. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a60f7eefc0102418a9f3dfe96793f105b"></a><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> const  *</td>
+<td class="fieldname">
+p_transfer_tx</td>
+<td class="fielddoc">
+<p>Optional transfer instance used to send multiple bytes without interrupts. Set to NULL if unused. If NULL, the number of bytes allowed in the write APIs is limited to one byte at a time. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac91b68cdf68267325e972a58ac0019a7"></a><a class="el" href="group___i2_c___m_a_s_t_e_r___a_p_i.html#structi2c__master__instance__t">i2c_master_instance_t</a> const  *</td>
+<td class="fieldname">
+p_i2c_master</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a6af8e60bd0db8764723fd64fe7e1c7c9"></a><a class="el" href="group___s_p_i___a_p_i.html#structspi__instance__t">spi_instance_t</a> const  *</td>
+<td class="fieldname">
+p_spi</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1779307c5aad22625a49aeeaeddc23b6"></a><a class="el" href="group___s_p_i___f_l_a_s_h___a_p_i.html#structspi__flash__instance__t">spi_flash_instance_t</a> const  *</td>
+<td class="fieldname">
+p_spi_flash</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac9bc4a0a2f51088b1d24cfac08736f4e"></a><a class="el" href="group___a_d_c___a_p_i.html#structadc__instance__t">adc_instance_t</a> const  *</td>
+<td class="fieldname">
+p_adc</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a799c9791d370f87b6f3511ad4f5e5f47"></a><a class="el" href="group___t_i_m_e_r___a_p_i.html#structtimer__instance__t">timer_instance_t</a> const  *</td>
+<td class="fieldname">
+p_gpt</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a876c9c26058f1ed93738a8639ed6b1fc"></a><a class="el" href="structatcmd__transport__w__instance__t.html">atcmd_transport_w_instance_t</a> <br class="typebreak" />
+const  *</td>
+<td class="fieldname">
+p_transport_instance</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a7a802ab434f4c7b9fa6e65dbbeca2c2c"></a>void const  *</td>
+<td class="fieldname">
+p_extend</td>
+<td class="fielddoc">
+AT hardware dependent configuration. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structatcmd__w__api__t" id="structatcmd__w__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structatcmd__w__api__t">&#9670;&nbsp;</a></span>atcmd_w_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct atcmd_w_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Shared Interface definition for AT </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:ab3a1cd7c669569b8669f6153ec3bac02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#ab3a1cd7c669569b8669f6153ec3bac02">open</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, <a class="el" href="group___a_t___a_p_i.html#structatcmd__w__cfg__t">atcmd_w_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:ab3a1cd7c669569b8669f6153ec3bac02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a380b248ef82d86b9c069b4a760dbb063"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#a380b248ef82d86b9c069b4a760dbb063">read</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:a380b248ef82d86b9c069b4a760dbb063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab41e68de002fb967e3d3b38e1f4336a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#aab41e68de002fb967e3d3b38e1f4336a">dataRead</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:aab41e68de002fb967e3d3b38e1f4336a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c97492506e45260108e7e27886fe809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#a5c97492506e45260108e7e27886fe809">write</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t const *const p_src, uint32_t const bytes)</td></tr>
+<tr class="separator:a5c97492506e45260108e7e27886fe809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08acc9c8d8a0b534966d3772457cfee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#a08acc9c8d8a0b534966d3772457cfee0">infoGet</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, <a class="el" href="group___a_t___a_p_i.html#structatcmd__w__info__t">atcmd_w_info_t</a> *const p_info)</td></tr>
+<tr class="separator:a08acc9c8d8a0b534966d3772457cfee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22f8c0cc476762ef77e98cb8c90fb4ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___a_t___a_p_i.html#a22f8c0cc476762ef77e98cb8c90fb4ac">close</a> )(<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a22f8c0cc476762ef77e98cb8c90fb4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="ab3a1cd7c669569b8669f6153ec3bac02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3a1cd7c669569b8669f6153ec3bac02">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::open) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, <a class="el" href="group___a_t___a_p_i.html#structatcmd__w__cfg__t">atcmd_w_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open AT device.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block. Must be declared by user. Value set here. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__cfg__t">atcmd_w_cfg_t</a></td><td>Pointer to AT configuration structure. All elements of this structure must be set by user. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a380b248ef82d86b9c069b4a760dbb063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a380b248ef82d86b9c069b4a760dbb063">&#9670;&nbsp;</a></span>read</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::read) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read from AT device. The internal read buffer is used until the available data is read. When internal read buffer is empty, a new data is requested from the device. The maximum transfer size is reported by <a class="el" href="group___a_t___a_p_i.html#a08acc9c8d8a0b534966d3772457cfee0">infoGet()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block for the channel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_dest</td><td>Destination address to read data from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Read data length. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab41e68de002fb967e3d3b38e1f4336a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab41e68de002fb967e3d3b38e1f4336a">&#9670;&nbsp;</a></span>dataRead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::dataRead) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t *const p_dest, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read from AT device. The read buffer is used until the available data is read. When internal read buffer is empty, a new data is requested from the device only if the command is not complete. In case of complete command is expected and no data in the buffer left - corresponding error is thrown. The maximum transfer size is reported by <a class="el" href="group___a_t___a_p_i.html#a08acc9c8d8a0b534966d3772457cfee0">infoGet()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block for the channel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_dest</td><td>Destination address to read data from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Read data length. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c97492506e45260108e7e27886fe809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c97492506e45260108e7e27886fe809">&#9670;&nbsp;</a></span>write</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::write) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, uint8_t const *const p_src, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write to AT device. The maximum transfer size is reported by <a class="el" href="group___a_t___a_p_i.html#a08acc9c8d8a0b534966d3772457cfee0">infoGet()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Source address to write data to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Write data length. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a08acc9c8d8a0b534966d3772457cfee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08acc9c8d8a0b534966d3772457cfee0">&#9670;&nbsp;</a></span>infoGet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::infoGet) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl, <a class="el" href="group___a_t___a_p_i.html#structatcmd__w__info__t">atcmd_w_info_t</a> *const p_info)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the driver specific information.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_info</td><td>Pointer to AT status information. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a22f8c0cc476762ef77e98cb8c90fb4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22f8c0cc476762ef77e98cb8c90fb4ac">&#9670;&nbsp;</a></span>close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  atcmd_w_api_t::close) (<a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close AT device.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the AT control block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structatcmd__w__instance__t" id="structatcmd__w__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structatcmd__w__instance__t">&#9670;&nbsp;</a></span>atcmd_w_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct atcmd_w_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="afef59404154d5dc9dc5bf011c3600f11"></a><a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="a0dd0d17288a1c02dc66619171cfba24e"></a><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__cfg__t">atcmd_w_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="adfb003679628c0a0c26e8abdb2ab4ac3"></a><a class="el" href="group___a_t___a_p_i.html#structatcmd__w__api__t">atcmd_w_api_t</a> const  *</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga427a7791c9254775fc8f061ef27e0f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga427a7791c9254775fc8f061ef27e0f74">&#9670;&nbsp;</a></span>atcmd_w_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___a_t___a_p_i.html#ga427a7791c9254775fc8f061ef27e0f74">atcmd_w_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AT control block. Allocate an instance specific control block to pass into the AT API calls. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>

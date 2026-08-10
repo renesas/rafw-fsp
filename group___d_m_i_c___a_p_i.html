@@ -1,0 +1,905 @@
+<!-- HTML header for doxygen 1.8.7-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<title>RAFW Flexible Software Package Documentation: DMIC Interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="search/lunr.js"></script>
+    <link href="search/lunrsearch.css" rel="stylesheet" type="text/css">
+    <script src="search/lunr_index.js"></script>
+    <script src="search/lunrclient.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("tr.tree_lvl_1").nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+		$("tr.tree_lvl_1").data("expanded","0");
+		$("tr.tree_lvl_2").data("expanded","0");
+		$("tr.tree_lvl_3").data("expanded","0");
+		$("tr.tree_lvl_4").data("expanded","0");
+		$("tr.tree_lvl_5").data("expanded","0");
+        $("tr.tree_lvl_1").click(function() {
+		    var lvl_1_is_open = $(this).data("expanded");
+		    if (lvl_1_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2, tr.tree_lvl_1_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_2,tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_2").click(function() {
+		    var lvl_2_is_open = $(this).data("expanded");
+		    if (lvl_2_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3, tr.tree_lvl_2_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_3,tr.tree_lvl_4,tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_3").click(function() {
+		    var lvl_3_is_open = $(this).data("expanded");
+		    if (lvl_3_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_3_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_4, tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_4").click(function() {
+		    var lvl_4_is_open = $(this).data("expanded");
+		    if (lvl_4_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5, tr.tree_lvl_4_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+                $(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).nextUntil("tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5").data("expanded","0");
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+		$("tr.tree_lvl_5").click(function() {
+		    var lvl_5_is_open = $(this).data("expanded");
+		    if (lvl_5_is_open == "0") {
+                $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4,tr.tree_lvl_3,tr.tree_lvl_2,tr.tree_lvl_1,tr.tree_none", "tr.tree_lvl_5_item").show();
+                $(this).find("span").removeClass("chevron-collapsed").addClass("chevron-expanded");
+				$(this).data("expanded","1");
+			} else {
+			    $(this).nextUntil("tr.tree_lvl_5,tr.tree_lvl_4_item,tr.tree_lvl_4,tr.tree_lvl_3_item,tr.tree_lvl_3,tr.tree_lvl_2_item,tr.tree_lvl_2,tr.tree_lvl_1_item,tr.tree_lvl_1,tr.tree_none").hide();
+				$(this).find("span").removeClass("chevron-expanded").addClass("chevron-collapsed");
+				$(this).data("expanded","0");
+			    }
+        });
+     });
+</script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RAFW Flexible Software Package Documentation
+   &#160;<span id="projectnumber">Release v2.1.0</span>
+   </div>
+  </td>
+   <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
+
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <span class="left" >
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               alt=""/>
+         <input class="search-input" id="MSearchField" name="q" placeholder="Search" type="text">
+      </span>
+      <span class="right">
+          &nbsp;
+      </span>
+        <!--<input type="submit" value="Search">-->
+    </form>
+</div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___d_m_i_c___a_p_i.html','');});
+</script>
+
+<script src="search/mark.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var options = {         // allows highlighting across element boundaries.
+      "acrossElements": true
+    };
+    var bodyText = $("div.contents").text(); // try contents instead of body.
+    // If using body: Problem may be that text inside <script> tags is included in .text() - but not in cheerio?
+    // If using div.contents - works
+    var fullURL = $(location).attr('href');
+    var splitURL = fullURL.split("?");  // Get param string: content after "?" in URL
+    if (splitURL.length > 1) {          // If any content after "?"
+      var paramStr = splitURL[1];
+      var params = paramStr.split("&"); // Split params on "&"
+      for (i = 0; i < params.length; i++) {
+        var paramPair = params[i].split("=");
+        if (paramPair[0] == "pos") {     // If any param starts "pos", get the content after "="
+          posStr = paramPair[1];
+          var splitPos = posStr.split(",");
+          var termArray = [];
+        // termArray will have the search terms
+            for (i=0; i < splitPos.length; i += 2) {
+            start = splitPos[i];
+            len = splitPos[i+1]; // Needs error detection! Vulnerable if non-even # of pos entries
+            term = bodyText.substr(start,len);
+            if (termArray.includes(term) == false) {     // List all unique terms
+                termArray.push(bodyText.substr(start,len));
+            }
+          }
+    //      console.log(termArray);
+          var context = document.querySelector("div.contents");
+          var instance = new Mark(context);
+          for(i=0;i<termArray.length; i+=1) {
+            instance.mark(termArray[i],options);  // Use Mark.js to mark all terms in termArray
+            }
+          var firstMark = document.querySelector("mark");
+          firstMark.scrollIntoView(true);
+          //      console.log($("mark").first().text()); // Trying to scroll to first Mark element.
+        }
+            }
+    }
+  });
+</script>
+
+<link href="fsp_customdoxygen.css" rel="stylesheet" type="text/css" />
+
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+<!-- Lunr search results -->
+<div id="lunrResultBox" style="
+        position: fixed;
+        border: 1px solid black;
+        background-color: WhiteSmoke;
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+        top: 30;
+        right: 0;
+        overflow: auto;
+        display: none">
+    <button onclick="closeLunrResults()" style="float: right;">X</button>
+    <div class="resultCount" id="resultCount"></div>
+    <div id="searchResults"></div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">DMIC Interface<div class="ingroups"><a class="el" href="group___r_e_n_e_s_a_s___i_n_t_e_r_f_a_c_e_s.html">Interfaces</a> &raquo; <a class="el" href="group___r_e_n_e_s_a_s___c_o_n_n_e_c_t_i_v_i_t_y___i_n_t_e_r_f_a_c_e_s.html">Connectivity</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Interface for DMIC audio communication. </p>
+<h1><a class="anchor" id="DMIC_API_SUMMARY"></a>
+Summary</h1>
+<p>The DMIC (Digital Microphone) interface provides APIs and definitions for DMIC audio communication. </p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:structdmic__callback__args__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a></td></tr>
+<tr class="separator:structdmic__callback__args__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structdmic__status__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__status__t">dmic_status_t</a></td></tr>
+<tr class="separator:structdmic__status__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structdmic__cfg__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__cfg__t">dmic_cfg_t</a></td></tr>
+<tr class="separator:structdmic__cfg__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structdmic__api__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__api__t">dmic_api_t</a></td></tr>
+<tr class="separator:structdmic__api__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structdmic__instance__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__instance__t">dmic_instance_t</a></td></tr>
+<tr class="separator:structdmic__instance__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga77c9d4f1e5e5a3883193b67603bdb625"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a></td></tr>
+<tr class="separator:ga77c9d4f1e5e5a3883193b67603bdb625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaddd028dea00a67d0bbbf5ef4935a9dd3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#gaddd028dea00a67d0bbbf5ef4935a9dd3">dmic_direction_t</a> </td></tr>
+<tr class="separator:gaddd028dea00a67d0bbbf5ef4935a9dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa454f85d33fd71b49fcf85647a8ec63b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#gaa454f85d33fd71b49fcf85647a8ec63b">dmic_mode_t</a> </td></tr>
+<tr class="separator:gaa454f85d33fd71b49fcf85647a8ec63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33501202389f1f67a549ad214e55f29a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ga33501202389f1f67a549ad214e55f29a">dmic_delay_t</a> </td></tr>
+<tr class="separator:ga33501202389f1f67a549ad214e55f29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga937cbf493b379e5b5ae02f433af89e72"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ga937cbf493b379e5b5ae02f433af89e72">dmic_event_t</a> </td></tr>
+<tr class="separator:ga937cbf493b379e5b5ae02f433af89e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11d8982c7393a17f938fea711aaafa59"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ga11d8982c7393a17f938fea711aaafa59">dmic_mute_t</a> </td></tr>
+<tr class="separator:ga11d8982c7393a17f938fea711aaafa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f773e90d7243d6d457374b11a936327"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ga9f773e90d7243d6d457374b11a936327">dmic_state_t</a> </td></tr>
+<tr class="separator:ga9f773e90d7243d6d457374b11a936327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structdmic__callback__args__t" id="structdmic__callback__args__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmic__callback__args__t">&#9670;&nbsp;</a></span>dmic_callback_args_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmic_callback_args_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Callback function parameter data </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a48a0eaa5d4208a7b5d2a266002300cc5"></a>void const  *</td>
+<td class="fieldname">
+p_context</td>
+<td class="fielddoc">
+<p>Placeholder for user data. Set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> function in <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__cfg__t">dmic_cfg_t</a>. </p>
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aad6e1e514088982f80ad388343631e1c"></a><a class="el" href="group___d_m_i_c___a_p_i.html#ga937cbf493b379e5b5ae02f433af89e72">dmic_event_t</a></td>
+<td class="fieldname">
+event</td>
+<td class="fielddoc">
+The event can be used to identify what caused the callback (overflow or error). </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structdmic__status__t" id="structdmic__status__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmic__status__t">&#9670;&nbsp;</a></span>dmic_status_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmic_status_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>DMIC status. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="af10cd56c8e7f6bffa1ecb0cef672ba54"></a><a class="el" href="group___d_m_i_c___a_p_i.html#ga9f773e90d7243d6d457374b11a936327">dmic_state_t</a></td>
+<td class="fieldname">
+state</td>
+<td class="fielddoc">
+Current DMIC state. </td></tr>
+</table>
+
+</div>
+</div>
+<a name="structdmic__cfg__t" id="structdmic__cfg__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmic__cfg__t">&#9670;&nbsp;</a></span>dmic_cfg_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmic_cfg_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>User configuration structure, used in open function </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:afd65d8346dd6c3bdd415c4d174fcc5b2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#afd65d8346dd6c3bdd415c4d174fcc5b2">channel</a></td></tr>
+<tr class="separator:afd65d8346dd6c3bdd415c4d174fcc5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a065d9f6f4ec2607cffd0f883e87639be"><td class="memItemLeft" align="right" valign="top"><a id="a065d9f6f4ec2607cffd0f883e87639be"></a>
+<a class="el" href="group___d_m_i_c___a_p_i.html#gaddd028dea00a67d0bbbf5ef4935a9dd3">dmic_direction_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a065d9f6f4ec2607cffd0f883e87639be">direction</a></td></tr>
+<tr class="memdesc:a065d9f6f4ec2607cffd0f883e87639be"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMIC direction. <br /></td></tr>
+<tr class="separator:a065d9f6f4ec2607cffd0f883e87639be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18de1881f61a3e7f27db083d550a28b"><td class="memItemLeft" align="right" valign="top"><a id="ab18de1881f61a3e7f27db083d550a28b"></a>
+<a class="el" href="group___d_m_i_c___a_p_i.html#gaa454f85d33fd71b49fcf85647a8ec63b">dmic_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ab18de1881f61a3e7f27db083d550a28b">mode</a></td></tr>
+<tr class="memdesc:ab18de1881f61a3e7f27db083d550a28b"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMIC operation mode. <br /></td></tr>
+<tr class="separator:ab18de1881f61a3e7f27db083d550a28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb26f3039e6e63abb5af30b5222a22b"><td class="memItemLeft" align="right" valign="top"><a id="afdb26f3039e6e63abb5af30b5222a22b"></a>
+<a class="el" href="group___d_m_i_c___a_p_i.html#ga33501202389f1f67a549ad214e55f29a">dmic_delay_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#afdb26f3039e6e63abb5af30b5222a22b">delay</a></td></tr>
+<tr class="memdesc:afdb26f3039e6e63abb5af30b5222a22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMIC internal delay. <br /></td></tr>
+<tr class="separator:afdb26f3039e6e63abb5af30b5222a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751f0778c418ba6a29639ca2fba68cc4"><td class="memItemLeft" align="right" valign="top"><a id="a751f0778c418ba6a29639ca2fba68cc4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a751f0778c418ba6a29639ca2fba68cc4">swap_channel</a></td></tr>
+<tr class="memdesc:a751f0778c418ba6a29639ca2fba68cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMIC L/R channel swap. <br /></td></tr>
+<tr class="separator:a751f0778c418ba6a29639ca2fba68cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3364558304c91eee4b87dee84d46dd7"><td class="memItemLeft" align="right" valign="top"><a id="ad3364558304c91eee4b87dee84d46dd7"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ad3364558304c91eee4b87dee84d46dd7">clk_frequency</a></td></tr>
+<tr class="memdesc:ad3364558304c91eee4b87dee84d46dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">DMIC clock. <br /></td></tr>
+<tr class="separator:ad3364558304c91eee4b87dee84d46dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4cb2b316a52e271f1c3d31ccf2ab71a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ae4cb2b316a52e271f1c3d31ccf2ab71a">p_transfer_rx</a></td></tr>
+<tr class="separator:ae4cb2b316a52e271f1c3d31ccf2ab71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e90cdeca7b7ed7f1871814aa8b22237"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a2e90cdeca7b7ed7f1871814aa8b22237">p_callback</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *p_args)</td></tr>
+<tr class="separator:a2e90cdeca7b7ed7f1871814aa8b22237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a72975c8bf75e7f9cb156fd3bf5cf1"><td class="memItemLeft" align="right" valign="top">void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a08a72975c8bf75e7f9cb156fd3bf5cf1">p_context</a></td></tr>
+<tr class="separator:a08a72975c8bf75e7f9cb156fd3bf5cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7580086f55b56ba1d0341b1e8d4895"><td class="memItemLeft" align="right" valign="top"><a id="abe7580086f55b56ba1d0341b1e8d4895"></a>
+void const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#abe7580086f55b56ba1d0341b1e8d4895">p_extend</a></td></tr>
+<tr class="memdesc:abe7580086f55b56ba1d0341b1e8d4895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extension parameter for hardware specific settings. <br /></td></tr>
+<tr class="separator:abe7580086f55b56ba1d0341b1e8d4895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdbd1bafbe5397333fc8cfac602277c8"><td class="memItemLeft" align="right" valign="top"><a id="acdbd1bafbe5397333fc8cfac602277c8"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#acdbd1bafbe5397333fc8cfac602277c8">rxi_ipl</a></td></tr>
+<tr class="memdesc:acdbd1bafbe5397333fc8cfac602277c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive interrupt priority. <br /></td></tr>
+<tr class="separator:acdbd1bafbe5397333fc8cfac602277c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb84014a755ad33b8f7c267e5f897f08"><td class="memItemLeft" align="right" valign="top"><a id="afb84014a755ad33b8f7c267e5f897f08"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#afb84014a755ad33b8f7c267e5f897f08">idle_err_ipl</a></td></tr>
+<tr class="memdesc:afb84014a755ad33b8f7c267e5f897f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Idle/Error interrupt priority. <br /></td></tr>
+<tr class="separator:afb84014a755ad33b8f7c267e5f897f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2933eb2470a1f8ccd014f69437dbc142"><td class="memItemLeft" align="right" valign="top"><a id="a2933eb2470a1f8ccd014f69437dbc142"></a>
+IRQn_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a2933eb2470a1f8ccd014f69437dbc142">rxi_irq</a></td></tr>
+<tr class="memdesc:a2933eb2470a1f8ccd014f69437dbc142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive IRQ number. <br /></td></tr>
+<tr class="separator:a2933eb2470a1f8ccd014f69437dbc142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28f2065ae111222d0d24557a9fd0ffc"><td class="memItemLeft" align="right" valign="top"><a id="ad28f2065ae111222d0d24557a9fd0ffc"></a>
+IRQn_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ad28f2065ae111222d0d24557a9fd0ffc">int_irq</a></td></tr>
+<tr class="memdesc:ad28f2065ae111222d0d24557a9fd0ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Idle/Error IRQ number. <br /></td></tr>
+<tr class="separator:ad28f2065ae111222d0d24557a9fd0ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="afd65d8346dd6c3bdd415c4d174fcc5b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd65d8346dd6c3bdd415c4d174fcc5b2">&#9670;&nbsp;</a></span>channel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t dmic_cfg_t::channel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Select a channel corresponding to the channel number of the hardware. </p>
+
+</div>
+</div>
+<a id="ae4cb2b316a52e271f1c3d31ccf2ab71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4cb2b316a52e271f1c3d31ccf2ab71a">&#9670;&nbsp;</a></span>p_transfer_rx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___t_r_a_n_s_f_e_r___a_p_i.html#structtransfer__instance__t">transfer_instance_t</a> const* dmic_cfg_t::p_transfer_rx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>To use DMA for receiving link a Transfer instance here. Set to NULL if unused. </p>
+
+</div>
+</div>
+<a id="a2e90cdeca7b7ed7f1871814aa8b22237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e90cdeca7b7ed7f1871814aa8b22237">&#9670;&nbsp;</a></span>p_callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(*  dmic_cfg_t::p_callback) (<a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *p_args)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Callback provided when an DMIC ISR occurs. Set to NULL for no CPU interrupt. </p>
+
+</div>
+</div>
+<a id="a08a72975c8bf75e7f9cb156fd3bf5cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a72975c8bf75e7f9cb156fd3bf5cf1">&#9670;&nbsp;</a></span>p_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void const* dmic_cfg_t::p_context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Placeholder for user data. Passed to the user callback in <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a>. </p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structdmic__api__t" id="structdmic__api__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmic__api__t">&#9670;&nbsp;</a></span>dmic_api_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmic_api_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>DMIC functions implemented at the HAL layer will follow this API. </p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a0559853a4ee909c217ca626d5ca2359b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">open</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__cfg__t">dmic_cfg_t</a> const *const p_cfg)</td></tr>
+<tr class="separator:a0559853a4ee909c217ca626d5ca2359b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3280324d9c98eedb07b124bc26742d8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a3280324d9c98eedb07b124bc26742d8f">stop</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a3280324d9c98eedb07b124bc26742d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3dc7831d304148ea1146f1218aca1ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ae3dc7831d304148ea1146f1218aca1ef">mute</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#ga11d8982c7393a17f938fea711aaafa59">dmic_mute_t</a> const mute_enable)</td></tr>
+<tr class="separator:ae3dc7831d304148ea1146f1218aca1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e9cdd333175d893fb7534f87474a18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ae1e9cdd333175d893fb7534f87474a18">write</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void const *const p_src, uint32_t const bytes)</td></tr>
+<tr class="separator:ae1e9cdd333175d893fb7534f87474a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a53b811ec14dcb1684b9ad51ad02b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a95a53b811ec14dcb1684b9ad51ad02b5">read</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:a95a53b811ec14dcb1684b9ad51ad02b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46dedd91d6112e0ae420eedb4bebff4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a46dedd91d6112e0ae420eedb4bebff4a">writeRead</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void const *const p_src, void *const p_dest, uint32_t const bytes)</td></tr>
+<tr class="separator:a46dedd91d6112e0ae420eedb4bebff4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6372091265d622f348928656a02144"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#ada6372091265d622f348928656a02144">statusGet</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__status__t">dmic_status_t</a> *const p_status)</td></tr>
+<tr class="separator:ada6372091265d622f348928656a02144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75adbaf6cf86be7c38788d02c51a2722"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a75adbaf6cf86be7c38788d02c51a2722">close</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl)</td></tr>
+<tr class="separator:a75adbaf6cf86be7c38788d02c51a2722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7a33e19cc4c8dc3daf767f6372d1bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_i_c___a_p_i.html#a4b7a33e19cc4c8dc3daf767f6372d1bc">callbackSet</a> )(<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void(*p_callback)(<a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *), void const *const p_context, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *const p_callback_memory)</td></tr>
+<tr class="separator:a4b7a33e19cc4c8dc3daf767f6372d1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a id="a0559853a4ee909c217ca626d5ca2359b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0559853a4ee909c217ca626d5ca2359b">&#9670;&nbsp;</a></span>open</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::open) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__cfg__t">dmic_cfg_t</a> const *const p_cfg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initial configuration.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Peripheral clocks and any required output pins should be configured prior to calling this function. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>To reconfigure after calling this function, call <a class="el" href="group___d_m_i_c___a_p_i.html#a75adbaf6cf86be7c38788d02c51a2722">dmic_api_t::close</a> first. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to control block. Must be declared by user. Elements set here. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_cfg</td><td>Pointer to configuration structure. All elements of this structure must be set by user. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3280324d9c98eedb07b124bc26742d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3280324d9c98eedb07b124bc26742d8f">&#9670;&nbsp;</a></span>stop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::stop) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop communication. Communication is stopped when callback is called with DMIC_EVENT_IDLE.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3dc7831d304148ea1146f1218aca1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dc7831d304148ea1146f1218aca1ef">&#9670;&nbsp;</a></span>mute</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::mute) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#ga11d8982c7393a17f938fea711aaafa59">dmic_mute_t</a> const mute_enable)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable or disable mute.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mute_enable</td><td>Whether to enable or disable mute. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1e9cdd333175d893fb7534f87474a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e9cdd333175d893fb7534f87474a18">&#9670;&nbsp;</a></span>write</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::write) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void const *const p_src, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write DMIC data. All transmit data is queued when callback is called with DMIC_EVENT_TX_EMPTY. Transmission is complete when callback is called with DMIC_EVENT_IDLE.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Buffer of PCM samples. Must be 4 byte aligned. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Number of bytes in the buffer. Recommended requesting a multiple of 8 bytes. If not a multiple of 8, padding 0s will be added to transmission to make it a multiple of 8. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a95a53b811ec14dcb1684b9ad51ad02b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95a53b811ec14dcb1684b9ad51ad02b5">&#9670;&nbsp;</a></span>read</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::read) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void *const p_dest, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read DMIC data. Reception is complete when callback is called with DMIC_EVENT_RX_EMPTY.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_dest</td><td>Buffer to store PCM samples. Must be 4 byte aligned. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Number of bytes in the buffer. Recommended requesting a multiple of 8 bytes. If not a multiple of 8, receive will stop at the multiple of 8 below requested bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a46dedd91d6112e0ae420eedb4bebff4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46dedd91d6112e0ae420eedb4bebff4a">&#9670;&nbsp;</a></span>writeRead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::writeRead) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void const *const p_src, void *const p_dest, uint32_t const bytes)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Simultaneously write and read DMIC data. Transmission and reception are complete when callback is called with DMIC_EVENT_IDLE.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_src</td><td>Buffer of PCM samples. Must be 4 byte aligned. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_dest</td><td>Buffer to store PCM samples. Must be 4 byte aligned. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Number of bytes in the buffers. Recommended requesting a multiple of 8 bytes. If not a multiple of 8, padding 0s will be added to transmission to make it a multiple of 8, and receive will stop at the multiple of 8 below requested bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada6372091265d622f348928656a02144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6372091265d622f348928656a02144">&#9670;&nbsp;</a></span>statusGet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::statusGet) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__status__t">dmic_status_t</a> *const p_status)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get current status and store it in provided pointer p_status.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">p_status</td><td>Current status of the driver. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75adbaf6cf86be7c38788d02c51a2722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75adbaf6cf86be7c38788d02c51a2722">&#9670;&nbsp;</a></span>close</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::close) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Allows driver to be reconfigured and may reduce power consumption.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Control block set in <a class="el" href="group___d_m_i_c___a_p_i.html#a0559853a4ee909c217ca626d5ca2359b">dmic_api_t::open</a> call for this instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b7a33e19cc4c8dc3daf767f6372d1bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7a33e19cc4c8dc3daf767f6372d1bc">&#9670;&nbsp;</a></span>callbackSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___r_e_n_e_s_a_s___e_r_r_o_r___c_o_d_e_s.html#gadfb1288da0fcc7ae1dc88c58601374f8">fsp_err_t</a>(*  dmic_api_t::callbackSet) (<a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *const p_ctrl, void(*p_callback)(<a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *), void const *const p_context, <a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__callback__args__t">dmic_callback_args_t</a> *const p_callback_memory)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Specify callback function and optional context pointer and working memory pointer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_ctrl</td><td>Pointer to the DMIC control block. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_callback</td><td>Callback function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_context</td><td>Pointer to send to callback function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p_working_memory</td><td>Pointer to volatile memory where callback structure can be allocated. Callback arguments allocated here are only valid during the callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="structdmic__instance__t" id="structdmic__instance__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structdmic__instance__t">&#9670;&nbsp;</a></span>dmic_instance_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dmic_instance_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This structure encompasses everything that is needed to use an instance of this interface. </p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="a9924307132a14a59b2c7f68072ce0f04"></a><a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a> *</td>
+<td class="fieldname">
+p_ctrl</td>
+<td class="fielddoc">
+Pointer to the control structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="aa1f3140f48baf4e85ed4d0ae493ab756"></a><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__cfg__t">dmic_cfg_t</a> const  *</td>
+<td class="fieldname">
+p_cfg</td>
+<td class="fielddoc">
+Pointer to the configuration structure for this instance. </td></tr>
+<tr><td class="fieldtype">
+<a id="af41f323fe04d870d3361b43881e440b9"></a><a class="el" href="group___d_m_i_c___a_p_i.html#structdmic__api__t">dmic_api_t</a> const  *</td>
+<td class="fieldname">
+p_api</td>
+<td class="fielddoc">
+Pointer to the API structure for this instance. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga77c9d4f1e5e5a3883193b67603bdb625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77c9d4f1e5e5a3883193b67603bdb625">&#9670;&nbsp;</a></span>dmic_ctrl_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void <a class="el" href="group___d_m_i_c___a_p_i.html#ga77c9d4f1e5e5a3883193b67603bdb625">dmic_ctrl_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMIC control block. Allocate an instance specific control block to pass into the DMIC API calls. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gaddd028dea00a67d0bbbf5ef4935a9dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaddd028dea00a67d0bbbf5ef4935a9dd3">&#9670;&nbsp;</a></span>dmic_direction_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#gaddd028dea00a67d0bbbf5ef4935a9dd3">dmic_direction_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMIC Direction </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaddd028dea00a67d0bbbf5ef4935a9dd3acfb4a264a5ee4a0b5ddcfa3053d8ece7"></a>DMIC_DIRECTION_INPUT&#160;</td><td class="fielddoc"><p>DMIC input. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaddd028dea00a67d0bbbf5ef4935a9dd3a0ea3b620c6c7a11c08a27184ac9779ae"></a>DMIC_DIRECTION_OUTPUT&#160;</td><td class="fielddoc"><p>DMIC output. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gaa454f85d33fd71b49fcf85647a8ec63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa454f85d33fd71b49fcf85647a8ec63b">&#9670;&nbsp;</a></span>dmic_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#gaa454f85d33fd71b49fcf85647a8ec63b">dmic_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMIC operation mode </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa454f85d33fd71b49fcf85647a8ec63ba9ab4d1e27f7160a7aa9fea1ea0c36ccd"></a>DMIC_MODE_SLAVE&#160;</td><td class="fielddoc"><p>DMIC interface in slave mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaa454f85d33fd71b49fcf85647a8ec63bad7eb7a261cdcdb5e6fb23d3ef22b84f3"></a>DMIC_MODE_MASTER&#160;</td><td class="fielddoc"><p>DMIC interface in master mode. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga33501202389f1f67a549ad214e55f29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga33501202389f1f67a549ad214e55f29a">&#9670;&nbsp;</a></span>dmic_delay_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#ga33501202389f1f67a549ad214e55f29a">dmic_delay_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DMIC set input delay </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga33501202389f1f67a549ad214e55f29aa05902c47d6b7b1183cbdab9b9a63f03e"></a>DMIC_DI_NO_DELAY&#160;</td><td class="fielddoc"><p>DMIC no input delay. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga33501202389f1f67a549ad214e55f29aabd2809a80258695a1b8f56da33171a5c"></a>DMIC_DI_6NS_DELAY&#160;</td><td class="fielddoc"><p>DMIC 6ns input delay. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga33501202389f1f67a549ad214e55f29aa1312279ee3967451fb84218bc61e7543"></a>DMIC_DI_12NS_DELAY&#160;</td><td class="fielddoc"><p>DMIC 12ns input delay. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga33501202389f1f67a549ad214e55f29aa2f2527a3f0515f23c5fba752432dfcb1"></a>DMIC_DI_18NS_DELAY&#160;</td><td class="fielddoc"><p>DMIC 18ns input delay. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga937cbf493b379e5b5ae02f433af89e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga937cbf493b379e5b5ae02f433af89e72">&#9670;&nbsp;</a></span>dmic_event_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#ga937cbf493b379e5b5ae02f433af89e72">dmic_event_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Events that can trigger a callback function </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga937cbf493b379e5b5ae02f433af89e72af71d5b1f8de8c58fe3213e521fe7302d"></a>DMIC_EVENT_IDLE&#160;</td><td class="fielddoc"><p>Communication is idle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga937cbf493b379e5b5ae02f433af89e72a4592a9da6bb1e9a1db0b4f0965b7f87f"></a>DMIC_EVENT_TX_EMPTY&#160;</td><td class="fielddoc"><p>Transmit buffer is below FIFO trigger level. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga937cbf493b379e5b5ae02f433af89e72a102224ec40c85e4d8f1fdf3ed6c2d1b6"></a>DMIC_EVENT_RX_FULL&#160;</td><td class="fielddoc"><p>Receive buffer is above FIFO trigger level. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga11d8982c7393a17f938fea711aaafa59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11d8982c7393a17f938fea711aaafa59">&#9670;&nbsp;</a></span>dmic_mute_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#ga11d8982c7393a17f938fea711aaafa59">dmic_mute_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mute audio samples. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga11d8982c7393a17f938fea711aaafa59a4bc72ebaaf87471dced62e457b95f2ac"></a>DMIC_MUTE_OFF&#160;</td><td class="fielddoc"><p>Disable mute. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga11d8982c7393a17f938fea711aaafa59afe9712ab88b0e8c6a350406bc4c7f946"></a>DMIC_MUTE_ON&#160;</td><td class="fielddoc"><p>Enable mute. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga9f773e90d7243d6d457374b11a936327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f773e90d7243d6d457374b11a936327">&#9670;&nbsp;</a></span>dmic_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___d_m_i_c___a_p_i.html#ga9f773e90d7243d6d457374b11a936327">dmic_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Possible status values returned by <a class="el" href="group___d_m_i_c___a_p_i.html#ada6372091265d622f348928656a02144">dmic_api_t::statusGet</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga9f773e90d7243d6d457374b11a936327afa75064bbba16918264d7d6b90a5b957"></a>DMIC_STATE_IN_USE&#160;</td><td class="fielddoc"><p>DMIC is in use. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9f773e90d7243d6d457374b11a936327a27dee7dea89ddec60551099b8a256139"></a>DMIC_STATE_STOPPED&#160;</td><td class="fielddoc"><p>DMIC is stopped. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.7-->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+  </ul>
+</div>
+</body>
+</html>
