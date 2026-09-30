@@ -430,6 +430,8 @@ struct RFTX {
     uint8_t ant;
     uint8_t BW;
     uint32_t tx_timeout;
+    int32_t cca_threshold;
+    uint32_t cca_timeout;
     uint32_t data_length;
     uint8_t data[TX_MAX_DATA_LENG];
     bool high_rate;

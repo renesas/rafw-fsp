@@ -15,7 +15,8 @@
  #include "rm_atcmd_w_app.h"
 
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
+
  #include "net_common.h"
  #include "util_api.h"
  #include "supp_config.h"
@@ -2238,8 +2239,8 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                 /* RRQ61X_CONF_STR_WEP_KEY1 */
  #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
-                                                ENV_GROUP_WIFICFG,
-                                                NVR_KEY_WEPKEY1_0,
+                                                ENV_GROUP_WIFIPROFILE,
+                                                WIFI_PROFILE_WEPKEY0_1,
                                                 &p_nv_str);
  #endif
             }
@@ -2248,8 +2249,8 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                 /* RRQ61X_CONF_STR_WEP_KEY2 */
  #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
-                                                ENV_GROUP_WIFICFG,
-                                                NVR_KEY_WEPKEY2_0,
+                                                ENV_GROUP_WIFIPROFILE,
+                                                WIFI_PROFILE_WEPKEY0_2,
                                                 &p_nv_str);
  #endif
             }
@@ -2257,8 +2258,8 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
             {
  #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
-                                                ENV_GROUP_WIFICFG,
-                                                NVR_KEY_WEPKEY3_0,
+                                                ENV_GROUP_WIFIPROFILE,
+                                                WIFI_PROFILE_WEPKEY0_3,
                                                 &p_nv_str);
  #endif
             }
@@ -2811,7 +2812,7 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                 RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                               ENV_GROUP_WIFIPROFILE,
                                               WIFI_PROFILE_SECURITY_0,
-                                              eWiFiSecurityNotSupported_ext);
+                                              eWiFiSecurityWPA3_OWE_ext);
   #endif
 
                 break;
@@ -2882,7 +2883,7 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                 RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key3");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, NVR_KEY_WEPINDEX_0);
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0);
   #endif
 
                 // save proto to nvram
@@ -2967,7 +2968,6 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                                           atoi(argv[3]));
  #endif
 
-            char tmp_str[64];
             char cmd[32] = {0, };
 
             if ((strlen(argv[4]) == 5) || (strlen(argv[4]) == 13))
@@ -2984,7 +2984,7 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
             }
 
             tmp_int = atoi(argv[3]);
-            sprintf(cmd, "wep_key%d", tmp_int);
+            sprintf(cmd, "wep_key_%d", tmp_int);
 
             net_params->xNetworkParams.xPassword.xWEP[0].ucLength = strlen(argv[4]);
             memcpy(net_params->xNetworkParams.xPassword.xWEP[0].cKey,
@@ -2996,9 +2996,8 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFJAP)
                 sprintf(input, "\"%s\"", argv[4]);
             }
 
-            sprintf(tmp_str, "N0_%s", cmd);
- #ifdef RM_MAP_PERSISTANT_W
-            RM_MAP_PERSISTANT_W_Write_STRING(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, tmp_str, input); // We only have tmp_str as WIFI_PROFILE_WEPKEY0_0
+ #ifdef RM_MAP_PERSISTANT_W // write N0_wep_key
+            RM_MAP_PERSISTANT_W_Write_STRING(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, cmd, input); // We only have tmp_str as WIFI_PROFILE_WEPKEY0_0
  #endif
         }
 
@@ -5595,13 +5594,13 @@ RM_ATCMD_W_CORE_WIFI_ATCMD_CB(WFENTAP)
         {
   #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
-                                            ENV_GROUP_WIFICFG,
-                                            NVR_KEY_WEPKEY0_0,
+                                            ENV_GROUP_WIFIPROFILE,
+                                            WIFI_PROFILE_WEPKEY0_0,
                                             &p_nv_str);
   #endif
 
   #ifdef RM_MAP_PERSISTANT_W
-            if (RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_WEPINDEX_0,
+            if (RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0,
                                              &wpa) &&
                 (p_nv_str == NULL))
   #endif
@@ -6029,19 +6028,19 @@ print_state:
                 RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_AUTH_TYPE_0);
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key0");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_0");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key1");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_1");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key2");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_2");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key3");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_3");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_WEPINDEX_0);
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0);
   #endif
   #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_PROTO_0);
@@ -6097,19 +6096,19 @@ print_state:
                                                  key_mgmt_WPA_PSK);
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key0");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_0");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key1");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_1");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key2");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_2");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key3");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_3");
   #endif
   #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_WEPINDEX_0);
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0);
   #endif
 
                 if (wpa == CC_VAL_AUTH_WPA)
@@ -6172,19 +6171,19 @@ print_state:
                                                  key_mgmt_WPA3_OWE);
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key0");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_0");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key1");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_1");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key2");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_2");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key3");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_3");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_WEPINDEX_0);
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0);
    #endif
 
                 /* wpa_cli set_network 0/1 proto RSN */
@@ -6259,19 +6258,19 @@ print_state:
                 }
 
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key0");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_0");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key1");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_1");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key2");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_2");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, "N0_wep_key3");
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, "WIFI_PROFILE_WEPKEY0_3");
    #endif
    #ifdef RM_MAP_PERSISTANT_W
-                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFICFG, NVR_KEY_WEPINDEX_0);
+                RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_WIFIPROFILE, WIFI_PROFILE_WEPINDEX_0);
    #endif
 
                 /* cli set_network 0/1 proto RSN */

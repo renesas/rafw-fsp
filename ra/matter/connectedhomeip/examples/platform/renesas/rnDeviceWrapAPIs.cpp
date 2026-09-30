@@ -44,7 +44,7 @@ extern "C" {
 #endif
 #include "rm_vee_flash_w_rrq_nvram.h"
 #include "rm_wifi_api.h"
-#include "rm_wifi_config.h"
+#include "rm_wifi.h"
 #if CHIP_DEVICE_CONFIG_ENABLE_CHIPOBLE
 #include "ble_app_main.h"
 #endif

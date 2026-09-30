@@ -31,7 +31,7 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #if defined(__SUPPORT_EASY_SETUP__) && defined(__SUPPORT_APP_CONSOLE_INPUT__) && defined(CFG_WIFI)
  #include "sys_feature.h"
@@ -50,7 +50,9 @@
  #include "supp_def.h"
  #include "supp_config.h"              /* For wpa_config_delete_nvram, os_calloc */
  #include "net_common.h"
- #include "net_sntp_client.h"
+ #ifdef __SUPPORT_SNTP_CLIENT__
+  #include "net_sntp_client.h"
+ #endif /* __SUPPORT_SNTP_CLIENT__ */
  #include "net_dns_client.h"
 
  #include "lwipopts.h"
@@ -65,7 +67,6 @@
  #include "net_arp.h"
  #include "rm_wifi_reg_pwr_db.h"
  #include "rm_cli_w_easysetup.h"
- #include "rm_wifi.h"
  #include "rm_cert.h"
  #include "rm_wifi_helper.h"
  #include "rm_lwip_w_helper.h"
@@ -158,6 +159,14 @@ static const char * wifi_mode_names[] =
     [WIFI_DEVICE_MODE_EXT_MESH_POINT]    = "Mesh Point",
     [WIFI_DEVICE_MODE_EXT_MESH_PORTAL]   = "Mesh Portal",
     [WIFI_DEVICE_MODE_EXT_NOT_SUPPORTED] = "Not Supported"
+};
+
+static const char * wep_key[] =
+{
+    WIFI_PROFILE_WEPKEY0_0,
+    WIFI_PROFILE_WEPKEY0_1,
+    WIFI_PROFILE_WEPKEY0_2,
+    WIFI_PROFILE_WEPKEY0_3,
 };
 
 /*
@@ -328,6 +337,7 @@ static int isvalid_domain (char * str)
     return pdFALSE;
 }
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
 static inline bool is_sntp_supported_sysmode (e_wifi_device_mode_ext_t mode)
 {
     if (mode == WIFI_DEVICE_MODE_EXT_AP)
@@ -335,12 +345,12 @@ static inline bool is_sntp_supported_sysmode (e_wifi_device_mode_ext_t mode)
         return false;
     }
 
- #if defined(__SUPPORT_P2P__)
+  #if defined(__SUPPORT_P2P__)
     if (mode == WIFI_DEVICE_MODE_EXT_P2P_GO)
     {
         return false;
     }
- #endif                                /*__SUPPORT_P2P__*/
+  #endif                               /*__SUPPORT_P2P__*/
     return true;
 }
 
@@ -353,9 +363,9 @@ static inline bool is_sntp_configurable_mode (e_wifi_device_mode_ext_t mode, uns
 
     if ((iface == WLAN0_IFACE) &&
         (mode == WIFI_DEVICE_MODE_EXT_AP_STATION
- #if defined(__SUPPORT_P2P__)
+  #if defined(__SUPPORT_P2P__)
          || mode == WIFI_DEVICE_MODE_EXT_P2P_STATION
- #endif                                /*__SUPPORT_P2P__*/
+  #endif                               /*__SUPPORT_P2P__*/
         ))
     {
         return true;
@@ -363,6 +373,8 @@ static inline bool is_sntp_configurable_mode (e_wifi_device_mode_ext_t mode, uns
 
     return false;
 }
+
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
  #if (defined __SUPPORT_WPA3_SAE__ && defined __SUPPORT_WPA3_PERSONAL__) || defined __SUPPORT_MESH__
 static int check_sae_groupid (int id)
@@ -689,13 +701,15 @@ static unsigned char setup_stop_services (void)
         return E_QUIT;
     }
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
     sntp_stop();
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
  #ifdef __SUPPORT_IPV4__
   #if LWIP_DHCP
     set_debug_dhcpc(0);                /* dhcp client debug level */
-  #endif /* LWIP_DHCP */
- #endif /* __SUPPORT_IPV4__ */
+  #endif                               /* LWIP_DHCP */
+ #endif                                /* __SUPPORT_IPV4__ */
 
     ra6w1_cli_reply("flush", NULL, reply);
 
@@ -2652,7 +2666,9 @@ static unsigned char setup_static_ip (unsigned char cur_iface, char * p_ipaddres
 
         if (getStr_len == 0)
         {
-            bsp_safe_strcpy(p_ipaddress, cur_iface == WLAN0_IFACE ? DEFAULT_IPADDR_WLAN0 : DEFAULT_IPADDR_WLAN1, SETUP_IP_STR_LEN);
+            bsp_safe_strcpy(p_ipaddress,
+                            cur_iface == WLAN0_IFACE ? DEFAULT_IPADDR_WLAN0 : DEFAULT_IPADDR_WLAN1,
+                            SETUP_IP_STR_LEN);
         }
     } while (!is_in_valid_ip_class(p_ipaddress));
 
@@ -2680,7 +2696,9 @@ static unsigned char setup_static_subnet (unsigned char cur_iface, char * p_subn
 
         if (getStr_len == 0)
         {
-            bsp_safe_strcpy(p_subnetmask, cur_iface == WLAN0_IFACE ? DEFAULT_SUBNET_WLAN0 : DEFAULT_SUBNET_WLAN1, SETUP_IP_STR_LEN);
+            bsp_safe_strcpy(p_subnetmask,
+                            cur_iface == WLAN0_IFACE ? DEFAULT_SUBNET_WLAN0 : DEFAULT_SUBNET_WLAN1,
+                            SETUP_IP_STR_LEN);
         }
     } while (!isvalidmask(p_subnetmask));
 
@@ -2738,7 +2756,9 @@ static unsigned char setup_static_gateway (unsigned char sysmode,
 
             if (getStr_len == 0)
             {
-                bsp_safe_strcpy(p_gateway, cur_iface == WLAN0_IFACE ? DEFAULT_GATEWAY_WLAN0 : DEFAULT_GATEWAY_WLAN1, SETUP_IP_STR_LEN);
+                bsp_safe_strcpy(p_gateway,
+                                cur_iface == WLAN0_IFACE ? DEFAULT_GATEWAY_WLAN0 : DEFAULT_GATEWAY_WLAN1,
+                                SETUP_IP_STR_LEN);
             }
 
             ipaddr_aton(p_gateway, &tmp_addr);
@@ -2779,7 +2799,9 @@ static unsigned char setup_static_dns (unsigned char sysmode, unsigned char cur_
 
             if (getStr_len == 0)
             {
-                bsp_safe_strcpy(p_dns, cur_iface == WLAN0_IFACE ? DEFAULT_DNS_WLAN0 : DEFAULT_DNS_WLAN1, SETUP_IP_STR_LEN);
+                bsp_safe_strcpy(p_dns,
+                                cur_iface == WLAN0_IFACE ? DEFAULT_DNS_WLAN0 : DEFAULT_DNS_WLAN1,
+                                SETUP_IP_STR_LEN);
             }
         } while (!is_in_valid_ip_class(p_dns) && strcmp(p_dns, "0.0.0.0") != 0);
     }
@@ -2922,7 +2944,8 @@ static unsigned char setup_network_config_confirm (unsigned char sysmode)
     return E_CONTINUE;
 }
 
- #define NX_SNTP_CLIENT_MAX_UNICAST_POLL_INTERVAL    3600 * 36 /*131072*/
+ #ifdef __SUPPORT_SNTP_CLIENT__
+  #define NX_SNTP_CLIENT_MAX_UNICAST_POLL_INTERVAL    3600 * 36 /*131072*/
 static unsigned char setup_sntp_client (struct sntp_params * params)
 {
     int getStr_len = 0;
@@ -3166,6 +3189,8 @@ SNTP_CLIENT_START:
 
     return E_CONTINUE;
 }
+
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
  #ifdef __SUPPORT_IPV4__
   #ifdef __SUPPORT_DHCP_SVR__
@@ -3672,10 +3697,12 @@ static void apply_pmgr (struct setup_params * params)
  #endif                                /* CFG_PMGR */
 
 static int parse_params (struct setup_params * params,
-                         struct sntp_params  * sntp,
-                         struct dhcp_params  * dhcp,
-                         bool                  stop_services_needed,
-                         bool                * mode_changed)
+ #ifdef __SUPPORT_SNTP_CLIENT__
+                         struct sntp_params * sntp,
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+                         struct dhcp_params * dhcp,
+                         bool                 stop_services_needed,
+                         bool               * mode_changed)
 {
     unsigned char ret = 0;
     unsigned char e_pre_run_mode = (unsigned char) get_run_mode();
@@ -4090,6 +4117,8 @@ INPUT_IPADDRESS:
         }
  #endif                                // __SUPPORT_IPV4__
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
+
         /* SNTP */
         if (is_sntp_supported_sysmode(params->sysmode))
         {
@@ -4108,6 +4137,7 @@ INPUT_IPADDRESS:
                 sntp->sntp_client = E_SNTP_CLIENT_STOP;
             }
         }
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
  #ifdef __SUPPORT_IPV4__
   #ifdef __SUPPORT_DHCP_SVR__
@@ -4337,10 +4367,22 @@ static void apply_sta (struct setup_params * params)
     }
     else if (net_params->xNetworkParams.xSecurity == eWiFiSecurityWEP)
     {
-        net_params->xNetworkParams.xPassword.xWEP[0].ucLength = strlen(params->wep_key);
-        memcpy(net_params->xNetworkParams.xPassword.xWEP[0].cKey,
+        if ((strlen(params->wep_key) == (wificonfig128BIT_WEPKEY_LEN / 2) + 2) ||
+            (strlen(params->wep_key) == (wificonfig64BIT_WEPKEY_LEN / 2) + 2)) /* 2 bytes for double quotation */
+        {
+            net_params->xNetworkParams.xPassword.xWEP[0].ucLength = strlen(params->wep_key) - 2;
+            memcpy(net_params->xNetworkParams.xPassword.xWEP[0].cKey,
+               &(params->wep_key[1]),
+               net_params->xNetworkParams.xPassword.xWEP[0].ucLength);
+        }
+        else
+        {
+            net_params->xNetworkParams.xPassword.xWEP[0].ucLength = strlen(params->wep_key);
+            memcpy(net_params->xNetworkParams.xPassword.xWEP[0].cKey,
                params->wep_key,
                net_params->xNetworkParams.xPassword.xWEP[0].ucLength);
+        }
+
         net_params->xNetworkParams.ucDefaultWEPKeyIndex = params->wep_key_idx;
     }
     else if ((net_params->xNetworkParams.xSecurity == eWiFiSecurityWPA2_ent) ||
@@ -4551,6 +4593,7 @@ static void apply_p2p (unsigned char channel,
     }
 }
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
 static void apply_sntp (unsigned char sntp_client,
                         int           client_period_time,
                         int           timezone_int,
@@ -4567,7 +4610,7 @@ static void apply_sntp (unsigned char sntp_client,
 
     if (sntp_client == E_SNTP_CLIENT_START)
     {
- #ifdef RM_MAP_PERSISTANT_W
+  #ifdef RM_MAP_PERSISTANT_W
         RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                       ENV_GROUP_SYSCFG,
                                       NVR_KEY_SNTP_SYNC_PERIOD,
@@ -4584,24 +4627,24 @@ static void apply_sntp (unsigned char sntp_client,
                                          ENV_GROUP_SYSCFG,
                                          NVR_KEY_SNTP_SERVER_DOMAIN_2,
                                          p_svr_addr2);
- #endif
+  #endif
 
         temp = (timezone_int / 60) * 60;
         if (timezone_int != 0)
         {
- #ifdef RM_MAP_PERSISTANT_W
+  #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                           ENV_GROUP_SYSCFG,
                                           NVR_KEY_TIMEZONE,
                                           timezone_int);
- #endif
+  #endif
             R_RTC_W_CalendarTimeZoneSet(R_RTC_W_GetCtrl(), &temp);
         }
         else
         {
- #ifdef RM_MAP_PERSISTANT_W
+  #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_SYSCFG, NVR_KEY_TIMEZONE);
- #endif
+  #endif
         }
 
         /* Set run flag */
@@ -4614,6 +4657,8 @@ static void apply_sntp (unsigned char sntp_client,
         set_sntp_use(0);
     }
 }
+
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
 static void apply_dhcp (char        * p_dns,
                         unsigned char use_dhcps,
@@ -5101,9 +5146,11 @@ static int apply_mandatory_params (void)
 }
 
 static void apply_params (struct setup_params * params,
-                          struct sntp_params  * sntp,
-                          struct dhcp_params  * dhcp,
-                          bool                  mode_changed)
+ #ifdef __SUPPORT_SNTP_CLIENT__
+                          struct sntp_params * sntp,
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+                          struct dhcp_params * dhcp,
+                          bool                 mode_changed)
 {
     WIFIReturnCode_t         wifi_err;
     e_wifi_device_mode_ext_t prev_sysmode;
@@ -5167,12 +5214,14 @@ static void apply_params (struct setup_params * params,
 
     if (params->sysmode == WIFI_DEVICE_MODE_EXT_STATION)
     {
+ #ifdef __SUPPORT_SNTP_CLIENT__
         apply_sntp(sntp->sntp_client,
                    sntp->sntp_client_period_time,
                    sntp->sntp_timezone_int,
                    sntp->sntp_svr_addr,
                    sntp->sntp_svr_addr1,
                    sntp->sntp_svr_addr2);
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
         apply_sta(params);
     }
     else if (params->sysmode == WIFI_DEVICE_MODE_EXT_AP)
@@ -5198,12 +5247,14 @@ static void apply_params (struct setup_params * params,
                    dhcp->dhcp_lease_count);
  #endif                                /*__SUPPORT_DHCP_SVR__*/
         apply_ap(params);
+ #ifdef __SUPPORT_SNTP_CLIENT__
         apply_sntp(sntp->sntp_client,
                    sntp->sntp_client_period_time,
                    sntp->sntp_timezone_int,
                    sntp->sntp_svr_addr,
                    sntp->sntp_svr_addr1,
                    sntp->sntp_svr_addr2);
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
         apply_sta(params);
     }
     else if ((params->sysmode == WIFI_DEVICE_MODE_EXT_P2P) || (params->sysmode == WIFI_DEVICE_MODE_EXT_P2P_GO) ||
@@ -5378,20 +5429,21 @@ static fsp_err_t load_params (struct setup_params * params) {
         bsp_safe_strcpy(params->sae_groups[1], result_ptr, sizeof(params->sae_groups[1]));
     }
 
+    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
+                                 ENV_GROUP_WIFIPROFILE,
+                                 WIFI_PROFILE_WEPINDEX_0,
+                                 (int *) &params->wep_key_idx);
+
     result_ptr = NULL;
     RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
                                     ENV_GROUP_WIFIPROFILE,
-                                    WIFI_PROFILE_WEPKEY0_0,
+                                    wep_key[params->wep_key_idx],
                                     &result_ptr);
     if (result_ptr)
     {
         bsp_safe_strcpy(params->wep_key, result_ptr, sizeof(params->wep_key));
     }
 
-    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
-                                 ENV_GROUP_WIFIPROFILE,
-                                 WIFI_PROFILE_WEPINDEX_0,
-                                 (int *) &params->wep_key_idx);
     RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                  ENV_GROUP_WIFIPROFILE,
                                  WIFI_PROFILE_WEPTYPE_0,
@@ -5791,10 +5843,16 @@ static void easy_setup_task (void * pvPraram)
     bool mode_changed = false;
 
     struct setup_params * params = pvPortMalloc(sizeof(struct setup_params));
-    struct sntp_params  * p_sntp = pvPortMalloc(sizeof(struct sntp_params));
-    struct dhcp_params  * p_dhcp = pvPortMalloc(sizeof(struct dhcp_params));
+ #ifdef __SUPPORT_SNTP_CLIENT__
+    struct sntp_params * p_sntp = pvPortMalloc(sizeof(struct sntp_params));
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+    struct dhcp_params * p_dhcp = pvPortMalloc(sizeof(struct dhcp_params));
 
-    if (!params || !p_sntp || !p_dhcp)
+    if (!params
+ #ifdef __SUPPORT_SNTP_CLIENT__
+        || !p_sntp
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+        || !p_dhcp)
     {
         printf("[%s] Failed to allocate one or more parameter structures\n", __func__);
         goto CLEANUP;
@@ -5803,7 +5861,9 @@ static void easy_setup_task (void * pvPraram)
     memset(params, 0, sizeof(struct setup_params));
     params->band = WPA_SETBAND_DEF;
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
     memset(p_sntp, 0, sizeof(struct sntp_params));
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
     memset(p_dhcp, 0, sizeof(struct dhcp_params));
 
  #if CFG_PMGR
@@ -5831,7 +5891,13 @@ static void easy_setup_task (void * pvPraram)
     if (!loaded_basic)
     {
         /* get params from user via CLI */
-        parsed = (0 == parse_params(params, p_sntp, p_dhcp, !load_from_nvram, &mode_changed));
+        parsed = (0 == parse_params(params,
+ #ifdef __SUPPORT_SNTP_CLIENT__
+                                    p_sntp,
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+                                    p_dhcp,
+                                    !load_from_nvram,
+                                    &mode_changed));
         if (!parsed)
         {
             printf("[%s] Failed to parse params from user\n", __func__);
@@ -5848,7 +5914,12 @@ static void easy_setup_task (void * pvPraram)
     if (parsed)
     {
         /* we have valid params struct - apply it */
-        apply_params(params, p_sntp, p_dhcp, mode_changed);
+        apply_params(params,
+ #ifdef __SUPPORT_SNTP_CLIENT__
+                     p_sntp,
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+                     p_dhcp,
+                     mode_changed);
 
         /* store only if not loaded (if loaded it is redundant to store same params again) */
         if (FSP_SUCCESS != store_params(params))
@@ -5860,7 +5931,12 @@ static void easy_setup_task (void * pvPraram)
     {
         void * p_loaded_dhcp = loaded_dhcp ? p_dhcp : NULL;
 
-        apply_params(params, p_sntp, (struct dhcp_params *) p_loaded_dhcp, mode_changed);
+        apply_params(params,
+ #ifdef __SUPPORT_SNTP_CLIENT__
+                     p_sntp,
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
+                     (struct dhcp_params *) p_loaded_dhcp,
+                     mode_changed);
     }
     else
     {
@@ -5873,10 +5949,12 @@ CLEANUP:
         vPortFree(p_dhcp);
     }
 
+ #ifdef __SUPPORT_SNTP_CLIENT__
     if (p_sntp)
     {
         vPortFree(p_sntp);
     }
+ #endif                                /* __SUPPORT_SNTP_CLIENT__ */
 
     if (params)
     {

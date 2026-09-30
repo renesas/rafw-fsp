@@ -34,7 +34,8 @@
 
 #if CFG_PMGR
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>

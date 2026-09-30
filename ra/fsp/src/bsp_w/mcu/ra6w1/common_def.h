@@ -140,11 +140,7 @@
  #define NVR_KEY_AUTH_TYPE_0                 "N0_key_mgmt"
  #define NVR_KEY_ENC_TYPE_0                  "N0_pairwise"
 
- #define NVR_KEY_WEPTYPE_0                   "N0_wep_type"      /* need del */
  #define NVR_KEY_WEPINDEX_0                  "N0_wep_tx_keyidx" /* chg */
- #define NVR_KEY_WEPKEYTYPE_0                "N0_wepkey_type"   /* need del */
- #define NVR_KEY_WEPKEY64_0                  "N0_wep_key"       /* need del */
- #define NVR_KEY_WEPKEY128_0                 "N0_wep_key"       /* need del */
  #define NVR_KEY_WEPKEY_0                    "N0_wep_key"       /* chg */
  #define NVR_KEY_WEPKEY0_0                   "N0_wep_key0"      /* chg */
  #define NVR_KEY_WEPKEY1_0                   "N0_wep_key1"      /* chg */

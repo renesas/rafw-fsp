@@ -112,6 +112,14 @@ static void               bsp_rails_early_init(void);
 
 BSP_WEAK_REFERENCE __NO_RETURN void _exit(int __status);
 
+#if BSP_MCU_GROUP_RA6B1
+__STATIC_FORCEINLINE void bsp_radio_core_reset (void)
+{
+    CRG_TOP->CLK_RADIO_REG_b.CMAC_SYNCH_RESET = 1;
+}
+
+#endif
+
 /*******************************************************************************************************************//**
  * Initialize the MCU and the runtime environment.
  **********************************************************************************************************************/
@@ -228,6 +236,10 @@ void SystemInit (void)
     /* Call post clock initialization hook. */
     R_BSP_WarmStart(BSP_WARM_START_POST_CLOCK);
 
+#if BSP_MCU_GROUP_RA6B1
+    bsp_radio_core_reset();
+#endif
+
 #if BSP_FEATURE_TZ_HAS_TRUSTZONE
  #if 33U == __CORTEX_M
 
@@ -245,6 +257,14 @@ void SystemInit (void)
 
     /* Initialize ELC events that will be used to trigger NVIC interrupts. */
     bsp_irq_cfg();
+
+#if BSP_MCU_GROUP_RA6B1 || BSP_MCU_GROUP_RA6U1
+ #if !BSP_TZ_NONSECURE_BUILD
+    bsp_prv_rsip_fetch_KeyIndex();
+
+    BSP_CHECK_FATAL(bsp_entropy_generate(15) == FSP_SUCCESS);
+ #endif
+#endif
 
     /* Call any BSP specific code. No arguments are needed so NULL is sent. */
     bsp_init(NULL);
@@ -561,7 +581,11 @@ __STATIC_FORCEINLINE void bsp_debugger_enable (void)
  #endif
 
  #if (BSP_CFG_CMAC_DEBUGGER_ENABLE)
+  #if defined(CRG_TOP_SYS_CTRL_REG_CMAC_DEBUGGER_ENABLE_Msk)
     CRG_TOP->SYS_CTRL_REG |= CRG_TOP_SYS_CTRL_REG_CMAC_DEBUGGER_ENABLE_Msk;
+  #elif defined(BSP_MCU_GROUP_RA6B1)
+    CRG_TOP->SYS_CTRL_REG |= 0x80UL;
+  #endif
  #endif
 
     /* Enable SWD debugger on palladium platform */

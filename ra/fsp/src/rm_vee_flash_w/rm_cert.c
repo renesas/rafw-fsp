@@ -10,7 +10,8 @@
  * Includes
  **********************************************************************************************************************/
  #include "rm_cert.h"
- #include "custom_config_sdk.h"        /* For __SUPPORT_ATCMD_TLS__ */
+ #include "rm_wifi.h" /* For __SUPPORT_ATCMD_TLS__ */
+ 
  #include "r_ospi_w_cfg.h"             /* For RRQ61X_OSPI_W_ENABLED */
 
  #if defined(__SUPPORT_ATCMD_TLS__)

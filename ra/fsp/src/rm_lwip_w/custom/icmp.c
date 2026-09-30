@@ -190,9 +190,7 @@ icmp_input(struct pbuf *p, struct netif *inp)
           goto icmperr;
         }
         /* free the original p */
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
         r->if_idx = p->if_idx;
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
         pbuf_free(p);
         /* we now have an identical copy of p that has room for link headers */
         p = r;

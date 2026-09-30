@@ -33,8 +33,9 @@
 
  #define ATCMD_TRANSPORT_SDIO_W_OPEN     (0x41545344U)
  #define ATCMD_TRANSPORT_SDIO_W_CLOSE    (0x00U)
- #define AT_WAIT_TRANS_COMP_COUNT        (100000)
+ #define AT_WAIT_TRANS_COMP_COUNT        (3000)
  #define AT_WAIT_TRANS_COMP_DELAY_US     (10)
+ #define AT_WAIT_HOST_INIT_DELAY_MS      (300)
 
  #define ESC_RESP_OK                     (0x20)
  #define ESC_RESP_ERR                    (0xFF)
@@ -52,19 +53,10 @@
 /***********************************************************************************************************************
  * Typedef definitions
  **********************************************************************************************************************/
-typedef struct
-{
-    bsp_io_port_pin_t pin[6];          /* 0:CLK, 1:CMD, 2:D0, 3:D1, 4:D2, 5:D3 */
-} sdio_pins_t;
 
 /***********************************************************************************************************************
  * Exported global variables (to be accessed by other files)
  **********************************************************************************************************************/
-extern gpio_w_instance_ctrl_t g_gpio_w_ctrl;
-
-/* IOPORT Instance */
-extern const ioport_instance_t g_gpio_w;
-
 extern atcmd_transport_sdio_w_instance_ctrl_t g_atcmd_transport_ctrl;
 
 /***********************************************************************************************************************
@@ -87,7 +79,7 @@ atcmd_transport_w_api_t const g_atcmd_transport_on_sdio =
 static volatile uint32_t wr_transfer_complete = 0;
 static volatile uint32_t transfer_error       = 0;
 static uint32_t          wr_data_status       = ATCMD_TRANSPORT_SDIO_W_SEND_STAT_IDLE;
-static bsp_io_port_pin_t gs_trigger_gpio      = BSP_IO_PORT_00_PIN_00;
+static bsp_io_port_pin_t gs_trigger_gpio      = BSP_IO_PORT_00_PIN_00; /* Updated when Open() */
 static uint8_t           gs_response_header[ATCMD_SDIO_TRANSFER_HEADER_SIZE] = {0};
 static uint32_t          gs_prev_send_len = 0;
 static volatile uint16_t gs_rx_buffer_head = 0; /*  Receive buffer head */
@@ -101,21 +93,6 @@ void rm_atcmd_transport_sdio_w_cb(sdmmc_callback_args_t * p_args);
 /***********************************************************************************************************************
  * Function Prototypes
  **********************************************************************************************************************/
-static inline const ioport_pin_cfg_t * find_pin_cfg (const ioport_cfg_t * cfg, bsp_io_port_pin_t pin)
-{
-    const ioport_pin_cfg_t * tbl = cfg->p_pin_cfg_data;
-
-    for (uint16_t i = 0; i < cfg->number_of_pins; i++)
-    {
-        if (tbl[i].pin == pin)
-        {
-            return &tbl[i];
-        }
-    }
-
-    return NULL;
-}
-
 void rm_atcmd_transport_sdio_w_cb (sdmmc_callback_args_t * p_args)
 {
     atcmd_transport_sdio_w_instance_ctrl_t * p_instance_ctrl   = &g_atcmd_transport_ctrl;
@@ -267,8 +244,6 @@ fsp_err_t RM_ATCMD_TRANSPORT_SDIO_W_Open (atcmd_transport_w_ctrl_t            * 
     sdmmc_instance_t * p_sdio = NULL;
     atcmd_sdio_transport_w_extended_cfg_t * p_transport_extended_cfg = NULL;
     uint32_t                 i;
-    const ioport_cfg_t     * cfg = (const ioport_cfg_t *) g_gpio_w.p_cfg;
-    const ioport_pin_cfg_t * pc;
     uint32_t                 block = ATCMD_SDIO_TRANSFER_SIZE / SDEMMC_W_MAX_BLOCK_SIZE;
 
     if (0 != (ATCMD_SDIO_TRANSFER_SIZE % SDEMMC_W_MAX_BLOCK_SIZE))
@@ -294,9 +269,6 @@ fsp_err_t RM_ATCMD_TRANSPORT_SDIO_W_Open (atcmd_transport_w_ctrl_t            * 
     }
 
     gs_trigger_gpio = p_transport_extended_cfg->gpio_pin;
-    pc              = find_pin_cfg(cfg, gs_trigger_gpio);
-
-    g_gpio_w.p_api->pinCfg(&g_gpio_w_ctrl, gs_trigger_gpio, pc->pin_cfg);
 
     /* Open sdio port */
     p_instance_ctrl->tx_mutex = xSemaphoreCreateMutexStatic(&p_instance_ctrl->tx_mutex_data);
@@ -335,6 +307,13 @@ fsp_err_t RM_ATCMD_TRANSPORT_SDIO_W_Open (atcmd_transport_w_ctrl_t            * 
     }
 
     p_instance_ctrl->open = ATCMD_TRANSPORT_SDIO_W_OPEN;
+
+    /* Since host initialization takes time, it is executed in advance via a GPIO trigger. */
+    /* Task processing is delayed (including a margin) until host initialization (about 240 msec) is complete. */
+    /* Ideally, initialization via a handshake is preferable. */
+    R_BSP_PinWrite(gs_trigger_gpio, BSP_IO_LEVEL_HIGH);
+    vTaskDelay(portCONVERT_MS_2_TICKS(AT_WAIT_HOST_INIT_DELAY_MS));
+    R_BSP_PinWrite(gs_trigger_gpio, BSP_IO_LEVEL_LOW);
 
     return FSP_SUCCESS;
 
@@ -517,7 +496,7 @@ fsp_err_t RM_ATCMD_TRANSPORT_SDIO_W_AtCmdSend (atcmd_transport_w_ctrl_t * const 
  #endif
 
     /* Trigger GPIO interrupt line to high */
-    g_gpio_w.p_api->pinWrite(&g_gpio_w_ctrl, gs_trigger_gpio, BSP_IO_LEVEL_HIGH);
+    R_BSP_PinWrite(gs_trigger_gpio, BSP_IO_LEVEL_HIGH);
 
     /* blocking */
     err = wait_for_sdio_wr_transfer_complete(p_ctrl, false);
@@ -561,7 +540,7 @@ fsp_err_t RM_ATCMD_TRANSPORT_SDIO_W_AtCmdSend (atcmd_transport_w_ctrl_t * const 
                                                     SDMMC_IO_ADDRESS_MODE_FIXED);
 
     /* Reset GPIO interrupt line to low (default value) */
-    g_gpio_w.p_api->pinWrite(&g_gpio_w_ctrl, gs_trigger_gpio, BSP_IO_LEVEL_LOW);
+    R_BSP_PinWrite(gs_trigger_gpio, BSP_IO_LEVEL_LOW);
 
  #ifdef SDIO_SUSPEND_ALL
     if (!xTaskResumeAll())

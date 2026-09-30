@@ -8,7 +8,7 @@
 #define RM_ATCMD_W_CORE_OTA_HTTP_H
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "rm_atcmd_w_core_ota_update.h"
 #include "rm_atcmd_w_core_ota_common.h"

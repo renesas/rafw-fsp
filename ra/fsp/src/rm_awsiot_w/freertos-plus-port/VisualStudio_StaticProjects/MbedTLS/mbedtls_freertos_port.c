@@ -234,6 +234,7 @@ int mbedtls_platform_recv( void * ctx,
         if (pMutex->mutex)
 	{
 		vSemaphoreDelete(pMutex->mutex);
+		pMutex->mutex = NULL;  // clear handle so a repeated free is a safe no-op (prevents double vSemaphoreDelete)
 	}
 #endif//]]
     }

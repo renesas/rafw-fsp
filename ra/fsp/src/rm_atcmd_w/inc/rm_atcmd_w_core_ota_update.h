@@ -12,6 +12,13 @@
 #include "rm_atcmd_w_core_common.h"
 #include "ra6w1_image.h"
 
+/* Resume feature flag (__SUPPORT_OTA_RESUME__) lives in the generated AT-command
+ * config. Pull it in here so EVERY OTA translation unit (parse/update/common/http)
+ * sees the flag identically. Without this, rm_atcmd_w_core_ota_http.c - which does
+ * not include rm_atcmd_w_core.h - would compile out all resume logic (checkpoint
+ * persist, watermark seed, Range/206 handling), so downloads never resume. */
+#include "rm_atcmd_w_cfg.h"
+
 /// Debug feature
 #define ENABLE_ATCMD_W_OTA_ERR
 #define ENABLE_ATCMD_W_OTA_INFO
@@ -164,6 +171,11 @@ typedef struct
 
     /// Address of sflash where other_fw is stored. Only for MCU_FW and CERT_KEY
     UINT download_sflash_addr;
+
+    /// 1 to resume a previously interrupted download (HTTP Range). 0 == normal full download.
+    /// Always present so the struct layout matches across translation units; only honored
+    /// when __SUPPORT_OTA_RESUME__ is enabled.
+    UINT is_resume;
 } ATCMD_W_OTA_UPDATE_CONFIG;
 
 /**
@@ -178,6 +190,23 @@ typedef struct
 // UINT atcmd_w_ota_update_start_download(ATCMD_W_OTA_UPDATE_CONFIG *at_ota_update_conf);
 UINT atcmd_w_ota_update_start_download(atcmd_w_ctrl_t * const      p_at_ctrl,
                                        ATCMD_W_OTA_UPDATE_CONFIG * at_ota_update_conf);
+
+#if defined(__SUPPORT_OTA_RESUME__)
+
+/**
+ ****************************************************************************************
+ * @brief Resume an interrupted firmware download from the last byte committed to flash.
+ *        Same arguments as atcmd_w_ota_update_start_download; sets the resume flag.
+ *        If no valid saved progress exists (or the server ignores Range), it transparently
+ *        falls back to a full download from the beginning.
+ * @param[in] p_at_ctrl AT control block.
+ * @param[in] at_ota_update_conf Pointer of ATCMD_W_OTA_UPDATE_CONFIG.
+ * @return 0x00 (ATCMD_W_OTA_SUCCESS) on success.
+ ****************************************************************************************
+ */
+UINT atcmd_w_ota_update_start_resume(atcmd_w_ctrl_t * const p_at_ctrl, ATCMD_W_OTA_UPDATE_CONFIG * at_ota_update_conf);
+
+#endif                                 /* __SUPPORT_OTA_RESUME__ */
 
 /**
  ****************************************************************************************

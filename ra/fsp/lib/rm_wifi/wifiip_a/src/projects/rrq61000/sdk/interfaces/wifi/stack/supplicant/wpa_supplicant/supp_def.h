@@ -35,7 +35,9 @@
 #define	__SUPP_DEF_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"		// For Wi-Fi configuration features
+#include "rm_wifi.h"
+
+// For Wi-Fi configuration features
 
 /* Start - Package Version **************************************************/
 #define	VER_NUM					"2.10"

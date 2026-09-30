@@ -1896,7 +1896,6 @@ wrong_arg :
 	if (wpa_s->current_ssid->mode == WPAS_MODE_AP) {
 		//ap_ctrl_iface_sta_disassociate(wpa_s, "FF:FF:FF:FF:FF:FF reason=3");
 		ap_ctrl_iface_sta_deauthenticate(wpa_s, "FF:FF:FF:FF:FF:FF reason=3");
-		vTaskDelay(portCONVERT_MS_2_TICKS(200) * 5);
 	}
 
 	if (os_strcasecmp(cmd, "STOP") == 0) {

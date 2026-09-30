@@ -37,7 +37,7 @@
 
 #if CFG_PMGR
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
 
 enum USER_DPM_TID
 {

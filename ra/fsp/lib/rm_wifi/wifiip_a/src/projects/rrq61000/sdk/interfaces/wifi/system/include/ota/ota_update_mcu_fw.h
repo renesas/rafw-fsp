@@ -35,7 +35,8 @@
 #define	__OTA_UPDATE_MCU_FW_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include <stdio.h>
 #include "sys_app_defs.h"
 

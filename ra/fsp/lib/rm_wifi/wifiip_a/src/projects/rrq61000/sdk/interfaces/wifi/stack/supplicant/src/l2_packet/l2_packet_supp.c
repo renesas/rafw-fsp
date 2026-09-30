@@ -31,7 +31,8 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "supp_def.h"
 #include "supp_common.h"
 #include "wpabuf.h"

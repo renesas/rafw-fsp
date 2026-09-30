@@ -444,23 +444,6 @@ __RETAINED_CODE void hw_sys_reg_apply_config(void);
  */
 void hw_sys_apply_default_values(void);
 
-   #if !DEVICE_FPGA
-
-/**
- * \brief Calculates the PLL_MIN_CURRENT value needed for tuning the PLL lock time
- *
- * \note This function has to be called only once during startup.
- */
-void hw_sys_pll_calculate_min_current(void);
-
-/**
- * \brief Sets the PLL_MIN_CURRENT value needed for tuning the PLL lock time
- *
- * \note This function should be called every time the timers power domain powers off and on.
- */
-void hw_sys_pll_set_min_current(void);
-
-   #endif                              /* !DEVICE_FPGA */
   #endif                               /* DA1469X */
 
  #endif                                /* dg_configUSE_HW_SYS */

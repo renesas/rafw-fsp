@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2001-2019, Arm Limited and Contributors. All rights reserved.
  *
- * SPDX-License-Identifier: BSD-3-Clause OR Arm’s non-OSI source license
+ * SPDX-License-Identifier: BSD-3-Clause OR Arm's non-OSI source license
  */
 
 /*!
@@ -16,7 +16,7 @@
  definitions.
 
  This API supports AES-CCM*, as defined in <em>IEEE 802.15.4: IEEE Standard
- for Local and metropolitan area networks— Part 15.4: Low-Rate Wireless
+ for Local and metropolitan area networks-- Part 15.4: Low-Rate Wireless
  Personal Area Networks (LR-WPANs)</em>, with the instantiations defined in
  section B.3.2, and the nonce defined in section 7.3.2.
  */
@@ -52,7 +52,7 @@ extern "C"
  @brief     This function receives the MAC source address, the frame counter,
             and the MAC size, and returns the required nonce for AES-CCM*, as
             defined in <em>IEEE 802.15.4: IEEE Standard for Local and
-			metropolitan area networks— Part 15.4: Low-Rate Wireless Personal
+			metropolitan area networks-- Part 15.4: Low-Rate Wireless Personal
             Area Networks (LR-WPANs)</em>.
 
  @note      This API should be called before mbedtls_ccm_star_encrypt_and_tag()

@@ -34,7 +34,7 @@
 #endif
 #include "lwip/dns.h"
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "common_utils.h"
 #include "common_def.h"

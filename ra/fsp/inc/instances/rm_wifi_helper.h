@@ -101,7 +101,6 @@ struct sockaddr_storage;
 int  gen_ssid(char * prefix, int iface, int quotation, char * ssid, int size);
 int  rm_wifi_atoi_custom(char * str);
 int  rm_wifi_get_int_val_from_str(char * param, int * int_val, int policy);
-void rm_wifi_register_wifi_notify_cb(void);
 void factory_reset_sta_mode(void);
 void factory_reset_ap_mode(void);
 int  getMacAddrMswLsw(UINT iface, ULONG * macmsw, ULONG * maclsw);

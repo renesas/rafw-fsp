@@ -7,7 +7,7 @@
 #include "bsp_api.h"
 #if CFG_WIFI
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
 
  #include <ctype.h>
  #include "rm_https_api.h"
@@ -325,10 +325,7 @@ static void atcmd_w_ota_http_client_read_certs (httpc_secure_connection_t * sett
     int ret = 0;
 
     /* to read ca certificate */
-    ret = atcmd_w_ota_http_client_read_cert(RM_CERT_MODULE_OTA,
-                                            RM_CERT_TYPE_CA_CERT, 
-                                            &settings->ca, 
-                                            &settings->ca_len);
+    ret = atcmd_w_ota_http_client_read_cert(RM_CERT_MODULE_OTA, RM_CERT_TYPE_CA_CERT, &settings->ca, &settings->ca_len);
     if (ret)
     {
         ATCMD_W_OTA_ERR("failed to read CA cert\r\n");
@@ -336,10 +333,8 @@ static void atcmd_w_ota_http_client_read_certs (httpc_secure_connection_t * sett
     }
 
     /* to read certificate */
-    ret = atcmd_w_ota_http_client_read_cert(RM_CERT_MODULE_OTA, 
-                                            RM_CERT_TYPE_CERT, 
-                                            &settings->cert, 
-                                            &settings->cert_len);
+    ret =
+        atcmd_w_ota_http_client_read_cert(RM_CERT_MODULE_OTA, RM_CERT_TYPE_CERT, &settings->cert, &settings->cert_len);
     if (ret)
     {
         ATCMD_W_OTA_ERR("failed to read certificate\r\n");
@@ -695,6 +690,135 @@ UINT atcmd_w_ota_http_client_get_result (void)
     return dw_info.httpc_result;
 }
 
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+/* Parse "Content-Range: bytes <start>-<end>/<total>" from a header block.
+ * Self-contained, bounded scan (no strtoul / locale deps). Returns 1 on success. */
+static UINT atcmd_w_ota_parse_content_range (const char * payload, UINT * start, UINT * total)
+{
+    const char * p;
+    UINT v;
+    int i;
+
+    if ((payload == NULL) || (start == NULL) || (total == NULL))
+    {
+        return 0;
+    }
+
+    p = strstr(payload, "Content-Range:");
+    if (p == NULL)
+    {
+        p = strstr(payload, "content-range:");
+    }
+
+    if (p == NULL)
+    {
+        return 0;
+    }
+
+    /* Skip to the first digit of <start> (bounded to the header line). */
+    for (i = 0; (i < 64) && (p[i] != '\0') && (p[i] != '\r') && (p[i] != '\n'); i++)
+    {
+        if ((p[i] >= '0') && (p[i] <= '9'))
+        {
+            break;
+        }
+    }
+
+    if ((p[i] < '0') || (p[i] > '9'))
+    {
+        return 0;
+    }
+
+    v = 0;
+    while ((p[i] >= '0') && (p[i] <= '9'))
+    {
+        v = (v * 10u) + (UINT) (p[i] - '0');
+        i++;
+    }
+
+    *start = v;
+
+    /* Skip to the '/' that precedes <total>. */
+    for ( ; (i < 96) && (p[i] != '\0') && (p[i] != '\r') && (p[i] != '\n'); i++)
+    {
+        if (p[i] == '/')
+        {
+            i++;
+            break;
+        }
+    }
+
+    if ((p[i] < '0') || (p[i] > '9'))
+    {
+        return 0;
+    }
+
+    v = 0;
+    while ((p[i] >= '0') && (p[i] <= '9'))
+    {
+        v = (v * 10u) + (UINT) (p[i] - '0');
+        i++;
+    }
+
+    *total = v;
+
+    return 1;
+}
+
+/* Return crc32 of the server's file "validator" for this response: the ETag value
+ * if present, otherwise the Last-Modified value. Returns 0 when neither header is
+ * present/parseable. This binds a resumed download to the EXACT same server file:
+ * any change to the file (even one that keeps the byte size identical) changes the
+ * ETag/Last-Modified, so a mismatch here reliably detects a changed/substituted
+ * file that the size and Content-Range checks cannot. Header names are matched for
+ * the common capitalizations emitted by HTTP/1.1 servers (e.g. Apache). */
+static UINT32 atcmd_w_ota_response_validator_crc (const char * payload)
+{
+    static const char * const hdr_names[] =
+    {
+        "ETag:", "Etag:", "etag:", "Last-Modified:", "last-modified:"
+    };
+    UINT i;
+
+    if (payload == NULL)
+    {
+        return 0;
+    }
+
+    for (i = 0; i < (sizeof(hdr_names) / sizeof(hdr_names[0])); i++)
+    {
+        const char * p = strstr(payload, hdr_names[i]);
+        if (p != NULL)
+        {
+            const char * v = p + strlen(hdr_names[i]);
+            const char * e;
+            UINT n = 0;
+
+            while ((*v == ' ') || (*v == '\t')) /* skip leading whitespace */
+            {
+                v++;
+            }
+
+            e = v;
+            while ((e[0] != '\0') && (e[0] != '\r') && (e[0] != '\n') && (n < 128u))
+            {
+                e++;
+                n++;
+            }
+
+            if (e > v)
+            {
+                return (UINT32) atcmd_w_ota_update_crc32((const void *) v, (size_t) (e - v));
+            }
+        }
+    }
+
+    return 0;
+}
+
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
+
 err_t atcmd_w_ota_update_httpc_cb_headers_done_fn (httpc_state_t * connection,
                                                    void          * arg,
                                                    struct pbuf   * hdr,
@@ -718,6 +842,123 @@ err_t atcmd_w_ota_update_httpc_cb_headers_done_fn (httpc_state_t * connection,
         return ERR_NOT_FOUND;
     }
 
+ #if defined(__SUPPORT_OTA_RESUME__)
+    if (dw_info.is_resume)
+    {
+        if (strstr(hdr->payload, " 206 ") != NULL)
+        {
+            UINT cr_start = 0;
+            UINT cr_total = 0;
+            UINT full_len = dw_info.resume_offset + content_len;
+
+            /* Server honored the Range request. Before trusting it, require the
+             * Content-Range to confirm the server is serving the SAME file
+             * (identical total size) from EXACTLY our resume offset. This blocks
+             * appending bytes from a changed or substituted file on the server. */
+            if (atcmd_w_ota_parse_content_range((const char *) hdr->payload, &cr_start, &cr_total) == 0)
+            {
+                ATCMD_W_OTA_INFO("- OTA: RESUME ABORTED - server sent 206 but no readable Content-Range\n");
+                ATCMD_W_OTA_INFO(
+                    "- OTA:   reason: cannot confirm the server is serving the same file; saved checkpoint discarded\n");
+                ATCMD_W_OTA_INFO("- OTA:   action: re-issue AT+NWOTADWRESUME to download the full image cleanly\n");
+                atcmd_w_ota_update_clear_nvram_resume(dw_info.update_type);
+                dw_info.resume_persisted = 0; /* record discarded: suppress "resume point saved" */
+
+                return ERR_NOT_FOUND;
+            }
+
+            if ((cr_start != dw_info.resume_offset) ||
+                (cr_total != dw_info.content_length) ||
+                (cr_total != full_len))
+            {
+                ATCMD_W_OTA_INFO("- OTA: RESUME ABORTED - server file changed since the interrupted download\n");
+                ATCMD_W_OTA_INFO(
+                    "- OTA:   reason: Content-Range mismatch (got start=%u total=%u, expected start=%u total=%u)\n",
+                    cr_start,
+                    cr_total,
+                    dw_info.resume_offset,
+                    dw_info.content_length);
+                ATCMD_W_OTA_INFO(
+                    "- OTA:   action: saved checkpoint discarded; re-issue AT+NWOTADWRESUME for a clean full download\n");
+                atcmd_w_ota_update_clear_nvram_resume(dw_info.update_type);
+                dw_info.resume_persisted = 0; /* record discarded: suppress "resume point saved" */
+
+                return ERR_NOT_FOUND;
+            }
+
+            /* Validator (ETag/Last-Modified) cross-check. This is the definitive
+             * same-file guarantee: it catches a changed/substituted server file
+             * even when the byte size is unchanged (which the size check above
+             * cannot). dw_info.validator holds the value saved at the original
+             * download; a non-zero saved value must match the current response.
+             * If we had a validator but the server no longer provides one, treat
+             * that as a mismatch (cannot prove same file). When no validator was
+             * ever captured (== 0), fall back to size check + whole-image CRC. */
+            if (dw_info.validator != 0)
+            {
+                UINT32 resp_validator = atcmd_w_ota_response_validator_crc((const char *) hdr->payload);
+
+                if (resp_validator != dw_info.validator)
+                {
+                    ATCMD_W_OTA_INFO("- OTA: RESUME ABORTED - server file changed since the interrupted download\n");
+                    ATCMD_W_OTA_INFO(
+                        "- OTA:   reason: validator (ETag/Last-Modified) mismatch - same size but different content\n");
+                    ATCMD_W_OTA_INFO(
+                        "- OTA:   action: saved checkpoint discarded; re-issue AT+NWOTADWRESUME for a clean full download\n");
+                    atcmd_w_ota_update_clear_nvram_resume(dw_info.update_type);
+                    dw_info.resume_persisted = 0;
+
+                    return ERR_NOT_FOUND;
+                }
+            }
+
+            /* content_len is the remaining body length; full image == resume_offset + content_len. */
+            dw_info.range_honored      = 1;
+            dw_info.content_length     = full_len;
+            dw_info.write.total_length = full_len;
+
+            ATCMD_W_OTA_INFO(
+                "- OTA: RESUME CONFIRMED - server accepted Range (206) and validator matches; appending from %u / %u bytes\n",
+                dw_info.resume_offset,
+                full_len);
+
+            return ERR_OK;
+        }
+        else if (strstr(hdr->payload, "200 OK") != NULL)
+        {
+            /* Server ignored Range and is sending the whole file. Discard the
+             * partial and restart from byte 0 so we never stitch a full body
+             * onto an offset. */
+            ATCMD_W_OTA_INFO("- OTA: STARTING FROM 0%% - server ignored Range and sent 200 OK (full file)\n");
+            ATCMD_W_OTA_INFO("- OTA:   reason: server does not support byte-range requests for this file\n");
+            dw_info.is_resume          = 0;
+            dw_info.range_honored      = 0;
+            dw_info.resume_offset      = 0;
+            dw_info.resume_persisted   = 0;
+            dw_info.received_length    = 0;
+            dw_info.write.length       = 0;
+            dw_info.write.offset       = 0;
+            dw_info.write.sflash_addr  = atcmd_w_ota_update_get_new_sflash_addr(dw_info.update_type);
+            dw_info.version_check      = ATCMD_W_OTA_NOT_FOUND; /* re-enable version check on first bytes */
+            dw_info.content_length     = content_len;
+            dw_info.write.total_length = content_len;
+
+            /* Fresh full download now: capture this file's validator so a later
+             * resume of THIS download can prove it is the same file. */
+            dw_info.validator = atcmd_w_ota_response_validator_crc((const char *) hdr->payload);
+
+            return ERR_OK;
+        }
+        else
+        {
+            ATCMD_W_OTA_INFO("- OTA: RESUME ABORTED - unexpected HTTP response (neither 206 nor 200 OK)\n");
+            ATCMD_W_OTA_INFO("- OTA:   reason: server error or bad URL; saved checkpoint kept for a later retry\n");
+
+            return ERR_NOT_FOUND;
+        }
+    }
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
+
     if (strstr(hdr->payload, "200 OK") == NULL)
     {
         return ERR_NOT_FOUND;
@@ -725,6 +966,16 @@ err_t atcmd_w_ota_update_httpc_cb_headers_done_fn (httpc_state_t * connection,
 
     dw_info.content_length     = content_len;
     dw_info.write.total_length = content_len;
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+    /* Fresh full download (the common first AT+NWOTADWRESUME with no saved partial):
+     * capture the server validator so a subsequent resume can confirm same-file. */
+    if (dw_info.resume_mode)
+    {
+        dw_info.validator = atcmd_w_ota_response_validator_crc((const char *) hdr->payload);
+    }
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 
     return ERR_OK;
 }
@@ -755,10 +1006,14 @@ void atcmd_w_ota_update_httpc_cb_result_fn (void         * arg,
         if (dw_info.update_type == ATCMD_W_OTA_TYPE_RTOS)
         {
  #if (SUPPORT_FSP_RM_OTA_W == 1)
-            p_ota_instance->p_api->getAddr(p_ota_instance->p_ctrl, RM_OTA_W_NEW_ADDR, dw_info.update_type, (uint32_t *) &sflash_addr);
+            p_ota_instance->p_api->getAddr(p_ota_instance->p_ctrl,
+                                           RM_OTA_W_NEW_ADDR,
+                                           dw_info.update_type,
+                                           (uint32_t *) &sflash_addr);
 
             if ((sflash_addr != RM_OTA_W_STOR_UNKNOWN_ADDR) &&
-                (p_ota_instance->p_api->cert(p_ota_instance->p_ctrl, RM_OTA_W_VALIDATE_TYPE_IMG_CRC, sflash_addr) == RM_OTA_W_SUCCESS))
+                (p_ota_instance->p_api->cert(p_ota_instance->p_ctrl, RM_OTA_W_VALIDATE_TYPE_IMG_CRC,
+                                             sflash_addr) == RM_OTA_W_SUCCESS))
             {
                 dw_info.download_status = ATCMD_W_OTA_SUCCESS;
             }
@@ -855,6 +1110,34 @@ void atcmd_w_ota_update_httpc_cb_result_fn (void         * arg,
         dw_info.write.buffer = NULL;
     }
 
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+    /* On a fully completed transfer, drop the resume record so the next download
+     * starts fresh. On any interruption (timeout/closed/abort) the record is kept
+     * so AT+NWOTADWRESUME can continue from the last committed offset. Only in
+     * resume_mode - the legacy AT+NWOTADWSTART path never touches this record. */
+    if (dw_info.resume_mode)
+    {
+        if (httpc_result == HTTPC_RESULT_OK)
+        {
+            atcmd_w_ota_update_clear_nvram_resume(dw_info.update_type);
+            ATCMD_W_OTA_INFO("- OTA: DOWNLOAD COMPLETE - full image received; resume checkpoint cleared\n");
+        }
+        else if (dw_info.resume_persisted > 0)
+        {
+            /* Interrupted with a valid checkpoint still in NVRAM (set to 0 above
+             * when the record was discarded on a mismatch). */
+            ATCMD_W_OTA_INFO("- OTA: DOWNLOAD INTERRUPTED - checkpoint saved at %u bytes\n", dw_info.resume_persisted);
+            ATCMD_W_OTA_INFO("- OTA:   action: re-issue the SAME AT+NWOTADWRESUME to continue from here\n");
+        }
+        else
+        {
+            ATCMD_W_OTA_INFO(
+                "- OTA: DOWNLOAD INTERRUPTED - no checkpoint saved yet (less than one 64 KB block committed)\n");
+        }
+    }
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
+
     dw_info.httpc_result  = httpc_result;
     dw_info.version_check = ATCMD_W_OTA_NOT_FOUND;
     atcmd_w_ota_update_evt_send(ATCMD_W_OTA_EVT_FINISH);
@@ -939,6 +1222,30 @@ static err_t atcmd_w_ota_update_httpc_cb_recv_fn (void * arg, struct altcp_pcb *
 
             p = p->next;
         }
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+        /* Persist the resume watermark periodically (every ATCMD_W_OTA_RSM_PERSIST_STEP
+         * bytes) so an interrupted RTOS download can be continued after reboot.
+         * Only done in resume_mode (AT+NWOTADWRESUME); the legacy AT+NWOTADWSTART
+         * path never touches the resume NVRAM record.
+         * "committed" excludes bytes still held in the RAM staging buffer, so it is
+         * always a flushed, flash-block-aligned offset. */
+        if ((dw_info.resume_mode) && (dw_info.content_length > 0))
+        {
+            UINT committed = dw_info.received_length - dw_info.write.offset;
+
+            if (committed >= (dw_info.resume_persisted + ATCMD_W_OTA_RSM_PERSIST_STEP))
+            {
+                atcmd_w_ota_update_write_nvram_resume(dw_info.update_type,
+                                                      committed,
+                                                      dw_info.content_length,
+                                                      dw_info.fingerprint,
+                                                      dw_info.validator);
+                dw_info.resume_persisted = committed;
+            }
+        }
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 
         if ((dw_info.received_length > 0) && (dw_info.content_length > 0))
         {
@@ -1031,6 +1338,16 @@ UINT atcmd_w_ota_update_http_client_request (atcmd_w_ota_update_proc_t * at_ota_
     dw_info.content_length  = 0;
     dw_info.received_length = 0;
 
+ #if defined(__SUPPORT_OTA_RESUME__)
+    dw_info.resume_mode      = 0;
+    dw_info.is_resume        = 0;
+    dw_info.resume_offset    = 0;
+    dw_info.resume_persisted = 0;
+    dw_info.range_honored    = 0;
+    dw_info.fingerprint      = 0;
+    dw_info.validator        = 0;
+ #endif
+
     if (dw_info.update_type == ATCMD_W_OTA_TYPE_MCU_FW)
     {
         dw_info.write.sflash_addr = atcmd_w_ota_update_get_new_sflash_addr(dw_info.update_type);
@@ -1040,6 +1357,125 @@ UINT atcmd_w_ota_update_http_client_request (atcmd_w_ota_update_proc_t * at_ota_
     {
         dw_info.write.sflash_addr = atcmd_w_ota_update_get_new_sflash_addr(dw_info.update_type);
     }
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+    /* Resume is supported for the RTOS firmware image only, and ONLY when the
+     * download was started via AT+NWOTADWRESUME (resume_mode). The legacy
+     * AT+NWOTADWSTART path leaves resume_mode = 0 and therefore performs no
+     * resume NVRAM access at all - its behavior is completely unchanged.
+     * The download is a single sequential stream, so one committed-byte
+     * watermark (persisted in NVRAM) is all that is needed - no per-chunk table. */
+    if ((dw_info.update_type == ATCMD_W_OTA_TYPE_RTOS) && (at_ota_proc->is_resume))
+    {
+        dw_info.resume_mode = 1;
+        dw_info.fingerprint = atcmd_w_ota_update_url_fingerprint(at_ota_proc->url);
+
+        ATCMD_W_OTA_INFO("- OTA: Resume mode enabled (checkpoint saved every %d KB)\n",
+                         ATCMD_W_OTA_RSM_PERSIST_STEP / 1024);
+
+        /* A resume-mode download that has just (re)started is, by definition, not a
+         * complete image yet. Clear the legacy "download complete" progress flag so
+         * that AT+NWOTARENW cannot renew based on a STALE 100 left by an earlier
+         * completed download (which, after a mid-download reset, would otherwise let
+         * an incomplete/interrupted download be renewed). The flag is set back to 100
+         * by the normal success path only when THIS download actually reaches 100%.
+         * Scoped to resume mode: the legacy AT+NWOTADWSTART path is not affected. */
+        atcmd_w_ota_update_write_nvram_download_progress(dw_info.update_type, 0);
+
+        {
+            UINT saved_off   = 0;
+            UINT saved_total = 0;
+            UINT32 saved_fp  = 0;
+            UINT32 saved_val = 0;
+            UINT base_addr   = dw_info.write.sflash_addr; /* RTOS partition base set above */
+            UINT rec_ok      = 0;
+
+            /* Human-readable reason for whichever branch we take, so the console
+             * clearly explains WHY the download resumed / restarted / was discarded. */
+            const char * reason = "no saved checkpoint in NVRAM (first resume for this image)";
+
+            if (atcmd_w_ota_update_read_nvram_resume(dw_info.update_type, &saved_off, &saved_total, &saved_fp,
+                                                     &saved_val) == ATCMD_W_OTA_SUCCESS)
+            {
+                image_header_data_t hdr = {0, };
+                UINT hdr_magic_ok       = 0;
+
+                /* Read the image header already in flash (start of the partition).
+                 * A valid magic proves a genuine partial image prefix exists - not
+                 * erased flash or an unrelated blob. */
+                if (atcmd_w_ota_update_get_image_info(base_addr, &hdr) != 0)
+                {
+                    hdr_magic_ok = (hdr.magic_code == IMAGE_HEADER_MAGIC_CODE) ? 1 : 0;
+                }
+
+                /* Defensive validation of the (potentially tampered or corrupted)
+                 * NVRAM record before it is allowed to steer flash writes. Each
+                 * condition is checked individually so we can print the exact reason
+                 * a saved record was rejected. Any failure => discard and full download. */
+                if ((saved_off == 0) || (saved_total == 0) || (saved_off >= saved_total))
+                {
+                    reason = "saved checkpoint is empty or out of range";
+                }
+                else if (saved_total > ATCMD_W_OTA_STOR_RTOS_SIZE)
+                {
+                    reason = "saved image size does not fit the RTOS partition";
+                }
+                else if ((saved_off % ATCMD_W_OTA_SFLASH_BUF_SZ) != 0)
+                {
+                    reason = "saved checkpoint is not flash-sector aligned";
+                }
+                else if (saved_fp != dw_info.fingerprint)
+                {
+                    /* This is the "different image / URL" case the user tests. */
+                    reason = "different image than the saved partial (URL fingerprint mismatch)";
+                }
+                else if (hdr_magic_ok == 0)
+                {
+                    reason = "no valid partial image found in flash (bad/missing header)";
+                }
+                else
+                {
+                    rec_ok = 1;
+                }
+            }
+
+            if (rec_ok)
+            {
+                /* Accept: append from the validated, block-aligned watermark.
+                 * The server side is still verified in headers_done_fn via the
+                 * 206 status and Content-Range (start/total must match), and the
+                 * whole assembled image is CRC-validated before it is ever used. */
+                dw_info.is_resume                 = 1;
+                dw_info.resume_offset             = saved_off;
+                dw_info.resume_persisted          = saved_off;
+                dw_info.received_length           = saved_off;
+                dw_info.content_length            = saved_total;         /* expected full size; cross-checked vs Content-Range */
+                dw_info.write.sflash_addr         = base_addr + saved_off;
+                dw_info.write.length              = saved_off;           /* so length==total_length completes */
+                dw_info.version_check             = ATCMD_W_OTA_SUCCESS; /* first bytes are mid-image: skip ver check */
+                dw_info.validator                 = saved_val;           /* cross-checked vs the 206 response in headers_done */
+                at_ota_conn_settings.range_offset = saved_off;
+
+                ATCMD_W_OTA_INFO("- OTA: RESUMING - continuing from offset %u / %u bytes (~%u%%)\n",
+                                 saved_off,
+                                 saved_total,
+                                 (saved_total > 0) ? ((saved_off * 100u) / saved_total) : 0u);
+                ATCMD_W_OTA_INFO(
+                    "- OTA:   reason: valid saved checkpoint matches this image; requesting Range: bytes=%u-\n",
+                    saved_off);
+            }
+            else
+            {
+                /* No usable / trustworthy record: start fresh from the beginning.
+                 * resume_mode stays 1, so progress is persisted for a later resume. */
+                atcmd_w_ota_update_clear_nvram_resume(dw_info.update_type);
+                ATCMD_W_OTA_INFO("- OTA: STARTING FROM 0%% - full download (resume tracking still active)\n");
+                ATCMD_W_OTA_INFO("- OTA:   reason: %s\n", reason);
+            }
+        }
+    }
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 
     /******************************************/
     /* Initialize http connection settings */
@@ -1119,8 +1555,9 @@ UINT atcmd_w_ota_update_http_client_request (atcmd_w_ota_update_proc_t * at_ota_
                 }
 
                 at_ota_conn_settings.tls_settings.sni_len = (int) (sni_len + 1);
-                bsp_safe_strcpy(at_ota_conn_settings.tls_settings.sni, sni_str,
-                                 (size_t) at_ota_conn_settings.tls_settings.sni_len);
+                bsp_safe_strcpy(at_ota_conn_settings.tls_settings.sni,
+                                sni_str,
+                                (size_t) at_ota_conn_settings.tls_settings.sni_len);
             }
         }
 

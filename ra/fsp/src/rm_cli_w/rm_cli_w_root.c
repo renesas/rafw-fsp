@@ -457,7 +457,7 @@ void print_version(void)
 #ifdef SIGMA_TEST_ENABLE
     printf("\t* - SDK Version     : V%s\n", SIGMA_SDK_VERSION);
 #else
-    printf("\t* - SDK Version     : V%d.%d.%d.%d.%d %s\n", SDK_VER_PRODUCT_LINE, SDK_VER_MODE, SDK_VER_TARGET, SDK_VER_BRANCH, SDK_VER_R, SDK_NAME);
+    printf("\t* - SDK Version     : V%d.%d.%d.%d.%d\n", SDK_VER_PRODUCT_LINE, SDK_VER_MODE, SDK_VER_TARGET, SDK_VER_BRANCH, SDK_VER_R);
 #endif
 
 #if (SUPPORT_FSP_RM_OTA_W == 1)

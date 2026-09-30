@@ -12,9 +12,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "limits.h"
-#if defined(__SUPPORT_WIFI_USER_GPIO__)
+#if __SUPPORT_WIFI_USER_GPIO__
  #include "r_gpio_w.h"
-#endif
+#endif /* __SUPPORT_WIFI_USER_GPIO__ */
 #include "rm_wifi.h"
 #include "lwip/timeouts.h"
 #include "stream_buffer.h"
@@ -560,10 +560,14 @@ static fsp_err_t rm_wifi_parse_connection_info(WIFIConnectionInfoExt_t *pxConnec
                     }
                     else if (strcmp(key, "wpa_state") == 0)
                     {
-                        if (strcmp(p_value, "COMPLETED") != 0)
+                        if (strcmp(p_value, "COMPLETED") == 0)
+                        {
+                            ret = FSP_SUCCESS;
+                        }
+                        else
                         {
                             ret = FSP_ERR_WIFI_FAILED;
-                            goto end;
+                            break;
                         }
                     }
                     else if (strcmp(key, "pairwise_cipher") == 0)
@@ -584,14 +588,17 @@ static fsp_err_t rm_wifi_parse_connection_info(WIFIConnectionInfoExt_t *pxConnec
             {
                 iface_index++;
             }
+            else if (ret != FSP_SUCCESS)
+            {
+                memset(&pxConnectionInfoExt[iface_index], 0x00, sizeof(*pxConnectionInfoExt));
+                iface_index++;
+            }
         }
         else
         {
             line = strtok(NULL, "\n");
         }
     }
-
-end:
 
     if (p_value)
     {

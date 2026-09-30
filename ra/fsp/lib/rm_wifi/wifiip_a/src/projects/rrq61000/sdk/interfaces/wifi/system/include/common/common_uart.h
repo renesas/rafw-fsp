@@ -35,7 +35,7 @@
 
 #include <stdarg.h>
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 typedef int (*command_function_t)(int argc, char *argv[]);
 

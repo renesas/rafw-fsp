@@ -13,7 +13,7 @@
  * Includes
  **********************************************************************************************************************/
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #define __CHK_NETWORK_TRAFFIC__
 

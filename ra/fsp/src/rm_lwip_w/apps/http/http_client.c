@@ -942,6 +942,16 @@ static int httpc_create_request_string (const httpc_connection_t * settings,
  #endif                                // HTTPC_ENABLE_HTTPS
     int ret_len = 0;
 
+    /* Optional "Range: bytes=<offset>-" header for resumable downloads.
+     * Built once here so its length is accounted for in both the
+     * measure pass (buffer == NULL) and the fill pass. */
+    char range_hdr[40];
+    range_hdr[0] = '\0';
+    if (settings->range_offset > 0)
+    {
+        snprintf(range_hdr, sizeof(range_hdr), "Range: bytes=%u-\r\n", (unsigned int) settings->range_offset);
+    }
+
     p = (char *) uri;
     q = strstr(p, "://");
     if (q != NULL)
@@ -1179,6 +1189,25 @@ static int httpc_create_request_string (const httpc_connection_t * settings,
     }
 
 finish:
+
+    /* Splice the optional Range header in just before the terminating blank
+     * line. The GET templates end with "...Connection: Close\r\n\r\n"; we turn
+     * the trailing "\r\n\r\n" into "\r\n<range_hdr>\r\n". The added byte count
+     * is the same on the measure and fill passes, so req_len stays consistent. */
+    if ((range_hdr[0] != '\0') && (ret_len > 0))
+    {
+        if (buffer != NULL)
+        {
+            char * sep = strstr(buffer, "\r\n\r\n");
+            if (sep != NULL)
+            {
+                snprintf(sep, buffer_size - (size_t) (sep - buffer), "\r\n%s\r\n", range_hdr);
+            }
+        }
+
+        ret_len += (int) strlen(range_hdr);
+    }
+
     if (parse_uri != NULL)
     {
         vPortFree(parse_uri);

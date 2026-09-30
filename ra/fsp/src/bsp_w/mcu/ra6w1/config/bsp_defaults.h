@@ -44,14 +44,6 @@
 
 #include "../bsp_feature.h"
 
-/* ---------------------------------------------------------------------------------------------- */
-
-#if DEVICE_FPGA
-
-/* Use FPGA-specific definitions first! */
- #include "bsp_defaults_fpga.h"
-#endif
-
 /* ----------------------------------- Deprecated Configuration --------------------------------- */
 
 /* Deprecated configuration options must not be defined by the application. */

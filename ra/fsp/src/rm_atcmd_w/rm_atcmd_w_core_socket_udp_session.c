@@ -868,7 +868,6 @@ static void atcmd_udps_task_entry(void * param)
         goto atcmd_udps_term;
     }
 
-#ifndef ATCMD_UDP_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     /* Get local addr info bound */
     if (conf->ip_type == IPADDR_TYPE_V4)
@@ -935,15 +934,12 @@ static void atcmd_udps_task_entry(void * param)
         }
     }
 #endif /* CFG_PMGR */
-#endif /* ATCMD_UDP_TASK_NO_WDOG_PMGR */
 
     ctx->state = ATCMD_UDPS_STATE_ACTIVE;
-#ifndef ATCMD_UDP_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     RM_PMGR_W_dpm_wakeup_done((char *)dpm_name);
     RM_PMGR_W_dpm_rcv_ready_set((char *)dpm_name);
 #endif /* CFG_PMGR */
-#endif
 
     if (ctx->event)
     {
@@ -1003,11 +999,9 @@ static void atcmd_udps_task_entry(void * param)
             #endif // __SUPPORT_IPV6__
         }
 
-#ifndef ATCMD_UDP_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
         RM_PMGR_W_dpm_sleep_ready_clear((char *)dpm_name);
 #endif /* CFG_PMGR */
-#endif
 
         if (ret > 0)
         {
@@ -1078,14 +1072,12 @@ static void atcmd_udps_task_entry(void * param)
                 RM_ATCMD_W_CORE_Write((atcmd_w_ctrl_t * const)ctx->p_at_ctrl, (uint8_t *)hdr, tot_len);
             }
         }
-#ifndef ATCMD_UDP_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
         if (!RM_PMGR_W_socket_rx_data_is_remaining(ctx->socket))
         {
             RM_PMGR_W_dpm_sleep_ready_set((char *)dpm_name);
         }
 #endif /* CFG_PMGR */
-#endif
     }
 
 atcmd_udps_term:
@@ -1099,14 +1091,12 @@ atcmd_udps_term:
     }
 
     ctx->buffer_len = 0;
-#ifndef ATCMD_UDP_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     RM_WIFI_dpm_udp_port_filter_delete(local_port);
     RM_PMGR_W_dpm_job_name_clear((char *)dpm_name);
     ATCMD_UDPS_INFO("Unreg - DPM Name:%s(%d), Local port(%d)\n",
                     dpm_name, strlen(dpm_name), local_port);
 #endif /* CFG_PMGR */
-#endif
     ctx->state = ATCMD_UDPS_STATE_TERMINATED;
 
     if (ctx->event)

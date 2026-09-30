@@ -1272,14 +1272,12 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
   return etharp_request_dst(netif, ipaddr, &ethbroadcast);
 }
 
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 err_t (* rm_lwip_w_etharp_raw)(struct netif *,
                         const struct eth_addr *, const struct eth_addr *,
                         const struct eth_addr *, const ip4_addr_t *,
                         const struct eth_addr *, const ip4_addr_t *,
                         const u16_t)
     = etharp_raw;
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 
 #if CFG_PMGR
 void *get_arp_table()

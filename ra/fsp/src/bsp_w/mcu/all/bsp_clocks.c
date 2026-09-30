@@ -431,14 +431,14 @@ void bsp_clock_rclp_speed_set (bsp_clock_rclp_speed_t speed)
  **********************************************************************************************************************/
 void bsp_clock_sysclk_set (fsp_priv_source_clock_t clock)
 {
-#if BSP_FPGA
-#if BSP_PRV_PLL_SUPPORTED
+#if BSP_PRV_PLL_RELOCK_WORKAROUND
+ #if BSP_PRV_PLL_SUPPORTED
     if (FSP_PRIV_CLOCK_PLL == clock)
     {
         bsp_clock_pll_enable(false);
         bsp_clock_pll_enable(true);
     }
-#endif
+ #endif
 #endif
 
 #if !BSP_MCU_GROUP_RA6W1

@@ -62,15 +62,6 @@ typedef BSP_CMSE_NONSECURE_CALL void (*volatile wdt_prv_ns_callback)(wdt_callbac
 #endif
 
 /***********************************************************************************************************************
- * Public function prototypes
- **********************************************************************************************************************/
-
-#if BSP_MCU_GROUP_RA6W1
-void bsp_wdt_freeze_cfg(void);
-
-#endif
-
-/***********************************************************************************************************************
  * Private function prototypes
  **********************************************************************************************************************/
 static void r_wdog_w_nmi_internal_callback(const uint32_t * p_exception_args);
@@ -687,17 +678,3 @@ static void r_wdog_w_unfreeze (void)
     R_BSP_PeripheralUnFreeze(BSP_FREEZE_PERIPHERAL_SYS_WDOG);
     WDOG_W_FREEZE_ENABLE = 0;
 }
-
-#if BSP_MCU_GROUP_RA6W1
-void bsp_wdt_freeze_cfg (void)
-{
-    /* Stub function - Do not remove !!!
-     * This function should be compiled instead of the Weak bsp_wdt_freeze_cfg.
-     * Details:
-     * WDT is enabled by default.
-     * In case wdt module does not include in the project, WDT should be disabled.
-     * bsp_wdt_freeze_cfg weak function - will disable WDT in case wdt module is not included.
-     * bsp_wdt_freeze_cfg normal function - will do nothing, hence WDT remains enabled in case wdt included. */
-}
-
-#endif

@@ -10,7 +10,8 @@
 #define SUPP_CONFIG_H		//MODIFY_SUPPLICANT_FOR_FREERTOS
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "common_def.h"
 
 #define	DEFAULT_EAPOL_VERSION				1

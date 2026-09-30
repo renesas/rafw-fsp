@@ -385,10 +385,6 @@ ws_err_t set_server_config(ws_tls_cfg_server_t *cfg, ws_tls_t *tls)
     ws_err_t ws_ret;
     int preset = MBEDTLS_SSL_PRESET_RA6WX;
 
-#if defined(__SUPPORT_TLS_HW_CIPHER_SUITES__)
-    preset = MBEDTLS_SSL_PRESET_RA6WX_ONLY_HW;
-#endif /* __SUPPORT_TLS_HW_CIPHER_SUITES__ */
-
     if ((ret = mbedtls_ssl_config_defaults(&tls->conf,
                     MBEDTLS_SSL_IS_SERVER,
                     MBEDTLS_SSL_TRANSPORT_STREAM,
@@ -443,10 +439,6 @@ ws_err_t set_client_config(const char *hostname, size_t hostlen, ws_tls_cfg_t *c
     assert(tls != NULL);
     int ret;
     int preset = MBEDTLS_SSL_PRESET_RA6WX;
-
-#if defined(__SUPPORT_TLS_HW_CIPHER_SUITES__)
-    preset = MBEDTLS_SSL_PRESET_RA6WX_ONLY_HW;
-#endif /* __SUPPORT_TLS_HW_CIPHER_SUITES__ */
 
     if (!cfg->skip_common_name) {
         char *use_host = NULL;

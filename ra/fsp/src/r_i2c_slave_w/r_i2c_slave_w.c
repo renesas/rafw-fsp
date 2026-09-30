@@ -567,10 +567,22 @@ static fsp_err_t i2c_slave_w_open_hw_slave (i2c_slave_w_instance_ctrl_t * const 
                     I2C_SLAVE_W_INT_START_DETECTED;
 #elif (BSP_FEATURE_I2C_VERSION == 2)
                     I2C_SLAVE_W_INT_RESTART_DETECTED;
+
+    if (I2C_SLAVE_W_BUS_CLEAR_ENABLED == p_extend->bus_clear)
+    {
+        mask |= I2C_SLAVE_W_INT_SCL_STUCK_AT_LOW;
+    }
 #endif
 
     /* Enable Generic interrupt events. */
     p_ctrl->p_reg->I2C_INTR_MASK_REG = mask;
+
+#if (BSP_FEATURE_I2C_VERSION == 2)
+
+    /* Bus clear settings. */
+    p_ctrl->p_reg->I2C_CON_REG_b.I2C_BUS_CLEAR_FEATURE_CTRL = p_extend->bus_clear;
+    p_ctrl->p_reg->I2C_SCL_STUCKATLOW_TIMEOUT_REG           = p_extend->scl_stuck_timeout;
+#endif
 
 #if BSP_FEATURE_I2C_HAS_DEDICATED_IRQS
  #if !I2C_SLAVE_W_CFG_GENERIC_ONLY
@@ -759,32 +771,36 @@ static void i2c_slave_w_call_callback (i2c_slave_w_instance_ctrl_t * p_ctrl,
     p_args->event     = event;
     p_args->p_context = p_ctrl->p_context;
 
+    if (NULL != p_ctrl->p_callback)
+    {
 #if BSP_TZ_SECURE_BUILD
 
-    /* p_callback can point to a secure function or a non-secure function. */
-    if (!cmse_is_nsfptr(p_ctrl->p_callback))
-    {
-        /* If p_callback is secure, then the project does not need to change security state. */
-        p_ctrl->p_callback(p_args);
-    }
-    else
-    {
-        /* If p_callback is Non-secure, then the project must change to Non-secure state in order to
-         * call the callback. */
-        i2c_slave_w_prv_ns_callback p_callback = (i2c_slave_w_prv_ns_callback) (p_ctrl->p_callback);
-        p_callback(p_args);
-    }
+        /* p_callback can point to a secure function or a non-secure function. */
+        if (!cmse_is_nsfptr(p_ctrl->p_callback))
+        {
+            /* If p_callback is secure, then the project does not need to change security state. */
+            p_ctrl->p_callback(p_args);
+        }
+        else
+        {
+            /* If p_callback is Non-secure, then the project must change to Non-secure state in order to
+             * call the callback. */
+            i2c_slave_w_prv_ns_callback p_callback = (i2c_slave_w_prv_ns_callback) (p_ctrl->p_callback);
+            p_callback(p_args);
+        }
 
 #else
 
-    /* If the project is not Trustzone Secure, then it will never need to change security state in
-     * order to call the callback. */
-    p_ctrl->p_callback(p_args);
+        /* If the project is not Trustzone Secure, then it will never need to change security state in
+         * order to call the callback. */
+        p_ctrl->p_callback(p_args);
 #endif
-    if (NULL != p_ctrl->p_callback_memory)
-    {
-        /* Restore callback memory in case this is a nested interrupt. */
-        *p_ctrl->p_callback_memory = args;
+
+        if (NULL != p_ctrl->p_callback_memory)
+        {
+            /* Restore callback memory in case this is a nested interrupt. */
+            *p_ctrl->p_callback_memory = args;
+        }
     }
 }
 
@@ -1280,6 +1296,36 @@ void i2c_slave_w_gen_isr (void)
             /* Clear abort. */
             p_ctrl->p_reg->I2C_CLR_TX_ABRT_REG;
         }
+
+#if (BSP_FEATURE_I2C_VERSION == 2)
+        if (mask & I2C_SLAVE_W_INT_SCL_STUCK_AT_LOW)
+        {
+            if (p_ctrl->notify_request)
+            {
+                /* Notify anyone waiting that the transfer is Aborted due to error. */
+                i2c_slave_w_notify(p_ctrl, I2C_SLAVE_EVENT_ABORTED);
+            }
+
+ #if BSP_FEATURE_I2C_HAS_DEDICATED_IRQS
+  #if !I2C_SLAVE_W_CFG_GENERIC_ONLY
+
+            /* Mask dedicated events except for RX Full event. */
+            p_ctrl->p_reg->I2C_MASK_REG = I2C_I2C_MASK_REG_I2C_RX_IRQ_MASK_Msk;
+  #else
+
+            /* Mask dedicated events. */
+            p_ctrl->p_reg->I2C_MASK_REG = 0;
+  #endif
+ #endif
+
+            /* Reset I2C. */
+            CRG_COM->SET_COM_RESET_REG   = CRG_COM_SET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+            CRG_COM->RESET_COM_RESET_REG = CRG_COM_RESET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+
+            /* Resetting the I2C peripheral resets the register values, so they need to be configured again. */
+            i2c_slave_w_open_hw_slave(p_ctrl);
+        }
+#endif
 
 #if I2C_SLAVE_W_CFG_GENERIC_ONLY
         if (mask & I2C_SLAVE_W_INT_RX_FULL)

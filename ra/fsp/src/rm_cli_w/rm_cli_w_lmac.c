@@ -771,25 +771,27 @@ TaskHandle_t tx_task_h = NULL;
 int         txp_on_off = 0;
 struct RFTX param      =
 {
-    .freq         = 2412,
-    .numFrames    = 100000,
-    .frameLen     = 100,
-    .txRate       = 0,
-    .txPower      = 0,
-    .destAddr     = {{0x2010, 0x4030, 0x6050}},
-    .bssid        = {{0x8070, 0xa090, 0xc0b0}},
-    .htEnable     = 0,
-    .greenField   = 0,
-    .preambleType = 0,
-    .qosEnable    = 0,
-    .ackPolicy    = 0,
-    .scrambler    = 0,
-    .aifsnval     = 1,
-    .ant          = 0,
-    .BW           = 20,
-    .tx_timeout   = 0,
-    .data_length  = 0,
-    .data         = {0,    }
+    .freq          = 2412,
+    .numFrames     = 100000,
+    .frameLen      = 100,
+    .txRate        = 0,
+    .txPower       = 0,
+    .destAddr      = {{0x2010, 0x4030, 0x6050}},
+    .bssid         = {{0x8070, 0xa090, 0xc0b0}},
+    .htEnable      = 0,
+    .greenField    = 0,
+    .preambleType  = 0,
+    .qosEnable     = 0,
+    .ackPolicy     = 0,
+    .scrambler     = 0,
+    .aifsnval      = 1,
+    .ant           = 0,
+    .BW            = 20,
+    .tx_timeout    = 0,
+    .cca_threshold = 0,
+    .cca_timeout   = 0,
+    .data_length   = 0,
+    .data          = {0,    }
 };
 
 static void rftx_thread (void * pvParameters)
@@ -1387,6 +1389,14 @@ int cmd_lmac_rftxpkt (int argc, const char ** argv)
                 return -1;
             }
 
+            /* Minimum 23 bytes — HW constraint. */
+            if (param.data_length < 23)
+            {
+                printf("Data too short (%lu bytes), minimum 23\n", (unsigned long) param.data_length);
+
+                return -1;
+            }
+
             [[fallthrough]];
         }
 
@@ -1396,8 +1406,18 @@ int cmd_lmac_rftxpkt (int argc, const char ** argv)
             [[fallthrough]];
         }
 
-        case 7:                        /* CCA Timeout, Not implemented */
-        case 6:                        /* CCA Threshold, Not implemented */
+        case 7:                        /* CCA Timeout */
+        {
+            param.cca_timeout = (uint32_t) atoi(argv[6]);
+            [[fallthrough]];
+        }
+
+        case 6:                        /* CCA Threshold */
+        {
+            param.cca_threshold = atoi(argv[5]);
+            [[fallthrough]];
+        }
+
         case 5:                        /* TX power */
         {
             if (*argv[4] == 'p')
@@ -2483,7 +2503,7 @@ static const debug_handler_t lmac_handlers[] =
                      "[preambleType] [qosEnable] [ackPolicy] [scrambler] [aifsnVal] [ant]",
      lmac_rftx},
     {"rftxpkt",      "[frequency] [BW] [txRate] [txPower] [ccaThreshold] [ccaTimeout] " \
-                     "[timeOt] [data-ASCII encoded]]", lmac_rftxpkt},
+                     "[timeOut] [data-ASCII encoded]", lmac_rftxpkt},
     {"cont_tx",      "[frequency] [txPower] [txRate]",
      (debug_callback_t) lmac_cont_tx_start},
     {"cont_tx_stop", "",

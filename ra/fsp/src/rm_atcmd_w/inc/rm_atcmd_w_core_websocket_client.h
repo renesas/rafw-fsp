@@ -12,7 +12,7 @@
 #define RM_ATCMD_W_CORE_WEBSOCKET_CLIENT_H
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "task.h"
 

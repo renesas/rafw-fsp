@@ -30,7 +30,7 @@
  ****************************************************************************************
  */
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #if defined (__SUPPORT_OTA__)
 #include <stdio.h>

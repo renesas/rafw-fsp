@@ -7,7 +7,7 @@
 #include "bsp_api.h"
 #if CFG_WIFI
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
 
  #include <stdarg.h>
  #include "strings.h"
@@ -25,13 +25,7 @@
 
  #undef DEBUG_ATCMD_W_OTA_MCU_DUMP
 
- #if defined(__SUPPORT_UART2__)
-extern HANDLE uart2;
-extern HANDLE uart3;
- #else                                 // SPI || SPIO
 extern int host_response(unsigned int buf_addr, unsigned int len, unsigned int resp, unsigned int padding_bytes);
-
- #endif
 
  #if (SUPPORT_FSP_RM_OTA_W == 1)
 extern const ota_instance_t * p_ota_instance;

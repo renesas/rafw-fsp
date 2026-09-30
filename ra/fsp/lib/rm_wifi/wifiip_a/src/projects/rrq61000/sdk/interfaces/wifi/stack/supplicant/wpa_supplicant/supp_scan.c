@@ -636,7 +636,9 @@ static void wpas_fils_req_param_add_max_channel(struct wpa_supplicant *wpa_s,
 }
 #endif /* CONFIG_MBO */
 
-
+#ifdef CONFIG_MBO
+extern uint32_t rwnx_sku_id_read_otp(void);
+#endif /* CONFIG_MBO */
 void wpa_supplicant_set_default_scan_ies(struct wpa_supplicant *wpa_s)
 {
 	struct wpabuf *default_ies = NULL;
@@ -658,11 +660,13 @@ void wpa_supplicant_set_default_scan_ies(struct wpa_supplicant *wpa_s)
 		wpabuf_put_data(default_ies, ext_capab, ext_capab_len);
 
 #ifdef CONFIG_MBO
-	if (wpa_s->enable_oce & OCE_STA)
-		wpas_fils_req_param_add_max_channel(wpa_s, &default_ies);
-	/* Send MBO and OCE capabilities */
-	if (wpabuf_resize(&default_ies, 12) == 0)
-		wpas_mbo_scan_ie(wpa_s, default_ies);
+	if (rwnx_sku_id_read_otp() != TIN_SKU_WIFI4_B24) {
+		if (wpa_s->enable_oce & OCE_STA)
+			wpas_fils_req_param_add_max_channel(wpa_s, &default_ies);
+		/* Send MBO and OCE capabilities */
+		if (wpabuf_resize(&default_ies, 12) == 0)
+			wpas_mbo_scan_ie(wpa_s, default_ies);
+	}
 #endif /* CONFIG_MBO */
 
 	if (type == WPA_IF_P2P_CLIENT)
@@ -694,6 +698,9 @@ static struct wpabuf * wpa_supplicant_extra_ies(struct wpa_supplicant *wpa_s)
 	int wps = 0;
 	enum wps_request_type req_type = WPS_REQ_ENROLLEE_INFO;
 #endif /* CONFIG_WPS */
+#ifdef CONFIG_MBO
+	uint32_t sku_id = rwnx_sku_id_read_otp();
+#endif /* CONFIG_MBO */
 
 #ifdef CONFIG_P2P
 	if (wpa_s->p2p_group_interface == P2P_GROUP_INTERFACE_CLIENT)
@@ -715,8 +722,10 @@ static struct wpabuf * wpa_supplicant_extra_ies(struct wpa_supplicant *wpa_s)
 #endif /* CONFIG_INTERWORKING */
 
 #ifdef CONFIG_MBO
-	if (wpa_s->enable_oce & OCE_STA)
-		wpas_fils_req_param_add_max_channel(wpa_s, &extra_ie);
+	if (sku_id != TIN_SKU_WIFI4_B24) {
+		if (wpa_s->enable_oce & OCE_STA)
+			wpas_fils_req_param_add_max_channel(wpa_s, &extra_ie);
+	}
 #endif /* CONFIG_MBO */
 
 #ifdef CONFIG_WPS
@@ -766,9 +775,11 @@ static struct wpabuf * wpa_supplicant_extra_ies(struct wpa_supplicant *wpa_s)
 #endif /* CONFIG_FST */
 
 #ifdef CONFIG_MBO
-	/* Send MBO and OCE capabilities */
-	if (wpabuf_resize(&extra_ie, 12) == 0)
-		wpas_mbo_scan_ie(wpa_s, extra_ie);
+	if (sku_id != TIN_SKU_WIFI4_B24) {
+		/* Send MBO and OCE capabilities */
+		if (wpabuf_resize(&extra_ie, 12) == 0)
+			wpas_mbo_scan_ie(wpa_s, extra_ie);
+	}
 #endif /* CONFIG_MBO */
 
 #if defined ( CONFIG_VENDOR_ELEM )

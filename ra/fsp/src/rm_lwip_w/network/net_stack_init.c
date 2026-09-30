@@ -37,7 +37,8 @@
  */
 #include "bsp_api.h"
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #if CFG_WIFI
  #include "utils/includes.h"
 #endif                                 /* CFG_WIFI */
@@ -840,7 +841,8 @@ static int umac_lmac_init (int dpmmode)
 #if CFG_PMGR
 static UINT dpm_full_wakeup_wlaninit ()
 {
- #ifdef  R_RTC_W_HELPER_H
+    enum DPM_WAKEUP_TYPE wakeuptype;
+#ifdef  R_RTC_W_HELPER_H
     __time64_t now;
  #endif                                /* R_RTC_W_HELPER_H */
 
@@ -897,6 +899,17 @@ static UINT dpm_full_wakeup_wlaninit ()
         printf("Fail\n");
 
         return pdFAIL;
+    }
+
+    wakeuptype = (enum DPM_WAKEUP_TYPE) RM_PMGR_W_dpm_wakeup_type_get(0);
+
+    /*
+     * For DPM_PACKET_WAKEUP and DPM_USER_WAKEUP, wifi_netif_control
+     * was moved to dpm_full_wakeup_wlaninit to prevent data loss.
+     */
+    if ((wakeuptype == DPM_PACKET_WAKEUP) || (wakeuptype == DPM_USER_WAKEUP))
+    {
+        wifi_netif_control(WLAN0_IFACE, 1);
     }
 
     /* In case of DPM Full booting, Need link up connection as true */
@@ -1243,11 +1256,6 @@ dpm_dhcpc_set_r:
         return pdFAIL;
     }
 
-    /* Register Wi-Fi connect/disconnect status notify call-back functions */
-#if CFG_WIFI
-    rm_wifi_register_wifi_notify_cb();
-#endif                                 /* CFG_WIFI */
-
     /* Start Wi-Fi wpa_supplicant */
     if (start_ra6w1_wpa_supplicant() == pdFAIL)
     {
@@ -1282,8 +1290,11 @@ dpm_dhcpc_set_r:
             /* TIM Status is UC, BC, BCN_CHG, DPM_USER_0, DPM_USER_1 , let's wait supplicant ready(key set, eloop run.) */
             if ((wakeuptype == DPM_PACKET_WAKEUP) || (wakeuptype == DPM_USER_WAKEUP))
             {
-                /* Network interface UP in DPM */
-            	wifi_netif_control(WLAN0_IFACE, 1);
+                /*
+                 * Network interface UP in DPM.
+                 * For DPM_PACKET_WAKEUP and DPM_USER_WAKEUP, wifi_netif_control
+                 * was moved to dpm_full_wakeup_wlaninit to prevent data loss.
+                 */
 
                 int cnt = 0;
                 while (1)

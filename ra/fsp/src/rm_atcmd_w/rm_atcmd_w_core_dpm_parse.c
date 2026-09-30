@@ -18,7 +18,8 @@
   #include "rm_atcmd_w_core_dpm_parse.h"
 
   #include "FreeRTOS.h"
-  #include "custom_config_sdk.h"
+  #include "rm_wifi.h"
+
   #include "rm_pmgr_w_instance.h"
   #include "rm_wifi_helper.h"
   #include "rm_vee_flash_w_rrq_nvram.h"

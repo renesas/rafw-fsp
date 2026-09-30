@@ -499,7 +499,11 @@ fsp_err_t R_SPI_W_Close (spi_ctrl_t * const p_api_ctrl)
     R_BSP_IrqDisable(p_extend->gen_irq);
 
 #if !BSP_MCU_GROUP_RA6W1
-    R_BSP_IrqDisable(p_ctrl->p_cfg->tei_irq);
+    if (BSP_IRQ_DISABLED != p_ctrl->p_cfg->tei_ipl)
+    {
+        R_BSP_IrqDisable(p_ctrl->p_cfg->tei_irq);
+    }
+
     if (BSP_IRQ_DISABLED != p_ctrl->p_cfg->eri_ipl)
     {
         R_BSP_IrqDisable(p_ctrl->p_cfg->eri_irq);
@@ -588,16 +592,17 @@ fsp_err_t R_SPI_W_CalculateBitrate (uint32_t bitrate, uint8_t * spck_div, uint8_
     uint32_t sys_clk            = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_SYS_CLK);
     uint32_t spi_core_clock_div = (CRG_TOP->SPI_CLK_CTRL_REG >> (channel * 4)) & 0x7;
     spi_core_clock_div = (spi_core_clock_div <= 1) ? (spi_core_clock_div + 1) : (spi_core_clock_div + 2);
-    uint32_t desired_divider = sys_clk / (bitrate * spi_core_clock_div);
+    uint32_t divider_input   = bitrate * spi_core_clock_div;
+    uint32_t desired_divider = (sys_clk + divider_input - 1U) / divider_input;
 #elif BSP_MCU_GROUP_RA6W1
 
     /* desired_divider = Smallest integer greater than or equal to SPI_CLK / bitrate. */
     uint32_t spi_clk         = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_SPI);
-    uint32_t desired_divider = spi_clk / bitrate;
+    uint32_t desired_divider = (spi_clk + bitrate - 1U) / bitrate;
 #else
 
     /* desired_divider = Smallest integer greater than or equal to BSP_DIVN_FREQ_HZ(32Mhz) / bitrate. */
-    uint32_t desired_divider = BSP_DIVN_FREQ_HZ / bitrate;
+    uint32_t desired_divider = (BSP_DIVN_FREQ_HZ + bitrate - 1U) / bitrate;
 #endif
 
     /* Can't achieve bitrate slower than desired. */
@@ -612,7 +617,8 @@ fsp_err_t R_SPI_W_CalculateBitrate (uint32_t bitrate, uint8_t * spck_div, uint8_
     }
     else
     {
-        *spck_div = ((uint8_t) ((desired_divider >> 1U) - 1U)) & SPI_W_CLK_DIV_SETTING_MASK;
+        /* spck_div = ceil(desired_divider/2) - 1, so actual_divider = 2*(spck_div+1) >= desired_divider. */
+        *spck_div = ((uint8_t) ((desired_divider - 1U) >> 1U)) & SPI_W_CLK_DIV_SETTING_MASK;
     }
 
     return err;

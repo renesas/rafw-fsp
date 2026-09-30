@@ -6118,6 +6118,7 @@ int mbedtls_ssl_config_defaults(mbedtls_ssl_config *conf,
         /*
          * RRQ Suite
          */
+#if defined(BSP_MCU_GROUP_RA6W1) || defined(BSP_MCU_GROUP_RA6W3)         
         case MBEDTLS_SSL_PRESET_RRQ:
             conf->ciphersuite_list = mbedtls_ssl_list_rrq_ciphersuites();
 
@@ -6176,7 +6177,7 @@ int mbedtls_ssl_config_defaults(mbedtls_ssl_config *conf,
             conf->dhm_min_bitlen = 1024;
 #endif
             break;
-
+#endif
         /*
          * Default
          */

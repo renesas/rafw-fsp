@@ -73,6 +73,10 @@ FSP_HEADER
  #define BSP_PRV_PLL2_SOURCE_FREQ_HZ           (BSP_CFG_XTALM_HZ)
 #endif
 
+#ifndef BSP_PRV_PLL_RELOCK_WORKAROUND
+ #define BSP_PRV_PLL_RELOCK_WORKAROUND         (0U)
+#endif
+
 /* Frequencies of clocks with fixed frequencies. */
 #define BSP_DIVN_FREQ_HZ                       (32000000U) // DIVN frequency is 32 MHz
 #if BSP_FEATURE_CGC_HAS_RCLP_SPEEDS
@@ -85,7 +89,7 @@ FSP_HEADER
 #endif
 
 #if BSP_PRV_PLL_SUPPORTED
- #if BSP_FPGA
+ #if BSP_PRV_PLL_RELOCK_WORKAROUND
   #define BSP_PLL_FREQ_HZ                      (32000000)
  #else
   #if BSP_MCU_GROUP_RA6B1 || BSP_MCU_GROUP_RA6U1

@@ -95,7 +95,7 @@ typedef enum e_bsp_wakeup_source_mask
     BSP_WAKEUP_SOURCE_WAKEUP_COUNTER = 0x02,                ///< Boot from wake up counter
     BSP_WAKEUP_GPIO_WAKEUP_COUNTER   = 0x03,                ///< Boot from wake up counter or GPIO wakeup
     BSP_WAKEUP_SOURCE_POR            = 0x04,                ///< Boot from power on reset
-    BSP_WAKEUP_SOURCE_POR_GPIO       = 0x05,                ///< FPGA only
+    BSP_WAKEUP_SOURCE_POR_GPIO       = 0x05,                ///< Boot from power-on reset or GPIO wakeup
     BSP_WAKEUP_SOURCE_WATCHDOG       = 0x08,                ///< Boot from RTC_watch dog (not cpu watchdog)
     BSP_WAKEUP_WATCHDOG_GPIO         = 0x09,                ///< Boot from watch dog or GPIO wakeup
     BSP_WAKEUP_SOURCE_SENSOR         = 0x10,                ///< Boot from sensor (ADC)

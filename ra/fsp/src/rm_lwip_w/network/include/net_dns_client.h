@@ -114,23 +114,6 @@
 #define DNS_RESOLVE_DEFAULT_TIMEOUT_MS	\
 	(((DNS_MAX_SERVERS) * DNS_PER_SERVER_WAIT_MS) + (DNS_TMR_INTERVAL))
 
-#if defined ( __DNS_2ND_CACHE_SUPPORT__ )
-#define	MAX_URL_STRING_LEN		128
-#define	MAX_IPADDR_LEN			16
-#define	MAX_URL_TABLE_CNT		25
-
-/// URL to IP_Address matching table
-typedef struct {
-	char	domain_str[MAX_URL_STRING_LEN];
-	char	ipaddr_str[MAX_IPADDR_LEN];
-	uint64_t   last_time; // sec.
-} domain_to_ip_addr_table_t;
-
-typedef struct {
-	domain_to_ip_addr_table_t table[MAX_URL_TABLE_CNT];
-} domain_to_ip_addr_t;
-#endif	// __DNS_2ND_CACHE_SUPPORT__
-
 /* Result of a synchronous DNS resolution performed by dns_resolve(). */
 typedef enum {
     DNS_RESOLVE_OK = 0,    /* Host resolved; the output address is valid.           */

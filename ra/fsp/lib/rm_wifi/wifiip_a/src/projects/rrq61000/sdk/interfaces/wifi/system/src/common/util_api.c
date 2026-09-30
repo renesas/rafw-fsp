@@ -31,7 +31,7 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -48,12 +48,6 @@
 #include "lwip/err.h"
 #include "common_compile_opt.h"
 #include "net_sntp_client.h"
-
-#if defined (__SUPPORT_WIFI_CONN_CB__)
-#include "lwip/priv/tcp_priv.h"
-#include "net_dhcp_server.h"
-#include "dhcpserver.h"
-#endif // __SUPPORT_WIFI_CONN_CB__
 
 #ifdef __SUPPORT_REMOVE_MAC_NAME__
 #include "app_provision.h"
@@ -441,7 +435,6 @@ int is_in_softap_acs_mode(void)
     return res;
 }
 #endif
-// #endif    /* __SUPPORT_WIFI_CONCURRENT__ */
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

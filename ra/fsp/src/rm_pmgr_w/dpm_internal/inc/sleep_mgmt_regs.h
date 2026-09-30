@@ -9,7 +9,8 @@
 
 #if CFG_WIFI
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "lwip/dns.h"
 #include "net_arp.h"
 #include "dpmrtm.h"

@@ -78,9 +78,11 @@
   #undef __SUPPORT_WPS_BTN__
  #endif
 
- #if defined(__SUPPORT_WPS_BTN__) && defined(__SUPPORT_WIFI_USER_GPIO__)
+ #if __SUPPORT_WIFI_USER_GPIO__
+ #if defined(__SUPPORT_WPS_BTN__)
   #include "rm_wifi_user_app_gpio_handle.h"
  #endif
+ #endif /* __SUPPORT_WIFI_USER_GPIO__ */
  #if defined(SIGMA_TEST_ENABLE)
   #include "rm_sigma.h"
  #endif                                // SIGMA_TEST_ENABLE
@@ -1358,21 +1360,23 @@ static void ra6w1_network_main_enable_wps_btn (void)
         return;
     }
 
-#if defined(__SUPPORT_WIFI_USER_GPIO__) && defined(BTN_WPS)
+ #if __SUPPORT_WIFI_USER_GPIO__
+ #if defined(BTN_WPS)
     /* Setup WPS button */
     ret = rm_wifi_app_gpio_check_wps_button(BTN_WPS_PORT, BTN_WPS_PIN,
 
- #if defined(__SUPPORT_EVK_LED__)
+ #if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
                                              FR_WPS_LED_PORT, FR_WPS_LED_PIN,
- #endif // __SUPPORT_EVK_LED__
+ #endif // __SUPPORT_WPS_FACTORY_BTN_LED__
                                              BTN_WPS_CHK_TIME);
-#endif
+ #endif
+ #endif /* __SUPPORT_WIFI_USER_GPIO__ */
     if (ret == pdTRUE) {
         char reply[10];
         memset(reply, 0, 10);
         ra6w1_cli_reply("wps_pbc any", NULL, reply);
     }
-#endif // __SUPPORT_WIFI_USER_GPIO__ && BTN_WPS
+ #endif /* __SUPPORT_WPS_BTN__ */
 
     return ;
 }

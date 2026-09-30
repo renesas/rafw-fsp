@@ -569,22 +569,42 @@ RM_ATCMD_W_CORE_HTTP_ATCMD_BRIEF_CB(HTCTLSAUTH)
 RM_ATCMD_W_CORE_HTTP_ATCMD_CB(HTS)
 {
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
+    char * _cmd[2] = {0x00,};
+    char resp_str[32] = {0x00,};
+    int run_mode = 0;
 
-    if (argc < 2)
+    if (argc > 2)
     {
-        err = FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
+        return FSP_ERR_AT_CMD_ERR_TOO_MANY_ARGS;
     }
-    else if (argc > 2)
+
+    if ((argc == 1) || rm_atcmd_w_core_common_is_query_arg(argc, argv[1]))
     {
-        err = FSP_ERR_AT_CMD_ERR_TOO_MANY_ARGS;
+        if (http_server_get_status(&run_mode) != FSP_SUCCESS)
+        {
+            run_mode = 0;
+        }
+
+        snprintf(resp_str, sizeof(resp_str), "\r\n%s:%d", rm_atcmd_w_core_common_strupr(argv[0] + 2), run_mode);
+
+        RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) resp_str, strlen(resp_str));
     }
     else
     {
-        char * _cmd[2];
-        _cmd[0] = "http-server";
-        _cmd[1] = atoi(argv[1]) == 1 ? "start" : "stop";
+        if (rm_atcmd_w_core_common_stoi(argv[1], &run_mode, POL_1) != 0)
+        {
+            return FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
+        }
 
-        if (rm_atcmd_w_run_user_http_server(p_at_ctrl, 2, _cmd))
+        if (rm_atcmd_w_core_common_is_in_valid_range(run_mode, 0, 1) == pdFALSE)
+        {
+            return FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
+        }
+
+        _cmd[0] = "http-server";
+        _cmd[1] = (run_mode == 1) ? "start" : "stop";
+
+        if (rm_atcmd_w_run_user_http_server(p_at_ctrl, 2, _cmd) != FSP_SUCCESS)
         {
             err = FSP_ERR_AT_CMD_ERR_NW_HTS_TASK_CREATE_FAIL;
         }

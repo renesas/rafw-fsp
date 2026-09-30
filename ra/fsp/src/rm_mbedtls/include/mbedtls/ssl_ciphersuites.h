@@ -459,8 +459,11 @@ struct mbedtls_ssl_ciphersuite_t {
 };
 
 const int *mbedtls_ssl_list_ciphersuites(void);
+
+#if defined(BSP_MCU_GROUP_RA6W1) || defined(BSP_MCU_GROUP_RA6W3)
 const int *mbedtls_ssl_list_rrq_ciphersuites(void);
 const int *mbedtls_ssl_list_rrq_hw_ciphersuites(void);
+#endif
 
 const mbedtls_ssl_ciphersuite_t *mbedtls_ssl_ciphersuite_from_string(const char *ciphersuite_name);
 const mbedtls_ssl_ciphersuite_t *mbedtls_ssl_ciphersuite_from_id(int ciphersuite_id);

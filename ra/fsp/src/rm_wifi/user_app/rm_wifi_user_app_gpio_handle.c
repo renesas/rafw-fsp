@@ -8,12 +8,13 @@
  * Includes
  **********************************************************************************************************************/
 #include "bsp_api.h"
-#if defined(__SUPPORT_WIFI_USER_GPIO__)
+#if __SUPPORT_WIFI_USER_GPIO__
 #include <string.h>
 #include <stdlib.h>
 #include "common_def.h"
 #include "event_groups.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "r_ext_irq_w.h"
 #include "r_gpio_w.h"
 #include "rm_wifi.h"
@@ -59,19 +60,21 @@ static void srm_wifi_app_gpio_p0_wps_handler(void * param);
 void srm_wifi_app_gpio_p0_fr_handler(void * param);
 static void srm_wifi_app_gpio_p1_handler(void * param);
 
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
 static void srm_wifi_app_gpio_set_led_state(int port, int num, int state);
 #endif
 
 static void srm_wifi_app_gpio_event_task(void * param);
 
+#if defined (__SUPPORT_FACTORY_RESET_BTN__)
 static void srm_wifi_app_gpio_factory_reset_default(int reboot_flag);
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
 static unsigned int srm_wifi_app_gpio_check_factory_button(int btn_gpio_port, int btn_gpio_num,
         int led_gpio_port, int led_gpio_num, int check_time);
 #else
 static unsigned int srm_wifi_app_gpio_check_factory_button(int btn_gpio_port, int btn_gpio_num, int check_time);
 #endif
+#endif /* __SUPPORT_FACTORY_RESET_BTN__ */
 
 /***********************************************************************************************************************
  * Private global variables
@@ -133,7 +136,7 @@ void rm_wifi_app_gpio_config_button (void)
 /*******************************************************************************************************************//**
  * Check the state of WPS button.
  **********************************************************************************************************************/
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
 unsigned int rm_wifi_app_gpio_check_wps_button (int btn_gpio_port, int btn_gpio_num,
         int led_gpio_port, int led_gpio_num, int check_time)
 #else
@@ -154,7 +157,7 @@ unsigned int rm_wifi_app_gpio_check_wps_button (int btn_gpio_port, int btn_gpio_
         if (WIFI_APP_GPIO_BTN_WPS_ACTIVE_STATE == pin_status)
         {
             /* Button is in 'pressed' state. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             if (0 == check_time_cnt)
             {
                 srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_ON);
@@ -166,7 +169,7 @@ unsigned int rm_wifi_app_gpio_check_wps_button (int btn_gpio_port, int btn_gpio_
         else
         {
             /* Button is in 'released' state. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             if (0 != check_time_cnt)
             {
                 srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_OFF);
@@ -210,7 +213,7 @@ unsigned int rm_wifi_app_gpio_check_wps_button (int btn_gpio_port, int btn_gpio_
 
         if (WIFI_APP_GPIO_BTN_WPS_ACTIVE_STATE != pin_status)
         {
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_OFF);
 #endif
             printf("\33[2K"  "Start WPS.\n");
@@ -220,7 +223,7 @@ unsigned int rm_wifi_app_gpio_check_wps_button (int btn_gpio_port, int btn_gpio_
         else
         {
             /* Wait until button is released. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             /* WPS Status LED Blink. */
             if (0 == (check_time_cnt % 2))
             {
@@ -345,7 +348,7 @@ static void srm_wifi_app_gpio_set_interrupt (void)
     g_external_irq2.p_api->enable(&g_external_irq2_ctrl);
 #endif
 
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
     g_gpio_w.p_api->pinCfg(g_gpio_w.p_ctrl, ((FR_WPS_LED_PORT << BSP_IO_PORT_OFFSET) | FR_WPS_LED_PIN),
                            (uint32_t) (FR_WPS_LED_MODE | FR_WPS_LED_FUNC));
 #endif
@@ -429,7 +432,7 @@ static void srm_wifi_app_gpio_p1_handler (void * param)
 /*******************************************************************************************************************//**
  * Set LED On/Off state.
  **********************************************************************************************************************/
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
 static void srm_wifi_app_gpio_set_led_state (int port, int num, int state)
 {
     if (WIFI_APP_GPIO_LED_STATE_OFF == state)
@@ -518,7 +521,7 @@ static void srm_wifi_app_gpio_event_task (void * param)
             g_wifi_cfg.p_watchdog_service->p_api->suspend(g_wifi_cfg.p_watchdog_service->p_ctrl, sys_wdog_id);
  #endif
 
- #if defined(__SUPPORT_EVK_LED__)
+ #if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             status = srm_wifi_app_gpio_check_factory_button(irq1_port, (irq1_pin & BSP_IO_PIN_BITS),
                                                              FR_WPS_LED_PORT, FR_WPS_LED_PIN, BTN_FR_CHK_TIME);
  #else
@@ -540,7 +543,7 @@ static void srm_wifi_app_gpio_event_task (void * param)
                                                                       sys_wdog_id);
  #endif
         }
-#endif
+#endif  /* __SUPPORT_FACTORY_RESET_BTN__ */
 
 #if defined(__SUPPORT_WPS_BTN__) && defined(__SUPPORT_FACTORY_RESET_BTN__)
         else
@@ -557,7 +560,7 @@ static void srm_wifi_app_gpio_event_task (void * param)
                                                                   sys_wdog_id);
  #endif
 
- #if defined(__SUPPORT_EVK_LED__)
+ #if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
                 status = rm_wifi_app_gpio_check_wps_button(BTN_WPS_PORT, BTN_WPS_PIN,
                                                             FR_WPS_LED_PORT, FR_WPS_LED_PIN, BTN_WPS_CHK_TIME);
  #else
@@ -593,6 +596,7 @@ static void srm_wifi_app_gpio_event_task (void * param)
 /*******************************************************************************************************************//**
  * Default factory reset.
  **********************************************************************************************************************/
+#if defined (__SUPPORT_FACTORY_RESET_BTN__)
 static void srm_wifi_app_gpio_factory_reset_default (int reboot_flag)
 {
     printf(ANSI_COLOR_LIGHT_RED "\nFactory Reseting...\n" ANSI_COLOR_DEFULT );
@@ -627,7 +631,7 @@ static void srm_wifi_app_gpio_factory_reset_default (int reboot_flag)
  *  2. Press for 1 second, release: sys_mode switch (for concurrent mode)
  *  3. Press for 1 to 4 seconds, release: reboot
  **********************************************************************************************************************/
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
 static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, int btn_gpio_num,
         int led_gpio_port, int led_gpio_num, int check_time)
 #else
@@ -648,7 +652,7 @@ static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, i
         if (WIFI_APP_GPIO_BTN_FR_ACTIVE_STATE == pin_status)
         {
             /* Button is in 'pressed' state. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             if (2 == check_time_cnt)
             {
                 srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_ON);
@@ -663,7 +667,7 @@ static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, i
             if ((check_time_cnt > 10) && (check_time_cnt < (10 * check_time)))
             {
                 /* 1 ~ reset_time Sec. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
                 srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_OFF);
 #endif
 
@@ -685,7 +689,7 @@ static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, i
                 }
             }
 
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_OFF);
 #endif
 
@@ -734,7 +738,7 @@ static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, i
         else
         {
             /* Wait until button is released. */
-#if defined(__SUPPORT_EVK_LED__)
+#if defined(__SUPPORT_WPS_FACTORY_BTN_LED__)
             /* Factory Status LED Blink */
             srm_wifi_app_gpio_set_led_state(led_gpio_port, led_gpio_num, WIFI_APP_GPIO_LED_STATE_ON);
             vTaskDelay(portCONVERT_MS_2_TICKS(WIFI_APP_GPIO_CHECK_STEP_FACTORY_BTN_MS)); /* 100ms */
@@ -747,6 +751,7 @@ static unsigned int srm_wifi_app_gpio_check_factory_button (int btn_gpio_port, i
 end:
     return result;
 }
+#endif /* __SUPPORT_FACTORY_RESET_BTN__ */
 
 #define WAKEUP_HOLD_TIMER_NAME "WAKEUP_HOLD"
 #define WAKEUP_HOLD_TIMEOUT_TICKS pdMS_TO_TICKS(5000)
@@ -846,4 +851,4 @@ int rm_wifi_app_gpio_wakeup_set(bsp_io_port_pin_t port_pin, bsp_io_wakeup_edge_t
 
     return 0;
 }
-#endif
+#endif /* __SUPPORT_WIFI_USER_GPIO__ */

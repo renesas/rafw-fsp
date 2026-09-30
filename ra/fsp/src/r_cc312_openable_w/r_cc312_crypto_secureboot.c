@@ -153,11 +153,6 @@ static BsvItError_t r_cc312_sboot_boot(uint32_t faddress, uint32_t *jaddress, US
 static BsvItError_t r_cc312_sdebug_fast(uint32_t lcs, HANDLE sflash, uint32_t faddress);
 static BsvItError_t r_cc312_DeviceCompleteDisable(void);
 static void r_cc312_debug_set_errorcode(uint32_t ecode);
-
-#ifdef	BUILD_OPT_RRQ61X_FPGA
-static BsvItError_t test_prepareOtp(uint32_t mode);
-#endif	//BUILD_OPT_RRQ61X_FPGA
-
 static	uint32_t	ra6w1_crypto_debug;
 static	uint32_t	ra6w1_crypto_ecode;
 
@@ -285,19 +280,6 @@ end_dbgstep:
 }
 
 
-#ifdef	BUILD_OPT_RRQ61X_FPGA
-void	R_CC312_TestOtp(uint32_t mode)
-{
-	CC_PalInit(); // for Mutex
-	CC_HalInit();
-
-	test_prepareOtp(mode);
-
-	CC_HalTerminate();
-	CC_PalTerminate();
-}
-#endif	//BUILD_OPT_RRQ61X_FPGA
-
 uint32_t R_CC312_SecureSocID_internal(uint8_t *pSocID)
 {
 	BsvItError_t rc = BSVIT_ERROR__OK;
@@ -399,67 +381,6 @@ uint32_t R_CC312_SecureSocID(void)
         return R_CC312_SecureSocID_internal(NULL);
 }
 
-/******************************************************************************
- *  test_prepareOtp( )
- *
- *  Purpose :
- *  Input   :
- *  Output  :
- *  Return  :
- ******************************************************************************/
-#ifdef	BUILD_OPT_RRQ61X_FPGA
-
-extern BsvItError_t bsvIt_burnOtp(unsigned int *otpBuf, unsigned int nextLcs);
-
-static BsvItError_t test_prepareOtp(uint32_t mode)
-{
-#define TEST_OTP_SIZE_IN_WORDS 		0x2C
-
-    BsvItError_t rc = BSVIT_ERROR__OK;
-    const uint32_t OTP_SIZE = TEST_OTP_SIZE_IN_WORDS * sizeof(uint32_t);
-
-    uint32_t otpLcs;
-
-    uint32_t * pOtpValuesAligned = NULL;
-
-    BSVIT_PRINT_DBG("prepare Otp\n");
-
-    if( mode != CC_BSV_CHIP_MANUFACTURE_LCS ){
-    	return BSVIT_ERROR__FAIL;
-    }
-
-    otpLcs = CC_BSV_CHIP_MANUFACTURE_LCS;
-
-    /* Allocate dma-able region */
-    pOtpValuesAligned   = (uint32_t *)CRYPTO_MALLOC(OTP_SIZE);
-
-    /* Copy OTP image to dma-able memory space */
-    memset(pOtpValuesAligned, 0x0, OTP_SIZE);
-
-    {
-    	uint32_t i;
-		uint32_t OtpWord;
-		for( i = 0; i < 0x2C; i++ ){
-			CC_BsvOTPWordRead(RRQ61X_ACRYPT_BASE, i, &OtpWord );
-			CRYPTO_PRINTF("OTP[%02x] := %08x\n", i, OtpWord );
-		}
-    }
-
-    /*  Burn the OTP for secure LCS and with the Kpicv, kceicv */
-    if (bsvIt_burnOtp(pOtpValuesAligned, otpLcs) != 0)
-    {
-        BSVIT_PRINT_ERROR("Failed to bsvIt_burnOtp\n");
-        rc = BSVIT_ERROR__FAIL;
-        goto bail;
-    }
-
-bail:
-    CRYPTO_FREE(pOtpValuesAligned);
-
-    return rc;
-}
-
-#endif	//BUILD_OPT_RRQ61X_FPGA
 /******************************************************************************
  *  r_cc312_sboot_init( )
  ******************************************************************************/
@@ -1605,14 +1526,6 @@ uint32_t	R_CC312_SecureBoot_DMPU(uint8_t *pDmpuData)
 
 	return ((status == CC_OK)? true:false);
 }
-
-#ifdef	BUILD_OPT_RRQ61X_FPGA
-void	R_CC312_SecureBoot_ColdReset(void)
-{
-	SBROM_DBG_TRIGGER(MODE_CRY_STEP(0xC32C10)|0x0D);
-	//200918: Test_HalPerformPowerOnReset(); // FPGA Test
-}
-#endif //BUILD_OPT_RRQ61X_FPGA
 
 /******************************************************************************
  *  R_CC312_SecureBoot_GetLock( )

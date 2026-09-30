@@ -14,7 +14,7 @@
  * Includes
  **********************************************************************************************************************/
   #include "FreeRTOS.h"
-  #include "custom_config_sdk.h"
+  #include "rm_wifi.h"
 
   #include "common.h"
   #include "mbedtls/private_access.h"
@@ -439,6 +439,28 @@ static int restore_ssl_session (mbedtls_ssl_session * dst, unsigned char ** msgp
 
     memcpy(dst, pos, ssl_session_len);
     pos += ssl_session_len;
+
+    /* The memcpy above copied stale pre-sleep heap pointers into the restored
+     * session. Every pointer that mbedtls_ssl_session_free() will free must be
+     * cleared here (mirroring mbedtls_ssl_session_copy()); otherwise the first
+     * disconnect frees a dangling pointer -> heap_5.c ASSERT / Hard Fault.
+     * peer_cert and ticket are repopulated below; the rest must stay NULL. */
+   #if defined(MBEDTLS_X509_CRT_PARSE_C)
+    #if defined(MBEDTLS_SSL_KEEP_PEER_CERTIFICATE)
+    dst->peer_cert = NULL;
+    #else
+    dst->peer_cert_digest = NULL;
+    #endif
+   #endif
+   #if defined(MBEDTLS_SSL_SESSION_TICKETS) && defined(MBEDTLS_SSL_CLI_C)
+    dst->ticket = NULL;
+    #if defined(MBEDTLS_SSL_PROTO_TLS1_3) && defined(MBEDTLS_SSL_SERVER_NAME_INDICATION)
+    dst->hostname = NULL;
+    #endif
+   #endif
+   #if defined(MBEDTLS_SSL_SRV_C) && defined(MBEDTLS_SSL_ALPN) && defined(MBEDTLS_SSL_EARLY_DATA)
+    dst->ticket_alpn = NULL;
+   #endif
 
    #if !defined(RRQ61X_DPM_TLS_NOT_SAVE_PERR_CERT)
     #if defined(MBEDTLS_X509_CRT_PARSE_C)

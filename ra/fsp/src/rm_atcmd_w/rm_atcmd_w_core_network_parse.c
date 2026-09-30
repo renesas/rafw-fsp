@@ -19,8 +19,7 @@
  #include "strings.h"
  #include "FreeRTOS.h"
  #include "task.h"
-
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
  #include "util_api.h"
  #include "fw_version.h"
  #include "iface_defs.h"

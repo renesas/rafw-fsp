@@ -31,7 +31,8 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -72,8 +73,6 @@
 #include "rm_cli_w_net.h"
 #include "net_dhcp_server.h"
 #include "rm_sntp.h"
-
-#include "rm_cli_w_http.h"
 
 #if defined (__SUPPORT_OTA__)
 #include "ota_update.h"
@@ -4129,55 +4128,10 @@ bool cmd_mqtt_server(int argc, char *argv[])
 #endif /* MQTT_TEST_SERVER */
 #endif /* __SUPPORT_MQTT__ */
 
-#ifdef __SUPPORT_HTTP_SERVER_FOR_CLI__
-bool cmd_network_http_svr(int argc, char *argv[])
-{
-    err_t err = ERR_OK;
-
-    if (!ra6w1_network_main_is_wlaninit()) {
-        printf("Wi-Fi is not initialized.\n");
-        return pdTRUE;
-    }
-
-	err = rm_cli_w_run_user_http_server(argc, argv);
-    if (err != ERR_OK) {
-        return pdFALSE;
-    }
-
-    return pdTRUE;
-}
-#endif /* __SUPPORT_HTTP_SERVER_FOR_CLI__ */
-
-#ifdef __SUPPORT_HTTP_CLIENT_FOR_CLI__
-bool cmd_network_http_client(int argc, char *argv[])
-{
-	err_t err = ERR_OK;
-
-    if (!ra6w1_network_main_is_wlaninit()) {
-        printf("Wi-Fi is not initialized.\n");
-        return pdTRUE;
-    }
-
-    err = rm_cli_w_run_user_http_client(argc, argv);
-    if (err != ERR_OK) {
-        return pdFALSE;
-    }
-
-    return pdTRUE;
-}
-#endif /* __SUPPORT_HTTP_CLIENT_FOR_CLI__ */
-
 extern bool cmd_ping_client(int argc, char *argv[]);
 
 extern int get_sta_signal_poll(void);
 
-#ifdef __DNS_CACHE_INFO__
-bool cmd_dns_cache(int argc, char *argv[])
-{
-    /* need to re implement without modifying lwip */
-    return pdTRUE;
-}
-#endif /* __DNS_CACHE_INFO__ */
 #ifdef SIGMA_TEST_ENABLE
 bool get_rssi(void)
 {
@@ -4256,13 +4210,6 @@ static const debug_handler_t net_handlers[] = {
 #endif /* __MQTT_DBG_TBL_CMD__ */
 #endif    /* __SUPPORT_MQTT__ */
 
-#ifdef __SUPPORT_HTTP_SERVER_FOR_CLI__
-    { "http-server",    "http-server -i [wlan0|wlan1] [start|stop]",    (debug_callback_t)cmd_network_http_svr       },
-#endif /* __SUPPORT_HTTP_SERVER_FOR_CLI__ */
-#ifdef __SUPPORT_HTTP_CLIENT_FOR_CLI__
-    { "http-client",    "http-client help",                             (debug_callback_t)cmd_network_http_client    },
-#endif /* __SUPPORT_HTTP_CLIENT_FOR_CLI__ */
-
 #if (SUPPORT_FSP_RM_OTA_W == 1)
 #ifdef  __SUPPORT_OTA__
     { "ota_update",     "ota_update help",                              (debug_callback_t)cmd_ota_update      },
@@ -4278,12 +4225,6 @@ static const debug_handler_t net_handlers[] = {
     { "cert",           "manage Certificate for TLS",                   (debug_callback_t)cmd_certificate     },
 
     { "debug",          "debug help",                                   (debug_callback_t)cmd_debug           },
-#ifdef __DNS_CACHE_INFO__
-    { "dnscache",       "show dns cache",                               (debug_callback_t)cmd_dns_cache       },
-#endif /* __DNS_CACHE_INFO__ */
-#ifdef __DNS_2ND_CACHE_INFO__
-    { "dns2cache",      "dns 2nd cache",                                (debug_callback_t)cmd_dns2cache       },
-#endif /* __DNS_2ND_CACHE_INFO__ */
 #if defined(SIGMA_TEST_ENABLE)
     { "tg_setprofile",  "traffic generator set profile cli: see help",  (debug_callback_t)cmd_tg_setprofile   },
     { "tg_test",        "traffic generator start/stop command",         (debug_callback_t)cmd_tg_test         },

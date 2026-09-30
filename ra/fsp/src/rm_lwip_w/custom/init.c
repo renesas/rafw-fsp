@@ -340,16 +340,6 @@ lwip_init(void)
 #ifndef LWIP_SKIP_PACKING_CHECK
   LWIP_ASSERT("Struct packing not implemented correctly. Check your lwIP port.", sizeof(struct packed_struct_test) == PACKED_STRUCT_TEST_EXPECTED_SIZE);
 #endif
-
-#if !defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
-  /* Modules initialization */
-  stats_init();
-#if !NO_SYS
-  sys_init();
-#endif /* !NO_SYS */
-  mem_init();
-  memp_init();
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
   pbuf_init();
   netif_init();
 #if LWIP_IPV4
@@ -381,7 +371,6 @@ lwip_init(void)
   sys_timeouts_init();
 #endif /* LWIP_TIMERS */
 }
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
 void ra6w1_mem_init(void)
 {
       /* Modules initialization */
@@ -392,4 +381,3 @@ void ra6w1_mem_init(void)
       mem_init();
       memp_init();
 }
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */

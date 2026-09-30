@@ -19,9 +19,7 @@ void done_socket_dpm(struct lwip_sock * sock);
 #endif
 
 #if LWIP_NETIF_EXT_STATUS_CALLBACK
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
 void rm_netif_issue_reports(struct netif * netif, u8_t report_type);
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 #endif /* LWIP_NETIF_EXT_STATUS_CALLBACK */
 
 #endif /* LWIP_DPM_MISC_H */

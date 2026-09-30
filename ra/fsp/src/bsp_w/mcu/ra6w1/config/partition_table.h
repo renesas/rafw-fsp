@@ -62,7 +62,7 @@
 
 #else
 
- #include "4MB/partition_table.h"      // Temporary ... for FPGA
+ #include "4MB/partition_table.h"      // Fallback partition layout
 
 #endif /* DEVICE_FAMILY */
 

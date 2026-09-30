@@ -123,7 +123,7 @@
     #undef  __SUPPORT_WPA3_ENTERPRISE_CORE__
 #endif /* __SUPPORT_WPA_ENTERPRISE_CORE__ */
 
-// Defined in custom_config_sdk.h
+// Defined in rm_wifi_config.h
 #if defined __SUPPORT_FAST_CONN_SLEEP_2__
   #define __SUPPORT_ASSOC_CHANNEL__
 #endif // __SUPPORT_FAST_CONN_SLEEP_2__

@@ -34,7 +34,7 @@
 #define __SYS_APP_DEFS_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include <stdio.h>
 
@@ -184,10 +184,6 @@ extern void sigma_host_init(void);
 #if defined ( __SUPPORT_FATFS__ )
 extern void init_fs_partition(void);
 #endif    // __SUPPORT_FATFS__
-
-#if defined ( __HTTP_SVR_AUTO_START__ )
-extern void auto_run_http_svr(void *pvParameters);
-#endif // __HTTP_SVR_AUTO_START__
 
 #if defined (__ENABLE_SAMPLE_APP__)
 extern void regist_sample_cb(void);

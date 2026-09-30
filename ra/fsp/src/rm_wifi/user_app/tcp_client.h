@@ -12,7 +12,8 @@
 #if (TCP_CLIENT_APP_START == 1)
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "common_def.h"
 #include "sys_app_defs.h"
 #include "util_api.h"

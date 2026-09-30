@@ -32,7 +32,7 @@
 
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #if defined (__SUPPORT_OTA__)
 #include <stdarg.h>
@@ -55,13 +55,8 @@
 #undef DEBUG_OTA_MCU_DUMP
 
 #if defined (__OTA_UPDATE_MCU_FW__)
-#if defined (__SUPPORT_UART2__)
-extern HANDLE		uart2;
-extern HANDLE		uart3;
-#else //SPI || SPIO
 extern int host_response(unsigned int buf_addr, unsigned int len, unsigned int resp,
 						 unsigned int padding_bytes);
-#endif
 extern int ra6w1_vsnprintf(char *buf, size_t n, int linefeed,  const char *fmt, va_list args);
 
 #define OTA_MCU_BUF_SIZE	(2048)
@@ -195,15 +190,6 @@ void ota_update_iface_printf(const char *fmt, ...)
     int len;
     char *atcmd_print_buf = NULL;
 
-#if defined (__ENABLE_TXFIFO_CHK_IN_LOW_BAUDRATE__)
-#if	defined(__SUPPORT_UART2__)
-#if CFG_PMGR
-    uint16_t is_txfifo_empty = FALSE;
-    extern int RM_PMGR_W_dpm_is_enabled(void);
-#endif /* CFG_PMGR */
-#endif // defined(__ATCMD_IF_UART2__) || defined(__ATCMD_IF_UART3__)
-#endif // __ENABLE_TXFIFO_CHK_IN_LOW_BAUDRATE__
-
     atcmd_print_buf = pvPortMalloc(UART_PRINT_BUF_SIZE);
     if (atcmd_print_buf == NULL) {
     	printf("- [%s] Failed to allocate the print buffer\n", __func__);
@@ -216,27 +202,9 @@ void ota_update_iface_printf(const char *fmt, ...)
     len = ra6w1_vsnprintf(atcmd_print_buf, UART_PRINT_BUF_SIZE, 0, (const char *)fmt, ap);
     va_end(ap);
 
-#if	defined(__SUPPORT_UART2__)
-    ad_uart_write(uart2, atcmd_print_buf, len);
-#else //SPI || SPIO
     int real_data_len = len;
     len = (((len - 1) / 4) + 1 ) * 4;
     host_response((unsigned int)(atcmd_print_buf), (unsigned int) len, 0x83, (unsigned int) (len - real_data_len));
-#endif
-
-#if defined (__ENABLE_TXFIFO_CHK_IN_LOW_BAUDRATE__)
-#if	defined(__SUPPORT_UART2__)
-#if CFG_PMGR
-    if (RM_PMGR_W_dpm_is_enabled()) {
-        do {
-#if	defined(__SUPPORT_UART2__)
-            ad_uart_is_tx_fifo_empty(uart2, &is_txfifo_empty);
-#endif
-        } while (is_txfifo_empty == FALSE);
-    }
-#endif /* CFG_PMGR */
-#endif // (__SUPPORT_UART2__)
-#endif // __ENABLE_TXFIFO_CHK_IN_LOW_BAUDRATE__
 
     vPortFree(atcmd_print_buf);
     atcmd_print_buf = NULL;
@@ -719,27 +687,6 @@ UINT ota_update_atcmd_parser(char *in_buf)
     UINT tx_size = 0;
 
     if (ota_update_by_mcu_get_total_len() > 0) {
-#if defined (__ATCMD_IF_UART2__) || defined (__ATCMD_IF_UART3__)
-        if (MCU_TX_SIZE > 0) {
-            ptr = in_buf;
-            tx_size = MCU_TX_SIZE;
-
-        } else {
-            ptr = strstr(in_buf, "tx_size=");
-            if (ptr != NULL) {
-                ptr += 8;
-                tx_size = strtol(ptr, &ptr_size, 10);
-                ptr = ptr_size;
-
-                if ((tx_size > 0) && (strlen(ptr) > 0)) {
-                    if (strncmp(ptr,",", 1) == 0) {
-                        ptr += 1;
-                    }
-                }
-            }
-        }
-#else
-        /* __ATCMD_IF_SPI__ || __ATCMD_IF_SDIO__ */
         ptr = in_buf;
         if (strncasecmp(ptr, "tx_size=", 8) == 0) {
             ptr += 8;
@@ -758,7 +705,6 @@ UINT ota_update_atcmd_parser(char *in_buf)
         } else {
             ptr = NULL;
         }
-#endif
 
         /* Write downloaded firmware to flash */
         if (ota_update_by_mcu_download((UCHAR *)ptr, tx_size) == OTA_SUCCESS) {

@@ -6858,94 +6858,6 @@ end_of_task:
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // UDP Client -- END //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-
-extern    void wifi_conn_notify_cb_register(void (*user_cb)(void));
-extern    void wifi_conn_fail_notify_cb_register(void (*user_cb)(short reason_code));
-extern    void wifi_disconn_notify_cb_register(void (*user_cb)(short reason_code));
-
-extern int get_run_mode(void);
-SemaphoreHandle_t    iperf_wifi_conn_notify_mutex = NULL;
-/* Station mode */
-unsigned char    iperf_wifi_conn_flag          = FALSE;
-unsigned char    iperf_wifi_disconn_flag       = FALSE;
-short            iperf_wifi_disconn_reason     = 0;
-/* AP mode */
-unsigned char    iperf_ap_wifi_conn_flag       = FALSE;
-unsigned char    iperf_ap_wifi_disconn_flag    = FALSE;
-short            iperf_ap_wifi_disconn_reason  = 0;
-
-static void iperf_wifi_conn_cb(void)
-{
-    IPERF_MSG(" [%s] Called. \n", __func__);
-
-    /* Wait until 3 seconds to get mutex */
-    if (xSemaphoreTake(iperf_wifi_conn_notify_mutex, 300) != pdTRUE) {
-        IPERF_MSG(ANSI_COLOR_LIGHT_RED " Failed to get iperf_wifi_conn_notify_mutex during 3 seconds !!!\n" ANSI_COLOR_DEFULT);
-        return;
-    }
-
-    if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-        iperf_ap_wifi_conn_flag = TRUE;
-    }
-    else {
-        iperf_wifi_conn_flag = TRUE;
-    }
-
-    xSemaphoreGive(iperf_wifi_conn_notify_mutex);
-}
-
-static void iperf_wifi_disconn_cb(short reason_code)
-{
-    int    i;
-
-    IPERF_MSG(" [%s] Called(%d) \n", __func__, reason_code);
-
-    /* Wait until 3 seconds to get mutex */
-    if (xSemaphoreTake(iperf_wifi_conn_notify_mutex, 300) != pdTRUE) {
-        IPERF_MSG(ANSI_COLOR_LIGHT_RED " Failed to get iperf_wifi_conn_notify_mutex during 3 seconds !!!\n" ANSI_COLOR_DEFULT);
-        return;
-    }
-
-    if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-        iperf_ap_wifi_disconn_flag = TRUE;
-        iperf_ap_wifi_disconn_reason = reason_code;
-    }
-    else {
-        iperf_wifi_disconn_flag    = TRUE;
-        iperf_wifi_disconn_reason = reason_code;
-    }
-
-    TCP_Rx_Finish_Flag = 1;
-    UDP_Rx_Finish_Flag = 1;
-
-    for (i = 0; i < IPERF_TCP_TX_MAX_PAIR; i++) {
-        if (thread_tcp_tx_iperf[i].state != IPERF_TX_THD_STATE_NONE) {
-            if (terminate_iperf_tx_thd(&(thread_tcp_tx_iperf[i]))) {
-                IPERF_MSG(" iPerf TCP Client Pair %d is deleted\n", i);
-            } else {
-                IPERF_MSG(" Failed to delete iPerf TCP Client Pair %d\n", i);
-                break;
-            }
-        }
-    }
-
-    for (i = 0; i < IPERF_UDP_TX_MAX_PAIR; i++) {
-        if (thread_udp_tx_iperf[i].state != IPERF_TX_THD_STATE_NONE) {
-            if (terminate_iperf_tx_thd(&(thread_udp_tx_iperf[i]))) {
-                IPERF_MSG(" iPerf UDP Client Pair %d is deleted\n", i);
-            } else {
-                IPERF_MSG(" Failed to delete iPerf UDP Client Pair %d\n", i);
-                break;
-            }
-        }
-    }
-
-    xSemaphoreGive(iperf_wifi_conn_notify_mutex);
-}
-#endif    // defined ( __SUPPORT_WIFI_CONN_CB__ )
-
 UINT    iperf_cli(UCHAR iface, UCHAR iperf_mode, struct IPERF_CONFIG *config)
 {
     extern unsigned int ra6w1_network_main_check_network_ready(unsigned char iface);
@@ -7099,22 +7011,6 @@ UINT    iperf_cli(UCHAR iface, UCHAR iperf_mode, struct IPERF_CONFIG *config)
     }
 
     iperf_ctrlInfo_ptr->wmm_tos = config->WMM_Tos;
-
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-    iperf_wifi_conn_notify_mutex = xSemaphoreCreateMutex();
-
-    if (iperf_wifi_conn_notify_mutex == NULL) {
-        IPERF_MSG(ANSI_COLOR_LIGHT_RED " >>> Failed to create Wi-Fi connection notify call-back mutex !!!\n" ANSI_COLOR_DEFULT);
-        return pdTRUE;
-    }
-
-
-    /* Wi-Fi connection call-back */
-    wifi_conn_notify_cb_register(iperf_wifi_conn_cb);
-
-    /* Wi-Fi disconnection call-back */
-    wifi_disconn_notify_cb_register(iperf_wifi_disconn_cb);
-#endif    // defined ( __SUPPORT_WIFI_CONN_CB__ )
 
     switch (iperf_mode) {
 

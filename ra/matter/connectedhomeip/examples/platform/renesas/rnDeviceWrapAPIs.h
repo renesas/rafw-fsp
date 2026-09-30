@@ -20,7 +20,7 @@
 #pragma once
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "sdk_defs.h"
 #include "rm_matter_wifi_cfg.h"

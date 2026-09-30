@@ -34,7 +34,8 @@
 #define _APP_AWS_USER_CONF_H_
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 /* Referring Feature for AWS-IOT-W */
 #include "rm_awsiot_w_cfg.h"
 

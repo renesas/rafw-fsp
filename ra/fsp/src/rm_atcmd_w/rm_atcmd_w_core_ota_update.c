@@ -7,7 +7,7 @@
 #include "bsp_api.h"
 #if CFG_WIFI && defined __SUPPORT_OTA__
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
 
  #include <stdio.h>
  #include <stdlib.h>
@@ -88,6 +88,22 @@ UINT atcmd_w_ota_update_start_download (atcmd_w_ctrl_t * const      p_at_ctrl,
 
     return status;
 }
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+UINT atcmd_w_ota_update_start_resume (atcmd_w_ctrl_t * const p_at_ctrl, ATCMD_W_OTA_UPDATE_CONFIG * at_ota_update_conf)
+{
+    UINT status = ATCMD_W_OTA_SUCCESS;
+
+    /* Request a resume; the download task / HTTP layer decides whether a valid
+     * saved offset exists and falls back to a full download otherwise. */
+    at_ota_update_conf->is_resume = 1;
+
+    status = atcmd_w_ota_update_process_create(p_at_ctrl, at_ota_update_conf);
+
+    return status;
+}
+
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 
 UINT atcmd_w_ota_update_stop_download (void)
 {

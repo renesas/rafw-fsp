@@ -32,7 +32,7 @@
 
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #if CFG_PMGR
 

@@ -24,9 +24,11 @@
 #ifdef CONFIG_RTT
 #include "RTT/SEGGER_RTT.h"
 #endif
-#if (defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__)) && defined(__SUPPORT_WIFI_USER_GPIO__)
+#if __SUPPORT_WIFI_USER_GPIO__
+#if defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__)
 #include "rm_wifi_user_app_gpio_handle.h"
 #endif
+#endif // __SUPPORT_WIFI_USER_GPIO__
 
 #include "lwip/dhcp.h"
 #if (TEST_APP_START == 1)
@@ -100,10 +102,12 @@ static void prvSetupHardware(void)
     /* need enable at flash boot */
     REG_SETF(CRG_TOP, CLK_AMBA_REG, PERI_CLK_ENABLE, 1);
 
-#if defined(__SUPPORT_WIFI_USER_GPIO__) && (defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__))
+#if __SUPPORT_WIFI_USER_GPIO__
+#if defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__)
     /* Set configuration for H/W button */
     rm_wifi_app_gpio_config_button();
-#endif /* defined(__SUPPORT_WIFI_USER_GPIO__) && ( defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__)) */
+#endif /*  defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__) */
+#endif /* __SUPPORT_WIFI_USER_GPIO__ */
 }
 
 __RETAINED_CODE static void cm_change_clock_callback(sys_clk_is_t clksrc, uint32_t freq, void *param)

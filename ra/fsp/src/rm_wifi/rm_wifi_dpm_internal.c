@@ -161,6 +161,9 @@ void RM_WIFI_dpm_conn_info_clear(void)
     /* Supplicant Key infomation */
     memset((void *)RTM_SUPP_KEY_INFO_PTR, 0, KEY_INFO_ALLOC_SZ);
 
+    /* Supplicant Extended WiFi information */
+    memset((void *) RTM_SUPP_CONN_EXT_INFO_PTR, 0, RTM_SUPP_CONN_EXT_INFO_SIZE);
+
     if (   RM_PMGR_W_dpm_is_wakeup() == pdFALSE
 #if !defined ( __DISABLE_DPM_ABNORM__ )
         || get_last_abnormal_cnt() > 0
@@ -218,7 +221,8 @@ int RM_WIFI_dpm_supp_state_get(void)
 }
 #else //CFG_PMGR
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "bsp_common.h"
 
 /* Dummy functions for rwnx_drv / macsw */

@@ -35,7 +35,8 @@
 /* For Matter RA6W1 SDK .......... */
 #include "FreeRTOS.h"
 #if (CFG_WIFI == 1)
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #endif
 /* ................................. */
 #if (CFG_WIFI == 0)
@@ -379,7 +380,7 @@ size_t strnlen(const char *s, size_t maxlen);
 #endif /* CFG_PMGR AND __DISABLE_DPM_MOD_IN_SDK__ */
 
 /* from inet_checksum.c */
-#define LWIP_CHKSUM_ALGORITHM 2
+#define LWIP_CHKSUM_ALGORITHM 3
 
 #ifndef LWIP_TCPIP_CORE_LOCKING
 #define LWIP_TCPIP_CORE_LOCKING     0

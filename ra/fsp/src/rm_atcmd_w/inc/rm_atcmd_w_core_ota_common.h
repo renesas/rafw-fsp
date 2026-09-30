@@ -40,6 +40,15 @@
 /// NVRAM name of Download progress
  #define ATCMD_W_OTA_NVRAM_DW_PROGRESS    "OTA_PROG_"
 
+/// NVRAM key prefixes for the resumable-download record (suffixed by FW type text).
+ #define ATCMD_W_OTA_NVRAM_RSM_OFFSET     "OTA_RSM_OFF_" // committed (flushed-to-flash) byte offset
+ #define ATCMD_W_OTA_NVRAM_RSM_TOTAL      "OTA_RSM_LEN_" // total content-length of the image
+ #define ATCMD_W_OTA_NVRAM_RSM_FP         "OTA_RSM_FP_"  // download fingerprint (URL hash + size)
+ #define ATCMD_W_OTA_NVRAM_RSM_VAL        "OTA_RSM_VAL_" // crc32 of server validator (ETag/Last-Modified)
+
+/// Persist the resume watermark to NVRAM at most once per this many bytes (limits VEE wear).
+ #define ATCMD_W_OTA_RSM_PERSIST_STEP     (64 * 1024)
+
 /// Process is not ready.
  #define ATCMD_W_OTA_STATE_NOT_READY      0
 
@@ -137,6 +146,17 @@ typedef struct
     UINT content_length;
     UINT received_length;
     UINT httpc_result;
+
+    /* Resumable-download state. Fields are always present (a few unused bytes
+     * when __SUPPORT_OTA_RESUME__ is off) so the struct layout is identical
+     * across every translation unit. Only the logic is feature-gated. */
+    UINT   resume_mode;                // 1 if started via AT+NWOTADWRESUME (enables resume bookkeeping)
+    UINT   is_resume;                  // 1 if this request resumes a previous partial download (offset > 0)
+    UINT   resume_offset;              // byte offset the resume started from
+    UINT   resume_persisted;           // last offset written to NVRAM (persist throttling)
+    UINT   range_honored;              // 1 if server answered 206 Partial Content
+    UINT32 fingerprint;                // identity hash of the current download (URL based)
+    UINT32 validator;                  // crc32 of server validator (ETag/Last-Modified); 0 = none seen
 } atcmd_w_ota_update_download_t;
 
 /// Settings structure used for ota update requests.
@@ -174,6 +194,9 @@ typedef struct
 
     /// CERT_KEY download progress.
     UINT progress_cert_key;
+
+    /// 1 if the active request is a resume (set from ATCMD_W_OTA_UPDATE_CONFIG.is_resume).
+    UINT is_resume;
 } atcmd_w_ota_update_proc_t;
 
 UINT         atcmd_w_ota_update_check_version(atcmd_w_ota_update_type update_type, UCHAR * data, UINT data_len);
@@ -201,14 +224,38 @@ UINT   atcmd_w_ota_update_set_user_sflash_addr(UINT sflash_addr);
 UINT   atcmd_w_ota_update_check_all_download(void);
 UINT   atcmd_w_ota_update_current_fw_renew(void);
 
-UINT     atcmd_w_ota_update_check_refuse_flag(void);
-UINT     atcmd_w_ota_update_process_create(atcmd_w_ctrl_t * const p_at_ctrl, ATCMD_W_OTA_UPDATE_CONFIG * update_conf);
-UINT     atcmd_w_ota_update_check_state(void);
-UINT     atcmd_w_ota_update_process_stop(void);
-void     atcmd_w_ota_update_set_download_progress(atcmd_w_ota_update_type update_type, UINT progress);
-UINT     atcmd_w_ota_update_get_download_progress(atcmd_w_ota_update_type update_type);
-void     atcmd_w_ota_update_write_nvram_download_progress(atcmd_w_ota_update_type update_type, UINT progress);
-UINT     atcmd_w_ota_update_read_nvram_download_progress(atcmd_w_ota_update_type update_type);
+UINT atcmd_w_ota_update_check_refuse_flag(void);
+UINT atcmd_w_ota_update_process_create(atcmd_w_ctrl_t * const p_at_ctrl, ATCMD_W_OTA_UPDATE_CONFIG * update_conf);
+UINT atcmd_w_ota_update_check_state(void);
+UINT atcmd_w_ota_update_process_stop(void);
+void atcmd_w_ota_update_set_download_progress(atcmd_w_ota_update_type update_type, UINT progress);
+UINT atcmd_w_ota_update_get_download_progress(atcmd_w_ota_update_type update_type);
+void atcmd_w_ota_update_write_nvram_download_progress(atcmd_w_ota_update_type update_type, UINT progress);
+UINT atcmd_w_ota_update_read_nvram_download_progress(atcmd_w_ota_update_type update_type);
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+/// Compute an identity fingerprint (32-bit hash) for a download URL.
+UINT32 atcmd_w_ota_update_url_fingerprint(const char * url);
+
+/// Persist the resume record (committed offset, total size, URL fingerprint, server validator) for a FW type.
+void atcmd_w_ota_update_write_nvram_resume(atcmd_w_ota_update_type update_type,
+                                           UINT                    off,
+                                           UINT                    total,
+                                           UINT32                  fingerprint,
+                                           UINT32                  validator);
+
+/// Read the resume record. Returns ATCMD_W_OTA_SUCCESS only when a usable (off > 0) record exists.
+UINT atcmd_w_ota_update_read_nvram_resume(atcmd_w_ota_update_type update_type,
+                                          UINT                  * off,
+                                          UINT                  * total,
+                                          UINT32                * fingerprint,
+                                          UINT32                * validator);
+
+/// Erase the resume record for a FW type.
+void atcmd_w_ota_update_clear_nvram_resume(atcmd_w_ota_update_type update_type);
+
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 void     atcmd_w_ota_update_evt_send(UINT event);
 UINT     atcmd_w_ota_update_get_proc_state(void);
 void     atcmd_w_ota_update_print_status(atcmd_w_ota_update_type update_type, UINT status);

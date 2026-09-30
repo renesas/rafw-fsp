@@ -36,22 +36,22 @@
  */
 
 #ifndef LWIP_HDR_APPS_RM_HTTP_CLIENT_H
-#define LWIP_HDR_APPS_RM_HTTP_CLIENT_H
+ #define LWIP_HDR_APPS_RM_HTTP_CLIENT_H
 
-#include "lwip/opt.h"
-#include "lwip/ip_addr.h"
-#include "lwip/err.h"
-#include "lwip/altcp.h"
-#include "lwip/prot/iana.h"
-#include "lwip/pbuf.h"
+ #include "lwip/opt.h"
+ #include "lwip/ip_addr.h"
+ #include "lwip/err.h"
+ #include "lwip/altcp.h"
+ #include "lwip/prot/iana.h"
+ #include "lwip/pbuf.h"
 
-#if LWIP_TCP && LWIP_CALLBACK_API
+ #if LWIP_TCP && LWIP_CALLBACK_API
 
-#ifdef __cplusplus
+  #ifdef __cplusplus
 extern "C" {
-#endif
+  #endif
 
-#define HTTPC_CONTENT_LEN_INVALID 0xFFFFFFFF
+  #define HTTPC_CONTENT_LEN_INVALID    0xFFFFFFFF
 
 /**
  * @ingroup httpc
@@ -59,58 +59,67 @@ extern "C" {
  * to disk via fopen/fwrite.
  * These functions are example implementations of the interface only.
  */
-#ifndef LWIP_HTTPC_HAVE_FILE_IO
-#define LWIP_HTTPC_HAVE_FILE_IO   0
-#endif
+  #ifndef LWIP_HTTPC_HAVE_FILE_IO
+   #define LWIP_HTTPC_HAVE_FILE_IO     0
+  #endif
 
 /**
  * @ingroup httpc
  * The user can directly input request message (header + body)
  */
-#ifdef  __SUPPORT_HTTP_CLIENT_USER_MSG__
-#define	__HTTPC_USER_MSG__
-#endif
-
+  #ifdef  __SUPPORT_HTTP_CLIENT_USER_MSG__
+   #define __HTTPC_USER_MSG__
+  #endif
 
 /**
  * @ingroup httpc
  * The default TCP port used for HTTP
  */
-#define HTTP_DEFAULT_PORT         LWIP_IANA_PORT_HTTP
-#define HTTP_CLIENT_PORT_HTTPS    LWIP_IANA_PORT_HTTPS
+  #define HTTP_DEFAULT_PORT          LWIP_IANA_PORT_HTTP
+  #define HTTP_CLIENT_PORT_HTTPS     LWIP_IANA_PORT_HTTPS
 
 /**
  * @ingroup httpc
  * Maximum size of http-client request data
  */
-#define HTTPC_REQ_DATA_MAX_SIZE		 (1024 * 4)
-#define HTTPC_REQ_DATA_LEN		  HTTPC_REQ_DATA_MAX_SIZE
+  #define HTTPC_REQ_DATA_MAX_SIZE    (1024 * 4)
+  #define HTTPC_REQ_DATA_LEN         HTTPC_REQ_DATA_MAX_SIZE
 
 /**
  * @ingroup httpc
  * HTTP client result codes
  */
-typedef enum ehttpc_result {
-  /** File successfully received */
-  HTTPC_RESULT_OK            = 0,
-  /** Unknown error */
-  HTTPC_RESULT_ERR_UNKNOWN   = 1,
-  /** Connection to server failed */
-  HTTPC_RESULT_ERR_CONNECT   = 2,
-  /** Failed to resolve server hostname */
-  HTTPC_RESULT_ERR_HOSTNAME  = 3,
-  /** Connection unexpectedly closed by remote server */
-  HTTPC_RESULT_ERR_CLOSED    = 4,
-  /** Connection timed out (server didn't respond in time) */
-  HTTPC_RESULT_ERR_TIMEOUT   = 5,
-  /** Server responded with an error code */
-  HTTPC_RESULT_ERR_SVR_RESP  = 6,
-  /** Local memory error */
-  HTTPC_RESULT_ERR_MEM       = 7,
-  /** Local abort */
-  HTTPC_RESULT_LOCAL_ABORT   = 8,
-  /** Content length mismatch */
-  HTTPC_RESULT_ERR_CONTENT_LEN = 9
+typedef enum ehttpc_result
+{
+    /** File successfully received */
+    HTTPC_RESULT_OK = 0,
+
+    /** Unknown error */
+    HTTPC_RESULT_ERR_UNKNOWN = 1,
+
+    /** Connection to server failed */
+    HTTPC_RESULT_ERR_CONNECT = 2,
+
+    /** Failed to resolve server hostname */
+    HTTPC_RESULT_ERR_HOSTNAME = 3,
+
+    /** Connection unexpectedly closed by remote server */
+    HTTPC_RESULT_ERR_CLOSED = 4,
+
+    /** Connection timed out (server didn't respond in time) */
+    HTTPC_RESULT_ERR_TIMEOUT = 5,
+
+    /** Server responded with an error code */
+    HTTPC_RESULT_ERR_SVR_RESP = 6,
+
+    /** Local memory error */
+    HTTPC_RESULT_ERR_MEM = 7,
+
+    /** Local abort */
+    HTTPC_RESULT_LOCAL_ABORT = 8,
+
+    /** Content length mismatch */
+    HTTPC_RESULT_ERR_CONTENT_LEN = 9
 } httpc_result_t;
 
 typedef struct _httpc_state httpc_state_t;
@@ -126,7 +135,8 @@ typedef struct _httpc_state httpc_state_t;
  * @param err an error returned by internal lwip functions, can help to specify
  *            the source of the error but must not necessarily be != ERR_OK
  */
-typedef void (*httpc_result_fn)(void *arg, httpc_result_t httpc_result, u32_t rx_content_len, u32_t srv_res, err_t err);
+typedef void (* httpc_result_fn)(void * arg, httpc_result_t httpc_result, u32_t rx_content_len, u32_t srv_res,
+                                 err_t err);
 
 /**
  * @ingroup httpc
@@ -139,76 +149,106 @@ typedef void (*httpc_result_fn)(void *arg, httpc_result_t httpc_result, u32_t rx
  * @param content_len content length as received in the headers (-1 if not received)
  * @return if != ERR_OK is returned, the connection is aborted
  */
-typedef err_t (*httpc_headers_done_fn)(httpc_state_t *connection, void *arg, struct pbuf *hdr, u16_t hdr_len, u32_t content_len);
+typedef err_t (* httpc_headers_done_fn)(httpc_state_t * connection, void * arg, struct pbuf * hdr, u16_t hdr_len,
+                                        u32_t content_len);
 
-#if TCP_FINISHED_CALLBACK
-typedef void (*httpc_finish_cb_fn)(void);
-#endif
+  #if TCP_FINISHED_CALLBACK
+typedef void (* httpc_finish_cb_fn)(void);
+  #endif
 
-typedef struct _httpc_secure_connection {
-  u8_t *ca;
-  size_t ca_len;
-  u8_t *cert;
-  size_t cert_len;
-  u8_t *privkey;
-  size_t privkey_len;
-  u8_t *dh_param;
-  size_t dh_param_len;
+typedef struct _httpc_secure_connection
+{
+    u8_t * ca;
+    size_t ca_len;
+    u8_t * cert;
+    size_t cert_len;
+    u8_t * privkey;
+    size_t privkey_len;
+    u8_t * dh_param;
+    size_t dh_param_len;
 
-  char *sni;
-  int sni_len;
-  char **alpn;
-  int alpn_cnt;
+    char  * sni;
+    int     sni_len;
+    char ** alpn;
+    int     alpn_cnt;
 
-  u32_t tls_ver_min;
-  u32_t tls_ver_max;
-  u32_t auth_mode;
-  u32_t incoming_len;
-  u32_t outgoing_len;
+    u32_t tls_ver_min;
+    u32_t tls_ver_max;
+    u32_t auth_mode;
+    u32_t incoming_len;
+    u32_t outgoing_len;
 } httpc_secure_connection_t;
 
-typedef struct _httpc_connection {
-  ip_addr_t proxy_addr;
-  u16_t proxy_port;
-  u8_t use_proxy;
+typedef struct _httpc_connection
+{
+    ip_addr_t proxy_addr;
+    u16_t     proxy_port;
+    u8_t      use_proxy;
 
-#if LWIP_ALTCP
-  altcp_allocator_t *altcp_allocator;
-#endif
+  #if LWIP_ALTCP
+    altcp_allocator_t * altcp_allocator;
+  #endif
 
-  /* this callback is called when the transfer is finished (or aborted) */
-  httpc_result_fn result_fn;
-  /* this callback is called after receiving the http headers
-     It can abort the connection by returning != ERR_OK */
-  httpc_headers_done_fn headers_done_fn;
-#if TCP_FINISHED_CALLBACK
-  /* this callback is called when the session is closed */
-  httpc_finish_cb_fn finish_cb_fn;
-#endif
-  u8_t insecure;
-  httpc_secure_connection_t tls_settings;
+    /* this callback is called when the transfer is finished (or aborted) */
+    httpc_result_fn result_fn;
 
-  char method[10];
-  char post_msg[HTTPC_REQ_DATA_LEN];
+    /* this callback is called after receiving the http headers
+     * It can abort the connection by returning != ERR_OK */
+    httpc_headers_done_fn headers_done_fn;
+  #if TCP_FINISHED_CALLBACK
 
+    /* this callback is called when the session is closed */
+    httpc_finish_cb_fn finish_cb_fn;
+  #endif
+    u8_t insecure;
+    httpc_secure_connection_t tls_settings;
+
+    char method[10];
+    char post_msg[HTTPC_REQ_DATA_LEN];
+
+    /* If > 0, a "Range: bytes=<range_offset>-" header is added to the GET request
+     * so the server returns 206 Partial Content starting at that byte offset.
+     * Used by the resumable OTA download. 0 (default) == normal full GET. */
+    u32_t range_offset;
 } httpc_connection_t;
 
-err_t httpc_get_file(const ip_addr_t* server_addr, u16_t port, const char* uri, const httpc_connection_t *settings,
-                     altcp_recv_fn recv_fn, void* callback_arg, httpc_state_t **connection);
-err_t httpc_get_file_dns(const char* server_name, u16_t port, const char* uri, const httpc_connection_t *settings,
-                     altcp_recv_fn recv_fn, void* callback_arg, httpc_state_t **connection);
+err_t httpc_get_file(const ip_addr_t          * server_addr,
+                     u16_t                      port,
+                     const char               * uri,
+                     const httpc_connection_t * settings,
+                     altcp_recv_fn              recv_fn,
+                     void                     * callback_arg,
+                     httpc_state_t           ** connection);
+err_t httpc_get_file_dns(const char               * server_name,
+                         u16_t                      port,
+                         const char               * uri,
+                         const httpc_connection_t * settings,
+                         altcp_recv_fn              recv_fn,
+                         void                     * callback_arg,
+                         httpc_state_t           ** connection);
 
-#if LWIP_HTTPC_HAVE_FILE_IO
-err_t httpc_get_file_to_disk(const ip_addr_t* server_addr, u16_t port, const char* uri, const httpc_connection_t *settings,
-                     void* callback_arg, const char* local_file_name, httpc_state_t **connection);
-err_t httpc_get_file_dns_to_disk(const char* server_name, u16_t port, const char* uri, const httpc_connection_t *settings,
-                     void* callback_arg, const char* local_file_name, httpc_state_t **connection);
-#endif /* LWIP_HTTPC_HAVE_FILE_IO */
+  #if LWIP_HTTPC_HAVE_FILE_IO
+err_t httpc_get_file_to_disk(const ip_addr_t          * server_addr,
+                             u16_t                      port,
+                             const char               * uri,
+                             const httpc_connection_t * settings,
+                             void                     * callback_arg,
+                             const char               * local_file_name,
+                             httpc_state_t           ** connection);
+err_t httpc_get_file_dns_to_disk(const char               * server_name,
+                                 u16_t                      port,
+                                 const char               * uri,
+                                 const httpc_connection_t * settings,
+                                 void                     * callback_arg,
+                                 const char               * local_file_name,
+                                 httpc_state_t           ** connection);
 
-#ifdef __cplusplus
+  #endif                               /* LWIP_HTTPC_HAVE_FILE_IO */
+
+  #ifdef __cplusplus
 }
-#endif
+  #endif
 
-#endif /* LWIP_TCP && LWIP_CALLBACK_API */
+ #endif                                /* LWIP_TCP && LWIP_CALLBACK_API */
 
-#endif /* LWIP_HDR_APPS_HTTP_CLIENT_H */
+#endif                                 /* LWIP_HDR_APPS_HTTP_CLIENT_H */

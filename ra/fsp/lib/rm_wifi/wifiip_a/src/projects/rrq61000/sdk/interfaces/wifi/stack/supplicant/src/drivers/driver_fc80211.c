@@ -18,7 +18,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
-#include "custom_config_sdk.h"	// After app_features.h
+#include "rm_wifi.h" // After app_features.h
 
 #include "includes.h"
 

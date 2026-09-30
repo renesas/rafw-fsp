@@ -43,7 +43,7 @@
                     : "r" (__l_irq_rest)                                  \
                     :                                                     \
                     );                                                    \
-    }                                                                     \
+}                                                                         \
     while (0)
 
 #define REG_SET_BIT(base, reg, field)                                 \
@@ -334,20 +334,14 @@ __STATIC_INLINE void hw_clk_enable_xtal40m (void)
     }
 
     // Check if TIM power domain is enabled
-#if DEVICE_FPGA
-#else
-    BSP_CHECK_DEBUG(CRG_TOP->SYS_STATUS_REG_b.SYS_IS_UP);
-#endif
 
-#if DEVICE_FPGA
-    REG_SET_BIT(CRG_COM, XTAL40M_CTRL_REG, XTAL40M_EN);
-#else
+    BSP_CHECK_DEBUG(CRG_TOP->SYS_STATUS_REG_b.SYS_IS_UP);
+
     REG_SET_BIT(CRG_COM, XTAL40M_CTRL_REG, XTAL40M_EN);
 
     // Delay
     R_BSP_SoftwareDelay(1, BSP_DELAY_UNITS_MILLISECONDS);
     BSP_CHECK_DEBUG(CRG_COM->XTAL40M_CTRL_REG_b.XTAL40M_RDY);
-#endif
 }
 
 /**
@@ -421,14 +415,11 @@ __STATIC_INLINE bool hw_clk_lp_is_xtal32k (void)
  */
 __STATIC_INLINE void hw_clk_lp_set_rcx (void)
 {
-#if DEVICE_FPGA
-#else
     BSP_CHECK_DEBUG(__get_PRIMASK() == 1 || __get_BASEPRI());
     BSP_CHECK_DEBUG(CRG_TOP->CLK_CTRL_REG_b.RUNNING_AT_LP_CLK);
 
     REG_SET_BIT(RTC, CLK_XTAL32K_REG, PDB_OSC_EN);
     RTC->CLK_XTAL32K_REG_b.XTAL_CLK_SEL = LP_CLK_IS_RCX;
-#endif
 }
 
 /**
@@ -442,10 +433,7 @@ __STATIC_INLINE void hw_clk_lp_set_rcx (void)
 __STATIC_INLINE void hw_clk_lp_set_xtal32k (void)
 {
     BSP_CHECK_DEBUG(__get_PRIMASK() == 1 || __get_BASEPRI());
-#if DEVICE_FPGA
-#else
     BSP_CHECK_DEBUG(CRG_TOP->CLK_CTRL_REG_b.RUNNING_AT_LP_CLK);
-#endif
     REG_SET_BIT(RTC, CLK_XTAL32K_REG, XTAL_BAT_EN);
     RTC->CLK_XTAL32K_REG_b.XTAL_CLK_SEL = LP_CLK_IS_XTAL32K;
 }
@@ -459,10 +447,7 @@ __STATIC_INLINE void hw_clk_lp_set_xtal32k (void)
 __STATIC_INLINE void hw_clk_lp_set_swclk (void)
 {
     BSP_CHECK_DEBUG(__get_PRIMASK() == 1 || __get_BASEPRI());
-#if DEVICE_FPGA
-#else
     BSP_CHECK_DEBUG(CRG_TOP->CLK_CTRL_REG_b.RUNNING_AT_LP_CLK);
-#endif
     RTC->CLK_XTAL32K_REG_b.XTAL_CLK_SEL = LP_CLK_IS_SWCLK;
 }
 
@@ -818,11 +803,7 @@ __STATIC_INLINE bool hw_clk_is_enabled_sysclk (sys_clk_is_t clk)
  */
 __STATIC_INLINE void hw_clk_configure_ext32k_pins (void)
 {
-#if DEVICE_FPGA
-#else
-
     // GPIO-> P0_23_MODE_REG = 0;
-#endif
 }
 
 /**

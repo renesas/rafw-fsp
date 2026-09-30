@@ -31,7 +31,7 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "net_common.h"
 #include "net_sntp_client.h"

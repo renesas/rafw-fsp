@@ -43,6 +43,9 @@
 #define I2C_ENABLE_LOOP_LIMIT                     (0x10)
 #define I2C_ENABLE_STATUS_INTERVAL                (0x200)
 
+#define I2C_MASTER_W_WAIT_SYNC_DELAY_USEC         (10)
+#define I2C_MASTER_W_WAIT_TIMEOUT_TICK            (20)
+
 #if defined(CRG_COM_RESET_CLK_COM_REG_I2C_CLK_SEL_Msk)
  #define RESET_CLK_COM_REG                        CRG_COM->RESET_CLK_COM_REG
  #define SET_CLK_COM_REG                          CRG_COM->SET_CLK_COM_REG
@@ -713,33 +716,36 @@ static void i2c_master_w_notify (i2c_master_w_instance_ctrl_t * const p_ctrl, i2
 #endif
 
     /* Now do the callback here. */
+    if (NULL != p_ctrl->p_callback)
+    {
 #if BSP_TZ_SECURE_BUILD
 
-    /* p_callback can point to a secure function or a non-secure function. */
-    if (!cmse_is_nsfptr(p_ctrl->p_callback))
-    {
-        /* If p_callback is secure, then the project does not need to change security state. */
-        p_ctrl->p_callback(p_args);
-    }
-    else
-    {
-        /* If p_callback is Non-secure, then the project must change to Non-secure state in order
-         * to call the callback. */
-        i2c_master_w_prv_ns_callback p_callback = (i2c_master_w_prv_ns_callback) (p_ctrl->p_callback);
-        p_callback(p_args);
-    }
+        /* p_callback can point to a secure function or a non-secure function. */
+        if (!cmse_is_nsfptr(p_ctrl->p_callback))
+        {
+            /* If p_callback is secure, then the project does not need to change security state. */
+            p_ctrl->p_callback(p_args);
+        }
+        else
+        {
+            /* If p_callback is Non-secure, then the project must change to Non-secure state in order
+             * to call the callback. */
+            i2c_master_w_prv_ns_callback p_callback = (i2c_master_w_prv_ns_callback) (p_ctrl->p_callback);
+            p_callback(p_args);
+        }
 
 #else
 
-    /* If the project is not Trustzone Secure, then it will never need to change security state in
-     * order to call the callback. */
-    p_ctrl->p_callback(p_args);
+        /* If the project is not Trustzone Secure, then it will never need to change security state in
+         * order to call the callback. */
+        p_ctrl->p_callback(p_args);
 #endif
 
-    if (NULL != p_ctrl->p_callback_memory)
-    {
-        /* Restore callback memory in case this is a nested interrupt. */
-        *p_ctrl->p_callback_memory = args;
+        if (NULL != p_ctrl->p_callback_memory)
+        {
+            /* Restore callback memory in case this is a nested interrupt. */
+            *p_ctrl->p_callback_memory = args;
+        }
     }
 }
 
@@ -775,6 +781,14 @@ static fsp_err_t i2c_master_w_open_hw_master (i2c_master_w_instance_ctrl_t * con
 
     /* Set mode, addressing mode & target's address. */
     err = i2c_master_w_mode_address_set(p_ctrl);
+
+#if (BSP_FEATURE_I2C_VERSION == 2)
+
+    /* Bus clear settings. */
+    p_ctrl->p_reg->I2C_CON_REG_b.I2C_BUS_CLEAR_FEATURE_CTRL = p_extend->bus_clear;
+    p_ctrl->p_reg->I2C_SCL_STUCKATLOW_TIMEOUT_REG           = p_extend->scl_stuck_timeout;
+    p_ctrl->p_reg->I2C_SDA_STUCKATLOW_TIMEOUT_REG           = p_extend->sda_stuck_timeout;
+#endif
 
     /* Enable the I2C Controller. */
     p_ctrl->p_reg->I2C_ENABLE_REG_b.I2C_EN = 1;
@@ -999,6 +1013,16 @@ static void i2c_master_w_read_configure (i2c_master_w_instance_ctrl_t * const p_
 {
     uint16_t mask = I2C_MASTER_W_INT_TX_ABORT;
 
+#if (BSP_FEATURE_I2C_VERSION == 2)
+    i2c_master_w_extended_cfg_t * p_extend = (i2c_master_w_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
+
+    /* Bus clear settings. */
+    if (I2C_MASTER_W_BUS_CLEAR_ENABLED == p_extend->bus_clear)
+    {
+        mask |= I2C_MASTER_W_INT_SCL_STUCK_AT_LOW;
+    }
+#endif
+
     /* Clear TX ABORT interrupt status. */
     p_ctrl->p_reg->I2C_CLR_TX_ABRT_REG;
 
@@ -1036,8 +1060,11 @@ static void i2c_master_w_read_configure (i2c_master_w_instance_ctrl_t * const p_
         /* Make sure I2C DMA is off so it's not unexpectedly triggered when channels are enabled. */
         p_ctrl->p_reg->I2C_DMA_CR_REG = 0;
 
+  #if (BSP_FEATURE_I2C_VERSION == 1)
+
         /* Configure RX DMA Channel and RX FIFO threshold level for I2C Master. */
         i2c_master_w_extended_cfg_t * p_extend = (i2c_master_w_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
+  #endif
 
         if ((0 == (p_ctrl->total % 8)) && p_extend->enable_dma_bursts_rx)
         {
@@ -1166,6 +1193,15 @@ static void i2c_master_w_write_configure (i2c_master_w_instance_ctrl_t * const p
 {
     uint16_t mask = I2C_MASTER_W_INT_TX_ABORT;
 
+#if (BSP_FEATURE_I2C_VERSION == 2)
+    i2c_master_w_extended_cfg_t * p_extend = (i2c_master_w_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
+
+    if (I2C_MASTER_W_BUS_CLEAR_ENABLED == p_extend->bus_clear)
+    {
+        mask |= I2C_MASTER_W_INT_SCL_STUCK_AT_LOW;
+    }
+#endif
+
     /* Clear TX ABORT interrupt status. */
     p_ctrl->p_reg->I2C_CLR_TX_ABRT_REG;
 
@@ -1215,7 +1251,10 @@ static void i2c_master_w_write_configure (i2c_master_w_instance_ctrl_t * const p
 
         /* Make sure I2C DMA is off so it's not unexpectedly triggered when channels are enabled. */
         p_ctrl->p_reg->I2C_DMA_CR_REG = 0;
+
+  #if (BSP_FEATURE_I2C_VERSION == 1)
         i2c_master_w_extended_cfg_t * p_extend = (i2c_master_w_extended_cfg_t *) p_ctrl->p_cfg->p_extend;
+  #endif
 
         /* Configure TX DMA Channel and TX FIFO threshold level for I3C. */
         if ((p_ctrl->total < 4) || !(p_extend->enable_dma_bursts_tx))
@@ -1503,6 +1542,34 @@ void i2c_master_w_gen_isr (void)
         /* Notify anyone waiting that the transfer is Aborted due to error. */
         i2c_master_w_notify(p_ctrl, I2C_MASTER_EVENT_ABORTED);
 
+#if (BSP_FEATURE_I2C_VERSION == 2)
+
+        /* Recovery from SDA stuck at low condition. */
+        if (p_ctrl->p_reg->I2C_TX_ABRT_SOURCE_REG & I2C_I2C_TX_ABRT_SOURCE_REG_ABRT_SDA_STUCK_AT_LOW_Msk)
+        {
+            /* Recovery SDA bus. */
+            p_ctrl->p_reg->I2C_ENABLE_REG_b.I2C_SDA_STUCK_RECOVERY_EN = 1;
+            for (uint8_t timeout = I2C_MASTER_W_WAIT_TIMEOUT_TICK;
+                 p_ctrl->p_reg->I2C_ENABLE_REG_b.I2C_SDA_STUCK_RECOVERY_EN && timeout;
+                 timeout--)
+            {
+                R_BSP_SoftwareDelay(I2C_MASTER_W_WAIT_SYNC_DELAY_USEC, BSP_DELAY_UNITS_MICROSECONDS);
+            }
+
+            p_ctrl->p_reg->I2C_ENABLE_REG_b.I2C_SDA_STUCK_RECOVERY_EN = 0;
+
+            /* If recovery fails, reset the I2C. */
+            if (p_ctrl->p_reg->I2C_STATUS_REG_b.SDA_STUCK_NOT_RECOVERED)
+            {
+                CRG_COM->SET_COM_RESET_REG   = CRG_COM_SET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+                CRG_COM->RESET_COM_RESET_REG = CRG_COM_RESET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+
+                /* Resetting the I2C peripheral resets the register values, so they need to be configured again. */
+                i2c_master_w_open_hw_master(p_ctrl);
+            }
+        }
+#endif
+
         /* Mark the transaction as completed. */
         p_ctrl->loaded = p_ctrl->total;
 
@@ -1519,6 +1586,34 @@ void i2c_master_w_gen_isr (void)
 
         return;
     }
+
+#if (BSP_FEATURE_I2C_VERSION == 2)
+    if (mask & I2C_MASTER_W_INT_SCL_STUCK_AT_LOW)
+    {
+        /* Notify anyone waiting that the transfer is Aborted due to SCL stuck at low. */
+        i2c_master_w_notify(p_ctrl, I2C_MASTER_EVENT_ABORTED);
+
+        /* Mark the transaction as completed. */
+        p_ctrl->loaded = p_ctrl->total;
+
+ #if !I2C_MASTER_W_CFG_GENERIC_ONLY
+        R_BSP_IrqClearPending(p_ctrl->p_cfg->tei_irq);
+        p_ctrl->p_reg->I2C_MASK_REG = 0;
+ #endif
+
+        /* Reset I2C. */
+        CRG_COM->SET_COM_RESET_REG   = CRG_COM_SET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+        CRG_COM->RESET_COM_RESET_REG = CRG_COM_RESET_COM_RESET_REG_I2C_RESET_Msk << p_ctrl->p_cfg->channel;
+
+        /* Resetting the I2C peripheral resets the register values, so they need to be configured again. */
+        i2c_master_w_open_hw_master(p_ctrl);
+
+        /* Restore context if RTOS is used. */
+        FSP_CONTEXT_RESTORE;
+
+        return;
+    }
+#endif
 
     if (mask & I2C_MASTER_W_INT_STOP_DETECTED)
     {
@@ -1828,7 +1923,6 @@ void i2c_master_w_tx_dmac_callback (i2c_master_w_instance_ctrl_t * const p_ctrl)
             i2c_master_w_notify(p_ctrl, I2C_MASTER_EVENT_TX_COMPLETE);
         }
     }
-
 }
 
 #endif

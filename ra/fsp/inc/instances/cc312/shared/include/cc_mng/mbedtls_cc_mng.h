@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2001-2019, Arm Limited and Contributors. All rights reserved.
  *
- * SPDX-License-Identifier: BSD-3-Clause OR Arm’s non-OSI source license
+ * SPDX-License-Identifier: BSD-3-Clause OR Arm's non-OSI source license
  */
 
 /*!
@@ -14,7 +14,7 @@
  @brief This file contains all CryptoCell Management APIs and definitions.
 
  The following terms, used throughout this module, are defined in
- <em>Arm® v8-M Architecture Reference Manual</em>:
+ <em>Arm(R) v8-M Architecture Reference Manual</em>:
  <ul><li>Privileged and unprivileged modes.</li>
  <li>Secure and Non-secure modes.</li></ul>
  */

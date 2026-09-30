@@ -52,8 +52,6 @@
 
 #define PRO_DK_DA1469x_BRD                     1
 #define PRO_DK_DA1468x_BRD                     2
-#define FPGA_DA1469x_BRD                       3
-#define FPGA_DA1468x_BRD                       4
 
 #define LP_CLK_IS_ANALOG                       0
 #define LP_CLK_IS_DIGITAL                      1

@@ -981,111 +981,53 @@
 
  #elif ((DEVICE_FAMILY == DA1469X) || (DEVICE_FAMILY == DA1487X))
 
-  #if DEVICE_FPGA
-
-   #if (PWR_MGR_FUNCTIONAL_DEBUG == 1) || (PWR_MGR_USE_TIMING_DEBUG == 1) || (CLK_MGR_USE_TIMING_DEBUG == 1)
-    #error "Flash debug pins are also used by clock manager and power manager"
-   #endif
-
 // Write page (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_MODE_REG            GPIO->P0_18_MODE_REG
-   #define FLASHDBG_PAGE_PROG_SET_REG             GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_RESET_REG           GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_PIN                 (1 << 18)
+  #define FLASHDBG_PAGE_PROG_MODE_REG            GPIO->P1_01_MODE_REG
+  #define FLASHDBG_PAGE_PROG_SET_REG             GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_RESET_REG           GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_PIN                 (1 << 1)
 
 // Program page wait loop (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_WL_MODE_REG         GPIO->P0_19_MODE_REG
-   #define FLASHDBG_PAGE_PROG_WL_SET_REG          GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_RESET_REG        GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_PIN              (1 << 19)
+  #define FLASHDBG_PAGE_PROG_WL_MODE_REG         GPIO->P1_02_MODE_REG
+  #define FLASHDBG_PAGE_PROG_WL_SET_REG          GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_WL_RESET_REG        GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_WL_PIN              (1 << 2)
 
 // Program page wait loop - pending irq check (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_MODE_REG     GPIO->P0_20_MODE_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_SET_REG      GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_RESET_REG    GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_PIN          (1 << 20)
+  #define FLASHDBG_PAGE_PROG_WL_IRQ_MODE_REG     GPIO->P1_03_MODE_REG
+  #define FLASHDBG_PAGE_PROG_WL_IRQ_SET_REG      GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_WL_IRQ_RESET_REG    GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_PAGE_PROG_WL_IRQ_PIN          (1 << 3)
 
 // Suspend op (initial configuration: low)
-   #define FLASHDBG_SUSPEND_MODE_REG              GPIO->P0_21_MODE_REG
-   #define FLASHDBG_SUSPEND_SET_REG               GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_SUSPEND_RESET_REG             GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_SUSPEND_PIN                   (1 << 21)
+  #define FLASHDBG_SUSPEND_MODE_REG              GPIO->P1_04_MODE_REG
+  #define FLASHDBG_SUSPEND_SET_REG               GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_SUSPEND_RESET_REG             GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_SUSPEND_PIN                   (1 << 4)
 
 // Erase sector cmd (initial configuration: low)
-   #define FLASHDBG_SECTOR_ERASE_MODE_REG         GPIO->P0_26_MODE_REG
-   #define FLASHDBG_SECTOR_ERASE_SET_REG          GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_SECTOR_ERASE_RESET_REG        GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_SECTOR_ERASE_PIN              (1 << 26)
+  #define FLASHDBG_SECTOR_ERASE_MODE_REG         GPIO->P1_05_MODE_REG
+  #define FLASHDBG_SECTOR_ERASE_SET_REG          GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_SECTOR_ERASE_RESET_REG        GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_SECTOR_ERASE_PIN              (1 << 5)
 
 // Notify task (initial configuration: low)
-   #define FLASHDBG_TASK_NOTIFY_MODE_REG          GPIO->P0_27_MODE_REG
-   #define FLASHDBG_TASK_NOTIFY_SET_REG           GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_TASK_NOTIFY_RESET_REG         GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_TASK_NOTIFY_PIN               (1 << 27)
+  #define FLASHDBG_TASK_NOTIFY_MODE_REG          GPIO->P1_06_MODE_REG
+  #define FLASHDBG_TASK_NOTIFY_SET_REG           GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_TASK_NOTIFY_RESET_REG         GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_TASK_NOTIFY_PIN               (1 << 6)
 
 // Suspend action (low level) (initial configuration: low)
-   #define FLASHDBG_SUSPEND_ACTION_MODE_REG       GPIO->P0_28_MODE_REG
-   #define FLASHDBG_SUSPEND_ACTION_SET_REG        GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_SUSPEND_ACTION_RESET_REG      GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_SUSPEND_ACTION_PIN            (1 << 28)
+  #define FLASHDBG_SUSPEND_ACTION_MODE_REG       GPIO->P1_07_MODE_REG
+  #define FLASHDBG_SUSPEND_ACTION_SET_REG        GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_SUSPEND_ACTION_RESET_REG      GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_SUSPEND_ACTION_PIN            (1 << 7)
 
 // Resume op (initial configuration: low)
-   #define FLASHDBG_RESUME_MODE_REG               GPIO->P0_29_MODE_REG
-   #define FLASHDBG_RESUME_SET_REG                GPIO->P0_SET_DATA_REG
-   #define FLASHDBG_RESUME_RESET_REG              GPIO->P0_RESET_DATA_REG
-   #define FLASHDBG_RESUME_PIN                    (1 << 29)
-
-  #else
-
-// Write page (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_MODE_REG            GPIO->P1_01_MODE_REG
-   #define FLASHDBG_PAGE_PROG_SET_REG             GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_RESET_REG           GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_PIN                 (1 << 1)
-
-// Program page wait loop (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_WL_MODE_REG         GPIO->P1_02_MODE_REG
-   #define FLASHDBG_PAGE_PROG_WL_SET_REG          GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_RESET_REG        GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_PIN              (1 << 2)
-
-// Program page wait loop - pending irq check (initial configuration: low)
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_MODE_REG     GPIO->P1_03_MODE_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_SET_REG      GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_RESET_REG    GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_PAGE_PROG_WL_IRQ_PIN          (1 << 3)
-
-// Suspend op (initial configuration: low)
-   #define FLASHDBG_SUSPEND_MODE_REG              GPIO->P1_04_MODE_REG
-   #define FLASHDBG_SUSPEND_SET_REG               GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_SUSPEND_RESET_REG             GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_SUSPEND_PIN                   (1 << 4)
-
-// Erase sector cmd (initial configuration: low)
-   #define FLASHDBG_SECTOR_ERASE_MODE_REG         GPIO->P1_05_MODE_REG
-   #define FLASHDBG_SECTOR_ERASE_SET_REG          GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_SECTOR_ERASE_RESET_REG        GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_SECTOR_ERASE_PIN              (1 << 5)
-
-// Notify task (initial configuration: low)
-   #define FLASHDBG_TASK_NOTIFY_MODE_REG          GPIO->P1_06_MODE_REG
-   #define FLASHDBG_TASK_NOTIFY_SET_REG           GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_TASK_NOTIFY_RESET_REG         GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_TASK_NOTIFY_PIN               (1 << 6)
-
-// Suspend action (low level) (initial configuration: low)
-   #define FLASHDBG_SUSPEND_ACTION_MODE_REG       GPIO->P1_07_MODE_REG
-   #define FLASHDBG_SUSPEND_ACTION_SET_REG        GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_SUSPEND_ACTION_RESET_REG      GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_SUSPEND_ACTION_PIN            (1 << 7)
-
-// Resume op (initial configuration: low)
-   #define FLASHDBG_RESUME_MODE_REG               GPIO->P1_08_MODE_REG
-   #define FLASHDBG_RESUME_SET_REG                GPIO->P1_SET_DATA_REG
-   #define FLASHDBG_RESUME_RESET_REG              GPIO->P1_RESET_DATA_REG
-   #define FLASHDBG_RESUME_PIN                    (1 << 8)
-
-  #endif                               /* DEVICE_FPGA */
+  #define FLASHDBG_RESUME_MODE_REG               GPIO->P1_08_MODE_REG
+  #define FLASHDBG_RESUME_SET_REG                GPIO->P1_SET_DATA_REG
+  #define FLASHDBG_RESUME_RESET_REG              GPIO->P1_RESET_DATA_REG
+  #define FLASHDBG_RESUME_PIN                    (1 << 8)
 
  #endif                                /* DEVICE_FAMILY */
 

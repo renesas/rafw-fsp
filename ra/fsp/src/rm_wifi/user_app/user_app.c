@@ -48,25 +48,12 @@
 /******************************************************************************
  * External global functions
  ******************************************************************************/
-#if defined ( __SUPPORT_HELLO_WORLD__ )
-extern void hello_world_1(void *arg);
-extern void hello_world_2(void *arg);
-#endif  // __SUPPORT_HELLO_WORLD__
+
 
 /******************************************************************************
  * External global variables
  ******************************************************************************/
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-extern EventGroupHandle_t evt_grp_wifi_conn_notify;
 
-/* Station mode */
-extern short wifi_conn_fail_reason;
-extern short wifi_disconn_reason;
-
-/* AP mode */
-extern short ap_wifi_conn_fail_reason;
-extern short ap_wifi_disconn_reason;
-#endif  // __SUPPORT_WIFI_CONN_CB__
 
 /******************************************************************************
  * Local static functions
@@ -1096,72 +1083,6 @@ static void tcp_client_over_IPv4(void *arg)
  *
  *============================================================*/
 
-
-///////////////////////////////////////////////////////////////////////////////
-////  Customer call-back function to notify WI-Fi connection status
-///////////////////////////////////////////////////////////////////////////////
-
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-static void user_wifi_conn(void *arg)
-{
-    RA6W1_UNUSED_ARG(arg);
-
-    EventBits_t wifi_conn_ev_bits;
-
-#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
-    uint8_t task_wdog_id = WATCHDOG_SERVICE_W_NOT_REGISTERED_ID;
-    g_wifi_cfg.p_watchdog_service->p_api->registerTask(g_wifi_cfg.p_watchdog_service->p_ctrl, g_wifi_cfg.p_watchdog_service->p_cfg, &task_wdog_id);
-#endif
-
-    while (true) {
-#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
-        g_wifi_cfg.p_watchdog_service->p_api->notify(g_wifi_cfg.p_watchdog_service->p_ctrl, g_wifi_cfg.p_watchdog_service->p_cfg, task_wdog_id);
-        g_wifi_cfg.p_watchdog_service->p_api->suspend(g_wifi_cfg.p_watchdog_service->p_ctrl, task_wdog_id);
-#endif
-
-        wifi_conn_ev_bits = xEventGroupWaitBits(
-                                       evt_grp_wifi_conn_notify,
-                                       (
-                                           (WIFI_CONN_SUCC_STA | WIFI_CONN_SUCC_SOFTAP)
-                                         | (WIFI_CONN_FAIL_STA | WIFI_CONN_FAIL_SOFTAP)
-                                         | (WIFI_DISCONN_STA   | WIFI_DISCONN_SOFTAP  )
-                                       ),
-                                       pdTRUE,
-                                       pdFALSE,
-                                       WIFI_CONN_NOTI_WAIT_TICK);
-
-#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
-        g_wifi_cfg.p_watchdog_service->p_api->resumeAndNotify(g_wifi_cfg.p_watchdog_service->p_ctrl, g_wifi_cfg.p_watchdog_service->p_cfg, task_wdog_id);
-#endif
-
-        if (wifi_conn_ev_bits & WIFI_CONN_SUCC_STA) {
-            PRINTF("\n### User Call-back : Success to connect Wi-Fi ...\n");
-        } else if (wifi_conn_ev_bits & WIFI_CONN_SUCC_SOFTAP) {
-            PRINTF("\n### User Call-back : Success to connect Wi-Fi ...\n");
-        }
-
-        if (wifi_conn_ev_bits & WIFI_CONN_FAIL_STA) {
-            PRINTF("\n### User Call-back : Failed to connect Wi-Fi ( reason_code = %d ) ...\n", wifi_conn_fail_reason);
-        } else if (wifi_conn_ev_bits & WIFI_CONN_FAIL_SOFTAP) {
-            PRINTF("\n### User Call-back : Failed to connect Wi-Fi ( reason_code = %d ) ...\n", ap_wifi_conn_fail_reason);
-        }
-
-        if (wifi_conn_ev_bits & WIFI_DISCONN_STA) {
-            PRINTF("\n### User Call-back : Wi-Fi disconnected ( reason_code = %d ) ...\n", wifi_disconn_reason);
-        } else if (wifi_conn_ev_bits & WIFI_DISCONN_SOFTAP) {
-            PRINTF("\n### User Call-back : Disassociated - STA has left ( reason_code = %d ) ...\n", ap_wifi_disconn_reason);
-        }
-    }
-
-#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
-    g_wifi_cfg.p_watchdog_service->p_api->unregisterTask(g_wifi_cfg.p_watchdog_service->p_ctrl, task_wdog_id);
-#endif
-
-    vTaskDelete(NULL);
-}
-#endif // __SUPPORT_WIFI_CONN_CB__
-
-
 /**********************************************************
  * Customer's application table
  **********************************************************/
@@ -1177,17 +1098,6 @@ const app_task_info_t    user_apps_table[] = {
  */
 
 /*  Task Name,          Funtion,         Stack Size, Task Priority,             NW Flag, DPM,   NW Port,    Sys_Mode  */
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-  { WIFI_CONN,          user_wifi_conn,         256, (OS_TASK_PRIORITY_USER + 1), FALSE, FALSE, UNDEF_PORT, RUN_ALL_MODE   },
-#endif  // __SUPPORT_WIFI_CONN_CB__
-
-#if !defined(__SUPPORT_MATTER_IOT__)
-#if defined ( __SUPPORT_HELLO_WORLD__ )
-  { HELLO_WORLD_1,      hello_world_1,          128, (OS_TASK_PRIORITY_USER + 1), FALSE, FALSE, UNDEF_PORT, RUN_ALL_MODE   },
-  { HELLO_WORLD_2,      hello_world_2,          128, (OS_TASK_PRIORITY_USER + 1), TRUE,  TRUE,  UNDEF_PORT, RUN_ALL_MODE   },
-#endif  // __SUPPORT_HELLO_WORLD__
-#endif  // (__SUPPORT_MATTER_IOT__)
-
 #ifdef DPM_TIMER_USER_TEST
 #if CFG_PMGR
   { DPM_TIMER_TEST,     timer_test,             256, (OS_TASK_PRIORITY_USER + 2), FALSE, TRUE,  UNDEF_PORT, RUN_STA_MODE   },

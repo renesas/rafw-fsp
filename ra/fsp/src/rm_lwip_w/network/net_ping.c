@@ -93,10 +93,6 @@ void ping_dns_found(const char* domain, const ip_addr_t *ipaddr, void *arg)
             PING_DEBUG_PRINT(">> Domain address Found: %s : %s\n", domain, ipaddr_ntoa(ipaddr));
 #endif    /*RA6WX_PING_DEBUG*/
             ip_addr_copy(ping_arg->ipaddr, *ipaddr);
-            
-#if defined ( __DNS_2ND_CACHE_SUPPORT__ )
-            dns_req_resolved(domain, ipaddr, arg);
-#endif // __DNS_2ND_CACHE_SUPPORT__
             ping_init_for_console(ping_arg);
         } else {
             printf("DNS query failed.\n");

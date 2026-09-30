@@ -15,7 +15,7 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"  // After app_features.h
+#include "rm_wifi.h" // After app_features.h
 
 #include "includes.h"
 
@@ -355,12 +355,21 @@ void get_supp_ver(char *buf)
 int get_sta_signal_poll(void)
 {
     if ((rm_wifi_is_wpa_state(WPA_COMPLETED, 0) == FSP_SUCCESS)) {
-    	struct wpa_supplicant *wpa_s;
+        struct wpa_supplicant *wpa_s;
         struct wpa_signal_info si;
         int ret;
 
         wpa_s = get_wpa_supplicant();
-        
+
+#ifdef CONFIG_CONCURRENT
+#if defined(CONFIG_STA) && defined(CONFIG_AP)
+        if (wpa_s && get_run_mode() == WIFI_DEVICE_MODE_EXT_AP_STATION)
+        {
+            wpa_s = wpa_s->parent;
+        }
+#endif
+#endif
+
         ret = wpa_drv_signal_poll(wpa_s, &si);
         if (ret) {
             return -WPA_INVALID_NOISE;

@@ -40,15 +40,15 @@
 #if (TIN_SKU_BUILD_ID == TIN_SKU_WIFI6_B24_5_BLE || (defined (BSP_MCU_RRQ61051_208) || defined (BSP_MCU_RRQ61051_408)))
     #define SDK_VER_PRODUCT_LINE    8                // SDK Product line number
     #define SDK_VER_MODE            0                // SDK Mode number (Standalone:0 / Linux Driver:1)
-    #define SDK_VER_TARGET          4                // SDK Target release
+    #define SDK_VER_TARGET          5                // SDK Target release
     #define SDK_VER_BRANCH          0                // SDK Branch number
-    #define SDK_VER_R               4                // SDK R&D build number
+    #define SDK_VER_R               7                // SDK R&D build number
 #else
     #define SDK_VER_PRODUCT_LINE    8                // SDK Product line number
     #define SDK_VER_MODE            0                // SDK Mode number (Standalone:0 / Linux Driver:1)
-    #define SDK_VER_TARGET          4                // SDK Target release
+    #define SDK_VER_TARGET          5                // SDK Target release
     #define SDK_VER_BRANCH          0                // SDK Branch number
-    #define SDK_VER_R               4                // SDK R&D build number
+    #define SDK_VER_R               7                // SDK R&D build number
 #endif /* TIN_SKU_BUILD_ID == TIN_SKU_WIFI6_B24_5_BLE || (BSP_MCU_RRQ61051_208 || BSP_MCU_RRQ61051_408) */
 
 #ifdef SIGMA_TEST_ENABLE

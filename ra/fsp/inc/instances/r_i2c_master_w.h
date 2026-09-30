@@ -56,23 +56,29 @@ FSP_HEADER
 /** I2C interrupt source */
 typedef enum e_i2c_master_w_int
 {
-    I2C_MASTER_W_INT_RX_UNDERFLOW     = I2C_I2C_INTR_STAT_REG_R_RX_UNDER_Msk,         ///< Attempt to read from empty RX FIFO has been made
-    I2C_MASTER_W_INT_RX_OVERFLOW      = I2C_I2C_INTR_STAT_REG_R_RX_OVER_Msk,          ///< RX FIFO is full but new data are incoming and being discarded
-    I2C_MASTER_W_INT_RX_FULL          = I2C_I2C_INTR_STAT_REG_R_RX_FULL_Msk,          ///< RX FIFO level is equal or above threshold
-    I2C_MASTER_W_INT_TX_OVERFLOW      = I2C_I2C_INTR_STAT_REG_R_TX_OVER_Msk,          ///< Attempt to write to TX FIFO which is already full
-    I2C_MASTER_W_INT_TX_EMPTY         = I2C_I2C_INTR_STAT_REG_R_TX_EMPTY_Msk,         ///< TX FIFO level is  equal or below threshold
-    I2C_MASTER_W_INT_READ_REQUEST     = I2C_I2C_INTR_STAT_REG_R_RD_REQ_Msk,           ///< I2C master attempts to read data(slave only)
-    I2C_MASTER_W_INT_TX_ABORT         = I2C_I2C_INTR_STAT_REG_R_TX_ABRT_Msk,          ///< TX cannot be completed
-    I2C_MASTER_W_INT_RX_DONE          = I2C_I2C_INTR_STAT_REG_R_RX_DONE_Msk,          ///< I2C master did not acknowledge transmitted byte(slave only)
-    I2C_MASTER_W_INT_ACTIVITY         = I2C_I2C_INTR_STAT_REG_R_ACTIVITY_Msk,         ///< Any I2C activity occurred
-    I2C_MASTER_W_INT_STOP_DETECTED    = I2C_I2C_INTR_STAT_REG_R_STOP_DET_Msk,         ///< STOP condition occurred
-    I2C_MASTER_W_INT_START_DETECTED   = I2C_I2C_INTR_STAT_REG_R_START_DET_Msk,        ///< START/RESTART condition occurred
-    I2C_MASTER_W_INT_GENERAL_CALL     = I2C_I2C_INTR_STAT_REG_R_GEN_CALL_Msk,         ///< General Call address received(slave only)
-    I2C_MASTER_W_INT_RESTART_DETECTED = I2C_I2C_INTR_STAT_REG_R_RESTART_DET_Msk,      ///< RESTART condition occurred
-    I2C_MASTER_W_INT_MASTER_ON_HOLD   = I2C_I2C_INTR_STAT_REG_R_MASTER_ON_HOLD_Msk,   ///< Master is holding the bus and TX FIFO is empty
-    I2C_MASTER_W_INT_SCL_STUCK_AT_LOW = I2C_I2C_INTR_STAT_REG_R_SCL_STUCK_AT_LOW_Msk  ///< SCL STUCK AT LOW timeout occurred
+    I2C_MASTER_W_INT_RX_UNDERFLOW     = I2C_I2C_INTR_STAT_REG_R_RX_UNDER_Msk,        ///< Attempt to read from empty RX FIFO has been made
+    I2C_MASTER_W_INT_RX_OVERFLOW      = I2C_I2C_INTR_STAT_REG_R_RX_OVER_Msk,         ///< RX FIFO is full but new data are incoming and being discarded
+    I2C_MASTER_W_INT_RX_FULL          = I2C_I2C_INTR_STAT_REG_R_RX_FULL_Msk,         ///< RX FIFO level is equal or above threshold
+    I2C_MASTER_W_INT_TX_OVERFLOW      = I2C_I2C_INTR_STAT_REG_R_TX_OVER_Msk,         ///< Attempt to write to TX FIFO which is already full
+    I2C_MASTER_W_INT_TX_EMPTY         = I2C_I2C_INTR_STAT_REG_R_TX_EMPTY_Msk,        ///< TX FIFO level is  equal or below threshold
+    I2C_MASTER_W_INT_READ_REQUEST     = I2C_I2C_INTR_STAT_REG_R_RD_REQ_Msk,          ///< I2C master attempts to read data(slave only)
+    I2C_MASTER_W_INT_TX_ABORT         = I2C_I2C_INTR_STAT_REG_R_TX_ABRT_Msk,         ///< TX cannot be completed
+    I2C_MASTER_W_INT_RX_DONE          = I2C_I2C_INTR_STAT_REG_R_RX_DONE_Msk,         ///< I2C master did not acknowledge transmitted byte(slave only)
+    I2C_MASTER_W_INT_ACTIVITY         = I2C_I2C_INTR_STAT_REG_R_ACTIVITY_Msk,        ///< Any I2C activity occurred
+    I2C_MASTER_W_INT_STOP_DETECTED    = I2C_I2C_INTR_STAT_REG_R_STOP_DET_Msk,        ///< STOP condition occurred
+    I2C_MASTER_W_INT_START_DETECTED   = I2C_I2C_INTR_STAT_REG_R_START_DET_Msk,       ///< START/RESTART condition occurred
+    I2C_MASTER_W_INT_GENERAL_CALL     = I2C_I2C_INTR_STAT_REG_R_GEN_CALL_Msk,        ///< General Call address received(slave only)
+    I2C_MASTER_W_INT_RESTART_DETECTED = I2C_I2C_INTR_STAT_REG_R_RESTART_DET_Msk,     ///< RESTART condition occurred
+    I2C_MASTER_W_INT_MASTER_ON_HOLD   = I2C_I2C_INTR_STAT_REG_R_MASTER_ON_HOLD_Msk,  ///< Master is holding the bus and TX FIFO is empty
+    I2C_MASTER_W_INT_SCL_STUCK_AT_LOW = I2C_I2C_INTR_STAT_REG_R_SCL_STUCK_AT_LOW_Msk ///< SCL STUCK AT LOW timeout occurred
 } i2c_master_w_int_t;
 
+/** Bus clear settings. */
+typedef enum e_i2c_master_w_bus_clear
+{
+    I2C_MASTER_W_BUS_CLEAR_DISABLED = 0, ///< Disable bus clear feature.
+    I2C_MASTER_W_BUS_CLEAR_ENABLED  = 1  ///< Enable bus clear feature.
+} i2c_master_w_bus_clear_t;
 
 /** I2C clock settings */
 typedef struct i2c_master_w_clock_settings
@@ -119,7 +125,12 @@ typedef struct st_i2c_master_w_extended_cfg
     bool enable_dma_bursts_tx;                    ///< Enable DMA Burst TX Transactions when the transaction length is 4- or 8-byte aligned
     bool enable_dma_bursts_rx;                    ///< Enable DMA Burst RX Transactions when the transaction length is 4- or 8-byte aligned
 #endif
+
     i2c_master_w_clock_settings_t clock_settings; ///< I2C Clock settings
+    i2c_master_w_bus_clear_t      bus_clear;      ///< Bus clear settings.
+
+    uint32_t  scl_stuck_timeout;                  ///< Timeout period (in units of the i2c_clk clock cycles) used to detect when SCL remains stuck low.
+    uint32_t  sda_stuck_timeout;                  ///< Timeout period (in units of the i2c_clk clock cycles) used to detect when SDA remains stuck low.
     bool      select_divn;                        ///< Select the clock source (DIVN/DIV1 clock)
     IRQn_Type gen_irq;                            ///< Generic I2C Interrupt IRQ number.
     uint8_t   gen_ipl;                            ///< Generic I2C Interrupt Priority.

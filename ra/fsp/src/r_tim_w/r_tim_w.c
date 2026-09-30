@@ -1190,15 +1190,29 @@ fsp_err_t R_TIM_W_Close (timer_ctrl_t * const p_ctrl)
     /* Disables external events */
     r_tim_w_hardware_events_disable(p_instance_ctrl);
 
-    r_tim_w_unfreeze(p_instance_ctrl);
-
 #if BSP_FEATURE_TIM_W_SUPPORTS_COMPARE_MATCH
 
     /* Set capture_compare mode to reset value (capture) and clear compare match irq reg */
     p_instance_ctrl->p_reg->TIMER_COMPARE_MATCH_ENABLE_REG = 0U;
     p_instance_ctrl->p_reg->TIMER_COMPARE_MATCH_IRQ_REG    = 0U;
 #endif
+
+#if TIM_W_CFG_OUTPUT_SUPPORT_ENABLE
+    p_instance_ctrl->p_reg->TIMER_PWM_CTRL_REG = 0U;
+    FSP_HARDWARE_REGISTER_WAIT(p_instance_ctrl->p_reg->TIMER_STATUS_REG_b.TIM_PWM_BUSY, 0U);
+#endif
+
     p_instance_ctrl->p_reg->TIMER_PWM_SYNC_REG = 0U;
+
+    /*
+     * Reset the TIM_EN bit field before resetting the ctrl register.
+     * This way we ensure that the TIM_W resets properly before closing.
+     */
+    p_instance_ctrl->p_reg->TIMER_CTRL_REG_b.TIM_EN = 0U;
+    FSP_HARDWARE_REGISTER_WAIT(p_instance_ctrl->p_reg->TIMER_STATUS_REG_b.TIM_TIMER_BUSY, 0U);
+
+    /*To ensure Pause State resets properly before closing. */
+    r_tim_w_unfreeze(p_instance_ctrl);
 
     /* Disable interrupts. */
     r_tim_w_disable_irq(p_instance_ctrl->p_cfg->cycle_end_irq);
@@ -1214,20 +1228,12 @@ fsp_err_t R_TIM_W_Close (timer_ctrl_t * const p_ctrl)
         }
     }
 
-    /*
-     * Reset the TIM_EN bit field before resetting the ctrl register.
-     * This way we ensure that the TIM_W resets properly before closing.
-     */
-    p_instance_ctrl->p_reg->TIMER_CTRL_REG_b.TIM_EN = 0U;
-    FSP_HARDWARE_REGISTER_WAIT(p_instance_ctrl->p_reg->TIMER_STATUS_REG_b.TIM_TIMER_BUSY, 0U);
-
     /* Stop timer clock. */
     p_instance_ctrl->p_reg->TIMER_CTRL_REG = 0U;
     FSP_HARDWARE_REGISTER_WAIT(p_instance_ctrl->p_reg->TIMER_STATUS_REG_b.TIM_TIMER_BUSY, 0U);
 
     /* Clear open flag. */
     p_instance_ctrl->open = 0U;
-
 #if BSP_MCU_GROUP_RA6W3
     FSP_CRITICAL_SECTION_DEFINE;
     FSP_CRITICAL_SECTION_ENTER;
@@ -1293,16 +1299,43 @@ static void r_tim_w_common_open (tim_w_instance_ctrl_t * const p_instance_ctrl, 
     }
 
  #else
-    if (TIM_W_TIM6 > p_cfg->channel)
+    switch (p_cfg->channel)
     {
-        uint32_t base_address = (uint32_t) TIMER + (p_cfg->channel * ((uint32_t) TIMER2 - (uint32_t) TIMER));
-        p_instance_ctrl->p_reg = (TIMER_Type *) base_address;
-    }
-    else
-    {
-        if (TIM_W_TIM6 == p_cfg->channel)
+        case TIM_W_TIM1:
+        case TIM_W_TIM2:
+        {
+            uint32_t base_address = (uint32_t) TIMER + (p_cfg->channel * ((uint32_t) TIMER2 - (uint32_t) TIMER));
+            p_instance_ctrl->p_reg = (TIMER_Type *) base_address;
+            break;
+        }
+
+        case TIM_W_TIM3:
+        {
+            p_instance_ctrl->p_reg = (TIMER_Type *) TIMER3;
+            break;
+        }
+
+        case TIM_W_TIM4:
+        {
+            p_instance_ctrl->p_reg = (TIMER_Type *) TIMER4;
+            break;
+        }
+
+        case TIM_W_TIM5:
+        {
+            p_instance_ctrl->p_reg = (TIMER_Type *) TIMER5;
+            break;
+        }
+
+        case TIM_W_TIM6:
         {
             p_instance_ctrl->p_reg = (TIMER_Type *) TIMER6;
+            break;
+        }
+
+        default:
+        {
+            break;
         }
     }
  #endif

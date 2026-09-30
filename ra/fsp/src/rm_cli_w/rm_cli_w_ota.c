@@ -33,7 +33,8 @@
 #include "bsp_api.h"
 #if defined(__SUPPORT_OTA__)
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
+
  #include <stdlib.h>
  #include <stdbool.h>
  #include <string.h>

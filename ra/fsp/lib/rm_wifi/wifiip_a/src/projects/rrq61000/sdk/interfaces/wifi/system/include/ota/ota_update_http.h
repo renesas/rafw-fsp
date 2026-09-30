@@ -35,7 +35,7 @@
 #define	__OTA_UPDATE_HTTP_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "common_def.h"
 #include "ota_update.h"

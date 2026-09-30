@@ -494,26 +494,6 @@ int16_t hw_clk_xtalm_update_rdy_cnt (void)
 {
     int16_t xtalrdy_stat = 0;
 
-    /*
-     * XXX On FPGA the value of XTALRDY_STAT_REG[XTALRDY_STAT] is always zero, so
-     * XXX there is no need to update XTALRDY_CTRL_REG[XTALRDY_CNT].
-     */
-#if 0
-    uint8_t xtalrdy_cnt = 0;
-
-    // XXX review the following comments. normal vs fast mode
-    // XXX update IRQ time when in NORMAL startup mode:
-    // XXX (mis) use irq counter setting to do this
-
-    if (REG_GETF(CRG_XTAL, XTALRDY_CTRL_REG, XTALRDY_CLK_SEL) == 0)
-    {
-        xtalrdy_cnt  = REG_GETF(CRG_XTAL, XTALRDY_CTRL_REG, XTALRDY_CNT);
-        xtalrdy_stat = 3 - REG_GETF(CRG_XTAL, XTALRDY_STAT_REG, XTALRDY_STAT);
-        xtalrdy_cnt += xtalrdy_stat;
-        REG_SETF(CRG_XTAL, XTALRDY_CTRL_REG, XTALRDY_CNT, xtalrdy_cnt);
-    }
-#endif
-
     return xtalrdy_stat;
 }
 
@@ -626,10 +606,6 @@ void hw_clk_xtalm_configure (void)
  */
 BSP_PLACE_CODE_IN_RAM uint32_t hw_clk_pll_sys_on (void)
 {
-#if DEVICE_FPGA
-
-    return 0;
-#else
     volatile uint32_t pllockcnt = 0, ldoisoff;
     volatile uint32_t ldostabletime;
     ahb_div_t         bkup_ahbdiv, ahbdiv, scaler;
@@ -841,7 +817,6 @@ BSP_PLACE_CODE_IN_RAM uint32_t hw_clk_pll_sys_on (void)
     GLOBAL_INT_RESTORE();
 
     return (ldoisoff << 2) | ((MAX_PLL_LCKCHK_TIME - pllockcnt) << 3);
-#endif
 }
 
 /**
@@ -851,8 +826,6 @@ BSP_PLACE_CODE_IN_RAM uint32_t hw_clk_pll_sys_on (void)
  */
 BSP_PLACE_CODE_IN_RAM void hw_clk_pll_sys_off (void)
 {
-#if DEVICE_FPGA
-#else
     volatile uint32_t pllockcnt = 0;
     ahb_div_t         bkup_ahbdiv, ahbdiv;
 
@@ -910,7 +883,6 @@ BSP_PLACE_CODE_IN_RAM void hw_clk_pll_sys_off (void)
     CRG_TOP->CLK_AMBA_REG_b.HCLK_DIV = bkup_ahbdiv;
 
     GLOBAL_INT_RESTORE();
-#endif
 }
 
 static BSP_PLACE_CODE_IN_RAM void pll_enable (void)
@@ -942,8 +914,6 @@ static BSP_PLACE_CODE_IN_RAM void pll_enable (void)
 
 BSP_PLACE_CODE_IN_RAM void pll_on (void)
 {
-#if DEVICE_FPGA
-#else
     int i;
 
     pll_enable();
@@ -963,13 +933,10 @@ BSP_PLACE_CODE_IN_RAM void pll_on (void)
 
     // TODO merge tin FIX divider restoration
     CRG_TOP->CLK_AMBA_REG_b.HCLK_DIV = BSP_CFG_HCLK_DIV;
-#endif
 }
 
 BSP_PLACE_CODE_IN_RAM void pll_off (void)
 {
-#if DEVICE_FPGA
-#else
     CRG_TOP->CLK_CTRL_REG_b.SYS_CLK_SEL    = 1; // XTAL
     CRG_TOP->CLK_CTRL_REG_b.PLL_CPU_ENABLE = 0;
     CRG_TOP->CLK_AMBA_REG_b.OQSPIF_DIV     = 1; // oqspi divide first 80Mhz
@@ -979,7 +946,6 @@ BSP_PLACE_CODE_IN_RAM void pll_off (void)
     RTC->LDO_ENABLE_REG_b.LDO_EN_LDO_PLL1 = 0;
 
     CRG_COM->XTAL40M_CTRL_REG_b.XTAL40M_DPLL_EN = 0;
-#endif
 }
 
 /*******************************************************************************************************************//**
@@ -1130,7 +1096,7 @@ void bsp_clock_init_rrq61 (void)
 
     /*------------------ Configure SYS_PLL ----------------------*/
 
-#if ((BSP_CFG_CLOCK_SOURCE == BSP_CLOCKS_SOURCE_CLOCK_PLL) &&      \
+#if ((BSP_CFG_CLOCK_SOURCE == BSP_CLOCKS_SOURCE_CLOCK_PLL) &&    \
     ((BSP_CFG_OQSPICLK_DIV == BSP_CLOCKS_OQSPI_CLK_DIV_1) ||     \
     ((BSP_CFG_PLL_SYS_MUL < BSP_CLOCKS_PLL_SYS_CLOCK_MUL_2_5) && \
     (BSP_CFG_OQSPICLK_DIV <= BSP_CLOCKS_OQSPI_CLK_DIV_2))))

@@ -7,7 +7,7 @@
 #include "bsp_api.h"
 #if CFG_WIFI
  #include "FreeRTOS.h"
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
 
  #include <stdio.h>
  #include <stdlib.h>
@@ -1112,6 +1112,125 @@ void atcmd_w_ota_update_write_nvram_download_progress (atcmd_w_ota_update_type u
  #endif
 }
 
+ #if defined(__SUPPORT_OTA_RESUME__)
+UINT32 atcmd_w_ota_update_url_fingerprint (const char * url)
+{
+    if ((url == NULL) || (url[0] == '\0'))
+    {
+        return 0;
+    }
+
+    /* Reuse the firmware CRC32 routine as a cheap, stable URL identity hash. */
+    return (UINT32) atcmd_w_ota_update_crc32((const void *) url, strlen(url));
+}
+
+void atcmd_w_ota_update_write_nvram_resume (atcmd_w_ota_update_type update_type,
+                                            UINT                    off,
+                                            UINT                    total,
+                                            UINT32                  fingerprint,
+                                            UINT32                  validator)
+{
+    char         nvr_name[32] = {0, };
+    const char * suffix       = atcmd_w_ota_update_type_to_text(update_type);
+
+  #ifdef RM_MAP_PERSISTANT_W
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_OFFSET, suffix);
+    RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, (int) off);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_TOTAL, suffix);
+    RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, (int) total);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_FP, suffix);
+    RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, (int) fingerprint);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_VAL, suffix);
+    RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, (int) validator);
+  #else
+    (void) off;
+    (void) total;
+    (void) fingerprint;
+    (void) validator;
+    (void) suffix;
+  #endif
+}
+
+UINT atcmd_w_ota_update_read_nvram_resume (atcmd_w_ota_update_type update_type,
+                                           UINT                  * off,
+                                           UINT                  * total,
+                                           UINT32                * fingerprint,
+                                           UINT32                * validator)
+{
+    char         nvr_name[32] = {0, };
+    const char * suffix       = atcmd_w_ota_update_type_to_text(update_type);
+    int          v_off        = 0;
+    int          v_total      = 0;
+    int          v_fp         = 0;
+    int          v_val        = 0;
+
+  #ifdef RM_MAP_PERSISTANT_W
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_OFFSET, suffix);
+    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, &v_off);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_TOTAL, suffix);
+    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, &v_total);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_FP, suffix);
+    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, &v_fp);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_VAL, suffix);
+    RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, &v_val);
+  #endif
+
+    if (v_off <= 0)
+    {
+        return ATCMD_W_OTA_FAILED;
+    }
+
+    if (off != NULL)
+    {
+        *off = (UINT) v_off;
+    }
+
+    if (total != NULL)
+    {
+        *total = (UINT) v_total;
+    }
+
+    if (fingerprint != NULL)
+    {
+        *fingerprint = (UINT32) v_fp;
+    }
+
+    if (validator != NULL)
+    {
+        *validator = (UINT32) v_val;
+    }
+
+    return ATCMD_W_OTA_SUCCESS;
+}
+
+void atcmd_w_ota_update_clear_nvram_resume (atcmd_w_ota_update_type update_type)
+{
+    char         nvr_name[32] = {0, };
+    const char * suffix       = atcmd_w_ota_update_type_to_text(update_type);
+
+  #ifdef RM_MAP_PERSISTANT_W
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_OFFSET, suffix);
+    RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_TOTAL, suffix);
+    RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_FP, suffix);
+    RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
+
+    snprintf(nvr_name, sizeof(nvr_name), "%s%s", ATCMD_W_OTA_NVRAM_RSM_VAL, suffix);
+    RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
+  #endif
+}
+
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
+
 static UINT atcmd_w_ota_update_evt_wait (int timeout)
 {
     ULONG events;
@@ -1411,8 +1530,17 @@ UINT atcmd_w_ota_update_process_create (atcmd_w_ctrl_t * const p_at_ctrl, ATCMD_
     memcpy(at_ota_proc->url, update_conf->url, ATCMD_W_OTA_HTTP_URL_LEN);
     at_ota_proc->auto_renew           = update_conf->auto_renew;
     at_ota_proc->download_sflash_addr = update_conf->download_sflash_addr;
-    at_ota_proc->download_notify      = update_conf->download_notify;
-    at_ota_proc->renew_notify         = update_conf->renew_notify;
+ #if defined(__SUPPORT_OTA_RESUME__)
+
+    /* Consume the resume flag as a one-shot: only AT+NWOTADWRESUME sets it, and
+     * a subsequent (legacy) full download must never inherit it from the shared
+     * config. When the feature is disabled this block compiles out entirely, so
+     * the legacy flow is unchanged. */
+    at_ota_proc->is_resume = update_conf->is_resume;
+    update_conf->is_resume = 0;
+ #endif
+    at_ota_proc->download_notify = update_conf->download_notify;
+    at_ota_proc->renew_notify    = update_conf->renew_notify;
     g_p_at_ctrl = p_at_ctrl;
 
     if (at_ota_proc_xHandle)

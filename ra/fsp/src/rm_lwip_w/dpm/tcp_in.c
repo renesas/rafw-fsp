@@ -265,12 +265,12 @@ tcp_input(struct pbuf *p, struct netif *inp)
 
     if (pcb->remote_port == tcphdr->src &&
         pcb->local_port == tcphdr->dest &&
-#if LWIP_IPV6 && defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
+#if LWIP_IPV6
         /* Add by SW-SAT of Renesas for RA6W1 */
         ip_addr_cmp_zoneless(&pcb->remote_ip, ip_current_src_addr()) &&
 #else        
         ip_addr_cmp(&pcb->remote_ip, ip_current_src_addr()) &&
-#endif /* LWIP_IPV6 && RRQ61XX_CUSTOM_FIXES_MANDATORY */
+#endif /* LWIP_IPV6 */
         ip_addr_cmp(&pcb->local_ip, ip_current_dest_addr())) {
       /* Move this PCB to the front of the list so that subsequent
          lookups will be faster (we exploit locality in TCP segment
@@ -1283,11 +1283,11 @@ tcp_receive(struct tcp_pcb *pcb)
       pcb->nrtx = 0;
 
       /* Reset the retransmission time-out. */
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY) && defined(FIXED_RETRANSMIT_TIMEOUT)
+#if defined(FIXED_RETRANSMIT_TIMEOUT)
       pcb->rto = (TCP_RETRANSMISSION_TIMEOUT / TCP_SLOW_INTERVAL);
 #else
       pcb->rto = (s16_t)((pcb->sa >> 3) + pcb->sv);
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY && FIXED_RETRANSMIT_TIMEOUT */
+#endif /* FIXED_RETRANSMIT_TIMEOUT */
 
       /* Record how much data this ACK acks */
       acked = (tcpwnd_size_t)(ackno - pcb->lastack);
@@ -1402,11 +1402,11 @@ tcp_receive(struct tcp_pcb *pcb)
       }
       m = (s16_t)(m - (pcb->sv >> 2));
       pcb->sv = (s16_t)(pcb->sv + m);
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY) && defined(FIXED_RETRANSMIT_TIMEOUT)
+#if defined(FIXED_RETRANSMIT_TIMEOUT)
       pcb->rto = (TCP_RETRANSMISSION_TIMEOUT / TCP_SLOW_INTERVAL);
 #else
       pcb->rto = (s16_t)((pcb->sa >> 3) + pcb->sv);
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY && FIXED_RETRANSMIT_TIMEOUT */
+#endif /* FIXED_RETRANSMIT_TIMEOUT */
 
       LWIP_DEBUGF(TCP_RTO_DEBUG, ("tcp_receive: RTO %"U16_F" (%"U16_F" milliseconds)\n",
                                   pcb->rto, (u16_t)(pcb->rto * TCP_SLOW_INTERVAL)));

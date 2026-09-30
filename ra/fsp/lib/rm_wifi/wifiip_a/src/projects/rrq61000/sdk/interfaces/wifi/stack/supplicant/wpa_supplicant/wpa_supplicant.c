@@ -152,27 +152,6 @@ int wpa_debug_timestamp = 0;
 extern unsigned char fast_connection_sleep_flag;
 #endif /* __SUPPORT_FAST_CONN_SLEEP_2__ */
 
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-void wifi_conn_notify_cb_register(void (*user_cb)(void))
-{
-	wifi_conn_notify_cb = user_cb;
-}
-
-void wifi_conn_fail_notify_cb_register(void (*user_cb)(short reason_code))
-{
-	wifi_conn_fail_notify_cb = user_cb;
-}
-
-void wifi_disconn_notify_cb_register(void (*user_cb)(short reason_code))
-{
-	wifi_disconn_notify_cb = user_cb;
-}
-
-void ap_sta_disconnected_notify_cb_register(void (*user_cb)(const unsigned char mac[6]))
-{
-    ap_sta_disconnected_notify_cb = user_cb;
-}
-#endif
 
 #ifdef  UNUSED_CODE_DELETE	//MODIFY_SUPPLICANT_FOR_FREERTOS
 #ifndef CONFIG_NO_STDOUT_DEBUG
@@ -2659,6 +2638,8 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 
 	*pos = 0x00;
 
+    uint32_t otp_sku_id = rwnx_sku_id_read_otp();
+
 	switch (idx) {
 	case 0: /* Bits 0-7 */
 		break;
@@ -2674,7 +2655,7 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 		*pos |= 0x02; /* Bit 17 - WNM-Sleep Mode */
 #endif	// CONFIG_WNM_SLEEP_MODE
 #ifdef CONFIG_WNM_BSS_TRANS_MGMT
-        if (rwnx_sku_id_read_otp() != TIN_SKU_WIFI4_B24) {
+        if (otp_sku_id != TIN_SKU_WIFI4_B24) {
     		if (!wpa_s->disable_mbo_oce && !wpa_s->conf->disable_btm)
     			*pos |= 0x08; /* Bit 19 - BSS Transition */
         }
@@ -2684,18 +2665,24 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 	case 3: /* Bits 24-31 */
 #ifdef CONFIG_WNM
 #ifdef CONFIG_WNM_SSID_LIST
-		*pos |= 0x02; /* Bit 25 - SSID List */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			*pos |= 0x02; /* Bit 25 - SSID List */
+		}
 #endif	// CONFIG_WNM_SSID_LIST
 #endif /* CONFIG_WNM */
 #ifdef CONFIG_INTERWORKING
-		if (wpa_s->conf->interworking)
-			*pos |= 0x80; /* Bit 31 - Interworking */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			if (wpa_s->conf->interworking)
+				*pos |= 0x80; /* Bit 31 - Interworking */
+		}
 #endif /* CONFIG_INTERWORKING */
 		break;
 	case 4: /* Bits 32-39 */
 #ifdef CONFIG_INTERWORKING
-		if (wpa_s->drv_flags & WPA_DRIVER_FLAGS_QOS_MAPPING)
-			*pos |= 0x01; /* Bit 32 - QoS Map */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			if (wpa_s->drv_flags & WPA_DRIVER_FLAGS_QOS_MAPPING)
+				*pos |= 0x01; /* Bit 32 - QoS Map */
+		}
 #endif /* CONFIG_INTERWORKING */
 		break;
 	case 5: /* Bits 40-47 */
@@ -2704,7 +2691,9 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 			*pos |= 0x40; /* Bit 46 - WNM-Notification */
 #endif /* CONFIG_HS20 */
 #ifdef CONFIG_MBO
-		*pos |= 0x40; /* Bit 46 - WNM-Notification */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			*pos |= 0x40; /* Bit 46 - WNM-Notification */
+		}
 #endif /* CONFIG_MBO */
 		break;
 	case 6: /* Bits 48-55 */
@@ -2712,8 +2701,10 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 		if (wpa_s->disable_scs_support)
 			scs = false;
 #endif /* CONFIG_TESTING_OPTIONS */
-		if (scs)
-			*pos |= 0x40; /* Bit 54 - SCS */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			if (scs)
+				*pos |= 0x40; /* Bit 54 - SCS */
+		}
 		break;
 	case 7: /* Bits 56-63 */
 		break;
@@ -2734,8 +2725,10 @@ static void wpas_ext_capab_byte(struct wpa_supplicant *wpa_s, u8 *pos, int idx)
 		if (wpa_s->disable_mscs_support)
 			mscs = false;
 #endif /* CONFIG_TESTING_OPTIONS */
-		if (mscs)
-			*pos |= 0x20; /* Bit 85 - Mirrored SCS */
+		if (otp_sku_id != TIN_SKU_WIFI4_B24) {
+			if (mscs)
+				*pos |= 0x20; /* Bit 85 - Mirrored SCS */
+		}
 		break;
 	}
 }

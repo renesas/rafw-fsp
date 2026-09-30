@@ -952,12 +952,12 @@ tcp_listen_with_backlog_and_err(struct tcp_pcb *pcb, u8_t backlog, err_t *err)
     res = ERR_MEM;
     goto done;
   }
-#if CFG_PMGR && defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
+#if CFG_PMGR
   /**
   * Fixes TCP connection issues with MQTT UNIT TESTS
   */
   memset(lpcb->name, 0x00, IP_PCB_MAX_NAME);
-#endif /* CFG_PMGR && RRQ61XX_CUSTOM_FIXES_MANDATORY */
+#endif /* CFG_PMGR */
   lpcb->callback_arg = pcb->callback_arg;
   lpcb->local_port = pcb->local_port;
   lpcb->state = LISTEN;
@@ -1434,11 +1434,11 @@ tcp_slowtmr_start:
              * connect to somebody (i.e., we are in SYN_SENT). */
             if (pcb->state != SYN_SENT) {
               u8_t backoff_idx = LWIP_MIN(pcb->nrtx, sizeof(tcp_backoff) - 1);
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY) && defined(FIXED_RETRANSMIT_TIMEOUT)
+#if defined(FIXED_RETRANSMIT_TIMEOUT)
               int calc_rto = (TCP_RETRANSMISSION_TIMEOUT / TCP_SLOW_INTERVAL) << tcp_backoff[backoff_idx];
 #else
               int calc_rto = ((pcb->sa >> 3) + pcb->sv) << tcp_backoff[backoff_idx];
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY && FIXED_RETRANSMIT_TIMEOUT */
+#endif /* FIXED_RETRANSMIT_TIMEOUT */
               pcb->rto = (s16_t)LWIP_MIN(calc_rto, 0x7FFF);
             }
 
@@ -1645,11 +1645,11 @@ tcp_slowtmr_start:
     pcb_remove = 0;
 
     /* Check if this PCB has stayed long enough in TIME-WAIT */
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY) && defined(FIXED_RETRANSMIT_TIMEOUT)
+#if defined(FIXED_RETRANSMIT_TIMEOUT)
     if ((u32_t)(tcp_ticks - pcb->tmr) > TCP_MSL / TCP_SLOW_INTERVAL) {
 #else
     if ((u32_t)(tcp_ticks - pcb->tmr) > 2 * TCP_MSL / TCP_SLOW_INTERVAL) {
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY && FIXED_RETRANSMIT_TIMEOUT */
+#endif /* FIXED_RETRANSMIT_TIMEOUT */
       ++pcb_remove;
     }
 
@@ -2104,13 +2104,13 @@ tcp_alloc(u8_t prio)
     /* As initial send MSS, we use TCP_MSS but limit it to 536.
        The send MSS is updated when an MSS option is received. */
     pcb->mss = INITIAL_MSS;
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY) && defined(FIXED_RETRANSMIT_TIMEOUT)
+#if defined(FIXED_RETRANSMIT_TIMEOUT)
     pcb->rto = TCP_RETRANSMISSION_TIMEOUT / TCP_SLOW_INTERVAL;		// 3000->1000
     pcb->sv = TCP_RETRANSMISSION_TIMEOUT / TCP_SLOW_INTERVAL;		// 3000->1000
 #else
     pcb->rto = 3000 / TCP_SLOW_INTERVAL;
     pcb->sv = 3000 / TCP_SLOW_INTERVAL;
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY && FIXED_RETRANSMIT_TIMEOUT */
+#endif /* FIXED_RETRANSMIT_TIMEOUT */
     pcb->rtime = -1;
     pcb->cwnd = 1;
     pcb->tmr = tcp_ticks;

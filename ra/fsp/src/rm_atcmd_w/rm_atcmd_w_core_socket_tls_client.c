@@ -872,10 +872,6 @@ int atcmd_tlsc_setup_ssl(atcmd_tlsc_context * ctx)
 
     ATCMD_TLSC_INFO("Setup TLS\n");
 
-    #if defined(__SUPPORT_TLS_HW_CIPHER_SUITES__)
-    preset = MBEDTLS_SSL_PRESET_RRQ_HW;
-    #endif /* __SUPPORT_TLS_HW_CIPHER_SUITES__ */
-
     status = mbedtls_ctr_drbg_seed(ctx->ctr_drbg_ctx,
                                    mbedtls_entropy_func,
                                    ctx->entropy_ctx,

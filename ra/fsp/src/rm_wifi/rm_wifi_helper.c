@@ -39,10 +39,6 @@
 #include "rm_cli_w_usr_nvram.h"
 #endif // CFG_CLI
 
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-#include "event_groups.h"
-#endif // __SUPPORT_WIFI_CONN_CB__
-
 #if defined (__SUPPORT_MQTT__)
 #include "mqtt_client.h"
 #endif
@@ -51,13 +47,6 @@
 /***********************************************************************************************************************
  * Externs
  **********************************************************************************************************************/
-
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-extern void wifi_conn_notify_cb_register(void (*user_cb)(void));
-extern void wifi_conn_fail_notify_cb_register(void (*user_cb)(short reason_code));
-extern void wifi_disconn_notify_cb_register(void (*user_cb)(short reason_code));
-extern void ap_sta_disconnected_notify_cb_register(void (*user_cb)(const unsigned char mac[6]));
-#endif // __SUPPORT_WIFI_CONN_CB__
 
 extern int get_sta_signal_poll(void);
 
@@ -82,18 +71,6 @@ extern void ra6w1_regdb_gen_5g_ch_range_string(char* str_buf, unsigned int ch_bi
  * Global variables
  **********************************************************************************************************************/
 extern const wifi_cfg_t g_wifi_cfg;
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-EventGroupHandle_t   evt_grp_wifi_conn_notify = NULL;
-short wifi_conn_fail_reason    = 0;
-short wifi_disconn_reason      = 0;
-short ap_wifi_conn_fail_reason = 0;
-short ap_wifi_disconn_reason   = 0;
-
-#if defined(__SUPPORT_MATTER_IOT__)
-unsigned char matter_wifi_conn_status = FALSE;
-#endif // (__SUPPORT_MATTER_IOT__)
-
-#endif // __SUPPORT_WIFI_CONN_CB__
 
 /// Global Define : Chipset Model
 #undef CHIPSET_NAME
@@ -149,111 +126,6 @@ int gen_ssid(char* prefix, int iface, int quotation, char* ssid, int size)
             qt);
     }
     return 0;
-}
-
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-static void wifi_conn_cb(void)
-{
-    if (evt_grp_wifi_conn_notify != NULL) {
-        if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_CONN_SUCC_SOFTAP);
-        } else {
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_CONN_SUCC_STA);
-#if defined(__SUPPORT_MATTER_IOT__)
-        matter_wifi_conn_status = TRUE;
-        wifi_noti_connected();
-#endif // (__SUPPORT_MATTER_IOT__)
-        }
-    }
-}
-
-//
-// void (*wifi_conn_fail_notify_cb)(int reason_code)
-//
-// reason_code :
-//     WLAN_REASON_PEERKEY_MISMATCH    : Wrong password
-//
-static void wifi_conn_fail_cb(short reason_code)
-{
-    if (evt_grp_wifi_conn_notify != NULL) {
-        if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-            ap_wifi_conn_fail_reason = reason_code;
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_CONN_FAIL_SOFTAP);
-        } else {
-            wifi_conn_fail_reason = reason_code;
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_CONN_FAIL_STA);
-#if defined(__SUPPORT_MATTER_IOT__)
-            matter_wifi_conn_status = FALSE;
-#endif // (__SUPPORT_MATTER_IOT__)
-        }
-    }
-}
-
-//
-// void (*wifi_disconn_notify_cb)(int reason_code)
-//
-static void wifi_disconn_cb(short reason_code)
-{
-    if (evt_grp_wifi_conn_notify != NULL) {
-        if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-            ap_wifi_disconn_reason = reason_code;
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_DISCONN_SOFTAP);
-        } else {
-#if defined(__SUPPORT_MATTER_IOT__)
-        matter_wifi_conn_status = FALSE;
-        wifi_noti_disconnected();
-#endif // (__SUPPORT_MATTER_IOT__)
-            wifi_disconn_reason = reason_code;
-            xEventGroupSetBits(evt_grp_wifi_conn_notify, WIFI_DISCONN_STA);
-        }
-    }
-}
-
-#if defined (__SUPPORT_IPV4__)
-extern void tcp_abandon_remote_ip(const ip_addr_t *addr);
-static void ap_sta_disconnected_cb(const unsigned char mac[6])
-{
-    unsigned char mac_addr[6] = {0x00,};
-    ip4_addr_t ip_addr = {0x00,};
-
-    memcpy(mac_addr, mac, sizeof(mac_addr));
-
-    if (is_dhcp_server_running()) {
-        // Search IP address on MAC
-        if (dhcps_search_ip_on_mac(mac_addr, &ip_addr)) {
-            // Abandon tcp connection
-            tcp_abandon_remote_ip((ip_addr_t*)&ip_addr);
-        }
-    }
-
-    return ;
-}
-#endif // __SUPPORT_IPV4__
-#endif // __SUPPORT_WIFI_CONN_CB__
-
-void rm_wifi_register_wifi_notify_cb(void)
-{
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-    // Create sync-up event
-    evt_grp_wifi_conn_notify = xEventGroupCreate();
-    if (evt_grp_wifi_conn_notify == NULL) {
-        printf("\n\n>>> Failed to create Wi-Fi connection notify-cb event !!!\n\n");
-        return;
-    }
-
-    /* Wi-Fi connection call-back */
-    wifi_conn_notify_cb_register(wifi_conn_cb);
-
-    /* Wi-Fi connection call-back */
-    wifi_conn_fail_notify_cb_register(wifi_conn_fail_cb);
-
-    /* Wi-Fi disconnection call-back */
-    wifi_disconn_notify_cb_register(wifi_disconn_cb);
-#if defined (__SUPPORT_IPV4__)
-    /* AP-STA-DISCONNECTED call-back */
-    ap_sta_disconnected_notify_cb_register(ap_sta_disconnected_cb);
-#endif // __SUPPORT_IPV4__
-#endif // __SUPPORT_WIFI_CONN_CB__
 }
 
 int rm_wifi_atoi_custom (char* str)
@@ -597,7 +469,9 @@ static bool stop_service(void)
     TaskHandle_t currentTask = xTaskGetCurrentTaskHandle();
     TaskHandle_t idleTask = xTaskGetIdleTaskHandle();
     TaskHandle_t timerTask;
+#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
     R_WDOG_W_Refresh(g_wifi_cfg.p_watchdog_service->p_cfg->p_wdt->p_ctrl);
+#endif
 
 #if defined (__SUPPORT_MQTT__)
     mqtt_client_termination();
@@ -662,7 +536,9 @@ static bool stop_service(void)
     clear_function_trace();
 #endif	// dg_configUSE_TRACE_FOR_DEBUG
 
+#if WIFI_CFG_WATCHDOG_SERVICE_ENABLE
     R_WDOG_W_Refresh(g_wifi_cfg.p_watchdog_service->p_cfg->p_wdt->p_ctrl);
+#endif
 
     return pdPASS;
 }

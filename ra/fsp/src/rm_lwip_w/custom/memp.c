@@ -374,9 +374,7 @@ do_memp_free_pool(const struct memp_desc *desc, void *mem)
 #endif /* MEMP_OVERFLOW_CHECK */
 
 #if MEMP_STATS
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
   if(desc->stats->used > 0)
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
   desc->stats->used--;
 #endif
 

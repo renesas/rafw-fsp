@@ -104,7 +104,7 @@ static void Convert_Str2HexStr(char * in, char * out, u32_t in_size)
 
     while (cnt < in_size)
     {
-        sprintf((char *)(out + i), "%02X", in[cnt]);
+        sprintf((char *)(out + i), "%02X", (unsigned char)in[cnt]);
         cnt += 1;
         i += 2;
     }
@@ -830,15 +830,11 @@ static int atcmd_tcps_ready_to_accept_socket(atcmd_tcps_context * ctx)
     if (conf->ip_type == IPADDR_TYPE_V4)
     {
         #if defined ( __SUPPORT_IPV4__ )
-        #ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
         #if CFG_PMGR
         ret = socket_dpm((char *)svr_sock_name, PF_INET, SOCK_STREAM, 0);
         #else
         ret = socket(PF_INET, SOCK_STREAM, 0);
         #endif /* CFG_PMGR */
-        #else
-        ret = socket(PF_INET, SOCK_STREAM, 0);
-        #endif
 
         if (ret < 0)
         {
@@ -851,15 +847,11 @@ static int atcmd_tcps_ready_to_accept_socket(atcmd_tcps_context * ctx)
     else if (conf->ip_type == IPADDR_TYPE_V6)
     {
         #if defined ( __SUPPORT_IPV6__ )
-        #ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
         #if CFG_PMGR
         ret = socket_dpm((char *)svr_sock_name, PF_INET6, SOCK_STREAM, 0);
         #else
         ret = socket(PF_INET6, SOCK_STREAM, 0);
         #endif /* CFG_PMGR */
-        #else
-        ret = socket(PF_INET6, SOCK_STREAM, 0);
-        #endif
 
         if (ret < 0)
         {
@@ -955,11 +947,9 @@ static void atcmd_tcps_task_entry(void * param)
     int ret = 0;
     atcmd_tcps_context * svr_ctx = (atcmd_tcps_context *)param;
     const atcmd_tcps_config * svr_conf = svr_ctx->conf;
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     unsigned int local_port = 0;
 #endif /* CFG_PMGR */
-#endif
     //tcp client(sub)
     int cli_sock = ATCMD_TCPS_INIT_SOCKET_FD;
     #if defined ( __SUPPORT_IPV4__ )
@@ -972,11 +962,9 @@ static void atcmd_tcps_task_entry(void * param)
     #endif // __SUPPORT_IPV6__
     atcmd_tcps_cli_context * cli_ctx = NULL;
     const int max_allow_client = svr_conf->sess_info->max_allow_client;
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     const char * svr_dpm_name = (const char *)svr_conf->task_name;
 #endif /* CFG_PMGR */
-#endif
     ATCMD_TCPS_INFO("Start\n");
 
 #ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
@@ -1002,7 +990,6 @@ static void atcmd_tcps_task_entry(void * param)
         goto end;
     }
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     if (svr_conf->ip_type == IPADDR_TYPE_V4)
     {
@@ -1024,7 +1011,6 @@ static void atcmd_tcps_task_entry(void * param)
     ATCMD_TCPS_INFO("Reg - DPM Name:%s(%d), Local port(%d)\n",
                     svr_dpm_name, strlen(svr_dpm_name), local_port);
 #endif /* CFG_PMGR */
-#endif
 
     ret = atcmd_tcps_ready_to_accept_socket(svr_ctx);
 
@@ -1036,13 +1022,11 @@ static void atcmd_tcps_task_entry(void * param)
 
     svr_ctx->state = ATCMD_TCPS_STATE_ACCEPT;
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     RM_PMGR_W_dpm_wakeup_done((char *)svr_dpm_name);
 
     RM_PMGR_W_dpm_rcv_ready_set((char *)svr_dpm_name);
 #endif /* CFG_PMGR */
-#endif
 
     if (svr_ctx->event)
     {
@@ -1095,11 +1079,9 @@ static void atcmd_tcps_task_entry(void * param)
             #endif // __SUPPORT_IPV6__
         }
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
         RM_PMGR_W_dpm_sleep_ready_clear((char *)svr_dpm_name);
 #endif /* CFG_PMGR */
-#endif
         if (cli_sock < 0)
         {
             //check cli state
@@ -1178,11 +1160,9 @@ static void atcmd_tcps_task_entry(void * param)
 
             ATCMD_TCPS_INFO("svr_ctx->cli_cnt: %ld\n", svr_ctx->cli_cnt);
             #endif // ENABLE_ATCMD_TCPS_DBG_INFO
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
             RM_PMGR_W_dpm_sleep_ready_set((char *)svr_dpm_name);
 #endif /* CFG_PMGR */
-#endif
             continue;
         }
 
@@ -1343,14 +1323,12 @@ static void atcmd_tcps_task_entry(void * param)
 
 end:
     atcmd_tcps_close_socket(&svr_ctx->socket);
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR    
     RM_WIFI_dpm_tcp_port_delete(local_port);
     RM_PMGR_W_dpm_job_name_clear((char *)svr_dpm_name);
     ATCMD_TCPS_INFO("Unreg - DPM Name:%s(%d), Local port(%d)\n",
                     svr_dpm_name, strlen(svr_dpm_name), local_port);
 #endif /* CFG_PMGR */
-#endif
 
     if (svr_ctx->mutex)
     {
@@ -2236,7 +2214,6 @@ static void atcmd_tcps_cli_task_entry(void * param)
         goto end;
     }
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     if (cli_ctx->ip_type == IPADDR_TYPE_V4)
     {
@@ -2262,7 +2239,6 @@ static void atcmd_tcps_cli_task_entry(void * param)
 
     RM_PMGR_W_dpm_rcv_ready_set((char *)(cli_ctx->task_name));
 #endif /* CFG_PMGR */
-#endif
 
     if (atcmd_transport_get_available_session() < 0)
     {
@@ -2356,11 +2332,9 @@ static void atcmd_tcps_cli_task_entry(void * param)
 
         ret = recv(cli_ctx->socket, payload, payload_len, 0);
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
         RM_PMGR_W_dpm_sleep_ready_clear((char *)(cli_ctx->task_name));
 #endif /* CFG_PMGR */
-#endif
 
         if (ret > 0)
         {
@@ -2573,14 +2547,12 @@ static void atcmd_tcps_cli_task_entry(void * param)
             }
         }
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
         if (!RM_PMGR_W_socket_rx_data_is_remaining(cli_ctx->socket))
         {
             RM_PMGR_W_dpm_sleep_ready_set((char *)(cli_ctx->task_name));
         }
 #endif /* CFG_PMGR */
-#endif
     }
 
 end:
@@ -2606,14 +2578,12 @@ end:
         cli_ctx->buffer = NULL;
     }
 
-#ifndef ATCMD_TCP_SERV_TASK_NO_WDOG_PMGR
 #if CFG_PMGR
     RM_WIFI_dpm_tcp_port_delete(local_port);
     RM_PMGR_W_dpm_job_name_clear((char *)(cli_ctx->task_name));
     ATCMD_TCPS_INFO("Unreg - DPM Name:%s(%d), Local port(%d)\n",
                     cli_ctx->task_name, strlen((char *)cli_ctx->task_name), local_port);
 #endif /* CFG_PMGR */
-#endif
     cli_ctx->state = ATCMD_TCPS_CLI_STATE_TERMINATED;
 
     if (cli_ctx->event)

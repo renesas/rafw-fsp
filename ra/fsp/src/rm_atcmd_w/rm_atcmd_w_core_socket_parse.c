@@ -20,7 +20,8 @@
 #include "rm_atcmd_w_core_socket_cert_mng.h"
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #if CFG_PMGR
  #include "rm_pmgr_w_instance.h"
 #endif                                 /* CFG_PMGR */
@@ -5122,7 +5123,9 @@ static int atcmd_transport_ssl_recover_tls_session (atcmd_w_ctrl_t * const p_at_
     int del_cid_idx = 0;
     int del_cid[ATCMD_TLS_MAX_ALLOW_CNT] = {-1, };
 #if CFG_PMGR
+#if defined __SUPPORT_SNTP_CLIENT__
     int sntp_wait_cnt = 0;
+#endif /* __SUPPORT_SNTP_CLIENT__ */
 #endif
 
     unsigned long sleep_time    = 100;

@@ -91,9 +91,7 @@
 #endif
 
 #if LWIP_NETIF_EXT_STATUS_CALLBACK
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
 #include "lwip/lwip_misc.h"
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 #endif /* LWIP_NETIF_EXT_STATUS_CALLBACK */
 
 #if LWIP_NETIF_STATUS_CALLBACK
@@ -1829,10 +1827,9 @@ netif_invoke_ext_callback(struct netif *netif, netif_nsc_reason_t reason, const 
     callback = callback->next;
   }
 }
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
+
 void rm_netif_issue_reports(struct netif *netif, u8_t report_type)
 {
   netif_issue_reports(netif, report_type);
 }
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 #endif /* LWIP_NETIF_EXT_STATUS_CALLBACK */

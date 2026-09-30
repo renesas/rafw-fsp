@@ -596,7 +596,6 @@ ip6_input(struct pbuf *p, struct netif *inp)
   if (ip6_addr_ismulticast(ip6_current_dest_addr())) {
     /* Always joined to multicast if-local and link-local all-nodes group. */
     if (ip6_addr_isallnodes_iflocal(ip6_current_dest_addr()) ||
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
         ip6_addr_isallnodes_linklocal(ip6_current_dest_addr())
 #ifdef LWIP_IPV6_MLD
         || ip6_addr_issolicitednode(ip6_current_dest_addr())
@@ -605,9 +604,6 @@ ip6_input(struct pbuf *p, struct netif *inp)
         || ip6_addr_isallrouters_linklocal(ip6_current_dest_addr())
 #endif /* LWIP_IPV6_SEND_ROUTER_ADVERT */
         ) {
-#else
-        ip6_addr_isallnodes_linklocal(ip6_current_dest_addr())) {
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
       netif = inp;
     }
 #if LWIP_IPV6_MLD
@@ -1316,9 +1312,7 @@ ip6_output(struct pbuf *p, const ip6_addr_t *src, const ip6_addr_t *dest,
     ip6_addr_copy_from_packed(src_addr, ip6hdr->src);
     ip6_addr_copy_from_packed(dest_addr, ip6hdr->dest);
     netif = ip6_route(&src_addr, &dest_addr);
-#ifdef RRQ61XX_CUSTOM_FIXES_MANDATORY
     dest = &dest_addr;
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
   }
 
   if (netif == NULL) {

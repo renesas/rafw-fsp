@@ -63,7 +63,7 @@ static void Convert_Str2HexStr(char * in, char * out, u32_t in_size)
 
     while (cnt < in_size)
     {
-        sprintf((char *)(out + i), "%02X", in[cnt]);
+        sprintf((char *)(out + i), "%02X", (unsigned char)in[cnt]);
         cnt += 1;
         i += 2;
     }

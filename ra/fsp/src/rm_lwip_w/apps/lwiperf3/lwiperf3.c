@@ -6106,95 +6106,6 @@ end_of_task:
 // UDP Client -- END //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-
-#ifdef __DA16400_PORT__
-extern	void wifi_conn_notify_cb_regist(void (*user_cb)(void));
-#endif	// __DA16400_PORT__
-extern	void wifi_conn_fail_notify_cb_regist(void (*user_cb)(short reason_code));
-extern	void wifi_disconn_notify_cb_regist(void (*user_cb)(short reason_code));
-
-extern int get_run_mode(void);
-SemaphoreHandle_t	iperf3_wifi_conn_notify_mutex = NULL;
-/* Station mode */
-unsigned char	iperf3_wifi_conn_flag			= FALSE;
-unsigned char	iperf3_wifi_disconn_flag			= FALSE;
-short			iperf3_wifi_disconn_reason		= 0;
-/* AP mode */
-unsigned char	iperf3_ap_wifi_conn_flag			= FALSE;
-unsigned char	iperf3_ap_wifi_disconn_flag		= FALSE;
-short			iperf3_ap_wifi_disconn_reason	= 0;
-
-static void iperf_wifi_conn_cb(void)
-{
-	IPERF3_MSG(" [%s] Called. \n", __func__);
-
-	/* Wait until 3 seconds to get mutex */
-	if (xSemaphoreTake(iperf3_wifi_conn_notify_mutex, 300) != pdTRUE) {
-		IPERF3_MSG(RED_COLOR " Failed to get iperf3_wifi_conn_notify_mutex during 3 seconds !!!\n" CLEAR_COLOR);
-		return;
-	}
-
-	if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-		iperf3_ap_wifi_conn_flag = TRUE;
-	}
-	else {
-		iperf3_wifi_conn_flag = TRUE;
-	}
-
-	xSemaphoreGive(iperf3_wifi_conn_notify_mutex);
-}
-
-static void iperf_wifi_disconn_cb(short reason_code)
-{
-	int	i;
-
-	IPERF3_MSG(" [%s] Called(%d) \n", __func__, reason_code);
-
-	/* Wait until 3 seconds to get mutex */
-	if (xSemaphoreTake(iperf3_wifi_conn_notify_mutex, 300) != pdTRUE) {
-		IPERF3_MSG(RED_COLOR " Failed to get iperf3_wifi_conn_notify_mutex during 3 seconds !!!\n" CLEAR_COLOR);
-		return;
-	}
-
-	if (get_run_mode() == WIFI_DEVICE_MODE_EXT_AP) {
-		iperf3_ap_wifi_disconn_flag = TRUE;
-		iperf3_ap_wifi_disconn_reason = reason_code;
-	}
-	else {
-		iperf3_wifi_disconn_flag	= TRUE;
-		iperf3_wifi_disconn_reason = reason_code;
-	}
-
-	IP3_TCP_Rx_Finish_Flag = 1;
-	IP3_UDP_Rx_Finish_Flag = 1;
-
-	for (i = 0; i < IPERF_TCP_TX_MAX_PAIR; i++) {
-		if (thread_tcp_tx_iperf3[i].state != IPERF_TX_THD_STATE_NONE) {
-			if (terminate_iperf_tx_thd(&(thread_tcp_tx_iperf3[i]))) {
-				IPERF3_MSG(" iPerf3 TCP Client Pair %d is deleted\n", i);
-			} else {
-				IPERF3_MSG(" Failed to delete iPerf3 TCP Client Pair %d\n", i);
-				break;
-			}
-		}
-	}
-
-	for (i = 0; i < IPERF_UDP_TX_MAX_PAIR; i++) {
-		if (thread_udp_tx_iperf3[i].state != IPERF_TX_THD_STATE_NONE) {
-			if (terminate_iperf_tx_thd(&(thread_udp_tx_iperf3[i]))) {
-				IPERF3_MSG(" iPerf3 UDP Client Pair %d is deleted\n", i);
-			} else {
-				IPERF3_MSG(" Failed to delete iPerf3 UDP Client Pair %d\n", i);
-				break;
-			}
-		}
-	}
-
-	xSemaphoreGive(iperf3_wifi_conn_notify_mutex);
-}
-#endif	// defined ( __SUPPORT_WIFI_CONN_CB__ )
-
 
 ip_addr_t	targetIpIperf3;
 extern unsigned char ipv6_support_flag;
@@ -6352,21 +6263,6 @@ UINT	iperf3_cli(UCHAR iface, UCHAR iperf_mode, struct IPERF_CONFIG *config)
 	}
 
 	iperf3_data = xSemaphoreCreateMutex();
-#if defined ( __SUPPORT_WIFI_CONN_CB__ )
-	iperf3_wifi_conn_notify_mutex = xSemaphoreCreateMutex();
-
-	if (iperf3_wifi_conn_notify_mutex == NULL) {
-		IPERF3_MSG(RED_COLOR " >>> Failed to create Wi-Fi connection notify call-back mutex !!!\n" CLEAR_COLOR);
-		return pdTRUE;
-	}
-
-
-	/* Wi-Fi connection call-back */
-	wifi_conn_notify_cb_regist(iperf_wifi_conn_cb);
-
-	/* Wi-Fi disconnection call-back */
-	wifi_disconn_notify_cb_regist(iperf_wifi_disconn_cb);
-#endif	// defined ( __SUPPORT_WIFI_CONN_CB__ )
 
 	switch (iperf_mode) {
 

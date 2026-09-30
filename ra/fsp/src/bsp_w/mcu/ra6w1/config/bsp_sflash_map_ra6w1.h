@@ -37,10 +37,15 @@
  * USER configurable fields ...........................................................
  *  SFLASH type for RA6W1 SDK
  */
-#define  RENESAS_AT25SL_8MB_OTA        // Default Renesas AT25SL 8MB w/ OTA
-#undef   RENESAS_AT25SL_8MB            // Default Renesas AT25SL 8MB w/o OTA
-#undef   NORMAL_4MB_OTA                // Normal 4MB SFLASH w/ OTA
-#undef   NORMAL_4MB                    // Normal 4MB SFLASH w/o OTA
+#define SUPPORT_OTA_FLASH      (1)     // Used = 1, Unused = 0
+
+#if (SUPPORT_OTA_FLASH)
+  #define  RENESAS_AT25SL_8MB_OTA      // Default Renesas AT25SL 8MB w/ OTA
+  #undef   NORMAL_4MB_OTA              // Normal 4MB SFLASH w/ OTA
+#else
+  #define   RENESAS_AT25SL_8MB          // Default Renesas AT25SL 8MB w/o OTA
+  #undef   NORMAL_4MB                  // Normal 4MB SFLASH w/o OTA
+#endif
 
 //
 // USER configurable fields ...........................................................

@@ -15,7 +15,7 @@
 #include "sdk_defs.h"
 
 #if CFG_WIFI
-#include "rm_wifi_config.h"
+#include "rm_wifi.h"
 #endif /* CFG_WIFI */
 
 /***********************************************************************************************************************

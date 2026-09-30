@@ -937,10 +937,6 @@ static struct altcp_tls_config * altcp_tls_create_config (int     is_server,
     mbedtls_x509_crt        * mem;
     int preset = MBEDTLS_SSL_PRESET_RA6WX;
 
-  #if defined(__SUPPORT_TLS_HW_CIPHER_SUITES__)
-    preset = MBEDTLS_SSL_PRESET_RA6WX_ONLY_HW;
-  #endif                               /* __SUPPORT_TLS_HW_CIPHER_SUITES__ */
-
     if (TCP_WND < MBEDTLS_SSL_MAX_CONTENT_LEN)
     {
         LWIP_DEBUGF(ALTCP_MBEDTLS_DEBUG | LWIP_DBG_LEVEL_SERIOUS,

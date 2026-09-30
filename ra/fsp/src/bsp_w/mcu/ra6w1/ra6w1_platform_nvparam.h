@@ -299,12 +299,12 @@
  #define NVEE_LEN_N0_profile                          STR_INT32_LEN
  #define NVEE_LEN_N0_ssid                             (32 * 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN_N0_scan_ssid                        STR_INT32_LEN
- #define NVEE_LEN_N0_bssid                            (17 + PARAM_STR_EXTRA) // MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
+ #define NVEE_LEN_N0_bssid                            (17 + PARAM_STR_EXTRA)     // MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
  #define NVEE_LEN_N0_bssid_hint                       STR_INT32_LEN
  #define NVEE_LEN_N0_bssid_blacklist                  STR_INT32_LEN
  #define NVEE_LEN_N0_bssid_whitelist                  STR_INT32_LEN
- #define NVEE_LEN_N0_psk                              (64 + 2 + PARAM_STR_EXTRA)   // +2 for surrounding ""
- #define NVEE_LEN_N0_psk_raw                          (64 + 2 + PARAM_STR_EXTRA)   // +2 for surrounding ""
+ #define NVEE_LEN_N0_psk                              (64 + 2 + PARAM_STR_EXTRA) // +2 for surrounding ""
+ #define NVEE_LEN_N0_psk_raw                          (64 + 2 + PARAM_STR_EXTRA) // +2 for surrounding ""
  #define NVEE_LEN_N0_mem_only_psk                     STR_INT32_LEN
 
 /**
@@ -341,8 +341,8 @@
  * roaming within a network (ESS) in following format:
  * <bgscan module name>:<module parameters>
  */
- #define NVEE_LEN_N0_bgscan                           (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
- #define NVEE_LEN_N0_autoscan                         (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N0_bgscan                           (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
+ #define NVEE_LEN_N0_autoscan                         (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
 
 /**
  * scan_freq - Array of frequencies to scan or %NULL for all
@@ -352,24 +352,24 @@
  * network. This can be used to speed up scanning when the network is
  * known to not use all possible channels.
  */
- #define NVEE_LEN_N0_scan_freq                        (640 + PARAM_STR_EXTRA) // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
- #define NVEE_LEN_N0_freq_list                        (640 + PARAM_STR_EXTRA) // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
- #define NVEE_LEN_N0_eap                              (100 + PARAM_STR_EXTRA) // wpa_config_write_eap
- #define NVEE_LEN_N0_identity                         (64 + 2 + PARAM_STR_EXTRA)   // max 64 chars + surrounding ""
- #define NVEE_LEN_N0_anonymous_identity               (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N0_scan_freq                        (640 + PARAM_STR_EXTRA)    // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
+ #define NVEE_LEN_N0_freq_list                        (640 + PARAM_STR_EXTRA)    // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
+ #define NVEE_LEN_N0_eap                              (100 + PARAM_STR_EXTRA)    // wpa_config_write_eap
+ #define NVEE_LEN_N0_identity                         (64 + 2 + PARAM_STR_EXTRA) // max 64 chars + surrounding ""
+ #define NVEE_LEN_N0_anonymous_identity               (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
 
- #define NVEE_LEN_N0_imsi_identity                    (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N0_imsi_identity                    (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
  #define NVEE_LEN_N0_password                         (64 + 2 + PARAM_STR_EXTRA) // max 64 chars + surrounding ""
- #define NVEE_LEN_N0_phase1                           (20 + PARAM_STR_EXTRA)  // Unknown Size (expected size: aboud: 20)
- #define NVEE_LEN_N0_phase2                           (20 + PARAM_STR_EXTRA)  // Unknown Size (expected size: aboud: 20)
+ #define NVEE_LEN_N0_phase1                           (20 + PARAM_STR_EXTRA)     // Unknown Size (expected size: aboud: 20)
+ #define NVEE_LEN_N0_phase2                           (20 + PARAM_STR_EXTRA)     // Unknown Size (expected size: aboud: 20)
  #define NVEE_LEN_N0_eapol_flags                      STR_INT32_LEN
- #define NVEE_LEN_N0_wep_key0                         (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N0_wep_key1                         (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N0_wep_key2                         (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N0_wep_key3                         (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N0_wep_key0                         (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N0_wep_key1                         (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N0_wep_key2                         (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N0_wep_key3                         (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
  #define NVEE_LEN_N0_priority                         STR_INT32_LEN
  #define NVEE_LEN_N0_eap_workaround                   STR_INT32_LEN
- #define NVEE_LEN_N0_pac_file                         (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N0_pac_file                         (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
  #define NVEE_LEN_N0_fragment_size                    STR_INT32_LEN
  #define NVEE_LEN_N0_ocsp                             STR_INT32_LEN
  #define NVEE_LEN_N0_sim_num                          STR_INT32_LEN
@@ -527,11 +527,11 @@
  #define NVEE_LEN_N1_profile                                   STR_INT32_LEN
  #define NVEE_LEN_N1_ssid                                      (32 * 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN_N1_scan_ssid                                 STR_INT32_LEN
- #define NVEE_LEN_N1_bssid                                     (17 + PARAM_STR_EXTRA) // MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
+ #define NVEE_LEN_N1_bssid                                     (17 + PARAM_STR_EXTRA)     // MACSTR "%02x:%02x:%02x:%02x:%02x:%02x"
  #define NVEE_LEN_N1_bssid_hint                                STR_INT32_LEN
  #define NVEE_LEN_N1_bssid_blacklist                           STR_INT32_LEN
  #define NVEE_LEN_N1_bssid_whitelist                           STR_INT32_LEN
- #define NVEE_LEN_N1_psk                                       (64 + 2 + PARAM_STR_EXTRA)   // +2 for surrounding ""
+ #define NVEE_LEN_N1_psk                                       (64 + 2 + PARAM_STR_EXTRA) // +2 for surrounding ""
  #define NVEE_LEN_N1_mem_only_psk                              STR_INT32_LEN
 
 /**
@@ -554,11 +554,11 @@
  #define NVEE_LEN_N1_proto                                     (32 + PARAM_STR_EXTRA)
  #define NVEE_LEN_N1_key_mgmt                                  (32 + PARAM_STR_EXTRA)
  #define NVEE_LEN_N1_bg_scan_period                            STR_INT32_LEN
- #define NVEE_LEN_N1_pairwise                                  (50 + PARAM_STR_EXTRA)  // wpa_config_write_cipher
+ #define NVEE_LEN_N1_pairwise                                  (50 + PARAM_STR_EXTRA)     // wpa_config_write_cipher
 // wpa_config_write_cipher
- #define NVEE_LEN_N1_group                                     (50 + PARAM_STR_EXTRA)  // wpa_config_write_cipher
+ #define NVEE_LEN_N1_group                                     (50 + PARAM_STR_EXTRA)     // wpa_config_write_cipher
 // wpa_config_write_cipher
- #define NVEE_LEN_N1_group_mgmt                                (50 + PARAM_STR_EXTRA)  // wpa_config_write_cipher
+ #define NVEE_LEN_N1_group_mgmt                                (50 + PARAM_STR_EXTRA)     // wpa_config_write_cipher
  #define NVEE_LEN_N1_auth_alg                                  (30 + PARAM_STR_EXTRA)
 
 /**
@@ -568,8 +568,8 @@
  * roaming within a network (ESS) in following format:
  * <bgscan module name>:<module parameters>
  */
- #define NVEE_LEN_N1_bgscan                                    (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
- #define NVEE_LEN_N1_autoscan                                  (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N1_bgscan                                    (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
+ #define NVEE_LEN_N1_autoscan                                  (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
 
 /**
  * scan_freq - Array of frequencies to scan or %NULL for all
@@ -579,24 +579,24 @@
  * network. This can be used to speed up scanning when the network is
  * known to not use all possible channels.
  */
- #define NVEE_LEN_N1_scan_freq                                 (640 + PARAM_STR_EXTRA) // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
- #define NVEE_LEN_N1_freq_list                                 (640 + PARAM_STR_EXTRA) // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
- #define NVEE_LEN_N1_eap                                       (100 + PARAM_STR_EXTRA) // wpa_config_write_eap
- #define NVEE_LEN_N1_identity                                  (64 + 2 + PARAM_STR_EXTRA)   // max 64 chars + surrounding ""
- #define NVEE_LEN_N1_anonymous_identity                        (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
- #define NVEE_LEN_N1_imsi_identity                             (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N1_scan_freq                                 (640 + PARAM_STR_EXTRA)    // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
+ #define NVEE_LEN_N1_freq_list                                 (640 + PARAM_STR_EXTRA)    // Unknown Size (expected size: channel count * 5, 2Ghz + 5Ghz) // 56 EA : 56(CH)*10(int)+56(space)+24(Margin)
+ #define NVEE_LEN_N1_eap                                       (100 + PARAM_STR_EXTRA)    // wpa_config_write_eap
+ #define NVEE_LEN_N1_identity                                  (64 + 2 + PARAM_STR_EXTRA) // max 64 chars + surrounding ""
+ #define NVEE_LEN_N1_anonymous_identity                        (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
+ #define NVEE_LEN_N1_imsi_identity                             (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
  #define NVEE_LEN_N1_password                                  (64 + 2 + PARAM_STR_EXTRA) // max 64 chars + surrounding ""
- #define NVEE_LEN_N1_phase1                                    (20 + PARAM_STR_EXTRA)  // Unknown Size (expected size: aboud: 20)
- #define NVEE_LEN_N1_phase2                                    (20 + PARAM_STR_EXTRA)  // Unknown Size (expected size: aboud: 20)
+ #define NVEE_LEN_N1_phase1                                    (20 + PARAM_STR_EXTRA)     // Unknown Size (expected size: aboud: 20)
+ #define NVEE_LEN_N1_phase2                                    (20 + PARAM_STR_EXTRA)     // Unknown Size (expected size: aboud: 20)
  #define NVEE_LEN_N1_eapol_flags                               STR_INT32_LEN
- #define NVEE_LEN_N1_wep_key0                                  (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N1_wep_key1                                  (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N1_wep_key2                                  (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
- #define NVEE_LEN_N1_wep_key3                                  (26 + PARAM_STR_EXTRA)  // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N1_wep_key0                                  (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N1_wep_key1                                  (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N1_wep_key2                                  (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
+ #define NVEE_LEN_N1_wep_key3                                  (26 + PARAM_STR_EXTRA)     // MAX_WEP_KEY_LEN
  #define NVEE_LEN_N1_wep_tx_keyidx                             STR_INT32_LEN
  #define NVEE_LEN_N1_priority                                  STR_INT32_LEN
  #define NVEE_LEN_N1_eap_workaround                            STR_INT32_LEN
- #define NVEE_LEN_N1_pac_file                                  (32 + PARAM_STR_EXTRA)  // Unknown Size (expected size)
+ #define NVEE_LEN_N1_pac_file                                  (32 + PARAM_STR_EXTRA)     // Unknown Size (expected size)
  #define NVEE_LEN_N1_fragment_size                             STR_INT32_LEN
  #define NVEE_LEN_N1_ocsp                                      STR_INT32_LEN
  #define NVEE_LEN_N1_sim_num                                   STR_INT32_LEN
@@ -1056,7 +1056,10 @@
  #define WIFI_PROFILE_SECURITY_1                               "security_1"
  #define WIFI_PROFILE_ENCKEY_0                                 "password_0"
  #define WIFI_PROFILE_ENCKEY_1                                 "password_1"
- #define WIFI_PROFILE_WEPKEY0_0                                "wep_key"
+ #define WIFI_PROFILE_WEPKEY0_0                                "wep_key_0"
+ #define WIFI_PROFILE_WEPKEY0_1                                "wep_key_1"
+ #define WIFI_PROFILE_WEPKEY0_2                                "wep_key_2"
+ #define WIFI_PROFILE_WEPKEY0_3                                "wep_key_3"
  #define WIFI_PROFILE_WEPINDEX_0                               "wep_key_idx"
  #define WIFI_PROFILE_WEPTYPE_0                                "wep_key_type"
  #define WIFI_PROFILE_SAE_GROUPS_0                             "sae_groups_0"
@@ -1104,8 +1107,8 @@
  #define NVEE_LEN_WIFI_ssid_0                                  (32 * 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN_WIFI_ssid_1                                  (32 * 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN_WIFI_hidden_ssid                             STR_INT8_LEN
- #define NVEE_LEN_WIFI_password_0                              (32*2 + 2 + PARAM_STR_EXTRA)
- #define NVEE_LEN_WIFI_password_1                              (32*2 + 2 + PARAM_STR_EXTRA)
+ #define NVEE_LEN_WIFI_password_0                              (32 * 2 + 2 + PARAM_STR_EXTRA)
+ #define NVEE_LEN_WIFI_password_1                              (32 * 2 + 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN_WIFI_security_0                              STR_INT32_LEN
  #define NVEE_LEN_WIFI_security_1                              STR_INT32_LEN
  #define NVEE_LEN_WIFI_wep_key                                 (26 + PARAM_STR_EXTRA)
@@ -1113,8 +1116,8 @@
  #define NVEE_LEN_WIFI_wep_key_type                            STR_INT32_LEN
  #define NVEE_LEN_WIFI_eap_auth_mode                           STR_INT32_LEN
  #define NVEE_LEN_WIFI_eap_phase2                              STR_INT32_LEN
- #define NVEE_LEN_WIFI_eap_id                                  (32*2 + 2 + PARAM_STR_EXTRA)
- #define NVEE_LEN_WIFI_eap_pw                                  (32*2 + 2 + PARAM_STR_EXTRA)
+ #define NVEE_LEN_WIFI_eap_id                                  (32 * 2 + 2 + PARAM_STR_EXTRA)
+ #define NVEE_LEN_WIFI_eap_pw                                  (32 * 2 + 2 + PARAM_STR_EXTRA)
  #define NVEE_LEN__WIFI_p2p_ssid_postfix                       (23 + PARAM_STR_EXTRA)
  #define NVEE_LEN__WIFI_p2p_group_idle                         STR_INT32_LEN
  #define NVEE_LEN_WIFI_p2p_listen_chan                         STR_INT32_LEN
@@ -1986,6 +1989,13 @@ NVPARAM_PARAM("TCPC_KA_MAX_PROBES", NVEE_LEN_APP_TCPC_KA_MAX_PROBES)
 /* ATCMD: Wake up source status */
 NVPARAM_PARAM("GPIO_WAKEUP_SOURCE_PIN", INT32_LEN)
 NVPARAM_PARAM("GPIO_WAKEUP_SOURCE_EDGE_TYPE", INT32_LEN)
+
+/* OTA resumable download (AT+NWOTADWRESUME). Appended at the end of the area so
+ * no existing parameter offsets shift. Only used when __SUPPORT_OTA_RESUME__ is on. */
+NVPARAM_PARAM("OTA_RSM_OFF_RTOS", INT32_LEN)
+NVPARAM_PARAM("OTA_RSM_LEN_RTOS", INT32_LEN)
+NVPARAM_PARAM("OTA_RSM_FP_RTOS", INT32_LEN)
+NVPARAM_PARAM("OTA_RSM_VAL_RTOS", INT32_LEN)
 NVPARAM_AREA_END()
 
 //= =============================================================================
@@ -2061,6 +2071,9 @@ NVPARAM_VARPARAM(WIFI_PROFILE_ENCKEY_1, NVEE_LEN_WIFI_password_1)
 NVPARAM_VARPARAM(WIFI_PROFILE_SAE_GROUPS_0, NVEE_LEN_sae_groups)
 NVPARAM_VARPARAM(WIFI_PROFILE_SAE_GROUPS_1, NVEE_LEN_sae_groups)
 NVPARAM_VARPARAM(WIFI_PROFILE_WEPKEY0_0, NVEE_LEN_WIFI_wep_key)
+NVPARAM_VARPARAM(WIFI_PROFILE_WEPKEY0_1, NVEE_LEN_WIFI_wep_key)
+NVPARAM_VARPARAM(WIFI_PROFILE_WEPKEY0_2, NVEE_LEN_WIFI_wep_key)
+NVPARAM_VARPARAM(WIFI_PROFILE_WEPKEY0_3, NVEE_LEN_WIFI_wep_key)
 NVPARAM_PARAM(WIFI_PROFILE_WEPINDEX_0, INT32_LEN)
 NVPARAM_PARAM(WIFI_PROFILE_WEPTYPE_0, INT32_LEN)
 NVPARAM_PARAM(WIFI_PROFILE_EAP_AUTH_MODE, INT32_LEN)

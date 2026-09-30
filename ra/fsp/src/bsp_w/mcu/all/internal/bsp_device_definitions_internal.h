@@ -14,12 +14,12 @@
  *  +------------------+--------------------------+-----------+------------+----------+------------+-----------+
  *  |                  |                          |           |            |              Version              |
  *  |------------------|--------------------------|-----------|------------+----------+------------+-----------+
- *  |      Family      |         Chip ID          |  Variant  |    FPGA    |   REV_x  |    SWC_x   |  STEP_x   |
+ *  |      Family      |         Chip ID          |  Variant  |            |   REV_x  |    SWC_x   |  STEP_x   |
  *  |------------------+--------------------------+-----------+------------+----------+------------+-----------|
  *  |                  |     680 69X 59X 70X      |           |            |          |            |           |
  *  |------------------+--------------------------+-----------+------------+----------+------------+-----------|
- *  | 00000000000: INV | 0000: INV INV  INV  INV  | 0000: INV | 0: Silicon | 000: INV | 00000: INV | 0000: INV |
- *  | 00000000001: 680 | 0001: 680 3080 3107 2634 | 0001: 0   | 1: FPGA    | 001: D/C | 00001: D/C | 0001: D/C |
+ *  | 00000000000: INV | 0000: INV INV  INV  INV  | 0000: INV |            | 000: INV | 00000: INV | 0000: INV |
+ *  | 00000000001: 680 | 0001: 680 3080 3107 2634 | 0001: 0   |            | 001: D/C | 00001: D/C | 0001: D/C |
  *  | 00000000010: 69x | 0010: INV 2522 2798 INV  | 0010: 1   |            | 010: A   | 00010: 0   | 0010: A   |
  *  | 00000000011: 59x |                          | 0011: 2   |            | 011: B   | 00011: 1   | 0011: B   |
  *  | 00000000100: 70x |                          | 0100: 3   |            | 100: C   | 00100: 2   | 0100: C   |
@@ -37,7 +37,7 @@
  *  |                  |                          |           |            |          | 10001: 15  |           |
  *  +------------------+--------------------------+-----------+------------+----------+------------+-----------+
  *
- *  INV: Invalid setting. None of the attributes should be 0, apart from the FPGA.
+ *  INV: Invalid setting. None of the attributes should be 0.
  *  D/C: Don't care
  *  RES: Reserved
  */
@@ -89,14 +89,6 @@
 #define _DEVICE_VARIANT_XX9       10
 #define _DEVICE_MK_VARIANT(x)              _DEVICE_MK_NUM_VAL(VARIANT, _DEVICE_VARIANT_XX ## x)
 #define _DEVICE_MK_VARIANT_NUMERICAL(n)    _DEVICE_MK_NUM_VAL(VARIANT, _DEVICE_VARIANT_XX0 + (n))
-
-/* FPGA definitions */
-#define _DEVICE_FPGA_MASK         0x00001000 // 1 bit length
-#define _DEVICE_FPGA_POS          12
-
-#define _DEVICE_FPGA_VER_MASK     0x00000FFF // 12 bits length
-#define _DEVICE_FPGA_VER_POS      0
-#define _DEVICE_MK_FPGA_VER(n)    _DEVICE_MK_NUM_VAL(FPGA_VER, (n))
 
 /* Device stepping major sub-revisions (I) */
 #define _DEVICE_REV_MASK          0x00000E00 // 3 bits length
@@ -150,7 +142,7 @@
 #define _DEVICE_MK_VER(x, n, y)         (_DEVICE_MK_REV(x) | _DEVICE_MK_SWC(n) | _DEVICE_MK_STEP(y))
 
 #define _DEVICE_MASK             (_DEVICE_FAMILY_MASK | _DEVICE_CHIP_ID_MASK | \
-                                  _DEVICE_VARIANT_MASK | _DEVICE_FPGA_MASK)
+                                  _DEVICE_VARIANT_MASK)
 
 /* Public definitions */
 
@@ -158,10 +150,6 @@
 #define RRQ43103                 (_DEVICE_MK_FAMILY(3100) | _DEVICE_MK_VARIANT(3))
 #define RRQ43107                 (_DEVICE_MK_FAMILY(3100) | _DEVICE_MK_VARIANT(7))
 #define RRQ43108                 (_DEVICE_MK_FAMILY(3100) | _DEVICE_MK_VARIANT(8))
-
-/* FPGA Device */
-#define D3108                    (_DEVICE_MK_FAMILY(3100) | DEVICE_CHIP_ID_3108 | \
-                                  _DEVICE_FPGA_MASK | DEVICE_REV_A)
 
 /* Family Wildcard */
 #define RRQ431XX                 (_DEVICE_MK_FAMILY(3100))
@@ -181,10 +169,6 @@
 #define DA14695                  (_DEVICE_MK_FAMILY(690) | _DEVICE_MK_VARIANT(5))
 #define DA14697                  (_DEVICE_MK_FAMILY(690) | _DEVICE_MK_VARIANT(7))
 #define DA14699                  (_DEVICE_MK_FAMILY(690) | _DEVICE_MK_VARIANT(9))
-
-/* FPGA Device */
-#define D2522                    (_DEVICE_MK_FAMILY(690) | DEVICE_CHIP_ID_2522 | \
-                                  _DEVICE_FPGA_MASK | DEVICE_REV_A)
 
 /* Family Wildcard */
 #define DA1469X                  (_DEVICE_MK_FAMILY(690))
@@ -234,11 +218,6 @@
 #define DEVICE_VER_A1            (_DEVICE_MK_VER(A, 1, DONT_CARE))
 #define DEVICE_VER_AA            (_DEVICE_MK_VER(A, DONT_CARE, A))
 #define DEVICE_VER_AB            (_DEVICE_MK_VER(A, DONT_CARE, B))
-
-/*
- * A generic FPGA check, available for any device family.
- */
-#define DEVICE_FPGA              ((dg_configDEVICE & _DEVICE_FPGA_MASK) == _DEVICE_FPGA_MASK)
 
 /*
  * Macros checking against specific device characteristics.
@@ -337,7 +316,7 @@ typedef union
         uint32_t step     :  4;
         uint32_t swc      :  5;
         uint32_t revision :  3;
-        uint32_t is_fpga  :  1;
+        uint32_t reserved_12 : 1;
         uint32_t variant  :  4;
         uint32_t chip_id  :  4;
         uint32_t family   : 11;

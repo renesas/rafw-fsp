@@ -152,6 +152,11 @@
 /* SDIO maximum blocks allows in writeIoExt() and readIoExt(). */
 #define SDEMMC_W_PRV_SDIO_EXT_MAX_BLOCKS               (511U)
 
+/* SDIO CIS TUPLE SIZE */
+#define SDEMMC_W_CIS_TUPLE_MAX_SIZE                    (0xFFU)
+#define SDEMMC_W_CIS_VER1_TUPLE_INFO_MAX_SIZE          (288U) /* Buffer size: 288 bytes (32-byte aligned) for pointer array (32 bytes) and string data (max 255 bytes) on 32-bit MCU */
+#define SDEMMC_W_MAX_INFO_STRINGS                      (8)
+
 /* Masks for CMD53 argument. */
 #define SDEMMC_W_PRV_SDIO_CMD52_CMD53_COUNT_MASK       (0x1FFU)
 #define SDEMMC_W_PRV_SDIO_CMD52_CMD53_FUNCTION_MASK    (0x7U)
@@ -477,7 +482,6 @@ static uint32_t  r_sdemmc_hw_sdio_device_tx(sdemmc_w_instance_ctrl_t * p_ctrl, c
 static void      r_sdemmc_hw_sdio_device_deinit(sdemmc_w_instance_ctrl_t * p_ctrl);
 static fsp_err_t r_sdemmc_common_fne_for_cistpl(st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size);
 static fsp_err_t r_sdemmc_fn_fne_for_cistpl(st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size);
-static fsp_err_t r_sdemmc_version_1_for_cistpl(st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size);
 static fsp_err_t r_sdemmc_man_fid_for_cistpl(st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size);
 static fsp_err_t r_sdemmc_local_cistpl_fn(st_sdemmc_config_t * p_config, uint8_t * p_buffer, uint32_t sz);
 static fsp_err_t r_sdemmc_sdio_cis_tpl_parse(st_sdemmc_config_t * p_config,
@@ -542,10 +546,10 @@ static const st_tuples_for_cis_t gs_func_list_for_cis_tpl[] =
 /* Known TPL_CODEs table for CIS tuples */
 static const st_tuples_for_cis_t gs_list_cis_tpl[] =
 {
-    {21, 3, r_sdemmc_version_1_for_cistpl},
-    {32, 4, r_sdemmc_man_fid_for_cistpl  },
-    {33, 2, NULL                         },
-    {34, 0, r_sdemmc_local_cistpl_fn     },
+    {21, 3, NULL                       },
+    {32, 4, r_sdemmc_man_fid_for_cistpl},
+    {33, 2, NULL                       },
+    {34, 0, r_sdemmc_local_cistpl_fn   },
 };
 
 static const uint8_t gs_speed_val[16] =
@@ -674,6 +678,10 @@ static const uint32_t gs_tacc_mant[] =
     0, 10, 12, 13, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80,
 };
 #endif                                 /* (SDEMMC_W_CFG_SD_SUPPORT_ENABLE | SDEMMC_W_CFG_EMMC_SUPPORT_ENABLE) */
+
+#ifdef SDEMMC_W_CFG_SDIO_HOST_ENABLE
+static uint8_t gs_cis_tuple_ver1_buf[SDEMMC_W_CIS_VER1_TUPLE_INFO_MAX_SIZE] = {0};
+#endif
 
 static st_sdemmc_config_t gs_body;
 static uint32_t           g_DataTransferWidth;
@@ -895,7 +903,6 @@ fsp_err_t R_SDEMMC_W_Open (sdmmc_ctrl_t * const p_api_ctrl, sdmmc_cfg_t const * 
  * @retval     FSP_ERR_INVALID_DATA      Unrecognized structure version.
  * @retval     FSP_ERR_UNSUPPORTED       Unsupported device.
  * @retval     FSP_ERR_INVALID_STATE     Sending command retry failure.
- * @retval     FSP_ERR_OUT_OF_MEMORY     There is no more memory available.
  * @retval     FSP_ERR_NOT_FOUND         Card not exist.
  **********************************************************************************************************************/
 fsp_err_t R_SDEMMC_W_MediaInit (sdmmc_ctrl_t * const p_api_ctrl, sdmmc_device_t * const p_device)
@@ -1969,6 +1976,10 @@ fsp_err_t R_SDEMMC_W_Close (sdmmc_ctrl_t * const p_api_ctrl)
 
             R_BSP_SoftwareDelay(SDEMMC_W_PRV_EMMC_DELAY_100, BSP_DELAY_UNITS_MICROSECONDS);
         }
+
+ #ifdef SDEMMC_W_CFG_SDIO_HOST_ENABLE
+        memset(gs_cis_tuple_ver1_buf, 0x00, SDEMMC_W_CIS_TUPLE_MAX_SIZE);
+ #endif
 #endif                                 /* SDEMMC_W_CFG_SDIO_SUPPORT_ENABLE */
 
 #if SDEMMC_W_CFG_SD_SUPPORT_ENABLE || SDEMMC_W_CFG_EMMC_SUPPORT_ENABLE
@@ -4100,60 +4111,6 @@ static fsp_err_t r_sdemmc_sdio_io_rw_extended (sdemmc_w_instance_ctrl_t * p_ctrl
     return FSP_SUCCESS;
 }
 
-static fsp_err_t r_sdemmc_version_1_for_cistpl (st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size)
-{
-    uint32_t   nr_strings = 0;
-    uint8_t ** buffer;
-    uint8_t  * string;
-
-    p_buf += 2;
-    size  -= 2;
-
-    uint32_t i;
-    for (i = 0; i < size; i++)
-    {
-        if (0xff == p_buf[i])
-        {
-            break;
-        }
-
-        if (0 == p_buf[i])
-        {
-            nr_strings++;
-        }
-    }
-
-    if (0 == nr_strings)
-    {
-        return FSP_SUCCESS;
-    }
-
-    size = i;
-
-    buffer = (uint8_t **) malloc(sizeof(char *) * nr_strings + size);
-
-    if (!buffer)
-    {
-        FSP_RETURN(FSP_ERR_OUT_OF_MEMORY);
-    }
-
-    string = (uint8_t *) (buffer + nr_strings);
-
-    for (i = 0; i < nr_strings; i++)
-    {
-        buffer[i] = string;
-        size_t sdemmc_str_len = strlen((char const *) p_buf);
-        bsp_safe_strcpy((char *) string, (char const *) p_buf, sdemmc_str_len + 1);
-        string += sdemmc_str_len + 1;
-        p_buf  += sdemmc_str_len + 1;
-    }
-
-    p_config->sdio_num_info = nr_strings;
-    p_config->psdio_info    = buffer;
-
-    return FSP_SUCCESS;
-}
-
 static fsp_err_t r_sdemmc_man_fid_for_cistpl (st_sdemmc_config_t * p_config, uint8_t * p_buf, uint32_t size)
 {
     uint32_t vendor = 0;
@@ -4893,6 +4850,8 @@ static fsp_err_t r_sdemmc_sdio_init_card (sdemmc_w_instance_ctrl_t * p_ctrl, st_
     uint8_t   cccr_vsn = 0;
     fsp_err_t err      = FSP_SUCCESS;
     uint32_t  i;
+    uint8_t cis_tuple_buf[SDEMMC_W_CIS_TUPLE_MAX_SIZE] = {0};
+
     FSP_PARAMETER_NOT_USED(ocr);
 
     for (i = 0; i < SDEMMC_W_PRV_MMC_RETRY_COUNT; i++)
@@ -5065,12 +5024,7 @@ static fsp_err_t r_sdemmc_sdio_init_card (sdemmc_w_instance_ctrl_t * p_ctrl, st_
             break;
         }
 
-        p_config->psdio_cis = (uint8_t *) malloc(tpl_link);
-
-        if (!(p_config->psdio_cis))
-        {
-            FSP_RETURN(FSP_ERR_OUT_OF_MEMORY);
-        }
+        p_config->psdio_cis = cis_tuple_buf;
 
         for (i = 0; i < tpl_link; i++)
         {
@@ -5080,13 +5034,12 @@ static fsp_err_t r_sdemmc_sdio_init_card (sdemmc_w_instance_ctrl_t * p_ctrl, st_
 
             if (err)
             {
-                free(p_config->psdio_cis);
+                p_config->psdio_cis = NULL;
                 FSP_RETURN(err);
             }
         }
 
-        err = r_sdemmc_sdio_cis_tpl_parse(p_config, p_config->psdio_cis, tpl_code, tpl_link);
-        free((void *) p_config->psdio_cis);
+        err                 = r_sdemmc_sdio_cis_tpl_parse(p_config, p_config->psdio_cis, tpl_code, tpl_link);
         p_config->psdio_cis = NULL;
 
         if (err)

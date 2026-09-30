@@ -13,7 +13,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "fw_version.h"
 #if CFG_WIFI
  #include "iface_defs.h"

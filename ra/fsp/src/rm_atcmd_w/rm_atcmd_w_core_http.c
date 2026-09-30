@@ -9,7 +9,8 @@
  **********************************************************************************************************************/
 #include "bsp_api.h"
 #if CFG_WIFI
- #include "custom_config_sdk.h"
+ #include "rm_wifi.h"
+
  #include <stdio.h>
  #include <stdlib.h>
  #include <strings.h>
@@ -1237,6 +1238,27 @@ fsp_err_t rm_atcmd_w_run_user_http_client (atcmd_w_ctrl_t * const p_at_ctrl, int
             }
         }
     }
+
+    return err;
+}
+
+fsp_err_t http_server_get_status (int * p_status)
+{
+    fsp_err_t err = FSP_SUCCESS;
+    https_server_status_t status = 0;
+
+    if (!p_status)
+    {
+        return FSP_ERR_INVALID_ARGUMENT;
+    }
+
+    err = p_atcmd_https->serverGetStatus(&g_atcmd_https_w0_ctrl, &status);
+    if (err != FSP_SUCCESS)
+    {
+        return err;
+    }
+
+    *p_status = (int) status;
 
     return err;
 }

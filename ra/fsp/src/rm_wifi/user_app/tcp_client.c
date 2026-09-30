@@ -1039,7 +1039,6 @@ static int tcpc_is_active(void)
 void tcpc_task_starter(void *param)
 {
     FSP_PARAMETER_NOT_USED(param);
-#if !defined (__SUPPORT_MATTER_IOT__)
     EventBits_t events = 0;
     BaseType_t status = pdPASS;
     pmgr_instance_ctrl_t *p_instance_ctrl = NULL;
@@ -1120,7 +1119,6 @@ TCPC_STARTER_END:
         tcpc_mgmt_evt = NULL;
     }
 
-#endif	// !__SUPPORT_MATTER_IOT__
     vTaskDelete(NULL);
     return;
 }

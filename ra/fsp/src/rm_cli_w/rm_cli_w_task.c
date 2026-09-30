@@ -32,13 +32,13 @@
 
 #include <stdio.h>
 #include "sdk_defs.h"
-#include "rm_wifi_config.h"
 #include <FreeRTOS.h>
 #include <event_groups.h>
 #include <semphr.h>
 #include <task.h>
 #include <timers.h>
 #include "rm_cli_w.h"
+#include "rm_cli_w_wifi.h"
 #include "rm_cli_w_sys.h"
 #include "rm_cli_w_mem.h"
 #include "rm_cli_w_nvram.h"
@@ -61,7 +61,6 @@
 #if WIFI_CFG_BLE_CLI_ENABLE
 #include "cli_ble.h"
 #endif
-#include "rm_cli_w_wifi.h"
 
 /**
  * CLI notification mask.

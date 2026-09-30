@@ -185,10 +185,7 @@ void vStartFirstTask (void)             /* __attribute__ (( naked )) PRIVILEGED_
 
 uint32_t ulSetInterruptMask (void)     /* __attribute__(( naked )) PRIVILEGED_FUNCTION */
 {
-#if DEVICE_FPGA
-#else
     DBG_CONFIGURE_HIGH(CMN_TIMING_DEBUG, CMNDBG_CRITICAL_SECTION);
-#endif
     __asm volatile ("dsb" ::: "memory");
     __asm volatile
     (
@@ -206,10 +203,7 @@ uint32_t ulSetInterruptMask (void)     /* __attribute__(( naked )) PRIVILEGED_FU
 
 void vClearInterruptMask (__attribute__((unused)) uint32_t ulMask) /* __attribute__(( naked )) PRIVILEGED_FUNCTION */
 {
-#if DEVICE_FPGA
-#else
     DBG_CONFIGURE_LOW(CMN_TIMING_DEBUG, CMNDBG_CRITICAL_SECTION);
-#endif
     __asm volatile ("dsb" ::: "memory");
     __asm volatile
     (

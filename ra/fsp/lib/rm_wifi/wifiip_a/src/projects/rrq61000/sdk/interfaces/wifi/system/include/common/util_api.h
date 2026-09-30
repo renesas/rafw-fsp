@@ -34,10 +34,9 @@
 #define __UTIL_API_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #define SUPPORT_WLAN1_LOCAL_MACADDRESS 0
-
 
 /* External global functions */
 extern int get_run_mode(void);

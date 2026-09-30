@@ -493,6 +493,11 @@ u8 * hostapd_eid_ext_capab(struct hostapd_data *hapd, u8 *eid)
 			*pos &= ~hapd->conf->ext_capa_mask[i];
 			*pos |= hapd->conf->ext_capa[i];
 		}
+
+        /* Force bit 77 (TWT Requester Support) to 0 after all overrides */
+        if (i == 9) {
+            *pos &= ~0x20; 
+        }
 	}
 
 	while (len > 0 && eid[1 + len] == 0) {

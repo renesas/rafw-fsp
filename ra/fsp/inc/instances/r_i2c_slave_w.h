@@ -71,6 +71,13 @@ typedef enum e_i2c_slave_w_rx_fifo_full_hld
     I2C_SLAVE_W_RX_FIFO_FULL_HLD_ENABLED  = 1  ///< Hold bus when RX FIFO is full.
 } i2c_slave_w_rx_fifo_full_hld_t;
 
+/** Bus clear settings. */
+typedef enum e_i2c_slave_w_bus_clear
+{
+    I2C_SLAVE_W_BUS_CLEAR_DISABLED = 0, ///< Disable bus clear feature.
+    I2C_SLAVE_W_BUS_CLEAR_ENABLED  = 1  ///< Enable bus clear feature.
+} i2c_slave_w_bus_clear_t;
+
 /** I2C clock settings */
 typedef struct i2c_slave_w_clock_settings
 {
@@ -98,6 +105,7 @@ typedef struct st_i2c_slave_w_instance_ctrl
     uint32_t      loaded;                                                         // Tracks the number of data bytes written to the register
     uint32_t      transaction_count;                                              // Tracks the actual number of transactions (in case Master requests more Writes/Reads)
     volatile bool notify_request;                                                 // Track whether the master request is notified to the application
+
     volatile i2c_slave_w_transfer_dir_t direction;                                // Holds the direction of the data byte transfer
 
     /* Pointer to callback and optional working memory */
@@ -118,7 +126,9 @@ typedef struct st_i2c_slave_w_extended_cfg
 
     i2c_slave_w_clock_settings_t   clock_settings;   ///< I2C Clock settings
     i2c_slave_w_rx_fifo_full_hld_t rx_fifo_full_hld; ///< Enable holding bus when RX_FIFO is full.
+    i2c_slave_w_bus_clear_t        bus_clear;        ///< Bus clear settings.
 
+    uint32_t  scl_stuck_timeout;                     ///< Timeout period (in units of the i2c_clk clock cycles) used to detect when SCL remains stuck low.
     bool      select_divn;                           ///< Select the clock source (DIVN/DIV1 clock)
     IRQn_Type gen_irq;                               ///< Generic I2C Interrupt IRQ number.
     uint8_t   gen_ipl;                               ///< Generic I2C Interrupt Priority.

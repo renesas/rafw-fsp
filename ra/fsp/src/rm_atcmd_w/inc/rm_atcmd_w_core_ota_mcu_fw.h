@@ -8,7 +8,8 @@
 #define RM_ATCMD_W_CORE_OTA_MCU_FW_H
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include <stdio.h>
 #include "sys_app_defs.h"
 

@@ -41,7 +41,7 @@
 #include "rm_pmgr_w_instance.h"
 #endif /* CFG_PMGR */
 
-#if (TCP_CLIENT_APP_START == 1)
+#if (TCP_CLIENT_APP_START == 1) && !defined (__SUPPORT_MATTER_IOT__)
 #include "tcp_client.h"
 #endif
 
@@ -68,11 +68,7 @@ const app_task_info_t sys_apps_table[] = {
   { APP_MQTT_SUB,   mqtt_auto_start,                1024, (OS_TASK_PRIORITY_USER + 6), TRUE,  TRUE,  UNDEF_PORT,      RUN_STA_MODE },
 #endif    // __SUPPORT_MQTT__
 
-#if defined ( __HTTP_SVR_AUTO_START__ )
-  { APP_HTTP_SVR,   auto_run_http_svr,               512, (OS_TASK_PRIORITY_USER + 6), TRUE,  FALSE, UNDEF_PORT,      RUN_ALL_MODE  },
-#endif // __HTTP_SVR_AUTO_START__
-
-#if (TCP_CLIENT_APP_START == 1)
+#if (TCP_CLIENT_APP_START == 1) && !defined (__SUPPORT_MATTER_IOT__)
   { JOB_ID_TCPC_CONN, tcpc_task_starter, TCPC_TASK_SIZE,  (OS_TASK_PRIORITY_USER + 6), TRUE, TRUE, 0, RUN_STA_MODE },
 #endif
 

@@ -33,7 +33,7 @@
 
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 #include "rnDeviceWrapAPIs.h"
 #if (CHIP_DEVICE_CONFIG_ENABLE_OTA)
 #if defined (__SUPPORT_OTA__)

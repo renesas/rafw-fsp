@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2001-2019, Arm Limited and Contributors. All rights reserved.
  *
- * SPDX-License-Identifier: BSD-3-Clause OR Arm’s non-OSI source license
+ * SPDX-License-Identifier: BSD-3-Clause OR Arm's non-OSI source license
  */
 
 /*!
@@ -59,7 +59,7 @@ extern "C"
   external ephemeral key pair, used only for testing purposes.
 
   @note Use KDF2 function mode for compliance with <em>X9.63-2011: Public Key
-  Cryptography for the Financial Services Industry – Key Agreement and Key
+  Cryptography for the Financial Services Industry - Key Agreement and Key
   Transport Using Elliptic Curve Cryptography</em>. \par
 
   @note The term "sender" indicates an entity that creates and
@@ -127,7 +127,7 @@ CCError_t mbedtls_ecies_kem_encrypt_full(
   ciphers</em>, sec. 10.2.4 - ECIES-KEM Decryption.
 
   @note The KDF2 function mode must be used for compliance with <em>X9.63-2011:
-  Public Key Cryptography for the Financial Services Industry – Key Agreement
+  Public Key Cryptography for the Financial Services Industry - Key Agreement
   and Key Transport Using Elliptic Curve Cryptograph</em>. \par
 
   @note The term "sender" indicates an entity that creates and

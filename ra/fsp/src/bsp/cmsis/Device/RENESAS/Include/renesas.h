@@ -130,7 +130,11 @@ extern "C" {
   #endif
  #elif BSP_MCU_GROUP_RA6B1
   #if defined(BOARD_RA6B1_PRODK)
-   #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/R7KA6B1BG.h"
+   #if defined(FULL_REGISTER_FILE)
+    #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/D3108BA.h"
+   #else
+    #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/R7KA6B1BG.h"
+   #endif
   #else
    #if __has_include("../../../../../bsp_w/cmsis/Device/RENESAS/Include/D3108BA.h")
     #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/D3108BA.h"
@@ -146,7 +150,11 @@ extern "C" {
   #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/D3333.h"
  #elif BSP_MCU_GROUP_RA6U1
   #if defined(BOARD_RA6U1_EK)
-   #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/R7KA6U1BG.h"
+   #if defined(FULL_REGISTER_FILE)
+    #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/D3108BA.h"
+   #else
+    #include "../../../../../bsp_w/cmsis/Device/RENESAS/Include/R7KA6U1BG.h"
+   #endif
   #endif
  #else
   #if __has_include("renesas_internal.h")

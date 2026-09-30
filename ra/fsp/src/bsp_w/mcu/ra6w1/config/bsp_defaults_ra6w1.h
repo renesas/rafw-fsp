@@ -207,16 +207,6 @@
   #define dg_configUSE_HW_GPADC       (0)
  #endif
 
- #if 0                                 /* TODO : Check this needs */
-/* XXX workaround for bug2522A_155: PLL calibration does not work properly */
-/* XXX GPADC is used for PLL workaround in case there isn't trimmed value for PLL_SYS_CTRL3_REG */
-  #if !DEVICE_FPGA
-   #if (dg_configUSE_HW_GPADC == 0)
-    #error "dg_configUSE_HW_GPADC should be 1 in order to properly trim the PLL clock"
-   #endif
-  #endif
- #endif
-
  #ifndef dg_configUSE_HW_GPIO
   #define dg_configUSE_HW_GPIO       (1)
  #endif

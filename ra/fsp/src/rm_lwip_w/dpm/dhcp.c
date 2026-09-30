@@ -84,7 +84,8 @@
 #include <string.h>
 #include "includes.h"
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "net_common.h"
 #if CFG_PMGR
 #include "rm_pmgr_w_instance.h"
@@ -353,7 +354,6 @@ static void dhcp_fine_update_timeouts(void)
 }
 #endif
 
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 void dhcp_event_send(u8 event)
 {
 #if CFG_WIFI
@@ -385,7 +385,6 @@ void dhcp_event_send(u8 event)
     }
 #endif /* CFG_WIFI */
 }
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 
 /** Ensure DHCP PCB is allocated and bound */
 static err_t
@@ -658,7 +657,6 @@ dhcp_fine_tmr(void)
     /* only act on DHCP configured interfaces */
     if (dhcp != NULL) {
 
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 #ifndef __SUPPORT_DHCP_CLIENT_AGGRESSIVE_MODE__
       if (dhcp->request_timeout > 8 && dhcp->request_timeout % 16 == 0)
       {
@@ -671,7 +669,7 @@ dhcp_fine_tmr(void)
          dhcp_event_send(1); /* IP not assigned */
 	  }
 #endif // __SUPPORT_DHCP_CLIENT_AGGRESSIVE_MODE__
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
+
       /* timer is active (non zero), and is about to trigger now */
       if (dhcp->request_timeout > 1) {
         dhcp->request_timeout--;
@@ -682,13 +680,11 @@ dhcp_fine_tmr(void)
         /* this client's request timeout triggered */
         dhcp_timeout(netif);
       }
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
       else if (dhcp->state == DHCP_STATE_REQUESTING && dhcp->request_timeout == 0) // Retry DHCP Request
       {
         LWIP_DEBUGF(DHCP_DEBUG | LWIP_DBG_TRACE | LWIP_DBG_STATE, ("dhcp_fine_tmr(): %c%c%d Retry DHCP Request\n", netif->name[0], netif->name[1], (int) netif->num));
         dhcp_timeout(netif);
       }
-#endif // RRQ61XX_CUSTOM_FIXES_MANDATORY
     }
   }
 }
@@ -708,7 +704,6 @@ dhcp_timeout(struct netif *netif)
 
   LWIP_DEBUGF(DHCP_DEBUG | LWIP_DBG_TRACE, ("dhcp_timeout()\n"));
 
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 #ifdef __SUPPORT_DHCP_CLIENT_AGGRESSIVE_MODE__
   if (dhcp->tries > MAX_TRIES && dhcp->request_timeout <= 1)
   {
@@ -733,7 +728,6 @@ dhcp_timeout(struct netif *netif)
      return;
   }
 #endif // __SUPPORT_DHCP_CLIENT_AGGRESSIVE_MODE__
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 
   /* back-off period has passed, or server selection timed out */
   if ((dhcp->state == DHCP_STATE_BACKING_OFF) || (dhcp->state == DHCP_STATE_SELECTING)) {
@@ -1218,8 +1212,6 @@ dhcp_arp_reply(struct netif *netif, const ip4_addr_t *addr)
       dhcp_decline(netif);
     }
   }
-
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 #ifdef __SUPPORT_DHCPC_IP_TO_STATIC_IP__
   else if (ip4_addr_cmp(addr, netif_ip4_addr(netif)))
   {
@@ -1232,7 +1224,6 @@ dhcp_arp_reply(struct netif *netif, const ip4_addr_t *addr)
     }
   }
 #endif // __SUPPORT_DHCPC_IP_TO_STATIC_IP__
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 }
 
 /**
@@ -1466,7 +1457,6 @@ dhcp_bind(struct netif *netif)
 	// Have to save netif information before changing the dhcp status.
   netif_set_addr(netif, &dhcp->offered_ip_addr, &sn_mask, &gw_addr);
   /* interface is used by routing now that an address is set */
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
   dhcp_set_state(dhcp, DHCP_STATE_BOUND);
 
   dhcp_event_send(2);
@@ -1474,7 +1464,6 @@ dhcp_bind(struct netif *netif)
 #ifdef __SUPPORT_DHCPC_IP_TO_STATIC_IP__
   set_dhcpCientIP_to_staticIP();
 #endif // __SUPPORT_DHCPC_IP_TO_STATIC_IP__
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 }
 
 /**
@@ -1767,7 +1756,6 @@ dhcp_stop(struct netif *netif)
   dhcp_release_and_stop(netif);
 }
 
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 void dhcp_state_change(struct dhcp *dhcp, u8_t new_state)
 {
 #if CFG_PMGR
@@ -1891,7 +1879,6 @@ dpm_renew_set_r :
 
 	return;
 }
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
 
 /*
  * Set the DHCP state of a DHCP client.
@@ -1905,9 +1892,7 @@ dhcp_set_state(struct dhcp *dhcp, u8_t new_state)
     dhcp->state = new_state;
     dhcp->tries = 0;
     dhcp->request_timeout = 0;
-#if defined(RRQ61XX_CUSTOM_FIXES_MANDATORY)
 	dhcp_state_change(dhcp, new_state); // Add Dialog
-#endif /* RRQ61XX_CUSTOM_FIXES_MANDATORY */
   }
 }
 

@@ -9,52 +9,53 @@
  **********************************************************************************************************************/
 #include "bsp_api.h"
 #if CFG_WIFI
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
-#include <strings.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include "FreeRTOS.h"
+ #include <stdio.h>
+ #include <stdint.h>
+ #include <string.h>
+ #include <strings.h>
+ #include <stdbool.h>
+ #include <stdlib.h>
+ #include "FreeRTOS.h"
+ #include "rm_wifi.h"
 
-#include "rm_atcmd_w_core_err_code.h"
-#include "rm_atcmd_w_core.h"
-#include "rm_atcmd_w_core_ota_parse.h"
-#include "rm_atcmd_w_core_ota_update.h"
-#include "rm_atcmd_w_core_ota_common.h"
-#include "rm_atcmd_w_core_ota_http.h"
-#include "rm_atcmd_w_core_ota_mcu_fw.h"
-#include "rm_vee_flash_w_rrq_nvram.h"
-#ifdef RM_MAP_PERSISTANT_W
- #include "rm_map_persistant_w.h"
-#endif
-#if (SUPPORT_FSP_RM_OTA_W == 1)
- #include "rm_ota_w.h"
-#endif                                 /* SUPPORT_FSP_RM_OTA_W */
-#include "rm_wifi_helper.h"
+ #include "rm_atcmd_w_core_err_code.h"
+ #include "rm_atcmd_w_core.h"
+ #include "rm_atcmd_w_core_ota_parse.h"
+ #include "rm_atcmd_w_core_ota_update.h"
+ #include "rm_atcmd_w_core_ota_common.h"
+ #include "rm_atcmd_w_core_ota_http.h"
+ #include "rm_atcmd_w_core_ota_mcu_fw.h"
+ #include "rm_vee_flash_w_rrq_nvram.h"
+ #ifdef RM_MAP_PERSISTANT_W
+  #include "rm_map_persistant_w.h"
+ #endif
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
+  #include "rm_ota_w.h"
+ #endif                                /* SUPPORT_FSP_RM_OTA_W */
+ #include "rm_wifi_helper.h"
 
 /***********************************************************************************************************************
  * Macro definitions
  **********************************************************************************************************************/
 
-#define RM_ATCMD_W_CORE_OTA_ATCMD_CODE(atcmd)    "AT+NW" # atcmd
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_CODE(atcmd)    "AT+NW" # atcmd
 
-#define RM_ATCMD_W_CORE_OTA_ATCMD_CB(atcmd) \
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_CB(atcmd) \
     uint32_t RM_ATCMD_W_CORE_OTA_ ## atcmd ## _cmd_cb(atcmd_w_ctrl_t * const p_at_ctrl, int argc, char * argv[])
-#define RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(atcmd) \
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(atcmd) \
     const char * RM_ATCMD_W_CORE_OTA_ ## atcmd ## _format_cb(void)
-#define RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(atcmd) \
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(atcmd) \
     const char * RM_ATCMD_W_CORE_OTA_ ## atcmd ## _brief_cb(void)
 
-#define RM_ATCMD_W_CORE_OTA_UNFIXED_ATCMD_CB(atcmd) \
+ #define RM_ATCMD_W_CORE_OTA_UNFIXED_ATCMD_CB(atcmd) \
     uint32_t RM_ATCMD_W_CORE_OTA_ ## atcmd ## _cmd_cb(atcmd_w_ctrl_t * const p_at_ctrl, uint8_t * p_in, size_t inlen)
 
-#define RM_ATCMD_W_CORE_OTA_ATCMD_CB_P(atcmd)           RM_ATCMD_W_CORE_OTA_ ## atcmd ## _cmd_cb
-#define RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB_P(atcmd)    RM_ATCMD_W_CORE_OTA_ ## atcmd ## _format_cb
-#define RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB_P(atcmd)     RM_ATCMD_W_CORE_OTA_ ## atcmd ## _brief_cb
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_CB_P(atcmd)           RM_ATCMD_W_CORE_OTA_ ## atcmd ## _cmd_cb
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB_P(atcmd)    RM_ATCMD_W_CORE_OTA_ ## atcmd ## _format_cb
+ #define RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB_P(atcmd)     RM_ATCMD_W_CORE_OTA_ ## atcmd ## _brief_cb
 
-#define RM_ATCMD_W_CORE_OTA_DEBUG(fmt, ...)
-#define RM_ATCMD_W_CORE_OTA_ERROR(fmt, ...)
+ #define RM_ATCMD_W_CORE_OTA_DEBUG(fmt, ...)
+ #define RM_ATCMD_W_CORE_OTA_ERROR(fmt, ...)
 
 /***********************************************************************************************************************
  * Typedef definitions
@@ -68,6 +69,12 @@
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTADWSTART);
 RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(OTADWSTART);
 RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTADWSTART);
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTADWRESUME);
+RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(OTADWRESUME);
+RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTADWRESUME);
+ #endif
 
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTADWSTOP);
 RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(OTADWSTOP);
@@ -172,9 +179,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(tx_size);
 static ATCMD_W_OTA_UPDATE_CONFIG   _atcmd_ota_conf = {0, };
 static ATCMD_W_OTA_UPDATE_CONFIG * atcmd_ota_conf  = (ATCMD_W_OTA_UPDATE_CONFIG *) &_atcmd_ota_conf;
 
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
 extern const ota_instance_t * p_ota_instance;
-#endif                                 /* SUPPORT_FSP_RM_OTA_W */
+ #endif                                /* SUPPORT_FSP_RM_OTA_W */
 
 const atcmd_w_core_module_t at_core_ota_module[] =
 {
@@ -187,6 +194,17 @@ const atcmd_w_core_module_t at_core_ota_module[] =
         RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB_P(OTADWSTART),
         RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB_P(OTADWSTART)
     },
+ #if defined(__SUPPORT_OTA_RESUME__)
+    {
+        RM_ATCMD_W_CORE_OTA_ATCMD_CODE(OTADWRESUME),
+        ATCMD_W_TYPE_A,
+        4,
+        0,
+        RM_ATCMD_W_CORE_OTA_ATCMD_CB_P(OTADWRESUME),
+        RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB_P(OTADWRESUME),
+        RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB_P(OTADWRESUME)
+    },
+ #endif
     {
         RM_ATCMD_W_CORE_OTA_ATCMD_CODE(OTADWSTOP),
         ATCMD_W_TYPE_A,
@@ -428,9 +446,9 @@ const atcmd_w_core_unfixed_module_t at_core_ota_unfixed_module[] =
  **********************************************************************************************************************/
 uint32_t RM_ATCMD_W_CORE_OTA_register (atcmd_w_core_module_list_t * p_list)
 {
-#if (ATCMD_W_CFG_PARAM_CHECKING_ENABLE)
+ #if (ATCMD_W_CFG_PARAM_CHECKING_ENABLE)
     FSP_ASSERT(p_list);
-#endif
+ #endif
 
     if (p_list->module_cnt >= ATCMD_W_LIST_MAX_CNT)
     {
@@ -458,9 +476,9 @@ uint32_t RM_ATCMD_W_CORE_OTA_register (atcmd_w_core_module_list_t * p_list)
 
 uint32_t RM_ATCMD_W_CORE_OTA_deregister (atcmd_w_core_module_list_t * p_list)
 {
-#if (ATCMD_W_CFG_PARAM_CHECKING_ENABLE)
+ #if (ATCMD_W_CFG_PARAM_CHECKING_ENABLE)
     FSP_ASSERT(p_list);
-#endif
+ #endif
 
     rm_atcmd_w_core_deregister(p_list, at_core_ota_module);
     rm_atcmd_w_core_unfixed_deregister(p_list, at_core_ota_unfixed_module);
@@ -566,6 +584,77 @@ RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTADWSTART)
 
     return p_descrption;
 }
+
+ #if defined(__SUPPORT_OTA_RESUME__)
+RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTADWRESUME)
+{
+    fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
+    int result_int             = get_run_mode();
+
+    FSP_PARAMETER_NOT_USED(p_at_ctrl);
+
+    if ((result_int == WIFI_DEVICE_MODE_EXT_STATION) ||
+        (result_int == WIFI_DEVICE_MODE_EXT_AP) ||
+        (result_int == WIFI_DEVICE_MODE_EXT_AP_STATION))
+    {
+        /* Validate arguments before use: <fw_type>,<uri> are both required.
+         * Guards against NULL deref and out-of-range argv access. */
+        if ((argc < 3) || (argv[1] == NULL) || (argv[2] == NULL))
+        {
+            return FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
+        }
+
+        /* Init */
+        atcmd_ota_conf->download_notify      = NULL;
+        atcmd_ota_conf->renew_notify         = NULL;
+        atcmd_ota_conf->download_sflash_addr = 0;
+
+        if (strcmp(argv[1], "rtos") == 0)
+        {
+            atcmd_ota_conf->update_type = ATCMD_W_OTA_TYPE_RTOS;
+            memset(atcmd_ota_conf->url, 0x00, ATCMD_W_OTA_HTTP_URL_LEN);
+
+            /* Bounded, NUL-terminated copy (avoids the fixed-size memcpy over-read
+             * when the supplied URI is shorter than the buffer). */
+            bsp_safe_strcpy(atcmd_ota_conf->url, argv[2], ATCMD_W_OTA_HTTP_URL_LEN);
+        }
+        else
+        {
+            /* Resume is only meaningful for the RTOS image. Other FW types fall
+             * through as unsupported so the caller knows to use AT+NWOTADWSTART. */
+            err = FSP_ERR_AT_CMD_ERR_NW_OTA_WRONG_FW_TYPE;
+        }
+
+        if (err == FSP_ERR_AT_CMD_ERR_CMD_OK)
+        {
+            if (atcmd_w_ota_update_start_resume(p_at_ctrl, atcmd_ota_conf) != 0)
+            {
+                err = FSP_ERR_AT_CMD_ERR_NW_OTA_DOWN_OK_AND_WAIT_RENEW;
+            }
+        }
+    }
+    else
+    {
+        err = FSP_ERR_AT_CMD_ERR_COMMON_SYS_MODE;
+    }
+
+    return err;
+}
+
+RM_ATCMD_W_CORE_OTA_ATCMD_FORMAT_CB(OTADWRESUME)
+{
+    const char * p_usage = "<fw_type>,<uri>";
+
+    return p_usage;
+}
+
+RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTADWRESUME)
+{
+    const char * p_descrption = "Resume an interrupted OTA download";
+
+    return p_descrption;
+}
+ #endif                                /* __SUPPORT_OTA_RESUME__ */
 
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTADWSTOP)
 {
@@ -690,11 +779,11 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTARENEW)
             (result_int == WIFI_DEVICE_MODE_EXT_AP) ||
             (result_int == WIFI_DEVICE_MODE_EXT_AP_STATION))
         {
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
             status = p_ota_instance->p_api->swap(p_ota_instance->p_ctrl);
-#else
+ #else
             status = atcmd_w_ota_update_start_renew(p_at_ctrl, atcmd_ota_conf);
-#endif
+ #endif
             memset(atc_buf, 0x00, sizeof(atc_buf));
             sprintf(atc_buf, "+NWOTARENEW:0x%02x\r\n", status);
             RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) atc_buf, strlen(atc_buf));
@@ -747,9 +836,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASETADDR)
             char * end = NULL;
 
             addr = strtol(argv[1], &end, 16);
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
             ret = p_ota_instance->p_api->setAddr(p_ota_instance->p_ctrl, RM_OTA_W_USER_ADDR, addr);
-#endif
+ #endif
             result_len = sprintf(result_str, "%s:0x%02x\r\n", rm_atcmd_w_core_common_strupr(argv[0] + 2), ret);
             RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, result_len);
         }
@@ -797,12 +886,12 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAGETADDR)
         {
             if (strcmp(argv[1], "cert_key") == 0)
             {
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
                 p_ota_instance->p_api->getAddr(p_ota_instance->p_ctrl,
-                                      RM_OTA_W_NEW_ADDR,
-                                      (rm_ota_w_update_type_t) ATCMD_W_OTA_TYPE_CERT_KEY,
-                                      &sflash_addr);
-#endif
+                                               RM_OTA_W_NEW_ADDR,
+                                               (rm_ota_w_update_type_t) ATCMD_W_OTA_TYPE_CERT_KEY,
+                                               &sflash_addr);
+ #endif
                 result_len =
                     sprintf(result_str, "%s:0x%lx\r\n", rm_atcmd_w_core_common_strupr(argv[0] + 2), sflash_addr);
                 RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, result_len);
@@ -811,12 +900,12 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAGETADDR)
                      (strcmp(argv[1], "other_fw") == 0) ||
                      (strcmp(argv[1], "fw_1") == 0))
             {
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
                 p_ota_instance->p_api->getAddr(p_ota_instance->p_ctrl,
-                                      RM_OTA_W_NEW_ADDR,
-                                      (rm_ota_w_update_type_t) ATCMD_W_OTA_TYPE_MCU_FW,
-                                      &sflash_addr);
-#endif
+                                               RM_OTA_W_NEW_ADDR,
+                                               (rm_ota_w_update_type_t) ATCMD_W_OTA_TYPE_MCU_FW,
+                                               &sflash_addr);
+ #endif
                 result_len =
                     sprintf(result_str, "%s:0x%lx\r\n", rm_atcmd_w_core_common_strupr(argv[0] + 2), sflash_addr);
                 RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, result_len);
@@ -956,7 +1045,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAERASEFLASH)
             (result_int == WIFI_DEVICE_MODE_EXT_AP) ||
             (result_int == WIFI_DEVICE_MODE_EXT_AP_STATION))
         {
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
             UINT   addr, size;
             char * end = NULL;
 
@@ -971,7 +1060,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAERASEFLASH)
             {
                 sprintf(result_str, "+NWOTAERASEFLASH:%s\r\n", "FAIL");
             }
-#endif
+ #endif
             RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, strlen(result_str));
         }
         else
@@ -1124,12 +1213,12 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPN)
 
     if (argc == 1)
     {
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
         RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                      ENV_GROUP_APPCFG,
                                      ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM,
                                      &result_int);
-#endif
+ #endif
         if (result_int == -1)
         {
             err = FSP_ERR_AT_CMD_ERR_NVRAM_NOT_SAVED_VALUE;
@@ -1176,9 +1265,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPN)
             for (char i = 0; i < tmp; i++)
             {
                 sprintf(nvrName, "%s%d", ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN, i);
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvrName, &tmp_str);
-#endif
+ #endif
                 if (tmp_str)
                 {
                     sprintf(result_str_pos, ",\"%s\"", tmp_str);
@@ -1245,12 +1334,12 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPN)
             }
         }
 
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
         RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                      ENV_GROUP_APPCFG,
                                      ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM,
                                      (int *) &tmp);
-#endif
+ #endif
         if (tmp != -1)
         {
             for (char i = 0; i < tmp; i++)
@@ -1258,16 +1347,16 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPN)
                 char nvr_name[32] = {0, };
 
                 sprintf(nvr_name, "%s%d", ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN, i);
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
                 RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
-#endif
+ #endif
             }
 
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(),
                                       ENV_GROUP_APPCFG,
                                       ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM);
-#endif
+ #endif
         }
 
         tmp = (char) tmp_int1;
@@ -1276,17 +1365,17 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPN)
             char nvr_name[32] = {0, };
 
             sprintf(nvr_name, "%s%d", ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN, i);
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Write_STRING(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name, argv[i + 2]);
-#endif
+ #endif
         }
 
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
         RM_MAP_PERSISTANT_W_Write_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                       ENV_GROUP_APPCFG,
                                       ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM,
                                       tmp_int1);
-#endif
+ #endif
     }
     else
     {
@@ -1325,12 +1414,12 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASNI)
         }
         else
         {
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Write_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
                                              ENV_GROUP_APPCFG,
                                              ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_SNI,
                                              argv[1]);
-#endif
+ #endif
         }
     }
     else
@@ -1364,29 +1453,29 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAALPNDEL)
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
     char tmp;
 
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
     RM_MAP_PERSISTANT_W_Read_INT(RM_MAP_PERSISTANT_W_get_ctrl(),
                                  ENV_GROUP_APPCFG,
                                  ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM,
                                  (int *) &tmp);
-#endif
+ #endif
 
     if (tmp != -1)
     {
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
         RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(),
                                   ENV_GROUP_APPCFG,
                                   ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN_NUM);
-#endif
+ #endif
 
         for (char i = 0; i < tmp; i++)
         {
             char nvr_name[32] = {0, };
 
             sprintf(nvr_name, "%s%d", ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_ALPN, i);
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
             RM_MAP_PERSISTANT_W_Erase(RM_MAP_PERSISTANT_W_get_ctrl(), ENV_GROUP_APPCFG, nvr_name);
-#endif
+ #endif
         }
     }
 
@@ -1415,7 +1504,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASNIDEL)
 
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
 
-#ifdef RM_MAP_PERSISTANT_W
+ #ifdef RM_MAP_PERSISTANT_W
     char * tmp_str = NULL;
     RM_MAP_PERSISTANT_W_Read_STRING(RM_MAP_PERSISTANT_W_get_ctrl(),
                                     ENV_GROUP_APPCFG,
@@ -1428,7 +1517,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASNIDEL)
                                   ENV_GROUP_APPCFG,
                                   ATCMD_W_OTA_HTTPC_NVRAM_CONFIG_TLS_SNI);
     }
-#endif
+ #endif
 
     return err;
 }
@@ -1513,9 +1602,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASETBIDX)
     if (argc == 1)
     {
         /* AT+NWOTABIDX=? */
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
         p_ota_instance->p_api->bootIdxGet(p_ota_instance->p_ctrl, &current_boot_idx);
-#endif
+ #endif
         result_len = sprintf(result_str, "%s:%u\r\n", rm_atcmd_w_core_common_strupr(argv[0] + 2), current_boot_idx);
 
         RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, result_len);
@@ -1524,9 +1613,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTASETBIDX)
     {
         /* AT+NWOTABIDX=<idx> */
         tmp_int1 = atoi(argv[1]);
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
         p_ota_instance->p_api->bootIdxSet(p_ota_instance->p_ctrl, tmp_int1);
-#endif
+ #endif
     }
     else
     {
@@ -1560,9 +1649,9 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAGETBIDX)
 
     if (argc == 1)
     {
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
         p_ota_instance->p_api->bootIdxGet(p_ota_instance->p_ctrl, &current_boot_idx);
-#endif
+ #endif
         result_len = sprintf(result_str, "%s:%u\r\n", rm_atcmd_w_core_common_strupr(argv[0] + 2), current_boot_idx);
         RM_ATCMD_W_CORE_Write(p_at_ctrl, (uint8_t *) result_str, result_len);
     }
@@ -1592,7 +1681,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTAGETBIDX)
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWNAME)
 {
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
     char result_str[32] = {0, };
     int  result_len     = 0;
     int  result_int     = get_run_mode();
@@ -1628,11 +1717,11 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWNAME)
         err = FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
     }
 
-#else
+ #else
     FSP_PARAMETER_NOT_USED(p_at_ctrl);
     FSP_PARAMETER_NOT_USED(argc);
     FSP_PARAMETER_NOT_USED(argv);
-#endif
+ #endif
 
     return err;
 }
@@ -1654,7 +1743,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTAFWNAME)
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWSIZE)
 {
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
     char result_str[32] = {0, };
     int  result_len     = 0;
     int  result_int     = get_run_mode();
@@ -1686,11 +1775,11 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWSIZE)
         err = FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
     }
 
-#else
+ #else
     FSP_PARAMETER_NOT_USED(p_at_ctrl);
     FSP_PARAMETER_NOT_USED(argc);
     FSP_PARAMETER_NOT_USED(argv);
-#endif
+ #endif
 
     return err;
 }
@@ -1712,7 +1801,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_BRIEF_CB(OTAFWSIZE)
 RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWCRC)
 {
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
     char result_str[32] = {0, };
     int  result_len     = 0;
     int  result_int     = get_run_mode();
@@ -1745,11 +1834,11 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAFWCRC)
         err = FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
     }
 
-#else
+ #else
     FSP_PARAMETER_NOT_USED(p_at_ctrl);
     FSP_PARAMETER_NOT_USED(argc);
     FSP_PARAMETER_NOT_USED(argv);
-#endif
+ #endif
 
     return err;
 }
@@ -1883,7 +1972,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAERASEFW)
     FSP_PARAMETER_NOT_USED(argv);
 
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
     char result_str[32] = {0, };
     int  result_int     = get_run_mode();
 
@@ -1914,10 +2003,10 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTAERASEFW)
         err = FSP_ERR_AT_CMD_ERR_INSUFFICIENT_ARGS;
     }
 
-#else
+ #else
     FSP_PARAMETER_NOT_USED(p_at_ctrl);
     FSP_PARAMETER_NOT_USED(argc);
-#endif
+ #endif
 
     return err;
 }
@@ -1941,7 +2030,7 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTABYMCU)
     FSP_PARAMETER_NOT_USED(p_at_ctrl);
 
     fsp_err_atcmd_err_code err = FSP_ERR_AT_CMD_ERR_CMD_OK;
-#if (SUPPORT_FSP_RM_OTA_W == 1)
+ #if (SUPPORT_FSP_RM_OTA_W == 1)
     if (argc == 3)
     {
         /* Initialization to receive RA6W1/RA6W2 RTOS from MCU */
@@ -1965,10 +2054,10 @@ RM_ATCMD_W_CORE_OTA_ATCMD_CB(OTABYMCU)
     }
 
 atcmd_network_end:
-#else
+ #else
     FSP_PARAMETER_NOT_USED(argc);
     FSP_PARAMETER_NOT_USED(argv);
-#endif
+ #endif
 
     return err;
 }
@@ -1997,7 +2086,7 @@ RM_ATCMD_W_CORE_OTA_UNFIXED_ATCMD_CB(tx_size)
 
     char         ch             = 0;
     char       * buffer         = NULL;
-    char         result_str[32] = { };
+    char         result_str[32] = {};
     unsigned int ret            = ATCMD_W_OTA_FAILED;
     unsigned int tx_size        = 0;
     unsigned int rx_size        = 0;
@@ -2050,8 +2139,8 @@ recv_start:
             {
                 memset(result_str, 0x00, sizeof(result_str));
                 sprintf(result_str, "+NWOTABYMCU:0x%02x\r\n", ret);
-            } 
-            else 
+            }
+            else
             {
                 if (tx_size == (unsigned int) rev_idx)
                 {

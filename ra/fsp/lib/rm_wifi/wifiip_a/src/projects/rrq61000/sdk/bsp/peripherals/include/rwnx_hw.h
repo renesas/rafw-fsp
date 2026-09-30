@@ -84,11 +84,11 @@ void rwnx_hw_wakeup(uint8_t sleep_type);
  
  /**
   ****************************************************************************************
-  * @brief This function is called to configure Coex pins on set channel 5G
+  * @brief This function is called to pass antenna fulltime to BLE in case of 5G or sleep
   *
   ****************************************************************************************
   */
- void rwnx_hw_coex_pin_config_5g(void);
+ void rwnx_hw_coex_pin_config_clear(void);
  
 #endif // RWNX_HW_H
 

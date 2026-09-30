@@ -10,7 +10,8 @@
 /***********************************************************************************************************************
  * Includes   <System Includes> , "Project Includes"
  **********************************************************************************************************************/
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "FreeRTOS.h"
 #include "iface_defs.h"
 #if CFG_WIFI
@@ -75,6 +76,8 @@ err_t http_client_set_tls_auth_mode(int tls_auth_mode);
 err_t http_client_get_tls_auth_mode(int * p_tls_auth_mode);
 err_t http_client_set_tls_version(int tls_ver);
 err_t http_client_get_tls_version(int * p_tls_ver);
+
+fsp_err_t http_server_get_status(int * p_status);
 
 fsp_err_t rm_atcmd_w_run_user_http_client(atcmd_w_ctrl_t * const p_at_ctrl, int argc, char * argv[]);
 fsp_err_t rm_atcmd_w_run_user_http_server(atcmd_w_ctrl_t * const p_at_ctrl, int argc, char * argv[]);

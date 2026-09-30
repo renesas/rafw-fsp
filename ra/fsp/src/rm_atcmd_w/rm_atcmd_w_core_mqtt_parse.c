@@ -22,8 +22,7 @@
   #include "strings.h"
   #include "FreeRTOS.h"
   #include "task.h"
-
-  #include "custom_config_sdk.h"
+  #include "rm_wifi.h"
   #include "util_api.h"
   #include "fw_version.h"
   #include "supp_config.h"
@@ -71,7 +70,7 @@
 
   #define ATCMD_RSP_ALPN_RESULT_LEN    ((MQTT_TLS_ALPN_MAX_LEN * 3) + 10)
   #define ATCMD_RSP_INT_MAX_LEN        (10)
-  #define ATCMD_RSP_TP_MAX_LEN         (MQTT_TOPIC_MAX_LEN + 7)
+  #define ATCMD_RSP_TP_MAX_LEN         (MQTT_TOPIC_MAX_LEN + 11) // 11 = \r\n+NWMQTP:
   #define ATCMD_RSP_WILL_MAX_LEN       (MQTT_TOPIC_MAX_LEN + MQTT_WILL_MSG_MAX_LEN + 16)
 
 /***********************************************************************************************************************

@@ -277,6 +277,8 @@ static const int ciphersuite_preference[] =
     0
 };
 
+#if defined(BSP_MCU_GROUP_RA6W1) || defined(BSP_MCU_GROUP_RA6W3)
+
 static const int ciphersuite_rrq_preference[] =
 {
     /* Using HW Engine */
@@ -567,6 +569,7 @@ static const int ciphersuite_rrq_hw_preference[] =
 
     0
 };
+#endif
 
 static const mbedtls_ssl_ciphersuite_t ciphersuite_definitions[] =
 {
@@ -2083,12 +2086,7 @@ static const mbedtls_ssl_ciphersuite_t ciphersuite_definitions[] =
       0, 0, 0 }
 };
 
-#if defined(MBEDTLS_SSL_CIPHERSUITES)
-const int *mbedtls_ssl_list_ciphersuites(void)
-{
-    return ciphersuite_preference;
-}
-#else
+#if !defined(MBEDTLS_SSL_CIPHERSUITES) || defined(BSP_MCU_GROUP_RA6W1) || defined(BSP_MCU_GROUP_RA6W3)
 #define MAX_CIPHERSUITES    sizeof(ciphersuite_definitions) /         \
     sizeof(ciphersuite_definitions[0])
 static int supported_ciphersuites[MAX_CIPHERSUITES];
@@ -2100,10 +2098,14 @@ static int ciphersuite_is_removed(const mbedtls_ssl_ciphersuite_t *cs_info)
     (void) cs_info;
 
     return 0;
-}
+} 
+#endif
 
 const int *mbedtls_ssl_list_ciphersuites(void)
 {
+#if defined(MBEDTLS_SSL_CIPHERSUITES)
+    return ciphersuite_preference;
+#else
     /*
      * On initial call filter out all ciphersuites not supported by current
      * build based on presence in the ciphersuite_definitions.
@@ -2127,7 +2129,10 @@ const int *mbedtls_ssl_list_ciphersuites(void)
     }
 
     return supported_ciphersuites;
+#endif /* MBEDTLS_SSL_CIPHERSUITES */
 }
+
+#if defined(BSP_MCU_GROUP_RA6W1) || defined(BSP_MCU_GROUP_RA6W3)
 
 const int *mbedtls_ssl_list_rrq_ciphersuites( void )
 {
@@ -2183,8 +2188,7 @@ const int *mbedtls_ssl_list_rrq_hw_ciphersuites( void )
 
     return supported_ciphersuites;
 }
-#endif /* MBEDTLS_SSL_CIPHERSUITES */
-
+#endif
 const mbedtls_ssl_ciphersuite_t *mbedtls_ssl_ciphersuite_from_string(
     const char *ciphersuite_name)
 {

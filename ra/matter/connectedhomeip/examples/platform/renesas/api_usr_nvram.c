@@ -31,7 +31,7 @@
 */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 #include "drv_usr_nvram.h"
 
 #if defined(__SUPPORT_USR_NVRAM__)

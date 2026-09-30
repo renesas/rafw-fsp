@@ -23,7 +23,11 @@ fsp_err_t rm_comms_recursive_mutex_initialize (rm_comms_mutex_t * p_mutex)
     UINT status = tx_mutex_create(&p_mutex->handle, p_mutex->p_name, TX_INHERIT);
     FSP_ERROR_RETURN(TX_SUCCESS == status, FSP_ERR_INTERNAL);
  #elif BSP_CFG_RTOS == 2
-    p_mutex->handle = xSemaphoreCreateRecursiveMutexStatic(&p_mutex->buffer);
+    #if configSUPPORT_STATIC_ALLOCATION
+      p_mutex->handle = xSemaphoreCreateRecursiveMutexStatic(&p_mutex->buffer);
+    #else
+      p_mutex->handle = xSemaphoreCreateRecursiveMutex();
+    #endif
     FSP_ERROR_RETURN(p_mutex->handle != NULL, FSP_ERR_INTERNAL);
  #else
     ret = FSP_ERR_UNSUPPORTED;
@@ -118,7 +122,11 @@ fsp_err_t rm_comms_semaphore_initialize (rm_comms_semaphore_t * p_semaphore)
     UINT status = tx_semaphore_create(&p_semaphore->handle, p_semaphore->p_name, (ULONG) 0);
     FSP_ERROR_RETURN(TX_SUCCESS == status, FSP_ERR_INTERNAL);
  #elif BSP_CFG_RTOS == 2
-    p_semaphore->handle = xSemaphoreCreateCountingStatic((UBaseType_t) 1, (UBaseType_t) 0, &p_semaphore->buffer);
+    #if configSUPPORT_STATIC_ALLOCATION
+      p_semaphore->handle = xSemaphoreCreateCountingStatic((UBaseType_t) 1, (UBaseType_t) 0, &p_semaphore->buffer);
+    #else
+      p_semaphore->handle = xSemaphoreCreateCounting((UBaseType_t) 1, (UBaseType_t) 0);
+    #endif
     FSP_ERROR_RETURN(p_semaphore->handle != NULL, FSP_ERR_INTERNAL);
  #else
     ret = FSP_ERR_UNSUPPORTED;

@@ -35,7 +35,7 @@
 #define	__NET_SNTP_CLIENT_H__
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
 
 #include "sys_feature.h"
 #include "iface_defs.h"

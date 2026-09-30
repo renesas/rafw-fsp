@@ -31,7 +31,8 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include "app_start.h"
 
 static void _system_start(int net_chk_flag)

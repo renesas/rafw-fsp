@@ -87,15 +87,10 @@
 #if defined ( __SUPPORT_SIGMA_TEST__ )
     #undef  __SUPPORT_WPS_BTN__
 
-    #define __SUPPORT_UART2__
     #undef  __SUPPORT_ATCMD__
 
     #define __SUPPORT_IEEE80211W__            // IEEE 802.11W(PMF)
 #endif // __SUPPORT_SIGMA_TEST__
-
-#if defined ( __ENABLE_UMAC_CMD__ )
-    #define __ENABLE_LMAC_TX_CMD__
-#endif // __ENABLE_UMAC_CMD__
 
 #if defined (__SUPPORT_WPS_BTN__) || defined (__SUPPORT_FACTORY_RESET_BTN__)
 #include "sdk_defs.h"

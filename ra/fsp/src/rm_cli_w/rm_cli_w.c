@@ -32,7 +32,8 @@
  */
 
 #include "FreeRTOS.h"
-#include "custom_config_sdk.h"
+#include "rm_wifi.h"
+
 #include <string.h>
 #include <stdio.h>
 #include <stdatomic.h>
