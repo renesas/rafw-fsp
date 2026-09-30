@@ -41,6 +41,7 @@ var searchData=
   ['bufferrecv',['bufferRecv',['../structatcmd__transport__w__api__t.html#af313efaf0beaa88309c90dc1177d81d2',1,'atcmd_transport_w_api_t']]],
   ['build',['build',['../group___r_e_n_e_s_a_s___c_o_m_m_o_n.html#ac43952692411ec98dc1a9b9ac2a828a8',1,'fsp_pack_version_t::version_id_b_s']]],
   ['burst_5fnumber',['burst_number',['../group___i_s_o___a_p_i.html#a1c0d64a5937f006f520c41478ab9975d',1,'st_ble_iso_biginfo_rept_evt_t']]],
+  ['bus_5fclear',['bus_clear',['../group___i2_c___m_a_s_t_e_r___w.html#aba3fe51f9df796fe3e24c201934cea0d',1,'i2c_master_w_extended_cfg_t::bus_clear()'],['../group___i2_c___s_l_a_v_e___w.html#a09b1f584570fee4674fae27ac4653b44',1,'i2c_slave_w_extended_cfg_t::bus_clear()']]],
   ['bus_5fwidth',['bus_width',['../group___s_d_m_m_c___a_p_i.html#a2169b066e0d84bdf2f8349348ea5f749',1,'sdmmc_cfg_t']]],
   ['busy',['busy',['../group___r_m___b_l_o_c_k___m_e_d_i_a___a_p_i.html#a3a4e62883ff430e1e9a1fbd940116697',1,'rm_block_media_status_t']]],
   ['busy_5flevel',['busy_level',['../group___o_s_p_i___w.html#ac8597e67dba1dc9005356f8ef0b113f3',1,'ospi_w_read_status_instr_cfg_t::busy_level()'],['../group___q_s_p_i___w.html#ab35a67a98d187519ae3311e1bb602b38',1,'qspi_w_read_status_instr_cfg_t::busy_level()']]],

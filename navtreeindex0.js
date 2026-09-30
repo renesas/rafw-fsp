@@ -131,7 +131,7 @@ var NAVTREEINDEX0 =
 "_s_t_a_r_t__d_e_v.html#what-is-e2studio":[2,1,0],
 "_s_t_a_r_t__d_e_v.html#where-is-main":[2,2,3,4],
 "_s_t_a_r_t__d_e_v.html#writing-the-application":[2,1,7],
-"group___a_d_a_p_t_e_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html":[5,6,0],
+"group___a_d_a_p_t_e_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html":[5,4,0],
 "group___a_d_a_p_t_e_r___s_e_l_e_c_t_i_o_n.html":[5,8,0],
 "group___a_d_a_p_t_e_r___s_e_l_e_c_t_i_o_n.html#ga81c731783094e8bdf27cffe10fd64223":[5,8,0,3],
 "group___a_d_a_p_t_e_r___s_e_l_e_c_t_i_o_n.html#gab4dcf12e346ba71995d042f94e231df7":[5,8,0,2],

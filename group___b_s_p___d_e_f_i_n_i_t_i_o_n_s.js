@@ -68,6 +68,5 @@ var group___b_s_p___d_e_f_i_n_i_t_i_o_n_s =
     [ "ENABLE_DEBUGGER", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#ga73d17ca6972337b35a1545f5f108d45e", null ],
     [ "DISABLE_DEBUGGER", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#gae4d034cce6be9948bd5088d381ae8e8d", null ],
     [ "SWRESET", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#gaf625fb71778643eca2ef8b415ddaf747", null ],
-    [ "PORRESET", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#gaa3799395e3398e2c8644737d77d5e4d6", null ],
-    [ "pll_off", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#ga4223bfffb9174dc752ac0aafa29aa30c", null ]
+    [ "PORRESET", "group___b_s_p___d_e_f_i_n_i_t_i_o_n_s.html#gaa3799395e3398e2c8644737d77d5e4d6", null ]
 ];

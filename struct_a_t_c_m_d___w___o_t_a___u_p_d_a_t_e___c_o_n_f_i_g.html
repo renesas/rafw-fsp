@@ -115,7 +115,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">RAFW Flexible Software Package Documentation
-   &#160;<span id="projectnumber">Release v2.1.0</span>
+   &#160;<span id="projectnumber">Release v2.2.1</span>
    </div>
   </td>
    <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
@@ -274,10 +274,28 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_t_c_m_d___w___o_t_a___u_p_d_a_t_e___c_o_n_f_i_g.html#abbb5d4a5673e4341860bece97df0b62c">download_sflash_addr</a></td></tr>
 <tr class="memdesc:abbb5d4a5673e4341860bece97df0b62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Address of sflash where other_fw is stored. Only for MCU_FW and CERT_KEY. <br /></td></tr>
 <tr class="separator:abbb5d4a5673e4341860bece97df0b62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7af9c126a4e31888da7e07f96b991d0"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_t_c_m_d___w___o_t_a___u_p_d_a_t_e___c_o_n_f_i_g.html#ad7af9c126a4e31888da7e07f96b991d0">is_resume</a></td></tr>
+<tr class="separator:ad7af9c126a4e31888da7e07f96b991d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>OTA update configuration structure. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="ad7af9c126a4e31888da7e07f96b991d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7af9c126a4e31888da7e07f96b991d0">&#9670;&nbsp;</a></span>is_resume</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT ATCMD_W_OTA_UPDATE_CONFIG::is_resume</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>1 to resume a previously interrupted download (HTTP Range). 0 == normal full download. Always present so the struct layout matches across translation units; only honored when <b>SUPPORT_OTA_RESUME</b> is enabled. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>rm_atcmd_w_core_ota_update.h</li>
 </ul>
 </div><!-- contents -->
@@ -287,7 +305,7 @@ UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct_a_t_c_m_d___w___o_t_a___u_p_d_a_t_e___c_o_n_f_i_g.html">ATCMD_W_OTA_UPDATE_CONFIG</a></li>
-        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+        <li class="footer">FSP Release v2.2.1 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
   </ul>
 </div>
 </body>

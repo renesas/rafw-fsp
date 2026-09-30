@@ -115,7 +115,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">RAFW Flexible Software Package Documentation
-   &#160;<span id="projectnumber">Release v2.1.0</span>
+   &#160;<span id="projectnumber">Release v2.2.1</span>
    </div>
   </td>
    <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
@@ -285,6 +285,7 @@ Features</h2>
 <li><a class="anchor" id="um_i2c_master_abort_i2c_peripheral"></a>Abort any in-progress transactions.</li>
 <li><a class="anchor" id="um_i2c_master_change_slave_address_at_run_time"></a>Set the address of the slave device.</li>
 <li><a class="anchor" id="um_i2c_master_notify_generated_event_via_callback"></a>Non-blocking behavior is achieved by the use of callbacks.</li>
+<li><a class="anchor" id="um_i2c_master_bus_clear"></a>Bus Clear Support when SCL or SDA is stuck at low.</li>
 <li>Additional build-time features<ul>
 <li><a class="anchor" id="um_i2c_master_optional_dtc_support_for_data_transfer"></a>Optional (build time) DTC support for read and write respectively.</li>
 <li><a class="anchor" id="um_i2c_master_optional_dma_support_for_data_transfer"></a>Optional (build time) DMAC support for read and write respectively.</li>
@@ -374,6 +375,18 @@ Standard-mode: up to 100000; Fast-mode: up to 400000; Fast-mode plus: up to 1000
 <td>Fall Time (ns)</td><td>Value must be a non-negative integer</td><td>0 </td><td>Set the fall time (tf) in nanoseconds. </td></tr>
 <tr class="tree_none">
 <td>Duty Cycle (%)</td><td>Value must be an integer between 0 and 100</td><td>50 </td><td>Set the SCL duty cycle. </td></tr>
+<tr class="tree_none">
+<td>Bus Clear</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Bus Clear setting to recover the bus when SCL or SDA is stuck at low. </td></tr>
+<tr class="tree_none">
+<td>SCL Stuck at Low Timeout</td><td>Must be an integer between 0x1 and 0xFFFFFFFF</td><td>0xFFFFFFFF </td><td>Timeout value, in I2C-supplied clock cycles, from when SCL becomes stuck at low until the interrupt to start Bus Clear is triggered. It is effective only when Bus Clear is Enabled. </td></tr>
+<tr class="tree_none">
+<td>SDA Stuck at Low Timeout</td><td>Must be an integer between 0x1 and 0xFFFFFFFF</td><td>0xFFFFFFFF </td><td>Timeout value, in I2C-supplied clock cycles, from when SDA becomes stuck at low until the interrupt to start Bus Clear is triggered. It is effective only when Bus Clear is Enabled. </td></tr>
 <tr class="tree_none">
 <td>Slave Address</td><td>Value must be non-negative</td><td>0x23 </td><td>Specify the slave address. </td></tr>
 <tr class="tree_none">
@@ -483,6 +496,8 @@ Macros</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:ga5df4f900d45b9c2efd0dbe81054f4658"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c___m_a_s_t_e_r___w.html#ga5df4f900d45b9c2efd0dbe81054f4658">i2c_master_w_int_t</a> </td></tr>
 <tr class="separator:ga5df4f900d45b9c2efd0dbe81054f4658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50d7fb7cf9970f607cba3780c5912456"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c___m_a_s_t_e_r___w.html#ga50d7fb7cf9970f607cba3780c5912456">i2c_master_w_bus_clear_t</a> </td></tr>
+<tr class="separator:ga50d7fb7cf9970f607cba3780c5912456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
 <a name="structi2c__master__w__clock__settings__t" id="structi2c__master__w__clock__settings__t"></a>
@@ -550,6 +565,24 @@ I2C clock (SCL) low count. </td></tr>
 clock_settings</td>
 <td class="fielddoc">
 I2C Clock settings. </td></tr>
+<tr><td class="fieldtype">
+<a id="aba3fe51f9df796fe3e24c201934cea0d"></a><a class="el" href="group___i2_c___m_a_s_t_e_r___w.html#ga50d7fb7cf9970f607cba3780c5912456">i2c_master_w_bus_clear_t</a></td>
+<td class="fieldname">
+bus_clear</td>
+<td class="fielddoc">
+Bus clear settings. </td></tr>
+<tr><td class="fieldtype">
+<a id="ac62437622e846831fcff13659ca19daa"></a>uint32_t</td>
+<td class="fieldname">
+scl_stuck_timeout</td>
+<td class="fielddoc">
+Timeout period (in units of the i2c_clk clock cycles) used to detect when SCL remains stuck low. </td></tr>
+<tr><td class="fieldtype">
+<a id="acc0fe0d4e4eafefe2625b047e86342a5"></a>uint32_t</td>
+<td class="fieldname">
+sda_stuck_timeout</td>
+<td class="fielddoc">
+Timeout period (in units of the i2c_clk clock cycles) used to detect when SDA remains stuck low. </td></tr>
 <tr><td class="fieldtype">
 <a id="a5d89aa4973c35702e7035a4d8e036c43"></a>bool</td>
 <td class="fieldname">
@@ -646,6 +679,27 @@ Generic I2C Interrupt Priority. </td></tr>
 <tr><td class="fieldname"><a id="gga5df4f900d45b9c2efd0dbe81054f4658a06125b922dd25138ceadcadbf58a32c6"></a>I2C_MASTER_W_INT_MASTER_ON_HOLD&#160;</td><td class="fielddoc"><p>Master is holding the bus and TX FIFO is empty. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga5df4f900d45b9c2efd0dbe81054f4658a7fc5f7685b54161926a3db1b4cec8347"></a>I2C_MASTER_W_INT_SCL_STUCK_AT_LOW&#160;</td><td class="fielddoc"><p>SCL STUCK AT LOW timeout occurred. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga50d7fb7cf9970f607cba3780c5912456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga50d7fb7cf9970f607cba3780c5912456">&#9670;&nbsp;</a></span>i2c_master_w_bus_clear_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___i2_c___m_a_s_t_e_r___w.html#ga50d7fb7cf9970f607cba3780c5912456">i2c_master_w_bus_clear_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Bus clear settings. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga50d7fb7cf9970f607cba3780c5912456a7016449cdab046b3e15baf7baa13a0e6"></a>I2C_MASTER_W_BUS_CLEAR_DISABLED&#160;</td><td class="fielddoc"><p>Disable bus clear feature. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga50d7fb7cf9970f607cba3780c5912456ac07d753908c151836d8276a474369140"></a>I2C_MASTER_W_BUS_CLEAR_ENABLED&#160;</td><td class="fielddoc"><p>Enable bus clear feature. </p>
 </td></tr>
 </table>
 
@@ -1078,7 +1132,7 @@ Generic I2C Interrupt Priority. </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+        <li class="footer">FSP Release v2.2.1 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
   </ul>
 </div>
 </body>

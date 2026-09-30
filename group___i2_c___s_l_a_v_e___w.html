@@ -115,7 +115,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">RAFW Flexible Software Package Documentation
-   &#160;<span id="projectnumber">Release v2.1.0</span>
+   &#160;<span id="projectnumber">Release v2.2.1</span>
    </div>
   </td>
    <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
@@ -277,13 +277,13 @@ Features</h2>
 <li><a class="anchor" id="um_iic_slave_write_to_master"></a>Write data which is read by master device.</li>
 <li><a class="anchor" id="um_iic_slave_accept_general_calls"></a>Can accept 0x00 as slave address.</li>
 <li><a class="anchor" id="um_iic_slave_10_bit_addressing_mode"></a> Can be assigned a 10-bit address.</li>
-<li><a class="anchor" id="um_iic_slave_clock_stretching"></a> Clock stretching is supported internally by the HW IP.</li>
+<li><a class="anchor" id="um_iic_slave_clock_stretching"></a>Clock stretching is supported internally by the HW IP. Bus Clear Support when SCL is stuck at low.</li>
 <li><a class="anchor" id="um_iic_slave_rx_fifo_full_hld"></a>Holding SCL bus support when RX FIFO is full.</li>
 <li><a class="anchor" id="um_iic_slave_callback_to_notify_data_length"></a> Provides Transmission/Reception transaction size in the callback.</li>
 <li><a class="anchor" id="um_iic_slave_notify_the_generated_event"></a>I2C Slave can notify the following events via callbacks: Transmission/Reception Request, Transmission/Reception Request for more data, Transmission/Reception Completion, Error Condition.</li>
 <li>Additional build-time features:<ul>
 <li><a class="anchor" id="um_iic_slave_optional_dtc_support_for_data_transfer"></a>Optional (build time) DTC support for read and write respectively.</li>
-<li><a class="anchor" id="um_iic_slave_optional_dma_support_for_data_transfer"></a>Optional (build time) DMAC_W_B support for read and write respectively.</li>
+<li><a class="anchor" id="um_iic_slave_optional_dma_support_for_data_transfer"></a>Optional (build time) DMAC support for read and write respectively.</li>
 </ul>
 </li>
 </ul>
@@ -369,7 +369,23 @@ If the delay for the requested transfer rate cannot be achieved, the settings wi
 <tr class="tree_none">
 <td>SDA Hold Time Counts (RX)</td><td>Value must be a non-negative integer</td><td>0x00 </td><td>Select the Data Hold time in counts of source clock periods when in Receiver mode. </td></tr>
 <tr class="tree_none">
-<td>RX FIFO Full Bus-Hold</td><td>MCU Specific Options</td><td></td><td>Select whether to hold the bus (SCL) when the RX FIFO is full until space becomes available. </td></tr>
+<td>RX FIFO Full Bus-Hold</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Select whether to hold the bus (SCL) when the RX FIFO is full until space becomes available. </td></tr>
+<tr class="tree_none">
+<td>Bus Clear</td><td><ul style="margin-top:0;margin-bottom:0;">
+<li>
+Enabled</li>
+<li>
+Disabled</li>
+</ul>
+</td><td>Disabled </td><td>Bus Clear setting to recover the bus when SCL is stuck at low. </td></tr>
+<tr class="tree_none">
+<td>SCL Stuck at Low Timeout</td><td>Must be an integer between 0x1 and 0xFFFFFFFF</td><td>0xFFFFFFFF </td><td>Timeout value, in I2C-supplied clock cycles, from when SCL becomes stuck at low until the interrupt to start Bus Clear is triggered. It is effective only when Bus Clear is Enabled. </td></tr>
 <tr class="tree_none">
 <td>Slave Address</td><td>Value must be non-negative</td><td>0x08 </td><td>Specify the slave address. </td></tr>
 <tr class="tree_none">
@@ -500,6 +516,8 @@ Enumerations</h2></td></tr>
 <tr class="separator:ga48b2441eb862e9107ad86ac63321aeef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga29914e54d9924e2dd90180cb54d8a38d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c___s_l_a_v_e___w.html#ga29914e54d9924e2dd90180cb54d8a38d">i2c_slave_w_rx_fifo_full_hld_t</a> </td></tr>
 <tr class="separator:ga29914e54d9924e2dd90180cb54d8a38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc9e2a17a882c86480181224548f2ace"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___i2_c___s_l_a_v_e___w.html#gafc9e2a17a882c86480181224548f2ace">i2c_slave_w_bus_clear_t</a> </td></tr>
+<tr class="separator:gafc9e2a17a882c86480181224548f2ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
 <a name="structi2c__slave__w__clock__settings__t" id="structi2c__slave__w__clock__settings__t"></a>
@@ -585,6 +603,18 @@ I2C Clock settings. </td></tr>
 rx_fifo_full_hld</td>
 <td class="fielddoc">
 Enable holding bus when RX_FIFO is full. </td></tr>
+<tr><td class="fieldtype">
+<a id="a09b1f584570fee4674fae27ac4653b44"></a><a class="el" href="group___i2_c___s_l_a_v_e___w.html#gafc9e2a17a882c86480181224548f2ace">i2c_slave_w_bus_clear_t</a></td>
+<td class="fieldname">
+bus_clear</td>
+<td class="fielddoc">
+Bus clear settings. </td></tr>
+<tr><td class="fieldtype">
+<a id="a61221fb5da56ba0f0fe2450c3f88e3e4"></a>uint32_t</td>
+<td class="fieldname">
+scl_stuck_timeout</td>
+<td class="fielddoc">
+Timeout period (in units of the i2c_clk clock cycles) used to detect when SCL remains stuck low. </td></tr>
 <tr><td class="fieldtype">
 <a id="ac97f1c8253250077c3cebfd48dc58f04"></a>bool</td>
 <td class="fieldname">
@@ -702,6 +732,27 @@ Generic I2C Interrupt Priority. </td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga29914e54d9924e2dd90180cb54d8a38da65a781714402a37127a1879bbc1024e1"></a>I2C_SLAVE_W_RX_FIFO_FULL_HLD_DISABLED&#160;</td><td class="fielddoc"><p>Overflow when RX FIFO is full. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga29914e54d9924e2dd90180cb54d8a38dabd5acaf6746130c6147242eef201072c"></a>I2C_SLAVE_W_RX_FIFO_FULL_HLD_ENABLED&#160;</td><td class="fielddoc"><p>Hold bus when RX FIFO is full. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gafc9e2a17a882c86480181224548f2ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafc9e2a17a882c86480181224548f2ace">&#9670;&nbsp;</a></span>i2c_slave_w_bus_clear_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___i2_c___s_l_a_v_e___w.html#gafc9e2a17a882c86480181224548f2ace">i2c_slave_w_bus_clear_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Bus clear settings. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggafc9e2a17a882c86480181224548f2acea1215e9ae7464f31cb777e583679d4169"></a>I2C_SLAVE_W_BUS_CLEAR_DISABLED&#160;</td><td class="fielddoc"><p>Disable bus clear feature. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggafc9e2a17a882c86480181224548f2acea5459f1ac26194feb55c7b05507d8a4f4"></a>I2C_SLAVE_W_BUS_CLEAR_ENABLED&#160;</td><td class="fielddoc"><p>Enable bus clear feature. </p>
 </td></tr>
 </table>
 
@@ -979,7 +1030,7 @@ Generic I2C Interrupt Priority. </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+        <li class="footer">FSP Release v2.2.1 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
   </ul>
 </div>
 </body>

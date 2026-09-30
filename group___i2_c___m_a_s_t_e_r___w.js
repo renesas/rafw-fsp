@@ -7,6 +7,9 @@ var group___i2_c___m_a_s_t_e_r___w =
     [ "i2c_master_w_instance_ctrl_t", "group___i2_c___m_a_s_t_e_r___w.html#structi2c__master__w__instance__ctrl__t", null ],
     [ "i2c_master_w_extended_cfg_t", "group___i2_c___m_a_s_t_e_r___w.html#structi2c__master__w__extended__cfg__t", [
       [ "clock_settings", "group___i2_c___m_a_s_t_e_r___w.html#ade5fb54f5b5cc5313cea1a8c6b32b314", null ],
+      [ "bus_clear", "group___i2_c___m_a_s_t_e_r___w.html#aba3fe51f9df796fe3e24c201934cea0d", null ],
+      [ "scl_stuck_timeout", "group___i2_c___m_a_s_t_e_r___w.html#ac62437622e846831fcff13659ca19daa", null ],
+      [ "sda_stuck_timeout", "group___i2_c___m_a_s_t_e_r___w.html#acc0fe0d4e4eafefe2625b047e86342a5", null ],
       [ "select_divn", "group___i2_c___m_a_s_t_e_r___w.html#a5d89aa4973c35702e7035a4d8e036c43", null ],
       [ "gen_irq", "group___i2_c___m_a_s_t_e_r___w.html#a026a0fa5076f41a1716c778baa28163e", null ],
       [ "gen_ipl", "group___i2_c___m_a_s_t_e_r___w.html#a4638a92b41ad2cab2af373d5a621eb8b", null ]
@@ -29,6 +32,10 @@ var group___i2_c___m_a_s_t_e_r___w =
       [ "I2C_MASTER_W_INT_RESTART_DETECTED", "group___i2_c___m_a_s_t_e_r___w.html#gga5df4f900d45b9c2efd0dbe81054f4658a0feae0d1993a266154ae7b98dbe428ae", null ],
       [ "I2C_MASTER_W_INT_MASTER_ON_HOLD", "group___i2_c___m_a_s_t_e_r___w.html#gga5df4f900d45b9c2efd0dbe81054f4658a06125b922dd25138ceadcadbf58a32c6", null ],
       [ "I2C_MASTER_W_INT_SCL_STUCK_AT_LOW", "group___i2_c___m_a_s_t_e_r___w.html#gga5df4f900d45b9c2efd0dbe81054f4658a7fc5f7685b54161926a3db1b4cec8347", null ]
+    ] ],
+    [ "i2c_master_w_bus_clear_t", "group___i2_c___m_a_s_t_e_r___w.html#ga50d7fb7cf9970f607cba3780c5912456", [
+      [ "I2C_MASTER_W_BUS_CLEAR_DISABLED", "group___i2_c___m_a_s_t_e_r___w.html#gga50d7fb7cf9970f607cba3780c5912456a7016449cdab046b3e15baf7baa13a0e6", null ],
+      [ "I2C_MASTER_W_BUS_CLEAR_ENABLED", "group___i2_c___m_a_s_t_e_r___w.html#gga50d7fb7cf9970f607cba3780c5912456ac07d753908c151836d8276a474369140", null ]
     ] ],
     [ "R_I2C_MASTER_W_Open", "group___i2_c___m_a_s_t_e_r___w.html#ga81376f0bf18614ad8264bccf09c08dd7", null ],
     [ "R_I2C_MASTER_W_Read", "group___i2_c___m_a_s_t_e_r___w.html#gadbf46a8c7562b9f114eafac7cac0879b", null ],

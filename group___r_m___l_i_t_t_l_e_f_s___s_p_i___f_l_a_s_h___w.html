@@ -115,7 +115,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo_scaled.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">RAFW Flexible Software Package Documentation
-   &#160;<span id="projectnumber">Release v2.1.0</span>
+   &#160;<span id="projectnumber">Release v2.2.1</span>
    </div>
   </td>
    <td>        <br /><div id="MSearchBox" class="MSearchBoxInactive">
@@ -285,7 +285,7 @@ Disabled</li>
 </ul>
 </td><td>Default (BSP) </td><td>If selected code for parameter checking is included in the build. </td></tr>
 </table>
- <h2>Configurations for Storage &gt; LittleFS on Flash (rm_littlefs_flash_w)</h2>
+ <h2>Configurations for Storage &gt; LittleFS on Flash (rm_littlefs_flash)</h2>
 <table class="doxtable">
 <tr>
 <th>Configuration</th><th>Options</th><th>Default</th><th>Description </th></tr>
@@ -294,11 +294,15 @@ Disabled</li>
 <tr class="tree_none">
 <td>Read Size</td><td>Must be a non-negative integer</td><td>1 </td><td>Minimum size of a block read. All read operations will be a multiple of this value. </td></tr>
 <tr class="tree_none">
-<td>Program Size</td><td>Must be a non-negative integer</td><td>4 </td><td>Minimum size of a block program. All program operations will be a multiple of this value. </td></tr>
+<td>Program Size</td><td>Must be a non-negative integer</td><td>8 </td><td>Minimum size of a block program. All program operations will be a multiple of this value. </td></tr>
 <tr class="tree_none">
-<td>Block Size (bytes)</td><td>Must be a multiple of 64</td><td>128 </td><td>Size of an erasable block. This does not impact RAM consumption and may be larger than the physical erase size. However, non-inlined files take up at minimum one block. Must be a multiple of the read and program sizes. </td></tr>
+<td>Memory Start Address</td><td>Manual Entry</td><td>0x24170000 </td><td>Start address of the memory allocated for the LittleFS Volume. </td></tr>
 <tr class="tree_none">
-<td>Block Count</td><td>Manual Entry</td><td>(BSP_DATA_FLASH_SIZE_BYTES/128) </td><td>Number of erasable blocks on the device. </td></tr>
+<td>Total Memory Size (bytes)</td><td>Manual Entry</td><td>0x10000 </td><td>Total memory available for LittleFS storage. For NVMC platforms, this defaults to the S-BUS alias window expected by the NVMC address checks. Users can override this value for custom memory layouts or external storage partitions. </td></tr>
+<tr class="tree_none">
+<td>Block Size (bytes)</td><td>Must be a multiple of 64 or 8 on NVMC_W MCUs</td><td>128 </td><td>Size of an erasable block. This does not impact RAM consumption and may be larger than the physical erase size. However, non-inlined files take up at minimum one block. Must be a multiple of the read and program sizes. </td></tr>
+<tr class="tree_none">
+<td>Block Count</td><td>Manual Entry</td><td>512 </td><td>Number of erasable blocks on the device. Should equal Total Memory Size divided by Block Size. Default: 0x10000 / 128 = 512. Ensure this value remains correct if Total Memory Size or Block Size are modified. </td></tr>
 <tr class="tree_none">
 <td>Block Cycles</td><td>Must be an integer</td><td>1024 </td><td>Number of erase cycles before LittleFS evicts metadata logs and moves the metadata to another block. Suggested values are in the range 100-1000, with large values having better performance at the cost of less consistent wear distribution. Set to -1 to disable block-level wear-leveling. </td></tr>
 <tr class="tree_none">
@@ -768,7 +772,7 @@ Examples</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-        <li class="footer">FSP Release v2.1.0 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
+        <li class="footer">FSP Release v2.2.1 User's Manual Copyright © (2026) Renesas Electronics Corporation. All Rights Reserved.</li>
   </ul>
 </div>
 </body>

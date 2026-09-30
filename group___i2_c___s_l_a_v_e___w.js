@@ -10,6 +10,8 @@ var group___i2_c___s_l_a_v_e___w =
     [ "i2c_slave_w_extended_cfg_t", "group___i2_c___s_l_a_v_e___w.html#structi2c__slave__w__extended__cfg__t", [
       [ "clock_settings", "group___i2_c___s_l_a_v_e___w.html#a62451607827d8a4cd119f1348c4f5671", null ],
       [ "rx_fifo_full_hld", "group___i2_c___s_l_a_v_e___w.html#a312881a4bfbafd0420c9aa02fb7e7f15", null ],
+      [ "bus_clear", "group___i2_c___s_l_a_v_e___w.html#a09b1f584570fee4674fae27ac4653b44", null ],
+      [ "scl_stuck_timeout", "group___i2_c___s_l_a_v_e___w.html#a61221fb5da56ba0f0fe2450c3f88e3e4", null ],
       [ "select_divn", "group___i2_c___s_l_a_v_e___w.html#ac97f1c8253250077c3cebfd48dc58f04", null ],
       [ "gen_irq", "group___i2_c___s_l_a_v_e___w.html#a63285b42ff6bba8e6c9c2c47c94873da", null ],
       [ "gen_ipl", "group___i2_c___s_l_a_v_e___w.html#af568e90e907b52ad14000febca9c7e0f", null ]
@@ -36,6 +38,10 @@ var group___i2_c___s_l_a_v_e___w =
     [ "i2c_slave_w_rx_fifo_full_hld_t", "group___i2_c___s_l_a_v_e___w.html#ga29914e54d9924e2dd90180cb54d8a38d", [
       [ "I2C_SLAVE_W_RX_FIFO_FULL_HLD_DISABLED", "group___i2_c___s_l_a_v_e___w.html#gga29914e54d9924e2dd90180cb54d8a38da65a781714402a37127a1879bbc1024e1", null ],
       [ "I2C_SLAVE_W_RX_FIFO_FULL_HLD_ENABLED", "group___i2_c___s_l_a_v_e___w.html#gga29914e54d9924e2dd90180cb54d8a38dabd5acaf6746130c6147242eef201072c", null ]
+    ] ],
+    [ "i2c_slave_w_bus_clear_t", "group___i2_c___s_l_a_v_e___w.html#gafc9e2a17a882c86480181224548f2ace", [
+      [ "I2C_SLAVE_W_BUS_CLEAR_DISABLED", "group___i2_c___s_l_a_v_e___w.html#ggafc9e2a17a882c86480181224548f2acea1215e9ae7464f31cb777e583679d4169", null ],
+      [ "I2C_SLAVE_W_BUS_CLEAR_ENABLED", "group___i2_c___s_l_a_v_e___w.html#ggafc9e2a17a882c86480181224548f2acea5459f1ac26194feb55c7b05507d8a4f4", null ]
     ] ],
     [ "R_I2C_SLAVE_W_Open", "group___i2_c___s_l_a_v_e___w.html#ga2a0c6e374ddb5987775c1339b9e28c84", null ],
     [ "R_I2C_SLAVE_W_Read", "group___i2_c___s_l_a_v_e___w.html#ga0d7287292efe3e03949c6fe44c5cf089", null ],
